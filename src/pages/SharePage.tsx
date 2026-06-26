@@ -14,7 +14,7 @@ import {
 import type { ActivitySubmissionPayload } from '../types/submission'
 import { submitActivitySubmission, submitIdeaSubmission } from '../utils/intake'
 import { track } from '../utils/analytics'
-import { PUDDLES_P_MARK_LOGO_SRC, PUDDLES_P_MARK_LOGO_SRC_2X } from './experimentShared'
+import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 
 type ShareTab = 'activity' | 'idea'
 type View = 'form' | 'success'
@@ -252,8 +252,9 @@ export function SharePage({
   return (
     <div className={['share-page-shell', shellClassName].filter(Boolean).join(' ')}>
       <AppHeader
-        logoSrc={useHomeHeader ? PUDDLES_P_MARK_LOGO_SRC : undefined}
-        logoSrc2x={useHomeHeader ? PUDDLES_P_MARK_LOGO_SRC_2X : undefined}
+        logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
+        logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
+        showBrandName={false}
         trailing={
           useHomeHeader ? undefined : (
             <button

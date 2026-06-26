@@ -97,7 +97,7 @@ export function BottomNav() {
               const active =
                 isActive || isPrimaryNavActive(to, location.pathname, end)
               return `bottom-nav-item flex flex-1 flex-col items-center justify-center gap-1 px-2 py-2.5 transition-colors ${
-                active ? 'bottom-nav-item-active' : 'text-muted'
+                active ? 'bottom-nav-item-active text-brand' : 'text-muted'
               }`
             }}
           >
@@ -109,7 +109,7 @@ export function BottomNav() {
                 {icon(active)}
                 <span
                   className={`text-center text-[11px] leading-tight ${
-                    active ? 'font-semibold' : 'font-medium'
+                    active ? 'font-semibold text-brand' : 'font-medium'
                   }`}
                 >
                   {label}

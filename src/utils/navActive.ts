@@ -4,6 +4,7 @@ export function isPrimaryNavActive(to: string, pathname: string, end: boolean): 
     return (
       pathname === '/' ||
       pathname === '/home-experiment' ||
+      pathname === '/experiment-home' ||
       pathname === '/home-ikea-experiment' ||
       pathname === '/home-experiment-1' ||
       pathname === '/home-experiment-2'

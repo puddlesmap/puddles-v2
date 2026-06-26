@@ -1,30 +1,10 @@
 /* Share page — typography & controls aligned with Discovery / Browse */
 
-.share-page-shell .app-header.page-header-sticky {
-  background: var(--page-background);
-  border-bottom: none;
-}
-
-.share-page-shell .app-header-row {
-  background: var(--page-background);
-  box-shadow: none;
-}
-
-.share-page-shell .logo-mark {
-  width: 2.375rem;
-  height: 2.375rem;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.share-page-shell .logo-mark-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.share-page-shell .app-header .logo-main {
-  color: #66c5f9;
+.share-page-shell {
+  --share-supporting-size: 14px;
+  --share-supporting-weight: 500;
+  --share-supporting-color: #717171;
+  --share-supporting-line-height: 1.45;
 }
 
 .share-page-main {
@@ -67,9 +47,11 @@
   margin-top: 1rem;
 }
 
-.share-page-shell .share-page-activity-details {
-  margin-top: 1rem;
-  line-height: 22px;
+.share-page-shell .share-side-intro .share-page-body-muted {
+  font-size: var(--share-supporting-size);
+  font-weight: var(--share-supporting-weight);
+  color: var(--share-supporting-color);
+  line-height: var(--share-supporting-line-height);
 }
 
 .share-page-shell .share-page-activity-details-lead {
@@ -82,7 +64,7 @@
   list-style: disc;
   font: inherit;
   color: inherit;
-  line-height: 22px;
+  line-height: inherit;
 }
 
 .share-page-shell .share-page-activity-examples li {
@@ -263,27 +245,22 @@
   box-shadow: 0 0 0 3px rgb(102 197 249 / 0.14);
 }
 
-/* —— App navigation: current page = soft gray —— */
+/* —— App navigation: desktop top nav = soft gray pill, blue active label —— */
 .layout-root--share-refined .top-nav-link-active {
   background: #f1f2f2;
-  color: #282e31;
+  color: #66c5f9;
   font-weight: 600;
 }
 
 .layout-root--share-refined .top-nav-link-active:hover {
   background: #f1f2f2;
-  color: #282e31;
+  color: #66c5f9;
 }
 
-.layout-root--share-refined .bottom-nav-item-active {
-  color: #282e31;
-  background: #f1f2f2;
-  border-radius: 12px;
-}
-
+.layout-root--share-refined .bottom-nav-item-active,
 .layout-root--share-refined .bottom-nav-item-active span {
-  font-weight: 600;
-  color: #282e31;
+  color: #66c5f9;
+  background: transparent;
 }
 
 .share-page-shell .share-form-card legend.font-semibold,
@@ -300,10 +277,16 @@
 .share-page-shell .share-form-card .text-xs,
 .share-page-shell .share-form-card .share-field-hint {
   font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.45;
-  color: #686868;
+  font-size: var(--share-supporting-size);
+  font-weight: var(--share-supporting-weight);
+  line-height: var(--share-supporting-line-height);
+  color: var(--share-supporting-color);
+}
+
+.share-page-shell .share-form-card .input-field::placeholder {
+  font-size: var(--share-supporting-size);
+  font-weight: var(--share-supporting-weight);
+  color: var(--share-supporting-color);
 }
 
 .share-page-shell .share-submit-consent {
@@ -313,9 +296,9 @@
 }
 
 .share-page-shell .share-time-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #717171;
+  font-size: var(--share-supporting-size);
+  font-weight: var(--share-supporting-weight);
+  color: var(--share-supporting-color);
 }
 
 /* —— Submit: inline on desktop, sticky bar on mobile —— */

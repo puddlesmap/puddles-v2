@@ -26,6 +26,10 @@ import {
   HOME_EXPERIMENT_REFINED_CTA_TITLE,
   HOME_EXPERIMENT_REFINED_SUPPORTING_LINE,
 } from './homeExperimentAccentShared'
+import {
+  PUDDLES_WORDMARK_LOGO_SRC,
+  PUDDLES_WORDMARK_LOGO_SRC_2X,
+} from './experimentShared'
 import { useUserLocation } from '../hooks/useUserLocation'
 import { useApp } from '../context/AppContext'
 import { filterEvents } from '../utils/filters'
@@ -93,8 +97,6 @@ function getResultsSummary({
 
   return `${getHomeLocationLabel(whereMode)} · ${formatEventCount(eventCount)}`
 }
-
-const HOME_LOGO_SRC = '/puddles-logo-header.png'
 
 export type HomeHeroVariant = 'default' | 'experiment1' | 'experiment2' | 'experiment3' | 'experiment4' | 'refined'
 
@@ -204,10 +206,10 @@ export function HomeExperimentPage({
   heroVariant = 'default',
   layout = 'default',
   trailing,
-  logoOnly = true,
-  logoSrc = HOME_LOGO_SRC,
-  logoSrc2x,
-  showBrandName = true,
+  logoOnly = false,
+  logoSrc = PUDDLES_WORDMARK_LOGO_SRC,
+  logoSrc2x = PUDDLES_WORDMARK_LOGO_SRC_2X,
+  showBrandName = false,
 }: HomeExperimentPageProps = {}) {
   const { openEvent, browseFilters, setBrowseFilters } = useApp()
   const [whereMode, setWhereMode] = useState<WhereMode>({ kind: 'city', value: 'all' })

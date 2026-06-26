@@ -9,8 +9,8 @@ export function HomeExperiment4Page() {
       trailing={
         <p className="home-experiment-note">
           Home experiment 4 —{' '}
-          <Link to="/" className="home-experiment-note-link">
-            view current home
+          <Link to="/home-v1" className="home-experiment-note-link">
+            view home v1
           </Link>
         </p>
       }

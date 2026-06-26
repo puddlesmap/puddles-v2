@@ -83,7 +83,11 @@ export function EventCard({
       <button
         type="button"
         onClick={onClick}
-        className={cardClass(selected, hovered, 'card-listing--map-preview-sheet')}
+        className={cardClass(
+          selected,
+          hovered,
+          ['card-listing--map-preview-sheet', discovery ? 'discovery-event-card' : ''].filter(Boolean).join(' '),
+        )}
       >
         <div className="card-listing-media relative aspect-[16/10]">
           <img
@@ -94,10 +98,16 @@ export function EventCard({
           />
           <EventCardPills event={event} />
         </div>
-        <div className="card-listing-body card-listing-body--map-preview-sheet">
-          <p className="card-listing-datetime">{dateTime}</p>
-          <h3 className="card-listing-title">{event.title}</h3>
-          <EventCardLocation event={event} />
+        <div
+          className={
+            discovery
+              ? 'discovery-event-card-body card-listing-body--map-preview-sheet'
+              : 'card-listing-body card-listing-body--map-preview-sheet'
+          }
+        >
+          <p className={discovery ? 'discovery-event-datetime' : 'card-listing-datetime'}>{dateTime}</p>
+          <h3 className={discovery ? 'discovery-event-title' : 'card-listing-title'}>{event.title}</h3>
+          <EventCardLocation event={event} discovery={discovery} />
         </div>
       </button>
     )
@@ -108,7 +118,11 @@ export function EventCard({
       <button
         type="button"
         onClick={onClick}
-        className={cardClass(selected, hovered, 'card-listing--map-grid')}
+        className={cardClass(
+          selected,
+          hovered,
+          ['card-listing--map-grid', discovery ? 'discovery-event-card' : ''].filter(Boolean).join(' '),
+        )}
       >
         <div className="card-listing-media relative aspect-square">
           <img
@@ -119,10 +133,10 @@ export function EventCard({
           />
           <EventCardPills event={event} />
         </div>
-        <div className="card-listing-body">
-          <p className="card-listing-datetime">{dateTime}</p>
-          <h3 className="card-listing-title">{event.title}</h3>
-          <EventCardLocation event={event} />
+        <div className={discovery ? 'discovery-event-card-body' : 'card-listing-body'}>
+          <p className={discovery ? 'discovery-event-datetime' : 'card-listing-datetime'}>{dateTime}</p>
+          <h3 className={discovery ? 'discovery-event-title' : 'card-listing-title'}>{event.title}</h3>
+          <EventCardLocation event={event} discovery={discovery} />
         </div>
       </button>
     )

@@ -29,16 +29,18 @@ export function AboutStoryIntro() {
           </p>
           <AboutIntroNarrative />
         </div>
-        <AboutIllustration
-          src={ABOUT_HERO_ART.src}
-          src2x={ABOUT_HERO_ART.src2x}
-          intrinsicWidth={ABOUT_HERO_ART.width}
-          intrinsicHeight={ABOUT_HERO_ART.height}
-          displayWidth={ABOUT_HERO_ART.displayWidth}
-          sizes="(max-width: 639px) 8.25rem, (max-width: 1023px) 10.625rem, 18.75rem"
-          className="about-intro-art about-intro-art--accent"
-          loading="eager"
-        />
+        <div className="about-intro-art-wrap">
+          <AboutIllustration
+            src={ABOUT_HERO_ART.src}
+            src2x={ABOUT_HERO_ART.src2x}
+            intrinsicWidth={ABOUT_HERO_ART.width}
+            intrinsicHeight={ABOUT_HERO_ART.height}
+            displayWidth={ABOUT_HERO_ART.displayWidth}
+            sizes="(max-width: 639px) 8.25rem, (max-width: 1023px) 10.625rem, 18.75rem"
+            className="about-intro-art"
+            loading="eager"
+          />
+        </div>
       </div>
     </header>
   )

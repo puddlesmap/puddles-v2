@@ -160,15 +160,10 @@
   color: #282e31;
 }
 
-.layout-root--experiment-browse-3 .bottom-nav-item-active {
-  color: #282e31;
-  background: var(--puddles-nav-active-bg);
-  border-radius: 12px;
-}
-
+.layout-root--experiment-browse-3 .bottom-nav-item-active,
 .layout-root--experiment-browse-3 .bottom-nav-item-active span {
-  font-weight: 600;
-  color: #282e31;
+  color: #66c5f9;
+  background: transparent;
 }
 
 /* —— Desktop popover + mobile sheet: type chips —— */
@@ -231,21 +226,6 @@
   font-size: 14px;
   font-weight: 500;
   color: var(--puddles-muted);
-}
-
-/* —— Event card pills —— */
-.browse-page-shell--experiment-3 .browse-content .event-card-pill {
-  border: var(--puddles-border);
-  background: rgb(255 255 255 / 0.96);
-  box-shadow: none;
-  color: var(--puddles-text);
-  font-weight: 600;
-}
-
-.browse-page-shell--experiment-3 .browse-content .event-card-pill--free {
-  border-color: rgb(102 197 249 / 0.45);
-  background: var(--puddles-accent-bg);
-  color: var(--puddles-text);
 }
 
 /* —— Empty state —— */

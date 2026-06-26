@@ -9,7 +9,7 @@ export function Footer({
 }) {
   return (
     <footer
-      className={`site-footer ${fullBleed ? 'site-footer--full-bleed' : 'mt-16'} border-t border-border-light py-10 text-center ${className}`.trim()}
+      className={`site-footer ${fullBleed ? 'site-footer--full-bleed' : 'mt-16'} py-10 text-center ${className}`.trim()}
     >
       <div className="site-footer-inner">
         <p className="site-footer-lead">

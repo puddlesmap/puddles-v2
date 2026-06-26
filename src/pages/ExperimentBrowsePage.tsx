@@ -8,8 +8,8 @@ export function ExperimentBrowsePage() {
       experimentNote={
         <p className="browse-experiment-note">
           Browse experiment —{' '}
-          <Link to="/browse" className="browse-experiment-note-link">
-            view current browse
+          <Link to="/browse-v1" className="browse-experiment-note-link">
+            view browse v1
           </Link>
         </p>
       }

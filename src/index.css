@@ -17,9 +17,9 @@
   --color-gray-50: #f7f7f7;
   --color-chrome-end: #f8f8f8;
   --color-nav-active-bg: #f0f0f0;
-  --color-footer-band: #f6f6f6;
+  --color-footer-band: #66c5f9;
   --color-privacy: #758289;
-  --color-footer-text: #686868;
+  --color-footer-text: #ffffff;
   --gradient-chrome: linear-gradient(179.53deg, #ffffff 57.76%, #f7f7f7 100%);
   --shadow-cta-card:
     0 1px 2px rgba(12, 12, 13, 0.1),
@@ -252,12 +252,12 @@ textarea {
 }
 
 .bottom-nav-item-active {
-  color: var(--color-brand-dark);
+  color: var(--color-brand);
 }
 
 .bottom-nav-item-active span {
   font-weight: 700;
-  color: var(--color-brand-dark);
+  color: var(--color-brand);
 }
 
 .top-nav-link {
@@ -1141,6 +1141,22 @@ textarea {
   line-height: 1.2;
   color: var(--color-muted);
   text-transform: lowercase;
+}
+
+/* Wordmark image + subtitle only (About/Browse headers) */
+@media (min-width: 768px) {
+  .brand-lockup--wordmark-only {
+    align-items: center;
+  }
+
+  .brand-lockup--wordmark-only .brand-lockup-wordmark {
+    align-items: center;
+    line-height: 1;
+  }
+
+  .brand-lockup--wordmark-only .brand-lockup-subtitle {
+    line-height: 1;
+  }
 }
 
 @media (max-width: 359px) {
@@ -2606,7 +2622,7 @@ select.input-field,
 }
 
 .site-footer {
-  border-top-color: var(--color-border-light);
+  border-top: none;
   background: var(--color-footer-band);
 }
 
@@ -2660,7 +2676,16 @@ select.input-field,
   font-size: 12px;
   font-weight: 300;
   line-height: 1.67;
-  color: var(--color-black);
+  color: #ffffff;
+}
+
+.site-footer-lead .link-tertiary {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.site-footer-lead .link-tertiary:hover {
+  color: rgb(255 255 255 / 0.85);
 }
 
 .empty-state {

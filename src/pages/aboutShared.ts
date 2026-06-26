@@ -45,8 +45,9 @@ export const ABOUT_COMMUNITY_TITLE = 'We\u2019re just getting started'
 
 export const ABOUT_COMMUNITY_PARAS = [
   'Puddles is beginning with a few nearby cities and the kinds of places families already love: libraries, parks, community centers, and small local gatherings.',
+  'We\u2019re starting simple, and we\u2019ll keep adding and improving based on what families share with us.',
   'Know a good storytime, a free event, a playground worth sharing, or a parent-friendly local tip? We\u2019d love for you to share it with us.',
-  'Puddles isn\u2019t meant to be a big platform built far away from families. It\u2019s a small map that grows with the people who use it.',
+  'Puddles isn\u2019t meant to be a big platform built far away from families.',
 ] as const
 
 export const ABOUT_CTA_TITLE = 'Know a small local moment?'

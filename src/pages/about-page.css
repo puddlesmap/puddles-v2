@@ -34,59 +34,7 @@
   padding-bottom: 0;
 }
 
-/* —— Header (match Browse — flat, wordmark lockup) —— */
-.about-page-shell .app-header.page-header-sticky,
-.about-experiment-shell .app-header.page-header-sticky {
-  background: var(--page-background);
-  border-bottom: none;
-}
-
-.about-page-shell .app-header-row,
-.about-experiment-shell .app-header-row {
-  background: var(--page-background);
-  box-shadow: none;
-}
-
-.about-page-shell .logo-mark,
-.about-experiment-shell .logo-mark {
-  width: auto;
-  height: 2rem;
-  overflow: visible;
-  border-radius: 0;
-}
-
-.about-page-shell .logo-mark-img,
-.about-experiment-shell .logo-mark-img {
-  width: auto;
-  height: 100%;
-  max-width: 7.5rem;
-  object-fit: contain;
-  object-position: left center;
-}
-
-.about-page-shell .brand-lockup-subtitle,
-.about-experiment-shell .brand-lockup-subtitle {
-  font-size: 15px;
-}
-
-@media (max-width: 767px) {
-  .about-page-shell .app-header-row,
-  .about-experiment-shell .app-header-row {
-    justify-content: center;
-  }
-
-  .about-page-shell .app-header-brand-link,
-  .about-experiment-shell .app-header-brand-link {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-
-  .about-page-shell .brand-lockup-subtitle,
-  .about-experiment-shell .brand-lockup-subtitle {
-    display: none;
-  }
-}
+/* —— Header (shared — see app-header-shared.css) —— */
 
 /* —— Main content (intro + features) —— */
 .about-page .about-main {
@@ -94,11 +42,16 @@
   max-width: var(--about-main-max);
 }
 
-/* —— Story band (full-width soft blue, below white header) —— */
+/* —— Page canvas + hero band (方案一: white hero on cool gray) —— */
+.about-page-shell,
+.about-experiment-shell {
+  background: #f8fafc;
+}
+
 .about-page-shell .about-story-band,
 .about-experiment-shell .about-story-band {
   width: 100%;
-  background: #faf8f4;
+  background: #ffffff;
 }
 
 .about-page.about-page--story {
@@ -153,7 +106,7 @@
   font-style: normal;
   line-height: 1.35;
   letter-spacing: -0.01em;
-  color: #282e31;
+  color: #1e293b; /* slate-800 — softer than stark black */
 }
 
 .about-page .about-tagline-accent {
@@ -204,12 +157,21 @@
   margin-top: 0.125rem;
 }
 
-.about-page .about-intro-art {
+.about-page .about-intro-art-wrap {
   display: block;
   width: 100%;
   max-width: var(--about-hero-art-width-mobile);
-  height: auto;
   margin-inline: auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  line-height: 0;
+}
+
+.about-page .about-intro-art {
+  display: block;
+  width: 100%;
+  height: auto;
   object-fit: contain;
   background: transparent;
   border: none;
@@ -218,11 +180,6 @@
   filter: none;
   pointer-events: none;
   user-select: none;
-}
-
-.about-page .about-intro-art--accent {
-  filter: saturate(0.85);
-  opacity: 0.92;
 }
 
 .about-page .about-intro-narrative {
@@ -441,7 +398,7 @@
 
 /* —— Tablet: hero art —— */
 @media (min-width: 640px) and (max-width: 1023px) {
-  .about-page .about-intro-art {
+  .about-page .about-intro-art-wrap {
     max-width: var(--about-hero-art-width-tablet);
   }
 }
@@ -462,7 +419,7 @@
     max-width: var(--about-narrative-max);
   }
 
-  .about-page .about-intro-art {
+  .about-page .about-intro-art-wrap {
     grid-column: 2;
     grid-row: 1;
     max-width: var(--about-hero-art-width-tablet);
@@ -489,7 +446,7 @@
     max-width: var(--about-narrative-max);
   }
 
-  .about-page .about-intro-art {
+  .about-page .about-intro-art-wrap {
     grid-column: 2;
     grid-row: 1;
     max-width: var(--about-hero-art-width);
@@ -530,9 +487,14 @@
   max-width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  border-top: 1px solid #ebebeb;
-  background: #f6f6f6;
   padding-block: 2.5rem;
+}
+
+@media (max-width: 767px) {
+  .about-page-shell .site-footer--full-bleed,
+  .about-experiment-shell .site-footer--full-bleed {
+    margin-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 .about-page-shell .site-footer--full-bleed .site-footer-inner {
@@ -540,15 +502,6 @@
   margin-inline: auto;
   padding-inline: var(--layout-padding-mobile);
   text-align: center;
-}
-
-.about-page-shell .site-footer-lead {
-  color: #686868;
-}
-
-.about-page-shell .site-footer-lead .link-tertiary {
-  color: #686868;
-  font-weight: 500;
 }
 
 @media (min-width: 768px) {
@@ -601,7 +554,7 @@
     text-align: left;
   }
 
-  .about-page .about-intro-art {
+  .about-page .about-intro-art-wrap {
     margin-top: 1.75rem;
     margin-bottom: 0.5rem;
     max-width: var(--about-hero-art-width-mobile);
@@ -618,5 +571,26 @@
   .about-page .about-footer-band {
     margin-top: 3rem;
     padding: 1.75rem 0 2rem;
+  }
+}
+
+/* Match experiment-home: full-width Share CTA on small phones */
+@media (max-width: 639px) {
+  .about-page .about-community-cta {
+    width: 100%;
+    max-width: none;
+  }
+
+  .about-page-shell .about-page .about-cta-card .community-cta-card-actions {
+    width: 100%;
+  }
+
+  .about-page-shell .about-page .about-cta-card .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    box-sizing: border-box;
   }
 }

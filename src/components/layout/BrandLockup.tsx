@@ -19,7 +19,14 @@ export function BrandLockup({
   showBrandName?: boolean
 } = {}) {
   return (
-    <div className="brand-lockup">
+    <div
+      className={[
+        'brand-lockup',
+        !showBrandName ? 'brand-lockup--wordmark-only' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
       <Logo src={logoSrc} src2x={logoSrc2x} />
       <div className="brand-lockup-wordmark">
         {showBrandName ? <span className="logo-main">Puddles</span> : null}

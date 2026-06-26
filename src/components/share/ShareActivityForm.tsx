@@ -291,7 +291,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
                 placeholder="Which city or neighborhood?"
                 className="input-field"
               />
-              <p className="text-xs text-muted">
+              <p className="share-field-hint">
                 We&apos;ll review Other-area submissions manually. They won&apos;t appear on the map
                 automatically.
               </p>
@@ -304,7 +304,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
               <div className="input-field flex items-start justify-between gap-3">
                 <div>
                   <div className="font-medium">{selectedVenue.name}</div>
-                  <div className="mt-1 text-xs text-muted">{selectedVenue.address}</div>
+                  <div className="share-field-hint mt-1">{selectedVenue.address}</div>
                 </div>
                 <button type="button" onClick={clearLocation} aria-label="Clear place">
                   ✕
@@ -322,7 +322,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
                 placeholder="e.g., Mitchell Park Library, Shoup Park, or 1276 Harriet St"
                 className="input-field"
               />
-              <p className="mt-2 text-xs text-muted">
+              <p className="share-field-hint mt-2">
                 A place name is enough if you don&apos;t know the exact address.
               </p>
               {canSearchVenues &&
@@ -338,7 +338,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
                           className="w-full px-4 py-3 text-left text-sm hover:bg-surface-muted"
                         >
                           <div className="font-medium">{venue.name}</div>
-                          <div className="text-xs text-muted">
+                          <div className="share-field-hint">
                             {venue.address} · {venue.city}
                           </div>
                         </button>
@@ -430,7 +430,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
                   placeholder="Anything else about the schedule? (optional)"
                   className="input-field"
                 />
-                <p className="mt-2 text-xs text-muted">
+                <p className="share-field-hint mt-2">
                   e.g., &quot;Runs through June&quot; or &quot;No class on holidays.&quot;
                 </p>
               </div>
@@ -443,7 +443,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
         <legend className="mb-2 block font-semibold">
           5. Best for what age? <span className="font-normal text-muted">(Optional)</span>
         </legend>
-        <p className="mb-3 text-xs text-muted">
+        <p className="share-field-hint mb-3">
           A guess is okay — we&apos;ll review before posting.
         </p>
         <div className="pill-wrap">
@@ -471,7 +471,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
           placeholder="https://..."
           className="input-field"
         />
-        <p className="mt-2 text-xs text-muted">
+        <p className="share-field-hint mt-2">
           Paste a website, Instagram post, or library link to help us cross-check the details.
         </p>
       </div>
@@ -480,7 +480,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
         <legend className="mb-2 block font-semibold">
           7. Is there a cost? <span className="font-normal text-muted">(Optional)</span>
         </legend>
-        <p className="mb-3 text-xs text-muted">
+        <p className="share-field-hint mb-3">
           Free is wonderful to know — but if it costs money, a rough estimate helps.
         </p>
         <div className="pill-wrap">
@@ -516,7 +516,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
           8. Do families need to sign up first?{' '}
           <span className="font-normal text-muted">(Optional)</span>
         </legend>
-        <p className="mb-3 text-xs text-muted">
+        <p className="share-field-hint mb-3">
           Can we just show up, or do we need to book a spot ahead of time?
         </p>
         <div className="pill-wrap">
@@ -563,7 +563,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
           placeholder="e.g., A casual storytime with upbeat songs and simple crafts, or open-ended play with large LEGO blocks and sensory bins."
           className="input-field"
         />
-        <p className="mt-2 text-xs text-muted">
+        <p className="share-field-hint mt-2">
           A quick sentence or two so other parents know what to expect.
         </p>
       </div>
@@ -581,7 +581,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
           placeholder="e.g., Tiny parking lot but plenty of street parking on Elm St. Bathrooms are close to the sandbox, and there’s great shade under the big oak tree until noon. Best for walkers!"
           className="input-field"
         />
-        <p className="mt-2 text-xs text-muted">
+        <p className="share-field-hint mt-2">
           The real logistics! Share the little details that make a trip smooth.
         </p>
       </div>
@@ -599,7 +599,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
           autoComplete="email"
           className="input-field"
         />
-        <p className="mt-2 text-xs text-muted">
+        <p className="share-field-hint mt-2">
           Only if we need to follow up. We&apos;ll never share it.
         </p>
       </div>

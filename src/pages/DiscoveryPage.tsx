@@ -15,6 +15,7 @@ import { useApp } from '../context/AppContext'
 import { filterEvents } from '../utils/filters'
 import { getFirstTemporalTabWithEvents, getTemporalTabs } from '../utils/dates'
 import { track } from '../utils/analytics'
+import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 
 const CITY_CHIPS = [
   { value: 'all', label: 'All' },
@@ -85,6 +86,9 @@ export function DiscoveryPage({
   return (
     <div className={['discovery-page-shell', shellClassName].filter(Boolean).join(' ')}>
       <AppHeader
+        logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
+        logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
+        showBrandName={false}
         below={
           <div className="browse-controls-band">
             <div className="layout-container browse-controls">

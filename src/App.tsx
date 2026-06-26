@@ -7,15 +7,15 @@ import { EventModal } from './components/EventModal'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { AdminLayout } from './components/admin/AdminLayout'
 import { DiscoveryPage } from './pages/DiscoveryPage'
-import { HomeExperimentPage } from './pages/HomeExperimentPage'
+import { HomePage } from './pages/HomePage'
+import { HomeV1Page } from './pages/HomeV1Page'
 import { HomeExperiment1Page } from './pages/HomeExperiment1Page'
 import { HomeExperiment2Page } from './pages/HomeExperiment2Page'
 import { HomeExperiment3Page } from './pages/HomeExperiment3Page'
 import { HomeExperiment4Page } from './pages/HomeExperiment4Page'
-import { ExperimentHomePage } from './pages/ExperimentHomePage'
 import { ExperimentBrowsePage } from './pages/ExperimentBrowsePage'
-import { ExperimentBrowse3Page } from './pages/ExperimentBrowse3Page'
 import { BrowsePage } from './pages/BrowsePage'
+import { BrowseV1Page } from './pages/BrowseV1Page'
 import { SharePage } from './pages/SharePage'
 import { ExperimentSharePage } from './pages/ExperimentSharePage'
 import { AboutPage } from './pages/AboutPage'
@@ -45,18 +45,28 @@ function AppShell() {
       <main>
         <ErrorBoundary title="Puddles failed to load">
           <Routes>
-            <Route path="/" element={<HomeExperimentPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/home-v1" element={<HomeV1Page />} />
             <Route path="/home-experiment" element={<Navigate to="/" replace />} />
             <Route path="/home-experiment-1" element={<HomeExperiment1Page />} />
             <Route path="/home-experiment-2" element={<HomeExperiment2Page />} />
             <Route path="/home-experiment-3" element={<HomeExperiment3Page />} />
             <Route path="/home-experiment-4" element={<HomeExperiment4Page />} />
-            <Route path="/experiment-home" element={<ExperimentHomePage />} />
+            <Route path="/experiment-home" element={<Navigate to="/" replace />} />
             <Route path="/home-experiment-compact" element={<Navigate to="/" replace />} />
             <Route path="/discovery" element={<DiscoveryPage />} />
-            <Route path="/browse" element={<BrowsePage />} />
+            <Route
+              path="/browse"
+              element={
+                <BrowsePage
+                  shellClassName="browse-page-shell--experiment browse-page-shell--experiment-3"
+                  resultsCountStyle="contextual"
+                />
+              }
+            />
+            <Route path="/browse-v1" element={<BrowseV1Page />} />
             <Route path="/experiment-browse" element={<ExperimentBrowsePage />} />
-            <Route path="/experiment-browse-3" element={<ExperimentBrowse3Page />} />
+            <Route path="/experiment-browse-3" element={<Navigate to="/browse" replace />} />
             <Route path="/browse-experiment" element={<Navigate to="/experiment-browse" replace />} />
             <Route path="/share" element={<SharePage />} />
             <Route path="/share-experiment" element={<ExperimentSharePage />} />
