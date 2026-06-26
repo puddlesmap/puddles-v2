@@ -1,0 +1,16 @@
+---
+description: Map Figma designs to Puddles UI tokens and components
+globs: src/**/*.{tsx,css}
+alwaysApply: false
+---
+
+# Puddles design implementation
+
+When implementing from Figma for this repo:
+
+- **Fonts:** Nunito Sans for UI; header wordmark uses Quicksand + Comfortaa only in `BrandLockup`.
+- **Tokens:** Prefer variables in `src/index.css` (`--color-brand`, `--gradient-chrome`, `--shadow-elevation-light-3`, `--radius-card`, etc.) over hardcoded values.
+- **Components:** Reuse `AppHeader`, `Footer`, `CommunityCtaCard`, `PageContainer`, `VisualPlaceholders`, and existing button classes (`btn-primary`, `btn-utility`).
+- **Cards:** Use `.elevation-light-3` for Airbnb-style elevation; avoid pastel card backgrounds.
+- **Layout:** Match page top offset with `pt-6 md:pt-10` on Discovery and About unless Figma specifies otherwise.
+- **Scope:** Implement only the requested page/section; do not refactor unrelated pages.

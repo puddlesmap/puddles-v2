@@ -1,0 +1,5 @@
+{
+  "scheduleLabel": "Every 2 days",
+  "scheduleCron": "0 14 */2 * *",
+  "scheduleDescription": "Automatic sync at 2:00 PM UTC every 2 days (GitHub Actions)"
+}

@@ -1,0 +1,292 @@
+/* Experiment browse 3 — Puddles system (aligned with experiment-home) */
+
+.browse-page-shell--experiment-3 {
+  --puddles-accent: #66c5f9;
+  --puddles-accent-bg: #eaf7fe;
+  --puddles-accent-hover-border: #b9e6fc;
+  --puddles-accent-hover-bg: #f7fbfd;
+  --puddles-border: 1px solid #e6e6e5;
+  --puddles-text: #282e31;
+  --puddles-muted: #686868;
+  --puddles-view-inactive: #6c7a81;
+  --puddles-nav-active-bg: #f1f2f2;
+  --puddles-shadow-chip: 0 1px 3px rgb(40 46 49 / 0.04);
+  --puddles-shadow-control: 0 2px 8px rgb(40 46 49 / 0.06);
+  --puddles-view-toggle-active: #f1f2f2;
+}
+
+/* —— Location dropdown —— */
+.browse-page-shell--experiment-3 .browse-controls .browse-location-pill {
+  border: var(--puddles-border);
+  background: #ffffff;
+  color: var(--puddles-text);
+  box-shadow: var(--puddles-shadow-control);
+  transition:
+    border-color 0.14s ease-out,
+    box-shadow 0.14s ease-out;
+}
+
+.browse-page-shell--experiment-3 .browse-controls .browse-location-pill:hover {
+  border-color: var(--puddles-accent-hover-border);
+  background: #ffffff;
+  box-shadow: var(--puddles-shadow-control);
+}
+
+.browse-page-shell--experiment-3 .browse-location-icon {
+  color: var(--puddles-accent);
+  opacity: 0.9;
+}
+
+.browse-page-shell--experiment-3 .browse-location-value {
+  font-weight: 500;
+  color: var(--puddles-text);
+}
+
+.browse-page-shell--experiment-3 .browse-location-chevron {
+  color: var(--puddles-muted);
+}
+
+@media (min-width: 768px) {
+  .browse-page-shell--experiment-3 .browse-controls .browse-location-pill {
+    background: #ffffff;
+    border-color: #e6e6e5;
+  }
+
+  .browse-page-shell--experiment-3 .browse-controls .browse-location-pill:hover {
+    border-color: var(--puddles-accent-hover-border);
+    background: #ffffff;
+  }
+
+  .browse-page-shell--experiment-3 .browse-location-value {
+    font-weight: 600;
+  }
+}
+
+/* —— Filter chips (Day / Time / Age / Type) —— */
+.browse-page-shell--experiment-3 .browse-controls .pill-filter {
+  min-height: 36px;
+  padding: 0 0.875rem;
+  border: var(--puddles-border);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--puddles-text);
+  font-weight: 400;
+  box-shadow: var(--puddles-shadow-chip);
+  transition:
+    border-color 0.14s ease-out,
+    background-color 0.14s ease-out,
+    box-shadow 0.14s ease-out;
+}
+
+.browse-page-shell--experiment-3 .browse-controls .pill-filter:hover {
+  border-color: var(--puddles-accent-hover-border);
+  background: var(--puddles-accent-hover-bg);
+  box-shadow: var(--puddles-shadow-chip);
+}
+
+.browse-page-shell--experiment-3 .browse-controls .pill-filter-active {
+  border: 1.5px solid var(--puddles-accent);
+  background: var(--puddles-accent-bg);
+  color: var(--puddles-text);
+  font-weight: 600;
+  box-shadow: var(--puddles-shadow-chip);
+}
+
+.browse-page-shell--experiment-3 .browse-controls .pill-filter-count {
+  background: var(--puddles-accent);
+  color: #ffffff;
+  border: none;
+}
+
+.browse-page-shell--experiment-3 .browse-reset-link {
+  color: var(--puddles-muted);
+  font-weight: 500;
+}
+
+.browse-page-shell--experiment-3 .browse-reset-link:hover {
+  color: var(--puddles-text);
+}
+
+/* —— List / Map toggle: view mode (gray selected, not filter blue) —— */
+.browse-page-shell--experiment-3 .browse-controls .browse-view-toggle {
+  display: inline-flex;
+  flex-shrink: 0;
+  border: var(--puddles-border);
+  border-radius: 999px;
+  background: #ffffff;
+  padding: 3px;
+  gap: 2px;
+  box-shadow: var(--puddles-shadow-control);
+}
+
+.browse-page-shell--experiment-3 .browse-controls .browse-view-toggle button {
+  min-height: 36px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--puddles-view-inactive);
+  transition:
+    background-color 0.14s ease-out,
+    color 0.14s ease-out;
+}
+
+.browse-page-shell--experiment-3 .browse-controls .browse-view-toggle button:hover {
+  color: var(--puddles-text);
+}
+
+.browse-page-shell--experiment-3 .browse-controls .browse-view-toggle button.browse-view-toggle-active {
+  background: var(--puddles-view-toggle-active) !important;
+  color: var(--puddles-text) !important;
+  font-weight: 600;
+}
+
+/* —— App navigation: current page = soft gray (matches view toggle) —— */
+.layout-root--experiment-browse-3 {
+  --puddles-nav-active-bg: #f1f2f2;
+}
+
+.layout-root--experiment-browse-3 .top-nav-link-active {
+  background: var(--puddles-nav-active-bg);
+  color: #282e31;
+  font-weight: 600;
+}
+
+.layout-root--experiment-browse-3 .top-nav-link-active:hover {
+  background: var(--puddles-nav-active-bg);
+  color: #282e31;
+}
+
+.layout-root--experiment-browse-3 .bottom-nav-item-active {
+  color: #282e31;
+  background: var(--puddles-nav-active-bg);
+  border-radius: 12px;
+}
+
+.layout-root--experiment-browse-3 .bottom-nav-item-active span {
+  font-weight: 600;
+  color: #282e31;
+}
+
+/* —— Desktop popover + mobile sheet: type chips —— */
+.browse-page-shell--experiment-3 .pill-select {
+  border: var(--puddles-border);
+  background: #ffffff;
+  color: var(--puddles-text);
+  font-weight: 400;
+  box-shadow: var(--puddles-shadow-chip);
+  transition:
+    border-color 0.14s ease-out,
+    background-color 0.14s ease-out,
+    box-shadow 0.14s ease-out;
+}
+
+.browse-page-shell--experiment-3 .pill-select:hover {
+  border-color: var(--puddles-accent-hover-border);
+  background: var(--puddles-accent-hover-bg);
+}
+
+.browse-page-shell--experiment-3 .pill-select-active {
+  border: 1.5px solid var(--puddles-accent);
+  background: var(--puddles-accent-bg);
+  color: var(--puddles-text);
+  font-weight: 600;
+  animation: none;
+  box-shadow: var(--puddles-shadow-chip);
+}
+
+/* —— Mobile sheet: list option rows (day / time / age) —— */
+.browse-page-shell--experiment-3 .filter-sheet-panel button:has(span.border-charcoal.bg-charcoal) {
+  background: var(--puddles-accent-bg);
+}
+
+.browse-page-shell--experiment-3 .filter-sheet-panel button:has(span.border-charcoal.bg-charcoal) .text-charcoal {
+  color: var(--puddles-text);
+  font-weight: 600;
+}
+
+.browse-page-shell--experiment-3 .filter-sheet-panel span.border-charcoal.bg-charcoal {
+  border-color: var(--puddles-accent) !important;
+  background: var(--puddles-accent) !important;
+}
+
+.browse-page-shell--experiment-3 .filter-sheet-panel .space-y-0\.5 > button.bg-surface-muted,
+.browse-page-shell--experiment-3 .filter-sheet-panel .space-y-1 > button.bg-surface-muted {
+  background: var(--puddles-accent-bg);
+}
+
+.browse-page-shell--experiment-3 .filter-sheet-panel .space-y-0\.5 > button.bg-surface-muted,
+.browse-page-shell--experiment-3 .filter-sheet-panel .space-y-1 > button.bg-surface-muted .text-charcoal,
+.browse-page-shell--experiment-3 .filter-sheet-panel .space-y-0\.5 > button.bg-surface-muted.font-semibold {
+  color: var(--puddles-text);
+  font-weight: 600;
+}
+
+/* —— Results line —— */
+.browse-page-shell--experiment-3 .browse-content .browse-results-count {
+  margin-bottom: 1.25rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--puddles-muted);
+}
+
+/* —— Event card pills —— */
+.browse-page-shell--experiment-3 .browse-content .event-card-pill {
+  border: var(--puddles-border);
+  background: rgb(255 255 255 / 0.96);
+  box-shadow: none;
+  color: var(--puddles-text);
+  font-weight: 600;
+}
+
+.browse-page-shell--experiment-3 .browse-content .event-card-pill--free {
+  border-color: rgb(102 197 249 / 0.45);
+  background: var(--puddles-accent-bg);
+  color: var(--puddles-text);
+}
+
+/* —— Empty state —— */
+.browse-page-shell--experiment-3 .empty-state-quiet .empty-state-title {
+  color: var(--puddles-text);
+  font-weight: 600;
+}
+
+.browse-page-shell--experiment-3 .empty-state-quiet .empty-state-body {
+  color: var(--puddles-muted);
+}
+
+/* —— Page rhythm —— */
+.browse-page-shell--experiment-3 .browse-page-body .browse-content {
+  padding-top: 0.25rem;
+}
+
+/* —— Mobile filter chips: room for borders/shadows —— */
+@media (max-width: 767px) {
+  .browse-page-shell--experiment-3 .browse-secondary-controls {
+    overflow: visible;
+    max-height: 4.75rem;
+    padding-top: 0.5rem;
+  }
+
+  .browse-page-shell--experiment-3 .browse-secondary-controls--collapsed {
+    overflow: hidden;
+    padding-top: 0;
+  }
+
+  .browse-page-shell--experiment-3 .browse-filter-chips {
+    padding-top: 0.125rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
+.browse-experiment-note--v3 {
+  max-width: 36rem;
+  line-height: 1.5;
+}
+
+.browse-page-shell--experiment-3 .browse-experiment-note-link {
+  color: var(--puddles-text);
+}

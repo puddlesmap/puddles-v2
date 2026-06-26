@@ -1,0 +1,78 @@
+/* Home experiment variants — Figma 357:1291 */
+
+/* —— Experiment 1: village copy + subline —— */
+.home-experiment-page--v1 .home-experiment-hero-headline {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.6875rem; /* 27px */
+  font-weight: 400;
+  line-height: 2.3125rem; /* 37px */
+  letter-spacing: -0.01em;
+  color: #282e31;
+}
+
+.home-experiment-page--v1 .home-experiment-hero-line {
+  display: block;
+}
+
+.home-experiment-page--v1 .home-experiment-hero-tagline {
+  color: #ffb400;
+}
+
+.home-experiment-page--v1 .home-experiment-brand-name {
+  font-weight: 700;
+  color: var(--color-brand);
+}
+
+.home-experiment-page--v1 .home-experiment-brand-tag {
+  font-weight: 400;
+  color: #282e31;
+}
+
+.home-experiment-page--v1 .home-experiment-subline {
+  margin: 1.1875rem 0 0; /* 19px below headline block */
+  max-width: 47.875rem;
+  font-family: var(--font-sans);
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 1.5625rem; /* 25px */
+  color: #000000;
+}
+
+/* —— Experiment 2: current copy at 27/37 —— */
+.home-experiment-page--v2 .home-experiment-brand-line,
+.home-experiment-page--v2 .home-experiment-title {
+  font-size: 1.6875rem; /* 27px */
+  line-height: 2.3125rem; /* 37px */
+}
+
+.home-experiment-note {
+  width: 100%;
+  margin: 3rem 0 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-gray-100);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.home-experiment-note-link {
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .home-experiment-page--v1 .home-experiment-hero-headline,
+  .home-experiment-page--v2 .home-experiment-brand-line,
+  .home-experiment-page--v2 .home-experiment-title {
+    font-size: 1.875rem; /* 30px */
+    line-height: 1.35;
+  }
+
+  .home-experiment-page--v1 .home-experiment-subline {
+    line-height: 1.5;
+  }
+}

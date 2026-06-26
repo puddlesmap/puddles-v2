@@ -1,0 +1,41 @@
+/* Shared mobile layout — one content column across Discovery, Browse, About */
+
+@media (max-width: 639px) {
+  .discovery-page,
+  .home-experiment-page,
+  .browse-content,
+  .about-page {
+    --discovery-card-width: 100%;
+    --discovery-panel-width: 100%;
+    align-items: stretch;
+  }
+
+  .discovery-page .discovery-entry-head {
+    max-width: none;
+  }
+
+  .discovery-page .discovery-event-grid > *,
+  .discovery-page-shell .discovery-page .discovery-event-card,
+  .browse-content .browse-event-grid > *,
+  .browse-content .discovery-event-card {
+    max-width: none;
+  }
+
+  .discovery-page-shell .browse-controls .discovery-hero-search,
+  .discovery-page-shell .discovery-page .discovery-cta-section.community-cta-card,
+  .about-page-shell .about-page .about-cta-card.community-cta-card,
+  .home-experiment-shell .home-experiment-page .about-cta-section.community-cta-card {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .about-page .about-features,
+  .about-page .about-community,
+  .about-page .about-footer-band,
+  .home-experiment-page .about-lower-section,
+  .home-experiment-page--refined .home-experiment-refined-panel {
+    width: 100%;
+    max-width: none;
+  }
+}

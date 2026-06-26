@@ -1,0 +1,20 @@
+---
+description: Figma MCP server rules for assets and design handoff
+alwaysApply: true
+---
+
+# Figma MCP
+
+- The Figma MCP server provides an assets endpoint for image and SVG assets.
+- If the Figma MCP server returns a localhost source for an image or SVG, use that source directly.
+- Do not import or add new icon packages when assets are provided in the Figma payload.
+- Do not use or create placeholders when a localhost asset source is provided.
+
+## Required flow for Figma-driven UI work
+
+1. Run `get_design_context` for the exact node(s) from the Figma link.
+2. If the response is truncated, run `get_metadata`, then re-fetch only required nodes.
+3. Run `get_screenshot` for a visual reference of the variant being implemented.
+4. Download any needed assets, then implement.
+5. Translate output (often React + Tailwind) into this project's conventions in `src/index.css` and existing components.
+6. Validate against the Figma screenshot before marking complete.

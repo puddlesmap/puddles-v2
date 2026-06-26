@@ -1,0 +1,17 @@
+/* Experimental About — note only (layout inherits about-page.css) */
+
+.about-experiment-note {
+  width: 100%;
+  margin: 1.5rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.about-experiment-note-link {
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

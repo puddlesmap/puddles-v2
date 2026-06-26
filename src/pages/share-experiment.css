@@ -1,0 +1,16 @@
+/* Share experiment route — dev note only (styles live in share-page.css) */
+
+.share-experiment-note {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #686868;
+}
+
+.share-experiment-note-link {
+  color: #282e31;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

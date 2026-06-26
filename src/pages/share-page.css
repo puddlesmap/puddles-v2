@@ -1,0 +1,353 @@
+/* Share page — typography & controls aligned with Discovery / Browse */
+
+.share-page-shell .app-header.page-header-sticky {
+  background: var(--page-background);
+  border-bottom: none;
+}
+
+.share-page-shell .app-header-row {
+  background: var(--page-background);
+  box-shadow: none;
+}
+
+.share-page-shell .logo-mark {
+  width: 2.375rem;
+  height: 2.375rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.share-page-shell .logo-mark-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.share-page-shell .app-header .logo-main {
+  color: #66c5f9;
+}
+
+.share-page-main {
+  flex: 1;
+}
+
+/* —— Page titles (black, Discovery scale) —— */
+.share-page-shell .share-page-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.75rem; /* 28px */
+  font-weight: 700;
+  line-height: 1.35;
+  color: #000000;
+}
+
+.share-page-shell .share-page-body {
+  margin-top: 1rem;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #000000;
+}
+
+.share-page-shell .share-page-body + .share-page-body {
+  margin-top: 1rem;
+}
+
+.share-page-shell .share-page-body-muted {
+  margin-top: 1rem;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #686868;
+}
+
+.share-page-shell .share-page-activity-intro .share-page-body {
+  margin-top: 1rem;
+}
+
+.share-page-shell .share-page-activity-details {
+  margin-top: 1rem;
+  line-height: 22px;
+}
+
+.share-page-shell .share-page-activity-details-lead {
+  margin: 0;
+}
+
+.share-page-shell .share-page-activity-examples {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+  font: inherit;
+  color: inherit;
+  line-height: 22px;
+}
+
+.share-page-shell .share-page-activity-examples li {
+  margin: 0;
+  padding-left: 0.125rem;
+}
+
+.share-page-shell .share-page-activity-examples li + li {
+  margin-top: 0;
+}
+
+.share-page-shell .share-page-text-action {
+  width: 100%;
+  padding: 0.75rem 0;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #273034;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+/* —— Success panel —— */
+.share-page-shell .share-success-panel {
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
+  padding: 2rem 1.5rem;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: var(--elevation-shadow-lifted);
+}
+
+/* —— Form card (primary surface — lifted on gradient) —— */
+.share-page-shell .share-form-card {
+  border: none;
+  border-radius: 24px;
+  background: #ffffff;
+  padding: 1.25rem;
+  box-shadow: var(--elevation-shadow-lifted);
+}
+
+@media (min-width: 768px) {
+  .share-page-shell .share-form-card {
+    padding: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .share-page-shell .share-form-card {
+    padding: 2rem 2.25rem;
+  }
+}
+
+.share-page-shell .share-layout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* —— Primary buttons —— */
+.share-page-shell .btn-primary {
+  min-height: 46px;
+  padding: 0 1.5rem;
+  border: none;
+  border-radius: 23px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: var(--color-brand);
+  color: #ffffff;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 6px 16px rgba(102, 197, 249, 0.32);
+  transition:
+    background-color 0.14s ease-out,
+    box-shadow 0.14s ease-out,
+    transform 0.12s ease-out;
+}
+
+.share-page-shell .btn-primary:hover:not(:disabled) {
+  background-color: #4db8f2;
+  box-shadow:
+    0 2px 4px rgb(40 46 49 / 0.06),
+    0 4px 12px rgb(102 197 249 / 0.24);
+}
+
+.share-page-shell .btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* —— Tab switcher: current mode = soft gray —— */
+.share-page-shell .share-tab-switcher {
+  display: flex;
+  border: 1px solid #e6e6e5;
+  border-radius: 999px;
+  background: #ffffff;
+  padding: 3px;
+  gap: 2px;
+  box-shadow: 0 2px 8px rgb(40 46 49 / 0.06);
+}
+
+.share-page-shell .share-tab-switcher button {
+  min-height: 36px;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6c7a81;
+  background: transparent;
+  transition:
+    background-color 0.14s ease-out,
+    color 0.14s ease-out;
+}
+
+.share-page-shell .share-tab-switcher button:hover {
+  color: #282e31;
+}
+
+.share-page-shell .share-tab-switcher button.share-tab-active {
+  background: #f1f2f2 !important;
+  color: #282e31 !important;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+/* —— Form option chips: Puddles blue selected —— */
+.share-page-shell .pill-select {
+  border: 1px solid #e6e6e5;
+  background: #ffffff;
+  color: #282e31;
+  font-weight: 400;
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
+  transition:
+    border-color 0.14s ease-out,
+    background-color 0.14s ease-out,
+    box-shadow 0.14s ease-out;
+}
+
+.share-page-shell .pill-select:hover {
+  border-color: #b9e6fc;
+  background: #f7fbfd;
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
+}
+
+.share-page-shell .pill-select-active {
+  border: 1.5px solid #66c5f9;
+  background: #eaf7fe;
+  color: #282e31;
+  font-weight: 600;
+  animation: none;
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
+}
+
+/* —— Inputs: soft blue focus —— */
+.share-page-shell .input-field {
+  border: 1px solid #e6e6e5;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: none;
+  transition:
+    border-color 0.14s ease-out,
+    box-shadow 0.14s ease-out;
+}
+
+.share-page-shell .input-field:hover:not(:focus) {
+  border-color: #b9e6fc;
+  box-shadow: none;
+}
+
+.share-page-shell .input-field:focus,
+.share-page-shell .input-field:focus-visible {
+  outline: none;
+  border-color: #66c5f9;
+  box-shadow: 0 0 0 3px rgb(102 197 249 / 0.14);
+}
+
+/* —— App navigation: current page = soft gray —— */
+.layout-root--share-refined .top-nav-link-active {
+  background: #f1f2f2;
+  color: #282e31;
+  font-weight: 600;
+}
+
+.layout-root--share-refined .top-nav-link-active:hover {
+  background: #f1f2f2;
+  color: #282e31;
+}
+
+.layout-root--share-refined .bottom-nav-item-active {
+  color: #282e31;
+  background: #f1f2f2;
+  border-radius: 12px;
+}
+
+.layout-root--share-refined .bottom-nav-item-active span {
+  font-weight: 600;
+  color: #282e31;
+}
+
+.share-page-shell .share-form-card legend.font-semibold,
+.share-page-shell .share-form-card label.font-semibold,
+.share-page-shell .share-form-card p.font-semibold,
+.share-page-shell .share-form-card .share-field-label {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.375;
+  color: #000000;
+}
+
+.share-page-shell .share-form-card .text-xs,
+.share-page-shell .share-form-card .share-field-hint {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #686868;
+}
+
+.share-page-shell .share-submit-consent {
+  font-size: 14px;
+  line-height: 1.45;
+  color: #686868;
+}
+
+.share-page-shell .share-time-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #717171;
+}
+
+/* —— Submit: inline on desktop, sticky bar on mobile —— */
+.share-page-shell .share-submit-inline {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .share-page-shell .share-submit-inline {
+    display: flex;
+  }
+}
+
+/* —— Mobile submit bar (floating, gradient fade) —— */
+.share-page-shell .share-submit-bar {
+  position: fixed;
+  inset-inline: 0;
+  bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px));
+  z-index: 30;
+  border-top: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, #ffffff 36%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 768px) {
+  .share-page-shell .share-submit-bar {
+    display: none;
+  }
+}
+
+.share-page-shell .share-submit-bar .layout-container {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+}

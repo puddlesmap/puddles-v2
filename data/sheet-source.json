@@ -1,0 +1,10 @@
+{
+  "spreadsheetId": "1ko8p-HMzXMnSHT8qPxv14X-TPaac0RJTrfw8PwjikH8",
+  "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1ko8p-HMzXMnSHT8qPxv14X-TPaac0RJTrfw8PwjikH8/edit",
+  "tabs": {
+    "events": { "gid": 1023308778, "name": "Events" },
+    "submissions": { "gid": 1055272051, "name": "Submissions" },
+    "reports": { "gid": 460953232, "name": "Reports" }
+  },
+  "localExportPath": "data/events-export.csv"
+}
