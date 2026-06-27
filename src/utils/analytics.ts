@@ -159,6 +159,16 @@ export function pageNameFromPath(pathname: string): string | null {
   if (pathname === '/share-experiment') return 'share_experiment'
   if (pathname === '/about') return 'about'
   if (pathname === '/about-experiment' || pathname === '/experiment_about') return 'about_experiment'
+  if (pathname === '/typography-experiment') return 'typography_experiments_index'
+  if (pathname === '/typography-experiment/home') return 'typography_experiment_home'
+  if (pathname === '/typography-experiment/about') return 'typography_experiment_about'
+  if (pathname === '/typography-experiment/about-style/home') return 'typography_about_style_home'
+  if (
+    pathname === '/typography-experiment/about-style/share' ||
+    pathname === '/typography-experiment/share'
+  ) {
+    return 'typography_about_style_share'
+  }
   if (pathname === '/maintenance') return 'maintenance'
   return 'other'
 }

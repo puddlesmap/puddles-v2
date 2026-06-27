@@ -96,6 +96,41 @@
   .discovery-page-shell .brand-lockup-subtitle {
     display: none;
   }
+
+  /* Brand-blue mobile header — white wordmark */
+  .about-page-shell .app-header.page-header-sticky,
+  .about-experiment-shell .app-header.page-header-sticky,
+  .browse-page-shell .app-header.page-header-sticky,
+  .share-page-shell .app-header.page-header-sticky,
+  .home-experiment-shell .app-header.page-header-sticky,
+  .discovery-page-shell .app-header.page-header-sticky,
+  .about-page-shell .app-header-row,
+  .about-experiment-shell .app-header-row,
+  .browse-page-shell .app-header-row,
+  .share-page-shell .app-header-row,
+  .home-experiment-shell .app-header-row,
+  .discovery-page-shell .app-header-row {
+    background: var(--color-brand);
+  }
+
+  .about-page-shell .logo-mark-img,
+  .about-experiment-shell .logo-mark-img,
+  .browse-page-shell .logo-mark-img,
+  .share-page-shell .logo-mark-img,
+  .home-experiment-shell .logo-mark-img,
+  .discovery-page-shell .logo-mark-img {
+    filter: brightness(0) invert(1);
+  }
+
+  .share-page-shell .app-header-close {
+    border-color: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+  }
+
+  .share-page-shell .app-header-close:hover {
+    background: rgba(255, 255, 255, 0.24);
+  }
 }
 
 /* Filter bands below header match flat chrome */

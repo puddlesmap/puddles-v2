@@ -41,11 +41,6 @@
 .home-experiment-page--soft .home-experiment-supporting-line {
   margin: 1.125rem 0 0;
   max-width: 32rem;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #686868;
 }
 
 @media (min-width: 640px) {

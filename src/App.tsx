@@ -20,6 +20,11 @@ import { SharePage } from './pages/SharePage'
 import { ExperimentSharePage } from './pages/ExperimentSharePage'
 import { AboutPage } from './pages/AboutPage'
 import { AboutExperimentPage } from './pages/AboutExperimentPage'
+import { TypographyExperimentHomePage } from './pages/TypographyExperimentHomePage'
+import { TypographyExperimentAboutPage } from './pages/TypographyExperimentAboutPage'
+import { TypographyAboutStyleHomePage } from './pages/TypographyAboutStyleHomePage'
+import { TypographyAboutStyleSharePage } from './pages/TypographyAboutStyleSharePage'
+import { TypographyExperimentsIndexPage } from './pages/TypographyExperimentsIndexPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { MaintenancePage } from './pages/MaintenancePage'
 import { LogoLabPage } from './pages/LogoLabPage'
@@ -73,11 +78,13 @@ function AppShell() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/about-experiment" element={<AboutExperimentPage />} />
             <Route path="/experiment_about" element={<AboutExperimentPage />} />
-            <Route path="/typography-experiment" element={<Navigate to="/" replace />} />
-            <Route path="/typography-experiment/home" element={<Navigate to="/" replace />} />
+            <Route path="/typography-experiment" element={<TypographyExperimentsIndexPage />} />
+            <Route path="/typography-experiment/home" element={<TypographyExperimentHomePage />} />
             <Route path="/typography-experiment/discovery" element={<Navigate to="/discovery" replace />} />
-            <Route path="/typography-experiment/about" element={<Navigate to="/about" replace />} />
-            <Route path="/typography-experiment/share" element={<Navigate to="/share" replace />} />
+            <Route path="/typography-experiment/about" element={<TypographyExperimentAboutPage />} />
+            <Route path="/typography-experiment/about-style/home" element={<TypographyAboutStyleHomePage />} />
+            <Route path="/typography-experiment/about-style/share" element={<TypographyAboutStyleSharePage />} />
+            <Route path="/typography-experiment/share" element={<TypographyAboutStyleSharePage />} />
             <Route path="/logo-lab" element={<LogoLabPage />} />
             <Route path="/maintenance" element={<MaintenancePage />} />
             <Route path="/admin" element={<AdminLayout />}>

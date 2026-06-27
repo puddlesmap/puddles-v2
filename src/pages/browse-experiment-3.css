@@ -66,29 +66,14 @@
 .browse-page-shell--experiment-3 .browse-controls .pill-filter {
   min-height: 36px;
   padding: 0 0.875rem;
-  border: var(--puddles-border);
-  border-radius: 999px;
-  background: #ffffff;
-  color: var(--puddles-text);
-  font-weight: 400;
   box-shadow: var(--puddles-shadow-chip);
-  transition:
-    border-color 0.14s ease-out,
-    background-color 0.14s ease-out,
-    box-shadow 0.14s ease-out;
 }
 
 .browse-page-shell--experiment-3 .browse-controls .pill-filter:hover {
-  border-color: var(--puddles-accent-hover-border);
-  background: var(--puddles-accent-hover-bg);
   box-shadow: var(--puddles-shadow-chip);
 }
 
 .browse-page-shell--experiment-3 .browse-controls .pill-filter-active {
-  border: 1.5px solid var(--puddles-accent);
-  background: var(--puddles-accent-bg);
-  color: var(--puddles-text);
-  font-weight: 600;
   box-shadow: var(--puddles-shadow-chip);
 }
 
@@ -119,40 +104,15 @@
   box-shadow: var(--puddles-shadow-control);
 }
 
-.browse-page-shell--experiment-3 .browse-controls .browse-view-toggle button {
-  min-height: 36px;
-  padding: 0 16px;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1;
-  color: var(--puddles-view-inactive);
-  transition:
-    background-color 0.14s ease-out,
-    color 0.14s ease-out;
-}
-
-.browse-page-shell--experiment-3 .browse-controls .browse-view-toggle button:hover {
-  color: var(--puddles-text);
-}
-
 .browse-page-shell--experiment-3 .browse-controls .browse-view-toggle button.browse-view-toggle-active {
-  background: var(--puddles-view-toggle-active) !important;
-  color: var(--puddles-text) !important;
-  font-weight: 600;
+  font-weight: var(--type-toggle-weight-active);
 }
 
 /* —— App navigation: current page = soft gray (matches view toggle) —— */
-.layout-root--experiment-browse-3 {
-  --puddles-nav-active-bg: #f1f2f2;
-}
-
 .layout-root--experiment-browse-3 .top-nav-link-active {
   background: var(--puddles-nav-active-bg);
   color: #282e31;
-  font-weight: 600;
+  font-weight: var(--type-toggle-weight-active);
 }
 
 .layout-root--experiment-browse-3 .top-nav-link-active:hover {
@@ -168,29 +128,11 @@
 
 /* —— Desktop popover + mobile sheet: type chips —— */
 .browse-page-shell--experiment-3 .pill-select {
-  border: var(--puddles-border);
-  background: #ffffff;
-  color: var(--puddles-text);
-  font-weight: 400;
   box-shadow: var(--puddles-shadow-chip);
-  transition:
-    border-color 0.14s ease-out,
-    background-color 0.14s ease-out,
-    box-shadow 0.14s ease-out;
-}
-
-.browse-page-shell--experiment-3 .pill-select:hover {
-  border-color: var(--puddles-accent-hover-border);
-  background: var(--puddles-accent-hover-bg);
 }
 
 .browse-page-shell--experiment-3 .pill-select-active {
-  border: 1.5px solid var(--puddles-accent);
-  background: var(--puddles-accent-bg);
-  color: var(--puddles-text);
-  font-weight: 600;
   animation: none;
-  box-shadow: var(--puddles-shadow-chip);
 }
 
 /* —— Mobile sheet: list option rows (day / time / age) —— */
@@ -223,9 +165,6 @@
 /* —— Results line —— */
 .browse-page-shell--experiment-3 .browse-content .browse-results-count {
   margin-bottom: 1.25rem;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--puddles-muted);
 }
 
 /* —— Empty state —— */

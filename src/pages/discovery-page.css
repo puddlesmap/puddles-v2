@@ -41,11 +41,6 @@
 
 .discovery-page .discovery-hero-desc {
   margin-top: 0.5rem;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #000000;
 }
 
 .discovery-page .discovery-hero-location-note {
@@ -195,14 +190,6 @@
   min-width: 0;
 }
 
-:is(.discovery-page, .home-experiment-page) .discovery-filter-label {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.25;
-  color: #000000;
-}
-
 :is(.discovery-page, .home-experiment-page) .discovery-filter-chips {
   display: flex;
   flex-wrap: wrap;
@@ -216,14 +203,9 @@
   flex-shrink: 0;
   min-height: 36px;
   padding: 0 0.875rem;
-  border: 1px solid #ebebeb;
   border-radius: 999px;
-  background: #ffffff;
   font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
   line-height: 1;
-  color: #000000;
   transition:
     border-color 0.14s ease-out,
     background-color 0.14s ease-out,
@@ -231,19 +213,8 @@
     transform 0.12s ease-out;
 }
 
-:is(.discovery-page, .home-experiment-page) .discovery-filter-chip:hover {
-  border-color: #dddddd;
-}
-
 :is(.discovery-page, .home-experiment-page) .discovery-filter-chip:active {
   transform: scale(0.98);
-}
-
-:is(.discovery-page, .home-experiment-page) .discovery-filter-chip-active {
-  border-color: #000000;
-  background: #f0f0f0;
-  font-weight: 700;
-  box-shadow: var(--elevation-shadow-subtle);
 }
 
 :is(.discovery-page, .home-experiment-page) .discovery-filter-chip--stacked {
@@ -284,11 +255,11 @@
 }
 
 :is(.discovery-page, .home-experiment-page) .discovery-filter-chip--stacked .discovery-filter-chip-label {
-  font-weight: 600;
+  font-weight: var(--type-chip-weight);
 }
 
 :is(.discovery-page, .home-experiment-page) .discovery-filter-chip--stacked.discovery-filter-chip-active .discovery-filter-chip-label {
-  font-weight: 700;
+  font-weight: var(--type-chip-weight-active);
 }
 
 :is(.discovery-page, .home-experiment-page) .discovery-filter-chip-sub {
@@ -472,10 +443,6 @@
 
 .discovery-page-shell .discovery-page .discovery-cta-section .cta-body {
   margin-top: 0;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.375;
-  color: #000000;
 }
 
 .discovery-page-shell .discovery-page .discovery-cta-section .community-cta-card-actions {
@@ -604,14 +571,6 @@
   .discovery-page-shell .site-footer--full-bleed .site-footer-inner {
     padding-inline: var(--layout-padding-desktop);
   }
-}
-
-.discovery-page-shell .discovery-page p.discovery-hero-desc {
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #000000;
 }
 
 /* —— Mobile: compact entry + earlier first card —— */

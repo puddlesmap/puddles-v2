@@ -1,10 +1,10 @@
 /* Share page — typography & controls aligned with Discovery / Browse */
 
 .share-page-shell {
-  --share-supporting-size: 14px;
-  --share-supporting-weight: 500;
-  --share-supporting-color: #717171;
-  --share-supporting-line-height: 1.45;
+  --share-supporting-size: var(--type-form-hint-size);
+  --share-supporting-weight: var(--type-form-hint-weight);
+  --share-supporting-color: var(--type-form-hint-color);
+  --share-supporting-line-height: var(--type-form-hint-line-height);
 }
 
 .share-page-main {
@@ -15,19 +15,14 @@
 .share-page-shell .share-page-title {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 1.75rem; /* 28px */
-  font-weight: 700;
-  line-height: 1.35;
-  color: #000000;
+  font-size: var(--type-hero-title-size);
+  font-weight: var(--type-hero-title-weight);
+  line-height: var(--type-hero-title-line-height);
+  color: var(--type-hero-title-color);
 }
 
 .share-page-shell .share-page-body {
   margin-top: 1rem;
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 22px;
-  color: #000000;
 }
 
 .share-page-shell .share-page-body + .share-page-body {
@@ -36,11 +31,6 @@
 
 .share-page-shell .share-page-body-muted {
   margin-top: 1rem;
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 22px;
-  color: #686868;
 }
 
 .share-page-shell .share-page-activity-intro .share-page-body {
@@ -82,9 +72,9 @@
   border: none;
   background: transparent;
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: var(--type-page-body-size);
   font-weight: 600;
-  line-height: 22px;
+  line-height: var(--type-page-body-line-height);
   color: #273034;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -174,9 +164,6 @@
   min-height: 36px;
   border: none;
   border-radius: 999px;
-  font-size: 14px;
-  font-weight: 400;
-  color: #6c7a81;
   background: transparent;
   transition:
     background-color 0.14s ease-out,
@@ -184,41 +171,18 @@
 }
 
 .share-page-shell .share-tab-switcher button:hover {
-  color: #282e31;
+  color: var(--chip-text);
 }
 
 .share-page-shell .share-tab-switcher button.share-tab-active {
-  background: #f1f2f2 !important;
-  color: #282e31 !important;
-  font-weight: 600;
+  background: var(--toggle-active-bg) !important;
+  color: var(--chip-text) !important;
+  font-weight: var(--type-toggle-weight-active);
   box-shadow: none;
 }
 
-/* —— Form option chips: Puddles blue selected —— */
+/* —— Form option chips —— */
 .share-page-shell .pill-select {
-  border: 1px solid #e6e6e5;
-  background: #ffffff;
-  color: #282e31;
-  font-weight: 400;
-  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
-  transition:
-    border-color 0.14s ease-out,
-    background-color 0.14s ease-out,
-    box-shadow 0.14s ease-out;
-}
-
-.share-page-shell .pill-select:hover {
-  border-color: #b9e6fc;
-  background: #f7fbfd;
-  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
-}
-
-.share-page-shell .pill-select-active {
-  border: 1.5px solid #66c5f9;
-  background: #eaf7fe;
-  color: #282e31;
-  font-weight: 600;
-  animation: none;
   box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
 }
 
@@ -263,26 +227,6 @@
   background: transparent;
 }
 
-.share-page-shell .share-form-card legend.font-semibold,
-.share-page-shell .share-form-card label.font-semibold,
-.share-page-shell .share-form-card p.font-semibold,
-.share-page-shell .share-form-card .share-field-label {
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.375;
-  color: #000000;
-}
-
-.share-page-shell .share-form-card .text-xs,
-.share-page-shell .share-form-card .share-field-hint {
-  font-family: var(--font-sans);
-  font-size: var(--share-supporting-size);
-  font-weight: var(--share-supporting-weight);
-  line-height: var(--share-supporting-line-height);
-  color: var(--share-supporting-color);
-}
-
 .share-page-shell .share-form-card .input-field::placeholder {
   font-size: var(--share-supporting-size);
   font-weight: var(--share-supporting-weight);
@@ -290,9 +234,11 @@
 }
 
 .share-page-shell .share-submit-consent {
-  font-size: 14px;
-  line-height: 1.45;
-  color: #686868;
+  font-family: var(--font-sans);
+  font-size: var(--type-form-hint-size);
+  font-weight: var(--type-form-hint-weight);
+  line-height: var(--type-form-hint-line-height);
+  color: var(--type-supporting-color);
 }
 
 .share-page-shell .share-time-label {

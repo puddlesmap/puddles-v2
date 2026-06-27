@@ -23,8 +23,8 @@
   --about-type-eyebrow: 1rem;
   --about-type-brand: 1.6875rem;
   --about-type-tagline: 1.75rem;
-  --about-type-lead: 1rem;
-  --about-type-body: 1rem;
+  --about-type-lead: var(--type-page-body-size);
+  --about-type-body: var(--type-page-body-size);
   --about-type-feature-title: 1.25rem;
 
   display: flex;
@@ -117,11 +117,6 @@
 .about-page .about-mission-support {
   margin: 0.75rem 0 0;
   max-width: 28rem;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #686868;
 }
 
 .about-page .about-intro-body {
@@ -142,11 +137,6 @@
 .about-page .about-intro-lead {
   margin: 0;
   max-width: var(--about-lead-max);
-  font-family: var(--font-sans);
-  font-size: var(--about-type-lead);
-  font-weight: 400;
-  line-height: 1.375;
-  color: #282e31;
 }
 
 .about-page .about-intro-lead-line {
@@ -189,11 +179,6 @@
 
 .about-page .about-intro-narrative-para {
   margin: 0;
-  font-family: var(--font-sans);
-  font-size: var(--about-type-body);
-  font-weight: 400;
-  line-height: 1.625;
-  color: var(--color-black);
 }
 
 .about-page .about-intro-narrative-para + .about-intro-narrative-para {
@@ -261,11 +246,6 @@
 
 .about-page .about-feature-body {
   margin: 0.5rem 0 0;
-  font-family: var(--font-sans);
-  font-size: var(--about-type-body);
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--color-black);
 }
 
 /* —— Community + CTA —— */
@@ -295,11 +275,6 @@
 
 .about-page .about-community-para {
   margin: 0;
-  font-family: var(--font-sans);
-  font-size: var(--about-type-body);
-  font-weight: 400;
-  line-height: 1.65;
-  color: var(--color-black);
 }
 
 .about-page .about-community-para:first-of-type {
@@ -340,10 +315,6 @@
 
 .about-page-shell .about-page .about-cta-card .cta-body {
   margin-top: 0.375rem;
-  font-size: var(--about-type-body);
-  font-weight: 400;
-  line-height: 1.55;
-  color: #686868;
 }
 
 .about-page-shell .about-page .about-cta-card .community-cta-card-actions {
@@ -528,20 +499,9 @@
     --about-section-gap: 3rem;
   }
 
-  .about-page .about-mission-support {
-    font-size: 0.9375rem;
-  }
-
   .about-page .about-intro-body {
     gap: 0;
     margin-top: 1.5rem;
-  }
-
-  .about-page .about-intro-lead,
-  .about-page .about-intro-narrative-para,
-  .about-page .about-feature-body,
-  .about-page .about-community-para {
-    line-height: 1.65;
   }
 
   .about-page .about-intro-lead-line + .about-intro-lead-line {

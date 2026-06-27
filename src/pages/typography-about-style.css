@@ -1,0 +1,75 @@
+/* Typography experiment — About tagline style on Home + Share */
+
+.typography-about-style-shell {
+  --about-style-tagline-size: 1.75rem;
+  --about-style-tagline-weight: 600;
+  --about-style-tagline-line-height: 1.35;
+  --about-style-tagline-letter-spacing: -0.01em;
+  --about-style-tagline-color: #1e293b;
+}
+
+@media (max-width: 767px) {
+  .typography-about-style-shell {
+    --about-style-tagline-size: 1.5rem;
+  }
+}
+
+/* —— Home refined hero —— */
+.typography-about-style-shell .home-experiment-refined-title.home-experiment-title {
+  font-size: var(--about-style-tagline-size);
+  font-weight: var(--about-style-tagline-weight);
+  line-height: var(--about-style-tagline-line-height);
+  letter-spacing: var(--about-style-tagline-letter-spacing);
+  color: var(--about-style-tagline-color);
+}
+
+.typography-about-style-shell .home-experiment-refined-accent {
+  color: #66c5f9;
+  font-weight: var(--about-style-tagline-weight);
+}
+
+@media (max-width: 768px) {
+  .typography-about-style-shell .home-experiment-refined-title.home-experiment-title {
+    line-height: var(--about-style-tagline-line-height);
+  }
+}
+
+/* —— Share: drop tab titles, promote intro body to headline —— */
+.typography-about-style-shell .share-side-intro .share-page-title {
+  display: none;
+}
+
+.typography-about-style-shell .share-side-intro > .share-page-body,
+.typography-about-style-shell .share-side-intro .share-page-activity-intro > .share-page-body {
+  margin-top: 0;
+  font-family: var(--font-sans);
+  font-size: var(--about-style-tagline-size);
+  font-weight: var(--about-style-tagline-weight);
+  line-height: var(--about-style-tagline-line-height);
+  letter-spacing: var(--about-style-tagline-letter-spacing);
+  color: var(--about-style-tagline-color);
+}
+
+.typography-about-style-shell .share-side-intro > .share-page-body-muted {
+  margin-top: 0.75rem;
+}
+
+.typography-about-style-shell .share-side-intro .share-page-activity-details {
+  margin-top: 1rem;
+}
+
+.typography-about-style-note {
+  width: 100%;
+  margin: 1.5rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.typography-about-style-note-link {
+  color: #000000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

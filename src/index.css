@@ -107,9 +107,48 @@
   --type-btn: 15px;
   --type-btn-compact: 14px;
   --type-event-title: 15px;
-  --type-event-detail-title: 25px;
+  --type-event-detail-title: 27px;
   --type-page-title: 32px;
+  --type-hero-title-size: 1.75rem;
+  --type-hero-title-weight: 700;
+  --type-hero-title-line-height: 1.35;
+  --type-hero-title-color: #000000;
   --type-section-title: 20px;
+  --type-supporting-size: 1rem;
+  --type-supporting-line-height: 1.55;
+  --type-supporting-color: #686868;
+  --type-form-hint-size: 14px;
+  --type-form-hint-weight: 500;
+  --type-form-hint-line-height: 1.45;
+  --type-form-hint-color: #717171;
+  --type-control-label-size: 14px;
+  --type-control-label-weight: 600;
+  --type-control-label-line-height: 1.25;
+  --type-control-label-color: #282e31;
+  --type-page-body-size: 1rem;
+  --type-page-body-weight: 400;
+  --type-page-body-line-height: 1.55;
+  --type-page-body-color: #000000;
+  --type-page-body-lead-color: #282e31;
+  --type-chip-size: 14px;
+  --type-chip-weight: 400;
+  --type-chip-weight-active: 600;
+  --type-toggle-size: 14px;
+  --type-toggle-weight: 400;
+  --type-toggle-weight-active: 600;
+  --type-results-size: 14px;
+  --type-results-weight: 400;
+  --type-results-line-height: 1.35;
+  --type-results-color: #686868;
+  --chip-border: 1px solid #e6e6e5;
+  --chip-border-active: 1.5px solid #66c5f9;
+  --chip-bg: #ffffff;
+  --chip-bg-hover: #f7fbfd;
+  --chip-bg-active: #eaf7fe;
+  --chip-text: #282e31;
+  --chip-hover-border: #b9e6fc;
+  --toggle-inactive-color: #6c7a81;
+  --toggle-active-bg: #f1f2f2;
   --space-2xs: 4px;
   --space-xs: 8px;
   --space-sm: 12px;
@@ -355,6 +394,124 @@ textarea {
   color: var(--color-body);
 }
 
+/* Page hero titles (Share sidebar, experiment headlines) */
+.type-hero-title {
+  font-family: var(--font-sans);
+  font-size: var(--type-hero-title-size);
+  font-weight: var(--type-hero-title-weight);
+  line-height: var(--type-hero-title-line-height);
+  color: var(--type-hero-title-color);
+}
+
+/* Gray subcopy under headlines and in community CTA cards */
+.supporting-copy,
+.home-experiment-refined-supporting,
+.about-page .about-mission-support,
+.home-experiment-page--accent .home-experiment-supporting-line,
+.home-experiment-page--soft .home-experiment-supporting-line,
+.community-cta-card .cta-body,
+.discovery-page .discovery-hero-desc {
+  font-family: var(--font-sans);
+  font-size: var(--type-supporting-size);
+  font-weight: 400;
+  line-height: var(--type-supporting-line-height);
+  color: var(--type-supporting-color);
+}
+
+/* Event count / filter summary above card lists */
+.browse-results-count,
+.home-experiment-refined-results-summary,
+.browse-content .browse-results-count {
+  font-family: var(--font-sans);
+  font-size: var(--type-results-size);
+  font-weight: var(--type-results-weight);
+  line-height: var(--type-results-line-height);
+  color: var(--type-results-color);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Form hints — compact supporting copy in forms */
+.form-hint,
+.share-field-hint,
+.share-page-shell .share-form-card .text-xs {
+  font-family: var(--font-sans);
+  font-size: var(--type-form-hint-size);
+  font-weight: var(--type-form-hint-weight);
+  line-height: var(--type-form-hint-line-height);
+  color: var(--type-form-hint-color);
+}
+
+/* Control row / field labels */
+.control-label,
+.share-field-label,
+.share-page-shell .share-form-card legend.font-semibold,
+.share-page-shell .share-form-card label.font-semibold,
+.share-page-shell .share-form-card p.font-semibold,
+:is(.discovery-page, .home-experiment-page) .discovery-filter-label {
+  font-family: var(--font-sans);
+  font-size: var(--type-control-label-size);
+  font-weight: var(--type-control-label-weight);
+  line-height: var(--type-control-label-line-height);
+  color: var(--type-control-label-color);
+}
+
+/* 16px reading body (Share intro, About prose, event modal) */
+.page-body-dark,
+.share-page-body,
+.event-detail-body,
+.about-page .about-intro-lead,
+.about-page .about-intro-narrative-para,
+.about-page .about-community-para,
+.about-page .about-feature-body {
+  font-family: var(--font-sans);
+  font-size: var(--type-page-body-size);
+  font-weight: var(--type-page-body-weight);
+  line-height: var(--type-page-body-line-height);
+}
+
+.page-body-dark,
+.share-page-body,
+.event-detail-body,
+.about-page .about-intro-narrative-para,
+.about-page .about-community-para,
+.about-page .about-feature-body {
+  color: var(--type-page-body-color);
+}
+
+.about-page .about-intro-lead {
+  color: var(--type-page-body-lead-color);
+}
+
+.event-detail-meta,
+.event-detail-field-value,
+.event-modal-address-link,
+.event-modal-address-plain {
+  font-family: var(--font-sans);
+  font-size: var(--type-page-body-size);
+  line-height: var(--type-page-body-line-height);
+}
+
+.event-detail-meta,
+.event-detail-field-value {
+  font-weight: 500;
+  color: var(--type-page-body-color);
+}
+
+.event-detail-meta.text-muted,
+.event-modal-address-link,
+.event-modal-address-plain {
+  color: var(--type-supporting-color);
+}
+
+.event-detail-venue {
+  font-family: var(--font-sans);
+  font-size: var(--type-page-body-size);
+  font-weight: 600;
+  line-height: var(--type-page-body-line-height);
+  color: var(--type-page-body-color);
+}
+
 .type-location,
 .location-row {
   font-family: var(--font-sans);
@@ -392,9 +549,9 @@ textarea {
 .cta-body {
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: var(--type-body);
-  line-height: 1.55;
-  color: var(--color-body);
+  font-size: var(--type-supporting-size);
+  line-height: var(--type-supporting-line-height);
+  color: var(--type-supporting-color);
 }
 
 .cta-link {
@@ -419,20 +576,7 @@ textarea {
   color: var(--color-black);
 }
 
-.event-detail-meta {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: var(--type-body);
-  line-height: 1.4;
-  color: var(--color-charcoal);
-}
-
 .event-detail-body {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: var(--type-body);
-  line-height: 1.55;
-  color: var(--color-body);
   margin-top: 1.5rem;
 }
 
@@ -469,14 +613,6 @@ textarea {
   flex: 1;
 }
 
-.event-detail-venue {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--color-black);
-}
-
 .event-detail-fields {
   display: flex;
   flex-direction: column;
@@ -497,11 +633,6 @@ textarea {
 
 .event-detail-field-value {
   margin-top: 0.25rem;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.45;
-  color: var(--color-charcoal);
 }
 
 .btn-modal-secondary {
@@ -953,11 +1084,6 @@ textarea {
 
 .browse-results-count {
   margin: 0 0 1.25rem;
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--color-muted);
 }
 
 @media (min-width: 768px) {
@@ -972,29 +1098,33 @@ textarea {
   border-radius: var(--radius-pill);
   border: 1px solid var(--color-border);
   padding: 3px;
-  font-size: 14px;
-  font-weight: 600;
+  gap: 2px;
+  font-size: var(--type-toggle-size);
   background: #fff;
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
 }
 
 .browse-view-toggle button {
   border: 0;
   background: transparent;
   border-radius: var(--radius-pill);
-  min-height: 38px;
-  padding: 0 14px;
-  color: var(--color-charcoal);
+  min-height: 36px;
+  padding: 0 16px;
+  font-size: var(--type-toggle-size);
+  font-weight: var(--type-toggle-weight);
+  line-height: 1;
+  color: var(--toggle-inactive-color);
   transition: background-color 0.14s ease-out, color 0.14s ease-out;
 }
 
 .browse-view-toggle button:hover {
-  color: var(--color-charcoal);
+  color: var(--chip-text);
 }
 
 .browse-view-toggle-active {
-  background: transparent !important;
-  color: var(--color-black) !important;
-  font-weight: 700;
+  background: var(--toggle-active-bg) !important;
+  color: var(--chip-text) !important;
+  font-weight: var(--type-toggle-weight-active);
 }
 
 .browse-content {
@@ -1326,9 +1456,6 @@ textarea {
   align-items: center;
   gap: 0.25rem;
   margin-top: 0.375rem;
-  font-size: 13px;
-  line-height: 1.45;
-  color: var(--color-muted);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.14s ease-out;
@@ -1342,9 +1469,6 @@ textarea {
 
 .event-modal-address-plain {
   margin-top: 0.375rem;
-  font-size: 13px;
-  line-height: 1.45;
-  color: var(--color-muted);
 }
 
 .event-modal-trust-card {
@@ -1649,15 +1773,17 @@ select.input-field,
   justify-content: center;
   flex-shrink: 0;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--color-border);
-  background: #fff;
+  border: var(--chip-border);
+  background: var(--chip-bg);
   padding: 0 1rem;
   min-height: 44px;
   height: 44px;
   font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-black);
+  font-size: var(--type-chip-size);
+  font-weight: var(--type-chip-weight);
+  line-height: 1;
+  color: var(--chip-text);
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
   transition:
     border-color 0.14s ease-out,
     background-color 0.14s ease-out,
@@ -1680,7 +1806,7 @@ select.input-field,
   height: 1.125rem;
   padding: 0 0.3125rem;
   border-radius: 999px;
-  background: #000000;
+  background: var(--color-brand);
   color: #ffffff;
   font-family: var(--font-sans);
   font-size: 10px;
@@ -1688,35 +1814,86 @@ select.input-field,
   line-height: 1;
   pointer-events: none;
 }
-.pill-filter:hover { border-color: var(--color-border-strong); }
-.pill-filter:active { transform: scale(0.98); }
+
+.pill-filter:hover {
+  border-color: var(--chip-hover-border);
+  background: var(--chip-bg-hover);
+}
+
+.pill-filter:active {
+  transform: scale(0.98);
+}
+
 .pill-filter-active {
-  background: var(--color-black);
-  border-color: var(--color-black);
-  color: #fff;
-  font-weight: 700;
-  animation: filter-pop 0.22s ease-out;
+  border: var(--chip-border-active);
+  background: var(--chip-bg-active);
+  color: var(--chip-text);
+  font-weight: var(--type-chip-weight-active);
+  animation: none;
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
 }
 
 .pill-select {
   flex-shrink: 0;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--color-border);
-  background: #fff;
+  border: var(--chip-border);
+  background: var(--chip-bg);
   padding: 12px 20px;
   min-height: 44px;
   font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-black);
-  transition: all 0.15s ease;
+  font-size: var(--type-chip-size);
+  font-weight: var(--type-chip-weight);
+  line-height: 1;
+  color: var(--chip-text);
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
+  transition:
+    border-color 0.14s ease-out,
+    background-color 0.14s ease-out,
+    box-shadow 0.14s ease-out;
 }
+
+.pill-select:hover {
+  border-color: var(--chip-hover-border);
+  background: var(--chip-bg-hover);
+}
+
 .pill-select-active {
-  background: var(--color-black);
-  border-color: var(--color-black);
-  color: #fff;
-  font-weight: 700;
-  animation: filter-pop 0.22s ease-out;
+  border: var(--chip-border-active);
+  background: var(--chip-bg-active);
+  color: var(--chip-text);
+  font-weight: var(--type-chip-weight-active);
+  animation: none;
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
+}
+
+/* Discovery / home filter chips — same weight + blue active as form pills */
+:is(.discovery-page, .home-experiment-page) .discovery-filter-chip {
+  font-size: var(--type-chip-size);
+  font-weight: var(--type-chip-weight);
+  color: var(--chip-text);
+}
+
+:is(.discovery-page, .home-experiment-page) .discovery-filter-chip:not(.discovery-filter-chip-active) {
+  border: var(--chip-border);
+  background: var(--chip-bg);
+  box-shadow: 0 1px 2px rgb(40 46 49 / 0.04);
+}
+
+:is(.discovery-page, .home-experiment-page) .discovery-filter-chip:not(.discovery-filter-chip-active):hover {
+  border-color: var(--chip-hover-border);
+  background: var(--chip-bg-hover);
+}
+
+:is(.discovery-page, .home-experiment-page) .discovery-filter-chip-active {
+  border: var(--chip-border-active);
+  background: var(--chip-bg-active);
+  font-weight: var(--type-chip-weight-active);
+  box-shadow: none;
+}
+
+:is(.discovery-page, .home-experiment-page) .discovery-filter-chip-active:hover {
+  border-color: #66c5f9;
+  background: var(--chip-bg-active);
 }
 
 .tab-underline,
@@ -1847,7 +2024,6 @@ select.input-field,
 
 .community-cta-card--neutral .cta-body {
   margin-top: var(--space-xs);
-  color: var(--color-body);
   max-width: none;
 }
 
@@ -2471,24 +2647,26 @@ select.input-field,
 
 .share-tab-switcher button {
   flex: 1;
-  min-height: 44px;
+  min-height: 36px;
   border: none;
   border-radius: calc(var(--radius-button) - 3px);
   background: transparent;
   padding: 0 0.75rem;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-muted);
-  transition: background-color 0.18s ease-out, color 0.18s ease-out;
+  font-size: var(--type-toggle-size);
+  font-weight: var(--type-toggle-weight);
+  line-height: 1;
+  color: var(--toggle-inactive-color);
+  transition: background-color 0.14s ease-out, color 0.14s ease-out;
 }
 
 .share-tab-switcher button:hover {
-  color: var(--color-charcoal);
+  color: var(--chip-text);
 }
 
 .share-tab-active {
-  background: var(--color-black) !important;
-  color: #fff !important;
+  background: var(--toggle-active-bg) !important;
+  color: var(--chip-text) !important;
+  font-weight: var(--type-toggle-weight-active);
 }
 
 .idea-chip-wrap {

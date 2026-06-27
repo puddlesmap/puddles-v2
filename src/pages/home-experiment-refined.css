@@ -32,11 +32,6 @@
 .home-experiment-refined-supporting {
   margin: 0.875rem 0 0;
   max-width: 36rem;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.55;
-  color: rgb(104 104 104 / 0.78);
 }
 
 /* —— Two-column layout —— */
@@ -103,11 +98,6 @@
 .home-experiment-page--refined .home-experiment-filter-group .discovery-filter-label {
   flex: 0 0 3.25rem;
   min-width: 3.25rem;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.25;
-  color: #282e31;
 }
 
 .home-experiment-page--refined .discovery-filter-chips {
@@ -138,52 +128,11 @@
 }
 
 .home-experiment-page--refined .discovery-filter-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 36px;
-  padding: 0 0.875rem;
-  border-radius: 999px;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  line-height: 1;
   flex-shrink: 0;
-  transition:
-    border-color 0.14s ease-out,
-    background-color 0.14s ease-out,
-    box-shadow 0.14s ease-out;
 }
 
 .home-experiment-page--refined .discovery-filter-chip--with-icon {
   gap: 0.375rem;
-}
-
-.home-experiment-page--refined .discovery-filter-chip:not(.discovery-filter-chip-active) {
-  border: 1px solid #e6e6e5;
-  background: #ffffff;
-  color: #282e31;
-  font-weight: 400;
-  box-shadow: 0 1px 2px rgb(40 46 49 / 0.04);
-}
-
-.home-experiment-page--refined .discovery-filter-chip:not(.discovery-filter-chip-active):hover {
-  border-color: #b9e6fc;
-  background: #f7fbfd;
-  box-shadow: 0 1px 2px rgb(40 46 49 / 0.04);
-}
-
-.home-experiment-page--refined .discovery-filter-chip-active {
-  border: 1.5px solid #66c5f9;
-  background: #eaf7fe;
-  color: #282e31;
-  font-weight: 600;
-  box-shadow: none;
-}
-
-.home-experiment-page--refined .discovery-filter-chip-active:hover {
-  border-color: #66c5f9;
-  background: #eaf7fe;
-  box-shadow: none;
 }
 
 .home-experiment-page--refined .discovery-filter-chip:active {
@@ -211,11 +160,6 @@
 /* —— Results summary (below map, above cards) —— */
 .home-experiment-refined-results-summary {
   margin: 0 0 0.875rem;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.35;
-  color: #686868;
 }
 
 /* —— Map preview footer: location label only —— */
@@ -287,10 +231,6 @@
 
 .home-experiment-page--refined .about-cta-section .cta-body {
   margin-top: 0.375rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.55;
-  color: #686868;
 }
 
 .home-experiment-page--refined .about-cta-section .community-cta-card-actions {

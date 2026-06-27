@@ -27,11 +27,6 @@
 .home-experiment-page--accent .home-experiment-supporting-line {
   margin: var(--home-experiment-space-headline-to-subtitle) 0 0;
   max-width: 28rem;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #686868;
 }
 
 .home-experiment-accent-row-wrap {

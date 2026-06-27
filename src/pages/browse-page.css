@@ -80,12 +80,8 @@
   font-weight: 700;
 }
 
-/* —— Filter chips (shadow ring + grey fill when selected) —— */
+/* —— Filter chips (layout + elevation; colors/weights from global .pill-filter) —— */
 .browse-controls .pill-filter {
-  border: none;
-  background: #ffffff;
-  color: #000000;
-  font-weight: 600;
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.08),
     var(--elevation-shadow-subtle);
@@ -95,24 +91,11 @@
 }
 
 .browse-controls .pill-filter:hover {
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.14),
-    0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
 }
 
 .browse-controls .pill-filter-active {
-  background: #f0f0f0;
-  color: #000000;
-  font-weight: 700;
   animation: none;
-  box-shadow:
-    0 0 0 1.5px rgba(0, 0, 0, 0.88),
-    var(--elevation-shadow-subtle);
-}
-
-.browse-controls .pill-filter-count {
-  background: #000000;
-  color: #ffffff;
 }
 
 .browse-content {
@@ -126,12 +109,6 @@
 
 .browse-content .browse-results-count {
   margin: 0 0 1.5625rem;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 0;
-  color: #686868;
 }
 
 .browse-content .browse-feed {
