@@ -274,9 +274,9 @@
     "verifiedDate": "2026-06-05",
     "lat": 37.4221,
     "lng": -122.1432,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a25aace2ea730c17ab50480",
@@ -303,9 +303,9 @@
     "verifiedDate": "2026-06-05",
     "lat": 37.4221,
     "lng": -122.1432,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "699f60146724c63d00f52cc3",
