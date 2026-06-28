@@ -1,22 +1,18 @@
 import { AboutIllustration } from '../AboutIllustration'
 import { AboutIntroNarrative } from './AboutIntroNarrative'
 import {
-  ABOUT_EYEBROW,
   ABOUT_HERO_ART,
   ABOUT_LEAD_LINES,
-  ABOUT_MISSION_SUPPORT,
 } from '../../pages/aboutShared'
 
 export function AboutStoryIntro() {
   return (
     <header className="about-intro">
-      <p className="about-eyebrow">{ABOUT_EYEBROW}</p>
       <div className="about-mission">
         <h1 className="about-tagline">
           It takes a <span className="about-tagline-accent">village</span> — here&apos;s
           where to find it.
         </h1>
-        <p className="about-mission-support">{ABOUT_MISSION_SUPPORT}</p>
       </div>
       <div className="about-intro-body">
         <div className="about-intro-copy">

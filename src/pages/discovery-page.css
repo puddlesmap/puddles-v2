@@ -36,7 +36,7 @@
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: 0;
-  color: #282e31;
+  color: var(--type-hero-title-color);
 }
 
 .discovery-page .discovery-hero-desc {

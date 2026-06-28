@@ -5,7 +5,7 @@
   --about-style-tagline-weight: 600;
   --about-style-tagline-line-height: 1.35;
   --about-style-tagline-letter-spacing: -0.01em;
-  --about-style-tagline-color: #1e293b;
+  --about-style-tagline-color: var(--type-hero-title-color);
 }
 
 @media (max-width: 767px) {

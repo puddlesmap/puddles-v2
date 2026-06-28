@@ -23,7 +23,6 @@ function ShareSideIntro({ tab }: { tab: ShareTab }) {
   if (tab === 'idea') {
     return (
       <div className="share-side-intro">
-        <h1 className="share-page-title">Help shape Puddles</h1>
         <p className="share-page-body">What would make Puddles more helpful?</p>
         <p className="share-page-body-muted">
           Your ideas help us grow a small, trustworthy guide for local family moments.
@@ -34,7 +33,6 @@ function ShareSideIntro({ tab }: { tab: ShareTab }) {
 
   return (
     <div className="share-side-intro">
-      <h1 className="share-page-title">Share with Puddles</h1>
       <div className="share-page-activity-intro">
         <p className="share-page-body">
           Found a great local activity? Drop it here for nearby families!

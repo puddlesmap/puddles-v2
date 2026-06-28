@@ -11,20 +11,14 @@ import {
 import { PageContainer } from '../components/layout/PageContainer'
 import { Footer } from '../components/layout/Footer'
 import { AppHeader } from '../components/layout/AppHeader'
-import {
-  ABOUT_BRAND_NAME,
-  ABOUT_BRAND_TAG,
-  ABOUT_SHARE_CTA_BODY,
-  ABOUT_TAGLINE,
-} from './aboutShared'
+import { ABOUT_SHARE_CTA_BODY } from './aboutShared'
 import { HomeRotatingAccents } from '../components/HomeRotatingAccents'
 import { HomeSoftAccents } from '../components/HomeSoftAccents'
 import { HomeMapPreview } from '../components/home/HomeMapPreview'
 import {
-  HOME_EXPERIMENT_SUPPORTING_LINE,
   HOME_EXPERIMENT_REFINED_CTA_BODY,
   HOME_EXPERIMENT_REFINED_CTA_TITLE,
-  HOME_EXPERIMENT_REFINED_SUPPORTING_LINE,
+  HOME_PAGE_HEADLINE,
 } from './homeExperimentAccentShared'
 import {
   PUDDLES_WORDMARK_LOGO_SRC,
@@ -114,15 +108,22 @@ interface HomeExperimentPageProps {
   showBrandName?: boolean
 }
 
+function HomePageHeadline() {
+  return (
+    <>
+      Find storytimes, music, drop-ins, and{' '}
+      <span className="home-experiment-refined-accent">local moments</span> for ages 0{'\u2013'}5.
+    </>
+  )
+}
+
 function HomeExperimentHero({ variant }: { variant: HomeHeroVariant }) {
   if (variant === 'refined') {
     return (
       <header className="home-experiment-intro home-experiment-intro--refined">
         <h1 className="home-experiment-title home-experiment-refined-title">
-          Find <span className="home-experiment-refined-accent">easy</span>, toddler-friendly things to do
-          nearby
+          <HomePageHeadline />
         </h1>
-        <p className="home-experiment-refined-supporting">{HOME_EXPERIMENT_REFINED_SUPPORTING_LINE}</p>
       </header>
     )
   }
@@ -137,10 +138,7 @@ function HomeExperimentHero({ variant }: { variant: HomeHeroVariant }) {
           </p>
           <HomeSoftAccents />
         </div>
-        <h1 className="home-experiment-title">
-          Find free &amp; budget-friendly toddler activities nearby
-        </h1>
-        <p className="home-experiment-supporting-line">{HOME_EXPERIMENT_SUPPORTING_LINE}</p>
+        <h1 className="home-experiment-title">{HOME_PAGE_HEADLINE}</h1>
       </header>
     )
   }
@@ -150,14 +148,7 @@ function HomeExperimentHero({ variant }: { variant: HomeHeroVariant }) {
       <header className="home-experiment-intro home-experiment-intro--accent">
         <div className="home-experiment-accent-hero-grid">
           <div className="home-experiment-accent-copy">
-            <h1 className="home-experiment-hero-headline">
-              <span className="home-experiment-hero-line">
-                <span className="home-experiment-brand-name">{ABOUT_BRAND_NAME}</span>
-                <span className="home-experiment-brand-tag">{ABOUT_BRAND_TAG}</span>
-              </span>
-              <span className="home-experiment-hero-line home-experiment-hero-tagline">{ABOUT_TAGLINE}</span>
-            </h1>
-            <p className="home-experiment-supporting-line">{HOME_EXPERIMENT_SUPPORTING_LINE}</p>
+            <h1 className="home-experiment-hero-headline">{HOME_PAGE_HEADLINE}</h1>
             <div className="home-experiment-accent-row-wrap">
               <HomeRotatingAccents variant="row" />
             </div>
@@ -173,16 +164,7 @@ function HomeExperimentHero({ variant }: { variant: HomeHeroVariant }) {
   if (variant === 'experiment1') {
     return (
       <header className="home-experiment-intro">
-        <h1 className="home-experiment-hero-headline">
-          <span className="home-experiment-hero-line">
-            <span className="home-experiment-brand-name">{ABOUT_BRAND_NAME}</span>
-            <span className="home-experiment-brand-tag">{ABOUT_BRAND_TAG}</span>
-          </span>
-          <span className="home-experiment-hero-line home-experiment-hero-tagline">{ABOUT_TAGLINE}</span>
-        </h1>
-        <p className="home-experiment-subline">
-          Find free &amp; budget-friendly toddler activities nearby
-        </p>
+        <h1 className="home-experiment-hero-headline">{HOME_PAGE_HEADLINE}</h1>
       </header>
     )
   }
@@ -193,9 +175,7 @@ function HomeExperimentHero({ variant }: { variant: HomeHeroVariant }) {
         <span className="home-experiment-brand-name">Puddles</span>
         <span className="home-experiment-brand-tag"> the tot map</span>
       </p>
-      <h1 className="home-experiment-title">
-        Find free &amp; budget-friendly toddler activities nearby
-      </h1>
+      <h1 className="home-experiment-title">{HOME_PAGE_HEADLINE}</h1>
     </header>
   )
 }
@@ -451,7 +431,13 @@ export function HomeExperimentPage({
       />
 
       <PageContainer
-        className={['home-experiment-page pt-6 md:pt-10', pageClassName].filter(Boolean).join(' ')}
+        className={[
+          'home-experiment-page',
+          isRefinedLayout ? '' : 'pt-6 md:pt-10',
+          pageClassName,
+        ]
+          .filter(Boolean)
+          .join(' ')}
       >
         {isRefinedLayout ? (
           <div className="home-experiment-refined-layout">
@@ -491,7 +477,7 @@ export function HomeExperimentPage({
         {trailing}
       </PageContainer>
 
-      <Footer fullBleed className={isRefinedLayout ? 'home-experiment-footer--refined' : 'mt-0'} />
+      <Footer fullBleed className="mt-0" />
     </div>
   )
 }

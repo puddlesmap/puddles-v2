@@ -1,3 +1,6 @@
+export const HOME_PAGE_HEADLINE =
+  'Find storytimes, music, drop-ins, and local moments for ages 0\u20135.'
+
 export const HOME_EXPERIMENT_SUPPORTING_LINE =
   'Storytimes, parks, music, drop-ins, and small local moments for ages 0–5.'
 

@@ -1,24 +1,4 @@
-/* Typography experiment — Share-style hero titles on About + Home */
-
-.typography-experiment-shell .about-eyebrow {
-  display: none;
-}
-
-.typography-experiment-shell .about-mission {
-  margin-top: 0;
-}
-
-.typography-experiment-shell .about-tagline {
-  font-size: var(--type-hero-title-size);
-  font-weight: var(--type-hero-title-weight);
-  line-height: var(--type-hero-title-line-height);
-  color: var(--type-hero-title-color);
-}
-
-.typography-experiment-shell .about-tagline-accent {
-  color: #66c5f9;
-  font-weight: var(--type-hero-title-weight);
-}
+/* Typography experiment — Share-style hero titles on Home */
 
 .typography-experiment-shell .home-experiment-refined-title.home-experiment-title {
   font-size: var(--type-hero-title-size);
@@ -30,12 +10,6 @@
 .typography-experiment-shell .home-experiment-refined-accent {
   color: #66c5f9;
   font-weight: var(--type-hero-title-weight);
-}
-
-@media (max-width: 767px) {
-  .typography-experiment-shell .about-page {
-    --about-type-tagline: var(--type-hero-title-size);
-  }
 }
 
 @media (max-width: 768px) {

@@ -17,12 +17,12 @@
   --about-lead-max: 25.4375rem;
   --about-narrative-max: 27rem;
   --about-space-eyebrow-to-brand: 1.625rem;
+  --about-tagline-offset: 3px;
   --about-space-brand-to-lead: 2rem;
   --about-space-lead-to-body: 1.5rem;
   --about-hero-column-gap: 3rem;
   --about-type-eyebrow: 1rem;
   --about-type-brand: 1.6875rem;
-  --about-type-tagline: 1.75rem;
   --about-type-lead: var(--type-page-body-size);
   --about-type-body: var(--type-page-body-size);
   --about-type-feature-title: 1.25rem;
@@ -94,24 +94,22 @@
 }
 
 .about-page .about-mission {
-  margin-top: var(--about-space-eyebrow-to-brand);
+  margin-top: var(--about-tagline-offset);
   max-width: var(--about-content-max);
 }
 
 .about-page .about-tagline {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: var(--about-type-tagline);
-  font-weight: 600;
-  font-style: normal;
-  line-height: 1.35;
-  letter-spacing: -0.01em;
-  color: #1e293b; /* slate-800 — softer than stark black */
+  font-size: var(--type-hero-title-size);
+  font-weight: var(--type-hero-title-weight);
+  line-height: var(--type-hero-title-line-height);
+  color: var(--type-hero-title-color);
 }
 
 .about-page .about-tagline-accent {
   color: #66c5f9;
-  font-weight: 600;
+  font-weight: var(--type-hero-title-weight);
 }
 
 .about-page .about-mission-support {
@@ -183,22 +181,6 @@
 
 .about-page .about-intro-narrative-para + .about-intro-narrative-para {
   margin-top: 1rem;
-}
-
-.about-page .about-narrative-break {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .about-page .about-narrative-break--desktop {
-    display: block;
-  }
-}
-
-@media (max-width: 767px) {
-  .about-page .about-narrative-break--mobile {
-    display: block;
-  }
 }
 
 /* —— Features —— */
@@ -490,7 +472,6 @@
 /* —— Mobile —— */
 @media (max-width: 767px) {
   .about-page {
-    --about-type-tagline: 1.5rem;
     --about-lead-max: 100%;
     --about-narrative-max: 100%;
     --about-story-padding-top: 1.25rem;

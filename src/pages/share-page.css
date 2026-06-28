@@ -23,6 +23,12 @@
 
 .share-page-shell .share-page-body {
   margin-top: 1rem;
+  color: var(--type-page-body-color);
+}
+
+.share-page-shell .share-side-intro > .share-page-body:first-child,
+.share-page-shell .share-page-activity-intro > .share-page-body:first-child {
+  margin-top: 0;
 }
 
 .share-page-shell .share-page-body + .share-page-body {
@@ -33,8 +39,8 @@
   margin-top: 1rem;
 }
 
-.share-page-shell .share-page-activity-intro .share-page-body {
-  margin-top: 1rem;
+.share-page-shell .share-page-activity-intro > .share-page-body {
+  margin-top: 0;
 }
 
 .share-page-shell .share-side-intro .share-page-body-muted {

@@ -1,30 +1,15 @@
-export const ABOUT_EYEBROW = 'About'
-
 export const ABOUT_BRAND_NAME = 'Puddles'
 export const ABOUT_BRAND_TAG = ' the tot map'
 
 export const ABOUT_TAGLINE = 'It takes a village — here\u2019s where to find it.'
 
-export const ABOUT_MISSION_SUPPORT =
-  'Puddles is a small map for easy, nearby family moments.'
-
 export const ABOUT_LEAD_LINES = [
-  'Puddles started with a simple question:',
+  `${ABOUT_BRAND_NAME}${ABOUT_BRAND_TAG} started with a simple question:`,
   'What can we do today, without planning too much?',
 ] as const
 
-export const ABOUT_NARRATIVE_OPEN =
-  'As parents, we\u2019re often looking for small things\u2014'
-export const ABOUT_NARRATIVE_MIDDLE = 'a storytime,'
-export const ABOUT_NARRATIVE_AFTER_MUSIC =
-  'a music session, or a place to go right after nap time.'
-export const ABOUT_NARRATIVE_CLOSE =
-  ' But those moments are often scattered, hard to find, or incredibly easy to miss. So we made a simple map for small, nearby moments.'
-
-/** @deprecated Use AboutIntroNarrative for responsive line breaks. */
-export const ABOUT_NARRATIVE = [
-  `${ABOUT_NARRATIVE_OPEN}${ABOUT_NARRATIVE_MIDDLE} ${ABOUT_NARRATIVE_AFTER_MUSIC}${ABOUT_NARRATIVE_CLOSE}`,
-] as const
+export const ABOUT_INTRO_NARRATIVE =
+  'As parents, we\u2019re often looking for small things\u2014a storytime, a music session, or a place to go right after nap time. But those moments are often scattered, hard to find, or incredibly easy to miss. So we made a simple map for small, nearby moments.'
 
 export const ABOUT_PILLARS = [
   {

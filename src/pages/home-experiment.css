@@ -57,7 +57,7 @@
   font-weight: 400;
   line-height: 1.25; /* leading-tight — scales with larger type */
   letter-spacing: -0.01em;
-  color: #ffb400;
+  color: var(--type-hero-title-color);
 }
 
 /* —— Zone 1: Control panel (headline + filters) —— */
@@ -210,14 +210,14 @@
   text-align: center;
 }
 
-.home-experiment-shell .site-footer-lead {
+.home-experiment-shell:not(.home-experiment-shell--refined) .site-footer-lead {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
 }
 
-.home-experiment-shell .site-footer-copy {
+.home-experiment-shell:not(.home-experiment-shell--refined) .site-footer-copy {
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 300;
