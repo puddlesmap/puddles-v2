@@ -472,6 +472,7 @@
 /* —— Mobile —— */
 @media (max-width: 767px) {
   .about-page {
+    --type-hero-title-size: 1.6rem;
     --about-lead-max: 100%;
     --about-narrative-max: 100%;
     --about-story-padding-top: 1.25rem;

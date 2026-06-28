@@ -430,6 +430,10 @@
 
 /* —— Mobile: single column stack —— */
 @media (max-width: 768px) {
+  .home-experiment-page--refined {
+    --type-hero-title-size: 1.6rem;
+  }
+
   .home-experiment-refined-title.home-experiment-title {
     max-width: none;
   }
