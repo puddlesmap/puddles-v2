@@ -22,6 +22,7 @@
 /* —— Hero —— */
 .home-experiment-intro--refined {
   max-width: none;
+  margin-top: 3px; /* match .about-mission / --about-tagline-offset */
 }
 
 .home-experiment-refined-title.home-experiment-title {

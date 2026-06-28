@@ -37,7 +37,7 @@ export const ABOUT_COMMUNITY_PARAS = [
 
 export const ABOUT_CTA_TITLE = 'Know a small local moment?'
 export const ABOUT_CTA_BODY =
-  'Share a storytime, playground, event, or parent-friendly tip.'
+  'Share a storytime, a parent-friendly tip, or ideas for Puddles.'
 
 export const ABOUT_HERO_ART = {
   src: '/about/hero.png',
