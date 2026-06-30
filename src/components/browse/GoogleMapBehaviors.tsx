@@ -2,8 +2,14 @@ import { useEffect, useRef } from 'react'
 import { Marker, useApiIsLoaded, useMap } from '@vis.gl/react-google-maps'
 import type { Event } from '../../types/event'
 import { DEFAULT_MAP_CENTER, hasMapMovedFromBaseline } from '../../utils/mapBounds'
+import {
+  BROWSE_MAP_DEFAULT_ZOOM,
+  BROWSE_MAP_FOCUS_ZOOM,
+  BROWSE_MAP_GOOGLE_FIT_PADDING,
+  BROWSE_MAP_SINGLE_EVENT_ZOOM,
+} from './mapViewConfig'
 
-const LOCAL_ZOOM = 14
+const LOCAL_ZOOM = BROWSE_MAP_FOCUS_ZOOM
 
 export function GoogleMapFitEvents({
   events,
@@ -19,19 +25,19 @@ export function GoogleMapFitEvents({
 
     if (events.length === 0) {
       map.setCenter({ lat: DEFAULT_MAP_CENTER[0], lng: DEFAULT_MAP_CENTER[1] })
-      map.setZoom(12)
+      map.setZoom(BROWSE_MAP_DEFAULT_ZOOM)
       return
     }
 
     if (events.length === 1) {
       map.setCenter({ lat: events[0].lat, lng: events[0].lng })
-      map.setZoom(14)
+      map.setZoom(BROWSE_MAP_SINGLE_EVENT_ZOOM)
       return
     }
 
     const bounds = new google.maps.LatLngBounds()
     events.forEach((event) => bounds.extend({ lat: event.lat, lng: event.lng }))
-    map.fitBounds(bounds, 48)
+    map.fitBounds(bounds, BROWSE_MAP_GOOGLE_FIT_PADDING)
   }, [events, resetKey, map])
 
   return null

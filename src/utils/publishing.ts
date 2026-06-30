@@ -1,4 +1,11 @@
 import type { Event, EventStatus } from '../types/event'
+import {
+  PUBLIC_DISPLAY_WINDOW_DAYS,
+  addDays,
+  getAnchorDate,
+  parseFlexibleDate,
+  startOfDay,
+} from './dates'
 
 export const EVENT_STATUSES: EventStatus[] = ['Draft', 'Published', 'Hidden', 'Expired']
 
@@ -34,6 +41,21 @@ export function computeIsPast(
 /** Public website gate: Status = Published AND Is Past = FALSE. */
 export function computeIsLive(status: EventStatus, isPast: boolean): boolean {
   return status === 'Published' && !isPast
+}
+
+/** Event date falls within the rolling public window (today … today + window days). */
+export function isWithinPublicDisplayWindow(
+  date: string,
+  anchor: Date = getAnchorDate(),
+  windowDays: number = PUBLIC_DISPLAY_WINDOW_DAYS,
+): boolean {
+  const parsed = parseFlexibleDate(date) ?? new Date(`${date}T12:00:00`)
+  const eventDay = startOfDay(parsed)
+  if (Number.isNaN(eventDay.getTime())) return false
+
+  const today = startOfDay(anchor)
+  const lastVisibleDay = startOfDay(addDays(anchor, windowDays))
+  return eventDay >= today && eventDay <= lastVisibleDay
 }
 
 /**
@@ -79,9 +101,14 @@ export function enrichPublishingFields(
   return { ...event, isPast, isLive }
 }
 
-/** Website publishing rule: only Events tab rows where Is Live = TRUE. */
-export function isPublicEvent(event: Event): boolean {
-  return event.isLive === true
+/**
+ * Website publishing rule:
+ * Status = Published, not past, and within the rolling display window.
+ */
+export function isPublicEvent(event: Event, now: Date = new Date()): boolean {
+  if (event.status !== 'Published') return false
+  if (computeIsPast(event.date, event.endTime, now)) return false
+  return isWithinPublicDisplayWindow(event.date)
 }
 
 export function formatPublishingYesNo(value: boolean): string {

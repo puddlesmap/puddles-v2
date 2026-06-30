@@ -1,21 +1,7 @@
 import { useMemo } from 'react'
 import { Marker, useApiIsLoaded } from '@vis.gl/react-google-maps'
 import type { Event } from '../../types/event'
-import { EVENT_MARKER_SRC } from './mapPins'
-
-const MARKER_ASPECT = 44 / 28
-
-function markerDimensions(selected: boolean, hovered: boolean) {
-  if (selected) {
-    const width = 36
-    return { width, height: Math.round(width * MARKER_ASPECT) }
-  }
-  if (hovered) {
-    const width = 30
-    return { width, height: Math.round(width * MARKER_ASPECT) }
-  }
-  return { width: 28, height: 44 }
-}
+import { EVENT_MARKER_SRC, getEventPinDimensions } from './mapPins'
 
 interface EventGoogleMarkerProps {
   event: Event
@@ -33,7 +19,7 @@ export function EventGoogleMarker({
   onHover,
 }: EventGoogleMarkerProps) {
   const apiLoaded = useApiIsLoaded()
-  const { width, height } = markerDimensions(selected, hovered)
+  const { width, height } = getEventPinDimensions(selected, hovered)
 
   const icon = useMemo(() => {
     if (!apiLoaded || typeof google === 'undefined') return undefined

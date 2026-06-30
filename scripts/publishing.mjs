@@ -2,8 +2,44 @@
 
 export const EVENT_STATUSES = ['Draft', 'Published', 'Hidden', 'Expired']
 
+/** Rolling public calendar window — today through this many days ahead (inclusive). */
+export const PUBLIC_DISPLAY_WINDOW_DAYS = 60
+
 /** Demo anchor — matches src/utils/dates.ts ANCHOR_DATE for consistent local builds. */
 export const DEFAULT_PUBLISHING_REFERENCE = '2026-06-05T12:00:00'
+
+function startOfDay(d) {
+  const x = new Date(d)
+  x.setHours(0, 0, 0, 0)
+  return x
+}
+
+function addDays(d, n) {
+  const x = new Date(d)
+  x.setDate(x.getDate() + n)
+  return x
+}
+
+function parseEventDay(date) {
+  if (!date) return null
+  const raw = String(date).trim()
+  const iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})/)
+  if (iso) return startOfDay(new Date(`${iso[1]}-${iso[2]}-${iso[3]}T12:00:00`))
+  const parsed = new Date(raw.includes('T') ? raw : `${raw}T12:00:00`)
+  return Number.isNaN(parsed.getTime()) ? null : startOfDay(parsed)
+}
+
+export function isWithinPublicDisplayWindow(
+  date,
+  anchor = startOfDay(new Date(DEFAULT_PUBLISHING_REFERENCE)),
+  windowDays = PUBLIC_DISPLAY_WINDOW_DAYS,
+) {
+  const eventDay = parseEventDay(date)
+  if (!eventDay) return false
+  const today = startOfDay(anchor)
+  const lastVisibleDay = startOfDay(addDays(anchor, windowDays))
+  return eventDay >= today && eventDay <= lastVisibleDay
+}
 
 export function normalizeEventStatus(value) {
   if (value == null || value === '') return null
@@ -68,8 +104,10 @@ export function resolvePublishingFields({
   return { status, isPast, isLive }
 }
 
-export function isPublicEvent(event) {
-  return event.isLive === true
+export function isPublicEvent(event, now = new Date(DEFAULT_PUBLISHING_REFERENCE)) {
+  if (event.status !== 'Published') return false
+  if (computeIsPast(event.date, event.endTime, now)) return false
+  return isWithinPublicDisplayWindow(event.date, startOfDay(now))
 }
 
 /** Google Sheets formula helpers (column letters are examples — adjust to your sheet). */

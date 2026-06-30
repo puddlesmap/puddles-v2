@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { Event } from '../types/event'
 import type { EventOpenSource } from '../types/analytics'
 import { formatModalDate, formatModalTimeRange } from '../utils/dates'
@@ -53,6 +53,9 @@ function CloseStrokeIcon() {
 export function EventModal({ event, eventOpenSource, onClose }: EventModalProps) {
   const [showReportForm, setShowReportForm] = useState(false)
   const [reportSubmitted, setReportSubmitted] = useState(false)
+  const [headerCollapsed, setHeaderCollapsed] = useState(false)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const heroRef = useRef<HTMLImageElement>(null)
   const verified = new Date(event.verifiedDate + 'T12:00:00').toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -76,6 +79,36 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
       eventAnalyticsProps(event, { source: eventOpenSource ?? 'discovery' }),
     )
   }, [event.id, event.city, eventOpenSource])
+
+  function handleScroll() {
+    const scrollEl = scrollRef.current
+    const heroEl = heroRef.current
+    if (!scrollEl || !heroEl) return
+
+    const collapseAt = Math.max(heroEl.offsetHeight - 56, 80)
+    setHeaderCollapsed(scrollEl.scrollTop > collapseAt)
+  }
+
+  const headerActions = (
+    <div className="event-modal-header-actions">
+      <button
+        type="button"
+        onClick={() => void handleShare()}
+        className="event-modal-header-icon-btn"
+        aria-label="Share event"
+      >
+        <ShareStrokeIcon />
+      </button>
+      <button
+        type="button"
+        onClick={onClose}
+        className="event-modal-close-btn flex items-center justify-center"
+        aria-label="Close"
+      >
+        <CloseStrokeIcon />
+      </button>
+    </div>
+  )
 
   function handleAddToCalendar() {
     const ok = downloadEventIcs(event)
@@ -124,30 +157,33 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
         aria-modal="true"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative shrink-0">
-          <img src={event.imageUrl} alt="" className="aspect-[4/3] w-full object-cover" />
-          <div className="event-modal-header-actions absolute right-4 top-4 flex items-center">
-            <button
-              type="button"
-              onClick={() => void handleShare()}
-              className="event-modal-header-icon-btn"
-              aria-label="Share event"
-            >
-              <ShareStrokeIcon />
-            </button>
-            <button
-              type="button"
-              onClick={onClose}
-              className="event-modal-close-btn flex items-center justify-center"
-              aria-label="Close"
-            >
-              <CloseStrokeIcon />
-            </button>
-          </div>
+        <div
+          className={[
+            'event-modal-sticky-header',
+            headerCollapsed ? 'event-modal-sticky-header--collapsed' : 'event-modal-sticky-header--overlay',
+          ].join(' ')}
+        >
+          {headerCollapsed ? (
+            <h2 className="event-modal-sticky-title">{event.title}</h2>
+          ) : null}
+          {headerActions}
         </div>
 
-        <div className="flex-1 overflow-y-auto px-6 pb-44 pt-6">
-          <h2 className="event-detail-title">{event.title}</h2>
+        <div
+          ref={scrollRef}
+          className="event-modal-scroll flex-1 overflow-y-auto overscroll-contain"
+          onScroll={handleScroll}
+        >
+          <img
+            ref={heroRef}
+            src={event.imageUrl}
+            alt=""
+            className="event-modal-hero w-full object-cover"
+            onLoad={handleScroll}
+          />
+
+          <div className="event-modal-content px-6 pb-6 pt-6">
+            <h2 className="event-detail-title">{event.title}</h2>
 
           <div className="event-detail-row mt-2">
             <EventDetailIcon kind="time" />
@@ -250,9 +286,10 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
           <p className="event-detail-body">{event.description}</p>
 
           <EventRouteCard event={event} />
+          </div>
         </div>
 
-        <div className="event-modal-actions fixed inset-x-0 bottom-0 z-50 mx-auto max-w-lg border-t border-border bg-white px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+        <div className="event-modal-actions shrink-0 border-t border-border bg-white px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
           <button
             type="button"
             onClick={handleAddToCalendar}

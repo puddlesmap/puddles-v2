@@ -3,6 +3,11 @@ import { useMap } from 'react-leaflet'
 import L from 'leaflet'
 import type { Event } from '../../types/event'
 import { DEFAULT_MAP_CENTER, hasMapMovedFromBaseline } from '../../utils/mapBounds'
+import {
+  BROWSE_MAP_BOUNDS_PADDING,
+  BROWSE_MAP_DEFAULT_ZOOM,
+  BROWSE_MAP_SINGLE_EVENT_ZOOM,
+} from './mapViewConfig'
 
 interface MapSearchAreaDetectorProps {
   resetKey: string
@@ -67,17 +72,17 @@ export function MapFitEvents({
 
   useEffect(() => {
     if (events.length === 0) {
-      map.setView(DEFAULT_MAP_CENTER, 12)
+      map.setView(DEFAULT_MAP_CENTER, BROWSE_MAP_DEFAULT_ZOOM)
       return
     }
 
     if (events.length === 1) {
-      map.setView([events[0].lat, events[0].lng], 14)
+      map.setView([events[0].lat, events[0].lng], BROWSE_MAP_SINGLE_EVENT_ZOOM)
       return
     }
 
     const bounds = L.latLngBounds(events.map((event) => [event.lat, event.lng] as [number, number]))
-    map.fitBounds(bounds.pad(0.18), { animate: true })
+    map.fitBounds(bounds.pad(BROWSE_MAP_BOUNDS_PADDING), { animate: true })
   }, [events, resetKey, map])
 
   return null

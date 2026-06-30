@@ -2,13 +2,20 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import type { Event } from '../../types/event'
+import type { BrowseFilters } from '../../utils/filters'
+import { getBrowseResultsSummary } from '../../utils/browseResultsCopy'
 import { EventCard } from '../EventCard'
 import { MapControls } from './MapControls'
 import { MapInstanceCapture } from './MapInstanceCapture'
 import { MapFitEvents, MapSearchAreaDetector } from './MapSearchAreaDetector'
 import { MapUserLocation } from './MapUserLocation'
 import { createEventPinIcon } from './mapPins'
+import {
+  BROWSE_MAP_DEFAULT_ZOOM,
+  BROWSE_MAP_FOCUS_ZOOM,
+} from './mapViewConfig'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
+import { useBrowseMapListTwoColumn } from '../../hooks/useBrowseMapListTwoColumn'
 import { useUserLocation } from '../../hooks/useUserLocation'
 import {
   boundsBoxFromLeaflet,
@@ -21,6 +28,7 @@ import 'leaflet/dist/leaflet.css'
 interface BrowseMapViewProps {
   events: Event[]
   feedKey: string
+  browseFilters: BrowseFilters
   onOpenEvent: (event: Event) => void
 }
 
@@ -28,7 +36,7 @@ const MAP_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/
 const MAP_TILE_ATTRIBUTION =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
 
-const LOCAL_ZOOM = 14
+const LOCAL_ZOOM = BROWSE_MAP_FOCUS_ZOOM
 
 function MapResizeHandler() {
   const map = useMap()
@@ -101,7 +109,7 @@ function MapTileLayer() {
   )
 }
 
-export function BrowseLeafletMapView({ events, feedKey, onOpenEvent }: BrowseMapViewProps) {
+export function BrowseLeafletMapView({ events, feedKey, browseFilters, onOpenEvent }: BrowseMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
     useUserLocation()
@@ -114,7 +122,9 @@ export function BrowseLeafletMapView({ events, feedKey, onOpenEvent }: BrowseMap
   const [locateTrigger, setLocateTrigger] = useState(0)
   const [searchGeneration, setSearchGeneration] = useState(0)
   const listRef = useRef<HTMLDivElement>(null)
+  const resultsRef = useRef<HTMLElement>(null)
   const cardRefs = useRef<Record<string, HTMLDivElement | null>>({})
+  const isTwoColumnMapList = useBrowseMapListTwoColumn(resultsRef)
   const [leafletMap, setLeafletMap] = useState<L.Map | null>(null)
 
   const handleMapReady = useCallback((map: L.Map) => {
@@ -283,18 +293,23 @@ export function BrowseLeafletMapView({ events, feedKey, onOpenEvent }: BrowseMap
   }
 
   const eventCount = displayEvents.length
+  const resultsSummary = getBrowseResultsSummary(
+    eventCount,
+    browseFilters.city,
+    browseFilters.day,
+  )
 
   if (isMobile) {
     return (
       <div key={feedKey} className="browse-map-shell browse-map-shell--mobile browse-map-enter">
         <p className="browse-map-results-count layout-container">
-          {eventCount} {eventCount === 1 ? 'event' : 'events'}
+          {resultsSummary}
         </p>
 
         <div className="browse-map-panel-mobile">
           <MapContainer
             center={mapCenter}
-            zoom={12}
+            zoom={BROWSE_MAP_DEFAULT_ZOOM}
             className="browse-map-canvas"
             scrollWheelZoom
             zoomControl={false}
@@ -346,11 +361,9 @@ export function BrowseLeafletMapView({ events, feedKey, onOpenEvent }: BrowseMap
   return (
     <div key={feedKey} className="browse-map-shell browse-map-enter">
       <div className="browse-map-split">
-        <aside className="browse-map-results">
+        <aside ref={resultsRef} className="browse-map-results">
           <div className="browse-map-results-inner">
-            <p className="browse-results-count">
-              {eventCount} {eventCount === 1 ? 'event' : 'events'}
-            </p>
+            <p className="browse-results-count">{resultsSummary}</p>
             <div ref={listRef} className="browse-map-grid">
               {displayEvents.length === 0 ? (
                 <p className="browse-map-empty">No events in this map area.</p>
@@ -371,7 +384,7 @@ export function BrowseLeafletMapView({ events, feedKey, onOpenEvent }: BrowseMap
                     >
                       <EventCard
                         event={event}
-                        variant="map-grid"
+                        variant={isTwoColumnMapList ? 'grid' : 'map-grid'}
                         discovery
                         selected={isSelected}
                         hovered={isHovered}
@@ -388,7 +401,7 @@ export function BrowseLeafletMapView({ events, feedKey, onOpenEvent }: BrowseMap
         <div className="browse-map-map">
           <MapContainer
             center={mapCenter}
-            zoom={12}
+            zoom={BROWSE_MAP_DEFAULT_ZOOM}
             className="browse-map-canvas"
             scrollWheelZoom
             zoomControl={false}

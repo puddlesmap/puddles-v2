@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { MOCK_EVENTS } from '../data/events'
+import { getPublicEventsFromCatalog } from '../data/events'
 import { EventCard } from '../components/EventCard'
 import { FilterChipButton } from '../components/FilterChipButton'
 import { FilterPopover, type FilterPopoverType } from '../components/FilterPopover'
@@ -15,7 +15,15 @@ import { BrowseEmptyState } from '../components/empty-states/BrowseEmptyState'
 import { BrowseMapView } from '../components/browse/BrowseMapView'
 import { useScrollDirectionCollapse } from '../hooks/useScrollDirection'
 import { useUserLocation } from '../hooks/useUserLocation'
-import { filterEvents, getResetBrowseFilters, hasActiveBrowseFilters } from '../utils/filters'
+import {
+  filterEvents,
+  getBrowseActivityChipLabel,
+  getBrowseAgeChipLabel,
+  getBrowseSeeUpcomingFilters,
+  getResetBrowseFilters,
+  isBrowseFiltersDefault,
+  type BrowseFilters,
+} from '../utils/filters'
 import {
   NEARBY_RADIUS_MILES,
   filterEventsByRadius,
@@ -27,7 +35,7 @@ import {
   trackBrowseNearbyDenied,
   trackBrowseNearbySelect,
 } from '../utils/analytics'
-import { getBrowseResultsSummary } from '../utils/browseResultsCopy'
+import { getBrowseEventNoun, getBrowseResultsSummary } from '../utils/browseResultsCopy'
 import {
   HOME_HEADER_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC,
@@ -140,7 +148,7 @@ export function BrowsePage({
   }, [browseFilters, coords, isRequesting, requestLocation, setBrowseFilters])
 
   const events = useMemo(() => {
-    const base = filterEvents(MOCK_EVENTS, { browse: browseFilters })
+    const base = filterEvents(getPublicEventsFromCatalog(), { browse: browseFilters })
 
     if (browseFilters.city === 'nearby' && coords) {
       return sortEventsByDistance(
@@ -153,13 +161,13 @@ export function BrowsePage({
   }, [browseFilters, coords])
 
   const awaitingNearby = browseFilters.city === 'nearby' && !coords
-  const showReset = hasActiveBrowseFilters(browseFilters)
+  const showReset = !isBrowseFiltersDefault(browseFilters)
   const locationLabel = getBrowseLocationLabel(browseFilters.city)
 
   const resultsSummary =
     resultsCountStyle === 'contextual'
-      ? getBrowseResultsSummary(events.length, browseFilters.city)
-      : `${events.length} ${events.length === 1 ? 'event' : 'events'}`
+      ? getBrowseResultsSummary(events.length, browseFilters.city, browseFilters.day)
+      : `${events.length} ${getBrowseEventNoun(events.length, browseFilters.day)}`
 
   const feedKey = useMemo(
     () =>
@@ -176,6 +184,16 @@ export function BrowsePage({
     [browseFilters, coords, viewMode],
   )
 
+  function countBrowseEvents(filters: BrowseFilters) {
+    const base = filterEvents(getPublicEventsFromCatalog(), { browse: filters })
+
+    if (filters.city === 'nearby' && coords) {
+      return filterEventsByRadius(base, coords, NEARBY_RADIUS_MILES).length
+    }
+
+    return base.length
+  }
+
   function resetFilters() {
     track('browse_filters_reset')
     setBrowseFilters(getResetBrowseFilters(browseFilters))
@@ -186,8 +204,9 @@ export function BrowsePage({
     setBrowseFilters({ ...browseFilters, city: 'all', cityLocked: false })
   }
 
-  function tryAnotherDay() {
-    setBrowseFilters({ ...browseFilters, day: 'anytime' })
+  function seeUpcomingEvents() {
+    track('browse_see_upcoming_events')
+    setBrowseFilters(getBrowseSeeUpcomingFilters(browseFilters, countBrowseEvents))
   }
 
   function handleViewModeChange(mode: 'list' | 'map') {
@@ -219,7 +238,7 @@ export function BrowsePage({
   }> = [
     {
       key: 'day' as const,
-      label: browseFilters.day !== 'anytime' ? DAY_LABELS[browseFilters.day] : 'Day',
+      label: browseFilters.day !== 'anytime' ? DAY_LABELS[browseFilters.day] : 'Upcoming',
       active: browseFilters.day !== 'anytime',
     },
     {
@@ -229,14 +248,13 @@ export function BrowsePage({
     },
     {
       key: 'age' as const,
-      label: browseFilters.age !== 'all' ? browseFilters.age : 'Age',
+      label: getBrowseAgeChipLabel(browseFilters.age),
       active: browseFilters.age !== 'all',
     },
     {
       key: 'type' as const,
-      label: 'Type',
+      label: getBrowseActivityChipLabel(browseFilters.types),
       active: browseFilters.types.length > 0,
-      selectionCount: browseFilters.types.length,
     },
   ]
 
@@ -307,6 +325,7 @@ export function BrowsePage({
         <BrowseMapView
           events={events}
           feedKey={feedKey}
+          browseFilters={browseFilters}
           onOpenEvent={(event) => openEvent(event, 'browse_map')}
         />
       ) : (
@@ -322,7 +341,7 @@ export function BrowsePage({
                   filters={browseFilters}
                   onResetFilters={setBrowseFilters}
                   onTryAllCities={tryAllCities}
-                  onTryAnotherDay={tryAnotherDay}
+                  onSeeUpcomingEvents={seeUpcomingEvents}
                 />
               ) : (
                 <div className="browse-event-grid">

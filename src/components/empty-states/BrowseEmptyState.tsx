@@ -13,14 +13,14 @@ interface BrowseEmptyStateProps {
   filters: BrowseFilters
   onResetFilters: (filters: BrowseFilters) => void
   onTryAllCities: () => void
-  onTryAnotherDay: () => void
+  onSeeUpcomingEvents: () => void
 }
 
 export function BrowseEmptyState({
   filters,
   onResetFilters,
   onTryAllCities,
-  onTryAnotherDay,
+  onSeeUpcomingEvents,
 }: BrowseEmptyStateProps) {
   const emptyCase = resolveBrowseEmptyStateCase(filters)
   const timeLabel = getBrowseEmptyStateTimeLabel(filters)
@@ -45,20 +45,12 @@ export function BrowseEmptyState({
     return (
       <QuietEmptyStateShell
         primary="No puddles found here yet"
-        body="Try another day, a nearby city, or reset your filters."
+        body="See what's coming up next, or reset your filters to browse everything."
         actions={
-          <>
-            <button
-              type="button"
-              onClick={() => onResetFilters(getResetBrowseFilters(filters))}
-              className="btn-primary w-full sm:w-auto"
-            >
-              Reset filters
-            </button>
-            <Link to="/share" className="btn-secondary w-full sm:w-auto">
-              Share with us
-            </Link>
-          </>
+          <BrowseRecoveryActions
+            onSeeUpcomingEvents={onSeeUpcomingEvents}
+            onResetFilters={() => onResetFilters(getResetBrowseFilters(filters))}
+          />
         }
       />
     )
@@ -75,13 +67,20 @@ export function BrowseEmptyState({
         primary={primary}
         body={
           filters.city === 'nearby'
-            ? "We're still gathering puddles nearby. Try all cities or check another day."
-            : "We're still gathering puddles here. Try all cities or check another day."
+            ? "We're still gathering puddles nearby. Try all cities or see what's coming up next."
+            : "We're still gathering puddles here. Try all cities or see what's coming up next."
         }
         actions={
           <>
             <button type="button" onClick={onTryAllCities} className="btn-primary w-full sm:w-auto">
               Try all cities
+            </button>
+            <button
+              type="button"
+              onClick={onSeeUpcomingEvents}
+              className="btn-secondary w-full sm:w-auto"
+            >
+              See upcoming events
             </button>
             <Link to="/share" className="btn-secondary w-full sm:w-auto">
               Share with us
@@ -96,23 +95,12 @@ export function BrowseEmptyState({
     return (
       <QuietEmptyStateShell
         primary={`Nothing for ${timeLabel} yet`}
-        body="Try another day, all cities, or reset your filters to see more options."
+        body="See what's coming up next, or reset your filters to browse everything."
         actions={
-          <>
-            <button type="button" onClick={onTryAnotherDay} className="btn-primary w-full sm:w-auto">
-              Try another day
-            </button>
-            <button
-              type="button"
-              onClick={() => onResetFilters(getResetBrowseFilters(filters))}
-              className="btn-secondary w-full sm:w-auto"
-            >
-              Reset filters
-            </button>
-            <Link to="/share" className="btn-secondary w-full sm:w-auto">
-              Share with us
-            </Link>
-          </>
+          <BrowseRecoveryActions
+            onSeeUpcomingEvents={onSeeUpcomingEvents}
+            onResetFilters={() => onResetFilters(getResetBrowseFilters(filters))}
+          />
         }
       />
     )
@@ -122,22 +110,36 @@ export function BrowseEmptyState({
     <QuietEmptyStateShell
       showPin
       primary="We're still gathering puddles here"
-      body="Try another day, a nearby city, or check back soon."
+      body="See what's coming up next, or reset your filters to browse everything."
       actions={
-        <>
-          <button
-            type="button"
-            onClick={() => onResetFilters(getResetBrowseFilters(filters))}
-            className="btn-primary w-full sm:w-auto"
-          >
-            Reset filters
-          </button>
-          <Link to="/share" className="btn-secondary w-full sm:w-auto">
-            Share with us
-          </Link>
-        </>
+        <BrowseRecoveryActions
+          onSeeUpcomingEvents={onSeeUpcomingEvents}
+          onResetFilters={() => onResetFilters(getResetBrowseFilters(filters))}
+        />
       }
     />
+  )
+}
+
+function BrowseRecoveryActions({
+  onSeeUpcomingEvents,
+  onResetFilters,
+}: {
+  onSeeUpcomingEvents: () => void
+  onResetFilters: () => void
+}) {
+  return (
+    <>
+      <button type="button" onClick={onSeeUpcomingEvents} className="btn-primary w-full sm:w-auto">
+        See upcoming events
+      </button>
+      <button type="button" onClick={onResetFilters} className="btn-secondary w-full sm:w-auto">
+        Reset filters
+      </button>
+      <Link to="/share" className="btn-secondary w-full sm:w-auto">
+        Share with us
+      </Link>
+    </>
   )
 }
 

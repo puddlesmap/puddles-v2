@@ -10,7 +10,23 @@ interface EventCardProps {
   discovery?: boolean
 }
 
-function EventCardPills({ event }: { event: Event }) {
+function EventCardPills({
+  event,
+  mode = 'full',
+}: {
+  event: Event
+  mode?: 'full' | 'free-only'
+}) {
+  if (mode === 'free-only') {
+    if (event.cost !== 'Free') return null
+
+    return (
+      <div className="event-card-pills" aria-hidden>
+        <span className="event-card-pill event-card-pill--free">Free</span>
+      </div>
+    )
+  }
+
   const pills: Array<{ key: string; label: string; tone?: 'category' | 'free' }> = []
 
   const category = event.types[0]
@@ -96,7 +112,7 @@ export function EventCard({
             className="card-listing-image"
             loading="lazy"
           />
-          <EventCardPills event={event} />
+          <EventCardPills event={event} mode="free-only" />
         </div>
         <div
           className={

@@ -22,10 +22,15 @@ export const ALL_SHOWCASE_EVENTS: Event[] = includeShowcaseEvents
 export const ALL_EVENTS: Event[] = [...ALL_SHOWCASE_EVENTS, ...ALL_SHEET_EVENTS]
 
 /**
- * Public website events — Events tab only, Is Live = TRUE.
+ * Public website events — Published, upcoming, and within the rolling display window.
  * Used by Discovery, Browse (list + map), Event Details, and calendar actions.
  */
-export const LIVE_EVENTS: Event[] = ALL_EVENTS.filter(isPublicEvent)
+export function getPublicEventsFromCatalog(now: Date = new Date()): Event[] {
+  return ALL_EVENTS.filter((event) => isPublicEvent(event, now))
+}
 
-/** @deprecated Prefer LIVE_EVENTS — kept for existing imports. */
+/** Snapshot at module load — prefer getPublicEventsFromCatalog() when freshness matters. */
+export const LIVE_EVENTS: Event[] = getPublicEventsFromCatalog()
+
+/** @deprecated Prefer getPublicEventsFromCatalog() or LIVE_EVENTS — kept for existing imports. */
 export const MOCK_EVENTS: Event[] = LIVE_EVENTS

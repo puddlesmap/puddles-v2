@@ -145,6 +145,15 @@
   margin-top: 0.125rem;
 }
 
+.about-page .about-intro-brand-name {
+  color: var(--color-brand);
+}
+
+.about-page .about-intro-brand-tag {
+  font-style: italic;
+  color: color-mix(in srgb, var(--color-brand) 80%, white);
+}
+
 .about-page .about-intro-art-wrap {
   display: block;
   width: 100%;

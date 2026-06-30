@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Map } from '@vis.gl/react-google-maps'
 import type { Event } from '../../types/event'
+import type { BrowseFilters } from '../../utils/filters'
+import { getBrowseResultsSummary } from '../../utils/browseResultsCopy'
 import { EventCard } from '../EventCard'
 import { GoogleMapProvider } from '../maps/GoogleMapProvider'
 import { EventGoogleMarker } from './EventGoogleMarker'
@@ -14,6 +16,7 @@ import {
 } from './GoogleMapBehaviors'
 import { MapControls } from './MapControls'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
+import { useBrowseMapListTwoColumn } from '../../hooks/useBrowseMapListTwoColumn'
 import { useUserLocation } from '../../hooks/useUserLocation'
 import {
   filterEventsInBounds,
@@ -21,14 +24,16 @@ import {
   getEventsWithCoordinates,
 } from '../../utils/mapBounds'
 import { boundsBoxFromGoogle, MUTED_GOOGLE_MAP_STYLES } from '../../utils/googleMaps'
+import { BROWSE_MAP_DEFAULT_ZOOM } from './mapViewConfig'
 
 interface BrowseGoogleMapViewProps {
   events: Event[]
   feedKey: string
+  browseFilters: BrowseFilters
   onOpenEvent: (event: Event) => void
 }
 
-export function BrowseGoogleMapView({ events, feedKey, onOpenEvent }: BrowseGoogleMapViewProps) {
+export function BrowseGoogleMapView({ events, feedKey, browseFilters, onOpenEvent }: BrowseGoogleMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
     useUserLocation()
@@ -41,7 +46,9 @@ export function BrowseGoogleMapView({ events, feedKey, onOpenEvent }: BrowseGoog
   const [locateTrigger, setLocateTrigger] = useState(0)
   const [searchGeneration, setSearchGeneration] = useState(0)
   const listRef = useRef<HTMLDivElement>(null)
+  const resultsRef = useRef<HTMLElement>(null)
   const cardRefs = useRef<Record<string, HTMLDivElement | null>>({})
+  const isTwoColumnMapList = useBrowseMapListTwoColumn(resultsRef)
   const [googleMap, setGoogleMap] = useState<google.maps.Map | null>(null)
 
   const handleMapReady = useCallback((map: google.maps.Map) => {
@@ -221,7 +228,7 @@ export function BrowseGoogleMapView({ events, feedKey, onOpenEvent }: BrowseGoog
     return (
       <Map
         defaultCenter={{ lat: mapCenter[0], lng: mapCenter[1] }}
-        defaultZoom={12}
+        defaultZoom={BROWSE_MAP_DEFAULT_ZOOM}
         className={className}
         gestureHandling="greedy"
         disableDefaultUI
@@ -235,11 +242,16 @@ export function BrowseGoogleMapView({ events, feedKey, onOpenEvent }: BrowseGoog
   }
 
   const eventCount = displayEvents.length
+  const resultsSummary = getBrowseResultsSummary(
+    eventCount,
+    browseFilters.city,
+    browseFilters.day,
+  )
 
   const mapContent = isMobile ? (
     <div key={feedKey} className="browse-map-shell browse-map-shell--mobile browse-map-enter">
       <p className="browse-map-results-count layout-container">
-        {eventCount} {eventCount === 1 ? 'event' : 'events'}
+        {resultsSummary}
       </p>
 
       <div className="browse-map-panel-mobile">
@@ -288,11 +300,9 @@ export function BrowseGoogleMapView({ events, feedKey, onOpenEvent }: BrowseGoog
   ) : (
     <div key={feedKey} className="browse-map-shell browse-map-enter">
       <div className="browse-map-split">
-        <aside className="browse-map-results">
+        <aside ref={resultsRef} className="browse-map-results">
           <div className="browse-map-results-inner">
-            <p className="browse-results-count">
-              {eventCount} {eventCount === 1 ? 'event' : 'events'}
-            </p>
+            <p className="browse-results-count">{resultsSummary}</p>
             <div ref={listRef} className="browse-map-grid">
               {displayEvents.length === 0 ? (
                 <p className="browse-map-empty">No events in this map area.</p>
@@ -313,7 +323,7 @@ export function BrowseGoogleMapView({ events, feedKey, onOpenEvent }: BrowseGoog
                     >
                       <EventCard
                         event={event}
-                        variant="map-grid"
+                        variant={isTwoColumnMapList ? 'grid' : 'map-grid'}
                         discovery
                         selected={isSelected}
                         hovered={isHovered}

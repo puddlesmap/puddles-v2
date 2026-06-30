@@ -35,7 +35,7 @@ function ShareSideIntro({ tab }: { tab: ShareTab }) {
     <div className="share-side-intro">
       <div className="share-page-activity-intro">
         <p className="share-page-body">
-          Found a great local activity? Drop it here for nearby families!
+          Know a great local activity? Share it with nearby families.
         </p>
         <div className="share-page-body-muted share-page-activity-details">
           <p className="share-page-activity-details-lead">

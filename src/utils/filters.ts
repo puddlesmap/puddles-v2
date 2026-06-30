@@ -1,8 +1,8 @@
-import { MOCK_EVENTS } from '../data/events'
+import { getPublicEventsFromCatalog } from '../data/events'
 import type { AgeFilter, DayFilter, Event, TimeFilter, ActivityType } from '../types/event'
 import type { TemporalTab } from './dates'
 import { getAnchorDate, dateInDayFilter, dateInTemporalTab, timeInBucket } from './dates'
-import { computeIsPast } from './publishing'
+import { isPublicEvent } from './publishing'
 
 export interface BrowseFilters {
   city: string
@@ -46,7 +46,7 @@ export function filterEvents(
   const { city = 'all', temporalTab, browse } = opts
 
   return events.filter((event) => {
-    if (computeIsPast(event.date, event.endTime)) return false
+    if (!isPublicEvent(event)) return false
 
     if (!matchesCity(event, city)) return false
 
@@ -68,7 +68,7 @@ export function filterEvents(
 }
 
 export function getFilteredCount(browse: BrowseFilters): number {
-  return filterEvents(MOCK_EVENTS, { browse }).length
+  return filterEvents(getPublicEventsFromCatalog(), { browse }).length
 }
 
 export function hasActiveBrowseFilters(browse: BrowseFilters): boolean {
@@ -80,15 +80,66 @@ export function hasActiveBrowseFilters(browse: BrowseFilters): boolean {
   )
 }
 
-export function getResetBrowseFilters(current: BrowseFilters): BrowseFilters {
+export function isBrowseFiltersDefault(browse: BrowseFilters): boolean {
+  return (
+    browse.city === 'all' &&
+    browse.day === 'anytime' &&
+    browse.time === 'any' &&
+    browse.age === 'all' &&
+    browse.types.length === 0
+  )
+}
+
+const AGE_CHIP_LABELS: Record<Exclude<AgeFilter, 'all'>, string> = {
+  '0-2': 'Age 0–2',
+  '2-5': 'Age 2–5',
+  '5+': 'Age 5+',
+}
+
+export function getBrowseAgeChipLabel(age: AgeFilter): string {
+  if (age === 'all') return 'Age'
+  return AGE_CHIP_LABELS[age]
+}
+
+export function getBrowseActivityChipLabel(types: ActivityType[]): string {
+  if (types.length === 0) return 'Activity'
+  if (types.length === 1) return types[0]
+  return `${types.length} activities`
+}
+
+export function getResetBrowseFilters(_current: BrowseFilters): BrowseFilters {
   return {
-    city: current.cityLocked ? current.city : 'all',
-    cityLocked: current.cityLocked,
-    day: 'today',
+    city: 'all',
+    cityLocked: false,
+    day: 'anytime',
     time: 'any',
     age: 'all',
     types: [],
   }
+}
+
+export function getBrowseSeeUpcomingFilters(
+  current: BrowseFilters,
+  countFor: (filters: BrowseFilters) => number,
+): BrowseFilters {
+  let next: BrowseFilters = { ...current, day: 'anytime' }
+  if (countFor(next) > 0) return next
+
+  if (next.time !== 'any') {
+    next = { ...next, time: 'any' }
+    if (countFor(next) > 0) return next
+  }
+
+  if (next.age !== 'all' || next.types.length > 0) {
+    next = { ...next, age: 'all', types: [] }
+    if (countFor(next) > 0) return next
+  }
+
+  if (!current.cityLocked && next.city !== 'all') {
+    next = { ...next, city: 'all', cityLocked: false }
+  }
+
+  return next
 }
 
 const DAY_LABELS: Record<DayFilter, string> = {
@@ -114,7 +165,7 @@ export type BrowseEmptyStateCase =
   | 'no-database'
 
 export function resolveBrowseEmptyStateCase(filters: BrowseFilters): BrowseEmptyStateCase {
-  if (MOCK_EVENTS.length === 0) return 'no-database'
+  if (getPublicEventsFromCatalog().length === 0) return 'no-database'
   if (isOnlyCityFilter(filters)) return 'city'
   if (isOnlyDayFilter(filters) || isOnlyTimeFilter(filters)) return 'time-window'
   if (hasActiveBrowseFilters(filters)) return 'filters-active'

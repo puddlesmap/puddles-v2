@@ -2087,7 +2087,10 @@ select.input-field,
   --browse-map-offset: 10.75rem;
   --browse-map-card-min: 240px;
   --browse-map-card-max: 300px;
-  --browse-map-split-gap: 24px;
+  --browse-map-split-gap: 20px;
+  --browse-map-list-min: 0px;
+  --browse-map-list-width: 20rem;
+  --browse-map-mobile-sheet-height: 9.5rem;
   width: 100%;
 }
 
@@ -2108,7 +2111,15 @@ select.input-field,
 @media (min-width: 768px) {
   .browse-map-shell {
     --browse-map-offset: 11.5rem;
-    --browse-map-split-gap: 28px;
+    --browse-map-split-gap: 24px;
+    --browse-map-list-width: clamp(22rem, 32vw, 28rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  .browse-map-shell {
+    --browse-map-list-min: 40rem;
+    --browse-map-list-width: 720px;
   }
 }
 
@@ -2137,7 +2148,7 @@ select.input-field,
   color: var(--color-muted);
 }
 
-/* Desktop/tablet split view */
+/* Desktop/tablet split — fixed list width so cards never crush; map takes the rest */
 .browse-map-split {
   display: grid;
   width: 100%;
@@ -2146,13 +2157,9 @@ select.input-field,
   border-top: 1px solid var(--color-border);
   overflow: hidden;
   column-gap: var(--browse-map-split-gap);
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 46vw);
-}
-
-@media (min-width: 1024px) {
-  .browse-map-split {
-    grid-template-columns: minmax(0, 1.12fr) minmax(440px, 44vw);
-  }
+  grid-template-columns:
+    minmax(var(--browse-map-list-min), var(--browse-map-list-width))
+    minmax(0, 1fr);
 }
 
 .browse-map-results {
@@ -2161,6 +2168,8 @@ select.input-field,
   min-height: 0;
   overflow: hidden;
   background: #fff;
+  container-type: inline-size;
+  container-name: browse-map-list;
 }
 
 .browse-map-results-inner {
@@ -2169,7 +2178,7 @@ select.input-field,
   height: 100%;
   min-height: 0;
   flex-direction: column;
-  padding-left: var(--layout-align-start);
+  padding-left: 0;
   padding-right: 0;
 }
 
@@ -2186,9 +2195,9 @@ select.input-field,
   overflow-x: hidden;
   padding: 0.25rem 0.25rem 1.5rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--browse-map-card-min), 1fr));
+  grid-template-columns: 1fr;
   align-items: start;
-  gap: 1.25rem 1rem;
+  gap: 0.875rem;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -2200,7 +2209,7 @@ select.input-field,
 
 .browse-map-card-slot .card-listing--map-grid {
   width: 100%;
-  max-width: var(--browse-map-card-max);
+  max-width: none;
 }
 
 .browse-map-map,
@@ -2216,6 +2225,8 @@ select.input-field,
   height: 100%;
   margin: 0;
   padding: 0;
+  border-radius: var(--radius-card);
+  overflow: hidden;
 }
 
 .browse-map-panel-mobile {
@@ -2408,7 +2419,7 @@ select.input-field,
   }
 
   .browse-map-panel-mobile:has(.browse-map-preview-sheet) .browse-map-control-stack {
-    bottom: calc(3.75rem + 11.5rem + env(safe-area-inset-bottom));
+    bottom: calc(3.75rem + var(--browse-map-mobile-sheet-height) + 0.5rem + env(safe-area-inset-bottom));
   }
 
   .browse-map-panel-mobile:has(.browse-map-preview-sheet) .browse-map-search-area-btn {
@@ -2417,7 +2428,7 @@ select.input-field,
 
   /* Legacy selector — preview sheet wraps .browse-map-preview */
   .browse-map-panel-mobile:has(.browse-map-preview) .browse-map-control-stack {
-    bottom: calc(3.75rem + 11.5rem + env(safe-area-inset-bottom));
+    bottom: calc(3.75rem + var(--browse-map-mobile-sheet-height) + 0.5rem + env(safe-area-inset-bottom));
   }
 }
 
@@ -2538,6 +2549,12 @@ select.input-field,
   border: none !important;
 }
 
+.puddles-event-marker-wrap {
+  /* Invisible padding keeps small pins easy to tap on mobile. */
+  padding: 6px;
+  margin: -6px;
+}
+
 .puddles-event-marker-wrap,
 .puddles-user-location-marker-wrap {
   display: flex;
@@ -2547,9 +2564,9 @@ select.input-field,
 
 .puddles-event-marker {
   display: block;
-  width: 28px;
-  height: 44px;
-  filter: drop-shadow(0 2px 4px rgb(34 34 34 / 0.14));
+  width: 22px;
+  height: 35px;
+  filter: drop-shadow(0 1px 3px rgb(34 34 34 / 0.12));
   transition:
     transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
     filter 0.18s cubic-bezier(0.22, 1, 0.36, 1),
@@ -2566,17 +2583,17 @@ select.input-field,
 }
 
 .puddles-event-marker--hover {
-  width: 30px;
-  height: 47px;
+  width: 24px;
+  height: 38px;
   transform: translateY(-1px);
-  filter: drop-shadow(0 3px 7px rgb(34 34 34 / 0.18));
+  filter: drop-shadow(0 2px 5px rgb(34 34 34 / 0.16));
 }
 
 .puddles-event-marker--selected {
-  width: 36px;
-  height: 57px;
+  width: 28px;
+  height: 44px;
   transform: translateY(-2px);
-  filter: drop-shadow(0 4px 10px rgb(34 34 34 / 0.2));
+  filter: drop-shadow(0 3px 8px rgb(34 34 34 / 0.18));
   animation: map-pin-pulse 2s ease-in-out infinite;
 }
 

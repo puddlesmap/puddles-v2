@@ -1,6 +1,8 @@
 import { AboutIllustration } from '../AboutIllustration'
 import { AboutIntroNarrative } from './AboutIntroNarrative'
 import {
+  ABOUT_BRAND_NAME,
+  ABOUT_BRAND_TAG,
   ABOUT_HERO_ART,
   ABOUT_LEAD_LINES,
 } from '../../pages/aboutShared'
@@ -17,7 +19,12 @@ export function AboutStoryIntro() {
       <div className="about-intro-body">
         <div className="about-intro-copy">
           <p className="about-intro-lead">
-            {ABOUT_LEAD_LINES.map((line) => (
+            <span className="about-intro-lead-line">
+              <span className="about-intro-brand-name">{ABOUT_BRAND_NAME}</span>
+              <span className="about-intro-brand-tag">{ABOUT_BRAND_TAG}</span>
+              {' started with a simple question:'}
+            </span>
+            {ABOUT_LEAD_LINES.slice(1).map((line) => (
               <span key={line} className="about-intro-lead-line">
                 {line}
               </span>

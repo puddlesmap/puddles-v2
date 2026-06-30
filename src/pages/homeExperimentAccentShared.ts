@@ -49,4 +49,4 @@ export const HOME_EXPERIMENT_REFINED_SUPPORTING_LINE =
 export const HOME_EXPERIMENT_REFINED_CTA_TITLE = 'Know a small local moment?'
 
 export const HOME_EXPERIMENT_REFINED_CTA_BODY =
-  'Share a storytime, a parent-friendly tip, or ideas for Puddles.'
+  'Share a storytime, a parent-friendly tip, or an idea for Puddles.'

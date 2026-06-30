@@ -4,16 +4,17 @@ export const EVENT_MARKER_SRC = '/spotlight-marker-large.png'
 
 const MARKER_ASPECT = 44 / 28
 
-function eventPinDimensions(selected: boolean, hovered: boolean) {
+export function getEventPinDimensions(selected: boolean, hovered: boolean) {
   if (selected) {
-    const width = 36
+    const width = 28
     return { width, height: Math.round(width * MARKER_ASPECT) }
   }
   if (hovered) {
-    const width = 30
+    const width = 24
     return { width, height: Math.round(width * MARKER_ASPECT) }
   }
-  return { width: 28, height: 44 }
+  const width = 22
+  return { width, height: Math.round(width * MARKER_ASPECT) }
 }
 
 function eventPinHtml(selected: boolean, hovered: boolean) {
@@ -29,7 +30,7 @@ function eventPinHtml(selected: boolean, hovered: boolean) {
 }
 
 export function createEventPinIcon(selected: boolean, hovered: boolean) {
-  const { width, height } = eventPinDimensions(selected, hovered)
+  const { width, height } = getEventPinDimensions(selected, hovered)
 
   return L.divIcon({
     className: 'puddles-event-marker-wrap',

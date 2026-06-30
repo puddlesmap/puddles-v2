@@ -1,5 +1,8 @@
 import type { DayFilter } from '../types/event'
 
+/** Rolling public calendar window — today through this many days ahead (inclusive). */
+export const PUBLIC_DISPLAY_WINDOW_DAYS = 60
+
 /** Optional demo override: VITE_ANCHOR_DATE=2026-06-05 */
 export function getAnchorDate(): Date {
   const override = import.meta.env.VITE_ANCHOR_DATE
@@ -176,7 +179,7 @@ export function dateInThisWeekend(dateStr: string, anchor = getAnchorDate()): bo
 
 export type TemporalTab = 'today' | 'tomorrow' | 'weekend'
 
-/** Compact date line under When pills on Discovery (e.g. Sat, Jun 20 · Sat–Sun). */
+/** Compact date line under When pills (e.g. Mon, Jun 29 · Sat, Jul 4 – Sun, Jul 5). */
 export function getTemporalTabSubLabel(tab: TemporalTab, anchor = getAnchorDate()): string {
   const today = startOfDay(anchor)
   const tomorrow = startOfDay(addDays(anchor, 1))
@@ -184,8 +187,7 @@ export function getTemporalTabSubLabel(tab: TemporalTab, anchor = getAnchorDate(
   if (tab === 'today') return formatShortDate(today)
   if (tab === 'tomorrow') return formatShortDate(tomorrow)
 
-  if (anchor.getDay() === 0) return formatShortDate(today)
-  return 'Sat–Sun'
+  return getThisWeekendRange(anchor).label
 }
 
 export function getTemporalTabs(anchor = getAnchorDate()) {
@@ -229,12 +231,12 @@ export function dateInDayFilter(dateStr: string, filter: DayFilter, anchor = get
   if (Number.isNaN(d.getTime())) return false
   const today = startOfDay(anchor)
   const tomorrow = startOfDay(addDays(anchor, 1))
-  const twoMonths = startOfDay(addDays(anchor, 60))
+  const lastVisibleDay = startOfDay(addDays(anchor, PUBLIC_DISPLAY_WINDOW_DAYS))
 
   if (filter === 'today') return d.getTime() === today.getTime()
   if (filter === 'tomorrow') return d.getTime() === tomorrow.getTime()
   if (filter === 'weekend') return dateInThisWeekend(dateStr, anchor)
-  return d >= today && d <= twoMonths
+  return d >= today && d <= lastVisibleDay
 }
 
 export function timeInBucket(startTime: string, bucket: string): boolean {

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { CommunityCtaCard } from '../components/brand/CommunityCtaCard'
-import { MOCK_EVENTS } from '../data/events'
+import { getPublicEventsFromCatalog } from '../data/events'
 import { EventCard } from '../components/EventCard'
 import { DiscoveryEmptyState } from '../components/empty-states/DiscoveryEmptyState'
 import {
@@ -201,12 +201,12 @@ export function HomeExperimentPage({
   const cityFilter = whereMode.kind === 'city' ? whereMode.value : 'all'
 
   useEffect(() => {
-    const pool = filterEvents(MOCK_EVENTS, { city: cityFilter === 'all' ? 'all' : cityFilter })
+    const pool = filterEvents(getPublicEventsFromCatalog(), { city: cityFilter === 'all' ? 'all' : cityFilter })
     setLocalTemporalTab(getFirstTemporalTabWithEvents(pool))
   }, [cityFilter])
 
   const events = useMemo(() => {
-    const base = filterEvents(MOCK_EVENTS, {
+    const base = filterEvents(getPublicEventsFromCatalog(), {
       city: whereMode.kind === 'city' && whereMode.value !== 'all' ? whereMode.value : 'all',
       temporalTab,
     })

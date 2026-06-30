@@ -2,7 +2,7 @@ import { Fragment, useEffect, useMemo, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { CommunityCtaCard } from '../components/brand/CommunityCtaCard'
 import { DiscoveryMapPreview } from '../components/discovery/DiscoveryMapPreview'
-import { MOCK_EVENTS } from '../data/events'
+import { getPublicEventsFromCatalog } from '../data/events'
 import { EventCard } from '../components/EventCard'
 import { DiscoveryEmptyState } from '../components/empty-states/DiscoveryEmptyState'
 import { DiscoveryFilterChip } from '../components/filters/DiscoveryFilterChip'
@@ -32,7 +32,7 @@ interface DiscoveryPageProps {
   experimentNote?: ReactNode
 }
 
-function DiscoveryMapTeaser({ events, feedKey }: { events: typeof MOCK_EVENTS; feedKey: string }) {
+function DiscoveryMapTeaser({ events, feedKey }: { events: ReturnType<typeof getPublicEventsFromCatalog>; feedKey: string }) {
   return (
     <div className="discovery-map-teaser">
       <DiscoveryMapPreview events={events} resetKey={feedKey} />
@@ -53,11 +53,11 @@ export function DiscoveryPage({
   const tabs = getTemporalTabs()
 
   useEffect(() => {
-    const pool = filterEvents(MOCK_EVENTS, { city: city === 'all' ? 'all' : city })
+    const pool = filterEvents(getPublicEventsFromCatalog(), { city: city === 'all' ? 'all' : city })
     setTemporalTab(getFirstTemporalTabWithEvents(pool))
   }, [city, setTemporalTab])
 
-  const events = filterEvents(MOCK_EVENTS, {
+  const events = filterEvents(getPublicEventsFromCatalog(), {
     city: city === 'all' ? 'all' : city,
     temporalTab,
   })

@@ -117,8 +117,23 @@
   display: none;
 }
 
-.browse-page-shell--experiment .discovery-event-card.card-listing--map-grid.card-listing--hovered:not(.card-listing--selected),
-.browse-page-shell--experiment .discovery-event-card.card-listing--map-grid.card-listing--selected,
+@container browse-map-list (max-width: 39.99rem) {
+  /* Single-column map cards: square rounded thumb inside horizontal row */
+  .browse-page-shell--experiment .discovery-event-card.card-listing--map-grid .card-listing-media {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: var(--radius-image);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  .browse-page-shell--experiment .discovery-event-card.card-listing--map-grid .card-listing-image {
+    border-radius: inherit;
+    filter: none;
+  }
+}
+
+.browse-page-shell--experiment .browse-map-grid .discovery-event-card.card-listing--hovered:not(.card-listing--selected),
+.browse-page-shell--experiment .browse-map-grid .discovery-event-card.card-listing--selected,
 .browse-page-shell--experiment .discovery-event-card.card-listing--map-preview-sheet.card-listing--selected {
   border-color: #d8d8d8;
   background: #ffffff;
@@ -126,27 +141,32 @@
   transform: translateY(-1px);
 }
 
+.browse-page-shell--experiment .browse-map-grid .discovery-event-card.card-listing--hovered:not(.card-listing--selected) .card-listing-media,
+.browse-page-shell--experiment .browse-map-grid .discovery-event-card.card-listing--selected .card-listing-media,
 .browse-page-shell--experiment .discovery-event-card.card-listing--map-grid.card-listing--hovered:not(.card-listing--selected) .card-listing-media,
 .browse-page-shell--experiment .discovery-event-card.card-listing--map-grid.card-listing--selected .card-listing-media {
   box-shadow: none;
 }
 
+.browse-page-shell--experiment .browse-map-grid .discovery-event-card.card-listing--selected .card-listing-media::after,
 .browse-page-shell--experiment .discovery-event-card.card-listing--map-grid.card-listing--selected .card-listing-media::after {
   background: transparent;
 }
 
 .browse-page-shell--experiment .browse-map-grid:has(.card-listing--selected)
-  .discovery-event-card.card-listing--map-grid:not(.card-listing--selected) {
-  opacity: 0.62;
+  .discovery-event-card:not(.card-listing--selected) {
+  opacity: 1;
 }
 
 .browse-page-shell--experiment .browse-map-grid:has(.card-listing--selected)
-  .discovery-event-card.card-listing--map-grid:not(.card-listing--selected)
+  .discovery-event-card:not(.card-listing--selected)
   .card-listing-image {
-  filter: saturate(0.88);
+  filter: saturate(0.94) contrast(0.98);
 }
 
+.browse-page-shell--experiment .browse-map-grid .discovery-event-card:active,
 .browse-page-shell--experiment .discovery-event-card.card-listing--map-grid:active,
+.browse-page-shell--experiment .browse-map-grid .discovery-event-card.card-listing--selected:active,
 .browse-page-shell--experiment .discovery-event-card.card-listing--map-grid.card-listing--selected:active,
 .browse-page-shell--experiment .discovery-event-card.card-listing--map-preview-sheet:active {
   transform: translateY(0);
@@ -155,13 +175,14 @@
 
 @media (max-width: 767px) {
   .browse-page-shell--experiment .browse-map-preview-sheet .discovery-event-card.card-listing--map-preview-sheet {
-    border-radius: 16px;
+    border-radius: 0;
     box-shadow: none;
+    background: transparent;
   }
 
   .browse-page-shell--experiment .browse-map-preview-sheet .discovery-event-card.card-listing--map-preview-sheet .card-listing-media,
   .browse-page-shell--experiment .browse-map-preview-sheet .discovery-event-card.card-listing--map-preview-sheet .card-listing-image {
-    border-radius: 0;
+    border-radius: 8px;
   }
 }
 
