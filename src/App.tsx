@@ -33,6 +33,7 @@ import { LogoLabPage } from './pages/LogoLabPage'
 import { AdminEventsPage } from './pages/admin/AdminEventsPage'
 import { AdminSubmissionsPage } from './pages/admin/AdminSubmissionsPage'
 import { initAnalytics, pageNameFromPath, trackPageView } from './utils/analytics'
+import { applySiteMeta } from './utils/siteMeta'
 
 function AppShell() {
   const { selectedEvent, eventOpenSource, closeEvent } = useApp()
@@ -41,11 +42,12 @@ function AppShell() {
   const isLogoLab = location.pathname === '/logo-lab'
 
   useEffect(() => {
+    applySiteMeta(location.pathname, location.search)
     const pageName = pageNameFromPath(location.pathname)
     if (pageName) {
       trackPageView(location.pathname, pageName)
     }
-  }, [location.pathname])
+  }, [location.pathname, location.search])
 
   return (
     <div className="layout-root min-h-dvh bg-white">

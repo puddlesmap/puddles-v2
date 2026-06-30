@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import { getPublicEventsFromCatalog } from '../data/events'
 import { EventCard } from '../components/EventCard'
 import { FilterChipButton } from '../components/FilterChipButton'
@@ -41,6 +41,7 @@ import {
   PUDDLES_WORDMARK_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC_2X,
 } from './experimentShared'
+import { formatDocumentTitle, setPageTitle } from '../utils/siteMeta'
 
 const DESKTOP_MEDIA = '(min-width: 768px)'
 
@@ -110,6 +111,7 @@ export function BrowsePage({
   experimentNote,
 }: BrowsePageProps = {}) {
   const { browseFilters, setBrowseFilters, openEvent } = useApp()
+  const location = useLocation()
   const [searchParams] = useSearchParams()
   const [openPopover, setOpenPopover] = useState<FilterPopoverType>(null)
   const [openSheet, setOpenSheet] = useState<FilterSheetType>(null)
@@ -131,6 +133,14 @@ export function BrowsePage({
       root?.classList.remove('layout-root--experiment-browse-3')
     }
   }, [isExperimentBrowse3])
+
+  useEffect(() => {
+    if (location.pathname !== '/browse') return
+    setPageTitle(
+      viewMode === 'map' ? formatDocumentTitle('Map') : formatDocumentTitle('Browse Events'),
+      '/browse',
+    )
+  }, [location.pathname, viewMode])
 
   const requestNearbyLocation = useCallback(async () => {
     trackBrowseNearbySelect()

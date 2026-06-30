@@ -4,8 +4,8 @@ Puddles uses [Plausible Analytics](https://plausible.io) for privacy-friendly us
 
 ## Setup
 
-1. Create a Plausible account and add your production domain (e.g. `puddles.app`).
-2. Set `VITE_PLAUSIBLE_DOMAIN` in Netlify environment variables to match that domain.
+1. Create a Plausible account and add your production domain (`puddlesmap.com`).
+2. Set `VITE_PLAUSIBLE_DOMAIN` in Netlify environment variables to `puddlesmap.com`.
 3. Redeploy the site. Tracking is disabled when the env var is unset (local dev).
 
 ## Plausible goals to create
