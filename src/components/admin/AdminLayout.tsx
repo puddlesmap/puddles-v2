@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { PageContainer } from '../layout/PageContainer'
 import { SHEET_SOURCE } from '../../data/sheet-source'
+import { useAdminAuth } from '../../context/AdminAuthContext'
 
 const NAV_ITEMS = [
   { to: '/admin/events', label: 'Events' },
@@ -9,6 +11,17 @@ const NAV_ITEMS = [
 
 export function AdminLayout() {
   const location = useLocation()
+  const { authRequired, signOut } = useAdminAuth()
+  const [isSigningOut, setIsSigningOut] = useState(false)
+
+  async function handleLogout() {
+    setIsSigningOut(true)
+    try {
+      await signOut()
+    } finally {
+      setIsSigningOut(false)
+    }
+  }
 
   return (
     <div className="admin-shell">
@@ -28,6 +41,16 @@ export function AdminLayout() {
               >
                 Open Google Sheet ↗
               </a>
+              {authRequired ? (
+                <button
+                  type="button"
+                  className="admin-btn admin-btn-secondary"
+                  onClick={() => void handleLogout()}
+                  disabled={isSigningOut}
+                >
+                  {isSigningOut ? 'Signing out…' : 'Sign out'}
+                </button>
+              ) : null}
               <Link to="/" className="text-sm font-medium text-charcoal underline decoration-border underline-offset-4">
                 View public site
               </Link>

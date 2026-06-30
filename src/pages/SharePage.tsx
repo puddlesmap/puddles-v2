@@ -5,6 +5,7 @@ import {
   hasValidIdeaFeedback,
   type IdeaChipKey,
 } from '../components/IdeaFeedbackCard'
+import { ExpansionWatch } from '../components/expansion-watch/ExpansionWatch'
 import { PageContainer } from '../components/layout/PageContainer'
 import { AppHeader } from '../components/layout/AppHeader'
 import {
@@ -135,6 +136,7 @@ export function SharePage({
   const [selectedChips, setSelectedChips] = useState<IdeaChipKey[]>([])
   const [ideaDetail, setIdeaDetail] = useState('')
   const [submittedByEmail, setSubmittedByEmail] = useState('')
+  const [submittedIdeaChips, setSubmittedIdeaChips] = useState<IdeaChipKey[]>([])
 
   const [canSubmitActivity, setCanSubmitActivity] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -156,6 +158,7 @@ export function SharePage({
     setSelectedChips([])
     setIdeaDetail('')
     setSubmittedByEmail('')
+    setSubmittedIdeaChips([])
     setSubmitError(null)
     setView('form')
   }
@@ -204,6 +207,7 @@ export function SharePage({
           city_bucket: 'in_market',
           review_only: false,
         })
+        setSubmittedIdeaChips(selectedChips)
         setSubmittedReviewOnly(false)
         setView('success')
       }
@@ -221,6 +225,10 @@ export function SharePage({
       setIsSubmitting(false)
     }
   }
+
+  const showNeighborhoodExpansionWatch =
+    tab === 'idea' && selectedChips.includes('add_neighborhood_or_city')
+  const showSuccessNeighborhoodExpansionWatch = submittedIdeaChips.includes('add_neighborhood_or_city')
 
   if (view === 'success') {
     return (
@@ -241,6 +249,12 @@ export function SharePage({
                 Share Another
               </button>
             </div>
+            {showSuccessNeighborhoodExpansionWatch ? (
+              <ExpansionWatch
+                sourceContext="feedback_add_neighborhood"
+                className="share-success-expansion-watch"
+              />
+            ) : null}
           </div>
         </PageContainer>
       </div>
@@ -305,10 +319,11 @@ export function SharePage({
                     />
 
                     <div>
-                      <label className="share-field-label mb-2 block">
-                        Your info <span className="font-normal text-muted">(Optional)</span>
+                      <label className="share-field-label mb-2 block" htmlFor="share-idea-email">
+                        Email <span className="font-normal text-muted">(Optional)</span>
                       </label>
                       <input
+                        id="share-idea-email"
                         type="email"
                         value={submittedByEmail}
                         onChange={(e) => setSubmittedByEmail(e.target.value)}
@@ -317,9 +332,16 @@ export function SharePage({
                         className="input-field"
                       />
                       <p className="share-field-hint mt-2">
-                        Only if we need to follow up. We&apos;ll never share it.
+                        We&apos;ll only use this if we have a quick question about your idea.
                       </p>
                     </div>
+
+                    {showNeighborhoodExpansionWatch ? (
+                      <ExpansionWatch
+                        sourceContext="feedback_add_neighborhood"
+                        className="share-expansion-watch"
+                      />
+                    ) : null}
                   </div>
                 )}
               </div>

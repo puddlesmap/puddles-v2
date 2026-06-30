@@ -25,7 +25,7 @@ import {
   refreshSubmissionsFromSheet,
 } from '../../utils/submissionSync'
 
-const TYPE_FILTERS = ['all', 'Event', 'Idea'] as const
+const TYPE_FILTERS = ['all', 'Event', 'Idea', 'ExpansionWatch'] as const
 
 type ActionMessage = { type: 'success' | 'error'; text: string }
 
@@ -370,7 +370,11 @@ export function AdminSubmissionsPage() {
             >
               {TYPE_FILTERS.map((option) => (
                 <option key={option} value={option}>
-                  {option === 'all' ? 'All types' : option}
+                  {option === 'all'
+                    ? 'All types'
+                    : option === 'ExpansionWatch'
+                      ? 'Expansion Watch'
+                      : option}
                 </option>
               ))}
             </select>

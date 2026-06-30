@@ -20,7 +20,7 @@ export type SheetApiAction =
     }
 
 export interface AppendSubmissionPayload {
-  submissionType: 'Event' | 'Idea'
+  submissionType: 'Event' | 'Idea' | 'ExpansionWatch'
   eventName: string
   locationName?: string
   address?: string
@@ -43,6 +43,9 @@ export interface AppendSubmissionPayload {
   eventDescription?: string
   parentTips?: string
   eventType?: string
+  requestedLocation?: string
+  sourceContext?: string
+  selectedCity?: string
 }
 
 interface SheetApiResponse<T = unknown> {
@@ -59,9 +62,11 @@ function apiHeaders(): HeadersInit {
 }
 
 export async function callSheetApi<T>(request: SheetApiAction): Promise<T> {
+  const isPublicAction = request.action === 'appendSubmission'
   const response = await fetch(SHEET_API_PATH, {
     method: 'POST',
     headers: apiHeaders(),
+    credentials: isPublicAction ? 'same-origin' : 'include',
     body: JSON.stringify(request),
   })
 
@@ -136,5 +141,31 @@ export function buildIdeaSubmissionRow(
     additionalInfo: payload.additionalInfo,
     submittedByEmail: payload.submittedByEmail,
     submittedAt: payload.submittedAt,
+  }
+}
+
+export function buildExpansionWatchSubmissionRow(
+  payload: import('../types/expansionWatch').ExpansionWatchPayload,
+): AppendSubmissionPayload {
+  const metadata = {
+    source_context: payload.sourceContext,
+    selected_city: payload.selectedCity ?? null,
+    selected_filters: payload.selectedFilters ?? null,
+    requested_location: payload.requestedLocation,
+    timestamp: payload.submittedAt,
+  }
+
+  return {
+    submissionType: 'ExpansionWatch',
+    eventName: 'Expansion Watch sign-up',
+    locationName: payload.requestedLocation,
+    city: payload.requestedLocation,
+    requestedLocation: payload.requestedLocation,
+    sourceContext: payload.sourceContext,
+    selectedCity: payload.selectedCity,
+    submittedByEmail: payload.email,
+    submittedAt: payload.submittedAt,
+    additionalInfo: payload.sourceContext,
+    internalNotes: JSON.stringify(metadata),
   }
 }

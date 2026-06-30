@@ -54,7 +54,7 @@ The Apps Script auto-adds missing headers on each new submission. Recommended co
 |---|---|
 | Submission ID | Auto-generated |
 | Submitted Date | Form timestamp |
-| Submission Type | Event or Idea |
+| Submission Type | Event, Idea, or **ExpansionWatch** |
 | Status | Starts as **New** |
 | Event Type | One-time event / Recurring class |
 | Event Name | Form |
@@ -75,6 +75,11 @@ The Apps Script auto-adds missing headers on each new submission. Recommended co
 | Internal Notes | Event type, recurring day, review flags |
 | Converted Event ID | Set when promoted to Events tab |
 | Submitted By Email | Parent email |
+| Requested Location | Expansion Watch: parent’s city/ZIP |
+| Source Context | Expansion Watch: placement (e.g. `empty_state`, `footer_about`) |
+| Selected City | Expansion Watch: browse city filter when known |
+
+**Expansion Watch** rows use `Submission Type = ExpansionWatch`. Email and location are in **Submitted By Email** and **Requested Location**; placement is in **Source Context**. Full filter metadata remains in **Internal Notes** as JSON.
 
 **Promote to Events** maps: title, venue, city, dates, cost, age → **Age Tags Clean**, description (event + parent tips + sign-up), and form notes → **Notes**.
 
@@ -98,10 +103,13 @@ Legacy sheet values **Reviewing** and **Converted** map to the new labels in the
 Each submission appears as a **table row**. Click the row to expand full details inline below it.
 
 - **Refresh submissions** — pulls latest Submissions tab (no deploy needed)
+- **Type filter** — Event, Idea, or **Expansion Watch**
 - **Status dropdown** — writes to sheet via API
 - **Send to Events tab** — available when Type = Event, Status = Approved; creates Events row as **Draft**
 - **Solved** — sets Status to **Solved** in the sheet; removed from the active queue (filter **Solved** to review later)
 - **Delete** — hides from this dashboard only; Google Sheet row is unchanged (filter **Hidden (dashboard only)** to restore)
+
+Expansion Watch sign-ups show a tailored detail panel (email, requested location, source, browse filters). Do not promote these to the Events tab.
 
 ### Events (`/admin/events`)
 

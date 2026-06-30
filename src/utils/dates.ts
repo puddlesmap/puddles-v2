@@ -73,6 +73,14 @@ export function formatSubmissionWhen(
   return '—'
 }
 
+/** Admin tables — time range on its own line below the date. */
+export function formatEventTimeRange(startTime?: string, endTime?: string): string {
+  const timeParts: string[] = []
+  if (startTime?.trim()) timeParts.push(formatTimeLabel(startTime.trim()))
+  if (endTime?.trim() && endTime !== startTime) timeParts.push(formatTimeLabel(endTime.trim()))
+  return timeParts.length > 0 ? timeParts.join(' – ') : '—'
+}
+
 export function formatTime(time24: string): string {
   return formatTimeLabel(time24)
 }

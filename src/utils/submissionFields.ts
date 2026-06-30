@@ -1,4 +1,5 @@
 import type { SheetSubmission } from '../types/submission'
+import { isExpansionWatchSubmission } from './expansionWatchAdmin'
 
 /** One-time / Recurring from column or legacy internal notes. */
 export function submissionEventType(submission: SheetSubmission): string | null {
@@ -33,6 +34,16 @@ export function formatSubmissionSignup(submission: SheetSubmission): string | nu
 
 /** Short preview for admin table rows. */
 export function submissionSummaryMeta(submission: SheetSubmission): string | null {
+  if (isExpansionWatchSubmission(submission)) {
+    const location =
+      submission.requestedLocation?.trim() ||
+      submission.locationName?.trim() ||
+      submission.city?.trim()
+    const source = submission.sourceContext?.trim() || submission.additionalInfo?.trim()
+    const parts = [location, source].filter(Boolean)
+    return parts.length > 0 ? parts.join(' · ') : null
+  }
+
   const parts = [
     submission.ageRange,
     formatSubmissionCost(submission),
@@ -43,6 +54,10 @@ export function submissionSummaryMeta(submission: SheetSubmission): string | nul
 
 /** Primary description text for admin preview (not parent logistics). */
 export function submissionPreviewText(submission: SheetSubmission): string | null {
+  if (isExpansionWatchSubmission(submission)) {
+    return submission.submittedByEmail?.trim() || null
+  }
+
   const text = submission.eventDescription?.trim() || submission.additionalInfo?.trim()
   return text || null
 }

@@ -153,6 +153,7 @@ export function pageNameFromPath(pathname: string): string | null {
   if (pathname === '/browse') return 'browse'
   if (pathname === '/browse-v1') return 'browse_v1'
   if (pathname === '/experiment-browse') return 'experiment_browse'
+  if (pathname === '/experiment-browse-map') return 'experiment_browse_map'
   if (pathname === '/experiment-browse-3') return 'browse'
   if (pathname === '/browse-experiment') return 'experiment_browse'
   if (pathname === '/share') return 'share'

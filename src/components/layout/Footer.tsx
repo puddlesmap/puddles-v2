@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { ExpansionWatch } from '../expansion-watch/ExpansionWatch'
 
 export function Footer({
   className = '',
@@ -7,6 +8,9 @@ export function Footer({
   className?: string
   fullBleed?: boolean
 }) {
+  const { pathname } = useLocation()
+  const showExpansionWatch = !pathname.startsWith('/about')
+
   return (
     <footer
       className={`site-footer ${fullBleed ? 'site-footer--full-bleed' : 'mt-16'} py-10 text-center ${className}`.trim()}
@@ -22,6 +26,12 @@ export function Footer({
             </Link>
           </p>
         </div>
+        {showExpansionWatch ? (
+          <ExpansionWatch
+            sourceContext="footer_about"
+            className="site-footer-expansion-watch"
+          />
+        ) : null}
         <p className="site-footer-copy">© 2026 Puddles LLC</p>
       </div>
     </footer>

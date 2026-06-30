@@ -53,8 +53,6 @@ const CITY_CHIPS: Array<{ value: CityValue; label: string }> = [
   { value: 'all', label: 'All Cities' },
 ]
 
-const PREVIEW_LIMIT = 2
-
 function formatEventCount(count: number): string {
   return `${count} ${count === 1 ? 'event' : 'events'}`
 }
@@ -221,7 +219,6 @@ export function HomeExperimentPage({
     return base
   }, [whereMode, temporalTab, coords])
 
-  const previewEvents = useMemo(() => events.slice(0, PREVIEW_LIMIT), [events])
   const feedKey = useMemo(
     () => `${whereMode.kind}|${whereMode.kind === 'city' ? whereMode.value : 'nearby'}|${temporalTab}|${coords?.lat ?? ''}|${coords?.lng ?? ''}`,
     [whereMode, temporalTab, coords],
@@ -271,7 +268,7 @@ export function HomeExperimentPage({
     })
   }, [isRefinedLayout, whereMode, events.length, coords, isRequesting])
 
-  const showEmpty = previewEvents.length === 0 && !isRequesting
+  const showEmpty = events.length === 0 && !isRequesting
 
   const emptyStateVariant = useMemo(() => {
     if (!isRefinedLayout) return 'default' as const
@@ -387,9 +384,9 @@ export function HomeExperimentPage({
               variant={emptyStateVariant}
               onRetryLocation={emptyStateVariant === 'nearby-denied' ? requestNearbyLocation : undefined}
             />
-          ) : previewEvents.length > 0 ? (
+          ) : events.length > 0 ? (
             <div key={feedKey} className="browse-event-grid motion-feed-in">
-              {previewEvents.map((event) => (
+              {events.map((event) => (
                 <EventCard
                   key={event.id}
                   event={event}

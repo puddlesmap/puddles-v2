@@ -1,0 +1,210 @@
+/* Share-form-aligned card (lifted white panel, calm + rounded) */
+.expansion-watch.community-cta-card.community-cta-card--neutral {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 1.25rem;
+  border: none;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: var(--elevation-shadow-lifted);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.expansion-watch .cta-title {
+  font-family: var(--font-sans);
+  font-size: var(--type-page-body-size);
+  font-weight: 700;
+  line-height: var(--type-page-body-line-height);
+  color: var(--type-hero-title-color);
+}
+
+.expansion-watch .cta-body {
+  margin-top: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: var(--type-page-body-size);
+  font-weight: var(--type-page-body-weight);
+  line-height: var(--type-page-body-line-height);
+  color: var(--type-page-body-color);
+}
+
+.expansion-watch .community-cta-card-actions {
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+.expansion-watch-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.expansion-watch-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.expansion-watch-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+.expansion-watch .input-field {
+  border: 1px solid #e6e6e5;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: none;
+  transition:
+    border-color 0.14s ease-out,
+    box-shadow 0.14s ease-out;
+}
+
+.expansion-watch .input-field:hover:not(:focus) {
+  border-color: #b9e6fc;
+}
+
+.expansion-watch .input-field:focus,
+.expansion-watch .input-field:focus-visible {
+  outline: none;
+  border-color: #66c5f9;
+  box-shadow: 0 0 0 3px rgb(102 197 249 / 0.14);
+}
+
+.expansion-watch .input-field::placeholder {
+  font-size: var(--type-form-hint-size);
+  font-weight: var(--type-form-hint-weight);
+  color: var(--type-form-hint-color);
+}
+
+.expansion-watch .btn-primary {
+  min-height: 46px;
+  padding: 0 1.5rem;
+  border: none;
+  border-radius: 23px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: var(--color-brand);
+  color: #ffffff;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 6px 16px rgba(102, 197, 249, 0.32);
+  transition:
+    background-color 0.14s ease-out,
+    box-shadow 0.14s ease-out,
+    transform 0.12s ease-out;
+}
+
+.expansion-watch .btn-primary:hover:not(:disabled) {
+  background-color: #4db8f2;
+  box-shadow:
+    0 2px 4px rgb(40 46 49 / 0.06),
+    0 4px 12px rgb(102 197 249 / 0.24);
+}
+
+.expansion-watch .btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.expansion-watch .btn-primary:disabled {
+  opacity: 0.72;
+  cursor: wait;
+}
+
+.expansion-watch-submit {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.expansion-watch-error {
+  margin: 0;
+  font-size: var(--type-form-hint-size);
+  line-height: var(--type-form-hint-line-height);
+  color: #b42318;
+}
+
+.expansion-watch--success .community-cta-card-actions {
+  display: none;
+}
+
+.about-expansion-watch {
+  margin-top: 2.5rem;
+  max-width: 32rem;
+}
+
+.site-footer-expansion-watch {
+  margin-top: 1.5rem;
+}
+
+.share-expansion-watch {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.share-expansion-watch.community-cta-card {
+  max-width: none;
+  margin-inline: 0;
+  box-shadow: none;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  padding: 1.25rem;
+}
+
+.share-success-expansion-watch {
+  margin-top: 2rem;
+}
+
+.share-success-expansion-watch.community-cta-card {
+  max-width: none;
+  margin-inline: 0;
+}
+
+@media (min-width: 768px) {
+  .expansion-watch.community-cta-card.community-cta-card--neutral {
+    padding: 1.75rem;
+  }
+
+  .about-expansion-watch {
+    max-width: 32rem;
+  }
+
+  .site-footer-expansion-watch {
+    max-width: min(52.5rem, 100%);
+    margin-top: 2rem;
+  }
+
+  .expansion-watch-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.75rem 1rem;
+  }
+
+  .expansion-watch-submit {
+    width: auto;
+    align-self: flex-start;
+    min-width: 11.5rem;
+  }
+
+  .share-expansion-watch.community-cta-card {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .expansion-watch-submit {
+    min-height: 46px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .expansion-watch.community-cta-card.community-cta-card--neutral {
+    padding: 1.75rem 2rem;
+  }
+}

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import type { Event } from '../../types/event'
@@ -16,20 +16,21 @@ import {
 } from './mapViewConfig'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { useBrowseMapListTwoColumn } from '../../hooks/useBrowseMapListTwoColumn'
+import { useBrowseMapInteraction } from '../../hooks/useBrowseMapInteraction'
 import { useUserLocation } from '../../hooks/useUserLocation'
 import {
   boundsBoxFromLeaflet,
   filterEventsInBounds,
   getEventsMapCenter,
-  getEventsWithCoordinates,
 } from '../../utils/mapBounds'
 import 'leaflet/dist/leaflet.css'
 
-interface BrowseMapViewProps {
+interface BrowseLeafletMapViewProps {
   events: Event[]
   feedKey: string
   browseFilters: BrowseFilters
   onOpenEvent: (event: Event) => void
+  interactionMode?: 'default' | 'connected'
 }
 
 const MAP_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
@@ -109,36 +110,61 @@ function MapTileLayer() {
   )
 }
 
-export function BrowseLeafletMapView({ events, feedKey, browseFilters, onOpenEvent }: BrowseMapViewProps) {
+export function BrowseLeafletMapView({
+  events,
+  feedKey,
+  browseFilters,
+  onOpenEvent,
+  interactionMode = 'default',
+}: BrowseLeafletMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
     useUserLocation()
 
   const [areaBounds, setAreaBounds] = useState<ReturnType<typeof boundsBoxFromLeaflet> | null>(null)
   const [showSearchArea, setShowSearchArea] = useState(false)
-  const [selectedEventId, setSelectedEventId] = useState<string | null>(null)
-  const [hoveredEventId, setHoveredEventId] = useState<string | null>(null)
-  const [panTrigger, setPanTrigger] = useState(0)
   const [locateTrigger, setLocateTrigger] = useState(0)
   const [searchGeneration, setSearchGeneration] = useState(0)
-  const listRef = useRef<HTMLDivElement>(null)
   const resultsRef = useRef<HTMLElement>(null)
-  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({})
   const isTwoColumnMapList = useBrowseMapListTwoColumn(resultsRef)
   const [leafletMap, setLeafletMap] = useState<L.Map | null>(null)
+
+  const {
+    listRef,
+    cardRefs,
+    displayEvents,
+    mappableEvents,
+    mobileCarouselEvents,
+    selectedEvent,
+    panTrigger,
+    mobileLocationLabel,
+    markerGroups,
+    selectEvent,
+    selectLocationGroup,
+    handleCardClick,
+    handleCardHover,
+    handleMobilePreviewScroll,
+    isEventSelected,
+    isEventFlashing,
+    isLocationGroupSelected,
+    isLocationGroupHovered,
+    hoveredEventId,
+    setSelectedEventId,
+    setFocusedLocationKey,
+  } = useBrowseMapInteraction({
+    events,
+    feedKey,
+    areaBounds,
+    isMobile,
+    onOpenEvent,
+    interactionMode,
+  })
 
   const handleMapReady = useCallback((map: L.Map) => {
     setLeafletMap(map)
   }, [])
 
-  const displayEvents = useMemo(() => {
-    if (!areaBounds) return events
-    return filterEventsInBounds(events, areaBounds)
-  }, [events, areaBounds])
-
-  const mappableEvents = useMemo(() => getEventsWithCoordinates(displayEvents), [displayEvents])
   const mapCenter = getEventsMapCenter(mappableEvents)
-  const selectedEvent = displayEvents.find((event) => event.id === selectedEventId) ?? null
 
   const resetAreaSearch = useCallback(() => {
     setAreaBounds(null)
@@ -146,79 +172,10 @@ export function BrowseLeafletMapView({ events, feedKey, browseFilters, onOpenEve
   }, [])
 
   useEffect(() => {
-    setPanTrigger(0)
-    setHoveredEventId(null)
     setSearchGeneration(0)
     setLeafletMap(null)
     resetAreaSearch()
   }, [feedKey, resetAreaSearch])
-
-  useEffect(() => {
-    if (events.length === 0) {
-      setSelectedEventId(null)
-      return
-    }
-
-    setSelectedEventId((current) => {
-      const pool = areaBounds ? filterEventsInBounds(events, areaBounds) : events
-      if (current && pool.some((event) => event.id === current)) return current
-      const mappable = getEventsWithCoordinates(pool)
-      return mappable[0]?.id ?? pool[0]?.id ?? null
-    })
-  }, [feedKey, events, areaBounds])
-
-  useEffect(() => {
-    if (!selectedEventId) return
-    const node = cardRefs.current[selectedEventId]
-    node?.scrollIntoView({
-      block: 'nearest',
-      inline: isMobile ? 'center' : 'nearest',
-      behavior: 'smooth',
-    })
-  }, [selectedEventId, isMobile])
-
-  function handleMobilePreviewScroll() {
-    const container = listRef.current
-    if (!container) return
-
-    const center = container.scrollLeft + container.clientWidth / 2
-    let closestId: string | null = null
-    let closestDistance = Number.POSITIVE_INFINITY
-
-    for (const event of mappableEvents) {
-      const node = cardRefs.current[event.id]
-      if (!node) continue
-
-      const nodeCenter = node.offsetLeft + node.offsetWidth / 2
-      const distance = Math.abs(center - nodeCenter)
-      if (distance < closestDistance) {
-        closestDistance = distance
-        closestId = event.id
-      }
-    }
-
-    if (closestId && closestId !== selectedEventId) {
-      setSelectedEventId(closestId)
-    }
-  }
-
-  function selectEvent(event: Event) {
-    setSelectedEventId(event.id)
-    setPanTrigger((value) => value + 1)
-  }
-
-  function handleCardClick(event: Event) {
-    if (selectedEventId === event.id) {
-      onOpenEvent(event)
-      return
-    }
-    selectEvent(event)
-  }
-
-  function handleCardHover(eventId: string | null) {
-    if (isMobile) return
-    setHoveredEventId(eventId)
-  }
 
   async function handleLocate() {
     const nextCoords = await requestLocation()
@@ -234,17 +191,55 @@ export function BrowseLeafletMapView({ events, feedKey, browseFilters, onOpenEve
     setSearchGeneration((value) => value + 1)
     setSelectedEventId((current) => {
       const inBounds = filterEventsInBounds(events, bounds)
-      const mappable = getEventsWithCoordinates(inBounds)
+      const mappable = inBounds.filter((event) => Number.isFinite(event.lat) && Number.isFinite(event.lng))
       if (current && inBounds.some((event) => event.id === current)) return current
       return mappable[0]?.id ?? inBounds[0]?.id ?? null
     })
+    setFocusedLocationKey(null)
   }
 
   function renderMapMarkers() {
+    if (markerGroups) {
+      return (
+        <>
+          {markerGroups.map((group) => {
+            const representative = group.events[0]
+            const isSelected = isLocationGroupSelected(group)
+            const isHovered = isLocationGroupHovered(group)
+
+            return (
+              <Marker
+                key={`${group.key}-${isSelected ? 's' : 'n'}-${isHovered ? 'h' : 'n'}`}
+                position={[representative.lat, representative.lng]}
+                icon={createEventPinIcon(isSelected, isHovered)}
+                zIndexOffset={isSelected ? 1000 : isHovered ? 500 : 0}
+                eventHandlers={{
+                  click: () => selectLocationGroup(group),
+                  mouseover: () => handleCardHover(representative.id),
+                  mouseout: () => handleCardHover(null),
+                }}
+              />
+            )
+          })}
+          <MapUserLocation coords={userCoords} />
+          <MapFitEvents events={mappableEvents} resetKey={`${feedKey}|${searchGeneration}`} />
+          <MapSearchAreaDetector
+            resetKey={`${feedKey}|${searchGeneration}`}
+            active={!showSearchArea}
+            onMovedAway={() => setShowSearchArea(true)}
+            onReset={() => setShowSearchArea(false)}
+          />
+          <MapPanToEvent event={selectedEvent} panTrigger={panTrigger} />
+          <MapLocateHandler coords={userCoords} trigger={locateTrigger} />
+          <MapInstanceCapture onReady={handleMapReady} />
+        </>
+      )
+    }
+
     return (
       <>
         {mappableEvents.map((event) => {
-          const isSelected = selectedEventId === event.id
+          const isSelected = isEventSelected(event.id)
           const isHovered = hoveredEventId === event.id
 
           return (
@@ -322,33 +317,37 @@ export function BrowseLeafletMapView({ events, feedKey, browseFilters, onOpenEve
 
           {mappableEvents.length > 0 && (
             <div className="browse-map-preview-sheet">
+              {mobileLocationLabel ? (
+                <p className="browse-map-preview-location-label">{mobileLocationLabel}</p>
+              ) : null}
               <div
                 ref={listRef}
                 className="browse-map-preview"
                 onScroll={handleMobilePreviewScroll}
               >
-                {mappableEvents.map((event) => {
-                  const isSelected = selectedEventId === event.id
-
-                  return (
-                    <div
-                      key={event.id}
-                      ref={(node) => {
-                        cardRefs.current[event.id] = node
-                      }}
-                      className="browse-map-preview-slot"
-                      data-event-id={event.id}
-                    >
-                      <EventCard
-                        event={event}
-                        variant="map-preview-sheet"
-                        discovery
-                        selected={isSelected}
-                        onClick={() => handleCardClick(event)}
-                      />
-                    </div>
-                  )
-                })}
+                {mobileCarouselEvents.map((event) => (
+                  <div
+                    key={event.id}
+                    ref={(node) => {
+                      cardRefs.current[event.id] = node
+                    }}
+                    className={[
+                      'browse-map-preview-slot',
+                      isEventFlashing(event.id) ? 'browse-map-preview-slot--flash' : '',
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
+                    data-event-id={event.id}
+                  >
+                    <EventCard
+                      event={event}
+                      variant="map-preview-sheet"
+                      discovery
+                      selected={isEventSelected(event.id)}
+                      onClick={() => handleCardClick(event)}
+                    />
+                  </div>
+                ))}
               </div>
               <span className="browse-map-preview-handle" aria-hidden />
             </div>
@@ -368,31 +367,31 @@ export function BrowseLeafletMapView({ events, feedKey, browseFilters, onOpenEve
               {displayEvents.length === 0 ? (
                 <p className="browse-map-empty">No events in this map area.</p>
               ) : (
-                displayEvents.map((event) => {
-                  const isSelected = selectedEventId === event.id
-                  const isHovered = hoveredEventId === event.id
-
-                  return (
-                    <div
-                      key={event.id}
-                      ref={(node) => {
-                        cardRefs.current[event.id] = node
-                      }}
-                      className="browse-map-card-slot"
-                      onMouseEnter={() => handleCardHover(event.id)}
-                      onMouseLeave={() => handleCardHover(null)}
-                    >
-                      <EventCard
-                        event={event}
-                        variant={isTwoColumnMapList ? 'grid' : 'map-grid'}
-                        discovery
-                        selected={isSelected}
-                        hovered={isHovered}
-                        onClick={() => handleCardClick(event)}
-                      />
-                    </div>
-                  )
-                })
+                displayEvents.map((event) => (
+                  <div
+                    key={event.id}
+                    ref={(node) => {
+                      cardRefs.current[event.id] = node
+                    }}
+                    className={[
+                      'browse-map-card-slot',
+                      isEventFlashing(event.id) ? 'browse-map-card-slot--flash' : '',
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
+                    onMouseEnter={() => handleCardHover(event.id)}
+                    onMouseLeave={() => handleCardHover(null)}
+                  >
+                    <EventCard
+                      event={event}
+                      variant={isTwoColumnMapList ? 'grid' : 'map-grid'}
+                      discovery
+                      selected={isEventSelected(event.id)}
+                      hovered={hoveredEventId === event.id}
+                      onClick={() => handleCardClick(event)}
+                    />
+                  </div>
+                ))
               )}
             </div>
           </div>

@@ -9,16 +9,19 @@
   status = 200
 
 [[redirects]]
-  from = "/api/sheet-csv"
-  to = "https://docs.google.com/spreadsheets/d/1ko8p-HMzXMnSHT8qPxv14X-TPaac0RJTrfw8PwjikH8/export?format=csv&gid=1023308778"
+  from = "/api/admin-auth"
+  to = "/.netlify/functions/admin-auth"
   status = 200
-  force = true
+
+[[redirects]]
+  from = "/api/sheet-csv"
+  to = "/.netlify/functions/sheet-csv"
+  status = 200
 
 [[redirects]]
   from = "/api/sheet-submissions-csv"
-  to = "https://docs.google.com/spreadsheets/d/1ko8p-HMzXMnSHT8qPxv14X-TPaac0RJTrfw8PwjikH8/export?format=csv&gid=1055272051"
+  to = "/.netlify/functions/sheet-submissions-csv"
   status = 200
-  force = true
 
 [[redirects]]
   from = "/*"

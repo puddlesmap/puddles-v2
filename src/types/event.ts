@@ -28,6 +28,8 @@ export interface Event {
   title: string
   description: string
   venue: string
+  /** Specific room or area within the venue (sheet column E). */
+  room?: string
   address: string
   city: City
   date: string

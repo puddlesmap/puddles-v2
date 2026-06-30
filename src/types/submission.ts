@@ -87,6 +87,9 @@ export interface SheetSubmission {
   internalNotes: string
   convertedEventId: string
   submittedByEmail: string
+  requestedLocation: string
+  sourceContext: string
+  selectedCity: string
 }
 
 export const SUBMISSION_STATUSES = [
@@ -133,4 +136,4 @@ export function submissionStatusLabel(status: string): string {
   return status?.trim() || 'New'
 }
 
-export const SUBMISSION_TYPES = ['Event', 'Idea', 'All types'] as const
+export const SUBMISSION_TYPES = ['Event', 'Idea', 'ExpansionWatch', 'All types'] as const

@@ -1,5 +1,5 @@
 import type { ActivityType, City, Event } from '../types/event'
-import { SHEET_CSV_PROXY_PATH, SHEET_SOURCE } from '../data/sheet-source'
+import { SHEET_CSV_PROXY_PATH } from '../data/sheet-source'
 import { enrichPublishingFields, resolvePublishingFields } from './publishing'
 import { parseCsv, rowsToObjects } from './csv'
 
@@ -14,6 +14,11 @@ const ACTIVITY_TYPES: ActivityType[] = [
   'Other',
 ]
 
+const VENUE_ALIASES: Record<string, string> = {
+  'Mountain View Public Library': 'Mountain View Library',
+  'Los Altos Public Library': 'Los Altos Library',
+}
+
 const VENUE_GEO: Record<string, { city: City; lat: number; lng: number }> = {
   'Downtown Library': { city: 'Palo Alto', lat: 37.4443, lng: -122.1598 },
   'College Terrace Library': { city: 'Palo Alto', lat: 37.4221, lng: -122.1381 },
@@ -26,14 +31,51 @@ const VENUE_GEO: Record<string, { city: City; lat: number; lng: number }> = {
   'Deer Hollow Farm': { city: 'Mountain View', lat: 37.319, lng: -122.085 },
 }
 
+const VENUE_ADDRESSES: Record<string, string> = {
+  'Downtown Library': '270 Forest Ave, Palo Alto, CA 94301',
+  'College Terrace Library': '2300 Wellesley St, Palo Alto, CA 94306',
+  'Mitchell Park Library': '3700 Middlefield Rd, Palo Alto, CA 94303',
+  "Children's Library": '1276 Harriet St, Palo Alto, CA 94301',
+  'Rinconada Library': '1213 Newell Rd, Palo Alto, CA 94303',
+  'Mountain View Library': '585 Franklin St, Mountain View, CA 94041',
+  'Los Altos Library': '13 S San Antonio Rd, Los Altos, CA 94022',
+  'Pioneer Park': '1146 Church St, Mountain View, CA 94041',
+  'Deer Hollow Farm': '22500 Cristo Rey Dr, Los Altos, CA 94022',
+}
+
+function isDateLikeValue(value: string): boolean {
+  if (!value) return false
+  return /^\d{4}-\d{2}-\d{2}$/.test(value.trim())
+}
+
+function canonicalVenue(venue: string): string {
+  return VENUE_ALIASES[venue] ?? venue
+}
+
+function sanitizeAddress(venue: string, address: string): string {
+  const trimmed = address.trim()
+  if (trimmed && !isDateLikeValue(trimmed)) return trimmed
+  const canonical = canonicalVenue(venue)
+  return VENUE_ADDRESSES[canonical] ?? ''
+}
+
+function sanitizeRoom(room: string, venue: string): string {
+  const trimmed = room.trim()
+  if (!trimmed || isDateLikeValue(trimmed)) return ''
+  if (venue && trimmed.toLowerCase() === venue.trim().toLowerCase()) return ''
+  return trimmed
+}
+
 const COLUMN_ALIASES: Record<string, string[]> = {
   eventId: ['event id', 'softr record id'],
   title: ['title', 'titel', 'short title'],
   description: ['event description', 'description', 'event preview'],
   venue: ['venue', 'display location short', 'display location'],
+  room: ['room'],
   address: ['address'],
   city: ['city'],
   date: ['event date', 'start date'],
+  timeNormalized: ['time normalized'],
   startDateTime: ['start datetime'],
   endDateTime: ['end datetime'],
   ageRange: ['age tags clean', 'age tags', 'age simple'],
@@ -96,6 +138,30 @@ function parseSheetDate(value: string): string | null {
   const parsed = new Date(raw)
   if (Number.isNaN(parsed.getTime())) return null
   return parsed.toISOString().slice(0, 10)
+}
+
+function clockTo24Hour(raw: string): string | null {
+  const m = raw
+    .trim()
+    .toLowerCase()
+    .match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/)
+  if (!m) return null
+  let hour = parseInt(m[1], 10)
+  const min = m[2] || '00'
+  const ap = m[3]
+  if (ap === 'pm' && hour < 12) hour += 12
+  if (ap === 'am' && hour === 12) hour = 0
+  return `${hour.toString().padStart(2, '0')}:${min}`
+}
+
+function parseTimeRange(value: string): { startTime: string; endTime: string } | null {
+  const norm = value.replace(/\s+/g, ' ').trim().toLowerCase()
+  if (!norm) return null
+  const parts = norm.split(/\s*[-–—]{1,2}\s*|\s+to\s+/)
+  const startTime = clockTo24Hour(parts[0])
+  const endTime = clockTo24Hour(parts[1] || parts[0])
+  if (!startTime || !endTime) return null
+  return { startTime, endTime }
 }
 
 function parseSheetDateTime(value: string): { date: string; time: string } | null {
@@ -191,27 +257,41 @@ function deriveEventId(record: Record<string, string>): string {
   return `${title}-${venue}-${date}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 80)
 }
 
-function resolveGeo(venue: string, address: string, city: string, latRaw: string, lngRaw: string) {
+function resolveGeo(
+  venue: string,
+  address: string,
+  city: string,
+  latRaw: string,
+  lngRaw: string,
+  room = '',
+) {
   const lat = parseFloat(latRaw)
   const lng = parseFloat(lngRaw)
-  const fallback = VENUE_GEO[venue]
+  const canonical = canonicalVenue(venue)
+  const roomGeo = room ? VENUE_GEO[room] : null
+  const fallback = roomGeo ?? VENUE_GEO[canonical]
+  let resolvedAddress = sanitizeAddress(venue, address)
+  if (room && VENUE_ADDRESSES[room]) {
+    resolvedAddress = VENUE_ADDRESSES[room]
+  }
+  const resolvedCity = normalizeCity(city || fallback?.city || '')
 
   if (Number.isFinite(lat) && Number.isFinite(lng)) {
-    return { address, city: normalizeCity(city), lat, lng }
+    return { address: resolvedAddress, city: resolvedCity, lat, lng }
   }
 
   if (fallback) {
     return {
-      address: address || venue,
-      city: normalizeCity(city || fallback.city),
+      address: resolvedAddress || VENUE_ADDRESSES[canonical] || venue,
+      city: resolvedCity || fallback.city,
       lat: fallback.lat,
       lng: Number.isFinite(lng) ? lng : fallback.lng,
     }
   }
 
   return {
-    address: address || venue,
-    city: normalizeCity(city),
+    address: resolvedAddress || venue,
+    city: resolvedCity,
     lat: Number.isFinite(lat) ? lat : 37.44,
     lng: Number.isFinite(lng) ? lng : -122.14,
   }
@@ -221,17 +301,30 @@ function mapRecord(record: Record<string, string>): Event | null {
   const title = pickField(record, 'title')
   if (!title) return null
 
-  const startParts = parseSheetDateTime(pickField(record, 'startDateTime'))
-  const endParts = parseSheetDateTime(pickField(record, 'endDateTime'))
-  const date = startParts?.date ?? parseSheetDate(pickField(record, 'date'))
+  const startDateTimeRaw = pickField(record, 'startDateTime')
+  const endDateTimeRaw = pickField(record, 'endDateTime')
+  const timeRange =
+    parseTimeRange(pickField(record, 'timeNormalized')) ?? parseTimeRange(startDateTimeRaw)
+  const startParts = parseSheetDateTime(startDateTimeRaw)
+  const endParts = parseSheetDateTime(endDateTimeRaw)
+  const date =
+    startParts?.date ?? endParts?.date ?? parseSheetDate(pickField(record, 'date'))
   if (!date) return null
 
-  const startTime = startParts?.time ?? '10:00'
-  const endTime = endParts?.time ?? startTime
+  const startTime = startParts?.time ?? timeRange?.startTime ?? '10:00'
+  const endTime = endParts?.time ?? timeRange?.endTime ?? startTime
   const venue = pickField(record, 'venue').replace(/^📍\s*/, '')
+  const room = sanitizeRoom(pickField(record, 'room'), venue)
   const address = pickField(record, 'address')
   const city = pickField(record, 'city')
-  const geo = resolveGeo(venue, address, city, pickField(record, 'lat'), pickField(record, 'lng'))
+  const geo = resolveGeo(
+    venue,
+    address,
+    city,
+    pickField(record, 'lat'),
+    pickField(record, 'lng'),
+    room,
+  )
   const age = parseAgeRange(pickField(record, 'ageRange'))
   const publishing = resolvePublishingFields({
     statusRaw: pickField(record, 'status'),
@@ -249,6 +342,7 @@ function mapRecord(record: Record<string, string>): Event | null {
     title,
     description: pickField(record, 'description').slice(0, 500),
     venue,
+    ...(room ? { room } : {}),
     address: geo.address,
     city: geo.city,
     date,
@@ -260,9 +354,7 @@ function mapRecord(record: Record<string, string>): Event | null {
     types: parseActivityTypes(pickField(record, 'types')),
     categoryTags: parseCategoryTags(pickField(record, 'categoryTags')),
     cost: parseCost(pickField(record, 'cost')),
-    imageUrl:
-      pickField(record, 'imageUrl') ||
-      'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&h=500&fit=crop',
+    imageUrl: pickField(record, 'imageUrl') || '',
     eventUrl: pickField(record, 'eventUrl') || '#',
     verifiedDate,
     lat: geo.lat,
@@ -282,28 +374,18 @@ export function parseSheetCsvToEvents(csvText: string): Event[] {
 }
 
 async function fetchSheetCsv(): Promise<string> {
-  const urls = [SHEET_CSV_PROXY_PATH, SHEET_SOURCE.csvExportUrl]
-  let lastError: Error | null = null
-
-  for (const url of urls) {
-    try {
-      const response = await fetch(url, { cache: 'no-store' })
-      if (!response.ok) {
-        lastError = new Error(`Sheet fetch failed (${response.status})`)
-        continue
-      }
-      const text = await response.text()
-      if (!text.trim()) {
-        lastError = new Error('Sheet export was empty')
-        continue
-      }
-      return text
-    } catch (error) {
-      lastError = error instanceof Error ? error : new Error('Could not reach Google Sheet')
-    }
+  const response = await fetch(SHEET_CSV_PROXY_PATH, {
+    cache: 'no-store',
+    credentials: 'include',
+  })
+  if (!response.ok) {
+    throw new Error(`Sheet fetch failed (${response.status})`)
   }
-
-  throw lastError ?? new Error('Could not refresh from Google Sheet')
+  const text = await response.text()
+  if (!text.trim()) {
+    throw new Error('Sheet export was empty')
+  }
+  return text
 }
 
 export async function refreshEventsFromSheet(): Promise<{ events: Event[]; refreshedAt: string }> {

@@ -5,9 +5,15 @@ import {
   formatSubmissionSignup,
   submissionEventType,
 } from '../../utils/submissionFields'
+import { isExpansionWatchSubmission } from '../../utils/expansionWatchAdmin'
+import { AdminExpansionWatchDetailPanel } from './AdminExpansionWatchDetail'
 import { DetailDescription, DetailRow, DetailSection } from './AdminDetailGrid'
 
 export function AdminSubmissionDetailPanel({ submission }: { submission: SheetSubmission }) {
+  if (isExpansionWatchSubmission(submission)) {
+    return <AdminExpansionWatchDetailPanel submission={submission} />
+  }
+
   const parentTips = submission.parentTips?.trim() || submission.additionalInfo?.trim()
 
   return (

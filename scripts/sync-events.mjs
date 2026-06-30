@@ -10,8 +10,10 @@ import {
   parseCost,
   parseSheetDate,
   parseSheetDateTime,
+  parseTimeRange,
   pickField,
   resolveGeo,
+  sanitizeRoom,
 } from './sheet-map.mjs'
 import { resolvePublishingFields } from './publishing.mjs'
 
@@ -57,17 +59,30 @@ function mapRecord(record) {
   const title = pickField(record, 'title')
   if (!title) return null
 
-  const startParts = parseSheetDateTime(pickField(record, 'startDateTime'))
-  const endParts = parseSheetDateTime(pickField(record, 'endDateTime'))
-  const date = startParts?.date ?? parseSheetDate(pickField(record, 'date'))
+  const startDateTimeRaw = pickField(record, 'startDateTime')
+  const endDateTimeRaw = pickField(record, 'endDateTime')
+  const timeRange =
+    parseTimeRange(pickField(record, 'timeNormalized')) ?? parseTimeRange(startDateTimeRaw)
+  const startParts = parseSheetDateTime(startDateTimeRaw)
+  const endParts = parseSheetDateTime(endDateTimeRaw)
+  const date =
+    startParts?.date ?? endParts?.date ?? parseSheetDate(pickField(record, 'date'))
   if (!date) return null
 
-  const startTime = startParts?.time ?? '10:00'
-  const endTime = endParts?.time ?? startTime
+  const startTime = startParts?.time ?? timeRange?.startTime ?? '10:00'
+  const endTime = endParts?.time ?? timeRange?.endTime ?? startTime
   const venue = pickField(record, 'venue').replace(/^📍\s*/, '')
+  const room = sanitizeRoom(pickField(record, 'room'), venue)
   const address = pickField(record, 'address')
   const city = pickField(record, 'city')
-  const geo = resolveGeo(venue, address, city, pickField(record, 'lat'), pickField(record, 'lng'))
+  const geo = resolveGeo(
+    venue,
+    address,
+    city,
+    pickField(record, 'lat'),
+    pickField(record, 'lng'),
+    room,
+  )
   const age = parseAgeRange(pickField(record, 'ageRange'))
   const publishing = resolvePublishingFields({
     statusRaw: pickField(record, 'status'),
@@ -87,6 +102,7 @@ function mapRecord(record) {
     title,
     description: pickField(record, 'description').slice(0, 500),
     venue,
+    ...(room ? { room } : {}),
     address: geo.address,
     city: geo.city,
     date,
@@ -98,9 +114,7 @@ function mapRecord(record) {
     types: parseActivityTypes(pickField(record, 'types')),
     categoryTags: parseCategoryTags(pickField(record, 'categoryTags')),
     cost: parseCost(pickField(record, 'cost')),
-    imageUrl:
-      pickField(record, 'imageUrl') ||
-      'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&h=500&fit=crop',
+    imageUrl: pickField(record, 'imageUrl') || '',
     eventUrl: pickField(record, 'eventUrl') || '#',
     verifiedDate,
     lat: geo.lat,

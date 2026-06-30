@@ -31,6 +31,9 @@ function matchesSearch(submission: SheetSubmission, search: string): boolean {
     submission.parentTips,
     submission.additionalInfo,
     submission.submittedByEmail,
+    submission.requestedLocation,
+    submission.sourceContext,
+    submission.selectedCity,
     submission.internalNotes,
   ]
     .join(' ')

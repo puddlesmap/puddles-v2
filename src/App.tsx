@@ -5,6 +5,7 @@ import { BottomNav } from './components/layout/BottomNav'
 import { LocationBridge } from './components/LocationBridge'
 import { EventModal } from './components/EventModal'
 import { ErrorBoundary } from './components/ErrorBoundary'
+import { AdminAuthGate } from './components/admin/AdminAuthGate'
 import { AdminLayout } from './components/admin/AdminLayout'
 import { DiscoveryPage } from './pages/DiscoveryPage'
 import { HomePage } from './pages/HomePage'
@@ -14,6 +15,7 @@ import { HomeExperiment2Page } from './pages/HomeExperiment2Page'
 import { HomeExperiment3Page } from './pages/HomeExperiment3Page'
 import { HomeExperiment4Page } from './pages/HomeExperiment4Page'
 import { ExperimentBrowsePage } from './pages/ExperimentBrowsePage'
+import { ExperimentBrowseMapPage } from './pages/ExperimentBrowseMapPage'
 import { BrowsePage } from './pages/BrowsePage'
 import { BrowseV1Page } from './pages/BrowseV1Page'
 import { SharePage } from './pages/SharePage'
@@ -64,13 +66,15 @@ function AppShell() {
               path="/browse"
               element={
                 <BrowsePage
-                  shellClassName="browse-page-shell--experiment browse-page-shell--experiment-3"
+                  shellClassName="browse-page-shell--experiment browse-page-shell--experiment-3 browse-page-shell--map-interaction"
                   resultsCountStyle="contextual"
+                  mapInteractionMode="connected"
                 />
               }
             />
             <Route path="/browse-v1" element={<BrowseV1Page />} />
             <Route path="/experiment-browse" element={<ExperimentBrowsePage />} />
+            <Route path="/experiment-browse-map" element={<ExperimentBrowseMapPage />} />
             <Route path="/experiment-browse-3" element={<Navigate to="/browse" replace />} />
             <Route path="/browse-experiment" element={<Navigate to="/experiment-browse" replace />} />
             <Route path="/share" element={<SharePage />} />
@@ -87,10 +91,12 @@ function AppShell() {
             <Route path="/typography-experiment/share" element={<TypographyAboutStyleSharePage />} />
             <Route path="/logo-lab" element={<LogoLabPage />} />
             <Route path="/maintenance" element={<MaintenancePage />} />
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route index element={<Navigate to="events" replace />} />
-              <Route path="events" element={<AdminEventsPage />} />
-              <Route path="submissions" element={<AdminSubmissionsPage />} />
+            <Route path="/admin" element={<AdminAuthGate />}>
+              <Route element={<AdminLayout />}>
+                <Route index element={<Navigate to="events" replace />} />
+                <Route path="events" element={<AdminEventsPage />} />
+                <Route path="submissions" element={<AdminSubmissionsPage />} />
+              </Route>
             </Route>
             <Route path="/Admin" element={<Navigate to="/admin/events" replace />} />
             <Route path="*" element={<NotFoundPage />} />

@@ -220,6 +220,9 @@ function ensureSubmissionHeaders(sheet) {
     'Event Description',
     'Parent-to-Parent Tips',
     'Submitted By Email',
+    'Requested Location',
+    'Source Context',
+    'Selected City',
   ];
   for (var i = 0; i < headers.length; i++) {
     ensureHeader(sheet, headers[i]);
@@ -278,6 +281,10 @@ function appendSubmission(payload) {
     'Internal Notes': payload.internalNotes || '',
     'Converted Event ID': '',
     'Submitted By Email': payload.submittedByEmail || '',
+    'Requested Location':
+      payload.requestedLocation || payload.locationName || payload.city || '',
+    'Source Context': payload.sourceContext || payload.additionalInfo || '',
+    'Selected City': payload.selectedCity || '',
   };
 
   appendRow(SUBMISSIONS_SHEET, values);

@@ -1,9 +1,10 @@
 export const IDEA_CHIPS = [
-  { key: 'easier_filtering', label: 'Easier filtering' },
-  { key: 'add_neighborhood', label: 'Add my neighborhood' },
-  { key: 'save_favorites', label: 'Save / favorite activities' },
-  { key: 'filter_age', label: 'Filter by exact age' },
-  { key: 'other', label: 'Something else...' },
+  { key: 'make_filters_easier', label: 'Make filters easier' },
+  { key: 'child_exact_age', label: "Find events for my child's exact age" },
+  { key: 'search_activities', label: 'Search for specific activities' },
+  { key: 'add_neighborhood_or_city', label: 'Add my neighborhood or city' },
+  { key: 'save_for_later', label: 'Save activities for later' },
+  { key: 'other', label: 'Something else' },
 ] as const
 
 export type IdeaChipKey = (typeof IDEA_CHIPS)[number]['key']

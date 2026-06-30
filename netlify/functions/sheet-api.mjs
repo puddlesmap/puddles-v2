@@ -1,5 +1,7 @@
 const PUBLIC_ACTIONS = new Set(['appendSubmission'])
 
+import { hasAdminSession, isAdminAuthEnabled } from '../lib/admin-session.mjs'
+
 export async function handler(event) {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: JSON.stringify({ ok: false, error: 'Method not allowed' }) }
@@ -31,6 +33,14 @@ export async function handler(event) {
   const secret = process.env.PUDDLES_API_SECRET
   const clientKey = event.headers['x-puddles-api-key'] || event.headers['X-Puddles-Api-Key']
   const isPublicAction = PUBLIC_ACTIONS.has(body.action)
+
+  if (!isPublicAction && isAdminAuthEnabled() && !hasAdminSession(event)) {
+    return {
+      statusCode: 401,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ok: false, error: 'Unauthorized' }),
+    }
+  }
 
   if (!isPublicAction && secret && clientKey !== secret) {
     return {

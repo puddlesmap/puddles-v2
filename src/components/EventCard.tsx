@@ -1,5 +1,6 @@
 import type { Event } from '../types/event'
 import { formatCardDateTime } from '../utils/dates'
+import { EventImage } from './EventImage'
 
 interface EventCardProps {
   event: Event
@@ -106,12 +107,7 @@ export function EventCard({
         )}
       >
         <div className="card-listing-media relative aspect-[16/10]">
-          <img
-            src={event.imageUrl}
-            alt=""
-            className="card-listing-image"
-            loading="lazy"
-          />
+          <EventImage event={event} className="card-listing-image" />
           <EventCardPills event={event} mode="free-only" />
         </div>
         <div
@@ -141,12 +137,7 @@ export function EventCard({
         )}
       >
         <div className="card-listing-media relative aspect-square">
-          <img
-            src={event.imageUrl}
-            alt=""
-            className="card-listing-image"
-            loading="lazy"
-          />
+          <EventImage event={event} className="card-listing-image" />
           <EventCardPills event={event} />
         </div>
         <div className={discovery ? 'discovery-event-card-body' : 'card-listing-body'}>
@@ -166,12 +157,7 @@ export function EventCard({
         className={cardClass(selected, hovered, discovery ? 'discovery-event-card' : '')}
       >
         <div className="card-listing-media relative aspect-square">
-          <img
-            src={event.imageUrl}
-            alt=""
-            className="card-listing-image"
-            loading="lazy"
-          />
+          <EventImage event={event} className="card-listing-image" />
           <EventCardPills event={event} />
         </div>
         <div className={discovery ? 'discovery-event-card-body' : 'card-listing-body'}>
@@ -190,12 +176,7 @@ export function EventCard({
   return (
     <button type="button" onClick={onClick} className={cardClass(selected, hovered)}>
       <div className="card-listing-media relative aspect-[20/19]">
-        <img
-          src={event.imageUrl}
-          alt=""
-          className="card-listing-image"
-          loading="lazy"
-        />
+        <EventImage event={event} className="card-listing-image" />
         <EventCardPills event={event} />
       </div>
       <div className="card-listing-body card-listing-body--list">

@@ -1,7 +1,35 @@
 import type { Event } from '../types/event'
 
-export function getEventDirectionsDestination(event: Event): string | null {
+export function isDateLikeValue(value: string): boolean {
+  if (!value) return false
+  return /^\d{4}-\d{2}-\d{2}$/.test(value.trim())
+}
+
+function getStreetAddress(event: Event): string {
   const address = event.address?.trim()
+  if (!address || isDateLikeValue(address)) return ''
+
+  const normalized = address.toLowerCase()
+  const venue = event.venue?.trim().toLowerCase()
+  const room = event.room?.trim().toLowerCase()
+  if (venue && normalized === venue) return ''
+  if (room && normalized === room) return ''
+
+  return address
+}
+
+export function getEventRoomLine(event: Event): string {
+  const room = event.room?.trim()
+  if (!room || isDateLikeValue(room)) return ''
+
+  const venue = event.venue?.trim()
+  if (venue && room.toLowerCase() === venue.toLowerCase()) return ''
+
+  return room
+}
+
+export function getEventDirectionsDestination(event: Event): string | null {
+  const address = getStreetAddress(event)
   const venue = event.venue?.trim()
   const city = event.city?.trim()
 
@@ -36,12 +64,12 @@ export function getEventDirectionsUrl(event: Event): string | null {
 }
 
 export function getEventDirectionsLabel(event: Event): string {
-  const name = event.venue?.trim() || event.address?.trim() || 'this event'
+  const name = event.venue?.trim() || getStreetAddress(event) || 'this event'
   return `Open directions to ${name}`
 }
 
 export function getEventAddressLine(event: Event): string {
-  const address = event.address?.trim()
+  const address = getStreetAddress(event)
   if (address) return address
 
   const city = event.city?.trim()

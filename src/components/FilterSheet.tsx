@@ -3,7 +3,8 @@ import type { AgeFilter, DayFilter, TimeFilter } from '../types/event'
 import { ACTIVITY_TYPES } from '../types/event'
 import { getTemporalTabs } from '../utils/dates'
 import { getFilteredCount, type BrowseFilters } from '../utils/filters'
-import { trackBrowseFilterApply } from '../utils/analytics'
+import { BrowseLocationOptions } from './filters/BrowseLocationOptions'
+import { trackBrowseCityChange, trackBrowseFilterApply } from '../utils/analytics'
 
 const TIME_OPTIONS: { key: TimeFilter; label: string; sub: string }[] = [
   { key: 'any', label: 'Any time', sub: 'All hours' },
@@ -21,6 +22,7 @@ const AGE_OPTIONS: { key: AgeFilter; label: string }[] = [
 ]
 
 const SHEET_TITLES = {
+  location: 'Choose a location',
   day: 'Choose a date',
   time: 'Choose a time of day',
   age: 'Choose an age range',
@@ -34,9 +36,18 @@ interface FilterSheetProps {
   onApply: (f: BrowseFilters) => void
   open: FilterSheetType
   onClose: () => void
+  hasNearbyCoords?: boolean
+  onRequestNearby?: () => Promise<boolean>
 }
 
-export function FilterSheet({ filters, onApply, open, onClose }: FilterSheetProps) {
+export function FilterSheet({
+  filters,
+  onApply,
+  open,
+  onClose,
+  hasNearbyCoords = false,
+  onRequestNearby,
+}: FilterSheetProps) {
   const [draft, setDraft] = useState(filters)
 
   useEffect(() => {
@@ -50,6 +61,26 @@ export function FilterSheet({ filters, onApply, open, onClose }: FilterSheetProp
   const dayTabs = getTemporalTabs()
 
   function apply() {
+    void applyFilters()
+  }
+
+  async function applyFilters() {
+    if (open === 'location') {
+      if (draft.city === 'nearby') {
+        const granted = hasNearbyCoords || (await onRequestNearby?.()) === true
+        if (!granted) return
+      }
+
+      trackBrowseCityChange(draft.city, 'filter', filters.city)
+      onApply({
+        ...draft,
+        city: draft.city,
+        cityLocked: draft.city !== 'all',
+      })
+      onClose()
+      return
+    }
+
     if (open) {
       trackBrowseFilterApply(filters, draft, open)
     }
@@ -92,6 +123,14 @@ export function FilterSheet({ filters, onApply, open, onClose }: FilterSheetProp
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">
+          {open === 'location' && (
+            <BrowseLocationOptions
+              selectedCity={draft.city}
+              onSelect={(city) => setDraft({ ...draft, city })}
+              variant="sheet"
+            />
+          )}
+
           {open === 'day' && (
             <div className="space-y-1">
               {[
@@ -214,14 +253,20 @@ export function FilterSheet({ filters, onApply, open, onClose }: FilterSheetProp
           )}
         </div>
 
-        <div className="filter-sheet-actions flex shrink-0 items-center justify-between border-t border-border bg-white px-5 py-4">
-          <button
-            type="button"
-            onClick={clear}
-            className="text-[15px] font-semibold text-charcoal underline underline-offset-4"
-          >
-            Clear
-          </button>
+        <div
+          className={`filter-sheet-actions flex shrink-0 items-center border-t border-border bg-white px-5 py-4 ${
+            open === 'location' ? 'justify-end' : 'justify-between'
+          }`}
+        >
+          {open !== 'location' ? (
+            <button
+              type="button"
+              onClick={clear}
+              className="text-[15px] font-semibold text-charcoal underline underline-offset-4"
+            >
+              Clear
+            </button>
+          ) : null}
           <button type="button" onClick={apply} className="btn-primary px-6">
             {resultsLabel}
           </button>

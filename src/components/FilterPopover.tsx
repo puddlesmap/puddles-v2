@@ -3,8 +3,7 @@ import type { AgeFilter, DayFilter, TimeFilter } from '../types/event'
 import { ACTIVITY_TYPES } from '../types/event'
 import { getTemporalTabs } from '../utils/dates'
 import type { BrowseFilters } from '../utils/filters'
-import { NearbyPinIcon } from './filters/DiscoveryFilterChip'
-import { BROWSE_LOCATION_OPTIONS } from './layout/BrandLockup'
+import { BrowseLocationOptions } from './filters/BrowseLocationOptions'
 import { trackBrowseCityChange, trackBrowseFilterApply } from '../utils/analytics'
 
 const TIME_OPTIONS: { key: TimeFilter; label: string; sub: string }[] = [
@@ -21,38 +20,6 @@ const AGE_OPTIONS: { key: AgeFilter; label: string }[] = [
   { key: '2-5', label: '2–5' },
   { key: '5+', label: '5+' },
 ]
-
-function LocationOptions({
-  draft,
-  onSelect,
-}: {
-  draft: BrowseFilters
-  onSelect: (city: (typeof BROWSE_LOCATION_OPTIONS)[number]['key']) => void
-}) {
-  return (
-    <div className="space-y-0.5">
-      {BROWSE_LOCATION_OPTIONS.map((city) => (
-        <button
-          key={city.key}
-          type="button"
-          onClick={() => onSelect(city.key)}
-          className={`flex w-full items-center rounded-xl px-3 py-3 text-left text-[15px] transition-colors hover:bg-surface-muted ${
-            draft.city === city.key ? 'bg-surface-muted font-semibold' : ''
-          }`}
-        >
-          {city.key === 'nearby' ? (
-            <span className="flex items-center gap-2">
-              <NearbyPinIcon />
-              {city.label}
-            </span>
-          ) : (
-            city.label
-          )}
-        </button>
-      ))}
-    </div>
-  )
-}
 
 export type FilterPopoverType = 'location' | 'day' | 'time' | 'age' | 'type' | null
 
@@ -92,7 +59,7 @@ export function FilterPopover({
     onClose()
   }
 
-  async function applyLocation(city: (typeof BROWSE_LOCATION_OPTIONS)[number]['key']) {
+  async function applyLocation(city: BrowseFilters['city']) {
     if (city === 'nearby') {
       if (draft.city === 'nearby' && hasNearbyCoords) {
         onClose()
@@ -121,48 +88,20 @@ export function FilterPopover({
 
   if (isLocation) {
     return (
-      <>
-        <button
-          type="button"
-          className="filter-sheet-overlay fixed inset-0 z-40 bg-black/40 md:bg-black/20"
-          aria-label="Close filter menu"
-          onClick={onClose}
-        />
-        <div
-          className="filter-sheet-panel fixed inset-x-0 bottom-0 z-50 flex max-h-[min(60dvh,480px)] flex-col rounded-t-2xl bg-white md:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="location-sheet-title"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="flex shrink-0 items-start justify-between border-b border-border px-5 pb-4 pt-5">
-            <h2 id="location-sheet-title" className="font-display text-[22px] text-charcoal">
-              Choose a location
-            </h2>
-            <button
-              type="button"
-              onClick={onClose}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-charcoal hover:bg-surface-muted"
-              aria-label="Close"
-            >
-              ✕
-            </button>
-          </div>
-          <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">
-            <LocationOptions draft={draft} onSelect={applyLocation} />
-          </div>
+      <div
+        className="absolute left-0 right-0 top-full z-50 mt-2 hidden max-h-[min(24rem,60dvh)] overflow-y-auto rounded-xl border border-border bg-white p-4 shadow-card md:block"
+        role="dialog"
+        aria-modal="true"
+      >
+        <h3 className="text-sm font-semibold text-charcoal">Where</h3>
+        <div className="mt-2">
+          <BrowseLocationOptions
+            selectedCity={draft.city}
+            onSelect={applyLocation}
+            variant="popover"
+          />
         </div>
-        <div
-          className="absolute left-0 right-0 top-full z-50 mt-2 hidden max-h-[min(24rem,60dvh)] overflow-y-auto rounded-xl border border-border bg-white p-4 shadow-card md:block"
-          role="dialog"
-          aria-modal="true"
-        >
-          <h3 className="text-sm font-semibold text-charcoal">Where</h3>
-          <div className="mt-2">
-            <LocationOptions draft={draft} onSelect={applyLocation} />
-          </div>
-        </div>
-      </>
+      </div>
     )
   }
 

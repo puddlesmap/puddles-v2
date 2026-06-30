@@ -1,7 +1,6 @@
 import type { SheetSubmission } from '../types/submission'
 import {
   SHEET_SUBMISSIONS_CSV_PROXY_PATH,
-  SHEET_SUBMISSIONS_CSV_URL,
 } from '../data/sheet-source'
 import { parseCsv, rowsToObjects } from './csv'
 
@@ -74,27 +73,21 @@ function mapRecord(record: Record<string, string>): SheetSubmission | null {
     internalNotes: pickField(record, ['internal notes']),
     convertedEventId: pickField(record, ['converted event id']),
     submittedByEmail: pickField(record, ['submitted by email', 'email']),
+    requestedLocation: pickField(record, ['requested location']),
+    sourceContext: pickField(record, ['source context']),
+    selectedCity: pickField(record, ['selected city']),
   }
 }
 
 async function fetchSubmissionsCsv(): Promise<string> {
-  const urls = [SHEET_SUBMISSIONS_CSV_PROXY_PATH, SHEET_SUBMISSIONS_CSV_URL]
-  let lastError: Error | null = null
-
-  for (const url of urls) {
-    try {
-      const response = await fetch(url, { cache: 'no-store' })
-      if (!response.ok) {
-        lastError = new Error(`Submissions fetch failed (${response.status})`)
-        continue
-      }
-      return await response.text()
-    } catch (error) {
-      lastError = error instanceof Error ? error : new Error('Could not reach Google Sheet')
-    }
+  const response = await fetch(SHEET_SUBMISSIONS_CSV_PROXY_PATH, {
+    cache: 'no-store',
+    credentials: 'include',
+  })
+  if (!response.ok) {
+    throw new Error(`Submissions fetch failed (${response.status})`)
   }
-
-  throw lastError ?? new Error('Could not refresh submissions from Google Sheet')
+  return await response.text()
 }
 
 export function parseSubmissionsCsv(csvText: string): SheetSubmission[] {

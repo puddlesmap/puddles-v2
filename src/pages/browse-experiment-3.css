@@ -185,7 +185,7 @@
 /* —— Mobile filter chips: room for borders/shadows —— */
 @media (max-width: 767px) {
   .browse-page-shell--experiment-3 .browse-secondary-controls {
-    overflow: visible;
+    overflow: hidden;
     max-height: 4.75rem;
     padding-top: 0.5rem;
   }
@@ -195,9 +195,14 @@
     padding-top: 0;
   }
 
-  .browse-page-shell--experiment-3 .browse-filter-chips {
+  .browse-page-shell--experiment-3 .browse-filter-chips-scroll {
     padding-top: 0.125rem;
     padding-bottom: 0.25rem;
+  }
+
+  .browse-page-shell--experiment-3 .browse-filter-chips {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 

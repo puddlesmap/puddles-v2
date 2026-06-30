@@ -11,7 +11,8 @@
     "parse-events": "node scripts/sync-events.mjs",
     "sync-events": "node scripts/sync-events.mjs",
     "sync-submissions": "node scripts/sync-submissions.mjs",
-    "sync-all": "npm run sync-events && npm run sync-submissions"
+    "sync-all": "npm run sync-events && npm run sync-submissions",
+    "verify-expansion-watch": "node scripts/verify-expansion-watch-submission.mjs"
   },
   "dependencies": {
     "@vis.gl/react-google-maps": "^1.8.3",

@@ -96,6 +96,8 @@ interface BrowsePageProps {
   shellClassName?: string
   useHomeHeader?: boolean
   resultsCountStyle?: 'default' | 'contextual'
+  mapInteractionMode?: 'default' | 'connected'
+  defaultViewMode?: 'list' | 'map'
   experimentNote?: ReactNode
 }
 
@@ -103,15 +105,18 @@ export function BrowsePage({
   shellClassName,
   useHomeHeader = true,
   resultsCountStyle = 'default',
+  mapInteractionMode = 'default',
+  defaultViewMode = 'list',
   experimentNote,
 }: BrowsePageProps = {}) {
   const { browseFilters, setBrowseFilters, openEvent } = useApp()
   const [searchParams] = useSearchParams()
   const [openPopover, setOpenPopover] = useState<FilterPopoverType>(null)
   const [openSheet, setOpenSheet] = useState<FilterSheetType>(null)
-  const [viewMode, setViewMode] = useState<'list' | 'map'>(() =>
-    searchParams.get('view') === 'map' ? 'map' : 'list',
-  )
+  const [viewMode, setViewMode] = useState<'list' | 'map'>(() => {
+    if (searchParams.get('view') === 'map') return 'map'
+    return defaultViewMode
+  })
   const secondaryCollapsed = useScrollDirectionCollapse()
   const { coords, isRequesting, requestLocation } = useUserLocation()
   const isExperimentBrowse3 = shellClassName?.includes('experiment-3') ?? false
@@ -217,8 +222,12 @@ export function BrowsePage({
   }
 
   function openLocationFilter() {
-    setOpenSheet(null)
-    setOpenPopover('location')
+    setOpenPopover(null)
+    if (isDesktopViewport()) {
+      setOpenPopover('location')
+    } else {
+      setOpenSheet('location')
+    }
   }
 
   function openFilterChip(key: 'day' | 'time' | 'age' | 'type') {
@@ -260,21 +269,23 @@ export function BrowsePage({
 
   const secondaryControls = (
     <div className="browse-secondary-controls-row">
-      <div className="browse-filter-chips">
-        {filterChips.map((chip) => (
-          <FilterChipButton
-            key={chip.key}
-            label={chip.label}
-            active={chip.active}
-            selectionCount={chip.selectionCount ?? 0}
-            onClick={() => openFilterChip(chip.key)}
-          />
-        ))}
-        {showReset && (
-          <button type="button" onClick={resetFilters} className="browse-reset-link">
-            Reset
-          </button>
-        )}
+      <div className="browse-filter-chips-scroll">
+        <div className="browse-filter-chips">
+          {filterChips.map((chip) => (
+            <FilterChipButton
+              key={chip.key}
+              label={chip.label}
+              active={chip.active}
+              selectionCount={chip.selectionCount ?? 0}
+              onClick={() => openFilterChip(chip.key)}
+            />
+          ))}
+          {showReset && (
+            <button type="button" onClick={resetFilters} className="browse-reset-link">
+              Reset
+            </button>
+          )}
+        </div>
       </div>
       <BrowseViewToggle viewMode={viewMode} onChange={handleViewModeChange} className="browse-view-toggle-inline" />
     </div>
@@ -319,6 +330,8 @@ export function BrowsePage({
         onApply={setBrowseFilters}
         open={openSheet}
         onClose={() => setOpenSheet(null)}
+        hasNearbyCoords={Boolean(coords)}
+        onRequestNearby={requestNearbyLocation}
       />
 
       {viewMode === 'map' && events.length > 0 && !awaitingNearby ? (
@@ -326,6 +339,7 @@ export function BrowsePage({
           events={events}
           feedKey={feedKey}
           browseFilters={browseFilters}
+          interactionMode={mapInteractionMode}
           onOpenEvent={(event) => openEvent(event, 'browse_map')}
         />
       ) : (

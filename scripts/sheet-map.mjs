@@ -9,6 +9,11 @@ const ACTIVITY_TYPES = [
   'Other',
 ]
 
+export const VENUE_ALIASES = {
+  'Mountain View Public Library': 'Mountain View Library',
+  'Los Altos Public Library': 'Los Altos Library',
+}
+
 export const VENUE_GEO = {
   'Downtown Library': { city: 'Palo Alto', lat: 37.4443, lng: -122.1598 },
   'College Terrace Library': { city: 'Palo Alto', lat: 37.4221, lng: -122.1381 },
@@ -21,14 +26,51 @@ export const VENUE_GEO = {
   'Deer Hollow Farm': { city: 'Mountain View', lat: 37.319, lng: -122.085 },
 }
 
+export const VENUE_ADDRESSES = {
+  'Downtown Library': '270 Forest Ave, Palo Alto, CA 94301',
+  'College Terrace Library': '2300 Wellesley St, Palo Alto, CA 94306',
+  'Mitchell Park Library': '3700 Middlefield Rd, Palo Alto, CA 94303',
+  "Children's Library": '1276 Harriet St, Palo Alto, CA 94301',
+  'Rinconada Library': '1213 Newell Rd, Palo Alto, CA 94303',
+  'Mountain View Library': '585 Franklin St, Mountain View, CA 94041',
+  'Los Altos Library': '13 S San Antonio Rd, Los Altos, CA 94022',
+  'Pioneer Park': '1146 Church St, Mountain View, CA 94041',
+  'Deer Hollow Farm': '22500 Cristo Rey Dr, Los Altos, CA 94022',
+}
+
+export function isDateLikeValue(value) {
+  if (!value) return false
+  return /^\d{4}-\d{2}-\d{2}$/.test(String(value).trim())
+}
+
+function canonicalVenue(venue) {
+  return VENUE_ALIASES[venue] ?? venue
+}
+
+export function sanitizeAddress(venue, address) {
+  const trimmed = String(address ?? '').trim()
+  if (trimmed && !isDateLikeValue(trimmed)) return trimmed
+  const canonical = canonicalVenue(venue)
+  return VENUE_ADDRESSES[canonical] ?? ''
+}
+
+export function sanitizeRoom(room, venue) {
+  const trimmed = String(room ?? '').trim()
+  if (!trimmed || isDateLikeValue(trimmed)) return ''
+  if (venue && trimmed.toLowerCase() === String(venue).trim().toLowerCase()) return ''
+  return trimmed
+}
+
 const COLUMN_ALIASES = {
   eventId: ['event id', 'softr record id'],
   title: ['title', 'titel', 'short title'],
   description: ['event description', 'description', 'event preview'],
   venue: ['venue', 'display location short', 'display location'],
+  room: ['room'],
   address: ['address'],
   city: ['city'],
   date: ['event date', 'start date'],
+  timeNormalized: ['time normalized'],
   startDateTime: ['start datetime'],
   endDateTime: ['end datetime'],
   ageRange: ['age tags clean', 'age tags', 'age simple'],
@@ -93,6 +135,30 @@ export function parseSheetDate(value) {
   const parsed = new Date(raw)
   if (Number.isNaN(parsed.getTime())) return null
   return parsed.toISOString().slice(0, 10)
+}
+
+function clockTo24Hour(raw) {
+  const m = String(raw)
+    .trim()
+    .toLowerCase()
+    .match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/)
+  if (!m) return null
+  let hour = parseInt(m[1], 10)
+  const min = m[2] || '00'
+  const ap = m[3]
+  if (ap === 'pm' && hour < 12) hour += 12
+  if (ap === 'am' && hour === 12) hour = 0
+  return `${hour.toString().padStart(2, '0')}:${min}`
+}
+
+export function parseTimeRange(value) {
+  const norm = String(value).replace(/\s+/g, ' ').trim().toLowerCase()
+  if (!norm) return null
+  const parts = norm.split(/\s*[-–—]{1,2}\s*|\s+to\s+/)
+  const startTime = clockTo24Hour(parts[0])
+  const endTime = clockTo24Hour(parts[1] || parts[0])
+  if (!startTime || !endTime) return null
+  return { startTime, endTime }
 }
 
 export function parseSheetDateTime(value) {
@@ -186,27 +252,34 @@ export function deriveEventId(record) {
   return `${title}-${venue}-${date}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 80)
 }
 
-export function resolveGeo(venue, address, city, latRaw, lngRaw) {
+export function resolveGeo(venue, address, city, latRaw, lngRaw, room = '') {
   const lat = parseFloat(latRaw)
   const lng = parseFloat(lngRaw)
-  const fallback = VENUE_GEO[venue]
+  const canonical = canonicalVenue(venue)
+  const roomGeo = room ? VENUE_GEO[room] : null
+  const fallback = roomGeo ?? VENUE_GEO[canonical]
+  let resolvedAddress = sanitizeAddress(venue, address)
+  if (room && VENUE_ADDRESSES[room]) {
+    resolvedAddress = VENUE_ADDRESSES[room]
+  }
+  const resolvedCity = normalizeCity(city || fallback?.city || '')
 
   if (Number.isFinite(lat) && Number.isFinite(lng)) {
-    return { address, city: normalizeCity(city), lat, lng }
+    return { address: resolvedAddress, city: resolvedCity, lat, lng }
   }
 
   if (fallback) {
     return {
-      address: address || venue,
-      city: normalizeCity(city || fallback.city),
+      address: resolvedAddress || VENUE_ADDRESSES[canonical] || venue,
+      city: resolvedCity || fallback.city,
       lat: fallback.lat,
       lng: Number.isFinite(lng) ? lng : fallback.lng,
     }
   }
 
   return {
-    address: address || venue,
-    city: normalizeCity(city),
+    address: resolvedAddress || venue,
+    city: resolvedCity,
     lat: Number.isFinite(lat) ? lat : 37.44,
     lng: Number.isFinite(lng) ? lng : -122.14,
   }

@@ -587,20 +587,20 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
       </div>
 
       <div>
-        <label className="mb-2 block font-semibold" htmlFor="share-email">
-          11. Your info <span className="font-normal text-muted">(Optional)</span>
+        <label className="share-field-label mb-2 block" htmlFor="share-email">
+          Email <span className="font-normal text-muted">(Optional)</span>
         </label>
         <input
           id="share-email"
           type="email"
           value={submittedByEmail}
           onChange={(e) => setSubmittedByEmail(e.target.value)}
-          placeholder="Your email address"
+          placeholder="you@example.com"
           autoComplete="email"
           className="input-field"
         />
         <p className="share-field-hint mt-2">
-          Only if we need to follow up. We&apos;ll never share it.
+          We&apos;ll only use this if we have a quick question about your event.
         </p>
       </div>
     </div>

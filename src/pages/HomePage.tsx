@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { HomeExperimentPage } from './HomeExperimentPage'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 
@@ -13,11 +12,6 @@ export function HomePage() {
       logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
       logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
       showBrandName={false}
-      trailing={
-        <p className="typography-experiments-entry">
-          <Link to="/typography-experiment">Typography experiments</Link>
-        </p>
-      }
     />
   )
 }

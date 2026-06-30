@@ -10,11 +10,13 @@ import {
   getEventAddressLine,
   getEventDirectionsLabel,
   getEventDirectionsUrl,
+  getEventRoomLine,
 } from '../utils/maps'
 import { eventAnalyticsProps, track } from '../utils/analytics'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
 import { EventDetailIcon } from './EventDetailIcon'
+import { EventImage } from './EventImage'
 
 interface EventModalProps {
   event: Event
@@ -63,6 +65,7 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
   })
   const directionsUrl = getEventDirectionsUrl(event)
   const addressLine = getEventAddressLine(event)
+  const roomLine = getEventRoomLine(event)
   const canAddToCalendar = canAddEventToCalendar(event)
   const hasOfficialPage = Boolean(event.eventUrl?.trim())
   const canNativeShare = typeof navigator !== 'undefined' && 'share' in navigator
@@ -174,11 +177,11 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
           className="event-modal-scroll flex-1 overflow-y-auto overscroll-contain"
           onScroll={handleScroll}
         >
-          <img
+          <EventImage
             ref={heroRef}
-            src={event.imageUrl}
-            alt=""
+            event={event}
             className="event-modal-hero w-full object-cover"
+            loading="eager"
             onLoad={handleScroll}
           />
 
@@ -199,6 +202,7 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
             <EventDetailIcon kind="location" />
             <div className="event-detail-row-content">
               {event.venue ? <p className="event-detail-venue">{event.venue}</p> : null}
+              {roomLine ? <p className="event-detail-room">{roomLine}</p> : null}
               {directionsUrl && addressLine ? (
                 <a
                   href={directionsUrl}

@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import type { AdminEventRecord } from '../../types/admin'
 import type { EventStatus } from '../../types/event'
-import { formatEventDate } from '../../utils/dates'
+import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
 import { isVerificationStale } from '../../utils/adminEvents'
 import { AdminEventDetailPanel } from './AdminEventDetail'
 
@@ -61,7 +61,7 @@ export function AdminEventsTable({
           <tr>
             <th>Event</th>
             <th>City</th>
-            <th>Date</th>
+            <th>When</th>
             <th>Status</th>
             <th>Live</th>
             <th>Past</th>
@@ -97,7 +97,12 @@ export function AdminEventsTable({
                     <div className="admin-event-meta">{event.venue}</div>
                   </td>
                   <td>{event.city}</td>
-                  <td className="whitespace-nowrap">{formatEventDate(event.date)}</td>
+                  <td>
+                    <div className="whitespace-nowrap">{formatEventDate(event.date)}</div>
+                    <div className="admin-event-meta whitespace-nowrap">
+                      {formatEventTimeRange(event.startTime, event.endTime)}
+                    </div>
+                  </td>
                   <td>
                     <StatusBadge status={event.status} />
                   </td>

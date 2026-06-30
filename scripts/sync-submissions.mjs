@@ -75,6 +75,9 @@ function mapRecord(record) {
     internalNotes: pickField(record, ['internal notes']),
     convertedEventId: pickField(record, ['converted event id']),
     submittedByEmail: pickField(record, ['submitted by email', 'email']),
+    requestedLocation: pickField(record, ['requested location']),
+    sourceContext: pickField(record, ['source context']),
+    selectedCity: pickField(record, ['selected city']),
   }
 }
 
