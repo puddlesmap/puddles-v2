@@ -61,13 +61,17 @@ On each run:
 
 Avoid syncing every few minutes — unnecessary deploys and Google export limits.
 
-## Admin “Refresh” button (future)
+## Admin “Publish to site” button
 
-Scheduled sync updates **production** after commit + deploy.
+On **Admin → Events**, **Publish to site** triggers the same GitHub Action as the manual workflow run:
 
-A future admin **Refresh from Sheet** button would call a small API that runs the same sync logic and returns fresh JSON for the admin UI only (or triggers the GitHub workflow via `workflow_dispatch`).
+1. Sync Events + Submissions tabs from Google Sheet
+2. Commit JSON if changed
+3. Push to `main` → Netlify redeploys
 
-That is **on-demand**, separate from the schedule.
+Requires Netlify env var **`GITHUB_DEPLOY_TOKEN`** (fine-grained PAT with **Actions: Read and write** on `puddlesmap/puddles-v2`). Admin sign-in (`ADMIN_PASSWORD`) is also required.
+
+**Refresh from Sheet** only updates the admin dashboard in your browser — it does not deploy.
 
 ## Troubleshooting
 

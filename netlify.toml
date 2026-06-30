@@ -24,6 +24,11 @@
   status = 200
 
 [[redirects]]
+  from = "/api/trigger-sync"
+  to = "/.netlify/functions/trigger-sync"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

@@ -6,6 +6,10 @@ interface AdminSyncBarProps {
   refreshError: string | null
   onRefresh: () => void
   refreshLabel?: string
+  isPublishing?: boolean
+  publishError?: string | null
+  publishMessage?: string | null
+  onPublish?: () => void
 }
 
 export function AdminSyncBar({
@@ -14,6 +18,10 @@ export function AdminSyncBar({
   refreshError,
   onRefresh,
   refreshLabel = 'Refresh from Sheet',
+  isPublishing = false,
+  publishError = null,
+  publishMessage = null,
+  onPublish,
 }: AdminSyncBarProps) {
   const deployedLabel = formatSyncTimestamp(SYNC_META.syncedAt)
   const adminLabel = adminRefreshedAt ? formatSyncTimestamp(adminRefreshedAt) : null
@@ -47,18 +55,34 @@ export function AdminSyncBar({
           type="button"
           className="admin-btn admin-btn-primary"
           onClick={onRefresh}
-          disabled={isRefreshing}
+          disabled={isRefreshing || isPublishing}
         >
           {isRefreshing ? 'Refreshing…' : refreshLabel}
         </button>
-        {refreshError && (
+        {onPublish ? (
+          <button
+            type="button"
+            className="admin-btn admin-btn-secondary"
+            onClick={onPublish}
+            disabled={isRefreshing || isPublishing}
+          >
+            {isPublishing ? 'Publishing…' : 'Publish to site'}
+          </button>
+        ) : null}
+        {(refreshError || publishError) && (
           <p className="admin-sync-error" role="alert">
-            {refreshError}
+            {publishError || refreshError}
           </p>
         )}
-        {!refreshError && (
+        {publishMessage ? (
+          <p className="admin-action-alert admin-action-alert--success" role="status">
+            {publishMessage}
+          </p>
+        ) : null}
+        {!refreshError && !publishError && !publishMessage && (
           <p className="admin-sync-note-inline">
-            Deployed site updates after scheduled sync or <code>npm run sync-events</code> + deploy.
+            <strong>Refresh</strong> updates this dashboard. <strong>Publish to site</strong> syncs the
+            sheet and deploys the public site (2–4 min).
           </p>
         )}
       </div>

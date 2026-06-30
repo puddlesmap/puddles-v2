@@ -21,6 +21,7 @@ import {
   refreshEventsFromSheet,
   saveCachedAdminRefresh,
 } from '../../utils/sheetSync'
+import { triggerPublishToSite } from '../../utils/triggerPublish'
 
 const CITIES = ['All cities', 'Palo Alto', 'Los Altos', 'Mountain View'] as const
 
@@ -35,7 +36,10 @@ export function AdminEventsPage() {
     return loadCachedAdminRefresh()?.refreshedAt ?? null
   })
   const [isRefreshing, setIsRefreshing] = useState(false)
+  const [isPublishing, setIsPublishing] = useState(false)
   const [refreshError, setRefreshError] = useState<string | null>(null)
+  const [publishError, setPublishError] = useState<string | null>(null)
+  const [publishMessage, setPublishMessage] = useState<string | null>(null)
   const [exportMessage, setExportMessage] = useState<string | null>(null)
   const [actionMessage, setActionMessage] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
@@ -72,6 +76,25 @@ export function AdminEventsPage() {
       )
     } finally {
       setIsRefreshing(false)
+    }
+  }
+
+  async function handlePublish() {
+    setIsPublishing(true)
+    setPublishError(null)
+    setPublishMessage(null)
+    setActionMessage(null)
+    try {
+      const message = await triggerPublishToSite()
+      setPublishMessage(message)
+    } catch (error) {
+      setPublishError(
+        error instanceof Error
+          ? error.message
+          : 'Could not start publish. Check GITHUB_DEPLOY_TOKEN on Netlify.',
+      )
+    } finally {
+      setIsPublishing(false)
     }
   }
 
@@ -121,6 +144,10 @@ export function AdminEventsPage() {
         isRefreshing={isRefreshing}
         refreshError={refreshError}
         onRefresh={handleRefresh}
+        isPublishing={isPublishing}
+        publishError={publishError}
+        publishMessage={publishMessage}
+        onPublish={() => void handlePublish()}
       />
 
       <AdminOverview counts={counts} activeView={activeView} onSelectView={setActiveView} />

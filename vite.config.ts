@@ -155,6 +155,72 @@ export default defineConfig(({ mode }) => {
             }
           })
 
+          server.middlewares.use('/api/trigger-sync', async (req, res) => {
+            if (req.method !== 'POST') {
+              sendJson(res, 405, { ok: false, error: 'Method not allowed' })
+              return
+            }
+
+            const event = mockEvent(req)
+            if (!isAdminAuthEnabled() || !hasAdminSession(event)) {
+              sendJson(res, 401, { ok: false, error: 'Unauthorized' })
+              return
+            }
+
+            const token = env.GITHUB_DEPLOY_TOKEN?.trim()
+            const repo = env.GITHUB_REPO?.trim() || 'puddlesmap/puddles-v2'
+            const [owner, name] = repo.split('/')
+
+            if (!token) {
+              sendJson(res, 503, {
+                ok: false,
+                error: 'Publish is not configured. Set GITHUB_DEPLOY_TOKEN in .env.local.',
+              })
+              return
+            }
+
+            try {
+              const upstream = await fetch(
+                `https://api.github.com/repos/${owner}/${name}/actions/workflows/sync-events.yml/dispatches`,
+                {
+                  method: 'POST',
+                  headers: {
+                    Authorization: `Bearer ${token}`,
+                    Accept: 'application/vnd.github+json',
+                    'X-GitHub-Api-Version': '2022-11-28',
+                  },
+                  body: JSON.stringify({ ref: 'main' }),
+                },
+              )
+
+              if (upstream.status === 204) {
+                sendJson(res, 200, {
+                  ok: true,
+                  message: 'Sync started. The public site usually updates in 2–4 minutes.',
+                })
+                return
+              }
+
+              let detail = ''
+              try {
+                const body = await upstream.json()
+                detail = body?.message || ''
+              } catch {
+                detail = await upstream.text()
+              }
+
+              sendJson(upstream.status >= 500 ? 502 : upstream.status, {
+                ok: false,
+                error: detail || `GitHub workflow could not be started (${upstream.status})`,
+              })
+            } catch (error) {
+              sendJson(res, 502, {
+                ok: false,
+                error: error instanceof Error ? error.message : 'Could not reach GitHub',
+              })
+            }
+          })
+
           server.middlewares.use('/api/sheet-api', async (req, res) => {
             if (req.method !== 'POST') {
               sendJson(res, 405, { ok: false, error: 'Method not allowed' })
