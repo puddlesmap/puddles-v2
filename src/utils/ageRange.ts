@@ -1,0 +1,104 @@
+export type AgeBucket = '0-2' | '2-5' | '5+'
+export type AgeFilter = 'all' | '0-2' | '2-5'
+
+export const PUBLIC_AGE_FILTER_OPTIONS: { key: AgeFilter; label: string }[] = [
+  { key: 'all', label: 'All' },
+  { key: '0-2', label: '0–2' },
+  { key: '2-5', label: '2–5' },
+]
+
+function normalizePart(value: string): string {
+  return value.trim().toLowerCase().replace(/\s+/g, '')
+}
+
+export function parseAgeBuckets(raw: string): Set<AgeBucket> {
+  const text = raw.trim()
+  const buckets = new Set<AgeBucket>()
+
+  if (!text) {
+    buckets.add('0-2')
+    buckets.add('2-5')
+    return buckets
+  }
+
+  if (/all\s*ages?/i.test(text)) {
+    buckets.add('0-2')
+    buckets.add('2-5')
+    buckets.add('5+')
+    return buckets
+  }
+
+  for (const part of text.split(/[,;]/)) {
+    const normalized = normalizePart(part)
+    if (!normalized) continue
+    if (normalized === '0-2' || normalized === '0–2') buckets.add('0-2')
+    if (normalized === '2-5' || normalized === '2–5') buckets.add('2-5')
+    if (normalized === '5+') buckets.add('5+')
+  }
+
+  if (buckets.size === 0) {
+    const ranges = [...text.matchAll(/(\d+)\s*[-–]\s*(\d+)/g)].map((match) => [
+      parseInt(match[1], 10),
+      parseInt(match[2], 10),
+    ])
+
+    if (ranges.length > 0) {
+      const min = Math.min(...ranges.map(([low]) => low))
+      const max = Math.max(...ranges.map(([, high]) => high))
+      if (min <= 2) buckets.add('0-2')
+      if (min <= 5 && max >= 2) buckets.add('2-5')
+      if (max > 5) buckets.add('5+')
+    } else if (/^5\+$/i.test(normalizePart(text))) {
+      buckets.add('5+')
+    } else {
+      buckets.add('0-2')
+      buckets.add('2-5')
+    }
+  }
+
+  return buckets
+}
+
+export function hasAllAgeBuckets(buckets: Set<AgeBucket>): boolean {
+  return buckets.has('0-2') && buckets.has('2-5') && buckets.has('5+')
+}
+
+/** Events suitable for the public 0–5 site. Excludes 5+ only. */
+export function isPublicAgeEligible(ageRange: string): boolean {
+  const buckets = parseAgeBuckets(ageRange)
+  if (buckets.size === 0) return true
+  if (hasAllAgeBuckets(buckets)) return true
+  return buckets.has('0-2') || buckets.has('2-5')
+}
+
+export function matchesPublicAgeFilter(ageRange: string, filter: AgeFilter): boolean {
+  if (filter === 'all') return true
+
+  const buckets = parseAgeBuckets(ageRange)
+  if (hasAllAgeBuckets(buckets)) return true
+  if (filter === '0-2') return buckets.has('0-2')
+  if (filter === '2-5') return buckets.has('2-5')
+  return false
+}
+
+export function getBrowseAgeChipLabel(age: AgeFilter): string {
+  if (age === 'all') return 'Age'
+  const option = PUBLIC_AGE_FILTER_OPTIONS.find((item) => item.key === age)
+  return option ? `Age ${option.label}` : 'Age'
+}
+
+/** Derive min/max for sync and display from bucket tags. */
+export function ageBoundsFromRange(raw: string): { min: number; max: number; label: string } {
+  const buckets = parseAgeBuckets(raw)
+  const text = raw.trim()
+
+  if (text) {
+    return {
+      min: buckets.has('0-2') ? 0 : buckets.has('2-5') ? 2 : 5,
+      max: buckets.has('5+') && !buckets.has('0-2') && !buckets.has('2-5') ? 12 : 5,
+      label: text,
+    }
+  }
+
+  return { min: 0, max: 5, label: '0–5' }
+}

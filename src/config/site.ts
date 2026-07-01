@@ -1,12 +1,12 @@
 export const SITE = {
   url: 'https://puddlesmap.com',
   name: 'Puddles',
-  siteTitle: 'Puddles · The Tot Map',
+  siteTitle: 'Puddles | Bay Area Activities for Ages 0–5',
   titleTemplate: '%s · Puddles',
   description:
-    'Find storytimes, music, drop-ins, and local family moments for ages 0–5 in the Bay Area. Starting in Palo Alto, Los Altos, and Mountain View.',
+    'Find storytimes, music, drop-ins, library events, community programs, and local family activities for ages 0–5 in the Bay Area. Starting in Palo Alto, Los Altos, and Mountain View.',
   ogDescription:
-    'Find storytimes, music, drop-ins, and local family moments for ages 0–5 in the Bay Area.',
+    'Find storytimes, music, drop-ins, library events, community programs, and local family activities for ages 0–5 in the Bay Area.',
   ogImagePath: '/og-image.png',
   themeColor: '#FFFFFF',
 } as const

@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /browse
+Allow: /map
+Allow: /share
+Allow: /about
+Allow: /event/
+Allow: /palo-alto
+Allow: /los-altos
+Allow: /mountain-view
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://puddlesmap.com/sitemap.xml

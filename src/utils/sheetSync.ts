@@ -212,19 +212,47 @@ function parseAgeRange(raw: string) {
   const text = raw.trim()
   if (!text) return { min: 0, max: 5, label: '0–5' }
 
-  const nums = [...text.matchAll(/(\d+)\s*[-–]\s*(\d+)/g)].map((match) => [
-    parseInt(match[1], 10),
-    parseInt(match[2], 10),
-  ])
+  const buckets = new Set<'0-2' | '2-5' | '5+'>()
 
-  if (nums.length === 0) {
-    if (/all/i.test(text)) return { min: 0, max: 12, label: 'All ages' }
-    return { min: 0, max: 5, label: '0–5' }
+  if (/all\s*ages?/i.test(text)) {
+    return { min: 0, max: 5, label: text }
   }
 
-  const min = Math.min(...nums.map(([a]) => a))
-  const max = Math.max(...nums.map(([, b]) => b))
-  return { min, max, label: `${min}–${max}` }
+  for (const part of text.split(/[,;]/)) {
+    const normalized = part.trim().toLowerCase().replace(/\s+/g, '')
+    if (normalized === '0-2' || normalized === '0–2') buckets.add('0-2')
+    if (normalized === '2-5' || normalized === '2–5') buckets.add('2-5')
+    if (normalized === '5+') buckets.add('5+')
+  }
+
+  if (buckets.size === 0) {
+    const nums = [...text.matchAll(/(\d+)\s*[-–]\s*(\d+)/g)].map((match) => [
+      parseInt(match[1], 10),
+      parseInt(match[2], 10),
+    ])
+    if (nums.length === 0) {
+      if (/^5\+$/i.test(text.trim().toLowerCase().replace(/\s+/g, ''))) {
+        return { min: 5, max: 12, label: text }
+      }
+      return { min: 0, max: 5, label: text || '0–5' }
+    }
+    const min = Math.min(...nums.map(([a]) => a))
+    const max = Math.max(...nums.map(([, b]) => b))
+    if (min <= 2) buckets.add('0-2')
+    if (min <= 5 && max >= 2) buckets.add('2-5')
+    if (max > 5) buckets.add('5+')
+  }
+
+  const hasAll = buckets.has('0-2') && buckets.has('2-5') && buckets.has('5+')
+  const min = buckets.has('0-2') ? 0 : buckets.has('2-5') ? 2 : 5
+  const max =
+    buckets.has('5+') && !buckets.has('0-2') && !buckets.has('2-5') ? 12 : 5
+
+  return {
+    min,
+    max: hasAll ? 5 : max,
+    label: text,
+  }
 }
 
 function parseCost(raw: string): Event['cost'] {

@@ -16,6 +16,7 @@ import { BrowseMapView } from '../components/browse/BrowseMapView'
 import { useScrollDirectionCollapse } from '../hooks/useScrollDirection'
 import { useUserLocation } from '../hooks/useUserLocation'
 import {
+  DEFAULT_BROWSE_FILTERS,
   filterEvents,
   getBrowseActivityChipLabel,
   getBrowseAgeChipLabel,
@@ -41,6 +42,8 @@ import {
   PUDDLES_WORDMARK_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC_2X,
 } from './experimentShared'
+import { useEventNavigation } from '../hooks/useEventNavigation'
+import { resolveCitySlugParam } from '../config/localRoutes'
 import { formatDocumentTitle, setPageTitle } from '../utils/siteMeta'
 
 const DESKTOP_MEDIA = '(min-width: 768px)'
@@ -110,7 +113,8 @@ export function BrowsePage({
   defaultViewMode = 'list',
   experimentNote,
 }: BrowsePageProps = {}) {
-  const { browseFilters, setBrowseFilters, openEvent } = useApp()
+  const { browseFilters, setBrowseFilters } = useApp()
+  const openEvent = useEventNavigation()
   const location = useLocation()
   const [searchParams] = useSearchParams()
   const [openPopover, setOpenPopover] = useState<FilterPopoverType>(null)
@@ -135,9 +139,24 @@ export function BrowsePage({
   }, [isExperimentBrowse3])
 
   useEffect(() => {
+    const cityFromQuery = resolveCitySlugParam(searchParams.get('city'))
+    if (!cityFromQuery) return
+
+    setBrowseFilters({ ...DEFAULT_BROWSE_FILTERS, city: cityFromQuery, cityLocked: true })
+  }, [searchParams, setBrowseFilters])
+
+  useEffect(() => {
+    if (location.pathname === '/map') {
+      setPageTitle(formatDocumentTitle('Map'), '/map')
+      return
+    }
+
     if (location.pathname !== '/browse') return
+
     setPageTitle(
-      viewMode === 'map' ? formatDocumentTitle('Map') : formatDocumentTitle('Browse Events'),
+      viewMode === 'map'
+        ? formatDocumentTitle('Map')
+        : formatDocumentTitle('Browse Bay Area Activities'),
       '/browse',
     )
   }, [location.pathname, viewMode])

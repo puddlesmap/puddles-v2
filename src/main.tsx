@@ -23,6 +23,8 @@ import './pages/about-experiment.css'
 import './pages/typography-experiment.css'
 import './pages/typography-about-style.css'
 import './pages/typography-experiments-index.css'
+import './pages/city-page.css'
+import './pages/event-detail-page.css'
 import './pages/visitor-status-page.css'
 import App from './App.tsx'
 

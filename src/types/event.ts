@@ -57,4 +57,4 @@ export interface Event {
 
 export type DayFilter = 'today' | 'tomorrow' | 'weekend' | 'anytime'
 export type TimeFilter = 'any' | 'morning' | 'after-lunch' | 'late-afternoon' | 'evening'
-export type AgeFilter = 'all' | '0-2' | '2-5' | '5+'
+export type { AgeFilter } from '../utils/ageRange'

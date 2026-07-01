@@ -8,8 +8,10 @@ export const ABOUT_LEAD_LINES = [
   'What can we do today, without planning too much?',
 ] as const
 
-export const ABOUT_INTRO_NARRATIVE =
-  'As parents, we\u2019re often looking for small things\u2014a storytime, a music session, or a place to go right after nap time. But those moments are often scattered, hard to find, or incredibly easy to miss. So we made a simple map for small, nearby moments.'
+export const ABOUT_INTRO_NARRATIVE = [
+  'As parents, we\u2019re often looking for small things\u2014a storytime, a music session, a drop-in activity, or something easy to do after nap time. But those moments are often scattered, hard to find, or incredibly easy to miss.',
+  'So we made a simple map for small, nearby moments with little ones.',
+] as const
 
 export const ABOUT_PILLARS = [
   {
@@ -22,17 +24,17 @@ export const ABOUT_PILLARS = [
   },
   {
     title: 'Close to home',
-    copy: 'Storytimes, music, playgrounds, parks, and community events.',
+    copy: 'Simple neighborhood activities just a few minutes away.',
   },
 ] as const
 
 export const ABOUT_COMMUNITY_TITLE = 'We\u2019re just getting started'
 
 export const ABOUT_COMMUNITY_PARAS = [
-  'Puddles is beginning with a few nearby cities and the kinds of places families already love: libraries, parks, community centers, and small local gatherings.',
+  'Puddles is beginning with a few nearby cities and the kinds of places families already look to: libraries, community centers, local programs, and small neighborhood gatherings.',
   'We\u2019re starting simple, and we\u2019ll keep adding and improving based on what families share with us.',
-  'Know a good storytime, a free event, a playground worth sharing, or a parent-friendly local tip? We\u2019d love for you to share it with us.',
-  'Puddles isn\u2019t meant to be a big platform built far away from families.',
+  'Know a good storytime, drop-in activity, free event, or parent-friendly local tip? We\u2019d love for you to share it with us.',
+  'Puddles isn\u2019t meant to be a big platform built far away from families. It\u2019s a small map that grows with the people who use it.',
 ] as const
 
 export const ABOUT_CTA_TITLE = 'Know a small local moment?'

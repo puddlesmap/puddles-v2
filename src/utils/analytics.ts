@@ -159,6 +159,7 @@ export function pageNameFromPath(pathname: string): string | null {
   if (pathname === '/share') return 'share'
   if (pathname === '/share-experiment') return 'share_experiment'
   if (pathname === '/about') return 'about'
+  if (pathname.startsWith('/event/')) return 'event_detail'
   if (pathname === '/about-experiment' || pathname === '/experiment_about') return 'about_experiment'
   if (pathname === '/typography-experiment') return 'typography_experiments_index'
   if (pathname === '/typography-experiment/home') return 'typography_experiment_home'

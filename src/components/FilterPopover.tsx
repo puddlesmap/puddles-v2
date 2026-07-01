@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import type { AgeFilter, DayFilter, TimeFilter } from '../types/event'
+import type { DayFilter, TimeFilter } from '../types/event'
+import { PUBLIC_AGE_FILTER_OPTIONS } from '../utils/ageRange'
 import { ACTIVITY_TYPES } from '../types/event'
 import { getTemporalTabs } from '../utils/dates'
 import type { BrowseFilters } from '../utils/filters'
@@ -14,12 +15,7 @@ const TIME_OPTIONS: { key: TimeFilter; label: string; sub: string }[] = [
   { key: 'evening', label: 'Evening', sub: 'After 5 PM' },
 ]
 
-const AGE_OPTIONS: { key: AgeFilter; label: string }[] = [
-  { key: 'all', label: 'All ages' },
-  { key: '0-2', label: '0–2' },
-  { key: '2-5', label: '2–5' },
-  { key: '5+', label: '5+' },
-]
+const AGE_OPTIONS = PUBLIC_AGE_FILTER_OPTIONS
 
 export type FilterPopoverType = 'location' | 'day' | 'time' | 'age' | 'type' | null
 

@@ -1,6 +1,4 @@
-import { createContext, useCallback, useContext, useState, type ReactNode } from 'react'
-import type { Event } from '../types/event'
-import type { EventOpenSource } from '../types/analytics'
+import { createContext, useContext, useState, type ReactNode } from 'react'
 import { DEFAULT_BROWSE_FILTERS, type BrowseFilters } from '../utils/filters'
 import type { TemporalTab } from '../utils/dates'
 
@@ -11,10 +9,6 @@ interface AppContextValue {
   setTemporalTab: (tab: TemporalTab) => void
   browseFilters: BrowseFilters
   setBrowseFilters: (f: BrowseFilters) => void
-  selectedEvent: Event | null
-  eventOpenSource: EventOpenSource | null
-  openEvent: (event: Event, source: EventOpenSource) => void
-  closeEvent: () => void
   showLocationBridge: boolean
   setShowLocationBridge: (v: boolean) => void
   locationBridgeSource: 'discovery' | 'browse'
@@ -27,20 +21,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [city, setCity] = useState('all')
   const [temporalTab, setTemporalTab] = useState<TemporalTab>('today')
   const [browseFilters, setBrowseFilters] = useState<BrowseFilters>(DEFAULT_BROWSE_FILTERS)
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
-  const [eventOpenSource, setEventOpenSource] = useState<EventOpenSource | null>(null)
   const [showLocationBridge, setShowLocationBridge] = useState(false)
   const [locationBridgeSource, setLocationBridgeSource] = useState<'discovery' | 'browse'>('discovery')
-
-  const openEvent = useCallback((event: Event, source: EventOpenSource) => {
-    setEventOpenSource(source)
-    setSelectedEvent(event)
-  }, [])
-
-  const closeEvent = useCallback(() => {
-    setSelectedEvent(null)
-    setEventOpenSource(null)
-  }, [])
 
   return (
     <AppContext.Provider
@@ -51,10 +33,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
         setTemporalTab,
         browseFilters,
         setBrowseFilters,
-        selectedEvent,
-        eventOpenSource,
-        openEvent,
-        closeEvent,
         showLocationBridge,
         setShowLocationBridge,
         locationBridgeSource,

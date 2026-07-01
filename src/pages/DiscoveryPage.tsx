@@ -12,6 +12,7 @@ import { Footer } from '../components/layout/Footer'
 import { AppHeader } from '../components/layout/AppHeader'
 import { DiscoveryHeroPlaceholder } from '../components/placeholders/VisualPlaceholders'
 import { useApp } from '../context/AppContext'
+import { useEventNavigation } from '../hooks/useEventNavigation'
 import { filterEvents } from '../utils/filters'
 import { getFirstTemporalTabWithEvents, getTemporalTabs } from '../utils/dates'
 import { track } from '../utils/analytics'
@@ -47,8 +48,9 @@ export function DiscoveryPage({
   shellClassName,
   experimentNote,
 }: DiscoveryPageProps = {}) {
-  const { city, setCity, temporalTab, setTemporalTab, openEvent, setShowLocationBridge, setLocationBridgeSource } =
+  const { city, setCity, temporalTab, setTemporalTab, setShowLocationBridge, setLocationBridgeSource } =
     useApp()
+  const openEvent = useEventNavigation()
 
   const tabs = getTemporalTabs()
 

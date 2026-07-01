@@ -1,7 +1,7 @@
 {
   "name": "Puddles · The Tot Map",
   "short_name": "Puddles",
-  "description": "Find storytimes, music, drop-ins, and local family moments for ages 0–5 in the Bay Area.",
+  "description": "Find storytimes, music, drop-ins, library events, community programs, and local family activities for ages 0–5 in the Bay Area.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

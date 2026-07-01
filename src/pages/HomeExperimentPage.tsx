@@ -18,6 +18,7 @@ import { HomeMapPreview } from '../components/home/HomeMapPreview'
 import {
   HOME_EXPERIMENT_REFINED_CTA_BODY,
   HOME_EXPERIMENT_REFINED_CTA_TITLE,
+  HOME_EXPERIMENT_REFINED_SUPPORTING_LINE,
   HOME_PAGE_HEADLINE,
 } from './homeExperimentAccentShared'
 import {
@@ -26,6 +27,7 @@ import {
 } from './experimentShared'
 import { useUserLocation } from '../hooks/useUserLocation'
 import { useApp } from '../context/AppContext'
+import { useEventNavigation } from '../hooks/useEventNavigation'
 import { filterEvents } from '../utils/filters'
 import type { TemporalTab } from '../utils/dates'
 import { getFirstTemporalTabWithEvents, getTemporalTabs } from '../utils/dates'
@@ -122,6 +124,7 @@ function HomeExperimentHero({ variant }: { variant: HomeHeroVariant }) {
         <h1 className="home-experiment-title home-experiment-refined-title">
           <HomePageHeadline />
         </h1>
+        <p className="home-experiment-refined-supporting">{HOME_EXPERIMENT_REFINED_SUPPORTING_LINE}</p>
       </header>
     )
   }
@@ -189,7 +192,8 @@ export function HomeExperimentPage({
   logoSrc2x = PUDDLES_WORDMARK_LOGO_SRC_2X,
   showBrandName = false,
 }: HomeExperimentPageProps = {}) {
-  const { openEvent, browseFilters, setBrowseFilters } = useApp()
+  const { browseFilters, setBrowseFilters } = useApp()
+  const openEvent = useEventNavigation()
   const [whereMode, setWhereMode] = useState<WhereMode>({ kind: 'city', value: 'all' })
   const [temporalTab, setLocalTemporalTab] = useState<TemporalTab>('today')
   const { coords, isRequesting, requestLocation } = useUserLocation()

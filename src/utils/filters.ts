@@ -1,8 +1,16 @@
 import { getPublicEventsFromCatalog } from '../data/events'
-import type { AgeFilter, DayFilter, Event, TimeFilter, ActivityType } from '../types/event'
+import type { DayFilter, Event, TimeFilter, ActivityType } from '../types/event'
 import type { TemporalTab } from './dates'
 import { getAnchorDate, dateInDayFilter, dateInTemporalTab, timeInBucket } from './dates'
 import { isPublicEvent } from './publishing'
+import {
+  getBrowseAgeChipLabel,
+  isPublicAgeEligible,
+  matchesPublicAgeFilter,
+  type AgeFilter,
+} from './ageRange'
+
+export type { AgeFilter }
 
 export interface BrowseFilters {
   city: string
@@ -23,11 +31,7 @@ export const DEFAULT_BROWSE_FILTERS: BrowseFilters = {
 }
 
 function matchesAge(event: Event, age: AgeFilter): boolean {
-  if (age === 'all') return true
-  if (age === '0-2') return event.ageMax <= 2 || (event.ageMin <= 2 && event.ageMax >= 0)
-  if (age === '2-5') return event.ageMin <= 5 && event.ageMax >= 2
-  if (age === '5+') return event.ageMin >= 5
-  return true
+  return matchesPublicAgeFilter(event.ageRange, age)
 }
 
 function matchesCity(event: Event, city: string): boolean {
@@ -47,6 +51,7 @@ export function filterEvents(
 
   return events.filter((event) => {
     if (!isPublicEvent(event)) return false
+    if (!isPublicAgeEligible(event.ageRange)) return false
 
     if (!matchesCity(event, city)) return false
 
@@ -90,16 +95,7 @@ export function isBrowseFiltersDefault(browse: BrowseFilters): boolean {
   )
 }
 
-const AGE_CHIP_LABELS: Record<Exclude<AgeFilter, 'all'>, string> = {
-  '0-2': 'Age 0–2',
-  '2-5': 'Age 2–5',
-  '5+': 'Age 5+',
-}
-
-export function getBrowseAgeChipLabel(age: AgeFilter): string {
-  if (age === 'all') return 'Age'
-  return AGE_CHIP_LABELS[age]
-}
+export { getBrowseAgeChipLabel }
 
 export function getBrowseActivityChipLabel(types: ActivityType[]): string {
   if (types.length === 0) return 'Activity'

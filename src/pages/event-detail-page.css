@@ -1,0 +1,84 @@
+/* Event detail page — reuses modal visual language in a crawlable route */
+
+.event-detail-page-shell {
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.event-detail-page-body {
+  flex: 1;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.event-detail-page-panel {
+  width: 100%;
+  max-width: 32rem;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid #ebebeb;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: var(--elevation-shadow-soft);
+}
+
+.event-detail-back-link {
+  min-width: 0;
+  flex: 1;
+  margin-right: 0.5rem;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+.event-modal-sticky-header--collapsed .event-detail-back-link {
+  color: var(--color-charcoal);
+}
+
+.event-detail-official-note {
+  margin: 1rem 0 0;
+}
+
+.event-unavailable-state {
+  max-width: 28rem;
+  margin-inline: auto;
+  padding-top: 2rem;
+}
+
+.event-unavailable-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.event-detail-page-shell .site-footer--full-bleed {
+  margin-top: auto;
+}
+
+@media (max-width: 767px) {
+  .event-detail-page-shell .site-footer--full-bleed {
+    margin-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+
+  .event-detail-page-panel {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .event-detail-page-body {
+    padding-top: 1.5rem;
+  }
+}

@@ -44,7 +44,7 @@ export const HOME_EXPERIMENT_ACCENTS = [
 export const HOME_EXPERIMENT_SOFT_ACCENTS = HOME_EXPERIMENT_ACCENTS
 
 export const HOME_EXPERIMENT_REFINED_SUPPORTING_LINE =
-  'Storytimes, parks, music, drop-ins, free or low-cost local moments for ages 0–5.'
+  'Puddles helps Bay Area parents find storytimes, music, drop-ins, library events, community programs, and free or low-cost local activities for ages 0\u20135.'
 
 export const HOME_EXPERIMENT_REFINED_CTA_TITLE = 'Know a small local moment?'
 

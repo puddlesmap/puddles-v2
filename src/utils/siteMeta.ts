@@ -1,4 +1,16 @@
 import { absoluteUrl, canonicalUrl, SITE } from '../config/site'
+import {
+  cityDocumentTitle,
+  cityMetaDescription,
+  localCitySlugFromPath,
+} from '../config/localRoutes'
+import type { Event } from '../types/event'
+import {
+  eventDetailPath,
+  eventDocumentTitle,
+  eventIdFromPathname,
+  eventMetaDescription,
+} from './eventPages'
 
 const SEP = ' · '
 
@@ -15,9 +27,11 @@ export function getDocumentTitle(pathname: string, search = ''): string {
 
   if (pathname === '/') return homeDocumentTitle()
 
+  if (pathname === '/map') return formatDocumentTitle('Map')
+
   if (pathname === '/browse' || pathname === '/experiment-browse-3') {
     if (params.get('view') === 'map') return formatDocumentTitle('Map')
-    return formatDocumentTitle('Browse Events')
+    return formatDocumentTitle('Browse Bay Area Activities')
   }
 
   if (pathname === '/experiment-browse-map') return formatDocumentTitle('Map')
@@ -25,11 +39,14 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   if (pathname === '/share') return formatDocumentTitle('Share with Us')
   if (pathname === '/about') return formatDocumentTitle('About')
 
+  const citySlug = localCitySlugFromPath(pathname)
+  if (citySlug) return cityDocumentTitle(citySlug)
+
   if (pathname.startsWith('/admin')) return formatDocumentTitle('Admin')
 
   if (pathname === '/discovery') return formatDocumentTitle('Discovery')
-  if (pathname === '/browse-v1') return formatDocumentTitle('Browse Events')
-  if (pathname === '/experiment-browse') return formatDocumentTitle('Browse Events')
+  if (pathname === '/browse-v1') return formatDocumentTitle('Browse Bay Area Activities')
+  if (pathname === '/experiment-browse') return formatDocumentTitle('Browse Bay Area Activities')
   if (pathname === '/share-experiment') return formatDocumentTitle('Share Experiment')
   if (pathname === '/about-experiment' || pathname === '/experiment_about') {
     return formatDocumentTitle('About Experiment')
@@ -69,6 +86,11 @@ function setMeta(attr: 'name' | 'property', key: string, content: string): void 
   element.content = content
 }
 
+function removeMeta(attr: 'name' | 'property', key: string): void {
+  if (typeof document === 'undefined') return
+  document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`)?.remove()
+}
+
 function setCanonical(href: string): void {
   if (typeof document === 'undefined') return
 
@@ -81,21 +103,84 @@ function setCanonical(href: string): void {
   element.href = href
 }
 
-function applyMetaTags(title: string, pathname: string): void {
+function applyRobotsMeta(pathname: string, robots?: string): void {
+  if (robots) {
+    setMeta('name', 'robots', robots)
+    return
+  }
+
+  if (pathname.startsWith('/admin')) {
+    setMeta('name', 'robots', 'noindex, nofollow')
+    return
+  }
+
+  removeMeta('name', 'robots')
+}
+
+function applyMetaTags(
+  title: string,
+  pathname: string,
+  options: {
+    description?: string
+    socialDescription?: string
+    ogImage?: string
+    robots?: string
+  } = {},
+): void {
   const canonical = canonicalUrl(pathname)
+  const citySlug = localCitySlugFromPath(pathname)
+  const description = options.description ?? (citySlug ? cityMetaDescription(citySlug) : SITE.description)
+  const socialDescription =
+    options.socialDescription ?? (citySlug ? cityMetaDescription(citySlug) : SITE.ogDescription)
+  const ogTitle = pathname === '/' ? homeDocumentTitle() : title
+  const ogImage = options.ogImage ?? absoluteUrl(SITE.ogImagePath)
 
   setCanonical(canonical)
-  setMeta('name', 'description', SITE.description)
-  setMeta('property', 'og:title', title)
-  setMeta('property', 'og:description', SITE.ogDescription)
+  setMeta('name', 'description', description)
+  setMeta('property', 'og:title', ogTitle)
+  setMeta('property', 'og:description', socialDescription)
   setMeta('property', 'og:url', canonical)
   setMeta('property', 'og:site_name', SITE.name)
   setMeta('property', 'og:type', 'website')
-  setMeta('property', 'og:image', absoluteUrl(SITE.ogImagePath))
+  setMeta('property', 'og:image', ogImage)
   setMeta('name', 'twitter:card', 'summary_large_image')
-  setMeta('name', 'twitter:title', title)
-  setMeta('name', 'twitter:description', SITE.ogDescription)
-  setMeta('name', 'twitter:image', absoluteUrl(SITE.ogImagePath))
+  setMeta('name', 'twitter:title', ogTitle)
+  setMeta('name', 'twitter:description', socialDescription)
+  setMeta('name', 'twitter:image', ogImage)
+  applyRobotsMeta(pathname, options.robots)
+}
+
+export function applyEventPageMeta(event: Event): void {
+  const pathname = eventDetailPath(event)
+  const title = eventDocumentTitle(event)
+  const description = eventMetaDescription(event)
+  const image = event.imageUrl?.trim()
+
+  if (typeof document !== 'undefined') {
+    document.title = title
+  }
+
+  applyMetaTags(title, pathname, {
+    description,
+    socialDescription: description,
+    ogImage: image && image !== '#' ? image : absoluteUrl(SITE.ogImagePath),
+  })
+}
+
+export function applyUnavailableEventPageMeta(pathname: string, eventTitle?: string): void {
+  const title = eventTitle
+    ? formatDocumentTitle('Activity unavailable')
+    : formatDocumentTitle('Activity unavailable')
+
+  if (typeof document !== 'undefined') {
+    document.title = title
+  }
+
+  applyMetaTags(title, pathname, {
+    description: 'This activity is no longer listed on Puddles.',
+    socialDescription: 'This activity is no longer listed on Puddles.',
+    robots: 'noindex, nofollow',
+  })
 }
 
 export function setPageTitle(title: string, pathname: string): void {
@@ -106,6 +191,8 @@ export function setPageTitle(title: string, pathname: string): void {
 }
 
 export function applySiteMeta(pathname: string, search = ''): void {
+  if (eventIdFromPathname(pathname)) return
+
   const title = getDocumentTitle(pathname, search)
   setPageTitle(title, pathname)
 }

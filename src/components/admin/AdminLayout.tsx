@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { PageContainer } from '../layout/PageContainer'
 import { SHEET_SOURCE } from '../../data/sheet-source'
@@ -13,6 +13,17 @@ export function AdminLayout() {
   const location = useLocation()
   const { authRequired, signOut } = useAdminAuth()
   const [isSigningOut, setIsSigningOut] = useState(false)
+
+  useEffect(() => {
+    const robotsMeta = document.createElement('meta')
+    robotsMeta.name = 'robots'
+    robotsMeta.content = 'noindex, nofollow'
+    document.head.appendChild(robotsMeta)
+
+    return () => {
+      robotsMeta.remove()
+    }
+  }, [])
 
   async function handleLogout() {
     setIsSigningOut(true)

@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom'
+import type { ReactNode } from 'react'
 import type { Event } from '../types/event'
 import { formatCardDateTime } from '../utils/dates'
+import { eventDetailPath } from '../utils/eventPages'
 import { EventImage } from './EventImage'
 
 interface EventCardProps {
   event: Event
-  onClick: () => void
+  onClick?: () => void
   variant?: 'list' | 'grid' | 'map-grid' | 'map-preview-sheet'
   selected?: boolean
   hovered?: boolean
@@ -85,6 +88,24 @@ function cardClass(selected: boolean, hovered: boolean, extra = '') {
     .join(' ')
 }
 
+function EventCardLink({
+  event,
+  onClick,
+  className,
+  children,
+}: {
+  event: Event
+  onClick?: () => void
+  className: string
+  children: ReactNode
+}) {
+  return (
+    <Link to={eventDetailPath(event)} onClick={onClick} className={className}>
+      {children}
+    </Link>
+  )
+}
+
 export function EventCard({
   event,
   onClick,
@@ -97,8 +118,8 @@ export function EventCard({
 
   if (variant === 'map-preview-sheet') {
     return (
-      <button
-        type="button"
+      <EventCardLink
+        event={event}
         onClick={onClick}
         className={cardClass(
           selected,
@@ -121,14 +142,14 @@ export function EventCard({
           <h3 className={discovery ? 'discovery-event-title' : 'card-listing-title'}>{event.title}</h3>
           <EventCardLocation event={event} discovery={discovery} />
         </div>
-      </button>
+      </EventCardLink>
     )
   }
 
   if (variant === 'map-grid') {
     return (
-      <button
-        type="button"
+      <EventCardLink
+        event={event}
         onClick={onClick}
         className={cardClass(
           selected,
@@ -145,14 +166,14 @@ export function EventCard({
           <h3 className={discovery ? 'discovery-event-title' : 'card-listing-title'}>{event.title}</h3>
           <EventCardLocation event={event} discovery={discovery} />
         </div>
-      </button>
+      </EventCardLink>
     )
   }
 
   if (variant === 'grid') {
     return (
-      <button
-        type="button"
+      <EventCardLink
+        event={event}
         onClick={onClick}
         className={cardClass(selected, hovered, discovery ? 'discovery-event-card' : '')}
       >
@@ -169,12 +190,12 @@ export function EventCard({
           </h3>
           <EventCardLocation event={event} discovery={discovery} />
         </div>
-      </button>
+      </EventCardLink>
     )
   }
 
   return (
-    <button type="button" onClick={onClick} className={cardClass(selected, hovered)}>
+    <EventCardLink event={event} onClick={onClick} className={cardClass(selected, hovered)}>
       <div className="card-listing-media relative aspect-[20/19]">
         <EventImage event={event} className="card-listing-image" />
         <EventCardPills event={event} />
@@ -184,6 +205,6 @@ export function EventCard({
         <h3 className="card-listing-title card-listing-title--list">{event.title}</h3>
         <EventCardLocation event={event} />
       </div>
-    </button>
+    </EventCardLink>
   )
 }

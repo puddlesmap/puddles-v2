@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import type { Event } from '../types/event'
 import type { EventOpenSource } from '../types/analytics'
 import { formatModalDate, formatModalTimeRange } from '../utils/dates'
@@ -13,15 +14,17 @@ import {
   getEventRoomLine,
 } from '../utils/maps'
 import { eventAnalyticsProps, track } from '../utils/analytics'
+import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
 import { EventDetailIcon } from './EventDetailIcon'
 import { EventImage } from './EventImage'
 
-interface EventModalProps {
+interface EventDetailViewProps {
   event: Event
-  eventOpenSource: EventOpenSource | null
-  onClose: () => void
+  analyticsSource?: EventOpenSource | null
+  backTo?: string
+  backLabel?: string
 }
 
 const headerIconProps = {
@@ -43,21 +46,18 @@ function ShareStrokeIcon() {
   )
 }
 
-function CloseStrokeIcon() {
-  return (
-    <svg {...headerIconProps}>
-      <path d="M7 7l10 10" />
-      <path d="m17 7-10 10" />
-    </svg>
-  )
-}
-
-export function EventModal({ event, eventOpenSource, onClose }: EventModalProps) {
+export function EventDetailView({
+  event,
+  analyticsSource = 'discovery',
+  backTo = '/browse',
+  backLabel = 'Back to browse',
+}: EventDetailViewProps) {
   const [showReportForm, setShowReportForm] = useState(false)
   const [reportSubmitted, setReportSubmitted] = useState(false)
   const [headerCollapsed, setHeaderCollapsed] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
   const heroRef = useRef<HTMLImageElement>(null)
+
   const verified = new Date(event.verifiedDate + 'T12:00:00').toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -67,21 +67,14 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
   const addressLine = getEventAddressLine(event)
   const roomLine = getEventRoomLine(event)
   const canAddToCalendar = canAddEventToCalendar(event)
-  const hasOfficialPage = Boolean(event.eventUrl?.trim())
+  const hasOfficialPage = isOfficialEventUrl(event.eventUrl)
   const canNativeShare = typeof navigator !== 'undefined' && 'share' in navigator
-  const shareUrl =
-    event.eventUrl?.trim() && event.eventUrl !== '#'
-      ? event.eventUrl
-      : typeof window !== 'undefined'
-        ? window.location.href
-        : ''
+  const shareUrl = eventDetailUrl(event)
+  const categoryTags = event.categoryTags.length > 0 ? event.categoryTags : event.types
 
   useEffect(() => {
-    track(
-      'event_open',
-      eventAnalyticsProps(event, { source: eventOpenSource ?? 'discovery' }),
-    )
-  }, [event.id, event.city, eventOpenSource])
+    track('event_open', eventAnalyticsProps(event, { source: analyticsSource ?? 'discovery' }))
+  }, [event, analyticsSource])
 
   function handleScroll() {
     const scrollEl = scrollRef.current
@@ -91,27 +84,6 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
     const collapseAt = Math.max(heroEl.offsetHeight - 56, 80)
     setHeaderCollapsed(scrollEl.scrollTop > collapseAt)
   }
-
-  const headerActions = (
-    <div className="event-modal-header-actions">
-      <button
-        type="button"
-        onClick={() => void handleShare()}
-        className="event-modal-header-icon-btn"
-        aria-label="Share event"
-      >
-        <ShareStrokeIcon />
-      </button>
-      <button
-        type="button"
-        onClick={onClose}
-        className="event-modal-close-btn flex items-center justify-center"
-        aria-label="Close"
-      >
-        <CloseStrokeIcon />
-      </button>
-    </div>
-  )
 
   function handleAddToCalendar() {
     const ok = downloadEventIcs(event)
@@ -153,40 +125,47 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 md:items-center md:p-6" onClick={onClose}>
+    <article className="event-detail-page-panel event-modal-panel">
       <div
-        className="event-modal-panel animate-fade-in flex max-h-[92dvh] w-full max-w-lg flex-col overflow-hidden rounded-t-2xl bg-white md:rounded-2xl"
-        role="dialog"
-        aria-modal="true"
-        onClick={(e) => e.stopPropagation()}
+        className={[
+          'event-modal-sticky-header',
+          headerCollapsed ? 'event-modal-sticky-header--collapsed' : 'event-modal-sticky-header--overlay',
+        ].join(' ')}
       >
-        <div
-          className={[
-            'event-modal-sticky-header',
-            headerCollapsed ? 'event-modal-sticky-header--collapsed' : 'event-modal-sticky-header--overlay',
-          ].join(' ')}
-        >
-          {headerCollapsed ? (
-            <h2 className="event-modal-sticky-title">{event.title}</h2>
-          ) : null}
-          {headerActions}
+        {headerCollapsed ? (
+          <h1 className="event-modal-sticky-title">{event.title}</h1>
+        ) : (
+          <Link to={backTo} className="event-detail-back-link">
+            ← {backLabel}
+          </Link>
+        )}
+        <div className="event-modal-header-actions">
+          <button
+            type="button"
+            onClick={() => void handleShare()}
+            className="event-modal-header-icon-btn"
+            aria-label="Share event"
+          >
+            <ShareStrokeIcon />
+          </button>
         </div>
+      </div>
 
-        <div
-          ref={scrollRef}
-          className="event-modal-scroll flex-1 overflow-y-auto overscroll-contain"
-          onScroll={handleScroll}
-        >
-          <EventImage
-            ref={heroRef}
-            event={event}
-            className="event-modal-hero w-full object-cover"
-            loading="eager"
-            onLoad={handleScroll}
-          />
+      <div
+        ref={scrollRef}
+        className="event-modal-scroll"
+        onScroll={handleScroll}
+      >
+        <EventImage
+          ref={heroRef}
+          event={event}
+          className="event-modal-hero w-full object-cover"
+          loading="eager"
+          onLoad={handleScroll}
+        />
 
-          <div className="event-modal-content px-6 pb-6 pt-6">
-            <h2 className="event-detail-title">{event.title}</h2>
+        <div className="event-modal-content px-6 pb-6 pt-6">
+          <h1 className="event-detail-title">{event.title}</h1>
 
           <div className="event-detail-row mt-2">
             <EventDetailIcon kind="time" />
@@ -218,6 +197,7 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
               ) : (
                 addressLine && <p className="event-modal-address-plain">{addressLine}</p>
               )}
+              {event.city ? <p className="event-detail-meta text-muted">{event.city}</p> : null}
             </div>
           </div>
 
@@ -229,13 +209,13 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
                 <p className="event-detail-field-value">{event.ageRange}</p>
               </div>
             </div>
-            {(event.categoryTags.length > 0 ? event.categoryTags : event.types).length > 0 ? (
+            {categoryTags.length > 0 ? (
               <div className="event-detail-row event-detail-field">
                 <EventDetailIcon kind="type" />
                 <div className="event-detail-row-content">
                   <div className="event-detail-field-label">Type</div>
                   <div className="event-detail-tag-chips" aria-label="Category tags">
-                    {(event.categoryTags.length > 0 ? event.categoryTags : event.types).map((tag) => (
+                    {categoryTags.map((tag) => (
                       <span key={tag} className="event-detail-tag-chip">
                         {tag}
                       </span>
@@ -244,6 +224,13 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
                 </div>
               </div>
             ) : null}
+            <div className="event-detail-row event-detail-field">
+              <EventDetailIcon kind="type" />
+              <div className="event-detail-row-content">
+                <div className="event-detail-field-label">Cost</div>
+                <p className="event-detail-field-value">{event.cost}</p>
+              </div>
+            </div>
           </div>
 
           <div className="event-modal-trust-card">
@@ -287,37 +274,42 @@ export function EventModal({ event, eventOpenSource, onClose }: EventModalProps)
             )}
           </div>
 
-          <p className="event-detail-body">{event.description}</p>
+          {event.description ? <p className="event-detail-body">{event.description}</p> : null}
+
+          {hasOfficialPage ? (
+            <p className="event-detail-official-note supporting-copy">
+              For the latest schedule and details, visit the official event page before you go.
+            </p>
+          ) : null}
 
           <EventRouteCard event={event} />
-          </div>
-        </div>
-
-        <div className="event-modal-actions shrink-0 border-t border-border bg-white px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-          <button
-            type="button"
-            onClick={handleAddToCalendar}
-            disabled={!canAddToCalendar}
-            className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            Add to calendar
-          </button>
-          {!canAddToCalendar && (
-            <p className="event-modal-actions-note text-center">Calendar details unavailable</p>
-          )}
-          {hasOfficialPage && (
-            <a
-              href={event.eventUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="btn-secondary"
-              onClick={() => track('visit_official_page', eventAnalyticsProps(event))}
-            >
-              Visit official page
-            </a>
-          )}
         </div>
       </div>
-    </div>
+
+      <div className="event-modal-actions shrink-0 border-t border-border bg-white px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+        <button
+          type="button"
+          onClick={handleAddToCalendar}
+          disabled={!canAddToCalendar}
+          className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Add to calendar
+        </button>
+        {!canAddToCalendar ? (
+          <p className="event-modal-actions-note text-center">Calendar details unavailable</p>
+        ) : null}
+        {hasOfficialPage ? (
+          <a
+            href={event.eventUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-secondary"
+            onClick={() => track('visit_official_page', eventAnalyticsProps(event))}
+          >
+            Visit official page
+          </a>
+        ) : null}
+      </div>
+    </article>
   )
 }

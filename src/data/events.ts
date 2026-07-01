@@ -1,6 +1,7 @@
 import type { Event } from '../types/event'
 import sheetEvents from './sheet-events.json'
 import { getShowcaseEvents } from './showcase-events'
+import { isPublicAgeEligible } from '../utils/ageRange'
 import { enrichPublishingFields, isPublicEvent } from '../utils/publishing'
 
 const sheetLiveCount = (sheetEvents as Event[]).filter((event) => event.isLive).length
@@ -26,7 +27,9 @@ export const ALL_EVENTS: Event[] = [...ALL_SHOWCASE_EVENTS, ...ALL_SHEET_EVENTS]
  * Used by Discovery, Browse (list + map), Event Details, and calendar actions.
  */
 export function getPublicEventsFromCatalog(now: Date = new Date()): Event[] {
-  return ALL_EVENTS.filter((event) => isPublicEvent(event, now))
+  return ALL_EVENTS.filter(
+    (event) => isPublicEvent(event, now) && isPublicAgeEligible(event.ageRange),
+  )
 }
 
 /** Snapshot at module load — prefer getPublicEventsFromCatalog() when freshness matters. */

@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom'
-import { AppProvider, useApp } from './context/AppContext'
+import { AppProvider } from './context/AppContext'
 import { BottomNav } from './components/layout/BottomNav'
 import { LocationBridge } from './components/LocationBridge'
-import { EventModal } from './components/EventModal'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { AdminAuthGate } from './components/admin/AdminAuthGate'
 import { AdminLayout } from './components/admin/AdminLayout'
@@ -30,13 +29,14 @@ import { TypographyExperimentsIndexPage } from './pages/TypographyExperimentsInd
 import { NotFoundPage } from './pages/NotFoundPage'
 import { MaintenancePage } from './pages/MaintenancePage'
 import { LogoLabPage } from './pages/LogoLabPage'
+import { CityLandingPage } from './pages/CityLandingPage'
+import { EventDetailPage } from './pages/EventDetailPage'
 import { AdminEventsPage } from './pages/admin/AdminEventsPage'
 import { AdminSubmissionsPage } from './pages/admin/AdminSubmissionsPage'
 import { initAnalytics, pageNameFromPath, trackPageView } from './utils/analytics'
 import { applySiteMeta } from './utils/siteMeta'
 
 function AppShell() {
-  const { selectedEvent, eventOpenSource, closeEvent } = useApp()
   const location = useLocation()
   const isAdminRoute = location.pathname.startsWith('/admin')
   const isLogoLab = location.pathname === '/logo-lab'
@@ -74,6 +74,21 @@ function AppShell() {
                 />
               }
             />
+            <Route
+              path="/map"
+              element={
+                <BrowsePage
+                  shellClassName="browse-page-shell--experiment browse-page-shell--experiment-3 browse-page-shell--map-interaction"
+                  resultsCountStyle="contextual"
+                  mapInteractionMode="connected"
+                  defaultViewMode="map"
+                />
+              }
+            />
+            <Route path="/palo-alto" element={<CityLandingPage citySlug="palo-alto" />} />
+            <Route path="/los-altos" element={<CityLandingPage citySlug="los-altos" />} />
+            <Route path="/mountain-view" element={<CityLandingPage citySlug="mountain-view" />} />
+            <Route path="/event/:eventId" element={<EventDetailPage />} />
             <Route path="/browse-v1" element={<BrowseV1Page />} />
             <Route path="/experiment-browse" element={<ExperimentBrowsePage />} />
             <Route path="/experiment-browse-map" element={<ExperimentBrowseMapPage />} />
@@ -107,13 +122,6 @@ function AppShell() {
       </main>
       {!isAdminRoute && !isLogoLab && <BottomNav />}
       {!isAdminRoute && <LocationBridge />}
-      {selectedEvent && !isAdminRoute && (
-        <EventModal
-          event={selectedEvent}
-          eventOpenSource={eventOpenSource}
-          onClose={closeEvent}
-        />
-      )}
     </div>
   )
 }
