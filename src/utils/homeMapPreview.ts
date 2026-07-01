@@ -1,7 +1,15 @@
 import type { TemporalTab } from './dates'
 import type { BrowseFilters } from './filters'
 import type { Event } from '../types/event'
-import { NEARBY_RADIUS_MILES } from './geo'
+import {
+  HOME_MAP_ALL_CITIES_BOUNDS_PADDING,
+  HOME_MAP_AREA_BOUNDS,
+  HOME_MAP_CITY_BOUNDS_PADDING,
+  HOME_MAP_NEARBY_BOUNDS_PADDING,
+} from '../components/browse/mapViewConfig'
+import { getHomeFilterResultsSummary } from './browseResultsCopy'
+import type { MapBoundsBox } from './mapBounds'
+import { getBoundsFromPoints, getEventsWithCoordinates } from './mapBounds'
 
 export type HomeWhereMode =
   | { kind: 'nearby' }
@@ -49,9 +57,75 @@ export function getHomeMapPreviewStatus({
 
 /** Map preview footer label only — no result counts (experiment-home). */
 export function getHomeMapPreviewLabelRefined(whereMode: HomeWhereMode): string {
-  if (whereMode.kind === 'nearby') return 'Nearby map'
+  if (whereMode.kind === 'nearby') return 'Near you'
   if (whereMode.kind === 'city' && whereMode.value === 'all') return 'Nearby cities'
   return whereMode.value
+}
+
+export interface HomeMapPreviewFraming {
+  areaBounds: MapBoundsBox
+  boundsPadding: number
+  anchorPoints?: Array<{ lat: number; lng: number }>
+}
+
+const MAX_NEARBY_PREVIEW_SPAN = 0.42
+
+function isReasonableNearbySpan(bounds: MapBoundsBox): boolean {
+  return bounds.north - bounds.south <= MAX_NEARBY_PREVIEW_SPAN && bounds.east - bounds.west <= MAX_NEARBY_PREVIEW_SPAN
+}
+
+export function resolveHomeMapPreviewFraming(
+  whereMode: HomeWhereMode,
+  events: Event[],
+  userCoords?: { lat: number; lng: number } | null,
+): HomeMapPreviewFraming {
+  if (whereMode.kind === 'nearby') {
+    if (userCoords) {
+      const mappable = getEventsWithCoordinates(events)
+      const anchorPoints = [
+        { lat: userCoords.lat, lng: userCoords.lng },
+        ...mappable.map((event) => ({ lat: event.lat, lng: event.lng })),
+      ]
+      const anchorBounds = getBoundsFromPoints(anchorPoints)
+
+      if (anchorBounds && isReasonableNearbySpan(anchorBounds)) {
+        return {
+          areaBounds: anchorBounds,
+          boundsPadding: HOME_MAP_NEARBY_BOUNDS_PADDING,
+          anchorPoints,
+        }
+      }
+
+      if (mappable.length > 0) {
+        const eventBounds = getBoundsFromPoints(
+          mappable.map((event) => ({ lat: event.lat, lng: event.lng })),
+        )
+        if (eventBounds) {
+          return {
+            areaBounds: eventBounds,
+            boundsPadding: HOME_MAP_NEARBY_BOUNDS_PADDING,
+          }
+        }
+      }
+    }
+
+    return {
+      areaBounds: HOME_MAP_AREA_BOUNDS.all,
+      boundsPadding: HOME_MAP_ALL_CITIES_BOUNDS_PADDING,
+    }
+  }
+
+  if (whereMode.value === 'all') {
+    return {
+      areaBounds: HOME_MAP_AREA_BOUNDS.all,
+      boundsPadding: HOME_MAP_ALL_CITIES_BOUNDS_PADDING,
+    }
+  }
+
+  return {
+    areaBounds: HOME_MAP_AREA_BOUNDS[whereMode.value],
+    boundsPadding: HOME_MAP_CITY_BOUNDS_PADDING,
+  }
 }
 
 /** Results summary below map preview (experiment-home). */
@@ -64,19 +138,19 @@ export function getHomeResultsSummaryRefined({
   eventCount: number
   hasNearbyCoords: boolean
 }): string | null {
-  if (whereMode.kind === 'nearby' && !hasNearbyCoords) return null
-
-  const countLabel = `${eventCount} ${eventCount === 1 ? 'event' : 'events'}`
-
   if (whereMode.kind === 'nearby') {
-    return `Within ${NEARBY_RADIUS_MILES} mi of you · ${countLabel}`
+    return getHomeFilterResultsSummary({
+      whereMode: { kind: 'nearby' },
+      eventCount,
+      hasNearbyCoords,
+    })
   }
 
-  if (whereMode.kind === 'city' && whereMode.value === 'all') {
-    return `All cities · ${countLabel}`
-  }
-
-  return `${whereMode.value} · ${countLabel}`
+  return getHomeFilterResultsSummary({
+    whereMode: { kind: 'city', value: whereMode.value },
+    eventCount,
+    hasNearbyCoords: true,
+  })
 }
 
 export function homeFiltersToBrowseFilters(
@@ -100,33 +174,38 @@ export interface HomeMapPinPosition {
   isMain: boolean
 }
 
+const HOME_MAP_PREVIEW_MAX_PINS = 7
+
 const PIN_LAYOUTS: Array<{ top: number; left: number }> = [
   { top: 46, left: 48 },
-  { top: 32, left: 36 },
-  { top: 58, left: 62 },
-  { top: 38, left: 72 },
-  { top: 62, left: 28 },
+  { top: 30, left: 34 },
+  { top: 58, left: 64 },
+  { top: 36, left: 74 },
+  { top: 64, left: 26 },
+  { top: 42, left: 58 },
+  { top: 52, left: 40 },
 ]
 
 function normalize(value: number, min: number, max: number): number {
   if (max - min < 0.0001) return 50
   const ratio = (value - min) / (max - min)
-  return 18 + ratio * 64
+  return 14 + ratio * 70
 }
 
-export function getHomeMapPinPositions(events: Event[]): HomeMapPinPosition[] {
+export function getHomeMapPinPositions(
+  events: Event[],
+  areaBounds?: MapBoundsBox,
+): HomeMapPinPosition[] {
   const mappable = events
     .filter((event) => Number.isFinite(event.lat) && Number.isFinite(event.lng))
-    .slice(0, 5)
+    .slice(0, HOME_MAP_PREVIEW_MAX_PINS)
 
   if (mappable.length === 0) return []
 
-  const lats = mappable.map((event) => event.lat)
-  const lngs = mappable.map((event) => event.lng)
-  const minLat = Math.min(...lats)
-  const maxLat = Math.max(...lats)
-  const minLng = Math.min(...lngs)
-  const maxLng = Math.max(...lngs)
+  const minLat = areaBounds?.south ?? Math.min(...mappable.map((event) => event.lat))
+  const maxLat = areaBounds?.north ?? Math.max(...mappable.map((event) => event.lat))
+  const minLng = areaBounds?.west ?? Math.min(...mappable.map((event) => event.lng))
+  const maxLng = areaBounds?.east ?? Math.max(...mappable.map((event) => event.lng))
 
   if (mappable.length === 1) {
     return [{ top: 46, left: 48, isMain: true }]
@@ -142,7 +221,7 @@ export function getHomeMapPinPositions(events: Event[]): HomeMapPinPosition[] {
 /** Fallback pin positions when events lack coordinates. */
 export function getHomeMapFallbackPinPositions(count: number): HomeMapPinPosition[] {
   if (count <= 0) return []
-  return PIN_LAYOUTS.slice(0, Math.min(count, 5)).map((position, index) => ({
+  return PIN_LAYOUTS.slice(0, Math.min(count, HOME_MAP_PREVIEW_MAX_PINS)).map((position, index) => ({
     ...position,
     isMain: index === 0,
   }))

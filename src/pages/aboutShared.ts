@@ -45,7 +45,7 @@ export const ABOUT_HERO_ART = {
   src: '/about/hero.png',
   src2x: '/about/hero@2x.png',
   width: 448,
-  height: 277,
+  height: 301,
   displayWidth: 335,
 } as const
 

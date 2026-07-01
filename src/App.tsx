@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-route
 import { AppProvider } from './context/AppContext'
 import { BottomNav } from './components/layout/BottomNav'
 import { LocationBridge } from './components/LocationBridge'
+import { ScrollToTop } from './components/ScrollToTop'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { AdminAuthGate } from './components/admin/AdminAuthGate'
 import { AdminLayout } from './components/admin/AdminLayout'
@@ -31,13 +32,24 @@ import { MaintenancePage } from './pages/MaintenancePage'
 import { LogoLabPage } from './pages/LogoLabPage'
 import { CityLandingPage } from './pages/CityLandingPage'
 import { EventDetailPage } from './pages/EventDetailPage'
+import { EventDetailModalOverlay } from './pages/EventDetailModalOverlay'
+import { ExperimentEventModalPage } from './pages/ExperimentEventModalPage'
 import { AdminEventsPage } from './pages/admin/AdminEventsPage'
 import { AdminSubmissionsPage } from './pages/admin/AdminSubmissionsPage'
 import { initAnalytics, pageNameFromPath, trackPageView } from './utils/analytics'
 import { applySiteMeta } from './utils/siteMeta'
+import { getEventDetailBackground } from './utils/eventDetailNavigation'
+
+const BROWSE_PAGE_PROPS = {
+  shellClassName:
+    'browse-page-shell--experiment browse-page-shell--experiment-3 browse-page-shell--map-interaction',
+  resultsCountStyle: 'contextual' as const,
+  mapInteractionMode: 'connected' as const,
+}
 
 function AppShell() {
   const location = useLocation()
+  const backgroundLocation = getEventDetailBackground(location.state)
   const isAdminRoute = location.pathname.startsWith('/admin')
   const isLogoLab = location.pathname === '/logo-lab'
 
@@ -49,77 +61,70 @@ function AppShell() {
     }
   }, [location.pathname, location.search])
 
+  const primaryRoutes = (
+    <>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/home-v1" element={<HomeV1Page />} />
+      <Route path="/home-experiment" element={<Navigate to="/" replace />} />
+      <Route path="/home-experiment-1" element={<HomeExperiment1Page />} />
+      <Route path="/home-experiment-2" element={<HomeExperiment2Page />} />
+      <Route path="/home-experiment-3" element={<HomeExperiment3Page />} />
+      <Route path="/home-experiment-4" element={<HomeExperiment4Page />} />
+      <Route path="/experiment-home" element={<Navigate to="/" replace />} />
+      <Route path="/home-experiment-compact" element={<Navigate to="/" replace />} />
+      <Route path="/discovery" element={<DiscoveryPage />} />
+      <Route path="/browse" element={<BrowsePage {...BROWSE_PAGE_PROPS} />} />
+      <Route path="/map" element={<BrowsePage {...BROWSE_PAGE_PROPS} defaultViewMode="map" />} />
+      <Route path="/palo-alto" element={<CityLandingPage citySlug="palo-alto" />} />
+      <Route path="/los-altos" element={<CityLandingPage citySlug="los-altos" />} />
+      <Route path="/mountain-view" element={<CityLandingPage citySlug="mountain-view" />} />
+      <Route path="/event/:eventId" element={<EventDetailPage />} />
+      <Route path="/browse-v1" element={<BrowseV1Page />} />
+      <Route path="/experiment-browse" element={<ExperimentBrowsePage />} />
+      <Route path="/experiment-browse-map" element={<ExperimentBrowseMapPage />} />
+      <Route path="/experiment-event-modal" element={<ExperimentEventModalPage />} />
+      <Route path="/experiment-browse-3" element={<Navigate to="/browse" replace />} />
+      <Route path="/browse-experiment" element={<Navigate to="/experiment-browse" replace />} />
+      <Route path="/share" element={<SharePage />} />
+      <Route path="/share-experiment" element={<ExperimentSharePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/about-experiment" element={<AboutExperimentPage />} />
+      <Route path="/experiment_about" element={<AboutExperimentPage />} />
+      <Route path="/typography-experiment" element={<TypographyExperimentsIndexPage />} />
+      <Route path="/typography-experiment/home" element={<TypographyExperimentHomePage />} />
+      <Route path="/typography-experiment/discovery" element={<Navigate to="/discovery" replace />} />
+      <Route path="/typography-experiment/about" element={<TypographyExperimentAboutPage />} />
+      <Route path="/typography-experiment/about-style/home" element={<TypographyAboutStyleHomePage />} />
+      <Route path="/typography-experiment/about-style/share" element={<TypographyAboutStyleSharePage />} />
+      <Route path="/typography-experiment/share" element={<TypographyAboutStyleSharePage />} />
+      <Route path="/logo-lab" element={<LogoLabPage />} />
+      <Route path="/maintenance" element={<MaintenancePage />} />
+      <Route path="/admin" element={<AdminAuthGate />}>
+        <Route element={<AdminLayout />}>
+          <Route index element={<Navigate to="events" replace />} />
+          <Route path="events" element={<AdminEventsPage />} />
+          <Route path="submissions" element={<AdminSubmissionsPage />} />
+        </Route>
+      </Route>
+      <Route path="/Admin" element={<Navigate to="/admin/events" replace />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </>
+  )
+
   return (
     <div className="layout-root min-h-dvh bg-white">
+      <ScrollToTop />
       <main>
         <ErrorBoundary title="Puddles failed to load">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/home-v1" element={<HomeV1Page />} />
-            <Route path="/home-experiment" element={<Navigate to="/" replace />} />
-            <Route path="/home-experiment-1" element={<HomeExperiment1Page />} />
-            <Route path="/home-experiment-2" element={<HomeExperiment2Page />} />
-            <Route path="/home-experiment-3" element={<HomeExperiment3Page />} />
-            <Route path="/home-experiment-4" element={<HomeExperiment4Page />} />
-            <Route path="/experiment-home" element={<Navigate to="/" replace />} />
-            <Route path="/home-experiment-compact" element={<Navigate to="/" replace />} />
-            <Route path="/discovery" element={<DiscoveryPage />} />
-            <Route
-              path="/browse"
-              element={
-                <BrowsePage
-                  shellClassName="browse-page-shell--experiment browse-page-shell--experiment-3 browse-page-shell--map-interaction"
-                  resultsCountStyle="contextual"
-                  mapInteractionMode="connected"
-                />
-              }
-            />
-            <Route
-              path="/map"
-              element={
-                <BrowsePage
-                  shellClassName="browse-page-shell--experiment browse-page-shell--experiment-3 browse-page-shell--map-interaction"
-                  resultsCountStyle="contextual"
-                  mapInteractionMode="connected"
-                  defaultViewMode="map"
-                />
-              }
-            />
-            <Route path="/palo-alto" element={<CityLandingPage citySlug="palo-alto" />} />
-            <Route path="/los-altos" element={<CityLandingPage citySlug="los-altos" />} />
-            <Route path="/mountain-view" element={<CityLandingPage citySlug="mountain-view" />} />
-            <Route path="/event/:eventId" element={<EventDetailPage />} />
-            <Route path="/browse-v1" element={<BrowseV1Page />} />
-            <Route path="/experiment-browse" element={<ExperimentBrowsePage />} />
-            <Route path="/experiment-browse-map" element={<ExperimentBrowseMapPage />} />
-            <Route path="/experiment-browse-3" element={<Navigate to="/browse" replace />} />
-            <Route path="/browse-experiment" element={<Navigate to="/experiment-browse" replace />} />
-            <Route path="/share" element={<SharePage />} />
-            <Route path="/share-experiment" element={<ExperimentSharePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/about-experiment" element={<AboutExperimentPage />} />
-            <Route path="/experiment_about" element={<AboutExperimentPage />} />
-            <Route path="/typography-experiment" element={<TypographyExperimentsIndexPage />} />
-            <Route path="/typography-experiment/home" element={<TypographyExperimentHomePage />} />
-            <Route path="/typography-experiment/discovery" element={<Navigate to="/discovery" replace />} />
-            <Route path="/typography-experiment/about" element={<TypographyExperimentAboutPage />} />
-            <Route path="/typography-experiment/about-style/home" element={<TypographyAboutStyleHomePage />} />
-            <Route path="/typography-experiment/about-style/share" element={<TypographyAboutStyleSharePage />} />
-            <Route path="/typography-experiment/share" element={<TypographyAboutStyleSharePage />} />
-            <Route path="/logo-lab" element={<LogoLabPage />} />
-            <Route path="/maintenance" element={<MaintenancePage />} />
-            <Route path="/admin" element={<AdminAuthGate />}>
-              <Route element={<AdminLayout />}>
-                <Route index element={<Navigate to="events" replace />} />
-                <Route path="events" element={<AdminEventsPage />} />
-                <Route path="submissions" element={<AdminSubmissionsPage />} />
-              </Route>
-            </Route>
-            <Route path="/Admin" element={<Navigate to="/admin/events" replace />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+          <Routes location={backgroundLocation ?? location}>{primaryRoutes}</Routes>
         </ErrorBoundary>
       </main>
+
+      {backgroundLocation ? (
+        <Routes>
+          <Route path="/event/:eventId" element={<EventDetailModalOverlay />} />
+        </Routes>
+      ) : null}
       {!isAdminRoute && !isLogoLab && <BottomNav />}
       {!isAdminRoute && <LocationBridge />}
     </div>

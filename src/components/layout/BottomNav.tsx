@@ -84,7 +84,7 @@ export function BottomNav() {
 
   return (
     <nav
-      className="bottom-nav fixed inset-x-0 bottom-0 z-40 border-t border-border bg-white md:hidden"
+      className="bottom-nav fixed inset-x-0 bottom-0 z-40 border-t border-border md:hidden"
       aria-label="Mobile navigation"
     >
       <div className="bottom-nav-inner layout-container flex w-full">

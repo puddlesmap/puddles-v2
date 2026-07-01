@@ -1,4 +1,9 @@
-export type EventOpenSource = 'discovery' | 'browse_list' | 'browse_map'
+export type EventOpenSource =
+  | 'discovery'
+  | 'browse_list'
+  | 'browse_map'
+  | 'home'
+  | 'city_landing'
 
 export type BrowseCityChangeSource = 'filter' | 'pill' | 'bridge'
 

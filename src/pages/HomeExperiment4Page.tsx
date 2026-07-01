@@ -4,8 +4,7 @@ import { HomeExperimentPage } from './HomeExperimentPage'
 export function HomeExperiment4Page() {
   return (
     <HomeExperimentPage
-      pageClassName="home-experiment-page--soft"
-      heroVariant="experiment4"
+      heroVariant="default"
       trailing={
         <p className="home-experiment-note">
           Home experiment 4 —{' '}

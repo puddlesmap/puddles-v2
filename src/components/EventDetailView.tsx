@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom'
 import type { Event } from '../types/event'
 import type { EventOpenSource } from '../types/analytics'
 import { formatModalDate, formatModalTimeRange } from '../utils/dates'
-import {
-  canAddEventToCalendar,
-  downloadEventIcs,
-} from '../utils/calendar'
+import { canAddEventToCalendar, downloadEventIcs } from '../utils/calendar'
 import {
   getEventAddressLine,
   getEventDirectionsLabel,
@@ -15,16 +12,21 @@ import {
 } from '../utils/maps'
 import { eventAnalyticsProps, track } from '../utils/analytics'
 import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
 import { EventDetailIcon } from './EventDetailIcon'
 import { EventImage } from './EventImage'
 
+export type EventDetailOverlayLayout = 'default' | 'wide'
+
 interface EventDetailViewProps {
   event: Event
   analyticsSource?: EventOpenSource | null
-  backTo?: string
-  backLabel?: string
+  hasInAppReturn?: boolean
+  onClose: () => void
+  presentation?: 'page' | 'overlay'
+  overlayLayout?: EventDetailOverlayLayout
 }
 
 const headerIconProps = {
@@ -46,12 +48,250 @@ function ShareStrokeIcon() {
   )
 }
 
+function TrustVerifyIcon() {
+  return (
+    <svg
+      className="event-modal-trust-check-icon"
+      width="17"
+      height="17"
+      viewBox="0 0 17 17"
+      fill="none"
+      aria-hidden="true"
+    >
+      <circle cx="8.5" cy="8.5" r="7.5" fill="#F0F9FE" stroke="#D9EFFB" strokeWidth="1" />
+      <path
+        d="M5.25 8.5 7.5 10.75 11.75 6.5"
+        stroke="#66C5F9"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function CloseIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden
+    >
+      <path d="M18 6 6 18" />
+      <path d="m6 6 12 12" />
+    </svg>
+  )
+}
+
+interface EventDetailContentProps {
+  event: Event
+  verified: string
+  directionsUrl: string | null
+  addressLine: string | null
+  roomLine: string | null
+  categoryTags: string[]
+  showReportForm: boolean
+  reportSubmitted: boolean
+  onReportOpen: () => void
+  onReportCancel: () => void
+  onReportSuccess: () => void
+}
+
+function EventDetailMetadata({
+  event,
+  directionsUrl,
+  addressLine,
+  roomLine,
+  categoryTags,
+}: Pick<
+  EventDetailContentProps,
+  'event' | 'directionsUrl' | 'addressLine' | 'roomLine' | 'categoryTags'
+>) {
+  return (
+    <>
+      <div className="event-detail-row">
+        <EventDetailIcon kind="time" />
+        <div className="event-detail-row-content">
+          <p className="event-detail-meta">{formatModalDate(event.date)}</p>
+          <p className="event-detail-meta text-muted">
+            {formatModalTimeRange(event.startTime, event.endTime)}
+          </p>
+        </div>
+      </div>
+
+      <div className="event-detail-row event-detail-location">
+        <EventDetailIcon kind="location" />
+        <div className="event-detail-row-content">
+          {event.venue ? <p className="event-detail-venue">{event.venue}</p> : null}
+          {roomLine ? <p className="event-detail-room">{roomLine}</p> : null}
+          {directionsUrl && addressLine ? (
+            <a
+              href={directionsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="event-modal-address-link"
+              aria-label={getEventDirectionsLabel(event)}
+              onClick={() => track('address_link_click', eventAnalyticsProps(event))}
+            >
+              <span>{addressLine}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            addressLine && <p className="event-modal-address-plain">{addressLine}</p>
+          )}
+          {event.city ? <p className="event-detail-meta text-muted">{event.city}</p> : null}
+        </div>
+      </div>
+
+      <div className="event-detail-fields">
+        <div className="event-detail-row event-detail-field">
+          <EventDetailIcon kind="ages" />
+          <div className="event-detail-row-content">
+            <div className="event-detail-field-label">Ages</div>
+            <p className="event-detail-field-value">{event.ageRange}</p>
+          </div>
+        </div>
+        {categoryTags.length > 0 ? (
+          <div className="event-detail-row event-detail-field">
+            <EventDetailIcon kind="type" />
+            <div className="event-detail-row-content">
+              <div className="event-detail-field-label">Type</div>
+              <div className="event-detail-tag-chips" aria-label="Category tags">
+                {categoryTags.map((tag) => (
+                  <span key={tag} className="event-detail-tag-chip">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : null}
+        <div className="event-detail-row event-detail-field">
+          <EventDetailIcon kind="type" />
+          <div className="event-detail-row-content">
+            <div className="event-detail-field-label">Cost</div>
+            <p className="event-detail-field-value">{event.cost}</p>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+function EventDetailTrustCard({
+  verified,
+  showReportForm,
+  reportSubmitted,
+  event,
+  onReportOpen,
+  onReportCancel,
+  onReportSuccess,
+}: Pick<
+  EventDetailContentProps,
+  | 'verified'
+  | 'showReportForm'
+  | 'reportSubmitted'
+  | 'event'
+  | 'onReportOpen'
+  | 'onReportCancel'
+  | 'onReportSuccess'
+>) {
+  return (
+    <div className="event-modal-trust-card">
+      <div className="event-modal-trust-header">
+        <span className="event-modal-trust-check" aria-hidden="true">
+          <TrustVerifyIcon />
+        </span>
+        <span className="event-modal-trust-header-label">Verified by Puddles</span>
+        <span className="event-modal-trust-timestamp">· Last checked {verified}</span>
+      </div>
+      <p className="event-modal-trust-note">
+        Details can change. Please check the official page before you go.
+      </p>
+
+      {reportSubmitted ? (
+        <p className="event-modal-trust-action report-outdated-success" role="status">
+          Thanks — we&apos;ll review this event soon.
+        </p>
+      ) : showReportForm ? (
+        <div className="event-modal-trust-action">
+          <ReportOutdatedForm
+            event={event}
+            onCancel={onReportCancel}
+            onSuccess={onReportSuccess}
+          />
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={onReportOpen}
+          className="event-modal-trust-action event-modal-trust-report-link"
+        >
+          Report outdated info
+        </button>
+      )}
+    </div>
+  )
+}
+
+function EventDetailActions({
+  event,
+  canAddToCalendar,
+  hasOfficialPage,
+  className = 'event-modal-actions shrink-0 border-t border-border bg-white px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]',
+}: {
+  event: Event
+  canAddToCalendar: boolean
+  hasOfficialPage: boolean
+  className?: string
+}) {
+  return (
+    <div className={className}>
+      <button
+        type="button"
+        onClick={() => {
+          const ok = downloadEventIcs(event)
+          if (ok) track('add_to_calendar', eventAnalyticsProps(event))
+        }}
+        disabled={!canAddToCalendar}
+        className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
+      >
+        Add to calendar
+      </button>
+      {!canAddToCalendar ? (
+        <p className="event-modal-actions-note text-center">Calendar details unavailable</p>
+      ) : null}
+      {hasOfficialPage ? (
+        <a
+          href={event.eventUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="btn-secondary"
+          onClick={() => track('visit_official_page', eventAnalyticsProps(event))}
+        >
+          Visit official page
+        </a>
+      ) : null}
+    </div>
+  )
+}
+
 export function EventDetailView({
   event,
   analyticsSource = 'discovery',
-  backTo = '/browse',
-  backLabel = 'Back to browse',
+  hasInAppReturn = false,
+  onClose,
+  presentation = 'page',
+  overlayLayout = 'default',
 }: EventDetailViewProps) {
+  const isOverlay = presentation === 'overlay'
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+  const isWideDesktop = isOverlay && overlayLayout === 'wide' && isDesktop
   const [showReportForm, setShowReportForm] = useState(false)
   const [reportSubmitted, setReportSubmitted] = useState(false)
   const [headerCollapsed, setHeaderCollapsed] = useState(false)
@@ -77,19 +317,13 @@ export function EventDetailView({
   }, [event, analyticsSource])
 
   function handleScroll() {
+    if (isWideDesktop) return
     const scrollEl = scrollRef.current
     const heroEl = heroRef.current
     if (!scrollEl || !heroEl) return
 
     const collapseAt = Math.max(heroEl.offsetHeight - 56, 80)
     setHeaderCollapsed(scrollEl.scrollTop > collapseAt)
-  }
-
-  function handleAddToCalendar() {
-    const ok = downloadEventIcs(event)
-    if (ok) {
-      track('add_to_calendar', eventAnalyticsProps(event))
-    }
   }
 
   async function handleShare() {
@@ -119,25 +353,112 @@ export function EventDetailView({
     }
   }
 
-  function handleReportOutdatedOpen() {
-    track('report_outdated_open', eventAnalyticsProps(event))
-    setShowReportForm(true)
+  const contentProps: EventDetailContentProps = {
+    event,
+    verified,
+    directionsUrl,
+    addressLine,
+    roomLine,
+    categoryTags,
+    showReportForm,
+    reportSubmitted,
+    onReportOpen: () => {
+      track('report_outdated_open', eventAnalyticsProps(event))
+      setShowReportForm(true)
+    },
+    onReportCancel: () => setShowReportForm(false),
+    onReportSuccess: () => {
+      setShowReportForm(false)
+      setReportSubmitted(true)
+    },
+  }
+
+  function renderCloseButton(className: string) {
+    return (
+      <button type="button" onClick={onClose} className={className} aria-label="Close event">
+        <CloseIcon />
+      </button>
+    )
+  }
+
+  if (isWideDesktop) {
+    return (
+      <article className="event-detail-page-panel event-modal-panel event-modal-panel--overlay event-modal-panel--wide">
+        <div className="event-modal-floating-actions">
+          <button
+            type="button"
+            onClick={() => void handleShare()}
+            className="event-modal-header-icon-btn"
+            aria-label="Share event"
+          >
+            <ShareStrokeIcon />
+          </button>
+          {renderCloseButton('event-modal-close-btn event-modal-close-btn--floating')}
+        </div>
+
+        <div ref={scrollRef} className="event-modal-scroll">
+          <div className="event-modal-wide-layout">
+            <div className="event-modal-wide-layout__main">
+              <EventImage
+                event={event}
+                className="event-modal-hero event-modal-hero--wide w-full object-cover"
+                loading="eager"
+              />
+              <h1 className="event-detail-title">{event.title}</h1>
+              {event.description ? (
+                <p className="event-detail-body">{event.description}</p>
+              ) : null}
+            </div>
+
+            <aside className="event-modal-wide-layout__side">
+              <EventDetailMetadata {...contentProps} />
+              <EventDetailTrustCard {...contentProps} />
+              <EventRouteCard event={event} />
+              <EventDetailActions
+                event={event}
+                canAddToCalendar={canAddToCalendar}
+                hasOfficialPage={hasOfficialPage}
+                className="event-modal-actions event-modal-actions--inline"
+              />
+            </aside>
+          </div>
+        </div>
+      </article>
+    )
   }
 
   return (
-    <article className="event-detail-page-panel event-modal-panel">
+    <article
+      className={[
+        'event-detail-page-panel event-modal-panel',
+        isOverlay ? 'event-modal-panel--overlay' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {(!headerCollapsed || isOverlay) ? (
+        renderCloseButton(
+          [
+            'event-modal-close-btn event-modal-close-btn--floating',
+            isOverlay ? 'event-modal-close-btn--persistent' : '',
+          ]
+            .filter(Boolean)
+            .join(' '),
+        )
+      ) : null}
+
       <div
         className={[
           'event-modal-sticky-header',
-          headerCollapsed ? 'event-modal-sticky-header--collapsed' : 'event-modal-sticky-header--overlay',
+          headerCollapsed
+            ? 'event-modal-sticky-header--collapsed'
+            : 'event-modal-sticky-header--overlay',
         ].join(' ')}
       >
         {headerCollapsed ? (
           <h1 className="event-modal-sticky-title">{event.title}</h1>
         ) : (
-          <Link to={backTo} className="event-detail-back-link">
-            ← {backLabel}
-          </Link>
+          <span className="event-modal-sticky-spacer" aria-hidden />
         )}
         <div className="event-modal-header-actions">
           <button
@@ -148,14 +469,11 @@ export function EventDetailView({
           >
             <ShareStrokeIcon />
           </button>
+          {headerCollapsed && !isOverlay ? renderCloseButton('event-modal-close-btn') : null}
         </div>
       </div>
 
-      <div
-        ref={scrollRef}
-        className="event-modal-scroll"
-        onScroll={handleScroll}
-      >
+      <div ref={scrollRef} className="event-modal-scroll" onScroll={handleScroll}>
         <EventImage
           ref={heroRef}
           event={event}
@@ -167,149 +485,29 @@ export function EventDetailView({
         <div className="event-modal-content px-6 pb-6 pt-6">
           <h1 className="event-detail-title">{event.title}</h1>
 
-          <div className="event-detail-row mt-2">
-            <EventDetailIcon kind="time" />
-            <div className="event-detail-row-content">
-              <p className="event-detail-meta">{formatModalDate(event.date)}</p>
-              <p className="event-detail-meta text-muted">
-                {formatModalTimeRange(event.startTime, event.endTime)}
-              </p>
-            </div>
-          </div>
-
-          <div className="event-detail-row event-detail-location">
-            <EventDetailIcon kind="location" />
-            <div className="event-detail-row-content">
-              {event.venue ? <p className="event-detail-venue">{event.venue}</p> : null}
-              {roomLine ? <p className="event-detail-room">{roomLine}</p> : null}
-              {directionsUrl && addressLine ? (
-                <a
-                  href={directionsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="event-modal-address-link"
-                  aria-label={getEventDirectionsLabel(event)}
-                  onClick={() => track('address_link_click', eventAnalyticsProps(event))}
-                >
-                  <span>{addressLine}</span>
-                  <span aria-hidden="true">↗</span>
-                </a>
-              ) : (
-                addressLine && <p className="event-modal-address-plain">{addressLine}</p>
-              )}
-              {event.city ? <p className="event-detail-meta text-muted">{event.city}</p> : null}
-            </div>
-          </div>
-
-          <div className="event-detail-fields">
-            <div className="event-detail-row event-detail-field">
-              <EventDetailIcon kind="ages" />
-              <div className="event-detail-row-content">
-                <div className="event-detail-field-label">Ages</div>
-                <p className="event-detail-field-value">{event.ageRange}</p>
-              </div>
-            </div>
-            {categoryTags.length > 0 ? (
-              <div className="event-detail-row event-detail-field">
-                <EventDetailIcon kind="type" />
-                <div className="event-detail-row-content">
-                  <div className="event-detail-field-label">Type</div>
-                  <div className="event-detail-tag-chips" aria-label="Category tags">
-                    {categoryTags.map((tag) => (
-                      <span key={tag} className="event-detail-tag-chip">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ) : null}
-            <div className="event-detail-row event-detail-field">
-              <EventDetailIcon kind="type" />
-              <div className="event-detail-row-content">
-                <div className="event-detail-field-label">Cost</div>
-                <p className="event-detail-field-value">{event.cost}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="event-modal-trust-card">
-            <div className="event-modal-trust-header">
-              <span className="event-modal-trust-check" aria-hidden="true">
-                ✓
-              </span>
-              <span className="event-modal-trust-header-label">Verified by Puddles</span>
-              <span className="event-modal-trust-timestamp">· Last checked {verified}</span>
-            </div>
-            <p className="event-modal-trust-note">
-              <span className="event-modal-trust-note-icon" aria-hidden="true">
-                ⓘ
-              </span>
-              Things change. Check the official page before you go!
-            </p>
-
-            {reportSubmitted ? (
-              <p className="event-modal-trust-action report-outdated-success" role="status">
-                Thanks — we&apos;ll review this event soon.
-              </p>
-            ) : showReportForm ? (
-              <div className="event-modal-trust-action">
-                <ReportOutdatedForm
-                  event={event}
-                  onCancel={() => setShowReportForm(false)}
-                  onSuccess={() => {
-                    setShowReportForm(false)
-                    setReportSubmitted(true)
-                  }}
-                />
-              </div>
-            ) : (
-              <button
-                type="button"
-                onClick={handleReportOutdatedOpen}
-                className="event-modal-trust-action event-modal-trust-report-link"
-              >
-                Report outdated
-              </button>
-            )}
-          </div>
-
-          {event.description ? <p className="event-detail-body">{event.description}</p> : null}
-
-          {hasOfficialPage ? (
-            <p className="event-detail-official-note supporting-copy">
-              For the latest schedule and details, visit the official event page before you go.
+          {!hasInAppReturn ? (
+            <p className="event-detail-direct-fallback">
+              <Link to="/browse">Browse more events</Link>
             </p>
           ) : null}
+
+          <div className="mt-2">
+            <EventDetailMetadata {...contentProps} />
+          </div>
+
+          <EventDetailTrustCard {...contentProps} />
+
+          {event.description ? <p className="event-detail-body">{event.description}</p> : null}
 
           <EventRouteCard event={event} />
         </div>
       </div>
 
-      <div className="event-modal-actions shrink-0 border-t border-border bg-white px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-        <button
-          type="button"
-          onClick={handleAddToCalendar}
-          disabled={!canAddToCalendar}
-          className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Add to calendar
-        </button>
-        {!canAddToCalendar ? (
-          <p className="event-modal-actions-note text-center">Calendar details unavailable</p>
-        ) : null}
-        {hasOfficialPage ? (
-          <a
-            href={event.eventUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-secondary"
-            onClick={() => track('visit_official_page', eventAnalyticsProps(event))}
-          >
-            Visit official page
-          </a>
-        ) : null}
-      </div>
+      <EventDetailActions
+        event={event}
+        canAddToCalendar={canAddToCalendar}
+        hasOfficialPage={hasOfficialPage}
+      />
     </article>
   )
 }

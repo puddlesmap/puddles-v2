@@ -3,11 +3,13 @@ import { DiscoveryMapPreview } from '../discovery/DiscoveryMapPreview'
 import { PUDDLES_SPOTLIGHT_MARKER_SRC } from '../../pages/experimentShared'
 import type { Event } from '../../types/event'
 import type { TemporalTab } from '../../utils/dates'
+import type { UserLocationCoords } from '../../hooks/useUserLocation'
 import {
   getHomeMapFallbackPinPositions,
   getHomeMapPinPositions,
   getHomeMapPreviewLabelRefined,
   getHomeMapPreviewStatus,
+  resolveHomeMapPreviewFraming,
   type HomeWhereMode,
 } from '../../utils/homeMapPreview'
 
@@ -18,6 +20,7 @@ interface HomeMapPreviewProps {
   temporalTab: TemporalTab
   eventCount: number
   hasNearbyCoords: boolean
+  userCoords?: UserLocationCoords | null
   isRequesting: boolean
   onNavigateToMap: () => void
   statusVariant?: 'default' | 'refined'
@@ -30,6 +33,7 @@ export function HomeMapPreview({
   temporalTab,
   eventCount,
   hasNearbyCoords,
+  userCoords = null,
   isRequesting,
   onNavigateToMap,
   statusVariant = 'default',
@@ -46,16 +50,17 @@ export function HomeMapPreview({
       ? getHomeMapPreviewLabelRefined(whereMode)
       : getHomeMapPreviewStatus(statusContext)
 
+  const framing = resolveHomeMapPreviewFraming(whereMode, events, userCoords)
   const mappableEvents = events.filter(
     (event) => Number.isFinite(event.lat) && Number.isFinite(event.lng),
   )
   const pinPositions =
     mappableEvents.length > 0
-      ? getHomeMapPinPositions(events)
-      : getHomeMapFallbackPinPositions(Math.min(eventCount, 5))
+      ? getHomeMapPinPositions(events, framing.areaBounds)
+      : getHomeMapFallbackPinPositions(Math.min(eventCount, 7))
 
   const showPins = eventCount > 0 && !isRequesting
-  const showMapLayer = mappableEvents.length > 0
+  const showMapLayer = !isRequesting
 
   return (
     <Link
@@ -67,12 +72,18 @@ export function HomeMapPreview({
       <div className="home-map-preview__canvas">
         {showMapLayer ? (
           <div className="home-map-preview__map-layer">
-            <DiscoveryMapPreview events={events} resetKey={resetKey} showEventMarkers={false} />
+            <DiscoveryMapPreview
+              events={events}
+              resetKey={resetKey}
+              showEventMarkers={false}
+              areaBounds={framing.areaBounds}
+              anchorPoints={framing.anchorPoints}
+              boundsPadding={framing.boundsPadding}
+            />
           </div>
         ) : (
           <div className="home-map-preview__placeholder" />
         )}
-        <div className="home-map-preview__wash" />
 
         {showPins ? (
           <div className="home-map-preview__pins" aria-hidden>
@@ -93,11 +104,11 @@ export function HomeMapPreview({
             ))}
           </div>
         ) : null}
-      </div>
 
-      <div className="home-map-preview__footer">
-        <p className="home-map-preview__status">{status}</p>
-        <span className="home-map-preview__cta">View map →</span>
+        <div className="home-map-preview__footer">
+          <p className="home-map-preview__status">{status}</p>
+          <span className="home-map-preview__cta">View map →</span>
+        </div>
       </div>
     </Link>
   )

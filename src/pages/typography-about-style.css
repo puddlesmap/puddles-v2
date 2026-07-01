@@ -23,11 +23,6 @@
   color: var(--about-style-tagline-color);
 }
 
-.typography-about-style-shell .home-experiment-refined-accent {
-  color: #66c5f9;
-  font-weight: var(--about-style-tagline-weight);
-}
-
 @media (max-width: 768px) {
   .typography-about-style-shell .home-experiment-refined-title.home-experiment-title {
     line-height: var(--about-style-tagline-line-height);

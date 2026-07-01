@@ -16,8 +16,9 @@ import {
 } from './mapViewConfig'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { useBrowseMapListTwoColumn } from '../../hooks/useBrowseMapListTwoColumn'
-import { useBrowseMapInteraction } from '../../hooks/useBrowseMapInteraction'
+import { useBrowseMapInteraction, type MapOpenEventHandler } from '../../hooks/useBrowseMapInteraction'
 import { useUserLocation } from '../../hooks/useUserLocation'
+import type { BrowseReturnSnapshot } from '../../utils/browseReturnState'
 import {
   boundsBoxFromLeaflet,
   filterEventsInBounds,
@@ -29,8 +30,9 @@ interface BrowseLeafletMapViewProps {
   events: Event[]
   feedKey: string
   browseFilters: BrowseFilters
-  onOpenEvent: (event: Event) => void
+  onOpenEvent: MapOpenEventHandler
   interactionMode?: 'default' | 'connected'
+  restoreSnapshot?: BrowseReturnSnapshot | null
 }
 
 const MAP_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
@@ -116,6 +118,7 @@ export function BrowseLeafletMapView({
   browseFilters,
   onOpenEvent,
   interactionMode = 'default',
+  restoreSnapshot = null,
 }: BrowseLeafletMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
@@ -158,6 +161,7 @@ export function BrowseLeafletMapView({
     isMobile,
     onOpenEvent,
     interactionMode,
+    restoreSnapshot,
   })
 
   const handleMapReady = useCallback((map: L.Map) => {

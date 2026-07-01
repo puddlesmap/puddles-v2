@@ -100,7 +100,15 @@ function EventCardLink({
   children: ReactNode
 }) {
   return (
-    <Link to={eventDetailPath(event)} onClick={onClick} className={className}>
+    <Link
+      to={eventDetailPath(event)}
+      onClick={(event) => {
+        if (!onClick) return
+        event.preventDefault()
+        onClick()
+      }}
+      className={className}
+    >
       {children}
     </Link>
   )

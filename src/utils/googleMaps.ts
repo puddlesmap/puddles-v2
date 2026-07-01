@@ -1,5 +1,12 @@
 import { createStaticMapsUrl } from '@vis.gl/react-google-maps'
 import type { Event } from '../types/event'
+import { HOME_MAP_PREVIEW_STATIC_BOUNDS_PADDING } from '../components/browse/mapViewConfig'
+import {
+  expandMapBounds,
+  getBoundsFromPoints,
+  getMapViewportForBounds,
+  type MapBoundsBox,
+} from './mapBounds'
 
 export const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY?.trim() ?? ''
 
@@ -30,32 +37,88 @@ export function buildEventStaticMapUrl(lat: number, lng: number): string | null 
   })
 }
 
-export function buildDiscoveryStaticMapUrl(events: Event[]): string | null {
-  if (!hasGoogleMapsApiKey()) return null
+export interface DiscoveryStaticMapOptions {
+  /** Wider framing for compact home preview cards. */
+  looseFraming?: boolean
+  areaBounds?: MapBoundsBox
+  anchorPoints?: Array<{ lat: number; lng: number }>
+  boundsPadding?: number
+}
 
-  const mappable = events.filter(
-    (event) => Number.isFinite(event.lat) && Number.isFinite(event.lng),
-  )
-  if (mappable.length === 0) return null
-
-  if (mappable.length === 1) {
-    return createStaticMapsUrl({
-      apiKey: GOOGLE_MAPS_API_KEY,
-      width: 640,
-      height: 320,
-      scale: 2,
-      center: { lat: mappable[0].lat, lng: mappable[0].lng },
-      zoom: 13,
-    })
-  }
-
+function buildStaticMapFromViewport(
+  center: { lat: number; lng: number },
+  zoom: number,
+): string {
   return createStaticMapsUrl({
     apiKey: GOOGLE_MAPS_API_KEY,
     width: 640,
     height: 320,
     scale: 2,
-    visible: mappable.map((event) => ({ lat: event.lat, lng: event.lng })),
+    center,
+    zoom,
+    region: 'US',
   })
+}
+
+export function buildDiscoveryStaticMapUrl(
+  events: Event[],
+  options: DiscoveryStaticMapOptions = {},
+): string | null {
+  if (!hasGoogleMapsApiKey()) return null
+
+  const mappable = events.filter(
+    (event) => Number.isFinite(event.lat) && Number.isFinite(event.lng),
+  )
+
+  const {
+    looseFraming = false,
+    areaBounds,
+    anchorPoints,
+    boundsPadding = looseFraming ? HOME_MAP_PREVIEW_STATIC_BOUNDS_PADDING : 0.08,
+  } = options
+
+  if (anchorPoints && anchorPoints.length > 0) {
+    const pointBounds = getBoundsFromPoints(anchorPoints)
+    if (!pointBounds) return null
+
+    const viewport = getMapViewportForBounds(pointBounds, {
+      paddingRatio: boundsPadding,
+      zoomOffset: 1,
+    })
+    return buildStaticMapFromViewport(viewport.center, viewport.zoom)
+  }
+
+  if (areaBounds) {
+    const viewport = getMapViewportForBounds(areaBounds, {
+      paddingRatio: boundsPadding,
+      zoomOffset: 1,
+    })
+    return buildStaticMapFromViewport(viewport.center, viewport.zoom)
+  }
+
+  if (mappable.length === 0) return null
+
+  if (mappable.length === 1) {
+    return buildStaticMapFromViewport(
+      { lat: mappable[0].lat, lng: mappable[0].lng },
+      looseFraming ? 12 : 13,
+    )
+  }
+
+  const eventBounds = getBoundsFromPoints(
+    mappable.map((event) => ({ lat: event.lat, lng: event.lng })),
+  )
+  if (!eventBounds) return null
+
+  const viewport = getMapViewportForBounds(
+    expandMapBounds(
+      eventBounds,
+      looseFraming ? HOME_MAP_PREVIEW_STATIC_BOUNDS_PADDING : boundsPadding,
+    ),
+    { zoomOffset: looseFraming ? 0 : 1 },
+  )
+
+  return buildStaticMapFromViewport(viewport.center, viewport.zoom)
 }
 
 export function boundsBoxFromGoogle(bounds: google.maps.LatLngBounds) {

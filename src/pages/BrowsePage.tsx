@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import { getPublicEventsFromCatalog } from '../data/events'
 import { EventCard } from '../components/EventCard'
@@ -36,7 +36,7 @@ import {
   trackBrowseNearbyDenied,
   trackBrowseNearbySelect,
 } from '../utils/analytics'
-import { getBrowseEventNoun, getBrowseResultsSummary } from '../utils/browseResultsCopy'
+import { getBrowseActivityNoun, getBrowseResultsSummary } from '../utils/browseResultsCopy'
 import {
   HOME_HEADER_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC,
@@ -45,6 +45,11 @@ import {
 import { useEventNavigation } from '../hooks/useEventNavigation'
 import { resolveCitySlugParam } from '../config/localRoutes'
 import { formatDocumentTitle, setPageTitle } from '../utils/siteMeta'
+import {
+  consumeBrowseReturnSnapshot,
+  type BrowseMapOpenSnapshot,
+  type BrowseReturnSnapshot,
+} from '../utils/browseReturnState'
 
 const DESKTOP_MEDIA = '(min-width: 768px)'
 
@@ -116,13 +121,16 @@ export function BrowsePage({
   const { browseFilters, setBrowseFilters } = useApp()
   const openEvent = useEventNavigation()
   const location = useLocation()
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [openPopover, setOpenPopover] = useState<FilterPopoverType>(null)
   const [openSheet, setOpenSheet] = useState<FilterSheetType>(null)
   const [viewMode, setViewMode] = useState<'list' | 'map'>(() => {
+    if (location.pathname === '/map') return 'map'
     if (searchParams.get('view') === 'map') return 'map'
     return defaultViewMode
   })
+  const [restoreSnapshot, setRestoreSnapshot] = useState<BrowseReturnSnapshot | null>(null)
+  const skipViewModeSyncRef = useRef(false)
   const secondaryCollapsed = useScrollDirectionCollapse()
   const { coords, isRequesting, requestLocation } = useUserLocation()
   const isExperimentBrowse3 = shellClassName?.includes('experiment-3') ?? false
@@ -144,6 +152,39 @@ export function BrowsePage({
 
     setBrowseFilters({ ...DEFAULT_BROWSE_FILTERS, city: cityFromQuery, cityLocked: true })
   }, [searchParams, setBrowseFilters])
+
+  useEffect(() => {
+    const snapshot = consumeBrowseReturnSnapshot()
+    if (!snapshot) return
+
+    skipViewModeSyncRef.current = true
+
+    if (snapshot.viewMode) {
+      setViewMode(snapshot.viewMode)
+    }
+
+    setRestoreSnapshot(snapshot)
+
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: snapshot.scrollY ?? 0, left: 0, behavior: 'instant' })
+    })
+  }, [])
+
+  useEffect(() => {
+    if (location.pathname === '/map') {
+      setViewMode('map')
+      return
+    }
+
+    if (location.pathname !== '/browse') return
+
+    if (skipViewModeSyncRef.current) {
+      skipViewModeSyncRef.current = false
+      return
+    }
+
+    setViewMode(searchParams.get('view') === 'map' ? 'map' : 'list')
+  }, [location.pathname, searchParams])
 
   useEffect(() => {
     if (location.pathname === '/map') {
@@ -201,7 +242,7 @@ export function BrowsePage({
   const resultsSummary =
     resultsCountStyle === 'contextual'
       ? getBrowseResultsSummary(events.length, browseFilters.city, browseFilters.day)
-      : `${events.length} ${getBrowseEventNoun(events.length, browseFilters.day)}`
+      : `${events.length} ${getBrowseActivityNoun(events.length, browseFilters.day)}`
 
   const feedKey = useMemo(
     () =>
@@ -248,7 +289,31 @@ export function BrowsePage({
       track('browse_view_change', { view: mode })
     }
     setViewMode(mode)
+
+    if (location.pathname !== '/browse') return
+
+    const next = new URLSearchParams(searchParams)
+    if (mode === 'map') {
+      next.set('view', 'map')
+    } else {
+      next.delete('view')
+    }
+    setSearchParams(next, { replace: true })
   }
+
+  const handleOpenListEvent = useCallback(
+    (event: Parameters<typeof openEvent>[0]) => {
+      openEvent(event, 'browse_list', { viewMode: 'list' })
+    },
+    [openEvent],
+  )
+
+  const handleOpenMapEvent = useCallback(
+    (event: Parameters<typeof openEvent>[0], mapSnapshot?: BrowseMapOpenSnapshot) => {
+      openEvent(event, 'browse_map', { viewMode: 'map', ...mapSnapshot })
+    },
+    [openEvent],
+  )
 
   function openLocationFilter() {
     setOpenPopover(null)
@@ -369,7 +434,8 @@ export function BrowsePage({
           feedKey={feedKey}
           browseFilters={browseFilters}
           interactionMode={mapInteractionMode}
-          onOpenEvent={(event) => openEvent(event, 'browse_map')}
+          restoreSnapshot={restoreSnapshot}
+          onOpenEvent={handleOpenMapEvent}
         />
       ) : (
         <div className="browse-page-body">
@@ -394,7 +460,7 @@ export function BrowsePage({
                       event={event}
                       variant="grid"
                       discovery
-                      onClick={() => openEvent(event, 'browse_list')}
+                      onClick={() => handleOpenListEvent(event)}
                     />
                   ))}
                 </div>

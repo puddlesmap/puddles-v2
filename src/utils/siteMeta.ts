@@ -165,6 +165,7 @@ export function applyEventPageMeta(event: Event): void {
     socialDescription: description,
     ogImage: image && image !== '#' ? image : absoluteUrl(SITE.ogImagePath),
   })
+  setMeta('property', 'og:type', 'article')
 }
 
 export function applyUnavailableEventPageMeta(pathname: string, eventTitle?: string): void {

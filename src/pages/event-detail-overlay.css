@@ -1,0 +1,135 @@
+/* Browse/Home/Map event overlay — dimmed backdrop with scrollable modal */
+
+.event-detail-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding:
+    max(0.75rem, env(safe-area-inset-top))
+    max(0.75rem, env(safe-area-inset-right))
+    max(0.75rem, env(safe-area-inset-bottom))
+    max(0.75rem, env(safe-area-inset-left));
+  overflow: hidden;
+  background: rgb(34 34 34 / 0.38);
+}
+
+.event-detail-overlay__dialog {
+  display: flex;
+  width: 100%;
+  max-width: 32rem;
+  max-height: min(96dvh, 52rem);
+  flex-direction: column;
+  margin-block: auto;
+}
+
+.event-detail-overlay .event-detail-page-panel.event-modal-panel {
+  display: flex;
+  width: 100%;
+  max-height: inherit;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #ebebeb;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: var(--elevation-shadow-lifted);
+}
+
+.event-detail-overlay .event-modal-panel--overlay {
+  position: relative;
+}
+
+.event-detail-overlay .event-modal-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.event-detail-overlay .event-modal-close-btn--persistent {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  z-index: 4;
+}
+
+.event-detail-overlay__unavailable {
+  padding: 1.5rem 1.25rem 2rem;
+  border: 1px solid #ebebeb;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: var(--elevation-shadow-lifted);
+}
+
+.event-modal-experiment-note {
+  margin-top: 0.5rem;
+}
+
+/* —— Desktop: centered scrollable modal —— */
+@media (min-width: 768px) {
+  .event-detail-overlay {
+    align-items: center;
+    padding: max(1.25rem, env(safe-area-inset-top)) 1.25rem max(1.25rem, env(safe-area-inset-bottom));
+  }
+
+  .event-detail-overlay__dialog {
+    width: min(100%, 40rem);
+    max-width: 40rem;
+    max-height: 88vh;
+  }
+
+  .event-detail-overlay.event-detail-overlay--wide .event-detail-overlay__dialog,
+  .event-detail-overlay__dialog.event-detail-overlay__dialog--wide {
+    width: min(72rem, calc(100vw - 2.5rem));
+    max-width: min(72rem, calc(100vw - 2.5rem));
+    max-height: min(92dvh, 56rem);
+  }
+
+  .event-detail-overlay .event-detail-page-panel.event-modal-panel {
+    max-height: 88vh;
+    border-radius: 1rem;
+    box-shadow: var(--elevation-shadow-lifted);
+  }
+
+  .event-detail-overlay .event-modal-close-btn--persistent {
+    top: 0.875rem;
+    right: 1rem;
+  }
+
+  .event-detail-overlay .event-modal-sticky-header--overlay .event-modal-header-actions {
+    margin-right: 3.5rem;
+  }
+}
+
+/* —— Mobile: sheet-style modal —— */
+@media (max-width: 767px) {
+  .event-detail-overlay {
+    padding:
+      max(0.5rem, env(safe-area-inset-top))
+      0
+      max(0.5rem, env(safe-area-inset-bottom))
+      0;
+  }
+
+  .event-detail-overlay__dialog {
+    max-height: min(96dvh, 52rem);
+  }
+
+  .event-detail-overlay .event-detail-page-panel.event-modal-panel {
+    max-height: min(96dvh, 52rem);
+    border-radius: 1rem;
+  }
+
+  .event-detail-overlay .event-modal-close-btn--persistent {
+    top: 0.875rem;
+    right: 0.875rem;
+  }
+
+  .event-detail-overlay .event-modal-sticky-header--overlay .event-modal-header-actions {
+    margin-right: 3.5rem;
+  }
+}

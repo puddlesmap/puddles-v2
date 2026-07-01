@@ -85,7 +85,7 @@ export function CityLandingPage({ citySlug }: CityLandingPageProps) {
                   event={event}
                   variant="grid"
                   discovery
-                  onClick={() => openEvent(event, 'browse_list')}
+                  onClick={() => openEvent(event, 'city_landing')}
                 />
               ))}
             </div>

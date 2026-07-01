@@ -1,6 +1,7 @@
 import type { Event } from '../../types/event'
 import type { BrowseFilters } from '../../utils/filters'
-import type { MapInteractionMode } from '../../hooks/useBrowseMapInteraction'
+import type { MapInteractionMode, MapOpenEventHandler } from '../../hooks/useBrowseMapInteraction'
+import type { BrowseReturnSnapshot } from '../../utils/browseReturnState'
 import { hasGoogleMapsApiKey } from '../../utils/googleMaps'
 import { BrowseGoogleMapView } from './BrowseGoogleMapView'
 import { BrowseLeafletMapView } from './BrowseLeafletMapView'
@@ -9,8 +10,9 @@ interface BrowseMapViewProps {
   events: Event[]
   feedKey: string
   browseFilters: BrowseFilters
-  onOpenEvent: (event: Event) => void
+  onOpenEvent: MapOpenEventHandler
   interactionMode?: MapInteractionMode
+  restoreSnapshot?: BrowseReturnSnapshot | null
 }
 
 export function BrowseMapView({ browseFilters, interactionMode = 'default', ...props }: BrowseMapViewProps) {

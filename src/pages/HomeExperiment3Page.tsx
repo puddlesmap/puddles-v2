@@ -4,8 +4,7 @@ import { HomeExperimentPage } from './HomeExperimentPage'
 export function HomeExperiment3Page() {
   return (
     <HomeExperimentPage
-      pageClassName="home-experiment-page--accent"
-      heroVariant="experiment3"
+      heroVariant="experiment1"
       trailing={
         <p className="home-experiment-note">
           Home experiment 3 —{' '}

@@ -118,7 +118,7 @@
 /* —— Event card typography (Discovery parity) —— */
 .browse-content .discovery-event-card-body {
   display: flex;
-  flex: 1;
+  flex: 1 1 auto;
   flex-direction: column;
   align-items: stretch;
   padding-top: 0.625rem;
@@ -130,10 +130,15 @@
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 700;
-  line-height: normal;
+  line-height: 1.25;
   letter-spacing: 0;
   text-transform: uppercase;
   color: #686868;
+  min-height: 1.25em;
+  max-height: 1.25em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .browse-content h3.discovery-event-title {
@@ -141,12 +146,15 @@
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 700;
-  line-height: normal;
+  line-height: 1.35;
   color: #000000;
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
+  min-height: calc(2 * 1.35em);
+  max-height: calc(2 * 1.35em);
 }
 
 .browse-content p.discovery-event-location {
@@ -154,24 +162,62 @@
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;
-  line-height: normal;
+  line-height: 1.25;
   color: #686868;
+  min-height: 1.25em;
+  max-height: 1.25em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-/* —— Event grid (stable tracks, same as Discovery) —— */
+/* —— Event grid (stable tracks, equal-height cards) —— */
 .browse-content .browse-event-grid {
   display: grid;
   width: 100%;
   gap: var(--discovery-card-gap);
   grid-template-columns: minmax(0, min(100%, var(--discovery-card-width)));
   justify-content: start;
-  align-items: start;
+  align-items: stretch;
 }
 
 .browse-content .browse-event-grid > * {
   width: 100%;
   min-width: 0;
   max-width: var(--discovery-card-width);
+  height: 100%;
+}
+
+.browse-content .browse-event-grid .discovery-event-card:not(.card-listing--map-grid):not(
+    .card-listing--map-preview-sheet
+  ) {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.browse-content .browse-event-grid .discovery-event-card:not(.card-listing--map-grid):not(
+    .card-listing--map-preview-sheet
+  )
+  .card-listing-media {
+  flex-shrink: 0;
+}
+
+.browse-content .browse-event-grid .discovery-event-card:not(.card-listing--map-grid):not(
+    .card-listing--map-preview-sheet
+  )
+  .discovery-event-card-body {
+  flex: 1 1 auto;
+  min-height: 5.5rem;
+}
+
+.browse-content .browse-event-grid .discovery-event-card:not(.card-listing--map-grid):not(
+    .card-listing--map-preview-sheet
+  ):hover,
+.browse-content .browse-event-grid .discovery-event-card:not(.card-listing--map-grid):not(
+    .card-listing--map-preview-sheet
+  ):active {
+  transform: none;
 }
 
 .browse-content .discovery-event-card {

@@ -42,15 +42,43 @@ export function isOfficialEventUrl(url?: string): boolean {
   }
 }
 
-export function eventDocumentTitle(event: Pick<Event, 'title'>): string {
+export function eventDocumentTitle(event: Pick<Event, 'title' | 'city'>): string {
+  const city = event.city?.trim()
+  if (city) return `${event.title} in ${city} · Puddles`
   return `${event.title} · Puddles`
 }
 
-export function eventMetaDescription(event: Event): string {
-  const description = event.description?.trim()
-  if (description) {
-    return description.length > 155 ? `${description.slice(0, 152)}…` : description
-  }
+/** Stable calendar date for SEO metadata (not relative labels like Today). */
+export function formatEventSeoDate(dateStr: string): string {
+  const parsed = new Date(`${dateStr}T12:00:00`)
+  if (Number.isNaN(parsed.getTime())) return dateStr
 
-  return `${event.title} in ${event.city}.`
+  return parsed.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })
+}
+
+export function eventMetaDescription(event: Event): string {
+  const date = formatEventSeoDate(event.date)
+  const venue = event.venue?.trim() || 'a local venue'
+  const city = event.city?.trim() || 'the Bay Area'
+
+  return `${event.title} on ${date} at ${venue} in ${city}. Find local activities for ages 0–5 with Puddles.`
+}
+
+/** Readable slug for future pretty URLs — not used in routing yet. */
+export function eventDetailSlug(event: Pick<Event, 'title' | 'city' | 'date'>): string {
+  const slugify = (value: string) =>
+    value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+
+  const title = slugify(event.title)
+  const city = slugify(event.city || 'bay-area')
+  const date = event.date.trim()
+
+  return [title, city, date].filter(Boolean).join('-')
 }

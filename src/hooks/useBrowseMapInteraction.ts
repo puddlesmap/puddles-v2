@@ -12,6 +12,9 @@ import {
   groupMappableEventsByLocation,
   type EventLocationGroup,
 } from '../utils/mapLocationGroups'
+import type { BrowseMapOpenSnapshot, BrowseReturnSnapshot } from '../utils/browseReturnState'
+
+export type MapOpenEventHandler = (event: Event, mapSnapshot?: BrowseMapOpenSnapshot) => void
 
 export type MapInteractionMode = 'default' | 'connected'
 
@@ -22,8 +25,9 @@ interface UseBrowseMapInteractionOptions {
   feedKey: string
   areaBounds: MapBoundsBox | null
   isMobile: boolean
-  onOpenEvent: (event: Event) => void
+  onOpenEvent: MapOpenEventHandler
   interactionMode?: MapInteractionMode
+  restoreSnapshot?: BrowseReturnSnapshot | null
 }
 
 export function useBrowseMapInteraction({
@@ -33,6 +37,7 @@ export function useBrowseMapInteraction({
   isMobile,
   onOpenEvent,
   interactionMode = 'default',
+  restoreSnapshot = null,
 }: UseBrowseMapInteractionOptions) {
   const isConnected = interactionMode === 'connected'
 
@@ -110,6 +115,28 @@ export function useBrowseMapInteraction({
   }, [clearFlashTimeout])
 
   useEffect(() => {
+    if (!restoreSnapshot) return
+
+    if (restoreSnapshot.selectedEventId) {
+      setSelectedEventId(restoreSnapshot.selectedEventId)
+      setPanTrigger((value) => value + 1)
+    }
+
+    if (restoreSnapshot.focusedLocationKey) {
+      setFocusedLocationKey(restoreSnapshot.focusedLocationKey)
+    }
+
+    if (restoreSnapshot.carouselScrollLeft == null) return
+
+    const scrollLeft = restoreSnapshot.carouselScrollLeft
+    requestAnimationFrame(() => {
+      if (listRef.current) {
+        listRef.current.scrollLeft = scrollLeft
+      }
+    })
+  }, [restoreSnapshot])
+
+  useEffect(() => {
     setPanTrigger(0)
     setHoveredEventId(null)
     setFlashEventId(null)
@@ -169,12 +196,16 @@ export function useBrowseMapInteraction({
   const handleCardClick = useCallback(
     (event: Event) => {
       if (selectedEventId === event.id) {
-        onOpenEvent(event)
+        onOpenEvent(event, {
+          selectedEventId: event.id,
+          focusedLocationKey: isConnected ? getEventLocationKey(event) : null,
+          carouselScrollLeft: listRef.current?.scrollLeft ?? 0,
+        })
         return
       }
       selectEvent(event)
     },
-    [onOpenEvent, selectEvent, selectedEventId],
+    [isConnected, onOpenEvent, selectEvent, selectedEventId],
   )
 
   const handleCardHover = useCallback(

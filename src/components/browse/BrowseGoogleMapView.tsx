@@ -17,8 +17,9 @@ import {
 import { MapControls } from './MapControls'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { useBrowseMapListTwoColumn } from '../../hooks/useBrowseMapListTwoColumn'
-import { useBrowseMapInteraction } from '../../hooks/useBrowseMapInteraction'
+import { useBrowseMapInteraction, type MapOpenEventHandler } from '../../hooks/useBrowseMapInteraction'
 import { useUserLocation } from '../../hooks/useUserLocation'
+import type { BrowseReturnSnapshot } from '../../utils/browseReturnState'
 import {
   filterEventsInBounds,
   getEventsMapCenter,
@@ -30,8 +31,9 @@ interface BrowseGoogleMapViewProps {
   events: Event[]
   feedKey: string
   browseFilters: BrowseFilters
-  onOpenEvent: (event: Event) => void
+  onOpenEvent: MapOpenEventHandler
   interactionMode?: 'default' | 'connected'
+  restoreSnapshot?: BrowseReturnSnapshot | null
 }
 
 export function BrowseGoogleMapView({
@@ -40,6 +42,7 @@ export function BrowseGoogleMapView({
   browseFilters,
   onOpenEvent,
   interactionMode = 'default',
+  restoreSnapshot = null,
 }: BrowseGoogleMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
@@ -82,6 +85,7 @@ export function BrowseGoogleMapView({
     isMobile,
     onOpenEvent,
     interactionMode,
+    restoreSnapshot,
   })
 
   const handleMapReady = useCallback((map: google.maps.Map) => {

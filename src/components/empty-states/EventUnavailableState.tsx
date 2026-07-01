@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom'
 import { EmptyStatePin } from './EmptyStatePin'
 
-export function EventUnavailableState() {
+export function EventUnavailableState({
+  hasInAppReturn = false,
+  onClose,
+}: {
+  hasInAppReturn?: boolean
+  onClose?: () => void
+}) {
   return (
     <div className="empty-state empty-state-quiet event-unavailable-state">
       <EmptyStatePin />
@@ -11,12 +17,20 @@ export function EventUnavailableState() {
         activities instead.
       </p>
       <div className="event-unavailable-actions">
-        <Link to="/browse" className="btn-primary">
-          Browse activities
-        </Link>
-        <Link to="/map" className="btn-secondary">
-          View map
-        </Link>
+        {hasInAppReturn && onClose ? (
+          <button type="button" onClick={onClose} className="btn-primary">
+            Go back
+          </button>
+        ) : (
+          <Link to="/browse" className="btn-primary">
+            Browse more events
+          </Link>
+        )}
+        {!hasInAppReturn ? (
+          <Link to="/map" className="btn-secondary">
+            View map
+          </Link>
+        ) : null}
       </div>
     </div>
   )

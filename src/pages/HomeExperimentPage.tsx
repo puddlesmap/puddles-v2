@@ -12,8 +12,6 @@ import { PageContainer } from '../components/layout/PageContainer'
 import { Footer } from '../components/layout/Footer'
 import { AppHeader } from '../components/layout/AppHeader'
 import { ABOUT_SHARE_CTA_BODY } from './aboutShared'
-import { HomeRotatingAccents } from '../components/HomeRotatingAccents'
-import { HomeSoftAccents } from '../components/HomeSoftAccents'
 import { HomeMapPreview } from '../components/home/HomeMapPreview'
 import {
   HOME_EXPERIMENT_REFINED_CTA_BODY,
@@ -41,6 +39,7 @@ import {
   trackHomeExperimentNearbySelect,
 } from '../utils/analytics'
 import { homeFiltersToBrowseFilters, getHomeResultsSummaryRefined } from '../utils/homeMapPreview'
+import { getHomeFilterResultsSummary } from '../utils/browseResultsCopy'
 
 type CityValue = 'all' | 'Palo Alto' | 'Los Altos' | 'Mountain View'
 
@@ -55,19 +54,6 @@ const CITY_CHIPS: Array<{ value: CityValue; label: string }> = [
   { value: 'all', label: 'All Cities' },
 ]
 
-function formatEventCount(count: number): string {
-  return `${count} ${count === 1 ? 'event' : 'events'}`
-}
-
-function getHomeLocationLabel(whereMode: WhereMode): string {
-  if (whereMode.kind === 'nearby') {
-    return `Within ${NEARBY_RADIUS_MILES} mi of you`
-  }
-
-  if (whereMode.value === 'all') return 'All cities'
-  return whereMode.value
-}
-
 function getResultsSummary({
   whereMode,
   eventCount,
@@ -81,18 +67,30 @@ function getResultsSummary({
 
   if (eventCount === 0) {
     if (whereMode.kind === 'nearby') {
-      return `No events found within ${NEARBY_RADIUS_MILES} mi of you`
+      return `No activities found within ${NEARBY_RADIUS_MILES} mi of you`
     }
 
     return whereMode.value === 'all'
-      ? 'No events found in all cities'
-      : `No events found in ${whereMode.value}`
+      ? 'No activities found in all cities'
+      : `No activities found in ${whereMode.value}`
   }
 
-  return `${getHomeLocationLabel(whereMode)} · ${formatEventCount(eventCount)}`
+  if (whereMode.kind === 'nearby') {
+    return getHomeFilterResultsSummary({
+      whereMode: { kind: 'nearby' },
+      eventCount,
+      hasNearbyCoords,
+    })
+  }
+
+  return getHomeFilterResultsSummary({
+    whereMode: { kind: 'city', value: whereMode.value },
+    eventCount,
+    hasNearbyCoords: true,
+  })
 }
 
-export type HomeHeroVariant = 'default' | 'experiment1' | 'experiment2' | 'experiment3' | 'experiment4' | 'refined'
+export type HomeHeroVariant = 'default' | 'experiment1' | 'experiment2' | 'refined'
 
 export type HomeLayoutVariant = 'default' | 'refined'
 
@@ -108,56 +106,12 @@ interface HomeExperimentPageProps {
   showBrandName?: boolean
 }
 
-function HomePageHeadline() {
-  return (
-    <>
-      Find storytimes, music, drop-ins, and{' '}
-      <span className="home-experiment-refined-accent">local moments</span> for ages 0{'\u2013'}5.
-    </>
-  )
-}
-
 function HomeExperimentHero({ variant }: { variant: HomeHeroVariant }) {
   if (variant === 'refined') {
     return (
       <header className="home-experiment-intro home-experiment-intro--refined">
-        <h1 className="home-experiment-title home-experiment-refined-title">
-          <HomePageHeadline />
-        </h1>
+        <h1 className="home-experiment-title home-experiment-refined-title">{HOME_PAGE_HEADLINE}</h1>
         <p className="home-experiment-refined-supporting">{HOME_EXPERIMENT_REFINED_SUPPORTING_LINE}</p>
-      </header>
-    )
-  }
-
-  if (variant === 'experiment4') {
-    return (
-      <header className="home-experiment-intro home-experiment-intro--soft">
-        <div className="home-experiment-soft-brand-row">
-          <p className="home-experiment-brand-line">
-            <span className="home-experiment-brand-name">Puddles</span>
-            <span className="home-experiment-brand-tag"> the tot map</span>
-          </p>
-          <HomeSoftAccents />
-        </div>
-        <h1 className="home-experiment-title">{HOME_PAGE_HEADLINE}</h1>
-      </header>
-    )
-  }
-
-  if (variant === 'experiment3') {
-    return (
-      <header className="home-experiment-intro home-experiment-intro--accent">
-        <div className="home-experiment-accent-hero-grid">
-          <div className="home-experiment-accent-copy">
-            <h1 className="home-experiment-hero-headline">{HOME_PAGE_HEADLINE}</h1>
-            <div className="home-experiment-accent-row-wrap">
-              <HomeRotatingAccents variant="row" />
-            </div>
-          </div>
-          <div className="home-experiment-accent-aside">
-            <HomeRotatingAccents variant="hero" />
-          </div>
-        </div>
       </header>
     )
   }
@@ -284,10 +238,7 @@ export function HomeExperimentPage({
     setBrowseFilters(homeFiltersToBrowseFilters(whereMode, temporalTab, browseFilters))
   }, [browseFilters, setBrowseFilters, temporalTab, whereMode])
 
-  const mapPreviewEvents = useMemo(() => {
-    if (whereMode.kind === 'nearby' && !coords) return []
-    return events
-  }, [events, whereMode, coords])
+  const mapPreviewEvents = events
 
   const renderMapPreview = () => (
     <HomeMapPreview
@@ -297,6 +248,7 @@ export function HomeExperimentPage({
       temporalTab={temporalTab}
       eventCount={mapPreviewEvents.length}
       hasNearbyCoords={whereMode.kind === 'nearby' && Boolean(coords)}
+      userCoords={coords}
       isRequesting={isRequesting}
       onNavigateToMap={handleNavigateToMap}
       statusVariant={isRefinedLayout ? 'refined' : 'default'}
@@ -396,7 +348,7 @@ export function HomeExperimentPage({
                   event={event}
                   variant="grid"
                   discovery
-                  onClick={() => openEvent(event, 'browse_list')}
+                  onClick={() => openEvent(event, 'home', { viewMode: 'list' })}
                 />
               ))}
             </div>
