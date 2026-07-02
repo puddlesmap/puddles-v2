@@ -36,6 +36,26 @@
       rel="stylesheet"
     />
     <title>Puddles | Bay Area Activities for Ages 0–5</title>
+    <!-- Privacy-friendly analytics by Plausible (production only) -->
+    <script>
+      (function () {
+        if (location.hostname !== 'puddlesmap.com') return;
+        window.plausible =
+          window.plausible ||
+          function () {
+            (plausible.q = plausible.q || []).push(arguments);
+          };
+        plausible.init =
+          plausible.init ||
+          function (i) {
+            plausible.o = i || {};
+          };
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://plausible.io/js/pa-qS64-8TBss7LqFOqZiRmp.js';
+        document.head.appendChild(s);
+      })();
+    </script>
   </head>
   <body>
     <div id="root">

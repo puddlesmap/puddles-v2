@@ -4,9 +4,15 @@ Puddles uses [Plausible Analytics](https://plausible.io) for privacy-friendly us
 
 ## Setup
 
-1. Create a Plausible account and add your production domain (`puddlesmap.com`).
-2. Set `VITE_PLAUSIBLE_DOMAIN` in Netlify environment variables to `puddlesmap.com`.
-3. Redeploy the site. Tracking is disabled when the env var is unset (local dev).
+Plausible loads from `index.html` only when the site is served on **`puddlesmap.com`**. Localhost, Netlify preview URLs, and other hosts do not load the script.
+
+On production, `initAnalytics()` configures:
+
+- **Outbound link** click tracking
+- **Form submission** tracking (counts submissions only — no field values)
+- Manual SPA pageviews (no double-counting on route changes)
+
+No env var is required for production. Tracking stays off in local dev unless you explicitly test on the live domain.
 
 ## Plausible goals to create
 
@@ -50,12 +56,14 @@ In Plausible, use **Filters → Properties** on any goal or pageview report:
 
 ## Privacy rules (enforced in code)
 
+- Script loads only on `puddlesmap.com` (not localhost or preview deploys)
 - `/admin/*` is never tracked
-- No emails, addresses, event titles, or submission text sent to analytics
+- No emails, names, addresses, event titles, notes, child info, or submission text sent to analytics
+- Long free-text strings and values containing `@` are stripped from custom properties
 - Only enums and `event_id` as custom properties
 
 ## Manual verification
 
-1. Set `VITE_PLAUSIBLE_DOMAIN` in `.env.local` and run `npm run dev`.
+1. Deploy to production or use the live site at https://puddlesmap.com.
 2. Browse the public site (not admin).
-3. In Plausible → **Realtime**, confirm pageviews and custom events appear.
+3. In Plausible → **Realtime**, confirm pageviews, outbound link clicks, form submissions, and custom events appear.

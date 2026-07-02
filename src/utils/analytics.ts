@@ -2,35 +2,68 @@ import type { Event } from '../types/event'
 import type { BrowseFilterKind } from '../types/analytics'
 import type { BrowseFilters } from './filters'
 
+const PRODUCTION_HOSTNAME = 'puddlesmap.com'
+
+type PlausibleInitOptions = {
+  autoCapturePageviews?: boolean
+  outboundLinks?: boolean
+  formSubmissions?: boolean
+  captureOnLocalhost?: boolean
+  transformRequest?: (payload: Record<string, unknown>) => Record<string, unknown> | null
+}
+
+type PlausibleFn = ((event: string, options?: { props?: Record<string, string | number | boolean> }) => void) & {
+  init?: (options?: PlausibleInitOptions) => void
+  q?: unknown[]
+  o?: PlausibleInitOptions
+}
+
 declare global {
   interface Window {
-    plausible?: (event: string, options?: { props?: Record<string, string | number | boolean> }) => void
+    plausible?: PlausibleFn
   }
 }
 
-const PLAUSIBLE_DOMAIN = import.meta.env.VITE_PLAUSIBLE_DOMAIN as string | undefined
-
-let scriptInjected = false
+let analyticsInitialized = false
 
 const BLOCKED_PROP_KEYS = new Set([
   'email',
+  'name',
+  'firstname',
+  'first_name',
+  'lastname',
+  'last_name',
   'title',
   'address',
-  'eventname',
-  'event_name_text',
-  'usernote',
+  'phone',
+  'message',
+  'content',
   'note',
+  'usernote',
   'description',
   'submission',
   'additionalinfo',
+  'eventname',
+  'event_name_text',
+  'child',
+  'childname',
+  'child_name',
+  'age',
+  'birthday',
+  'payload',
 ])
 
 function isAdminPath(pathname: string): boolean {
   return pathname.startsWith('/admin')
 }
 
+export function isProductionAnalyticsHost(): boolean {
+  if (typeof window === 'undefined') return false
+  return window.location.hostname === PRODUCTION_HOSTNAME
+}
+
 export function isAnalyticsEnabled(): boolean {
-  return Boolean(PLAUSIBLE_DOMAIN?.trim())
+  return isProductionAnalyticsHost()
 }
 
 function sanitizeProps(props?: Record<string, string | number | boolean>): Record<string, string | number | boolean> | undefined {
@@ -40,21 +73,42 @@ function sanitizeProps(props?: Record<string, string | number | boolean>): Recor
   for (const [key, value] of Object.entries(props)) {
     const normalized = key.trim().toLowerCase()
     if (BLOCKED_PROP_KEYS.has(normalized)) continue
-    if (typeof value === 'string' && value.includes('@')) continue
+    if (typeof value === 'string' && (value.includes('@') || value.length > 120)) continue
     clean[key] = value
   }
   return Object.keys(clean).length > 0 ? clean : undefined
 }
 
-export function initAnalytics(): void {
-  if (!isAnalyticsEnabled() || scriptInjected || typeof document === 'undefined') return
+function transformRequest(payload: Record<string, unknown>): Record<string, unknown> | null {
+  if (typeof window !== 'undefined' && isAdminPath(window.location.pathname)) {
+    return null
+  }
 
-  const script = document.createElement('script')
-  script.defer = true
-  script.dataset.domain = PLAUSIBLE_DOMAIN!.trim()
-  script.src = 'https://plausible.io/js/script.js'
-  document.head.appendChild(script)
-  scriptInjected = true
+  const props = payload.props
+  if (props && typeof props === 'object' && !Array.isArray(props)) {
+    const clean = sanitizeProps(props as Record<string, string | number | boolean>)
+    if (clean) {
+      payload.props = clean
+    } else {
+      delete payload.props
+    }
+  }
+
+  return payload
+}
+
+export function initAnalytics(): void {
+  if (!isAnalyticsEnabled() || analyticsInitialized || typeof window === 'undefined') return
+
+  window.plausible?.init?.({
+    autoCapturePageviews: false,
+    outboundLinks: true,
+    formSubmissions: true,
+    captureOnLocalhost: false,
+    transformRequest,
+  })
+
+  analyticsInitialized = true
 }
 
 export function trackPageView(pathname: string, pageName: string): void {
