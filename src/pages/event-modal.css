@@ -67,9 +67,27 @@
   object-fit: cover;
 }
 
+.event-modal-hero.event-image--fallback {
+  width: auto;
+  max-width: min(100%, 18rem);
+  height: 12.5rem;
+  max-height: 12.5rem;
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
 @media (min-width: 768px) {
   .event-modal-hero {
     height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .event-modal-hero.event-image--fallback {
+    width: auto;
+    max-width: min(100%, 20rem);
+    height: auto;
+    max-height: none;
     aspect-ratio: 4 / 3;
   }
 }

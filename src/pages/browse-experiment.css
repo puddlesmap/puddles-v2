@@ -27,6 +27,11 @@
   filter: saturate(0.88);
 }
 
+.browse-page-shell--experiment .discovery-event-card .card-listing-image.event-image--fallback,
+.home-experiment-page--refined .discovery-event-card .card-listing-image.event-image--fallback {
+  filter: none;
+}
+
 .browse-page-shell--experiment .discovery-event-card-body,
 .home-experiment-page--refined .discovery-event-card-body {
   display: flex;

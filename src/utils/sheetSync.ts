@@ -1,5 +1,12 @@
 import type { ActivityType, City, Event } from '../types/event'
 import { SHEET_CSV_PROXY_PATH } from '../data/sheet-source'
+import {
+  VENUE_ADDRESSES,
+  VENUE_GEO,
+  canonicalVenue,
+  getCityCenter,
+} from '../data/venueGeo'
+import { inferActivityTypesFromText } from './eventImages'
 import { enrichPublishingFields, resolvePublishingFields } from './publishing'
 import { parseCsv, rowsToObjects } from './csv'
 
@@ -14,42 +21,9 @@ const ACTIVITY_TYPES: ActivityType[] = [
   'Other',
 ]
 
-const VENUE_ALIASES: Record<string, string> = {
-  'Mountain View Public Library': 'Mountain View Library',
-  'Los Altos Public Library': 'Los Altos Library',
-}
-
-const VENUE_GEO: Record<string, { city: City; lat: number; lng: number }> = {
-  'Downtown Library': { city: 'Palo Alto', lat: 37.4443, lng: -122.1598 },
-  'College Terrace Library': { city: 'Palo Alto', lat: 37.4221, lng: -122.1381 },
-  'Mitchell Park Library': { city: 'Palo Alto', lat: 37.4177, lng: -122.1288 },
-  "Children's Library": { city: 'Palo Alto', lat: 37.4419, lng: -122.143 },
-  'Rinconada Library': { city: 'Palo Alto', lat: 37.4281, lng: -122.1425 },
-  'Mountain View Library': { city: 'Mountain View', lat: 37.3895, lng: -122.0818 },
-  'Los Altos Library': { city: 'Los Altos', lat: 37.3791, lng: -122.1142 },
-  'Pioneer Park': { city: 'Mountain View', lat: 37.3945, lng: -122.0786 },
-  'Deer Hollow Farm': { city: 'Mountain View', lat: 37.319, lng: -122.085 },
-}
-
-const VENUE_ADDRESSES: Record<string, string> = {
-  'Downtown Library': '270 Forest Ave, Palo Alto, CA 94301',
-  'College Terrace Library': '2300 Wellesley St, Palo Alto, CA 94306',
-  'Mitchell Park Library': '3700 Middlefield Rd, Palo Alto, CA 94303',
-  "Children's Library": '1276 Harriet St, Palo Alto, CA 94301',
-  'Rinconada Library': '1213 Newell Rd, Palo Alto, CA 94303',
-  'Mountain View Library': '585 Franklin St, Mountain View, CA 94041',
-  'Los Altos Library': '13 S San Antonio Rd, Los Altos, CA 94022',
-  'Pioneer Park': '1146 Church St, Mountain View, CA 94041',
-  'Deer Hollow Farm': '22500 Cristo Rey Dr, Los Altos, CA 94022',
-}
-
 function isDateLikeValue(value: string): boolean {
   if (!value) return false
   return /^\d{4}-\d{2}-\d{2}$/.test(value.trim())
-}
-
-function canonicalVenue(venue: string): string {
-  return VENUE_ALIASES[venue] ?? venue
 }
 
 function sanitizeAddress(venue: string, address: string): string {
@@ -181,7 +155,7 @@ function parseSheetDateTime(value: string): { date: string; time: string } | nul
   }
 }
 
-function parseActivityTypes(raw: string): ActivityType[] {
+function parseActivityTypes(raw: string, title = '', description = ''): ActivityType[] {
   const parts = raw
     .split(/[,|/]/)
     .map((part) => part.trim())
@@ -193,16 +167,10 @@ function parseActivityTypes(raw: string): ActivityType[] {
     if (found && !matched.includes(found)) matched.push(found)
   }
 
-  if (matched.length === 0) {
-    const lower = raw.toLowerCase()
-    if (lower.includes('story')) matched.push('Stories')
-    if (lower.includes('music') || lower.includes('movement')) matched.push('Music & Movement')
-    if (lower.includes('art') || lower.includes('craft')) matched.push('Arts & Crafts')
-    if (lower.includes('outdoor') || lower.includes('park')) matched.push('Outdoor')
-    if (lower.includes('lego') || lower.includes('steam') || lower.includes('build'))
-      matched.push('Build & Explore')
-    if (lower.includes('play') || lower.includes('social')) matched.push('Social & Play')
-    if (lower.includes('class')) matched.push('Classes')
+  const onlyOther = matched.length === 1 && matched[0] === 'Other'
+  if (matched.length === 0 || onlyOther) {
+    const inferred = inferActivityTypesFromText(raw, title, description)
+    if (inferred.length > 0) return inferred
   }
 
   return matched.length > 0 ? matched : ['Other']
@@ -320,8 +288,8 @@ function resolveGeo(
   return {
     address: resolvedAddress || venue,
     city: resolvedCity,
-    lat: Number.isFinite(lat) ? lat : 37.44,
-    lng: Number.isFinite(lng) ? lng : -122.14,
+    lat: Number.isFinite(lat) ? lat : getCityCenter(resolvedCity).lat,
+    lng: Number.isFinite(lng) ? lng : getCityCenter(resolvedCity).lng,
   }
 }
 
@@ -379,7 +347,7 @@ function mapRecord(record: Record<string, string>): Event | null {
     ageRange: age.label,
     ageMin: age.min,
     ageMax: age.max,
-    types: parseActivityTypes(pickField(record, 'types')),
+    types: parseActivityTypes(pickField(record, 'types'), title, pickField(record, 'description')),
     categoryTags: parseCategoryTags(pickField(record, 'categoryTags')),
     cost: parseCost(pickField(record, 'cost')),
     imageUrl: pickField(record, 'imageUrl') || '',

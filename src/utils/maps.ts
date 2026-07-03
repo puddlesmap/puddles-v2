@@ -1,4 +1,11 @@
-import type { Event } from '../types/event'
+import type { City, Event } from '../types/event'
+import {
+  getCityCenter,
+  getVenueGeo,
+  isPlaceholderMapCoordinates,
+} from '../data/venueGeo'
+
+export { isPlaceholderMapCoordinates } from '../data/venueGeo'
 
 export function isDateLikeValue(value: string): boolean {
   if (!value) return false
@@ -76,4 +83,39 @@ export function getEventAddressLine(event: Event): string {
   if (city) return city
 
   return ''
+}
+
+function isTrustedEventCoordinates(event: Event): boolean {
+  return (
+    Number.isFinite(event.lat) &&
+    Number.isFinite(event.lng) &&
+    !isPlaceholderMapCoordinates(event.lat, event.lng)
+  )
+}
+
+/** Map pin coordinates for browse maps and route preview cards. */
+export function getEventMapCoordinates(event: Event): { lat: number; lng: number } | null {
+  if (isTrustedEventCoordinates(event)) {
+    return { lat: event.lat, lng: event.lng }
+  }
+
+  const venueGeo = getVenueGeo(event.venue, event.room ?? '')
+  if (venueGeo) {
+    return { lat: venueGeo.lat, lng: venueGeo.lng }
+  }
+
+  const city = event.city?.trim() as City | undefined
+  if (city === 'Palo Alto' || city === 'Los Altos' || city === 'Mountain View') {
+    const center = getCityCenter(city)
+    return { lat: center.lat, lng: center.lng }
+  }
+
+  return null
+}
+
+/** Prefer address-geocoded static map when stored coords are legacy placeholders. */
+export function getEventMapMarkerAddress(event: Event): string | null {
+  if (isTrustedEventCoordinates(event)) return null
+  if (!getStreetAddress(event)) return null
+  return getEventDirectionsDestination(event)
 }

@@ -2,6 +2,7 @@ import { forwardRef, useEffect, useState } from 'react'
 import type { Event } from '../types/event'
 import {
   getEventFallbackImageUrl,
+  getEventImageKey,
   getEventImageUrl,
   isEventFallbackImage,
 } from '../utils/eventImages'
@@ -18,7 +19,6 @@ export const EventImage = forwardRef<HTMLImageElement, EventImageProps>(function
   ref,
 ) {
   const resolvedUrl = getEventImageUrl(event)
-  const fallbackUrl = getEventFallbackImageUrl(event)
   const [src, setSrc] = useState(resolvedUrl)
   const [usingFallback, setUsingFallback] = useState(isEventFallbackImage(resolvedUrl, event))
 
@@ -26,17 +26,17 @@ export const EventImage = forwardRef<HTMLImageElement, EventImageProps>(function
     const nextUrl = getEventImageUrl(event)
     setSrc(nextUrl)
     setUsingFallback(isEventFallbackImage(nextUrl, event))
-  }, [event.id, event.imageUrl, event.types, event.categoryTags])
+  }, [event.id, event.title, event.description, event.imageUrl, event.types, event.categoryTags])
 
   function handleError() {
-    if (src !== fallbackUrl) {
-      setSrc(fallbackUrl)
-      setUsingFallback(true)
-    }
+    const nextFallback = getEventFallbackImageUrl(event)
+    setSrc((current) => (current === nextFallback ? current : nextFallback))
+    setUsingFallback(true)
   }
 
   return (
     <img
+      key={getEventImageKey(event)}
       ref={ref}
       src={src}
       alt=""

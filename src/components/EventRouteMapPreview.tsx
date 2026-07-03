@@ -2,7 +2,9 @@ import { useEffect } from 'react'
 import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import { StaticMap } from '@vis.gl/react-google-maps'
 import 'leaflet/dist/leaflet.css'
+import type { Event } from '../types/event'
 import { buildEventStaticMapUrl, hasGoogleMapsApiKey } from '../utils/googleMaps'
+import { getEventMapCoordinates, getEventMapMarkerAddress } from '../utils/maps'
 
 const MAP_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
 
@@ -22,12 +24,16 @@ function LeafletMapViewSync({ lat, lng, zoom }: { lat: number; lng: number; zoom
 }
 
 interface EventRouteMapPreviewProps {
-  lat: number
-  lng: number
+  event: Event
 }
 
-export function EventRouteMapPreview({ lat, lng }: EventRouteMapPreviewProps) {
-  const staticMapUrl = buildEventStaticMapUrl(lat, lng)
+export function EventRouteMapPreview({ event }: EventRouteMapPreviewProps) {
+  const coordinates = getEventMapCoordinates(event)
+  if (!coordinates) return null
+
+  const { lat, lng } = coordinates
+  const markerAddress = getEventMapMarkerAddress(event)
+  const staticMapUrl = buildEventStaticMapUrl(lat, lng, markerAddress)
 
   if (hasGoogleMapsApiKey() && staticMapUrl) {
     return (

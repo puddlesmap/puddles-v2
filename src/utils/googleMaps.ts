@@ -24,8 +24,25 @@ export const MUTED_GOOGLE_MAP_STYLES: google.maps.MapTypeStyle[] = [
   { featureType: 'water', elementType: 'geometry', stylers: [{ saturation: -30 }, { lightness: 10 }] },
 ]
 
-export function buildEventStaticMapUrl(lat: number, lng: number): string | null {
+export function buildEventStaticMapUrl(
+  lat: number,
+  lng: number,
+  markerAddress?: string | null,
+): string | null {
   if (!hasGoogleMapsApiKey()) return null
+
+  if (markerAddress) {
+    return createStaticMapsUrl({
+      apiKey: GOOGLE_MAPS_API_KEY,
+      width: 640,
+      height: 360,
+      scale: 2,
+      markers: [{ location: markerAddress }],
+      visible: [markerAddress],
+      zoom: 15,
+      region: 'US',
+    })
+  }
 
   return createStaticMapsUrl({
     apiKey: GOOGLE_MAPS_API_KEY,

@@ -1,0 +1,42 @@
+{
+  "venueAliases": {
+    "Mountain View Public Library": "Mountain View Library",
+    "Los Altos Public Library": "Los Altos Library"
+  },
+  "venueGeo": {
+    "Downtown Library": { "city": "Palo Alto", "lat": 37.4443, "lng": -122.1598 },
+    "College Terrace Library": { "city": "Palo Alto", "lat": 37.4221, "lng": -122.1381 },
+    "Mitchell Park Library": { "city": "Palo Alto", "lat": 37.4177, "lng": -122.1288 },
+    "Children's Library": { "city": "Palo Alto", "lat": 37.4419, "lng": -122.143 },
+    "Rinconada Library": { "city": "Palo Alto", "lat": 37.4281, "lng": -122.1425 },
+    "Mountain View Library": { "city": "Mountain View", "lat": 37.3895, "lng": -122.0818 },
+    "Los Altos Library": { "city": "Los Altos", "lat": 37.3791, "lng": -122.1142 },
+    "Pioneer Park": { "city": "Mountain View", "lat": 37.3945, "lng": -122.0786 },
+    "Deer Hollow Farm": { "city": "Mountain View", "lat": 37.319, "lng": -122.085 },
+    "Linden Tree Books": { "city": "Los Altos", "lat": 37.3792, "lng": -122.1161 },
+    "Magical Bridge Playground at Rengstorff Park": {
+      "city": "Mountain View",
+      "lat": 37.4001,
+      "lng": -122.0986
+    }
+  },
+  "venueAddresses": {
+    "Downtown Library": "270 Forest Ave, Palo Alto, CA 94301",
+    "College Terrace Library": "2300 Wellesley St, Palo Alto, CA 94306",
+    "Mitchell Park Library": "3700 Middlefield Rd, Palo Alto, CA 94303",
+    "Children's Library": "1276 Harriet St, Palo Alto, CA 94301",
+    "Rinconada Library": "1213 Newell Rd, Palo Alto, CA 94303",
+    "Mountain View Library": "585 Franklin St, Mountain View, CA 94041",
+    "Los Altos Library": "13 S San Antonio Rd, Los Altos, CA 94022",
+    "Pioneer Park": "1146 Church St, Mountain View, CA 94041",
+    "Deer Hollow Farm": "22500 Cristo Rey Dr, Los Altos, CA 94022",
+    "Linden Tree Books": "265 State Street, Los Altos, CA 94022",
+    "Magical Bridge Playground at Rengstorff Park": "201 S. Rengstorff Ave, Mountain View, CA 94040"
+  },
+  "cityCenters": {
+    "Palo Alto": { "lat": 37.4419, "lng": -122.143 },
+    "Los Altos": { "lat": 37.3852, "lng": -122.1141 },
+    "Mountain View": { "lat": 37.3894, "lng": -122.0833 }
+  },
+  "legacyPlaceholderCoords": { "lat": 37.44, "lng": -122.14 }
+}

@@ -12,6 +12,7 @@ import {
 } from '../utils/maps'
 import { ANALYTICS_EVENTS, trackActivityEngagement, trackActivityOpened } from '../utils/analytics'
 import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
+import { getEventCategoryTags } from '../utils/eventImages'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
@@ -309,7 +310,7 @@ export function EventDetailView({
   const hasOfficialPage = isOfficialEventUrl(event.eventUrl)
   const canNativeShare = typeof navigator !== 'undefined' && 'share' in navigator
   const shareUrl = eventDetailUrl(event)
-  const categoryTags = event.categoryTags.length > 0 ? event.categoryTags : event.types
+  const categoryTags = getEventCategoryTags(event)
 
   useEffect(() => {
     trackActivityOpened(event, analyticsSource ?? 'discovery')

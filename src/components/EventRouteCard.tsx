@@ -1,13 +1,13 @@
 import type { Event } from '../types/event'
 import { getEventRouteCardSubtext } from '../utils/calendar'
-import { getEventDirectionsLabel, getEventDirectionsUrl } from '../utils/maps'
+import {
+  getEventDirectionsLabel,
+  getEventDirectionsUrl,
+  getEventMapCoordinates,
+} from '../utils/maps'
 import { ANALYTICS_EVENTS, trackActivityEngagement } from '../utils/analytics'
 import { EventRouteMapPreview } from './EventRouteMapPreview'
 import { EVENT_MARKER_SRC } from './browse/mapPins'
-
-function hasEventCoordinates(event: Event): boolean {
-  return Number.isFinite(event.lat) && Number.isFinite(event.lng)
-}
 
 interface EventRouteCardProps {
   event: Event
@@ -18,13 +18,14 @@ export function EventRouteCard({ event }: EventRouteCardProps) {
   if (!directionsUrl) return null
 
   const locationLabel = getEventRouteCardSubtext(event) || event.venue || 'Event location'
-  const showMap = hasEventCoordinates(event)
+  const mapCoordinates = getEventMapCoordinates(event)
+  const showMap = mapCoordinates !== null
 
   return (
     <div className="event-modal-route-card">
       <div className="event-modal-route-card-map-zone" aria-hidden="true">
         {showMap ? (
-          <EventRouteMapPreview key={event.id} lat={event.lat} lng={event.lng} />
+          <EventRouteMapPreview key={event.id} event={event} />
         ) : (
           <div className="event-modal-route-card-map-fallback" />
         )}
