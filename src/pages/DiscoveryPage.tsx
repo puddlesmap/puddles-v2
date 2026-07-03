@@ -15,7 +15,7 @@ import { useApp } from '../context/AppContext'
 import { useEventNavigation } from '../hooks/useEventNavigation'
 import { filterEvents } from '../utils/filters'
 import { getFirstTemporalTabWithEvents, getTemporalTabs } from '../utils/dates'
-import { track } from '../utils/analytics'
+import { trackCitySelected, trackDateFilterSelected } from '../utils/analytics'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 
 const CITY_CHIPS = [
@@ -73,13 +73,13 @@ export function DiscoveryPage({
 
   function handleCityChange(nextCity: string) {
     if (nextCity === city) return
-    track('discovery_city_change', { city: nextCity })
+    trackCitySelected(nextCity, 'browse')
     setCity(nextCity)
   }
 
   function handleDayChange(day: (typeof tabs)[number]['key']) {
     if (day === temporalTab) return
-    track('discovery_day_tab', { day })
+    trackDateFilterSelected(day, 'browse')
     setTemporalTab(day)
   }
 

@@ -136,9 +136,19 @@ export function formatModalDate(dateStr: string, anchor = getAnchorDate()): stri
   return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
 }
 
-/** Modal time line: 11:30 am to 12:00 pm */
-export function formatModalTimeRange(startTime: string, endTime: string): string {
-  return `${formatTime(startTime).toLowerCase()} to ${formatTime(endTime).toLowerCase()}`
+/** Modal time line: 11:30 am, or 11:30 am to 12:00 pm when end differs */
+export function formatModalTimeRange(startTime: string, endTime?: string): string {
+  const startRaw = startTime?.trim()
+  if (!startRaw) return ''
+
+  const start = formatTime(startRaw).toLowerCase()
+  const endRaw = endTime?.trim()
+  if (!endRaw || endRaw === startRaw) return start
+
+  const end = formatTime(endRaw).toLowerCase()
+  if (end === start) return start
+
+  return `${start} to ${end}`
 }
 
 /** Nearest relevant Sat–Sun (or Sun-only on Sunday). Label always "This weekend" in UI. */

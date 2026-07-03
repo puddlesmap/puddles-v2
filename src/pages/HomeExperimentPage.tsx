@@ -35,8 +35,8 @@ import {
   sortEventsByDistance,
 } from '../utils/geo'
 import {
-  trackHomeExperimentNearbyDenied,
-  trackHomeExperimentNearbySelect,
+  trackCitySelected,
+  trackDateFilterSelected,
 } from '../utils/analytics'
 import { homeFiltersToBrowseFilters, getHomeResultsSummaryRefined } from '../utils/homeMapPreview'
 import { getHomeFilterResultsSummary } from '../utils/browseResultsCopy'
@@ -183,10 +183,8 @@ export function HomeExperimentPage({
   )
 
   const requestNearbyLocation = useCallback(async () => {
-    trackHomeExperimentNearbySelect()
     const nextCoords = await requestLocation()
     if (!nextCoords) {
-      trackHomeExperimentNearbyDenied()
       setWhereMode({ kind: 'city', value: 'all' })
     }
   }, [requestLocation])
@@ -194,16 +192,19 @@ export function HomeExperimentPage({
   function handleNearbySelect() {
     if (whereMode.kind === 'nearby' && coords) return
     setWhereMode({ kind: 'nearby' })
+    trackCitySelected('nearby', 'home')
     void requestNearbyLocation()
   }
 
   function handleCitySelect(value: CityValue) {
     setWhereMode({ kind: 'city', value })
+    trackCitySelected(value === 'all' ? 'all' : value, 'home')
   }
 
   function handleDayChange(day: TemporalTab) {
     if (day === temporalTab) return
     setLocalTemporalTab(day)
+    trackDateFilterSelected(day, 'home')
   }
 
   const isRefinedLayout = layout === 'refined'

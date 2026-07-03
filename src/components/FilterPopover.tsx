@@ -5,7 +5,7 @@ import { ACTIVITY_TYPES } from '../types/event'
 import { getTemporalTabs } from '../utils/dates'
 import type { BrowseFilters } from '../utils/filters'
 import { BrowseLocationOptions } from './filters/BrowseLocationOptions'
-import { trackBrowseCityChange, trackBrowseFilterApply } from '../utils/analytics'
+import { trackBrowseFiltersApplied, trackCitySelected } from '../utils/analytics'
 
 const TIME_OPTIONS: { key: TimeFilter; label: string; sub: string }[] = [
   { key: 'any', label: 'Any time', sub: 'All hours' },
@@ -49,7 +49,7 @@ export function FilterPopover({
 
   function apply(next: BrowseFilters) {
     if (open && open !== 'location') {
-      trackBrowseFilterApply(filters, next, open)
+      trackBrowseFiltersApplied(filters, next)
     }
     onApply(next)
     onClose()
@@ -62,7 +62,7 @@ export function FilterPopover({
         return
       }
 
-      trackBrowseCityChange('nearby', 'filter', filters.city)
+      trackCitySelected('nearby', 'browse')
       const granted = hasNearbyCoords || (await onRequestNearby?.()) === true
       if (!granted) return
 
@@ -74,7 +74,7 @@ export function FilterPopover({
       return
     }
 
-    trackBrowseCityChange(city, 'filter', filters.city)
+    trackCitySelected(city, 'browse')
     apply({
       ...draft,
       city,

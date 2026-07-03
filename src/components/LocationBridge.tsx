@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
 import { useApp } from '../context/AppContext'
-import { track, trackBrowseCityChange } from '../utils/analytics'
+import { trackCitySelected } from '../utils/analytics'
 
 const CITIES = ['Palo Alto', 'Los Altos', 'Mountain View'] as const
 
@@ -16,16 +15,10 @@ export function LocationBridge() {
     locationBridgeSource,
   } = useApp()
 
-  useEffect(() => {
-    if (showLocationBridge) {
-      track('location_bridge_shown', { source: locationBridgeSource })
-    }
-  }, [showLocationBridge, locationBridgeSource])
-
   if (!showLocationBridge) return null
 
   function select(city: string, locked = false) {
-    trackBrowseCityChange(city, 'bridge', browseFilters.city)
+    trackCitySelected(city, 'browse')
     setCity(city)
     setBrowseFilters({
       ...browseFilters,

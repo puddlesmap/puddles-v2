@@ -3,7 +3,7 @@ import { CommunityCtaCard } from '../brand/CommunityCtaCard'
 import type { BrowseFilters } from '../../utils/filters'
 import type { ExpansionWatchSourceContext } from '../../types/expansionWatch'
 import { submitExpansionWatch } from '../../utils/expansionWatch'
-import { track } from '../../utils/analytics'
+import { trackExpansionWatchSubmitted } from '../../utils/analytics'
 
 interface ExpansionWatchProps {
   sourceContext: ExpansionWatchSourceContext
@@ -66,9 +66,9 @@ export function ExpansionWatch({
         selectedFilters,
         submittedAt: new Date().toISOString(),
       })
-      track('expansion_watch_submit', {
-        source_context: sourceContext,
-        ...(selectedCity ? { selected_city: selectedCity } : {}),
+      trackExpansionWatchSubmitted({
+        requestedLocation: trimmedLocation,
+        sourceContext,
       })
       setIsSuccess(true)
     } catch (submitError) {

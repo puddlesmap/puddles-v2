@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react'
 import type { Event } from '../types/event'
 import { OUTDATED_REPORT_OPTIONS, type OutdatedReportType } from '../types/report'
 import { submitOutdatedReport } from '../utils/intake'
-import { eventAnalyticsProps, track } from '../utils/analytics'
+import { trackOutdatedInfoReported } from '../utils/analytics'
 
 interface ReportOutdatedFormProps {
   event: Event
@@ -31,7 +31,7 @@ export function ReportOutdatedForm({ event, onCancel, onSuccess }: ReportOutdate
         userNote: userNote.trim(),
         submittedAt: new Date().toISOString(),
       })
-      track('report_outdated_submit', eventAnalyticsProps(event, { report_type: reportType }))
+      trackOutdatedInfoReported(event)
       onSuccess()
     } catch {
       setError('Something went wrong. Please try again.')

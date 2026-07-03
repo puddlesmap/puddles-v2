@@ -14,7 +14,7 @@ import {
 } from '../components/share/ShareActivityForm'
 import type { ActivitySubmissionPayload } from '../types/submission'
 import { submitActivitySubmission, submitIdeaSubmission } from '../utils/intake'
-import { track } from '../utils/analytics'
+import { trackShareFormOpened, trackShareFormSubmitted } from '../utils/analytics'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 
 type ShareTab = 'activity' | 'idea'
@@ -143,6 +143,10 @@ export function SharePage({
   const [submitError, setSubmitError] = useState<string | null>(null)
 
   useEffect(() => {
+    trackShareFormOpened('share_page')
+  }, [])
+
+  useEffect(() => {
     const root = document.querySelector('.layout-root')
     root?.classList.add('layout-root--share-refined')
 
@@ -170,19 +174,12 @@ export function SharePage({
   }
 
   function handleTabChange(next: ShareTab) {
-    if (next !== tab) {
-      track('share_tab_change', { tab: next })
-    }
     setTab(next)
   }
 
   async function handleActivitySubmit(payload: ActivitySubmissionPayload) {
     await submitActivitySubmission(payload)
-    track('share_submit', {
-      type: 'activity',
-      city_bucket: payload.reviewOnly ? 'other' : 'in_market',
-      review_only: payload.reviewOnly,
-    })
+    trackShareFormSubmitted('event_tip')
     setSubmittedReviewOnly(payload.reviewOnly)
     setView('success')
   }
@@ -202,20 +199,12 @@ export function SharePage({
           submittedByEmail: submittedByEmail.trim(),
           submittedAt: new Date().toISOString(),
         })
-        track('share_submit', {
-          type: 'idea',
-          city_bucket: 'in_market',
-          review_only: false,
-        })
+        trackShareFormSubmitted('idea')
         setSubmittedIdeaChips(selectedChips)
         setSubmittedReviewOnly(false)
         setView('success')
       }
     } catch (error) {
-      track('share_submit_error', {
-        type: tab,
-        reason: 'api',
-      })
       setSubmitError(
         error instanceof Error
           ? error.message

@@ -87,6 +87,33 @@ export function getBrowseAgeChipLabel(age: AgeFilter): string {
   return option ? `Age ${option.label}` : 'Age'
 }
 
+/** Short parent-facing label for event card age pills. */
+export function getEventCardAgeLabel(ageRange: string): string {
+  const text = ageRange.trim()
+  if (!text) return 'Ages 0–5'
+
+  if (/all\s*ages?/i.test(text)) return 'All ages'
+
+  const buckets = parseAgeBuckets(text)
+  if (hasAllAgeBuckets(buckets)) return 'All ages'
+
+  if (buckets.has('0-2') && buckets.has('2-5') && !buckets.has('5+')) {
+    return 'Ages 0–5'
+  }
+
+  if (buckets.size === 1) {
+    if (buckets.has('0-2')) return 'Ages 0–2'
+    if (buckets.has('2-5')) return 'Ages 2–5'
+  }
+
+  const compact = text.replace(/\s+/g, '')
+  if (/^0[-–]5$/i.test(compact)) return 'Ages 0–5'
+  if (/^0[-–]2$/i.test(compact)) return 'Ages 0–2'
+  if (/^2[-–]5$/i.test(compact)) return 'Ages 2–5'
+
+  return `Ages ${text.replace(/-/g, '–')}`
+}
+
 /** Derive min/max for sync and display from bucket tags. */
 export function ageBoundsFromRange(raw: string): { min: number; max: number; label: string } {
   const buckets = parseAgeBuckets(raw)

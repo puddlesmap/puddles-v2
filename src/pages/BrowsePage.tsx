@@ -30,12 +30,7 @@ import {
   filterEventsByRadius,
   sortEventsByDistance,
 } from '../utils/geo'
-import {
-  track,
-  trackBrowseCityChange,
-  trackBrowseNearbyDenied,
-  trackBrowseNearbySelect,
-} from '../utils/analytics'
+import { trackCitySelected, trackViewModeChanged } from '../utils/analytics'
 import { getBrowseActivityNoun, getBrowseResultsSummary } from '../utils/browseResultsCopy'
 import {
   HOME_HEADER_LOGO_SRC,
@@ -203,10 +198,8 @@ export function BrowsePage({
   }, [location.pathname, viewMode])
 
   const requestNearbyLocation = useCallback(async () => {
-    trackBrowseNearbySelect()
     const nextCoords = await requestLocation()
     if (!nextCoords) {
-      trackBrowseNearbyDenied()
       return false
     }
     return true
@@ -270,23 +263,21 @@ export function BrowsePage({
   }
 
   function resetFilters() {
-    track('browse_filters_reset')
     setBrowseFilters(getResetBrowseFilters(browseFilters))
   }
 
   function tryAllCities() {
-    trackBrowseCityChange('all', 'pill', browseFilters.city)
+    trackCitySelected('all', 'browse')
     setBrowseFilters({ ...browseFilters, city: 'all', cityLocked: false })
   }
 
   function seeUpcomingEvents() {
-    track('browse_see_upcoming_events')
     setBrowseFilters(getBrowseSeeUpcomingFilters(browseFilters, countBrowseEvents))
   }
 
   function handleViewModeChange(mode: 'list' | 'map') {
     if (mode !== viewMode) {
-      track('browse_view_change', { view: mode })
+      trackViewModeChanged(mode)
     }
     setViewMode(mode)
 

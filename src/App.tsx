@@ -36,7 +36,7 @@ import { EventDetailModalOverlay } from './pages/EventDetailModalOverlay'
 import { ExperimentEventModalPage } from './pages/ExperimentEventModalPage'
 import { AdminEventsPage } from './pages/admin/AdminEventsPage'
 import { AdminSubmissionsPage } from './pages/admin/AdminSubmissionsPage'
-import { initAnalytics, pageNameFromPath, trackPageView } from './utils/analytics'
+import { initAnalytics, trackPageView } from './utils/analytics'
 import { applySiteMeta } from './utils/siteMeta'
 import { getEventDetailBackground } from './utils/eventDetailNavigation'
 
@@ -55,10 +55,7 @@ function AppShell() {
 
   useEffect(() => {
     applySiteMeta(location.pathname, location.search)
-    const pageName = pageNameFromPath(location.pathname)
-    if (pageName) {
-      trackPageView(location.pathname, pageName)
-    }
+    trackPageView(location.pathname)
   }, [location.pathname, location.search])
 
   const primaryRoutes = (

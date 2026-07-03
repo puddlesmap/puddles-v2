@@ -5,10 +5,16 @@ export type EventOpenSource =
   | 'home'
   | 'city_landing'
 
-export type BrowseCityChangeSource = 'filter' | 'pill' | 'bridge'
+export type FilterContext = 'home' | 'browse'
 
-export type BrowseFilterKind = 'day' | 'time' | 'age' | 'type'
+export type ViewMode = 'list' | 'map'
 
-export type ShareTab = 'activity' | 'idea'
+export type ShareSubmissionType = 'event_tip' | 'idea' | 'feedback'
+
+export type ActivityEngagementAction =
+  | 'visit_official_page_clicked'
+  | 'add_to_calendar_clicked'
+  | 'open_route_clicked'
+  | 'activity_shared'
 
 export type AnalyticsProps = Record<string, string | number | boolean>

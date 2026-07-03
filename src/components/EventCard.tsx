@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { ReactNode } from 'react'
 import type { Event } from '../types/event'
+import { getEventCardAgeLabel } from '../utils/ageRange'
 import { formatCardDateTime } from '../utils/dates'
 import { eventDetailPath } from '../utils/eventPages'
 import { EventImage } from './EventImage'
@@ -35,7 +36,7 @@ function EventCardPills({
 
   const category = event.types[0]
   if (category) pills.push({ key: 'category', label: category, tone: 'category' })
-  pills.push({ key: 'age', label: `Age ${event.ageRange}` })
+  pills.push({ key: 'age', label: getEventCardAgeLabel(event.ageRange) })
 
   if (event.cost === 'Free') {
     pills.push({ key: 'cost', label: 'Free', tone: 'free' })

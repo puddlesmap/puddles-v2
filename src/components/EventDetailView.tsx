@@ -10,7 +10,7 @@ import {
   getEventDirectionsUrl,
   getEventRoomLine,
 } from '../utils/maps'
-import { eventAnalyticsProps, track } from '../utils/analytics'
+import { ANALYTICS_EVENTS, trackActivityEngagement, trackActivityOpened } from '../utils/analytics'
 import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
@@ -136,7 +136,6 @@ function EventDetailMetadata({
               rel="noreferrer"
               className="event-modal-address-link"
               aria-label={getEventDirectionsLabel(event)}
-              onClick={() => track('address_link_click', eventAnalyticsProps(event))}
             >
               <span>{addressLine}</span>
               <span aria-hidden="true">↗</span>
@@ -256,7 +255,7 @@ function EventDetailActions({
         type="button"
         onClick={() => {
           const ok = downloadEventIcs(event)
-          if (ok) track('add_to_calendar', eventAnalyticsProps(event))
+          if (ok) trackActivityEngagement(ANALYTICS_EVENTS.ADD_TO_CALENDAR_CLICKED, event)
         }}
         disabled={!canAddToCalendar}
         className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
@@ -272,7 +271,7 @@ function EventDetailActions({
           target="_blank"
           rel="noreferrer"
           className="btn-secondary"
-          onClick={() => track('visit_official_page', eventAnalyticsProps(event))}
+          onClick={() => trackActivityEngagement(ANALYTICS_EVENTS.VISIT_OFFICIAL_PAGE_CLICKED, event)}
         >
           Visit official page
         </a>
@@ -313,7 +312,7 @@ export function EventDetailView({
   const categoryTags = event.categoryTags.length > 0 ? event.categoryTags : event.types
 
   useEffect(() => {
-    track('event_open', eventAnalyticsProps(event, { source: analyticsSource ?? 'discovery' }))
+    trackActivityOpened(event, analyticsSource ?? 'discovery')
   }, [event, analyticsSource])
 
   function handleScroll() {
@@ -327,7 +326,7 @@ export function EventDetailView({
   }
 
   async function handleShare() {
-    track('event_share', eventAnalyticsProps(event))
+    trackActivityEngagement(ANALYTICS_EVENTS.ACTIVITY_SHARED, event)
 
     if (canNativeShare) {
       try {
@@ -363,7 +362,6 @@ export function EventDetailView({
     showReportForm,
     reportSubmitted,
     onReportOpen: () => {
-      track('report_outdated_open', eventAnalyticsProps(event))
       setShowReportForm(true)
     },
     onReportCancel: () => setShowReportForm(false),

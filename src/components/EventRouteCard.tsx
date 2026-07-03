@@ -1,7 +1,7 @@
 import type { Event } from '../types/event'
 import { getEventRouteCardSubtext } from '../utils/calendar'
 import { getEventDirectionsLabel, getEventDirectionsUrl } from '../utils/maps'
-import { eventAnalyticsProps, track } from '../utils/analytics'
+import { ANALYTICS_EVENTS, trackActivityEngagement } from '../utils/analytics'
 import { EventRouteMapPreview } from './EventRouteMapPreview'
 import { EVENT_MARKER_SRC } from './browse/mapPins'
 
@@ -49,7 +49,7 @@ export function EventRouteCard({ event }: EventRouteCardProps) {
           rel="noreferrer"
           className="btn-secondary event-modal-route-open-btn"
           aria-label={getEventDirectionsLabel(event)}
-          onClick={() => track('open_route', eventAnalyticsProps(event))}
+          onClick={() => trackActivityEngagement(ANALYTICS_EVENTS.OPEN_ROUTE_CLICKED, event)}
         >
           Open route <span aria-hidden="true">↗</span>
         </a>

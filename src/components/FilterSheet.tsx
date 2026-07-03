@@ -5,7 +5,7 @@ import { ACTIVITY_TYPES } from '../types/event'
 import { getTemporalTabs } from '../utils/dates'
 import { getFilteredCount, type BrowseFilters } from '../utils/filters'
 import { BrowseLocationOptions } from './filters/BrowseLocationOptions'
-import { trackBrowseCityChange, trackBrowseFilterApply } from '../utils/analytics'
+import { trackBrowseFiltersApplied, trackCitySelected } from '../utils/analytics'
 
 const TIME_OPTIONS: { key: TimeFilter; label: string; sub: string }[] = [
   { key: 'any', label: 'Any time', sub: 'All hours' },
@@ -67,7 +67,7 @@ export function FilterSheet({
         if (!granted) return
       }
 
-      trackBrowseCityChange(draft.city, 'filter', filters.city)
+      trackCitySelected(draft.city, 'browse')
       onApply({
         ...draft,
         city: draft.city,
@@ -78,7 +78,7 @@ export function FilterSheet({
     }
 
     if (open) {
-      trackBrowseFilterApply(filters, draft, open)
+      trackBrowseFiltersApplied(filters, draft)
     }
     onApply(draft)
     onClose()

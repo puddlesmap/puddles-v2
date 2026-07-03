@@ -1,69 +1,112 @@
-# Puddles analytics (V1)
+# Puddles analytics
 
 Puddles uses [Plausible Analytics](https://plausible.io) for privacy-friendly usage tracking. No cookies, no personal data, admin routes excluded.
 
 ## Setup
 
-Plausible loads from `index.html` only when the site is served on **`puddlesmap.com`**. Localhost, Netlify preview URLs, and other hosts do not load the script.
+Plausible loads from [`index.html`](../index.html) only when the site is served on **`puddlesmap.com`**. Localhost, Netlify preview URLs, and other hosts do not load the script.
 
-On production, `initAnalytics()` configures:
+On production, [`initAnalytics()`](../src/utils/analytics.ts) configures:
 
 - **Outbound link** click tracking
 - **Form submission** tracking (counts submissions only — no field values)
-- Manual SPA pageviews (no double-counting on route changes)
+- Manual SPA pageviews (`autoCapturePageviews: false` — no double-counting on route changes)
 
-No env var is required for production. Tracking stays off in local dev unless you explicitly test on the live domain.
+No env var is required for production.
+
+**Mobile vs desktop:** Plausible automatically breaks down visitors by device, browser, and OS in the dashboard. No custom code needed.
+
+## Event catalog
+
+All custom events use **snake_case**. Wire calls through [`trackEvent()`](../src/utils/analytics.ts) or the typed helpers in the same file.
+
+### Pageviews
+
+Tracked on route change for public pages only. The `page` property identifies the screen:
+
+| Path | `page` |
+|------|--------|
+| `/` | `home` |
+| `/browse` | `browse` |
+| `/map` | `map` |
+| `/event/:id` | `event_detail` |
+| `/share` | `share` |
+| `/about` | `about` |
+| `/palo-alto`, `/los-altos`, `/mountain-view` | `city_page` (+ `city` prop) |
+
+### Discovery behavior
+
+| Event | Properties |
+|-------|------------|
+| `city_selected` | `city`, `context` (`home` \| `browse`) |
+| `date_filter_selected` | `date_filter` (`today`, `tomorrow`, `this_weekend`, `anytime`), `context` |
+| `activity_type_selected` | `activity_type` |
+| `time_filter_selected` | `time_filter` |
+| `age_filter_selected` | `age_filter` |
+| `view_mode_changed` | `view_mode` (`list`, `map`) |
+
+### Activity engagement
+
+| Event | Properties |
+|-------|------------|
+| `activity_opened` | `event_id`, `event_city`, `event_category`, `source_context` |
+| `visit_official_page_clicked` | `event_id`, `event_city`, `event_category` |
+| `add_to_calendar_clicked` | same |
+| `open_route_clicked` | same |
+| `activity_shared` | same |
+
+`source_context` values: `home`, `browse`, `map`, `city_page`
+
+`event_category` slugs: `stories`, `music_movement`, `arts_crafts`, `build_explore`, `outdoor`, `social_play`, `classes`, `other`
+
+### Community contribution
+
+| Event | Properties |
+|-------|------------|
+| `share_form_opened` | `source_context` |
+| `share_form_submitted` | `submission_type` (`event_tip`, `idea`, `feedback`) |
+| `expansion_watch_submitted` | `requested_location` (bucketed), `source_context` |
+| `outdated_info_reported` | `event_id`, `event_city`, `event_category` |
 
 ## Plausible goals to create
 
-In Plausible → your site → **Settings → Goals**, add custom event goals:
+In Plausible → your site → **Settings → Goals**, add custom event goals for each event name above (15 goals). Pageviews are automatic.
 
-| Goal name | Answers |
-|---|---|
-| `event_open` | Which events get opened |
-| `add_to_calendar` | Calendar downloads |
-| `visit_official_page` | Official page clicks |
-| `open_route` | Directions clicks |
-| `event_share` | Native share usage |
-| `share_submit` | Share form completions |
-| `share_submit_error` | Share form failures |
-| `report_outdated_open` | Report outdated funnel start |
-| `report_outdated_submit` | Report outdated completions |
-| `discovery_city_change` | Home city filter usage |
-| `discovery_day_tab` | Home day tab usage |
-| `browse_filter_apply` | Browse day/time/age/type filters |
-| `browse_city_change` | Browse location changes |
-| `browse_view_change` | List vs map |
-| `browse_filters_reset` | Filter resets |
-| `share_tab_change` | Activity vs idea tab |
-| `location_bridge_shown` | Location bridge opens |
-| `address_link_click` | Address link in modal (vs route card) |
+Suggested reports:
 
-Pageviews are automatic for `/`, `/browse`, `/share`, `/about`.
+- **Cities:** `city_selected` filtered by `city`
+- **Date tabs:** `date_filter_selected` filtered by `date_filter`
+- **Activity types:** `activity_type_selected` filtered by `activity_type`
+- **Engagement funnel:** `activity_opened` → `visit_official_page_clicked` / `add_to_calendar_clicked` / `open_route_clicked`
+- **Community:** `share_form_opened` vs `share_form_submitted`; `expansion_watch_submitted` by `requested_location`
 
-## Filtering by property
-
-In Plausible, use **Filters → Properties** on any goal or pageview report:
-
-- `city` — which cities are used
-- `day` / `value` — date tab selections
-- `filter` + `value` — browse filter type
-- `view` — list or map
-- `event_id` — which events are opened (ID only, no titles)
-- `source` — where event opens came from (`discovery`, `browse_list`, `browse_map`)
-- `type` — share submission type (`activity`, `idea`)
-- `report_type` — outdated report reason
+Remove legacy V1 goals (`browse_filter_apply`, `event_open`, `share_submit`, etc.) after migration.
 
 ## Privacy rules (enforced in code)
 
-- Script loads only on `puddlesmap.com` (not localhost or preview deploys)
+- Script loads only on `puddlesmap.com`
 - `/admin/*` is never tracked
 - No emails, names, addresses, event titles, notes, child info, or submission text sent to analytics
 - Long free-text strings and values containing `@` are stripped from custom properties
-- Only enums and `event_id` as custom properties
+- Expansion watch `requested_location` is bucketed to in-market city slug or `other` — never raw ZIP/email
+- Only enums and `event_id` as custom properties on activity events
 
 ## Manual verification
 
-1. Deploy to production or use the live site at https://puddlesmap.com.
-2. Browse the public site (not admin).
-3. In Plausible → **Realtime**, confirm pageviews, outbound link clicks, form submissions, and custom events appear.
+1. Open https://puddlesmap.com and Plausible **Realtime**
+2. Visit Home → Browse → Map → Event → Share → About; confirm `page` props
+3. Change filters on Home and Browse; confirm discovery events
+4. Open an activity from Home vs map; confirm `source_context`
+5. Click official page, calendar, route, share; confirm engagement events
+6. Submit share form and expansion watch; confirm no email in network payload (DevTools → filter `plausible`)
+7. Confirm localhost and Netlify preview do not load the script
+
+## Code map
+
+| Concern | File |
+|---------|------|
+| Event constants + helpers | [`src/utils/analytics.ts`](../src/utils/analytics.ts) |
+| Enum normalization | [`src/utils/analyticsMappers.ts`](../src/utils/analyticsMappers.ts) |
+| Types | [`src/types/analytics.ts`](../src/types/analytics.ts) |
+| Pageview on route change | [`src/App.tsx`](../src/App.tsx) |
+| Plausible script | [`index.html`](../index.html) |
