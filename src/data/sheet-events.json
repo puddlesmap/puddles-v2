@@ -9,7 +9,7 @@
     "date": "2026-06-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -40,7 +40,7 @@
     "date": "2026-06-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -74,7 +74,7 @@
     "date": "2026-06-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -107,7 +107,7 @@
     "date": "2026-06-30",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -138,7 +138,7 @@
     "date": "2026-06-30",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -167,9 +167,9 @@
     "date": "2026-07-01",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement"
@@ -198,7 +198,7 @@
     "date": "2026-07-01",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -234,7 +234,7 @@
     "date": "2026-07-01",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -269,9 +269,9 @@
     "date": "2026-07-01",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -304,14 +304,14 @@
     "date": "2026-07-01",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Other"
+      "Stories"
     ],
     "categoryTags": [
-      "Other"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/d3c01ce061370cdb682b7275c35fd7a3/SummerReadingBiblioEvent(760x230px).png",
@@ -319,9 +319,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69f28d7bdeee9abd8ee9635c",
@@ -333,14 +333,14 @@
     "date": "2026-07-01",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Other"
+      "Stories"
     ],
     "categoryTags": [
-      "Other"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/d3c01ce061370cdb682b7275c35fd7a3/SummerReadingBiblioEvent(760x230px).png",
@@ -348,9 +348,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69265595a2f9562900e5f958",
@@ -362,7 +362,7 @@
     "date": "2026-07-01",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -383,9 +383,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "16422616",
@@ -398,13 +398,15 @@
     "date": "2026-07-01",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
+      "Stories",
       "Social & Play"
     ],
     "categoryTags": [
+      "Stories",
       "Social & Play"
     ],
     "cost": "Free",
@@ -413,9 +415,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3945,
     "lng": -122.0786,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69a0b0f2b48451fc3c0563c4",
@@ -427,7 +429,7 @@
     "date": "2026-07-02",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -446,9 +448,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835bbb48451fc3c094400",
@@ -460,7 +462,7 @@
     "date": "2026-07-02",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -481,9 +483,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835b92866a5b488426bd3",
@@ -495,7 +497,7 @@
     "date": "2026-07-02",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -512,9 +514,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69276b597eb3e430002638a6",
@@ -526,13 +528,15 @@
     "date": "2026-07-02",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "2–5",
+    "ageRange": "2-5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
+      "Stories",
       "Outdoor"
     ],
     "categoryTags": [
+      "Stories",
       "Outdoor"
     ],
     "cost": "Free",
@@ -541,6 +545,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4419,
     "lng": -122.143,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-05",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -555,7 +588,7 @@
     "date": "2026-07-05",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -586,7 +619,7 @@
     "date": "2026-07-05",
     "startTime": "14:00",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -616,7 +649,7 @@
     "date": "2026-07-06",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -651,7 +684,7 @@
     "date": "2026-07-07",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -682,7 +715,7 @@
     "date": "2026-07-07",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -716,7 +749,7 @@
     "date": "2026-07-07",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -749,7 +782,7 @@
     "date": "2026-07-07",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -780,7 +813,7 @@
     "date": "2026-07-07",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -809,9 +842,9 @@
     "date": "2026-07-08",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement"
@@ -840,7 +873,7 @@
     "date": "2026-07-08",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -876,7 +909,7 @@
     "date": "2026-07-08",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -911,9 +944,9 @@
     "date": "2026-07-08",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -946,7 +979,7 @@
     "date": "2026-07-08",
     "startTime": "15:30",
     "endTime": "17:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -979,7 +1012,7 @@
     "date": "2026-07-08",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1014,7 +1047,7 @@
     "date": "2026-07-09",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1049,7 +1082,7 @@
     "date": "2026-07-09",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1082,7 +1115,7 @@
     "date": "2026-07-09",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1108,6 +1141,35 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Summer Concert: Marshall Magoon Magic",
+    "description": "",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-09",
+    "startTime": "11:00",
+    "endTime": "11:00",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69b835b92866a5b488426bd4",
     "title": "Preschool Storytime",
     "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
@@ -1117,7 +1179,7 @@
     "date": "2026-07-09",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1149,7 +1211,7 @@
     "date": "2026-07-09",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1180,7 +1242,7 @@
     "date": "2026-07-10",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1212,7 +1274,7 @@
     "date": "2026-07-10",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1245,7 +1307,7 @@
     "date": "2026-07-10",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1274,7 +1336,7 @@
     "date": "2026-07-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1307,14 +1369,16 @@
     "date": "2026-07-11",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
     "types": [
+      "Stories",
       "Build & Explore",
       "Classes"
     ],
     "categoryTags": [
+      "Stories",
       "Build & Explore",
       "Classes"
     ],
@@ -1329,6 +1393,35 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-12",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69fccf22177319280018194f",
     "title": "Family Storytime",
     "description": "Join Librarian Rebecca on Sunday mornings at 11:00AM for Family Storytime at Rinconada Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n \n Make...",
@@ -1338,7 +1431,7 @@
     "date": "2026-07-12",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1369,7 +1462,7 @@
     "date": "2026-07-12",
     "startTime": "11:30",
     "endTime": "12:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1404,7 +1497,7 @@
     "date": "2026-07-12",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1435,7 +1528,7 @@
     "date": "2026-07-14",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1466,7 +1559,7 @@
     "date": "2026-07-14",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1500,7 +1593,7 @@
     "date": "2026-07-14",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1533,7 +1626,7 @@
     "date": "2026-07-14",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1564,13 +1657,15 @@
     "date": "2026-07-14",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
+      "Stories",
       "Outdoor"
     ],
     "categoryTags": [
+      "Stories",
       "Outdoor"
     ],
     "cost": "Free",
@@ -1593,7 +1688,7 @@
     "date": "2026-07-14",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1622,9 +1717,9 @@
     "date": "2026-07-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement"
@@ -1653,7 +1748,7 @@
     "date": "2026-07-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1689,7 +1784,7 @@
     "date": "2026-07-15",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1724,9 +1819,9 @@
     "date": "2026-07-15",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -1759,13 +1854,15 @@
     "date": "2026-07-15",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
+      "Stories",
       "Social & Play"
     ],
     "categoryTags": [
+      "Stories",
       "Social & Play"
     ],
     "cost": "Free",
@@ -1788,13 +1885,15 @@
     "date": "2026-07-15",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
+      "Stories",
       "Social & Play"
     ],
     "categoryTags": [
+      "Stories",
       "Social & Play"
     ],
     "cost": "Free",
@@ -1817,7 +1916,7 @@
     "date": "2026-07-15",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1853,7 +1952,7 @@
     "date": "2026-07-15",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1884,7 +1983,7 @@
     "date": "2026-07-16",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1917,7 +2016,7 @@
     "date": "2026-07-16",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1943,6 +2042,35 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Summer Concert: Wiley Rankin & Jump for Joy Music",
+    "description": "",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-16",
+    "startTime": "11:00",
+    "endTime": "11:00",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69b835b92866a5b488426bd5",
     "title": "Preschool Storytime",
     "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
@@ -1952,7 +2080,7 @@
     "date": "2026-07-16",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1983,7 +2111,7 @@
     "date": "2026-07-17",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2015,7 +2143,7 @@
     "date": "2026-07-17",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2048,7 +2176,7 @@
     "date": "2026-07-17",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2077,7 +2205,7 @@
     "date": "2026-07-18",
     "startTime": "10:00",
     "endTime": "20:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2108,7 +2236,7 @@
     "date": "2026-07-18",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2142,7 +2270,7 @@
     "date": "2026-07-18",
     "startTime": "11:00",
     "endTime": "12:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2166,6 +2294,35 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Book Launch with Dashka Slater, The Big One",
+    "description": "Marina was the smallest of the town's children. Nana was the oldest of the town's elders. But even the old and the small have dreams.\n \n When word spreads around their small fishing town that the Big One is close to shore, Marina and Nana know that they will be the ones to catch the elusive and legendary fish. \"When we catch the Big One,\" says Nana, \"we'll need four hands to haul him in and two mouths to tell the story.\"\n \n They set out in a tiny boat with only grit, gumption, and a rose-ripe pe",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-18",
+    "startTime": "11:00",
+    "endTime": "11:00",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "698e125a2a787a47a5e73bd9",
     "title": "Baby Dragon Boat Festival",
     "description": "Note: This program has been rescheduled to Saturday, July 18 from Saturday, June 20.\n \n Celebrate this year's Dragon Boat Festival with some family fun!\n \n Families with babies and toddlers are invited to decorate their own...",
@@ -2175,7 +2332,7 @@
     "date": "2026-07-18",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2199,6 +2356,68 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Storytime with Rob Sayegh Jr., Big Rig Pig",
+    "description": "Join us for a special storytime with illustrator Rob Sayegh Jr. as he shares his delightful new picture book, [Big Rig Pig](https://www.lindentreebooks.com/big-rig-pig.html), written by Claire Tattersfield.\n \n When Miles spends the whole day helping out others, hauling boxes, five tons of apples, and even an entire circus, he learns that maybe he doesn't have to do it all. And that sometimes, it's okay if he's the one who needs help; good friends will always be there to lend a helping hand, or t",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-19",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Build & Explore",
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Stories",
+      "Build & Explore",
+      "Social & Play"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-19",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69fd26c6f56bd86e00ae4709",
     "title": "Family Storytime",
     "description": "Join Librarian Rebecca on Sunday mornings at 11:00AM for Family Storytime at Rinconada Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n \n Make...",
@@ -2208,7 +2427,7 @@
     "date": "2026-07-19",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2239,7 +2458,7 @@
     "date": "2026-07-19",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2261,6 +2480,41 @@
     "isLive": true
   },
   {
+    "id": "workshops-summer2026",
+    "title": "Illustration Workshop with Laura G. Lee",
+    "description": "Calling all young artists ages 10-13! Join us this summer for a series of hands-on art workshops led by a trio of talented, published illustrators:\n \n * Sunday, June 14 at 4pm: **Christy Hale** , author-illustrator of *Reaching Across the Sky* , *Serious Fun!*, and more\n * Sunday, July 19 at 4pm: **Laura G. Lee** , author-illustrator of *Soy Sauce!*\n * Sunday, August 16 at 4pm: **Cindy Chang** , author-illustrator of *How to Draw a Secret*\n \n Each workshop lasts 90 minutes and costs $75. Materia",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-19",
+    "startTime": "16:00",
+    "endTime": "16:00",
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
+    "types": [
+      "Stories",
+      "Arts & Crafts",
+      "Build & Explore",
+      "Classes"
+    ],
+    "categoryTags": [
+      "Stories",
+      "Arts & Crafts",
+      "Build & Explore",
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://cdn.shoplightspeed.com/shops/611345/files/76147279/summer-art-workshops-rsvp-now.jpg",
+    "eventUrl": "https://www.lindentreebooks.com/workshops-summer2026",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "16934170",
     "title": "Story Stones",
     "description": "Plant a seed of creativity and let your imagination grow! Paint a rock that tells a story, or expresses your favorite part of summer. Every stone adds a touch of magic to summer reading. We would also...",
@@ -2271,9 +2525,9 @@
     "date": "2026-07-20",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
     "types": [
       "Stories",
       "Arts & Crafts"
@@ -2302,7 +2556,7 @@
     "date": "2026-07-21",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2333,7 +2587,7 @@
     "date": "2026-07-21",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2367,7 +2621,7 @@
     "date": "2026-07-21",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2400,7 +2654,7 @@
     "date": "2026-07-21",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2431,7 +2685,7 @@
     "date": "2026-07-21",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2460,9 +2714,9 @@
     "date": "2026-07-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement"
@@ -2491,7 +2745,7 @@
     "date": "2026-07-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2527,7 +2781,7 @@
     "date": "2026-07-22",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2562,9 +2816,9 @@
     "date": "2026-07-22",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -2597,7 +2851,7 @@
     "date": "2026-07-22",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2626,7 +2880,7 @@
     "date": "2026-07-22",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2655,7 +2909,7 @@
     "date": "2026-07-22",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2690,7 +2944,7 @@
     "date": "2026-07-23",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2725,7 +2979,7 @@
     "date": "2026-07-23",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2758,7 +3012,7 @@
     "date": "2026-07-23",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2784,6 +3038,35 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Summer Concert: Andy Z",
+    "description": "",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-23",
+    "startTime": "11:00",
+    "endTime": "11:00",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69b835b92866a5b488426bd6",
     "title": "Preschool Storytime",
     "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
@@ -2793,7 +3076,7 @@
     "date": "2026-07-23",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2825,7 +3108,7 @@
     "date": "2026-07-24",
     "startTime": "09:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2858,7 +3141,7 @@
     "date": "2026-07-24",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2889,7 +3172,7 @@
     "date": "2026-07-24",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2918,7 +3201,7 @@
     "date": "2026-07-25",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2942,6 +3225,39 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Book Launch with Jen de Oliveira, Pip & Pals: Otter Space!",
+    "description": "We're excited to welcome author-illustrator Jen de Oliveira back to our store for the launch of her new early graphic novel series, [Pip & Pals: Otter Space!](https://www.lindentreebooks.com/pip-pals-1-otter-space.html) Pre-order the book through Linden Tree to get a signed copy and special sticker.\n \n Pip is a playful otter who loves adventure and exploring in her seaside cove with her friends. One day, Pip emerges from the water to find her fur has turned GREEN!? Herman, the hermit crab thinks",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-25",
+    "startTime": "11:00",
+    "endTime": "11:00",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Social & Play",
+      "Classes"
+    ],
+    "categoryTags": [
+      "Stories",
+      "Social & Play",
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "698e125a2a787a47a5e73bda",
     "title": "The Academy of Ballet and Etiquette Presents: Swan Lake",
     "description": "Join us at the Rinconada Library in the Embarcardero Room for a special summer ballet workshop from The Academy of Ballet and Etiquette!\n \n Dance through Swan Lake, the story of Odette, a princess turned into a swan by an evil...",
@@ -2951,7 +3267,7 @@
     "date": "2026-07-25",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2975,6 +3291,74 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Storytime with Lisa Frenkel Riddiough, Furious Turtle",
+    "description": "Join us for a special storytime with author Lisa Frenkel Riddiough as she shares her adorable new picture book, [Furious Turtle](https://www.lindentreebooks.com/furious-turtle.html), illustrated by Andrea Tsurumi.\n \n What is Turtle to do when his fishing pole breaks, he isn't the winner of the drawing contest, his number isn't chosen during the prize walk, and the arcade machine won't accept his token? He gets frustrated, flabbergasted, and, of course, furious! But with help from his teacher Ms.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-26",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Music & Movement",
+      "Arts & Crafts",
+      "Build & Explore",
+      "Outdoor",
+      "Classes"
+    ],
+    "categoryTags": [
+      "Stories",
+      "Music & Movement",
+      "Arts & Crafts",
+      "Build & Explore",
+      "Outdoor",
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-26",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69fd1345f89ee1580051535d",
     "title": "Family Storytime",
     "description": "Join Librarian Rebecca on Sunday mornings at 11:00AM for Family Storytime at Rinconada Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n \n Make...",
@@ -2984,7 +3368,7 @@
     "date": "2026-07-26",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3015,13 +3399,15 @@
     "date": "2026-07-26",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
+      "Stories",
       "Outdoor"
     ],
     "categoryTags": [
+      "Stories",
       "Outdoor"
     ],
     "cost": "Free",
@@ -3045,7 +3431,7 @@
     "date": "2026-07-27",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3078,7 +3464,7 @@
     "date": "2026-07-28",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3109,7 +3495,7 @@
     "date": "2026-07-28",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3143,7 +3529,7 @@
     "date": "2026-07-28",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3176,7 +3562,7 @@
     "date": "2026-07-28",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3207,7 +3593,7 @@
     "date": "2026-07-28",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3236,9 +3622,9 @@
     "date": "2026-07-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement"
@@ -3267,7 +3653,7 @@
     "date": "2026-07-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3303,7 +3689,7 @@
     "date": "2026-07-29",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3338,9 +3724,9 @@
     "date": "2026-07-29",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -3373,14 +3759,14 @@
     "date": "2026-07-29",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Other"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Other"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/d3c01ce061370cdb682b7275c35fd7a3/SummerReadingBiblioEvent(760x230px).png",
@@ -3402,14 +3788,14 @@
     "date": "2026-07-29",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Other"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Other"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/d3c01ce061370cdb682b7275c35fd7a3/SummerReadingBiblioEvent(760x230px).png",
@@ -3431,7 +3817,7 @@
     "date": "2026-07-29",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3467,7 +3853,7 @@
     "date": "2026-07-29",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "2–5",
+    "ageRange": "2-5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -3498,7 +3884,7 @@
     "date": "2026-07-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3531,7 +3917,7 @@
     "date": "2026-07-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3557,6 +3943,35 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Summer Concert: James Henry's House of Samba Kids",
+    "description": "",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-30",
+    "startTime": "11:00",
+    "endTime": "11:00",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69b835b92866a5b488426bd7",
     "title": "Preschool Storytime",
     "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
@@ -3566,7 +3981,7 @@
     "date": "2026-07-30",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3597,9 +4012,9 @@
     "date": "2026-07-30",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
     "types": [
       "Music & Movement"
     ],
@@ -3626,7 +4041,7 @@
     "date": "2026-07-31",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3658,7 +4073,7 @@
     "date": "2026-07-31",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3691,7 +4106,7 @@
     "date": "2026-07-31",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3720,7 +4135,7 @@
     "date": "2026-07-31",
     "startTime": "18:30",
     "endTime": "21:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3751,7 +4166,7 @@
     "date": "2026-07-31",
     "startTime": "18:30",
     "endTime": "21:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3782,7 +4197,7 @@
     "date": "2026-08-01",
     "startTime": "10:00",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3813,7 +4228,7 @@
     "date": "2026-08-01",
     "startTime": "10:00",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3844,9 +4259,9 @@
     "date": "2026-08-01",
     "startTime": "10:30",
     "endTime": "12:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -3879,7 +4294,7 @@
     "date": "2026-08-01",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2–5",
+    "ageRange": "2-5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -3910,14 +4325,16 @@
     "date": "2026-08-01",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
+      "Stories",
       "Build & Explore",
       "Outdoor"
     ],
     "categoryTags": [
+      "Stories",
       "Build & Explore",
       "Outdoor"
     ],
@@ -3932,6 +4349,35 @@
     "isLive": true
   },
   {
+    "id": "261546842625058",
+    "title": "Experiment Extravaganza",
+    "description": "",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-01",
+    "startTime": "15:00",
+    "endTime": "15:00",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore"
+    ],
+    "categoryTags": [
+      "Build & Explore"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.jotform.com/form/261546842625058",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69fd17aef89ee15800515554",
     "title": "Music and Puppets with Mr. Elephant",
     "description": "Join us at the Children's Library in the Secret Garden to enjoy tunes with musician Mr. Elephant!\n \n Mr. Elephant is an Oakland-based speech therapist who makes award-winning music for little learners (and big ones too!) alongside his...",
@@ -3941,9 +4387,9 @@
     "date": "2026-08-01",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Music & Movement",
       "Outdoor"
@@ -3963,6 +4409,68 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Storytime with Alan Barillaro, Today We'll Be Eaten",
+    "description": "We're excited to welcome award-winning author-illustrator Alan Barillaro back to Linden Tree to celebrate the launch of his delightful new picture book, [Today We'll Be Eaten](https://www.lindentreebooks.com/today-well-be-eaten.html).\n \n Ladybug and Dragonfly are caught in a storm, floating upside down and helplessly on the river. They are certain that today they'll be eaten.\n \n But as they stare nervously up at the sky, waiting for that terrible fate... something vastly different happens. By th",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-02",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Music & Movement",
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Stories",
+      "Music & Movement",
+      "Social & Play"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-02",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "6a29b5768d1b82ca9f78fc87",
     "title": "Friends of the Los Altos Library Booksale @ Los Altos Community Center",
     "description": "The Friends of the Los Altos Library Present their Community Book Sale\n \n Fiction & non-fiction books and media for all ages\n Friday, July 31, 6:30 - 9pm. Members only Preview Sale! Join at the door for $10.Saturday, August 1, 10am - 4pmSunday,...",
@@ -3972,7 +4480,7 @@
     "date": "2026-08-02",
     "startTime": "11:00",
     "endTime": "14:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4003,7 +4511,7 @@
     "date": "2026-08-02",
     "startTime": "11:00",
     "endTime": "14:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4025,6 +4533,35 @@
     "isLive": false
   },
   {
+    "id": "events-calendar",
+    "title": "Find Waldo Prize Party and Raffle",
+    "description": "",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-02",
+    "startTime": "16:00",
+    "endTime": "16:00",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "16916946",
     "title": "Smart Start Babytime",
     "description": "Smart Start Babytime is a special program for babies (0--2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford...",
@@ -4035,7 +4572,7 @@
     "date": "2026-08-03",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4070,7 +4607,7 @@
     "date": "2026-08-04",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4104,7 +4641,7 @@
     "date": "2026-08-04",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4137,7 +4674,7 @@
     "date": "2026-08-04",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4168,7 +4705,7 @@
     "date": "2026-08-04",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4197,7 +4734,7 @@
     "date": "2026-08-05",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4232,9 +4769,9 @@
     "date": "2026-08-05",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -4268,14 +4805,16 @@
     "date": "2026-08-05",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "2–5",
+    "ageRange": "2-5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_01_16_21_41.jpg",
@@ -4297,7 +4836,7 @@
     "date": "2026-08-06",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4332,7 +4871,7 @@
     "date": "2026-08-06",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4364,7 +4903,7 @@
     "date": "2026-08-07",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4395,7 +4934,7 @@
     "date": "2026-08-07",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4424,7 +4963,7 @@
     "date": "2026-08-08",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2–5",
+    "ageRange": "2-5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -4455,13 +4994,15 @@
     "date": "2026-08-08",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "2–5",
+    "ageRange": "2-5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
+      "Stories",
       "Outdoor"
     ],
     "categoryTags": [
+      "Stories",
       "Outdoor"
     ],
     "cost": "Free",
@@ -4470,6 +5011,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-09",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4484,7 +5054,7 @@
     "date": "2026-08-09",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4515,7 +5085,7 @@
     "date": "2026-08-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4549,7 +5119,7 @@
     "date": "2026-08-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4582,7 +5152,7 @@
     "date": "2026-08-11",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4613,7 +5183,7 @@
     "date": "2026-08-11",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4642,7 +5212,7 @@
     "date": "2026-08-12",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4677,9 +5247,9 @@
     "date": "2026-08-12",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -4713,7 +5283,7 @@
     "date": "2026-08-12",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4744,7 +5314,7 @@
     "date": "2026-08-13",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4779,7 +5349,7 @@
     "date": "2026-08-13",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4814,7 +5384,7 @@
     "date": "2026-08-13",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4846,7 +5416,7 @@
     "date": "2026-08-14",
     "startTime": "15:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4877,7 +5447,7 @@
     "date": "2026-08-14",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4906,7 +5476,7 @@
     "date": "2026-08-15",
     "startTime": "10:00",
     "endTime": "20:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4937,7 +5507,7 @@
     "date": "2026-08-15",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2–5",
+    "ageRange": "2-5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -4959,6 +5529,64 @@
     "isLive": true
   },
   {
+    "id": "battle-of-the-books-2026",
+    "title": "Battle of the Books",
+    "description": "",
+    "venue": "State Street Market",
+    "address": "State Street Market",
+    "city": "Palo Alto",
+    "date": "2026-08-15",
+    "startTime": "15:00",
+    "endTime": "15:00",
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/service/battle-of-the-books-2026/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false
+  },
+  {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-16",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "697025281e64afd01e559e37",
     "title": "Sunday CrafterNoon",
     "description": "All-ages arts and crafts!\n \n Adults, teens, and kids -- join us for an afternoon of relaxed crafting on the third Sunday of the month.\n \n Supplies are provided for you to explore a surprise art activity.\n \n This craft is self-directed;...",
@@ -4968,7 +5596,7 @@
     "date": "2026-08-16",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4999,7 +5627,7 @@
     "date": "2026-08-18",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5032,7 +5660,7 @@
     "date": "2026-08-18",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5063,7 +5691,7 @@
     "date": "2026-08-18",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5092,7 +5720,7 @@
     "date": "2026-08-19",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5127,9 +5755,9 @@
     "date": "2026-08-19",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -5162,7 +5790,7 @@
     "date": "2026-08-20",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5197,7 +5825,7 @@
     "date": "2026-08-20",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5228,7 +5856,7 @@
     "date": "2026-08-21",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5257,7 +5885,7 @@
     "date": "2026-08-22",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2–5",
+    "ageRange": "2-5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -5279,6 +5907,35 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-23",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "16677137",
     "title": "Sleepy Stories",
     "description": "Snuggle in for a cozy pajama storytime! Join us for gentle rhymes, delightful books, songs, and a little dancing---perfect for winding down together.",
@@ -5289,7 +5946,7 @@
     "date": "2026-08-24",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5322,7 +5979,7 @@
     "date": "2026-08-25",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5355,7 +6012,7 @@
     "date": "2026-08-25",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5386,7 +6043,7 @@
     "date": "2026-08-25",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5415,7 +6072,7 @@
     "date": "2026-08-26",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5450,9 +6107,9 @@
     "date": "2026-08-26",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -5485,7 +6142,7 @@
     "date": "2026-08-27",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5520,7 +6177,7 @@
     "date": "2026-08-27",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5555,7 +6212,7 @@
     "date": "2026-08-27",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5586,7 +6243,7 @@
     "date": "2026-08-28",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5615,7 +6272,7 @@
     "date": "2026-08-29",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2–5",
+    "ageRange": "2-5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -5637,6 +6294,70 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-30",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "events-calendar",
+    "title": "Middle Grade Book Club: The Missing Magic of Sparrow Xia",
+    "description": "It's the next meeting of our middle grade book club for ages 9+! Led by bookseller extraordinaire Lorilee, we hope to introduce interested readers to amazing new books and the opportunity to talk about them in a fun, relaxed group setting.\n \n This month's book is [The Missing Magic of Sparrow Xia](https://www.lindentreebooks.com/the-missing-magic-of-sparrow-xia-an-illustrated-no.html) by Leia Ham, an unforgettable magical school story set in a world where kids have magic but adults don't. Please",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-30",
+    "startTime": "16:00",
+    "endTime": "16:00",
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
+    "types": [
+      "Stories",
+      "Music & Movement",
+      "Outdoor",
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Stories",
+      "Music & Movement",
+      "Outdoor",
+      "Social & Play"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "16916947",
     "title": "Smart Start Babytime",
     "description": "Smart Start Babytime is a special program for babies (0--2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford...",
@@ -5647,7 +6368,7 @@
     "date": "2026-08-31",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5682,7 +6403,7 @@
     "date": "2026-09-01",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5713,7 +6434,7 @@
     "date": "2026-09-01",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5742,9 +6463,9 @@
     "date": "2026-09-02",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement"
@@ -5773,9 +6494,9 @@
     "date": "2026-09-02",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -5808,7 +6529,7 @@
     "date": "2026-09-02",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5843,7 +6564,7 @@
     "date": "2026-09-03",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5876,7 +6597,7 @@
     "date": "2026-09-04",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5908,7 +6629,7 @@
     "date": "2026-09-04",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5939,7 +6660,7 @@
     "date": "2026-09-04",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5968,7 +6689,7 @@
     "date": "2026-09-05",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6001,9 +6722,9 @@
     "date": "2026-09-05",
     "startTime": "10:30",
     "endTime": "12:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement",
@@ -6027,6 +6748,35 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-09-06",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "699f624cb0595799c09f604c",
     "title": "Family Storytime",
     "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
@@ -6036,7 +6786,7 @@
     "date": "2026-09-08",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6067,7 +6817,7 @@
     "date": "2026-09-08",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6096,9 +6846,9 @@
     "date": "2026-09-09",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement"
@@ -6127,7 +6877,7 @@
     "date": "2026-09-09",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6162,7 +6912,7 @@
     "date": "2026-09-10",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6195,7 +6945,7 @@
     "date": "2026-09-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6226,7 +6976,7 @@
     "date": "2026-09-11",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6255,7 +7005,7 @@
     "date": "2026-09-12",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6279,6 +7029,35 @@
     "isLive": true
   },
   {
+    "id": "events-calendar",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-09-13",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "6970253094297d3600a66ca1",
     "title": "Board Game Sunday!",
     "description": "Everyone is invited to play board games!\n \n Join us on the second Sunday of the month from 2:00 PM to 3:30 PM.\n \n We have board games for all ages: adults, teens, and children.\n \n Come with friends & family!\n \n (The room closes at 3:30 PM, so...",
@@ -6288,7 +7067,7 @@
     "date": "2026-09-13",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6310,6 +7089,35 @@
     "isLive": true
   },
   {
+    "id": "bsc",
+    "title": "Book Launch with Raina Telgemeier and Gale Galligan, The Baby-Sitters Club Super Special: Baby-Sitters On Board",
+    "description": "Linden Tree Books is excited to host bestselling authors Raina Telgemeier and Gale Galligan for the launch of The Baby-Sitters Club Super Special graphic novel, *Baby-Sitters on Board* ! [**Buy tickets now >>**](https://www.lindentreebooks.com/bsc)\n \n Join us for an hour-long conversation with Raina and Gale as they discuss their team-up and return to The Baby-Sitters Club. At the end of their conversation, there will be time for audience Q&A, followed by an opportunity to take photos with Raina",
+    "venue": "Spangenberg Theater in Palo Alto",
+    "address": "Spangenberg Theater in Palo Alto",
+    "city": "Palo Alto",
+    "date": "2026-09-13",
+    "startTime": "16:00",
+    "endTime": "16:00",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://cdn.shoplightspeed.com/shops/611345/files/76427608/raina-telgemeier-gale-galligan-sunday-september-13.jpg",
+    "eventUrl": "https://www.lindentreebooks.com/bsc",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.44,
+    "lng": -122.14,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false
+  },
+  {
     "id": "699f624cb0595799c09f604d",
     "title": "Family Storytime",
     "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
@@ -6319,7 +7127,7 @@
     "date": "2026-09-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6350,7 +7158,7 @@
     "date": "2026-09-15",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6379,9 +7187,9 @@
     "date": "2026-09-16",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement"
@@ -6410,7 +7218,7 @@
     "date": "2026-09-16",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6445,7 +7253,7 @@
     "date": "2026-09-17",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6478,7 +7286,7 @@
     "date": "2026-09-18",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6509,7 +7317,7 @@
     "date": "2026-09-18",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6538,7 +7346,7 @@
     "date": "2026-09-19",
     "startTime": "10:00",
     "endTime": "20:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6569,7 +7377,7 @@
     "date": "2026-09-19",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6602,7 +7410,7 @@
     "date": "2026-09-20",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6633,7 +7441,7 @@
     "date": "2026-09-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6664,7 +7472,7 @@
     "date": "2026-09-22",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6693,9 +7501,9 @@
     "date": "2026-09-23",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement"
@@ -6724,7 +7532,7 @@
     "date": "2026-09-23",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6759,7 +7567,7 @@
     "date": "2026-09-24",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6792,7 +7600,7 @@
     "date": "2026-09-25",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6823,7 +7631,7 @@
     "date": "2026-09-25",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6852,7 +7660,7 @@
     "date": "2026-09-26",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6886,7 +7694,7 @@
     "date": "2026-09-28",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6921,7 +7729,7 @@
     "date": "2026-09-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6952,7 +7760,7 @@
     "date": "2026-09-29",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6981,9 +7789,9 @@
     "date": "2026-09-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2",
+    "ageRange": "0-2",
     "ageMin": 0,
-    "ageMax": 2,
+    "ageMax": 5,
     "types": [
       "Stories",
       "Music & Movement"
@@ -7012,7 +7820,7 @@
     "date": "2026-09-30",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7048,7 +7856,7 @@
     "date": "2026-10-02",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7080,7 +7888,7 @@
     "date": "2026-10-26",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7116,7 +7924,7 @@
     "date": "2026-11-06",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7148,7 +7956,7 @@
     "date": "2026-11-23",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7184,9 +7992,9 @@
     "date": "2026-12-04",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
     "types": [
       "Stories",
       "Build & Explore"
@@ -7216,7 +8024,7 @@
     "date": "2026-12-21",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–5",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7252,9 +8060,9 @@
     "date": "2027-01-08",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
     "types": [
       "Stories",
       "Build & Explore"
