@@ -13,6 +13,21 @@
     transform 0.14s ease-out;
 }
 
+/* Fallback illustrations use transparent PNGs on a single muted surface */
+.browse-page-shell--experiment .discovery-event-card:has(.event-image--fallback),
+.home-experiment-page--refined .discovery-event-card:has(.event-image--fallback) {
+  background: var(--color-surface-muted);
+}
+
+.browse-page-shell--experiment
+  .discovery-event-card:has(.event-image--fallback)
+  .card-listing-media,
+.home-experiment-page--refined
+  .discovery-event-card:has(.event-image--fallback)
+  .card-listing-media {
+  background: transparent;
+}
+
 .browse-page-shell--experiment .discovery-event-card .card-listing-media,
 .home-experiment-page--refined .discovery-event-card .card-listing-media {
   border-radius: 0;

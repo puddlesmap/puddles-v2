@@ -50,7 +50,19 @@ w, h = img.size
 if max(w, h) > max_dim:
     ratio = max_dim / max(w, h)
     img = img.resize((int(w * ratio), int(h * ratio)), Image.Resampling.LANCZOS)
-    img.save(dst, format='PNG', optimize=True)
+
+# Knock out near-white background so cards can use muted surface color
+img = img.convert('RGBA')
+px = img.load()
+w, h = img.size
+threshold = 248
+for y in range(h):
+    for x in range(w):
+        r, g, b, a = px[x, y]
+        if r >= threshold and g >= threshold and b >= threshold:
+            px[x, y] = (r, g, b, 0)
+
+img.save(dst, format='PNG', optimize=True)
 
 print(json.dumps({'w': img.size[0], 'h': img.size[1], 'dst': dst}))
 `
