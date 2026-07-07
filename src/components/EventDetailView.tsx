@@ -13,6 +13,7 @@ import {
 import { ANALYTICS_EVENTS, trackActivityEngagement, trackActivityOpened } from '../utils/analytics'
 import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
 import { getEventCategoryTags } from '../utils/eventImages'
+import { parseEventTips } from '../utils/eventTips'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
@@ -180,6 +181,26 @@ function EventDetailMetadata({
         </div>
       </div>
     </>
+  )
+}
+
+function EventDetailTips({ tips }: { tips?: string }) {
+  const items = parseEventTips(tips)
+  if (items.length === 0) return null
+
+  return (
+    <section className="event-detail-tips" aria-labelledby="event-detail-tips-heading">
+      <h2 id="event-detail-tips-heading" className="event-detail-tips-label">
+        Before you go
+      </h2>
+      <ul className="event-detail-tips-list">
+        {items.map((item, index) => (
+          <li key={`${index}-${item}`} className="event-detail-tips-item">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </section>
   )
 }
 
@@ -407,6 +428,7 @@ export function EventDetailView({
               {event.description ? (
                 <p className="event-detail-body">{event.description}</p>
               ) : null}
+              <EventDetailTips tips={event.tips} />
             </div>
 
             <aside className="event-modal-wide-layout__side">
@@ -494,9 +516,11 @@ export function EventDetailView({
             <EventDetailMetadata {...contentProps} />
           </div>
 
-          <EventDetailTrustCard {...contentProps} />
-
           {event.description ? <p className="event-detail-body">{event.description}</p> : null}
+
+          <EventDetailTips tips={event.tips} />
+
+          <EventDetailTrustCard {...contentProps} />
 
           <EventRouteCard event={event} />
         </div>

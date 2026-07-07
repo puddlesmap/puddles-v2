@@ -96,11 +96,13 @@ function mapRecord(record) {
 
   const verifiedDateRaw = pickField(record, 'verifiedDate')
   const verifiedDate = parseSheetDate(verifiedDateRaw) ?? '2026-06-05'
+  const tips = pickField(record, 'tips')
 
   return {
     id: deriveEventId(record),
     title,
     description: pickField(record, 'description').slice(0, 500),
+    ...(tips ? { tips } : {}),
     venue,
     ...(room ? { room } : {}),
     address: geo.address,

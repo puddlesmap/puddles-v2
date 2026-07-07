@@ -27,6 +27,8 @@ export interface Event {
   id: string
   title: string
   description: string
+  /** Optional parent tips from the Events sheet Tips column. */
+  tips?: string
   venue: string
   /** Specific room or area within the venue (sheet column E). */
   room?: string

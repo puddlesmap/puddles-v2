@@ -44,6 +44,7 @@ const COLUMN_ALIASES: Record<string, string[]> = {
   eventId: ['event id', 'softr record id'],
   title: ['title', 'titel', 'short title'],
   description: ['event description', 'description', 'event preview'],
+  tips: ['tips', 'before you go'],
   venue: ['venue', 'display location short', 'display location'],
   room: ['room'],
   address: ['address'],
@@ -332,11 +333,13 @@ function mapRecord(record: Record<string, string>): Event | null {
   })
 
   const verifiedDate = parseSheetDate(pickField(record, 'verifiedDate')) ?? '2026-06-05'
+  const tips = pickField(record, 'tips')
 
   return enrichPublishingFields({
     id: deriveEventId(record),
     title,
     description: pickField(record, 'description').slice(0, 500),
+    ...(tips ? { tips } : {}),
     venue,
     ...(room ? { room } : {}),
     address: geo.address,

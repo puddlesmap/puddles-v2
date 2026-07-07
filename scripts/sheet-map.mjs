@@ -39,6 +39,7 @@ const COLUMN_ALIASES = {
   eventId: ['event id', 'softr record id'],
   title: ['title', 'titel', 'short title'],
   description: ['event description', 'description', 'event preview'],
+  tips: ['tips', 'before you go'],
   venue: ['venue', 'display location short', 'display location'],
   room: ['room'],
   address: ['address'],

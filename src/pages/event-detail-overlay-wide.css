@@ -121,6 +121,10 @@
   overflow-wrap: anywhere;
 }
 
+.event-modal-panel--wide .event-modal-wide-layout__main .event-detail-tips {
+  margin-top: 1rem;
+}
+
 .event-modal-panel--wide .event-detail-location {
   margin-top: 0;
 }

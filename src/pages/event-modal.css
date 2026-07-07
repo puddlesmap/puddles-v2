@@ -156,6 +156,41 @@
   margin-top: 0.25rem;
 }
 
+.event-detail-tips {
+  margin-top: 1.25rem;
+}
+
+.event-detail-tips-label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #686868;
+}
+
+.event-detail-tips-list {
+  margin: 0.625rem 0 0;
+  padding-left: 1.125rem;
+  list-style: disc;
+}
+
+.event-detail-tips-item {
+  font-family: var(--font-sans);
+  font-size: var(--type-page-body-size);
+  font-weight: var(--type-page-body-weight);
+  line-height: var(--type-page-body-line-height);
+  color: var(--type-page-body-color);
+}
+
+.event-detail-tips-item::marker {
+  color: #66c5f9;
+}
+
+.event-detail-tips-item + .event-detail-tips-item {
+  margin-top: 0.5rem;
+}
+
 .event-detail-tag-chips {
   display: flex;
   flex-wrap: wrap;
