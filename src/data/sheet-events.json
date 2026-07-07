@@ -634,9 +634,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "16916945",
@@ -670,9 +670,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a0fb6a3e13d3b4603b50f75",
@@ -701,9 +701,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4419,
     "lng": -122.143,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835d42866a5b488426bfb",
@@ -734,9 +734,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "16546787",
@@ -768,9 +768,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3945,
     "lng": -122.0786,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835d281b67dfe32acec79",
@@ -799,9 +799,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "699f60146724c63d00f52cc4",
