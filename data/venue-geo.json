@@ -1,7 +1,8 @@
 {
   "venueAliases": {
     "Mountain View Public Library": "Mountain View Library",
-    "Los Altos Public Library": "Los Altos Library"
+    "Los Altos Public Library": "Los Altos Library",
+    "Downtown Mountain View": "Downtown Castro Street"
   },
   "venueGeo": {
     "Downtown Library": { "city": "Palo Alto", "lat": 37.4443, "lng": -122.1598 },
@@ -18,7 +19,16 @@
       "city": "Mountain View",
       "lat": 37.4001,
       "lng": -122.0986
-    }
+    },
+    "Purissima Park": { "city": "Los Altos", "lat": 37.3593, "lng": -122.2642 },
+    "Town Hall Council Chambers": { "city": "Los Altos", "lat": 37.3797, "lng": -122.267 },
+    "Westwind Community Barn": { "city": "Los Altos", "lat": 37.3718, "lng": -122.2785 },
+    "Redwood Grove Nature Preserve": { "city": "Los Altos", "lat": 37.3775, "lng": -122.1136 },
+    "Los Altos Community Center": { "city": "Los Altos", "lat": 37.3796, "lng": -122.1145 },
+    "Grant Park Soccer Field": { "city": "Los Altos", "lat": 37.3678, "lng": -122.1085 },
+    "Hillview Soccer Field": { "city": "Los Altos", "lat": 37.3796, "lng": -122.1145 },
+    "Civic Center Plaza": { "city": "Mountain View", "lat": 37.3901, "lng": -122.0819 },
+    "Downtown Castro Street": { "city": "Mountain View", "lat": 37.3934, "lng": -122.078 }
   },
   "venueAddresses": {
     "Downtown Library": "270 Forest Ave, Palo Alto, CA 94301",
@@ -31,7 +41,16 @@
     "Pioneer Park": "1146 Church St, Mountain View, CA 94041",
     "Deer Hollow Farm": "22500 Cristo Rey Dr, Los Altos, CA 94022",
     "Linden Tree Books": "265 State Street, Los Altos, CA 94022",
-    "Magical Bridge Playground at Rengstorff Park": "201 S. Rengstorff Ave, Mountain View, CA 94040"
+    "Magical Bridge Playground at Rengstorff Park": "201 S. Rengstorff Ave, Mountain View, CA 94040",
+    "Purissima Park": "27500 Purissima Road, Los Altos Hills, CA 94022",
+    "Town Hall Council Chambers": "26379 Fremont Road, Los Altos Hills, CA 94022",
+    "Westwind Community Barn": "27210 Altamont Road, Los Altos Hills, CA 94022",
+    "Redwood Grove Nature Preserve": "482 University Avenue, Los Altos, CA 94022",
+    "Los Altos Community Center": "97 Hillview Ave, Los Altos, CA 94022",
+    "Grant Park Soccer Field": "1575 Holt Avenue, Los Altos, CA 94022",
+    "Hillview Soccer Field": "97 Hillview Avenue, Los Altos, CA 94022",
+    "Civic Center Plaza": "500 Castro Street, Mountain View, CA 94041",
+    "Downtown Castro Street": "200 Castro St, Mountain View, CA 94041"
   },
   "cityCenters": {
     "Palo Alto": { "lat": 37.4419, "lng": -122.143 },

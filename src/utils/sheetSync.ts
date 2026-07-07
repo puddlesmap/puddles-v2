@@ -232,10 +232,51 @@ function parseCost(raw: string): Event['cost'] {
   return 'Free'
 }
 
-function normalizeCity(raw: string): City {
+function inferCityFromAddress(address: string): string {
+  const text = address
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+
+  if (text.includes('los altos hills')) return 'Los Altos Hills'
+  if (text.includes('mountain view')) return 'Mountain View'
+  if (text.includes('menlo park')) return 'Menlo Park'
+  if (text.includes('los altos')) return 'Los Altos'
+  if (text.includes('palo alto')) return 'Palo Alto'
+  return ''
+}
+
+function normalizeCity(raw: string, address = ''): City {
   const value = raw.trim()
+  const source = value || inferCityFromAddress(address)
+  const lower = source.toLowerCase()
+
+  if (lower.includes('los altos hills')) return 'Los Altos'
+  if (lower.includes('menlo park')) return 'Palo Alto'
+  if (lower.includes('mountain view')) return 'Mountain View'
+  if (lower.includes('los altos')) return 'Los Altos'
+  if (lower.includes('palo alto')) return 'Palo Alto'
+
   if (value === 'Palo Alto' || value === 'Los Altos' || value === 'Mountain View') return value
   return 'Palo Alto'
+}
+
+const GENERIC_EVENT_URL_SLUGS = new Set(['events-calendar', 'events', 'calendar', 'event'])
+
+function isUniqueEventUrlSlug(slug: string): boolean {
+  if (!slug) return false
+  if (GENERIC_EVENT_URL_SLUGS.has(slug)) return false
+  if (/^\d+$/.test(slug)) return false
+  if (/^[a-f0-9]{20,}$/i.test(slug)) return true
+  return false
+}
+
+function slugifyEventId(...parts: Array<string | undefined>): string {
+  return parts
+    .filter((part) => String(part ?? '').trim())
+    .join('-')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 function deriveEventId(record: Record<string, string>): string {
@@ -243,15 +284,27 @@ function deriveEventId(record: Record<string, string>): string {
   if (explicit) return explicit
 
   const eventUrl = pickField(record, 'eventUrl')
-  if (eventUrl) {
-    const slug = eventUrl.split('/').filter(Boolean).pop()
-    if (slug) return slug
+  const title = pickField(record, 'title')
+  const startDateTimeRaw = pickField(record, 'startDateTime')
+  const timeRange =
+    parseTimeRange(pickField(record, 'timeNormalized')) ?? parseTimeRange(startDateTimeRaw)
+  const startParts = parseSheetDateTime(startDateTimeRaw)
+  const date = startParts?.date ?? parseSheetDate(pickField(record, 'date'))
+  const startTime = startParts?.time ?? timeRange?.startTime ?? ''
+  const venue = pickField(record, 'venue')
+
+  const urlSlug = eventUrl
+    ? eventUrl.split('/').filter(Boolean).pop()?.split('?')[0]?.toLowerCase() ?? ''
+    : ''
+
+  if (isUniqueEventUrlSlug(urlSlug)) {
+    return urlSlug
   }
 
-  const title = pickField(record, 'title')
-  const date = pickField(record, 'date')
-  const venue = pickField(record, 'venue')
-  return `${title}-${venue}-${date}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 80)
+  const contentId = slugifyEventId(title, venue, date ?? undefined, startTime)
+  if (contentId) return contentId.slice(0, 100)
+
+  return slugifyEventId(title, venue).slice(0, 100) || 'event'
 }
 
 function resolveGeo(
@@ -271,7 +324,7 @@ function resolveGeo(
   if (room && VENUE_ADDRESSES[room]) {
     resolvedAddress = VENUE_ADDRESSES[room]
   }
-  const resolvedCity = normalizeCity(city || fallback?.city || '')
+  const resolvedCity = normalizeCity(city || fallback?.city || '', address)
 
   if (Number.isFinite(lat) && Number.isFinite(lng)) {
     return { address: resolvedAddress, city: resolvedCity, lat, lng }
