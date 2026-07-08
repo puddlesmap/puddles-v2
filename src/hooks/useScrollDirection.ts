@@ -1,16 +1,19 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type MutableRefObject } from 'react'
 
 const MOBILE_MEDIA = '(max-width: 767px)'
 const TOP_THRESHOLD = 8
-const COLLAPSE_DELTA = 5
-const EXPAND_DELTA = 5
-const MIN_SCROLL_Y_TO_COLLAPSE = 40
+const COLLAPSE_DELTA = 8
+const EXPAND_DELTA = 8
+const MIN_SCROLL_Y_TO_COLLAPSE = 48
 
 /**
  * Returns true when secondary controls should collapse (mobile scroll-down).
  * At page top or scrolling up, returns false.
  */
-export function useScrollDirectionCollapse(enabled = true) {
+export function useScrollDirectionCollapse(
+  enabled = true,
+  scrollSyncRef?: MutableRefObject<number | null>,
+) {
   const [collapsed, setCollapsed] = useState(false)
   const collapsedRef = useRef(false)
   const lastScrollY = useRef(0)
@@ -39,6 +42,11 @@ export function useScrollDirectionCollapse(enabled = true) {
       if (!media.matches) {
         setCollapsedSafe(false)
         return
+      }
+
+      if (scrollSyncRef?.current != null) {
+        lastScrollY.current = scrollSyncRef.current
+        scrollSyncRef.current = null
       }
 
       const y = window.scrollY

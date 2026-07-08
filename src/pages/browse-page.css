@@ -22,21 +22,24 @@
 
 @media (max-width: 767px) {
   .browse-page-shell .browse-controls-band {
+    display: grid;
+    grid-template-rows: 1fr;
     overflow: hidden;
-    max-height: var(--browse-band-height, 9.5rem);
     background: var(--page-background);
     overflow-anchor: none;
     transition:
-      max-height 320ms cubic-bezier(0.32, 0.72, 0, 1),
+      grid-template-rows 280ms cubic-bezier(0.32, 0.72, 0, 1),
       background-color 240ms ease-out;
   }
 
   .browse-page-shell .browse-controls-band > .browse-controls {
-    transition: opacity 240ms ease-out;
+    min-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms ease-out;
   }
 
   .browse-page-shell .browse-controls-band--collapsed {
-    max-height: 0;
+    grid-template-rows: 0fr;
     background: transparent;
   }
 

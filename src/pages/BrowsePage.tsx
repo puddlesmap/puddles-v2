@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import { getPublicEventsFromCatalog } from '../data/events'
 import { EventCard } from '../components/EventCard'
@@ -133,9 +133,11 @@ export function BrowsePage({
   const [restoreSnapshot, setRestoreSnapshot] = useState<BrowseReturnSnapshot | null>(null)
   const skipViewModeSyncRef = useRef(false)
   const filterMenuOpen = openPopover !== null || openSheet !== null
-  const mobileControlsCollapsed = useScrollDirectionCollapse(!filterMenuOpen)
+  const scrollSyncRef = useRef<number | null>(null)
+  const browseBandHeightRef = useRef(0)
+  const prevControlsCollapsedRef = useRef(false)
+  const mobileControlsCollapsed = useScrollDirectionCollapse(!filterMenuOpen, scrollSyncRef)
   const browseControlsRef = useRef<HTMLDivElement>(null)
-  const [browseBandHeight, setBrowseBandHeight] = useState(0)
   const { coords, isRequesting, requestLocation } = useUserLocation()
   const isExperimentBrowse3 = shellClassName?.includes('experiment-3') ?? false
 
@@ -257,8 +259,9 @@ export function BrowsePage({
     if (!controls || !media.matches) return
 
     const measure = () => {
-      if (!mobileControlsCollapsed) {
-        setBrowseBandHeight(controls.getBoundingClientRect().height)
+      const height = Math.ceil(controls.scrollHeight)
+      if (height > 0) {
+        browseBandHeightRef.current = height
       }
     }
 
@@ -273,6 +276,29 @@ export function BrowsePage({
       window.removeEventListener('resize', measure)
     }
   }, [mobileControlsCollapsed, locationLabel, browseFilters, viewMode, showReset, events.length])
+
+  useLayoutEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)')
+    if (!media.matches || filterMenuOpen) {
+      prevControlsCollapsedRef.current = filterMenuOpen ? false : mobileControlsCollapsed
+      return
+    }
+
+    const wasCollapsed = prevControlsCollapsedRef.current
+    const isCollapsed = mobileControlsCollapsed
+    const bandHeight = browseBandHeightRef.current
+
+    if (wasCollapsed !== isCollapsed && bandHeight > 0) {
+      const nextScrollY = isCollapsed
+        ? window.scrollY + bandHeight
+        : Math.max(0, window.scrollY - bandHeight)
+
+      window.scrollTo({ top: nextScrollY, left: 0, behavior: 'instant' })
+      scrollSyncRef.current = nextScrollY
+    }
+
+    prevControlsCollapsedRef.current = isCollapsed
+  }, [mobileControlsCollapsed, filterMenuOpen])
 
   const resultsSummary =
     resultsCountStyle === 'contextual'
@@ -423,10 +449,6 @@ export function BrowsePage({
       ? 'browse-event-grid browse-event-grid--compact-two-column'
       : 'browse-event-grid'
   const listCardVariant = listLayout === 'compact-two-column' ? 'compact-grid' : 'grid'
-  const browseBandStyle =
-    browseBandHeight > 0
-      ? ({ '--browse-band-height': `${browseBandHeight}px` } as CSSProperties)
-      : undefined
 
   return (
     <div className={['browse-page-shell', shellClassName].filter(Boolean).join(' ')}>
@@ -442,7 +464,6 @@ export function BrowsePage({
             ]
               .filter(Boolean)
               .join(' ')}
-            style={browseBandStyle}
           >
             <div ref={browseControlsRef} className="layout-container browse-controls relative">
             <div className="browse-controls-row">
