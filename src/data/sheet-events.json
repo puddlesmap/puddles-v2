@@ -24,8 +24,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
     "eventUrl": "#",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Draft",
     "isPast": true,
     "isLive": false
@@ -45,13 +45,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -182,8 +180,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2716d",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -204,14 +202,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -239,15 +235,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
@@ -275,14 +267,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -402,12 +392,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Social & Play"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Social & Play"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_16_52_35.jpg",
@@ -468,14 +456,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -532,19 +518,17 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Outdoor"
     ],
     "categoryTags": [
-      "Stories",
       "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a6",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -563,10 +547,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -654,15 +640,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -699,8 +681,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a0fb6a3e13d3b4603b50f75",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -720,13 +702,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -828,42 +808,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "music-on-castro-downtown-mountain-view-2026-07-08-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
-    "venue": "Downtown Mountain View",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-07-08",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3295/656",
-    "verifiedDate": "2026-07-17",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "68afa7b0022de53d00d2716e",
@@ -890,8 +837,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2716e",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -912,14 +859,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -947,15 +892,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
@@ -983,14 +924,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -1016,12 +955,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Arts & Crafts",
       "Build & Explore"
     ],
     "categoryTags": [
-      "Stories",
       "Arts & Crafts",
       "Build & Explore"
     ],
@@ -1031,6 +968,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-mountain-view-2026-07-08-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
+    "venue": "Downtown Mountain View",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-07-08",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3295/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1086,14 +1052,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_10_12_23_00.jpg",
@@ -1154,14 +1118,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -1187,10 +1149,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Other"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Other"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -1248,11 +1210,9 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Music & Movement"
     ],
     "categoryTags": [
-      "Stories",
       "Music & Movement"
     ],
     "cost": "Free",
@@ -1279,84 +1239,19 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Music & Movement",
-      "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories",
       "Music & Movement",
-      "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltosca.gov/ImageRepository/Document?documentID=2764",
     "eventUrl": "https://www.losaltosca.gov/766/2026-Summer-Concert-Series",
-    "verifiedDate": "2026-08-18",
-    "lat": 37.3678,
-    "lng": -122.1085,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "concerts-on-the-plaza-2026-07-10-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "",
-    "venue": "",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-07-10",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Other"
-    ],
-    "categoryTags": [
-      "Other"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3340/656",
-    "verifiedDate": "2026-07-18",
-    "lat": 37.3894,
-    "lng": -122.0833,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "zootopia-2-summer-outdoor-movie-night-series-cuesta-park-2026-07-10-08-30",
-    "title": "Zootopia 2: Summer Outdoor Movie Night Series",
-    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
-    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
-    "venue": "Cuesta Park",
-    "address": "615 Cuesta Dr, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-07-10",
-    "startTime": "08:30",
-    "endTime": "08:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Other"
-    ],
-    "categoryTags": [
-      "Other"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
-    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-11",
-    "lat": 37.3894,
-    "lng": -122.0833,
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3458,
+    "lng": -122.0704,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1408,13 +1303,11 @@
     "ageMax": 5,
     "types": [
       "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
       "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_13_15_27_41.png",
@@ -1456,6 +1349,35 @@
     "isLive": true
   },
   {
+    "id": "concerts-on-the-plaza-2026-07-10-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "",
+    "venue": "",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-07-10",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3340/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "zootopia-2-family-movie-night-series-2026-mitchell-park-athletics-fields-2026-07-10-19-30",
     "title": "Zootopia 2: Family Movie Night Series 2026",
     "description": "Join the City of Palo Alto's Recreation Department for the 6th annual Summer Family Movie Night Series! The Community Services Department is excited to bring families together for an unforgettable evening under the stars.Bring your blankets, lawn chairs, and snacks for a fun-filled family night. We can't wait to see you there!",
@@ -1470,19 +1392,47 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Social & Play",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
-      "Social & Play",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/summer-2026-family-movie-nights-8.5-x-11-in.png?dimension=pageimagefullwidth&w=1140",
     "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Family-Movie-Night-Series-2026",
     "verifiedDate": "2026-07-07",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.419,
+    "lng": -122.1095,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "zootopia-2-summer-outdoor-movie-night-series-cuesta-park-2026-07-10-20-30",
+    "title": "Zootopia 2: Summer Outdoor Movie Night Series",
+    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
+    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
+    "venue": "Cuesta Park",
+    "address": "615 Cuesta Dr, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-07-10",
+    "startTime": "20:30",
+    "endTime": "20:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
+    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3734,
+    "lng": -122.0816,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1534,14 +1484,10 @@
     "ageMin": 5,
     "ageMax": 12,
     "types": [
-      "Stories",
-      "Build & Explore",
-      "Classes"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Stories",
-      "Build & Explore",
-      "Classes"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
@@ -1567,10 +1513,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -1629,14 +1577,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/ce80687b2e47ee546f80e01f282a9a24/Headers.png",
@@ -1662,12 +1608,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/f00ce3e9afd5f0b0c0a1198e0b2103aa/kssboardgame;Header(1).png",
@@ -1704,8 +1648,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a0fb6a3e13d3b4603b50f76",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1725,13 +1669,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -1822,19 +1764,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Outdoor"
     ],
     "categoryTags": [
-      "Stories",
       "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc5",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1869,39 +1809,6 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-mountain-view-2026-07-15-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
-    "venue": "Downtown Mountain View",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-07-15",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3294/656",
-    "verifiedDate": "2026-07-19",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "68afa7b0022de53d00d2716f",
     "title": "Little Ones Storytime",
     "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
@@ -1926,8 +1833,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2716f",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1948,14 +1855,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -1983,15 +1888,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
@@ -2019,14 +1920,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -2052,12 +1951,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Social & Play"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Social & Play"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/d3c01ce061370cdb682b7275c35fd7a3/SummerReadingBiblioEvent(760x230px).png",
@@ -2083,12 +1980,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Social & Play"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Social & Play"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/d3c01ce061370cdb682b7275c35fd7a3/SummerReadingBiblioEvent(760x230px).png",
@@ -2096,6 +1991,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-mountain-view-2026-07-15-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
+    "venue": "Downtown Mountain View",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-07-15",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3294/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -2216,14 +2140,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -2249,10 +2171,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Other"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Other"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -2309,88 +2231,19 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Music & Movement",
-      "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories",
       "Music & Movement",
-      "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltosca.gov/ImageRepository/Document?documentID=2764",
     "eventUrl": "https://www.losaltosca.gov/766/2026-Summer-Concert-Series",
-    "verifiedDate": "2026-08-19",
+    "verifiedDate": "2026-07-07",
     "lat": 37.3796,
     "lng": -122.1145,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-07-17-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-07-17",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3339/656",
-    "verifiedDate": "2026-07-20",
-    "lat": 37.3901,
-    "lng": -122.0819,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "spongebob-the-search-for-squarepants-summer-outdoor-movie-night-series-sylvan-park-2026-07-17-08-30",
-    "title": "Spongebob: The Search for SquarePants: Summer Outdoor Movie Night Series",
-    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
-    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
-    "venue": "Sylvan Park",
-    "address": "600 Sylvan Ave, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-07-17",
-    "startTime": "08:30",
-    "endTime": "08:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Other"
-    ],
-    "categoryTags": [
-      "Other"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
-    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-12",
-    "lat": 37.3894,
-    "lng": -122.0833,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -2442,13 +2295,11 @@
     "ageMax": 5,
     "types": [
       "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
       "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_13_15_28_19.png",
@@ -2490,6 +2341,35 @@
     "isLive": true
   },
   {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-07-17-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-07-17",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3339/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "goat-family-movie-night-series-2026-mitchell-park-athletics-fields-2026-07-17-19-30",
     "title": "Goat: Family Movie Night Series 2026",
     "description": "Join the City of Palo Alto's Recreation Department for the 6th annual Summer Family Movie Night Series! The Community Services Department is excited to bring families together for an unforgettable evening under the stars.Bring your blankets, lawn chairs, and snacks for a fun-filled family night. We can't wait to see you there!",
@@ -2504,19 +2384,47 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Social & Play",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
-      "Social & Play",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/summer-2026-family-movie-nights-8.5-x-11-in.png?dimension=pageimagefullwidth&w=1140",
     "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Family-Movie-Night-Series-2026",
-    "verifiedDate": "2026-07-08",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "verifiedDate": "2026-07-07",
+    "lat": 37.419,
+    "lng": -122.1095,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "spongebob-the-search-for-squarepants-summer-outdoor-movie-night-series-sylvan-park-2026-07-17-20-30",
+    "title": "Spongebob: The Search for SquarePants: Summer Outdoor Movie Night Series",
+    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
+    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
+    "venue": "Sylvan Park",
+    "address": "600 Sylvan Ave, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-07-17",
+    "startTime": "20:30",
+    "endTime": "20:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
+    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3816,
+    "lng": -122.0619,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -2535,12 +2443,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/4b7ff6df09ad107d8567268a5e6c3e87/Entertainment & Recreation.jpg",
@@ -2663,13 +2569,11 @@
     "ageMax": 5,
     "types": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Classes"
+      "Build & Explore"
     ],
     "categoryTags": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Classes"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/61343712c18382e95e4eb08e772e70cc/dragon-boat-festival-main-780x400.jpg",
@@ -2696,13 +2600,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Build & Explore",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Build & Explore",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -2728,10 +2630,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -2819,13 +2723,11 @@
     "ageMin": 5,
     "ageMax": 12,
     "types": [
-      "Stories",
       "Arts & Crafts",
       "Build & Explore",
       "Classes"
     ],
     "categoryTags": [
-      "Stories",
       "Arts & Crafts",
       "Build & Explore",
       "Classes"
@@ -2897,8 +2799,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a0fb6a3e13d3b4603b50f77",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -2918,13 +2820,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -3031,39 +2931,6 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-mountain-view-2026-07-22-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
-    "venue": "Downtown Mountain View",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-07-22",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3293/656",
-    "verifiedDate": "2026-07-21",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "68afa7b0022de53d00d27170",
     "title": "Little Ones Storytime",
     "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
@@ -3088,8 +2955,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27170",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3110,14 +2977,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -3145,15 +3010,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
@@ -3181,14 +3042,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -3214,10 +3073,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Other"
     ],
     "categoryTags": [
-      "Stories"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/d3c01ce061370cdb682b7275c35fd7a3/SummerReadingBiblioEvent(760x230px).png",
@@ -3243,10 +3102,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Other"
     ],
     "categoryTags": [
-      "Stories"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/d3c01ce061370cdb682b7275c35fd7a3/SummerReadingBiblioEvent(760x230px).png",
@@ -3254,6 +3113,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-mountain-view-2026-07-22-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
+    "venue": "Downtown Mountain View",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-07-22",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3293/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3309,14 +3197,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_10_12_23_00.jpg",
@@ -3377,14 +3263,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -3410,10 +3294,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Other"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Other"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -3470,88 +3354,19 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Music & Movement",
-      "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories",
       "Music & Movement",
-      "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltosca.gov/ImageRepository/Document?documentID=2764",
     "eventUrl": "https://www.losaltosca.gov/766/2026-Summer-Concert-Series",
-    "verifiedDate": "2026-08-20",
+    "verifiedDate": "2026-07-07",
     "lat": 37.3796,
     "lng": -122.1145,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-07-24-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-07-24",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3338/656",
-    "verifiedDate": "2026-07-22",
-    "lat": 37.3901,
-    "lng": -122.0819,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "hoppers-summer-outdoor-movie-night-series-stevenson-park-2026-07-24-08-30",
-    "title": "Hoppers: Summer Outdoor Movie Night Series",
-    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
-    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
-    "venue": "Stevenson Park",
-    "address": "750 San Pierre Way, Mountain View, CA 94043",
-    "city": "Mountain View",
-    "date": "2026-07-24",
-    "startTime": "08:30",
-    "endTime": "08:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Other"
-    ],
-    "categoryTags": [
-      "Other"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
-    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-13",
-    "lat": 37.3894,
-    "lng": -122.0833,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3572,13 +3387,11 @@
     "ageMax": 5,
     "types": [
       "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
       "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_13_15_28_41.png",
@@ -3651,6 +3464,65 @@
     "isLive": true
   },
   {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-07-24-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-07-24",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3338/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "hoppers-summer-outdoor-movie-night-series-stevenson-park-2026-07-24-20-30",
+    "title": "Hoppers: Summer Outdoor Movie Night Series",
+    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
+    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
+    "venue": "Stevenson Park",
+    "address": "750 San Pierre Way, Mountain View, CA 94043",
+    "city": "Mountain View",
+    "date": "2026-07-24",
+    "startTime": "20:30",
+    "endTime": "20:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
+    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.4036,
+    "lng": -122.0841,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "6a25aace2ea730c17ab50483",
     "title": "Family Storytime",
     "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n \n Make sure to follow us on YouTube for more stories, songs and rhymes, including...",
@@ -3697,14 +3569,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Social & Play",
-      "Classes"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Social & Play",
-      "Classes"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -3730,12 +3598,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Music & Movement",
       "Classes"
     ],
     "categoryTags": [
-      "Stories",
       "Music & Movement",
       "Classes"
     ],
@@ -3802,10 +3668,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -3895,13 +3763,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -3938,8 +3804,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69fd15cb1773192800183afe",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3959,13 +3825,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -4072,39 +3936,6 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-mountain-view-2026-07-29-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
-    "venue": "Downtown Mountain View",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-07-29",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3292/656",
-    "verifiedDate": "2026-07-23",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "68afa7b0022de53d00d27171",
     "title": "Little Ones Storytime",
     "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
@@ -4129,8 +3960,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27171",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4151,14 +3982,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -4186,15 +4015,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
@@ -4222,14 +4047,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -4255,10 +4078,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore"
+      "Build & Explore",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Build & Explore"
+      "Build & Explore",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/d3c01ce061370cdb682b7275c35fd7a3/SummerReadingBiblioEvent(760x230px).png",
@@ -4284,10 +4109,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore"
+      "Build & Explore",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Build & Explore"
+      "Build & Explore",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/d3c01ce061370cdb682b7275c35fd7a3/SummerReadingBiblioEvent(760x230px).png",
@@ -4295,6 +4122,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-mountain-view-2026-07-29-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
+    "venue": "Downtown Mountain View",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-07-29",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3292/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4415,14 +4271,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -4448,10 +4302,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Other"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Other"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -4537,88 +4391,19 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Music & Movement",
-      "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories",
       "Music & Movement",
-      "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltosca.gov/ImageRepository/Document?documentID=2764",
     "eventUrl": "https://www.losaltosca.gov/766/2026-Summer-Concert-Series",
-    "verifiedDate": "2026-08-21",
+    "verifiedDate": "2026-07-07",
     "lat": 37.3796,
     "lng": -122.1145,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-07-31-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-07-31",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3337/656",
-    "verifiedDate": "2026-07-24",
-    "lat": 37.3901,
-    "lng": -122.0819,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "super-mario-galaxy-summer-outdoor-movie-night-series-whisman-park-2026-07-31-08-30",
-    "title": "Super Mario Galaxy: Summer Outdoor Movie Night Series",
-    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
-    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
-    "venue": "Whisman Park",
-    "address": "300 Easy St, Mountain View, CA 94043",
-    "city": "Mountain View",
-    "date": "2026-07-31",
-    "startTime": "08:30",
-    "endTime": "08:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Other"
-    ],
-    "categoryTags": [
-      "Other"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
-    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-14",
-    "lat": 37.3894,
-    "lng": -122.0833,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4670,13 +4455,11 @@
     "ageMax": 5,
     "types": [
       "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
       "Build & Explore",
-      "Outdoor",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_13_15_29_10.png",
@@ -4718,6 +4501,35 @@
     "isLive": true
   },
   {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-07-31-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-07-31",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3337/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "6a29b52ecaf9343600621646",
     "title": "Friends of the Los Altos Library Booksale @ Los Altos Community Center",
     "description": "The Friends of the Los Altos Library Present their Community Book Sale\n \n Fiction & non-fiction books and media for all ages\n Friday, July 31, 6:30 - 9pm. Members only Preview Sale! Join at the door for $10.Saturday, August 1, 10am - 4pmSunday,...",
@@ -4731,12 +4543,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "categoryTags": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
@@ -4762,12 +4572,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "categoryTags": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
@@ -4794,19 +4602,47 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Social & Play",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
-      "Social & Play",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/summer-2026-family-movie-nights-8.5-x-11-in.png?dimension=pageimagefullwidth&w=1140",
     "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Family-Movie-Night-Series-2026",
-    "verifiedDate": "2026-07-09",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "verifiedDate": "2026-07-07",
+    "lat": 37.419,
+    "lng": -122.1095,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "super-mario-galaxy-summer-outdoor-movie-night-series-whisman-park-2026-07-31-20-30",
+    "title": "Super Mario Galaxy: Summer Outdoor Movie Night Series",
+    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
+    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
+    "venue": "Whisman Park",
+    "address": "300 Easy St, Mountain View, CA 94043",
+    "city": "Mountain View",
+    "date": "2026-07-31",
+    "startTime": "20:30",
+    "endTime": "20:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
+    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3989,
+    "lng": -122.0664,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4825,12 +4661,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "categoryTags": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
@@ -4856,12 +4690,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "categoryTags": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
@@ -4889,14 +4721,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -4912,6 +4742,7 @@
     "id": "6a25aace2ea730c17ab50484",
     "title": "Chill Out with Mindfulness Meditation",
     "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.\n \n This program...",
+    "tips": "This program is open to all ages, young and old, and all levels of experience. Children under 10 years old must be accompanied by an adult. No registration is required.\n\nParticipants are encouraged to bring their own yoga mats and/or meditation cushions. Chairs are available for adults who do not bring them.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -4922,12 +4753,10 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
@@ -4953,12 +4782,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Build & Explore",
       "Outdoor"
     ],
     "categoryTags": [
-      "Stories",
       "Build & Explore",
       "Outdoor"
     ],
@@ -4966,8 +4793,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3761",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5015,10 +4842,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
+      "Stories",
       "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
+      "Stories",
       "Music & Movement",
       "Outdoor"
     ],
@@ -5026,8 +4855,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69fd17aef89ee15800515554",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5047,13 +4876,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -5079,10 +4906,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -5108,12 +4937,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "categoryTags": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
@@ -5139,12 +4966,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "categoryTags": [
-      "Stories",
-      "Social & Play"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
@@ -5201,15 +5026,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -5217,39 +5038,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "national-night-out-civic-center-plaza-2026-08-04-05-30",
-    "title": "National Night Out",
-    "description": "Join Us for National Night Out! Together, we're building a safer, more connected community. National Night Out returns on Tuesday, August 4, 2026, from 5:30--7:30 p.m. at Civic Center Plaza (500 Castro Street) and Mercy Street. Stop by for an evening of cold treats, music by a live DJ, and fun for all ages! Connect with your neighbors and meet members of the Mountain View Police Department, Fire Department, and Recreation Division. Enjoy vehicle displays, City information booths, and more!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-08-04",
-    "startTime": "05:30",
-    "endTime": "07:30",
-    "ageRange": "0-2, 2-5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement",
-      "Build & Explore",
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Music & Movement",
-      "Build & Explore",
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3480/656",
-    "verifiedDate": "2026-07-25",
-    "lat": 37.3901,
-    "lng": -122.0819,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5269,13 +5057,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -5382,34 +5168,32 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-mountain-view-2026-08-05-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
-    "venue": "Downtown Mountain View",
-    "address": "200 Castro St, Mountain View, CA 94041",
+    "id": "national-night-out-civic-center-plaza-2026-08-04-17-30",
+    "title": "National Night Out",
+    "description": "Join Us for National Night Out! Together, we're building a safer, more connected community. National Night Out returns on Tuesday, August 4, 2026, from 5:30--7:30 p.m. at Civic Center Plaza (500 Castro Street) and Mercy Street. Stop by for an evening of cold treats, music by a live DJ, and fun for all ages! Connect with your neighbors and meet members of the Mountain View Police Department, Fire Department, and Recreation Division. Enjoy vehicle displays, City information booths, and more!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
     "city": "Mountain View",
-    "date": "2026-08-05",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
+    "date": "2026-08-04",
+    "startTime": "17:30",
+    "endTime": "19:30",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Music & Movement",
-      "Classes"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Stories",
       "Music & Movement",
-      "Classes"
+      "Build & Explore"
     ],
     "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3291/656",
-    "verifiedDate": "2026-07-26",
-    "lat": 37.3934,
-    "lng": -122.078,
+    "imageUrl": "",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3480/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5430,14 +5214,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5465,14 +5247,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5480,6 +5260,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-mountain-view-2026-08-05-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
+    "venue": "Downtown Mountain View",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-05",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3291/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5532,14 +5341,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5578,65 +5385,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-07-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-08-07",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Other"
-    ],
-    "categoryTags": [
-      "Other"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3336/656",
-    "verifiedDate": "2026-07-27",
-    "lat": 37.3901,
-    "lng": -122.0819,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "goat-summer-outdoor-movie-night-series-eagle-park-2026-08-07-08-30",
-    "title": "GOAT: Summer Outdoor Movie Night Series",
-    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
-    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
-    "venue": "Eagle Park",
-    "address": "650 Franklin St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-08-07",
-    "startTime": "08:30",
-    "endTime": "08:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Other"
-    ],
-    "categoryTags": [
-      "Other"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
-    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-15",
-    "lat": 37.3894,
-    "lng": -122.0833,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5703,6 +5451,35 @@
     "isLive": true
   },
   {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-07-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-08-07",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3336/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "movie-night-at-the-purissima-park-zootopia-2-purissima-park-2026-08-07-18-30",
     "title": "Movie Night at the Purissima Park: Zootopia 2",
     "description": "Save the Date! Join us for a magical summer evening at Purissima Park for an outdoor dinner and movie night!\n\nBefore the movie begins, set up your cozy spot and grab a bite from a local food truck. As the sun sets, settle in for a beloved film on a massive outdoor screen. Plus, enjoy a coffee and hot cocoa bar hosted by the Youth Commission, along with freshly popped popcorn!",
@@ -5725,9 +5502,39 @@
     "cost": "Free",
     "imageUrl": "https://www.losaltoshills.ca.gov/ImageRepository/Document?documentID=8027",
     "eventUrl": "https://www.losaltoshills.ca.gov/FormCenter/Parks-Recreation-4/Movie-Night-at-the-Park-2026-218",
-    "verifiedDate": "2026-08-22",
+    "verifiedDate": "2026-07-07",
     "lat": 37.3772,
     "lng": -122.1477,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "goat-summer-outdoor-movie-night-series-eagle-park-2026-08-07-20-30",
+    "title": "GOAT: Summer Outdoor Movie Night Series",
+    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
+    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
+    "venue": "Eagle Park",
+    "address": "650 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-07",
+    "startTime": "20:30",
+    "endTime": "20:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
+    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3893,
+    "lng": -122.0857,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5748,20 +5555,16 @@
     "ageMax": 5,
     "types": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Social & Play",
-      "Classes"
+      "Build & Explore"
     ],
     "categoryTags": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Social & Play",
-      "Classes"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltosca.gov/ImageRepository/Document?documentID=2763",
     "eventUrl": "https://www.losaltosca.gov/329/Family-Fun-Days",
-    "verifiedDate": "2026-08-15",
+    "verifiedDate": "2026-07-07",
     "lat": 37.3796,
     "lng": -122.1145,
     "status": "Published",
@@ -5769,9 +5572,10 @@
     "isLive": true
   },
   {
-    "id": "6a25aace2ea730c17ab50485",
+    "id": "6a120e06c7d3cd58005b3762",
     "title": "Chill Out with Mindfulness Meditation",
     "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.\n \n This program...",
+    "tips": "This program is open to all ages, young and old, and all levels of experience. Children under 10 years old must be accompanied by an adult. No registration is required.\n\nParticipants are encouraged to bring their own yoga mats and/or meditation cushions. Chairs are available for adults who do not bring them.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -5782,16 +5586,14 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50485",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3762",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -5844,10 +5646,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -5873,12 +5677,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/f00ce3e9afd5f0b0c0a1198e0b2103aa/kssboardgame;Header(1).png",
@@ -5905,13 +5707,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -6018,39 +5818,6 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-mountain-view-2026-08-12-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
-    "venue": "Downtown Mountain View",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-08-12",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3290/656",
-    "verifiedDate": "2026-07-28",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "69b835c4b48451fc3c09442e",
     "title": "Toddler Storytime",
     "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
@@ -6066,14 +5833,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6101,14 +5866,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6116,6 +5879,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-mountain-view-2026-08-12-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
+    "venue": "Downtown Mountain View",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-12",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3290/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6168,14 +5960,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_10_12_23_00.jpg",
@@ -6203,14 +5993,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6254,69 +6042,6 @@
     "isLive": true
   },
   {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-14-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-08-14",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3335/656",
-    "verifiedDate": "2026-07-29",
-    "lat": 37.3901,
-    "lng": -122.0819,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "lilo-stitch-live-action-summer-outdoor-movie-night-series-rengstorff-park-2026-08-14-08-30",
-    "title": "Lilo & Stitch (Live Action): Summer Outdoor Movie Night Series",
-    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
-    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
-    "venue": "Rengstorff Park",
-    "address": "1931-2057 S Rengstorff Ave, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-08-14",
-    "startTime": "08:30",
-    "endTime": "08:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Other"
-    ],
-    "categoryTags": [
-      "Other"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
-    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-16",
-    "lat": 37.3894,
-    "lng": -122.0833,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "tech-take-apart-mountain-view-public-library-2026-08-14-15-00",
     "title": "Tech Take Apart",
     "description": "Curious about what's inside a computer? Join us for this hands-on program where kids can take apart e-waste like CPUs, monitors, and mice to discover how computers work. Learn about the different...",
@@ -6331,12 +6056,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Classes"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Classes"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_13_15_32_26.png",
@@ -6378,6 +6101,35 @@
     "isLive": true
   },
   {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-14-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-08-14",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3335/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "the-super-mario-galaxy-movie-family-movie-night-series-2026-mitchell-park-athletics-fields-2026-08-1",
     "title": "The Super Mario Galaxy Movie\n: Family Movie Night Series 2026",
     "description": "Join the City of Palo Alto's Recreation Department for the 6th annual Summer Family Movie Night Series! The Community Services Department is excited to bring families together for an unforgettable evening under the stars.Bring your blankets, lawn chairs, and snacks for a fun-filled family night. We can't wait to see you there!",
@@ -6392,19 +6144,47 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Social & Play",
-      "Classes"
+      "Outdoor"
     ],
     "categoryTags": [
-      "Social & Play",
-      "Classes"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/summer-2026-family-movie-nights-8.5-x-11-in.png?dimension=pageimagefullwidth&w=1140",
     "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Family-Movie-Night-Series-2026",
-    "verifiedDate": "2026-07-10",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "verifiedDate": "2026-07-07",
+    "lat": 37.419,
+    "lng": -122.1095,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "lilo-stitch-live-action-summer-outdoor-movie-night-series-rengstorff-park-2026-08-14-20-30",
+    "title": "Lilo & Stitch (Live Action): Summer Outdoor Movie Night Series",
+    "description": "Join us for summer nights under the stars!\n\nAll movies begin at 8:30 p.m. or when dark.",
+    "tips": "Bring a blanket or lawn chair to relax once the movie begins.",
+    "venue": "Rengstorff Park",
+    "address": "1931-2057 S Rengstorff Ave, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-08-14",
+    "startTime": "20:30",
+    "endTime": "20:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
+    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.396,
+    "lng": -122.1018,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6423,12 +6203,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/4b7ff6df09ad107d8567268a5e6c3e87/Entertainment & Recreation.jpg",
@@ -6444,6 +6222,7 @@
     "id": "6a25aace2ea730c17ab50486",
     "title": "Chill Out with Mindfulness Meditation",
     "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.\n \n This program...",
+    "tips": "This program is open to all ages, young and old, and all levels of experience. Children under 10 years old must be accompanied by an adult. No registration is required.\n\nParticipants are encouraged to bring their own yoga mats and/or meditation cushions. Chairs are available for adults who do not bring them.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -6454,15 +6233,13 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
+    "imageUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3763",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50486",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
@@ -6514,10 +6291,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -6575,13 +6354,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -6654,39 +6431,6 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-mountain-view-2026-08-19-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
-    "venue": "Downtown Mountain View",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-08-19",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3289/656",
-    "verifiedDate": "2026-07-30",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "69b835c4b48451fc3c09442f",
     "title": "Toddler Storytime",
     "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
@@ -6702,14 +6446,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6737,14 +6479,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6752,6 +6492,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-mountain-view-2026-08-19-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
+    "venue": "Downtown Mountain View",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-19",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3289/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6772,14 +6541,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6823,39 +6590,6 @@
     "isLive": true
   },
   {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-21-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-08-21",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3334/656?npage=2",
-    "verifiedDate": "2026-07-31",
-    "lat": 37.3901,
-    "lng": -122.0819,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "68afa7b0022de53d00d27174",
     "title": "LEGO Fridays!",
     "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
@@ -6885,9 +6619,39 @@
     "isLive": true
   },
   {
-    "id": "6a25aace2ea730c17ab50487",
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-21-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-08-21",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3334/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "6a120e06c7d3cd58005b3764",
     "title": "Chill Out with Mindfulness Meditation",
     "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.\n \n This program...",
+    "tips": "This program is open to all ages, young and old, and all levels of experience. Children under 10 years old must be accompanied by an adult. No registration is required.\n\nParticipants are encouraged to bring their own yoga mats and/or meditation cushions. Chairs are available for adults who do not bring them.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -6898,16 +6662,14 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50487",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3764",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -6929,10 +6691,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -6960,13 +6724,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -6993,13 +6755,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -7072,39 +6832,6 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-castro-street-2026-08-26-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
-    "venue": "Downtown Castro Street",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-08-26",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3288/656?npage=2",
-    "verifiedDate": "2026-08-01",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "69b835c4b48451fc3c094430",
     "title": "Toddler Storytime",
     "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
@@ -7120,14 +6847,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -7155,14 +6880,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -7170,6 +6893,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-castro-street-2026-08-26-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
+    "venue": "Downtown Castro Street",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-26",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3288/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7190,14 +6942,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_10_12_23_00.jpg",
@@ -7225,14 +6975,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -7276,39 +7024,6 @@
     "isLive": true
   },
   {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-28-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-08-28",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3333/656?npage=2",
-    "verifiedDate": "2026-08-02",
-    "lat": 37.3901,
-    "lng": -122.0819,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "6a25aace2ea730c17ab50488",
     "title": "LEGO Fridays!",
     "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
@@ -7338,9 +7053,39 @@
     "isLive": true
   },
   {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-28-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-08-28",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3333/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "6a120e06c7d3cd58005b3765",
     "title": "Chill Out with Mindfulness Meditation",
     "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.\n \n This program...",
+    "tips": "This program is open to all ages, young and old, and all levels of experience. Children under 10 years old must be accompanied by an adult. No registration is required.\n\nParticipants are encouraged to bring their own yoga mats and/or meditation cushions. Chairs are available for adults who do not bring them.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -7351,12 +7096,10 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Music & Movement",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
@@ -7382,10 +7125,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -7411,16 +7156,12 @@
     "ageMin": 5,
     "ageMax": 12,
     "types": [
-      "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -7448,15 +7189,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -7493,8 +7230,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f604b",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7529,39 +7266,6 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-castro-street-2026-09-02-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.*",
-    "venue": "Downtown Castro Street",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-09-02",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3287/656?npage=2",
-    "verifiedDate": "2026-08-03",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "6946001eea69de6e001069ad",
     "title": "Little Ones Storytime",
     "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
@@ -7586,8 +7290,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069ad",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7608,14 +7312,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -7623,6 +7325,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-castro-street-2026-09-02-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.*",
+    "venue": "Downtown Castro Street",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-09-02",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3287/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7691,39 +7422,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-09-04-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-09-04",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3332/656?npage=2",
-    "verifiedDate": "2026-08-04",
-    "lat": 37.3901,
-    "lng": -122.0819,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7821,6 +7519,35 @@
     "isLive": true
   },
   {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-09-04-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-09-04",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3332/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "698e125a2a787a47a5e73be0",
     "title": "Family Storytime",
     "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n \n Make sure to follow us on YouTube for more stories, songs and rhymes, including...",
@@ -7869,14 +7596,12 @@
     "types": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "categoryTags": [
       "Stories",
       "Music & Movement",
-      "Outdoor",
-      "Social & Play"
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -7902,10 +7627,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -7942,8 +7669,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f604c",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7978,39 +7705,6 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-castro-street-2026-09-09-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.*",
-    "venue": "Downtown Castro Street",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-09-09",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3286/656?npage=2",
-    "verifiedDate": "2026-08-05",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "6946001eea69de6e001069ae",
     "title": "Little Ones Storytime",
     "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
@@ -8035,8 +7729,37 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069ae",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-castro-street-2026-09-09-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.*",
+    "venue": "Downtown Castro Street",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-09-09",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3286/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -8110,39 +7833,6 @@
     "isLive": true
   },
   {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-09-11-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-09-11",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3331/656?npage=2",
-    "verifiedDate": "2026-08-06",
-    "lat": 37.3901,
-    "lng": -122.0819,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "6946005fea69de6e001069c2",
     "title": "Family Storytime",
     "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are...",
@@ -8203,6 +7893,35 @@
     "isLive": true
   },
   {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-09-11-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-09-11",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3331/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "698e125a2a787a47a5e73be1",
     "title": "Family Storytime",
     "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n \n Make sure to follow us on YouTube for more stories, songs and rhymes, including...",
@@ -8249,10 +7968,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -8278,12 +7999,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/f00ce3e9afd5f0b0c0a1198e0b2103aa/kssboardgame;Header(1).png",
@@ -8309,10 +8028,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Other"
     ],
     "categoryTags": [
-      "Stories"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://cdn.shoplightspeed.com/shops/611345/files/76427608/raina-telgemeier-gale-galligan-sunday-september-13.jpg",
@@ -8349,8 +8068,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f604d",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -8385,39 +8104,6 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-castro-street-2026-09-16-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
-    "venue": "Downtown Castro Street",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-09-16",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3285/656?npage=2",
-    "verifiedDate": "2026-08-07",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "6946001eea69de6e001069af",
     "title": "Little Ones Storytime",
     "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
@@ -8442,8 +8128,37 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069af",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-castro-street-2026-09-16-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.",
+    "venue": "Downtown Castro Street",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-09-16",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3285/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -8517,39 +8232,6 @@
     "isLive": true
   },
   {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-09-18-06-00",
-    "title": "Concerts on the Plaza",
-    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-09-18",
-    "startTime": "06:00",
-    "endTime": "07:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3330/656?npage=2",
-    "verifiedDate": "2026-08-08",
-    "lat": 37.3901,
-    "lng": -122.0819,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "6946005fea69de6e001069c3",
     "title": "Family Storytime",
     "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are...",
@@ -8610,6 +8292,35 @@
     "isLive": true
   },
   {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-09-18-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-09-18",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3330/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "6961562d8b29ea2800c880a6",
     "title": "Bay Area Games Day",
     "description": "Come learn how to play a new board game, or bring an old favorite! Bay Area Games Day is a full day of convention-style open gaming that has been happening at the library since 1998. We play mostly more recent hobbyist games, but also...",
@@ -8623,12 +8334,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/4b7ff6df09ad107d8567268a5e6c3e87/Entertainment & Recreation.jpg",
@@ -8729,8 +8438,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f604e",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -8765,39 +8474,6 @@
     "isLive": true
   },
   {
-    "id": "music-on-castro-downtown-castro-street-2026-09-23-05-00",
-    "title": "Music on Castro",
-    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.*",
-    "venue": "Downtown Castro Street",
-    "address": "200 Castro St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-09-23",
-    "startTime": "05:00",
-    "endTime": "06:45",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3284/656?npage=2",
-    "verifiedDate": "2026-08-09",
-    "lat": 37.3934,
-    "lng": -122.078,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "6946001eea69de6e001069b0",
     "title": "Little Ones Storytime",
     "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
@@ -8822,8 +8498,37 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069b0",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "music-on-castro-downtown-castro-street-2026-09-23-17-00",
+    "title": "Music on Castro",
+    "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun! *No performances during inclement weather.*",
+    "venue": "Downtown Castro Street",
+    "address": "200 Castro St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-09-23",
+    "startTime": "17:00",
+    "endTime": "18:45",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3284/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3905,
+    "lng": -122.0788,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -8962,7 +8667,7 @@
     "description": "The 8th Annual Harvest History Festival celebrates Mountain View's rich agricultural heritage. This family-friendly event features activities, live music and an up-close look at the historic Immigrant House.",
     "venue": "Heritage Park",
     "address": "771 N. Rengstorff Avenue",
-    "city": "Palo Alto",
+    "city": "Mountain View",
     "date": "2026-09-26",
     "startTime": "09:00",
     "endTime": "12:00",
@@ -8970,19 +8675,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
       "Music & Movement"
     ],
     "categoryTags": [
-      "Stories",
       "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3482/656?npage=2",
-    "verifiedDate": "2026-08-10",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "verifiedDate": "2026-07-07",
+    "lat": 37.4139,
+    "lng": -122.0925,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -9036,15 +8739,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -9081,8 +8780,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f604f",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -9141,8 +8840,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069b1",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4419,
-    "lng": -122.143,
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -9236,7 +8935,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.losaltoshills.ca.gov/Calendar.aspx?EID=5201",
-    "verifiedDate": "2026-08-23",
+    "verifiedDate": "2026-07-07",
     "lat": 37.3772,
     "lng": -122.1477,
     "status": "Published",
@@ -9252,26 +8951,23 @@
     "city": "Mountain View",
     "date": "2026-10-17",
     "startTime": "10:00",
-    "endTime": "03:00",
+    "endTime": "15:00",
     "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Social & Play",
       "Classes"
     ],
     "categoryTags": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Social & Play",
+      "Seasonal",
       "Classes"
     ],
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3484/656?npage=2",
-    "verifiedDate": "2026-08-11",
+    "verifiedDate": "2026-07-07",
     "lat": 37.319,
     "lng": -122.085,
     "status": "Published",
@@ -9297,14 +8993,15 @@
     ],
     "categoryTags": [
       "Build & Explore",
+      "Seasonal",
       "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltoshills.ca.gov/ImageRepository/Document?documentID=8028",
     "eventUrl": "https://www.losaltoshills.ca.gov/Calendar.aspx?EID=5198",
-    "verifiedDate": "2026-08-24",
-    "lat": 37.3797,
-    "lng": -122.267,
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3837,
+    "lng": -122.1387,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -9318,7 +9015,7 @@
     "city": "Mountain View",
     "date": "2026-10-24",
     "startTime": "10:00",
-    "endTime": "02:00",
+    "endTime": "14:00",
     "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
@@ -9328,14 +9025,15 @@
     ],
     "categoryTags": [
       "Build & Explore",
-      "Outdoor"
+      "Outdoor",
+      "Seasonal"
     ],
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3486/656?npage=2",
-    "verifiedDate": "2026-08-12",
-    "lat": 37.3894,
-    "lng": -122.0833,
+    "verifiedDate": "2026-07-07",
+    "lat": 37.396,
+    "lng": -122.1018,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -9356,20 +9054,16 @@
     "ageMax": 5,
     "types": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Social & Play",
-      "Classes"
+      "Build & Explore"
     ],
     "categoryTags": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Social & Play",
-      "Classes"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltosca.gov/ImageRepository/Document?documentID=2763",
     "eventUrl": "https://www.losaltosca.gov/329/Family-Fun-Days",
-    "verifiedDate": "2026-08-16",
+    "verifiedDate": "2026-07-07",
     "lat": 37.3796,
     "lng": -122.1145,
     "status": "Published",
@@ -9392,15 +9086,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -9453,7 +9143,7 @@
     "city": "Mountain View",
     "date": "2026-11-21",
     "startTime": "10:00",
-    "endTime": "03:00",
+    "endTime": "15:00",
     "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
@@ -9461,14 +9151,15 @@
       "Arts & Crafts"
     ],
     "categoryTags": [
-      "Arts & Crafts"
+      "Arts & Crafts",
+      "Seasonal"
     ],
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3488/656?npage=2",
-    "verifiedDate": "2026-08-13",
-    "lat": 37.3894,
-    "lng": -122.0833,
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3988,
+    "lng": -122.0942,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -9489,15 +9180,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -9556,34 +9243,33 @@
     "ageMax": 12,
     "types": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Social & Play"
+      "Build & Explore"
     ],
     "categoryTags": [
       "Arts & Crafts",
       "Build & Explore",
-      "Social & Play"
+      "Seasonal"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltoshills.ca.gov/ImageRepository/Document?documentID=8042",
     "eventUrl": "https://www.losaltoshills.ca.gov/Calendar.aspx?EID=5210&month=12&year=2026&day=7&calType=0",
-    "verifiedDate": "2026-08-25",
-    "lat": 37.3718,
-    "lng": -122.2785,
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3649,
+    "lng": -122.16,
     "status": "Published",
     "isPast": false,
     "isLive": true
   },
   {
-    "id": "community-tree-lighting-celebration-civic-center-plaza-2026-12-07-05-30",
+    "id": "community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30",
     "title": "Community Tree Lighting Celebration",
     "description": "On Monday, Dec. 7, 2026, from 5:30 to 8 p.m. the City will celebrate the winter season with the Community Tree Lighting Celebration in Downtown Mountain View.",
     "venue": "Civic Center Plaza",
     "address": "500 Castro Street\nMountain View, California 94041",
     "city": "Mountain View",
     "date": "2026-12-07",
-    "startTime": "05:30",
-    "endTime": "08:00",
+    "startTime": "17:30",
+    "endTime": "20:00",
     "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
@@ -9591,14 +9277,14 @@
       "Other"
     ],
     "categoryTags": [
-      "Other"
+      "Seasonal"
     ],
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3490/656?npage=2",
-    "verifiedDate": "2026-08-14",
-    "lat": 37.3901,
-    "lng": -122.0819,
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -9619,20 +9305,16 @@
     "ageMax": 5,
     "types": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Social & Play",
-      "Classes"
+      "Build & Explore"
     ],
     "categoryTags": [
       "Arts & Crafts",
-      "Build & Explore",
-      "Social & Play",
-      "Classes"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltosca.gov/ImageRepository/Document?documentID=2763",
     "eventUrl": "https://www.losaltosca.gov/329/Family-Fun-Days",
-    "verifiedDate": "2026-08-17",
+    "verifiedDate": "2026-07-07",
     "lat": 37.3796,
     "lng": -122.1145,
     "status": "Published",
@@ -9655,15 +9337,11 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Social & Play",
-      "Classes"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",

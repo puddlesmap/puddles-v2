@@ -26,6 +26,7 @@
   .discovery-event-card:has(.event-image--fallback)
   .card-listing-media {
   background: transparent;
+  box-shadow: none;
 }
 
 .browse-page-shell--experiment .discovery-event-card .card-listing-media,

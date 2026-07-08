@@ -1,7 +1,7 @@
 import type { City, Event } from '../types/event'
 import {
   getCityCenter,
-  getVenueGeo,
+  getVenueGeoForEvent,
   isPlaceholderMapCoordinates,
 } from '../data/venueGeo'
 
@@ -95,13 +95,13 @@ function isTrustedEventCoordinates(event: Event): boolean {
 
 /** Map pin coordinates for browse maps and route preview cards. */
 export function getEventMapCoordinates(event: Event): { lat: number; lng: number } | null {
-  if (isTrustedEventCoordinates(event)) {
-    return { lat: event.lat, lng: event.lng }
-  }
-
-  const venueGeo = getVenueGeo(event.venue, event.room ?? '')
+  const venueGeo = getVenueGeoForEvent(event.venue, event.room ?? '', event.address ?? '')
   if (venueGeo) {
     return { lat: venueGeo.lat, lng: venueGeo.lng }
+  }
+
+  if (isTrustedEventCoordinates(event)) {
+    return { lat: event.lat, lng: event.lng }
   }
 
   const city = event.city?.trim() as City | undefined
@@ -113,9 +113,8 @@ export function getEventMapCoordinates(event: Event): { lat: number; lng: number
   return null
 }
 
-/** Prefer address-geocoded static map when stored coords are legacy placeholders. */
+/** Prefer address-geocoded static map when a street address is available. */
 export function getEventMapMarkerAddress(event: Event): string | null {
-  if (isTrustedEventCoordinates(event)) return null
   if (!getStreetAddress(event)) return null
   return getEventDirectionsDestination(event)
 }

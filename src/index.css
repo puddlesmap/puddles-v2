@@ -1396,6 +1396,8 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: transparent;
+  box-shadow: none;
 }
 
 .card-listing-image {
@@ -1412,6 +1414,7 @@ textarea {
   max-width: 72%;
   max-height: 85%;
   margin: auto;
+  background: transparent;
 }
 
 .card-listing--map-grid .card-listing-image.event-image--fallback,
@@ -1428,6 +1431,7 @@ textarea {
   margin-inline: auto;
   object-fit: contain;
   object-position: center;
+  background: transparent;
 }
 
 .card-listing-body {

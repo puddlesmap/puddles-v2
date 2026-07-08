@@ -75,6 +75,11 @@
   margin-inline: auto;
   object-fit: contain;
   object-position: center;
+  background: transparent;
+}
+
+.event-modal-scroll:has(> .event-image--fallback) {
+  background: #ffffff;
 }
 
 @media (min-width: 768px) {

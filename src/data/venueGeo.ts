@@ -21,6 +21,24 @@ export function getVenueGeo(venue: string, room = ''): VenueGeoEntry | null {
   return VENUE_GEO[canonical] ?? null
 }
 
+/** Resolve venue geo from name, room, or a matching street address when venue is blank. */
+export function getVenueGeoForEvent(venue: string, room = '', address = ''): VenueGeoEntry | null {
+  const direct = getVenueGeo(venue, room)
+  if (direct) return direct
+
+  const normalizedAddress = address.toLowerCase().replace(/\s+/g, ' ')
+  if (!normalizedAddress) return null
+
+  for (const [name, streetAddress] of Object.entries(VENUE_ADDRESSES)) {
+    const street = streetAddress.split(',')[0].trim().toLowerCase()
+    if (street.length >= 8 && normalizedAddress.includes(street)) {
+      return VENUE_GEO[name] ?? null
+    }
+  }
+
+  return null
+}
+
 export function getCityCenter(city: City): { lat: number; lng: number } {
   return CITY_CENTERS[city]
 }

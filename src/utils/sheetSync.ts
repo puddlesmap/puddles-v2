@@ -2,9 +2,9 @@ import type { ActivityType, City, Event } from '../types/event'
 import { SHEET_CSV_PROXY_PATH } from '../data/sheet-source'
 import {
   VENUE_ADDRESSES,
-  VENUE_GEO,
   canonicalVenue,
   getCityCenter,
+  getVenueGeoForEvent,
 } from '../data/venueGeo'
 import { inferActivityTypesFromText } from './eventImages'
 import { enrichPublishingFields, resolvePublishingFields } from './publishing'
@@ -126,6 +126,7 @@ function clockTo24Hour(raw: string): string | null {
   const m = raw
     .trim()
     .toLowerCase()
+    .replace(/\./g, '')
     .match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/)
   if (!m) return null
   let hour = parseInt(m[1], 10)
@@ -149,11 +150,11 @@ function parseTimeRange(value: string): { startTime: string; endTime: string } |
 function parseSheetDateTime(value: string): { date: string; time: string } | null {
   const raw = value.trim()
   if (!raw) return null
-  const m = raw.match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})\s+(\d{1,2}):(\d{2})\s*(AM|PM)?/i)
+  const m = raw.match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})\s+(\d{1,2}):(\d{2})\s*(A\.?M\.?|P\.?M\.?)?/i)
   if (!m) return null
   let hour = parseInt(m[4], 10)
   const min = m[5]
-  const ap = m[6]?.toUpperCase()
+  const ap = m[6]?.replace(/\./g, '').toUpperCase()
   if (ap === 'PM' && hour < 12) hour += 12
   if (ap === 'AM' && hour === 12) hour = 0
   const year = m[3].length === 2 ? `20${m[3]}` : m[3]
@@ -325,8 +326,7 @@ function resolveGeo(
   const lat = parseFloat(latRaw)
   const lng = parseFloat(lngRaw)
   const canonical = canonicalVenue(venue)
-  const roomGeo = room ? VENUE_GEO[room] : null
-  const fallback = roomGeo ?? VENUE_GEO[canonical]
+  const fallback = getVenueGeoForEvent(venue, room, address)
   let resolvedAddress = sanitizeAddress(venue, address)
   if (room && VENUE_ADDRESSES[room]) {
     resolvedAddress = VENUE_ADDRESSES[room]

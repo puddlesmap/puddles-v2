@@ -1,5 +1,6 @@
 import type { Event } from '../types/event'
 import { haversineDistanceMeters } from './geo'
+import { getEventMapCoordinates } from './maps'
 
 /** Default center: Palo Alto area */
 export const DEFAULT_MAP_CENTER: [number, number] = [37.4219, -122.1142]
@@ -20,7 +21,21 @@ export function getEventsMapCenter(events: Event[]): [number, number] {
 }
 
 export function getEventsWithCoordinates(events: Event[]): Event[] {
-  return events.filter((event) => Number.isFinite(event.lat) && Number.isFinite(event.lng))
+  const mappable: Event[] = []
+
+  for (const event of events) {
+    const coords = getEventMapCoordinates(event)
+    if (!coords) continue
+
+    if (coords.lat === event.lat && coords.lng === event.lng) {
+      mappable.push(event)
+      continue
+    }
+
+    mappable.push({ ...event, lat: coords.lat, lng: coords.lng })
+  }
+
+  return mappable
 }
 
 export function boundsBoxFromLeaflet(bounds: {
@@ -38,12 +53,13 @@ export function boundsBoxFromLeaflet(bounds: {
 }
 
 export function isEventInBounds(event: Event, bounds: MapBoundsBox): boolean {
-  if (!Number.isFinite(event.lat) || !Number.isFinite(event.lng)) return false
+  const coords = getEventMapCoordinates(event)
+  if (!coords) return false
   return (
-    event.lat >= bounds.south &&
-    event.lat <= bounds.north &&
-    event.lng >= bounds.west &&
-    event.lng <= bounds.east
+    coords.lat >= bounds.south &&
+    coords.lat <= bounds.north &&
+    coords.lng >= bounds.west &&
+    coords.lng <= bounds.east
   )
 }
 

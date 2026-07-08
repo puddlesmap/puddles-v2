@@ -104,6 +104,7 @@
   margin-inline: auto;
   object-fit: contain;
   object-position: center;
+  background: transparent;
 }
 
 .event-modal-panel--wide .event-modal-wide-layout__main .event-detail-title {
