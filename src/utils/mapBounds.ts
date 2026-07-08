@@ -74,6 +74,34 @@ export function getMapBoundsCenter(bounds: MapBoundsBox): { lat: number; lng: nu
   }
 }
 
+function latLngToWorldPoint(lat: number, lng: number, scale: number): { x: number; y: number } {
+  const x = ((lng + 180) / 360) * scale
+  const sinLat = Math.sin((lat * Math.PI) / 180)
+  const y = (0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI)) * scale
+  return { x, y }
+}
+
+/** Project lat/lng onto a static map viewport as overlay pin percentages. */
+export function projectLatLngToMapPercent(
+  lat: number,
+  lng: number,
+  center: { lat: number; lng: number },
+  zoom: number,
+  mapWidth: number,
+  mapHeight: number,
+): { top: number; left: number } {
+  const scale = 256 * 2 ** zoom
+  const point = latLngToWorldPoint(lat, lng, scale)
+  const centerPoint = latLngToWorldPoint(center.lat, center.lng, scale)
+  const x = mapWidth / 2 + (point.x - centerPoint.x)
+  const y = mapHeight / 2 + (point.y - centerPoint.y)
+
+  return {
+    left: Math.min(90, Math.max(10, (x / mapWidth) * 100)),
+    top: Math.min(82, Math.max(14, (y / mapHeight) * 100)),
+  }
+}
+
 export function expandMapBounds(bounds: MapBoundsBox, paddingRatio: number): MapBoundsBox {
   const latSpan = Math.max(bounds.north - bounds.south, 0.01)
   const lngSpan = Math.max(bounds.east - bounds.west, 0.01)

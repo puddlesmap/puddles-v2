@@ -1,36 +1,5 @@
 [
   {
-    "id": "family-storytime-happy-birthday-america-children-s-library-2026-06-30-10-30",
-    "title": "Family Storytime: Happy Birthday, America!",
-    "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesday at 10:30 AM for Family Storytime at Children's Library to celebrate America's 250th Birthday! Come sing, rhyme, and read stories with us! While this storytime will be geared...",
-    "venue": "Children's Library",
-    "address": "1276 Harriet St, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-06-30",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
-    "eventUrl": "#",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4448,
-    "lng": -122.1452,
-    "status": "Draft",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "69b835d42866a5b488426bfa",
     "title": "Bilingual Spanish Family Storytime / Hora de cuentos bilingüe para familias",
     "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n \n ¡Venga a la biblioteca...",
@@ -44,12 +13,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -77,12 +44,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -98,7 +63,7 @@
   {
     "id": "69b835d281b67dfe32acec78",
     "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
-    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠,...",
+    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -109,12 +74,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -122,66 +85,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
-    "id": "699f60146724c63d00f52cc3",
-    "title": "LEGO Tuesdays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
-    "venue": "Downtown Library",
-    "address": "270 Forest Ave, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-06-30",
-    "startTime": "16:00",
-    "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Build & Explore"
-    ],
-    "categoryTags": [
-      "Build & Explore"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc3",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4443,
-    "lng": -122.1598,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
-    "id": "68afa7b0022de53d00d2716d",
-    "title": "Little Ones Storytime",
-    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
-    "venue": "Children's Library",
-    "address": "1276 Harriet St, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-07-01",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "0-2",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2716d",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4448,
-    "lng": -122.1452,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -200,14 +103,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -234,12 +133,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
@@ -255,6 +152,7 @@
     "id": "69b835bdb48451fc3c094412",
     "title": "Baby Storytime & Stay and Play",
     "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n \n We invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n \n Catchy Songs & Silly Rhymes...",
+    "tips": "Please feel free to bring a small blanket for your baby’s comfort!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -265,14 +163,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -343,41 +237,6 @@
     "isLive": false
   },
   {
-    "id": "69265595a2f9562900e5f958",
-    "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
-    "venue": "Mitchell Park Library",
-    "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
-    "city": "Palo Alto",
-    "date": "2026-07-01",
-    "startTime": "18:30",
-    "endTime": "19:15",
-    "ageRange": "0-2, 2-5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69265595a2f9562900e5f958",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "marc-griffiths-mountain-view-public-library-2026-07-01-18-30",
     "title": "Marc Griffiths",
     "description": "Don't miss award-winning ventriloquist Marc Griffiths and his puppet friends in a hilarious show. His speaking team of puppets include 'Kevin', a much loved teenager, and 'Grandad Chuckles' who...",
@@ -408,39 +267,6 @@
     "isLive": false
   },
   {
-    "id": "69a0b0f2b48451fc3c0563c4",
-    "title": "Bilingual Family Storytime",
-    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\n \n Storytime may be held indoors or outdoors...",
-    "venue": "College Terrace Library",
-    "address": "2300 Wellesley St, Palo Alto, CA 94306",
-    "city": "Palo Alto",
-    "date": "2026-07-02",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c4",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "69b835bbb48451fc3c094400",
     "title": "Toddler Storytime",
     "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
@@ -454,14 +280,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -487,12 +309,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -500,35 +320,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
-    "id": "69276b597eb3e430002638a6",
-    "title": "Fratello Marionettes Presents: Jack and the Beanstalk",
-    "description": "Join us at the Children's Library in the Secret Garden for a performance of Jack and the Beanstalk by the Fratello Marionettes.\n \n This production of Jack & the Beanstalk follows Jack and his trusty companion Buttercup the Cow as they head to...",
-    "venue": "Children's Library",
-    "address": "1276 Harriet St, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-07-02",
-    "startTime": "16:00",
-    "endTime": "17:00",
-    "ageRange": "2-5, 5+",
-    "ageMin": 2,
-    "ageMax": 5,
-    "types": [
-      "Outdoor"
-    ],
-    "categoryTags": [
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a6",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4448,
-    "lng": -122.1452,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -565,37 +356,6 @@
     "isLive": false
   },
   {
-    "id": "69fccf2c43b41b3d0064cf9e",
-    "title": "Family Storytime",
-    "description": "Join Librarian Rebecca on Sunday mornings at 11:00AM for Family Storytime at Rinconada Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n \n Make...",
-    "venue": "Rinconada Library",
-    "address": "1213 Newell Rd, Palo Alto, CA 94303",
-    "city": "Palo Alto",
-    "date": "2026-07-05",
-    "startTime": "11:00",
-    "endTime": "11:30",
-    "ageRange": "0-2, 2-5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69fccf2c43b41b3d0064cf9e",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4281,
-    "lng": -122.1425,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "6a345d51c7d3cd58006151b2",
     "title": "Cult Movie: Sunday Matinee Movies",
     "description": "Join us for the 30th anniversary of the Muppet Treasure Island movie.\n \n It's a rollicking and irreverent musical romp with Kermit, Miss Piggy, and all of the muppet gang -- with the welcome addition of Tim Curry as the dread pirate Long John...",
@@ -609,10 +369,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/4b7ff6df09ad107d8567268a5e6c3e87/Entertainment & Recreation.jpg",
@@ -639,12 +399,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -652,37 +410,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
-    "id": "6a0fb6a3e13d3b4603b50f75",
-    "title": "Family Storytime",
-    "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
-    "venue": "Children's Library",
-    "address": "1276 Harriet St, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-07-07",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a0fb6a3e13d3b4603b50f75",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4448,
-    "lng": -122.1452,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -701,12 +428,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -734,12 +459,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -755,7 +478,7 @@
   {
     "id": "69b835d281b67dfe32acec79",
     "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
-    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠,...",
+    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -766,12 +489,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -782,66 +503,6 @@
     "status": "Expired",
     "isPast": true,
     "isLive": false
-  },
-  {
-    "id": "699f60146724c63d00f52cc4",
-    "title": "LEGO Tuesdays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
-    "venue": "Downtown Library",
-    "address": "270 Forest Ave, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-07-07",
-    "startTime": "16:00",
-    "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Build & Explore"
-    ],
-    "categoryTags": [
-      "Build & Explore"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc4",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4443,
-    "lng": -122.1598,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
-    "id": "68afa7b0022de53d00d2716e",
-    "title": "Little Ones Storytime",
-    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
-    "venue": "Children's Library",
-    "address": "1276 Harriet St, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-07-08",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "0-2",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2716e",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4448,
-    "lng": -122.1452,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
   },
   {
     "id": "69b835c4b48451fc3c094429",
@@ -857,14 +518,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -872,9 +529,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "baby-storytime-mountain-view-public-library-2026-07-08-10-30",
@@ -891,12 +548,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
@@ -904,14 +559,15 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835bdb48451fc3c094413",
     "title": "Baby Storytime & Stay and Play",
     "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n \n We invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n \n Catchy Songs & Silly Rhymes...",
+    "tips": "Please feel free to bring a small blanket for your baby’s comfort!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -922,14 +578,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -986,10 +638,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -997,41 +649,6 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.3905,
     "lng": -122.0788,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "69265595a2f9562900e5f959",
-    "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
-    "venue": "Mitchell Park Library",
-    "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
-    "city": "Palo Alto",
-    "date": "2026-07-08",
-    "startTime": "18:30",
-    "endTime": "19:15",
-    "ageRange": "0-2, 2-5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69265595a2f9562900e5f959",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1051,12 +668,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -1070,9 +685,9 @@
     "isLive": true
   },
   {
-    "id": "69a0b0f2b48451fc3c0563c5",
+    "id": "69276b597eb3e430002638a7",
     "title": "Bilingual Family Storytime",
-    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\n \n Storytime may be held indoors or outdoors...",
+    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\nStorytime may be held indoors or outdoors depending on the weather.\nFollow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites!\n\n¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y activi",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -1084,17 +699,15 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c5",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a7",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -1116,14 +729,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -1157,7 +766,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
@@ -1178,12 +787,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -1210,10 +817,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_16_51_06.jpg",
@@ -1257,7 +864,7 @@
     "isLive": true
   },
   {
-    "id": "69276b597eb3e430002638a7",
+    "id": "6931edd1b5ff4730005608f3",
     "title": "Family Storytime",
     "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are...",
     "venue": "Downtown Library",
@@ -1270,16 +877,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a7",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6931edd1b5ff4730005608f3",
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
@@ -1302,12 +907,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Outdoor"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Outdoor"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_13_15_27_41.png",
@@ -1320,9 +923,9 @@
     "isLive": true
   },
   {
-    "id": "6931edd1b5ff4730005608f3",
+    "id": "6a25aace2ea730c17ab50481",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -1340,7 +943,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6931edd1b5ff4730005608f3",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50481",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -1392,15 +995,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/summer-2026-family-movie-nights-8.5-x-11-in.png?dimension=pageimagefullwidth&w=1140",
     "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Family-Movie-Night-Series-2026",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.419,
     "lng": -122.1095,
     "status": "Published",
@@ -1422,15 +1027,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
     "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.3734,
     "lng": -122.0816,
     "status": "Published",
@@ -1438,7 +1045,7 @@
     "isLive": true
   },
   {
-    "id": "6a25aace2ea730c17ab50481",
+    "id": "698e125a2a787a47a5e73bd8",
     "title": "Family Storytime",
     "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n \n Make sure to follow us on YouTube for more stories, songs and rhymes, including...",
     "venue": "Mitchell Park Library",
@@ -1451,18 +1058,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50481",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bd8",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -1471,7 +1074,7 @@
     "isLive": true
   },
   {
-    "id": "698e125a2a787a47a5e73bd8",
+    "id": "69fccf22177319280018194f",
     "title": "Astro Everywhere Presents \"What's Up in Astronomy?\"",
     "description": "Join us at Rinconada Library in the Embarcadero Room for a portable planetarium show by Astro Everywhere.\n \n This program offers something for everyone! We begin by exploring the night sky and what's visible in the coming hours, days, and...",
     "venue": "Rinconada Library",
@@ -1491,7 +1094,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bd8",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69fccf22177319280018194f",
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
@@ -1531,7 +1134,7 @@
     "isLive": true
   },
   {
-    "id": "69fccf22177319280018194f",
+    "id": "6a0fb6a3e13d3b4603b50f76",
     "title": "Family Storytime",
     "description": "Join Librarian Rebecca on Sunday mornings at 11:00AM for Family Storytime at Rinconada Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n \n Make...",
     "venue": "Rinconada Library",
@@ -1544,16 +1147,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69fccf22177319280018194f",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a0fb6a3e13d3b4603b50f76",
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
@@ -1575,14 +1176,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/ce80687b2e47ee546f80e01f282a9a24/Headers.png",
@@ -1624,7 +1221,7 @@
     "isLive": true
   },
   {
-    "id": "6a0fb6a3e13d3b4603b50f76",
+    "id": "699f60146724c63d00f52cc5",
     "title": "Family Storytime",
     "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
     "venue": "Children's Library",
@@ -1637,16 +1234,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a0fb6a3e13d3b4603b50f76",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc5",
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
@@ -1668,12 +1263,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -1701,12 +1294,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -1722,7 +1313,7 @@
   {
     "id": "69b835d281b67dfe32acec7a",
     "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
-    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠,...",
+    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -1733,12 +1324,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -1751,9 +1340,9 @@
     "isLive": true
   },
   {
-    "id": "699f60146724c63d00f52cc5",
+    "id": "69fccf0ef89ee15800513441",
     "title": "Circus of Smiles",
-    "description": "Join us at the Children's Library in the Secret Garden for a performance by Circus of Smiles.\n \n This family friendly show is filled with non-stop excitement and theatrics that will have you laughing, participating, and hoping for even more!\n \n This...",
+    "description": "Join us at the Children's Library in the Secret Garden for a performance by Circus of Smiles.\n \n This family friendly show is filled with non-stop excitement and theatrics that will have you laughing, participating, and hoping for even more!",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
@@ -1771,7 +1360,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc5",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69fccf0ef89ee15800513441",
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
@@ -1780,9 +1369,9 @@
     "isLive": true
   },
   {
-    "id": "69fccf0ef89ee15800513441",
+    "id": "68afa7b0022de53d00d2716f",
     "title": "LEGO Tuesdays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "Downtown Library",
     "address": "270 Forest Ave, Palo Alto, CA 94301",
     "city": "Palo Alto",
@@ -1800,7 +1389,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69fccf0ef89ee15800513441",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2716f",
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
@@ -1809,29 +1398,27 @@
     "isLive": true
   },
   {
-    "id": "68afa7b0022de53d00d2716f",
+    "id": "69265595a2f9562900e5f95a",
     "title": "Little Ones Storytime",
-    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
+    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-07-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2716f",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69265595a2f9562900e5f95a",
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
@@ -1853,14 +1440,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -1887,12 +1470,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
@@ -1908,6 +1489,7 @@
     "id": "69b835bdb48451fc3c094414",
     "title": "Baby Storytime & Stay and Play",
     "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n \n We invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n \n Catchy Songs & Silly Rhymes...",
+    "tips": "Please feel free to bring a small blanket for your baby’s comfort!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -1918,14 +1500,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -2009,10 +1587,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -2025,7 +1603,7 @@
     "isLive": true
   },
   {
-    "id": "69265595a2f9562900e5f95a",
+    "id": "69a0b0f2b48451fc3c0563c6",
     "title": "Music & Movement",
     "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
     "venue": "Mitchell Park Library",
@@ -2038,20 +1616,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69265595a2f9562900e5f95a",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c6",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -2074,12 +1646,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_11_11_10_43.png",
@@ -2092,9 +1662,9 @@
     "isLive": true
   },
   {
-    "id": "69a0b0f2b48451fc3c0563c6",
+    "id": "69276b597eb3e430002638a8",
     "title": "Bilingual Family Storytime",
-    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\n \n Storytime may be held indoors or outdoors...",
+    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\nStorytime may be held indoors or outdoors depending on the weather.\nFollow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites!\n\n¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y activi",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -2106,17 +1676,15 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c6",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a8",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -2138,14 +1706,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -2179,7 +1743,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
@@ -2200,12 +1764,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -2249,7 +1811,7 @@
     "isLive": true
   },
   {
-    "id": "69276b597eb3e430002638a8",
+    "id": "6931edd1b5ff4730005608f4",
     "title": "Family Storytime",
     "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are...",
     "venue": "Downtown Library",
@@ -2262,16 +1824,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a8",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6931edd1b5ff4730005608f4",
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
@@ -2294,12 +1854,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Outdoor"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Outdoor"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_13_15_28_19.png",
@@ -2312,9 +1870,9 @@
     "isLive": true
   },
   {
-    "id": "6931edd1b5ff4730005608f4",
+    "id": "6a25aace2ea730c17ab50482",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -2332,7 +1890,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6931edd1b5ff4730005608f4",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50482",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -2384,15 +1942,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/summer-2026-family-movie-nights-8.5-x-11-in.png?dimension=pageimagefullwidth&w=1140",
     "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Family-Movie-Night-Series-2026",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.419,
     "lng": -122.1095,
     "status": "Published",
@@ -2414,15 +1974,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
     "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.3816,
     "lng": -122.0619,
     "status": "Published",
@@ -2459,9 +2021,9 @@
     "isLive": true
   },
   {
-    "id": "6a25aace2ea730c17ab50482",
+    "id": "698e125a2a787a47a5e73bd9",
     "title": "Family Storytime: Celebrate Disability Pride Month!",
-    "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n \n Make sure to follow us on YouTube for more stories, songs and rhymes, including...",
+    "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -2472,18 +2034,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50482",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bd9",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -2506,12 +2064,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement",
       "Arts & Crafts",
       "Build & Explore"
     ],
     "categoryTags": [
-      "Music & Movement",
       "Arts & Crafts",
       "Build & Explore"
     ],
@@ -2547,7 +2103,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
@@ -2555,7 +2111,37 @@
     "isLive": true
   },
   {
-    "id": "698e125a2a787a47a5e73bd9",
+    "id": "69fcd2d51773192800181a98",
+    "title": "Happy Birds",
+    "description": "oin us at the Mitchell Park Community Center in the El Palo Alto Room for a performance from the Happy Birds!\n\nAmazing and colorful parrots will perform over 25 tricks during this exciting bird show! Ed and Julie Cardoza’s macaws, cockatoos, and amazons have been featured on The Tonight Show, Pet Star, The Ellen show and even the Guinness Book of World Records.",
+    "venue": "Mitchell Park Community Center",
+    "room": "El Palo Alto Room",
+    "address": "3700 Middlefield Road\nPalo Alto CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-07-18",
+    "startTime": "13:30",
+    "endTime": "14:30",
+    "ageRange": "0-2, 2-5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69fcd2d51773192800181a98",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.4419,
+    "lng": -122.143,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "69fd26c6f56bd86e00ae4709",
     "title": "Baby Dragon Boat Festival",
     "description": "Note: This program has been rescheduled to Saturday, July 18 from Saturday, June 20.\n \n Celebrate this year's Dragon Boat Festival with some family fun!\n \n Families with babies and toddlers are invited to decorate their own...",
     "venue": "Mitchell Park Library",
@@ -2577,7 +2163,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/61343712c18382e95e4eb08e772e70cc/dragon-boat-festival-main-780x400.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bd9",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69fd26c6f56bd86e00ae4709",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -2609,7 +2195,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
@@ -2648,7 +2234,7 @@
     "isLive": true
   },
   {
-    "id": "69fd26c6f56bd86e00ae4709",
+    "id": "6a0fb6a3e13d3b4603b50f77",
     "title": "Family Storytime",
     "description": "Join Librarian Rebecca on Sunday mornings at 11:00AM for Family Storytime at Rinconada Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n \n Make...",
     "venue": "Rinconada Library",
@@ -2661,16 +2247,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69fd26c6f56bd86e00ae4709",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a0fb6a3e13d3b4603b50f77",
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
@@ -2735,7 +2319,7 @@
     "cost": "Free",
     "imageUrl": "https://cdn.shoplightspeed.com/shops/611345/files/76147279/summer-art-workshops-rsvp-now.jpg",
     "eventUrl": "https://www.lindentreebooks.com/workshops-summer2026",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
@@ -2775,7 +2359,7 @@
     "isLive": true
   },
   {
-    "id": "6a0fb6a3e13d3b4603b50f77",
+    "id": "699f60146724c63d00f52cc6",
     "title": "Family Storytime",
     "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
     "venue": "Children's Library",
@@ -2788,16 +2372,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a0fb6a3e13d3b4603b50f77",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc6",
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
@@ -2819,12 +2401,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -2852,12 +2432,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -2873,7 +2451,7 @@
   {
     "id": "69b835d281b67dfe32acec7b",
     "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
-    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠,...",
+    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -2884,12 +2462,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -2902,9 +2478,9 @@
     "isLive": true
   },
   {
-    "id": "699f60146724c63d00f52cc6",
+    "id": "68afa7b0022de53d00d27170",
     "title": "LEGO Tuesdays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "Downtown Library",
     "address": "270 Forest Ave, Palo Alto, CA 94301",
     "city": "Palo Alto",
@@ -2922,7 +2498,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc6",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27170",
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
@@ -2931,29 +2507,27 @@
     "isLive": true
   },
   {
-    "id": "68afa7b0022de53d00d27170",
+    "id": "69265595a2f9562900e5f95b",
     "title": "Little Ones Storytime",
-    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
+    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-07-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27170",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69265595a2f9562900e5f95b",
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
@@ -2975,14 +2549,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -3009,12 +2579,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
@@ -3030,6 +2598,7 @@
     "id": "69b835bdb48451fc3c094415",
     "title": "Baby Storytime & Stay and Play",
     "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n \n We invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n \n Catchy Songs & Silly Rhymes...",
+    "tips": "Please feel free to bring a small blanket for your baby’s comfort!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -3040,14 +2609,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -3131,10 +2696,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -3147,7 +2712,7 @@
     "isLive": true
   },
   {
-    "id": "69265595a2f9562900e5f95b",
+    "id": "69a0b0f2b48451fc3c0563c7",
     "title": "Music & Movement",
     "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
     "venue": "Mitchell Park Library",
@@ -3160,20 +2725,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69265595a2f9562900e5f95b",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c7",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -3196,12 +2755,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -3215,9 +2772,9 @@
     "isLive": true
   },
   {
-    "id": "69a0b0f2b48451fc3c0563c7",
+    "id": "69276b597eb3e430002638a9",
     "title": "Bilingual Family Storytime",
-    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\n \n Storytime may be held indoors or outdoors...",
+    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\nStorytime may be held indoors or outdoors depending on the weather.\nFollow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites!\n\n¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y activi",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -3229,17 +2786,15 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c7",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a9",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -3261,14 +2816,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -3302,7 +2853,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
@@ -3323,12 +2874,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -3386,12 +2935,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Outdoor"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Outdoor"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_13_15_28_41.png",
@@ -3404,7 +2951,7 @@
     "isLive": true
   },
   {
-    "id": "69276b597eb3e430002638a9",
+    "id": "6931edd1b5ff4730005608f5",
     "title": "Family Storytime",
     "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are...",
     "venue": "Downtown Library",
@@ -3417,16 +2964,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a9",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6931edd1b5ff4730005608f5",
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
@@ -3435,9 +2980,9 @@
     "isLive": true
   },
   {
-    "id": "6931edd1b5ff4730005608f5",
+    "id": "6a25aace2ea730c17ab50483",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -3455,7 +3000,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6931edd1b5ff4730005608f5",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50483",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -3507,15 +3052,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
     "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.4036,
     "lng": -122.0841,
     "status": "Published",
@@ -3523,7 +3070,7 @@
     "isLive": true
   },
   {
-    "id": "6a25aace2ea730c17ab50483",
+    "id": "698e125a2a787a47a5e73bda",
     "title": "Family Storytime",
     "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n \n Make sure to follow us on YouTube for more stories, songs and rhymes, including...",
     "venue": "Mitchell Park Library",
@@ -3536,18 +3083,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50483",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bda",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -3577,7 +3120,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
@@ -3585,7 +3128,7 @@
     "isLive": true
   },
   {
-    "id": "698e125a2a787a47a5e73bda",
+    "id": "69fd1345f89ee1580051535d",
     "title": "The Academy of Ballet and Etiquette Presents: Swan Lake",
     "description": "Join us at the Rinconada Library in the Embarcardero Room for a special summer ballet workshop from The Academy of Ballet and Etiquette!\n \n Dance through Swan Lake, the story of Odette, a princess turned into a swan by an evil...",
     "venue": "Rinconada Library",
@@ -3598,16 +3141,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement",
       "Classes"
     ],
     "categoryTags": [
-      "Music & Movement",
       "Classes"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bda",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69fd1345f89ee1580051535d",
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
@@ -3630,24 +3171,20 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Arts & Crafts",
       "Build & Explore",
-      "Outdoor",
       "Classes"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Arts & Crafts",
       "Build & Explore",
-      "Outdoor",
       "Classes"
     ],
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
@@ -3686,7 +3223,7 @@
     "isLive": true
   },
   {
-    "id": "69fd1345f89ee1580051535d",
+    "id": "6a0fb6a3e13d3b4603b50f78",
     "title": "Family Storytime",
     "description": "Join Librarian Rebecca on Sunday mornings at 11:00AM for Family Storytime at Rinconada Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n \n Make...",
     "venue": "Rinconada Library",
@@ -3699,16 +3236,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69fd1345f89ee1580051535d",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a0fb6a3e13d3b4603b50f78",
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
@@ -3717,9 +3252,9 @@
     "isLive": true
   },
   {
-    "id": "6a0fb6a3e13d3b4603b50f78",
+    "id": "69fd15cb1773192800183afe",
     "title": "Puppet Art Theater Presents: Tommy's Pirate Adventure",
-    "description": "Join us at the Mitchell Park Library in the Kid's Place for a performance of Tommy's Pirate Adventure by Puppet Art Theater Co.\n \n Tommy's and his dog Fifi are enjoying living on Alligator Island, at least until the pirates show up. Pirate's...",
+    "description": "Join us at the Mitchell Park Library in the Kid's Place for a performance of Tommy's Pirate Adventure by Puppet Art Theater Co.\n\nTommy’s and his dog Fifi are enjoying living on Alligator Island, at least until the pirates show up. Pirate’s X’s and mixed up treasure land Tommy and his dog in big trouble with Barnacle Billy and the evil Captain Rigatoni. Confusion and mayhem lead to fun as Tommy ends up playing pirates for real in “Tommy’s Pirate Adventure.”",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -3730,16 +3265,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a0fb6a3e13d3b4603b50f78",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69fd15cb1773192800183afe",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -3762,12 +3295,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -3780,7 +3311,7 @@
     "isLive": true
   },
   {
-    "id": "69fd15cb1773192800183afe",
+    "id": "699f60146724c63d00f52cc7",
     "title": "Family Storytime",
     "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
     "venue": "Children's Library",
@@ -3793,16 +3324,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69fd15cb1773192800183afe",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc7",
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
@@ -3824,12 +3353,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -3857,12 +3384,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -3878,7 +3403,7 @@
   {
     "id": "69b835d281b67dfe32acec7c",
     "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
-    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠,...",
+    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -3889,12 +3414,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -3907,9 +3430,9 @@
     "isLive": true
   },
   {
-    "id": "699f60146724c63d00f52cc7",
+    "id": "68afa7b0022de53d00d27171",
     "title": "LEGO Tuesdays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "Downtown Library",
     "address": "270 Forest Ave, Palo Alto, CA 94301",
     "city": "Palo Alto",
@@ -3927,7 +3450,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc7",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27171",
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
@@ -3936,29 +3459,27 @@
     "isLive": true
   },
   {
-    "id": "68afa7b0022de53d00d27171",
+    "id": "69265595a2f9562900e5f95c",
     "title": "Little Ones Storytime",
-    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
+    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-07-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27171",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69265595a2f9562900e5f95c",
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
@@ -3980,14 +3501,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -4014,12 +3531,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
@@ -4035,6 +3550,7 @@
     "id": "69b835bdb48451fc3c094416",
     "title": "Baby Storytime & Stay and Play",
     "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n \n We invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n \n Catchy Songs & Silly Rhymes...",
+    "tips": "Please feel free to bring a small blanket for your baby’s comfort!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -4045,14 +3561,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -4140,10 +3652,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -4156,7 +3668,7 @@
     "isLive": true
   },
   {
-    "id": "69265595a2f9562900e5f95c",
+    "id": "69a0b0f2b48451fc3c0563c8",
     "title": "Music & Movement",
     "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
     "venue": "Mitchell Park Library",
@@ -4169,20 +3681,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69265595a2f9562900e5f95c",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c8",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -4223,9 +3729,9 @@
     "isLive": true
   },
   {
-    "id": "69a0b0f2b48451fc3c0563c8",
+    "id": "69276b597eb3e430002638aa",
     "title": "Bilingual Family Storytime",
-    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\n \n Storytime may be held indoors or outdoors...",
+    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\nStorytime may be held indoors or outdoors depending on the weather.\nFollow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites!\n\n¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y activi",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -4237,17 +3743,15 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c8",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638aa",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -4258,8 +3762,9 @@
   {
     "id": "69b835bbb48451fc3c094404",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-07-30",
@@ -4269,14 +3774,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -4310,7 +3811,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
@@ -4320,7 +3821,7 @@
   {
     "id": "69b835b92866a5b488426bd7",
     "title": "Preschool Storytime",
-    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
+    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m. \n\nPreschool storytime is suitable for children 3-5 and their caregivers.",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -4331,12 +3832,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -4349,10 +3848,12 @@
     "isLive": true
   },
   {
-    "id": "69276b597eb3e430002638aa",
+    "id": "69e9504bb6c4ac1fedce1fe0",
     "title": "KDC: Kids Dance Carnival",
-    "description": "Join us for KDC Palo Alto 2026! Come get moving and grooving at this kid-centered dance party. We'll be dancing with bubbles, jamming with glow sticks, and making a collaborative art piece.\n \n Come decked out in neon, sequins,...",
+    "description": "Join us for KDC Palo Alto 2026! Come get moving and grooving at this kid-centered dance party. We'll be dancing with bubbles, jamming with glow sticks, and making a collaborative art piece.\n\nCome decked out in neon, sequins, glow-in-the-dark, kandi bracelets/necklaces, and colorful costumes. Bring your own light up and glow-in-the-dark accessories and dance the early evening away! Costumes and accessories encouraged but not required.\n\nRecommended age is 2-8 years old, but we won’t be checking ID",
+    "tips": "There will be loud music and flashing lights.\nPlease arrive on time. We will be monitoring room capacity. You may need to wait to enter.",
     "venue": "Rinconada Library",
+    "room": "Embarcadero Room",
     "address": "1213 Newell Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
     "date": "2026-07-30",
@@ -4362,14 +3863,14 @@
     "ageMin": 5,
     "ageMax": 12,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Seasonal"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b23725dc536d8b800aced0e5f3d044ff/BibliocommonsbannerCropsbc(7).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638aa",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69e9504bb6c4ac1fedce1fe0",
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
@@ -4409,7 +3910,7 @@
     "isLive": true
   },
   {
-    "id": "69e9504bb6c4ac1fedce1fe0",
+    "id": "6931edd1b5ff4730005608f6",
     "title": "Family Storytime",
     "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are...",
     "venue": "Downtown Library",
@@ -4422,16 +3923,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69e9504bb6c4ac1fedce1fe0",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6931edd1b5ff4730005608f6",
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
@@ -4454,12 +3953,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Outdoor"
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Build & Explore",
-      "Outdoor"
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_13_15_29_10.png",
@@ -4472,9 +3969,9 @@
     "isLive": true
   },
   {
-    "id": "6931edd1b5ff4730005608f6",
+    "id": "6a25aace2ea730c17ab50484",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -4492,7 +3989,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6931edd1b5ff4730005608f6",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50484",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -4602,15 +4099,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/summer-2026-family-movie-nights-8.5-x-11-in.png?dimension=pageimagefullwidth&w=1140",
     "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Family-Movie-Night-Series-2026",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.419,
     "lng": -122.1095,
     "status": "Published",
@@ -4632,15 +4131,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
     "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.3989,
     "lng": -122.0664,
     "status": "Published",
@@ -4708,7 +4209,7 @@
   {
     "id": "696191ef992fc18a86dc9a3c",
     "title": "Baby Sign and Stay and Play",
-    "description": "Calling all non-walking babies ages 0-12 months for a special storytime featuring American Sign Language along with songs and stories and fun! Please bring a blanket for your baby.\n \n After storytime please stay or join us to play with...",
+    "description": "Calling all non-walking babies ages 0-12 months for a special storytime featuring American Sign Language along with songs and stories and fun! Please bring a blanket for your baby.\nAfter storytime please stay or join us to play with age-appropriate toys! Enjoy this socialization for babies and their grownups.\n\n10:30-11:00am Storytime\n11:00-12:00pm Stay & Play",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -4720,13 +4221,13 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -4739,11 +4240,12 @@
     "isLive": true
   },
   {
-    "id": "6a25aace2ea730c17ab50484",
+    "id": "6a120e06c7d3cd58005b3761",
     "title": "Chill Out with Mindfulness Meditation",
-    "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.\n \n This program...",
+    "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.",
     "tips": "This program is open to all ages, young and old, and all levels of experience. Children under 10 years old must be accompanied by an adult. No registration is required.\n\nParticipants are encouraged to bring their own yoga mats and/or meditation cushions. Chairs are available for adults who do not bring them.",
     "venue": "Mitchell Park Library",
+    "room": "Midtown Room",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
     "date": "2026-08-01",
@@ -4753,14 +4255,14 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50484",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3761",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -4769,9 +4271,9 @@
     "isLive": true
   },
   {
-    "id": "6a120e06c7d3cd58005b3761",
+    "id": "69fd17aef89ee15800515554",
     "title": "Disco Bubbles with Daisy",
-    "description": "Join us at the Children's Library in the Secret Garden for an afternoon disco bubble show with Daisy!\n \n Daisy's mission is to spread smiles through kindness and joy, building dreams and memories through positive, inclusive words,...",
+    "description": "Join us at the Children's Library in the Secret Garden for an afternoon disco bubble show with Daisy!  \n\nDaisy's mission is to spread smiles through kindness and joy, building dreams and memories through positive, inclusive words, shapes, and laughter. Join us for a fun-filled experience that will leave you feeling happy and uplifted!",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
@@ -4782,16 +4284,14 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
       "Outdoor"
     ],
     "categoryTags": [
-      "Build & Explore",
       "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3761",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69fd17aef89ee15800515554",
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
@@ -4829,31 +4329,29 @@
     "isLive": true
   },
   {
-    "id": "69fd17aef89ee15800515554",
+    "id": "69fd185143b41b3d0064f7c5",
     "title": "Music and Puppets with Mr. Elephant",
-    "description": "Join us at the Children's Library in the Secret Garden to enjoy tunes with musician Mr. Elephant!\n \n Mr. Elephant is an Oakland-based speech therapist who makes award-winning music for little learners (and big ones too!) alongside his...",
+    "description": "Join us at the Children's Library in the Secret Garden to enjoy tunes with musician Mr. Elephant!\n\nMr. Elephant is an Oakland-based speech therapist who makes award-winning music for little learners (and big ones too!) alongside his hilarious gang of puppets. As seen on YouTube and GoNoodle, his songs are full of movement, language and laughter and are accessible and fun for all ages and abilities. Come join us!",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-08-01",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0-2",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69fd17aef89ee15800515554",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69fd185143b41b3d0064f7c5",
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
@@ -4875,12 +4373,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -5025,12 +4521,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -5045,7 +4539,7 @@
   {
     "id": "69b835d42866a5b488426bff",
     "title": "Bilingual Spanish Family Storytime / Hora de cuentos bilingüe para familias",
-    "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n \n ¡Venga a la biblioteca...",
+    "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n\n¡Venga a la biblioteca para cuentos, canciones y movimiento en inglés y español los martes a las 10:30 de la mañana! Este programa está diseñado para niños hasta 5 años de edad y sus cuidadores, y se llevará a cabo adentro en el Orchard Room.",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -5056,12 +4550,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -5089,12 +4581,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -5110,7 +4600,7 @@
   {
     "id": "69b835d281b67dfe32acec7d",
     "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
-    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠,...",
+    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -5121,12 +4611,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5139,9 +4627,9 @@
     "isLive": true
   },
   {
-    "id": "69fd185143b41b3d0064f7c5",
+    "id": "68afa7b0022de53d00d27172",
     "title": "LEGO Tuesdays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "Downtown Library",
     "address": "270 Forest Ave, Palo Alto, CA 94301",
     "city": "Palo Alto",
@@ -5159,7 +4647,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69fd185143b41b3d0064f7c5",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27172",
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
@@ -5181,12 +4669,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement",
-      "Build & Explore"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement",
-      "Build & Explore"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -5201,8 +4687,9 @@
   {
     "id": "69b835c4b48451fc3c09442d",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-05",
@@ -5212,14 +4699,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5234,7 +4717,8 @@
   {
     "id": "69b835bdb48451fc3c094417",
     "title": "Baby Storytime & Stay and Play",
-    "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n \n We invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n \n Catchy Songs & Silly Rhymes...",
+    "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n\nWe invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n\nCatchy Songs & Silly Rhymes\n\nGentle Movement & Baby Sign Language\n\nShort Books perfect for little eyes\n\nStick around afterward for our popular \"Stay & Play\" session, where babies can explore fun, age-appropriate toys, and you can chat with other local parents and caregivers!\n\nIt’s the p",
+    "tips": "Please feel free to bring a small blanket for your baby’s comfort!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -5245,14 +4729,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5278,10 +4758,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -5328,8 +4808,9 @@
   {
     "id": "69b835bbb48451fc3c094405",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-06",
@@ -5339,14 +4820,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5361,8 +4838,9 @@
   {
     "id": "69b835b92866a5b488426bd8",
     "title": "Preschool Storytime",
-    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
+    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m. \n\nPreschool storytime is suitable for children 3-5 and their caregivers.",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-06",
@@ -5372,12 +4850,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5404,12 +4880,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1732669547.png",
@@ -5422,9 +4896,9 @@
     "isLive": true
   },
   {
-    "id": "68afa7b0022de53d00d27172",
+    "id": "6a25aace2ea730c17ab50485",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -5442,7 +4916,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27172",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50485",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -5494,10 +4968,12 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltoshills.ca.gov/ImageRepository/Document?documentID=8027",
@@ -5524,15 +5000,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
     "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.3893,
     "lng": -122.0857,
     "status": "Published",
@@ -5574,9 +5052,10 @@
   {
     "id": "6a120e06c7d3cd58005b3762",
     "title": "Chill Out with Mindfulness Meditation",
-    "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.\n \n This program...",
+    "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.",
     "tips": "This program is open to all ages, young and old, and all levels of experience. Children under 10 years old must be accompanied by an adult. No registration is required.\n\nParticipants are encouraged to bring their own yoga mats and/or meditation cushions. Chairs are available for adults who do not bring them.",
     "venue": "Mitchell Park Library",
+    "room": "Midtown Room",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
     "date": "2026-08-08",
@@ -5586,10 +5065,10 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
@@ -5602,7 +5081,7 @@
     "isLive": true
   },
   {
-    "id": "6a120e06c7d3cd58005b3762",
+    "id": "69fe5c8de8af4a2f00712d3f",
     "title": "Marc Griffiths Ventriloquy",
     "description": "Join us at the Mitchell Park Library in the Midtown Room for a comedic ventriloquy and puppet performance by Marc Griffiths!\n \n Marc Griffiths is an award winning ventriloquist and motivational speaker. He has performed on...",
     "venue": "Mitchell Park Library",
@@ -5615,16 +5094,14 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3762",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69fe5c8de8af4a2f00712d3f",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -5695,7 +5172,7 @@
   {
     "id": "69b835d42866a5b488426c00",
     "title": "Bilingual Spanish Family Storytime / Hora de cuentos bilingüe para familias",
-    "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n \n ¡Venga a la biblioteca...",
+    "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n\n¡Venga a la biblioteca para cuentos, canciones y movimiento en inglés y español los martes a las 10:30 de la mañana! Este programa está diseñado para niños hasta 5 años de edad y sus cuidadores, y se llevará a cabo adentro en el Orchard Room.",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -5706,12 +5183,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -5739,12 +5214,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -5760,7 +5233,7 @@
   {
     "id": "69b835d281b67dfe32acec7e",
     "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
-    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠,...",
+    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -5771,12 +5244,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5789,9 +5260,9 @@
     "isLive": true
   },
   {
-    "id": "69fe5c8de8af4a2f00712d3f",
+    "id": "68afa7b0022de53d00d27173",
     "title": "LEGO Tuesdays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "Downtown Library",
     "address": "270 Forest Ave, Palo Alto, CA 94301",
     "city": "Palo Alto",
@@ -5809,7 +5280,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69fe5c8de8af4a2f00712d3f",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27173",
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
@@ -5820,8 +5291,9 @@
   {
     "id": "69b835c4b48451fc3c09442e",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-12",
@@ -5831,14 +5303,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5853,8 +5321,10 @@
   {
     "id": "69b835bdb48451fc3c094418",
     "title": "Baby Storytime & Stay and Play",
-    "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n \n We invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n \n Catchy Songs & Silly Rhymes...",
+    "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n\nWe invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n\nCatchy Songs & Silly Rhymes\n\nGentle Movement & Baby Sign Language\n\nShort Books perfect for little eyes\n\nStick around afterward for our popular \"Stay & Play\" session, where babies can explore fun, age-appropriate toys, and you can chat with other local parents and caregivers!\n\nIt’s the p",
+    "tips": "Please feel free to bring a small blanket for your baby’s comfort!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-12",
@@ -5864,14 +5334,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -5897,10 +5363,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -5927,12 +5393,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_11_11_10_43.png",
@@ -5959,12 +5423,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -5980,8 +5442,9 @@
   {
     "id": "69b835bbb48451fc3c094406",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-13",
@@ -5991,14 +5454,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6013,8 +5472,9 @@
   {
     "id": "69b835b92866a5b488426bd9",
     "title": "Preschool Storytime",
-    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
+    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m. \n\nPreschool storytime is suitable for children 3-5 and their caregivers.",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-13",
@@ -6024,12 +5484,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6072,9 +5530,9 @@
     "isLive": true
   },
   {
-    "id": "68afa7b0022de53d00d27173",
+    "id": "6a25aace2ea730c17ab50486",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -6092,7 +5550,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27173",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50486",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -6144,15 +5602,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/summer-2026-family-movie-nights-8.5-x-11-in.png?dimension=pageimagefullwidth&w=1140",
     "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Family-Movie-Night-Series-2026",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.419,
     "lng": -122.1095,
     "status": "Published",
@@ -6174,15 +5634,17 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/7715/638863635919800000",
     "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/summer-outdoor-movie-night-series",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.396,
     "lng": -122.1018,
     "status": "Published",
@@ -6219,11 +5681,12 @@
     "isLive": true
   },
   {
-    "id": "6a25aace2ea730c17ab50486",
+    "id": "6a120e06c7d3cd58005b3763",
     "title": "Chill Out with Mindfulness Meditation",
-    "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.\n \n This program...",
+    "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.",
     "tips": "This program is open to all ages, young and old, and all levels of experience. Children under 10 years old must be accompanied by an adult. No registration is required.\n\nParticipants are encouraged to bring their own yoga mats and/or meditation cushions. Chairs are available for adults who do not bring them.",
     "venue": "Mitchell Park Library",
+    "room": "Midtown Room",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
     "date": "2026-08-15",
@@ -6233,14 +5696,14 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3763",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50486",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3763",
     "verifiedDate": "2026-06-30",
     "lat": 37.4177,
     "lng": -122.1288,
@@ -6342,7 +5805,7 @@
   {
     "id": "69b835d42866a5b488426c01",
     "title": "Bilingual Spanish Family Storytime / Hora de cuentos bilingüe para familias",
-    "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n \n ¡Venga a la biblioteca...",
+    "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n\n¡Venga a la biblioteca para cuentos, canciones y movimiento en inglés y español los martes a las 10:30 de la mañana! Este programa está diseñado para niños hasta 5 años de edad y sus cuidadores, y se llevará a cabo adentro en el Orchard Room.",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -6353,12 +5816,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -6373,7 +5834,7 @@
   {
     "id": "69b835d281b67dfe32acec7f",
     "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
-    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠,...",
+    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -6384,12 +5845,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6402,9 +5861,9 @@
     "isLive": true
   },
   {
-    "id": "6a120e06c7d3cd58005b3763",
+    "id": "68afa7b0022de53d00d27174",
     "title": "LEGO Tuesdays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "Downtown Library",
     "address": "270 Forest Ave, Palo Alto, CA 94301",
     "city": "Palo Alto",
@@ -6422,7 +5881,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3763",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27174",
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
@@ -6433,8 +5892,9 @@
   {
     "id": "69b835c4b48451fc3c09442f",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-19",
@@ -6444,14 +5904,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6466,8 +5922,10 @@
   {
     "id": "69b835bdb48451fc3c094419",
     "title": "Baby Storytime & Stay and Play",
-    "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n \n We invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n \n Catchy Songs & Silly Rhymes...",
+    "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n\nWe invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n\nCatchy Songs & Silly Rhymes\n\nGentle Movement & Baby Sign Language\n\nShort Books perfect for little eyes\n\nStick around afterward for our popular \"Stay & Play\" session, where babies can explore fun, age-appropriate toys, and you can chat with other local parents and caregivers!\n\nIt’s the p",
+    "tips": "Please feel free to bring a small blanket for your baby’s comfort!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-19",
@@ -6477,14 +5935,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6510,10 +5964,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -6528,8 +5982,9 @@
   {
     "id": "69b835bbb48451fc3c094407",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-20",
@@ -6539,14 +5994,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6561,8 +6012,9 @@
   {
     "id": "69b835b92866a5b488426bda",
     "title": "Preschool Storytime",
-    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
+    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m. \n\nPreschool storytime is suitable for children 3-5 and their caregivers.",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-20",
@@ -6572,12 +6024,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6590,9 +6040,9 @@
     "isLive": true
   },
   {
-    "id": "68afa7b0022de53d00d27174",
+    "id": "6a25aace2ea730c17ab50487",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -6610,7 +6060,7 @@
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27174",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50487",
     "verifiedDate": "2026-06-30",
     "lat": 37.4221,
     "lng": -122.1381,
@@ -6650,9 +6100,10 @@
   {
     "id": "6a120e06c7d3cd58005b3764",
     "title": "Chill Out with Mindfulness Meditation",
-    "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.\n \n This program...",
+    "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.",
     "tips": "This program is open to all ages, young and old, and all levels of experience. Children under 10 years old must be accompanied by an adult. No registration is required.\n\nParticipants are encouraged to bring their own yoga mats and/or meditation cushions. Chairs are available for adults who do not bring them.",
     "venue": "Mitchell Park Library",
+    "room": "Midtown Room",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
     "date": "2026-08-22",
@@ -6662,10 +6113,10 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
@@ -6723,12 +6174,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -6743,7 +6192,7 @@
   {
     "id": "69b835d42866a5b488426c02",
     "title": "Bilingual Spanish Family Storytime / Hora de cuentos bilingüe para familias",
-    "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n \n ¡Venga a la biblioteca...",
+    "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n\n¡Venga a la biblioteca para cuentos, canciones y movimiento en inglés y español los martes a las 10:30 de la mañana! Este programa está diseñado para niños hasta 5 años de edad y sus cuidadores, y se llevará a cabo adentro en el Orchard Room.",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -6754,12 +6203,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/0843753b121ce38b9c23bf54bbc99b14/BilingualStoryTimeBiblioBanner-gc.png",
@@ -6774,7 +6221,7 @@
   {
     "id": "69b835d281b67dfe32acec80",
     "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
-    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠,...",
+    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -6785,12 +6232,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6805,7 +6250,7 @@
   {
     "id": "68afa7b0022de53d00d27175",
     "title": "LEGO Tuesdays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "Downtown Library",
     "address": "270 Forest Ave, Palo Alto, CA 94301",
     "city": "Palo Alto",
@@ -6834,8 +6279,9 @@
   {
     "id": "69b835c4b48451fc3c094430",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-26",
@@ -6845,14 +6291,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6867,8 +6309,10 @@
   {
     "id": "69b835bdb48451fc3c09441a",
     "title": "Baby Storytime & Stay and Play",
-    "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n \n We invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n \n Catchy Songs & Silly Rhymes...",
+    "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n\nWe invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n\nCatchy Songs & Silly Rhymes\n\nGentle Movement & Baby Sign Language\n\nShort Books perfect for little eyes\n\nStick around afterward for our popular \"Stay & Play\" session, where babies can explore fun, age-appropriate toys, and you can chat with other local parents and caregivers!\n\nIt’s the p",
+    "tips": "Please feel free to bring a small blanket for your baby’s comfort!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-26",
@@ -6878,14 +6322,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6911,10 +6351,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -6941,12 +6381,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -6962,8 +6400,9 @@
   {
     "id": "69b835bbb48451fc3c094408",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-27",
@@ -6973,14 +6412,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -6995,8 +6430,9 @@
   {
     "id": "69b835b92866a5b488426bdb",
     "title": "Preschool Storytime",
-    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
+    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m. \n\nPreschool storytime is suitable for children 3-5 and their caregivers.",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-08-27",
@@ -7006,12 +6442,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -7026,7 +6460,7 @@
   {
     "id": "6a25aace2ea730c17ab50488",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -7084,9 +6518,10 @@
   {
     "id": "6a120e06c7d3cd58005b3765",
     "title": "Chill Out with Mindfulness Meditation",
-    "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.\n \n This program...",
+    "description": "Center yourself and increase your focus with mindfulness meditation led by Phuong Pham. Each session begins with an introduction to meditation, 15 minutes of sitting and releasing meditation, and group sharing and Q&A.",
     "tips": "This program is open to all ages, young and old, and all levels of experience. Children under 10 years old must be accompanied by an adult. No registration is required.\n\nParticipants are encouraged to bring their own yoga mats and/or meditation cushions. Chairs are available for adults who do not bring them.",
     "venue": "Mitchell Park Library",
+    "room": "Midtown Room",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
     "date": "2026-08-29",
@@ -7096,10 +6531,10 @@
     "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
@@ -7156,12 +6591,10 @@
     "ageMin": 5,
     "ageMax": 12,
     "types": [
-      "Music & Movement",
-      "Outdoor"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement",
-      "Outdoor"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -7188,12 +6621,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -7219,12 +6650,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
@@ -7268,23 +6697,21 @@
   {
     "id": "6946001eea69de6e001069ad",
     "title": "Little Ones Storytime",
-    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
+    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-09-02",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
@@ -7299,8 +6726,10 @@
   {
     "id": "69b835bdb48451fc3c09441b",
     "title": "Baby Storytime & Stay and Play",
-    "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n \n We invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n \n Catchy Songs & Silly Rhymes...",
+    "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library!\n\nWe invite all non-walking babies (ages 0-1) and their amazing caregivers to jump into an interactive 20 minutes of:\n\nCatchy Songs & Silly Rhymes\n\nGentle Movement & Baby Sign Language\n\nShort Books perfect for little eyes\n\nStick around afterward for our popular \"Stay & Play\" session, where babies can explore fun, age-appropriate toys, and you can chat with other local parents and caregivers!\n\nIt’s the p",
+    "tips": "Please feel free to bring a small blanket for your baby’s comfort!",
     "venue": "Los Altos Library",
+    "room": "Orchard Room",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-09-02",
@@ -7310,14 +6739,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -7343,10 +6768,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -7372,16 +6797,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
@@ -7396,7 +6815,7 @@
   {
     "id": "69276b597eb3e430002638af",
     "title": "Bilingual Family Storytime",
-    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\n \n Storytime may be held indoors or outdoors...",
+    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\nStorytime may be held indoors or outdoors depending on the weather.\nFollow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites!\n\n¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y activi",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -7408,12 +6827,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -7440,12 +6857,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
@@ -7472,12 +6887,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1732669547.png",
@@ -7492,7 +6905,7 @@
   {
     "id": "6a25aace2ea730c17ab50489",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -7561,14 +6974,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
@@ -7583,7 +6992,7 @@
   {
     "id": "696191ef992fc18a86dc9a3d",
     "title": "Baby Sign and Stay and Play",
-    "description": "Calling all non-walking babies ages 0-12 months for a special storytime featuring American Sign Language along with songs and stories and fun! Please bring a blanket for your baby.\n \n After storytime please stay or join us to play with...",
+    "description": "Calling all non-walking babies ages 0-12 months for a special storytime featuring American Sign Language along with songs and stories and fun! Please bring a blanket for your baby.\nAfter storytime please stay or join us to play with age-appropriate toys! Enjoy this socialization for babies and their grownups.\n\n10:30-11:00am Storytime\n11:00-12:00pm Stay & Play",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -7595,13 +7004,13 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Outdoor",
+      "Social & Play"
     ],
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
@@ -7658,12 +7067,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
@@ -7707,23 +7114,21 @@
   {
     "id": "6946001eea69de6e001069ae",
     "title": "Little Ones Storytime",
-    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
+    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-09-09",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
@@ -7749,10 +7154,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -7778,16 +7183,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
@@ -7802,7 +7201,7 @@
   {
     "id": "69276b597eb3e430002638b0",
     "title": "Bilingual Family Storytime",
-    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\n \n Storytime may be held indoors or outdoors...",
+    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\nStorytime may be held indoors or outdoors depending on the weather.\nFollow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites!\n\n¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y activi",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -7814,12 +7213,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -7846,12 +7243,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
@@ -7866,7 +7261,7 @@
   {
     "id": "6a25aace2ea730c17ab5048a",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -7935,14 +7330,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
@@ -8057,12 +7448,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
@@ -8106,23 +7495,21 @@
   {
     "id": "6946001eea69de6e001069af",
     "title": "Little Ones Storytime",
-    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
+    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-09-16",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
@@ -8148,10 +7535,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -8177,16 +7564,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
@@ -8213,12 +7594,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -8245,12 +7624,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
@@ -8265,7 +7642,7 @@
   {
     "id": "6a25aace2ea730c17ab5048b",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -8363,14 +7740,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
@@ -8427,12 +7800,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
@@ -8476,23 +7847,21 @@
   {
     "id": "6946001eea69de6e001069b0",
     "title": "Little Ones Storytime",
-    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
+    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-09-23",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
@@ -8518,10 +7887,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8655/639045040316800000",
@@ -8547,16 +7916,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
@@ -8571,7 +7934,7 @@
   {
     "id": "69276b597eb3e430002638b2",
     "title": "Bilingual Family Storytime",
-    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\n \n Storytime may be held indoors or outdoors...",
+    "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM.\nStorytime may be held indoors or outdoors depending on the weather.\nFollow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites!\n\n¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y activi",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -8583,12 +7946,10 @@
     "ageMax": 5,
     "types": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "categoryTags": [
       "Stories",
-      "Music & Movement",
       "Outdoor"
     ],
     "cost": "Free",
@@ -8615,12 +7976,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
@@ -8635,7 +7994,7 @@
   {
     "id": "6a25aace2ea730c17ab5048c",
     "title": "LEGO Fridays!",
-    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
+    "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation! \n\nIn addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
     "venue": "College Terrace Library",
     "address": "2300 Wellesley St, Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -8675,10 +8034,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Music & Movement"
+      "Other"
     ],
     "categoryTags": [
-      "Music & Movement"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -8704,14 +8063,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Outdoor"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
@@ -8738,12 +8093,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -8769,12 +8122,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
@@ -8818,23 +8169,21 @@
   {
     "id": "6946001eea69de6e001069b1",
     "title": "Little Ones Storytime",
-    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n \n Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a...",
+    "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-09-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2",
+    "ageRange": "0-2, 2-5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
@@ -8860,16 +8209,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement",
-      "Build & Explore",
-      "Outdoor"
+      "Music & Movement"
     ],
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
@@ -8896,12 +8239,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1732669547.png",
@@ -8927,10 +8268,10 @@
     "ageMin": 5,
     "ageMax": 12,
     "types": [
-      "Outdoor"
+      "Other"
     ],
     "categoryTags": [
-      "Outdoor"
+      "Other"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -9020,12 +8361,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Build & Explore",
-      "Outdoor"
+      "Build & Explore"
     ],
     "categoryTags": [
       "Build & Explore",
-      "Outdoor",
       "Seasonal"
     ],
     "cost": "Free",
@@ -9085,12 +8424,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -9117,12 +8454,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1732669547.png",
@@ -9179,12 +8514,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -9211,12 +8544,10 @@
     "ageMin": 5,
     "ageMax": 12,
     "types": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1732669547.png",
@@ -9336,12 +8667,10 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Music & Movement"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -9368,17 +8697,15 @@
     "ageMin": 5,
     "ageMax": 12,
     "types": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "categoryTags": [
-      "Stories",
-      "Build & Explore"
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1732669547.png",
     "eventUrl": "https://mountainview.libcal.com/event/16357823",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
     "status": "Published",

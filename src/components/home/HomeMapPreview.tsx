@@ -5,8 +5,7 @@ import type { Event } from '../../types/event'
 import type { TemporalTab } from '../../utils/dates'
 import type { UserLocationCoords } from '../../hooks/useUserLocation'
 import {
-  getHomeMapFallbackPinPositions,
-  getHomeMapPinPositions,
+  getHomeMapDecorativePinPositions,
   getHomeMapPreviewLabelRefined,
   getHomeMapPreviewStatus,
   resolveHomeMapPreviewFraming,
@@ -51,13 +50,7 @@ export function HomeMapPreview({
       : getHomeMapPreviewStatus(statusContext)
 
   const framing = resolveHomeMapPreviewFraming(whereMode, events, userCoords)
-  const mappableEvents = events.filter(
-    (event) => Number.isFinite(event.lat) && Number.isFinite(event.lng),
-  )
-  const pinPositions =
-    mappableEvents.length > 0
-      ? getHomeMapPinPositions(events, framing.areaBounds)
-      : getHomeMapFallbackPinPositions(Math.min(eventCount, 7))
+  const pinPositions = getHomeMapDecorativePinPositions(eventCount, whereMode, framing.viewport)
 
   const showPins = eventCount > 0 && !isRequesting
   const showMapLayer = !isRequesting
@@ -79,6 +72,7 @@ export function HomeMapPreview({
               areaBounds={framing.areaBounds}
               anchorPoints={framing.anchorPoints}
               boundsPadding={framing.boundsPadding}
+              fixedViewport={framing.viewport}
             />
           </div>
         ) : (

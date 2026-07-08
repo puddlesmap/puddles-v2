@@ -11,6 +11,7 @@ import {
   HOME_MAP_PREVIEW_BOUNDS_PADDING,
   HOME_MAP_PREVIEW_DEFAULT_ZOOM,
   HOME_MAP_PREVIEW_SINGLE_EVENT_ZOOM,
+  type HomeMapViewport,
 } from '../browse/mapViewConfig'
 import type { MapBoundsBox } from '../../utils/mapBounds'
 import {
@@ -51,6 +52,7 @@ interface DiscoveryMapPreviewProps {
   areaBounds?: MapBoundsBox
   anchorPoints?: Array<{ lat: number; lng: number }>
   boundsPadding?: number
+  fixedViewport?: HomeMapViewport
 }
 
 export function DiscoveryMapPreview({
@@ -61,12 +63,26 @@ export function DiscoveryMapPreview({
   areaBounds,
   anchorPoints,
   boundsPadding,
+  fixedViewport,
 }: DiscoveryMapPreviewProps) {
   const mappable = getEventsWithCoordinates(events)
-  const hasContextFraming = Boolean(areaBounds || anchorPoints?.length)
+  const hasContextFraming = Boolean(areaBounds || anchorPoints?.length || fixedViewport)
   const resolvedBoundsPadding =
     boundsPadding ?? (looseFraming ? HOME_MAP_PREVIEW_BOUNDS_PADDING : BROWSE_MAP_BOUNDS_PADDING)
   const resolvedViewport = (() => {
+    if (fixedViewport) {
+      return {
+        center: fixedViewport.center,
+        zoom: fixedViewport.zoom,
+        bounds: areaBounds ?? {
+          north: fixedViewport.center.lat + 0.07,
+          south: fixedViewport.center.lat - 0.07,
+          east: fixedViewport.center.lng + 0.09,
+          west: fixedViewport.center.lng - 0.09,
+        },
+      }
+    }
+
     if (anchorPoints && anchorPoints.length > 0) {
       const pointBounds = getBoundsFromPoints(anchorPoints)
       if (!pointBounds) return null
@@ -95,6 +111,7 @@ export function DiscoveryMapPreview({
     areaBounds,
     anchorPoints,
     boundsPadding: resolvedBoundsPadding,
+    fixedViewport,
   })
   const initialZoom = resolvedViewport?.zoom ?? (looseFraming ? HOME_MAP_PREVIEW_DEFAULT_ZOOM : 12)
 
@@ -133,7 +150,7 @@ export function DiscoveryMapPreview({
           boundsPadding={resolvedBoundsPadding}
           singlePointZoom={looseFraming ? HOME_MAP_PREVIEW_SINGLE_EVENT_ZOOM : BROWSE_MAP_SINGLE_EVENT_ZOOM}
         />
-      ) : areaBounds ? (
+      ) : fixedViewport ? null : areaBounds ? (
         <MapFitBounds
           bounds={areaBounds}
           resetKey={resetKey}

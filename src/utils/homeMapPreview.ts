@@ -5,11 +5,16 @@ import {
   HOME_MAP_ALL_CITIES_BOUNDS_PADDING,
   HOME_MAP_AREA_BOUNDS,
   HOME_MAP_CITY_BOUNDS_PADDING,
-  HOME_MAP_NEARBY_BOUNDS_PADDING,
+  HOME_MAP_CITY_CENTERS,
+  HOME_MAP_CITY_VIEWPORT_ZOOM,
+  HOME_MAP_PREVIEW_MAP_SIZE,
+  HOME_MAP_PREVIEW_VIEWPORT,
+  type HomeMapAreaKey,
+  type HomeMapViewport,
 } from '../components/browse/mapViewConfig'
 import { getHomeFilterResultsSummary } from './browseResultsCopy'
 import type { MapBoundsBox } from './mapBounds'
-import { getBoundsFromPoints, getEventsWithCoordinates } from './mapBounds'
+import { projectLatLngToMapPercent } from './mapBounds'
 
 export type HomeWhereMode =
   | { kind: 'nearby' }
@@ -21,6 +26,15 @@ export interface HomeMapPreviewContext {
   eventCount: number
   hasNearbyCoords: boolean
   isRequesting: boolean
+}
+
+export type { HomeMapViewport } from '../components/browse/mapViewConfig'
+
+export interface HomeMapPreviewFraming {
+  areaBounds: MapBoundsBox
+  boundsPadding: number
+  anchorPoints?: Array<{ lat: number; lng: number }>
+  viewport: HomeMapViewport
 }
 
 function getNearLocationLabel(whereMode: HomeWhereMode): string {
@@ -62,69 +76,41 @@ export function getHomeMapPreviewLabelRefined(whereMode: HomeWhereMode): string 
   return whereMode.value
 }
 
-export interface HomeMapPreviewFraming {
-  areaBounds: MapBoundsBox
-  boundsPadding: number
-  anchorPoints?: Array<{ lat: number; lng: number }>
+function getCityViewport(city: Exclude<HomeMapAreaKey, 'all'>): HomeMapViewport {
+  return {
+    center: HOME_MAP_CITY_CENTERS[city],
+    zoom: HOME_MAP_CITY_VIEWPORT_ZOOM,
+    mapWidth: HOME_MAP_PREVIEW_MAP_SIZE.width,
+    mapHeight: HOME_MAP_PREVIEW_MAP_SIZE.height,
+  }
 }
 
-const MAX_NEARBY_PREVIEW_SPAN = 0.42
-
-function isReasonableNearbySpan(bounds: MapBoundsBox): boolean {
-  return bounds.north - bounds.south <= MAX_NEARBY_PREVIEW_SPAN && bounds.east - bounds.west <= MAX_NEARBY_PREVIEW_SPAN
+function getAllCitiesViewport(): HomeMapViewport {
+  return {
+    center: HOME_MAP_PREVIEW_VIEWPORT.center,
+    zoom: HOME_MAP_PREVIEW_VIEWPORT.zoom,
+    mapWidth: HOME_MAP_PREVIEW_MAP_SIZE.width,
+    mapHeight: HOME_MAP_PREVIEW_MAP_SIZE.height,
+  }
 }
 
 export function resolveHomeMapPreviewFraming(
   whereMode: HomeWhereMode,
-  events: Event[],
-  userCoords?: { lat: number; lng: number } | null,
+  _events: Event[],
+  _userCoords?: { lat: number; lng: number } | null,
 ): HomeMapPreviewFraming {
-  if (whereMode.kind === 'nearby') {
-    if (userCoords) {
-      const mappable = getEventsWithCoordinates(events)
-      const anchorPoints = [
-        { lat: userCoords.lat, lng: userCoords.lng },
-        ...mappable.map((event) => ({ lat: event.lat, lng: event.lng })),
-      ]
-      const anchorBounds = getBoundsFromPoints(anchorPoints)
-
-      if (anchorBounds && isReasonableNearbySpan(anchorBounds)) {
-        return {
-          areaBounds: anchorBounds,
-          boundsPadding: HOME_MAP_NEARBY_BOUNDS_PADDING,
-          anchorPoints,
-        }
-      }
-
-      if (mappable.length > 0) {
-        const eventBounds = getBoundsFromPoints(
-          mappable.map((event) => ({ lat: event.lat, lng: event.lng })),
-        )
-        if (eventBounds) {
-          return {
-            areaBounds: eventBounds,
-            boundsPadding: HOME_MAP_NEARBY_BOUNDS_PADDING,
-          }
-        }
-      }
-    }
-
+  if (whereMode.kind === 'nearby' || whereMode.value === 'all') {
     return {
       areaBounds: HOME_MAP_AREA_BOUNDS.all,
       boundsPadding: HOME_MAP_ALL_CITIES_BOUNDS_PADDING,
-    }
-  }
-
-  if (whereMode.value === 'all') {
-    return {
-      areaBounds: HOME_MAP_AREA_BOUNDS.all,
-      boundsPadding: HOME_MAP_ALL_CITIES_BOUNDS_PADDING,
+      viewport: getAllCitiesViewport(),
     }
   }
 
   return {
     areaBounds: HOME_MAP_AREA_BOUNDS[whereMode.value],
     boundsPadding: HOME_MAP_CITY_BOUNDS_PADDING,
+    viewport: getCityViewport(whereMode.value),
   }
 }
 
@@ -174,55 +160,48 @@ export interface HomeMapPinPosition {
   isMain: boolean
 }
 
-const HOME_MAP_PREVIEW_MAX_PINS = 7
+const HOME_MAP_PREVIEW_MAX_PINS = 3
 
-const PIN_LAYOUTS: Array<{ top: number; left: number }> = [
-  { top: 46, left: 48 },
-  { top: 30, left: 34 },
-  { top: 58, left: 64 },
-  { top: 36, left: 74 },
-  { top: 64, left: 26 },
-  { top: 42, left: 58 },
-  { top: 52, left: 40 },
+const ALL_CITIES_PIN_ORDER: Array<keyof typeof HOME_MAP_CITY_CENTERS> = [
+  'Palo Alto',
+  'Los Altos',
+  'Mountain View',
 ]
 
-function normalize(value: number, min: number, max: number): number {
-  if (max - min < 0.0001) return 50
-  const ratio = (value - min) / (max - min)
-  return 14 + ratio * 70
+function projectPointToPin(
+  lat: number,
+  lng: number,
+  viewport: HomeMapViewport,
+  isMain: boolean,
+): HomeMapPinPosition {
+  const { top, left } = projectLatLngToMapPercent(
+    lat,
+    lng,
+    viewport.center,
+    viewport.zoom,
+    viewport.mapWidth,
+    viewport.mapHeight,
+  )
+
+  return { top, left, isMain }
 }
 
-export function getHomeMapPinPositions(
-  events: Event[],
-  areaBounds?: MapBoundsBox,
+/** Decorative pins anchored to city centers and projected onto the preview viewport. */
+export function getHomeMapDecorativePinPositions(
+  count: number,
+  whereMode: HomeWhereMode,
+  viewport: HomeMapViewport,
 ): HomeMapPinPosition[] {
-  const mappable = events
-    .filter((event) => Number.isFinite(event.lat) && Number.isFinite(event.lng))
-    .slice(0, HOME_MAP_PREVIEW_MAX_PINS)
+  if (count <= 0) return []
 
-  if (mappable.length === 0) return []
-
-  const minLat = areaBounds?.south ?? Math.min(...mappable.map((event) => event.lat))
-  const maxLat = areaBounds?.north ?? Math.max(...mappable.map((event) => event.lat))
-  const minLng = areaBounds?.west ?? Math.min(...mappable.map((event) => event.lng))
-  const maxLng = areaBounds?.east ?? Math.max(...mappable.map((event) => event.lng))
-
-  if (mappable.length === 1) {
-    return [{ top: 46, left: 48, isMain: true }]
+  if (whereMode.kind === 'city' && whereMode.value !== 'all') {
+    const center = HOME_MAP_CITY_CENTERS[whereMode.value]
+    return [projectPointToPin(center.lat, center.lng, viewport, true)]
   }
 
-  return mappable.map((event, index) => ({
-    top: normalize(event.lat, minLat, maxLat),
-    left: normalize(event.lng, minLng, maxLng),
-    isMain: index === 0,
-  }))
-}
-
-/** Fallback pin positions when events lack coordinates. */
-export function getHomeMapFallbackPinPositions(count: number): HomeMapPinPosition[] {
-  if (count <= 0) return []
-  return PIN_LAYOUTS.slice(0, Math.min(count, HOME_MAP_PREVIEW_MAX_PINS)).map((position, index) => ({
-    ...position,
-    isMain: index === 0,
-  }))
+  const pinCount = Math.min(count, HOME_MAP_PREVIEW_MAX_PINS)
+  return ALL_CITIES_PIN_ORDER.slice(0, pinCount).map((city, index) => {
+    const center = HOME_MAP_CITY_CENTERS[city]
+    return projectPointToPin(center.lat, center.lng, viewport, index === 0)
+  })
 }

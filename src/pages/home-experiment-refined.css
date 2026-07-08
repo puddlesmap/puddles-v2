@@ -309,6 +309,8 @@
   border-radius: 0;
   box-shadow: none;
   background: #f7f7f7;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .home-map-preview__placeholder {

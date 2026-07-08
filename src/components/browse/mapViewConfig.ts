@@ -33,6 +33,42 @@ export const HOME_MAP_AREA_BOUNDS = {
   'Mountain View': { north: 37.42, south: 37.36, west: -122.12, east: -122.03 },
 } as const
 
+/** Puddles service area — pins outside this box are hidden on the home preview map. */
+export const HOME_MAP_SERVICE_BOUNDS = {
+  north: 37.48,
+  south: 37.32,
+  west: -122.2,
+  east: -122.02,
+} as const
+
+/** City-center coordinates for decorative home preview pins. */
+export const HOME_MAP_CITY_CENTERS = {
+  'Palo Alto': { lat: 37.4419, lng: -122.143 },
+  'Los Altos': { lat: 37.3852, lng: -122.1141 },
+  'Mountain View': { lat: 37.3861, lng: -122.0839 },
+} as const
+
+/** Fixed viewport for the compact "Nearby cities" home preview map. */
+export const HOME_MAP_PREVIEW_VIEWPORT = {
+  center: { lat: 37.405, lng: -122.112 },
+  zoom: 11,
+} as const
+
+/** Match `.home-map-preview__canvas` aspect ratio (21 / 9). */
+export const HOME_MAP_PREVIEW_MAP_SIZE = {
+  width: 840,
+  height: 360,
+} as const
+
+export interface HomeMapViewport {
+  center: { lat: number; lng: number }
+  zoom: number
+  mapWidth: number
+  mapHeight: number
+}
+
+export const HOME_MAP_CITY_VIEWPORT_ZOOM = 13
+
 export type HomeMapAreaKey = keyof typeof HOME_MAP_AREA_BOUNDS
 
 /** Leaflet/static-map padding when fitting all three cities. */

@@ -1,6 +1,6 @@
 import { createStaticMapsUrl } from '@vis.gl/react-google-maps'
 import type { Event } from '../types/event'
-import { HOME_MAP_PREVIEW_STATIC_BOUNDS_PADDING } from '../components/browse/mapViewConfig'
+import { HOME_MAP_PREVIEW_STATIC_BOUNDS_PADDING, type HomeMapViewport } from '../components/browse/mapViewConfig'
 import {
   expandMapBounds,
   getBoundsFromPoints,
@@ -60,16 +60,18 @@ export interface DiscoveryStaticMapOptions {
   areaBounds?: MapBoundsBox
   anchorPoints?: Array<{ lat: number; lng: number }>
   boundsPadding?: number
+  fixedViewport?: HomeMapViewport
 }
 
 function buildStaticMapFromViewport(
   center: { lat: number; lng: number },
   zoom: number,
+  mapSize = { width: 640, height: 320 },
 ): string {
   return createStaticMapsUrl({
     apiKey: GOOGLE_MAPS_API_KEY,
-    width: 640,
-    height: 320,
+    width: mapSize.width,
+    height: mapSize.height,
     scale: 2,
     center,
     zoom,
@@ -92,7 +94,16 @@ export function buildDiscoveryStaticMapUrl(
     areaBounds,
     anchorPoints,
     boundsPadding = looseFraming ? HOME_MAP_PREVIEW_STATIC_BOUNDS_PADDING : 0.08,
+    fixedViewport,
   } = options
+
+  if (fixedViewport) {
+    return buildStaticMapFromViewport(
+      fixedViewport.center,
+      fixedViewport.zoom,
+      { width: fixedViewport.mapWidth, height: fixedViewport.mapHeight },
+    )
+  }
 
   if (anchorPoints && anchorPoints.length > 0) {
     const pointBounds = getBoundsFromPoints(anchorPoints)
