@@ -1,6 +1,7 @@
 import type { City, Event } from '../types/event'
 import {
   getCityCenter,
+  getVenueGeo,
   getVenueGeoForEvent,
   isPlaceholderMapCoordinates,
 } from '../data/venueGeo'
@@ -38,7 +39,14 @@ export function getEventRoomLine(event: Event): string {
 export function getEventDirectionsDestination(event: Event): string | null {
   const address = getStreetAddress(event)
   const venue = event.venue?.trim()
+  const room = event.room?.trim()
   const city = event.city?.trim()
+
+  if (room && getVenueGeo(venue ?? '', room)) {
+    if (address) return `${room}, ${address}`
+    if (city) return `${room}, ${city}`
+    return room
+  }
 
   if (address) {
     return venue ? `${venue}, ${address}` : address
@@ -85,6 +93,11 @@ export function getEventAddressLine(event: Event): string {
   return ''
 }
 
+export function isCityShownInAddress(address: string, city: string): boolean {
+  if (!address.trim() || !city.trim()) return false
+  return address.toLowerCase().includes(city.trim().toLowerCase())
+}
+
 function isTrustedEventCoordinates(event: Event): boolean {
   return (
     Number.isFinite(event.lat) &&
@@ -113,8 +126,12 @@ export function getEventMapCoordinates(event: Event): { lat: number; lng: number
   return null
 }
 
-/** Prefer address-geocoded static map when a street address is available. */
+/** Prefer trusted venue/room coordinates over address geocoding for static maps. */
 export function getEventMapMarkerAddress(event: Event): string | null {
+  if (getVenueGeoForEvent(event.venue ?? '', event.room ?? '', event.address ?? '')) {
+    return null
+  }
+
   if (!getStreetAddress(event)) return null
   return getEventDirectionsDestination(event)
 }

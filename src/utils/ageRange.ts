@@ -122,15 +122,30 @@ function formatAgeBucketLabel(bucket: AgeBucket): string {
   return '5+'
 }
 
-/** Bucket breakdown for event detail / modal (e.g. 0–2, 2–5 instead of 0–5). */
-export function getEventModalAgeLabel(ageRange: string): string {
-  const buckets = parseAgeBuckets(ageRange)
+function isFullSiteAgeRange(buckets: Set<AgeBucket>, text: string): boolean {
+  if (hasAllAgeBuckets(buckets)) return true
+  if (buckets.has('0-2') && buckets.has('2-5') && !buckets.has('5+')) return true
+  return /^0[-–]5$/i.test(text.replace(/\s+/g, ''))
+}
+
+/** Canonical bucket label for display and synced event data. */
+export function formatPublicAgeRangeLabel(ageRange: string): string {
+  const text = ageRange.trim()
+  if (!text || /all\s*ages?/i.test(text)) return '0–2, 2–5, 5+'
+
+  const buckets = parseAgeBuckets(text)
+  if (isFullSiteAgeRange(buckets, text)) return '0–2, 2–5, 5+'
+
   const labels = MODAL_AGE_BUCKET_ORDER.filter((bucket) => buckets.has(bucket)).map(
     formatAgeBucketLabel,
   )
-
-  if (labels.length === 0) return '0–2, 2–5'
+  if (labels.length === 0) return '0–2, 2–5, 5+'
   return labels.join(', ')
+}
+
+/** Bucket breakdown for event detail / modal (e.g. 0–2, 2–5, 5+ instead of 0–5). */
+export function getEventModalAgeLabel(ageRange: string): string {
+  return formatPublicAgeRangeLabel(ageRange)
 }
 
 /** Derive min/max for sync and display from bucket tags. */
@@ -142,9 +157,9 @@ export function ageBoundsFromRange(raw: string): { min: number; max: number; lab
     return {
       min: buckets.has('0-2') ? 0 : buckets.has('2-5') ? 2 : 5,
       max: buckets.has('5+') && !buckets.has('0-2') && !buckets.has('2-5') ? 12 : 5,
-      label: text,
+      label: formatPublicAgeRangeLabel(text),
     }
   }
 
-  return { min: 0, max: 5, label: '0–5' }
+  return { min: 0, max: 5, label: '0–2, 2–5, 5+' }
 }

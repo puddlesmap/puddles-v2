@@ -754,12 +754,20 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  gap: 0;
+  width: 100%;
+}
+
+.event-modal-actions__ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   gap: 0.5rem;
   width: 100%;
 }
 
-.event-modal-actions .btn-primary,
-.event-modal-actions .btn-secondary {
+.event-modal-actions__ctas .btn-primary,
+.event-modal-actions__ctas .btn-secondary {
   width: 100%;
 }
 
@@ -1011,27 +1019,6 @@ textarea {
 
 .browse-secondary-controls {
   min-width: 0;
-}
-
-@media (max-width: 767px) {
-  .browse-secondary-controls {
-    width: 100%;
-    overflow: hidden;
-    max-height: 3.75rem;
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-      max-height 210ms cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 210ms ease-out,
-      transform 210ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .browse-secondary-controls--collapsed {
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-0.375rem);
-    pointer-events: none;
-  }
 }
 
 .browse-secondary-controls-row {
@@ -2193,7 +2180,9 @@ select.input-field,
   --browse-map-split-gap: 20px;
   --browse-map-list-min: 0px;
   --browse-map-list-width: 20rem;
-  --browse-map-mobile-sheet-height: 9.5rem;
+  --browse-map-mobile-sheet-height: 10.75rem;
+  --browse-map-control-stack-gap: 1rem;
+  --browse-mobile-nav-offset: calc(3.75rem + max(0.5rem, env(safe-area-inset-bottom)));
   width: 100%;
 }
 
@@ -2516,7 +2505,7 @@ select.input-field,
 @media (max-width: 767px) {
   .browse-map-control-stack {
     right: 0.75rem;
-    bottom: calc(3.75rem + 0.75rem + env(safe-area-inset-bottom));
+    bottom: calc(var(--browse-mobile-nav-offset) + 0.75rem);
   }
 
   .browse-map-search-area-btn {
@@ -2525,7 +2514,11 @@ select.input-field,
   }
 
   .browse-map-panel-mobile:has(.browse-map-preview-sheet) .browse-map-control-stack {
-    bottom: calc(3.75rem + var(--browse-map-mobile-sheet-height) + 0.5rem + env(safe-area-inset-bottom));
+    bottom: calc(
+      var(--browse-mobile-nav-offset) + var(--browse-map-mobile-sheet-height) +
+        var(--browse-map-control-stack-gap, 1rem)
+    );
+    z-index: 40;
   }
 
   .browse-map-panel-mobile:has(.browse-map-preview-sheet) .browse-map-search-area-btn {
@@ -2534,14 +2527,17 @@ select.input-field,
 
   /* Legacy selector — preview sheet wraps .browse-map-preview */
   .browse-map-panel-mobile:has(.browse-map-preview) .browse-map-control-stack {
-    bottom: calc(3.75rem + var(--browse-map-mobile-sheet-height) + 0.5rem + env(safe-area-inset-bottom));
+    bottom: calc(
+      var(--browse-mobile-nav-offset) + var(--browse-map-mobile-sheet-height) +
+        var(--browse-map-control-stack-gap, 1rem)
+    );
   }
 }
 
 .browse-map-preview {
   position: absolute;
   inset-inline: 0.75rem;
-  bottom: calc(3.75rem + 0.25rem + env(safe-area-inset-bottom));
+  bottom: calc(var(--browse-mobile-nav-offset) + 0.25rem);
   z-index: 35;
   pointer-events: none;
   animation: browse-map-preview-in 0.2s cubic-bezier(0.22, 1, 0.36, 1);
@@ -3074,7 +3070,8 @@ select.input-field,
   .animate-fade-in,
   .filter-sheet-panel,
   .filter-sheet-overlay,
-  .browse-secondary-controls {
+  .browse-page-shell .browse-controls-band,
+  .browse-page-shell .browse-controls-band > .browse-controls {
     animation: none !important;
     transition-duration: 0.01ms !important;
   }

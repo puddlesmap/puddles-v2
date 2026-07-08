@@ -9,7 +9,7 @@
     "date": "2026-06-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -39,7 +39,7 @@
     "date": "2026-06-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -54,8 +54,8 @@
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_17_01_53.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16546786",
     "verifiedDate": "2026-06-30",
-    "lat": 37.3945,
-    "lng": -122.0786,
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -70,7 +70,7 @@
     "date": "2026-06-30",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -99,7 +99,7 @@
     "date": "2026-07-01",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -129,7 +129,7 @@
     "date": "2026-07-01",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -159,7 +159,7 @@
     "date": "2026-07-01",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -188,7 +188,7 @@
     "date": "2026-07-01",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -217,7 +217,7 @@
     "date": "2026-07-01",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -247,7 +247,7 @@
     "date": "2026-07-01",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -260,8 +260,8 @@
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_16_52_35.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16422616",
     "verifiedDate": "2026-06-30",
-    "lat": 37.3945,
-    "lng": -122.0786,
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -276,7 +276,7 @@
     "date": "2026-07-02",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -305,7 +305,7 @@
     "date": "2026-07-02",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -334,7 +334,7 @@
     "date": "2026-07-05",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -365,7 +365,7 @@
     "date": "2026-07-05",
     "startTime": "14:00",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -395,7 +395,7 @@
     "date": "2026-07-06",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -424,7 +424,7 @@
     "date": "2026-07-07",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -454,7 +454,7 @@
     "date": "2026-07-07",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -469,8 +469,8 @@
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_17_01_53.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16546787",
     "verifiedDate": "2026-06-30",
-    "lat": 37.3945,
-    "lng": -122.0786,
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -485,7 +485,7 @@
     "date": "2026-07-07",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -514,7 +514,7 @@
     "date": "2026-07-08",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -544,7 +544,7 @@
     "date": "2026-07-08",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -574,7 +574,7 @@
     "date": "2026-07-08",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -589,9 +589,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69f14cd1762d19c7d51075a7",
@@ -603,7 +603,7 @@
     "date": "2026-07-08",
     "startTime": "15:30",
     "endTime": "17:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -634,7 +634,7 @@
     "date": "2026-07-08",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -663,7 +663,7 @@
     "date": "2026-07-09",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -694,7 +694,7 @@
     "date": "2026-07-09",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -709,8 +709,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a7",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -725,7 +725,7 @@
     "date": "2026-07-09",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -754,7 +754,7 @@
     "date": "2026-07-09",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -783,7 +783,7 @@
     "date": "2026-07-09",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -813,7 +813,7 @@
     "date": "2026-07-09",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -826,8 +826,8 @@
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_16_51_06.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16650840",
     "verifiedDate": "2026-06-30",
-    "lat": 37.3945,
-    "lng": -122.0786,
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -842,7 +842,7 @@
     "date": "2026-07-09",
     "startTime": "18:30",
     "endTime": "18:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -873,7 +873,7 @@
     "date": "2026-07-10",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -903,7 +903,7 @@
     "date": "2026-07-10",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -932,7 +932,7 @@
     "date": "2026-07-10",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -945,8 +945,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50481",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -961,7 +961,7 @@
     "date": "2026-07-10",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -991,7 +991,7 @@
     "date": "2026-07-10",
     "startTime": "19:30",
     "endTime": "22:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1023,7 +1023,7 @@
     "date": "2026-07-10",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1054,7 +1054,7 @@
     "date": "2026-07-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1067,8 +1067,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bd8",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1112,7 +1112,7 @@
     "date": "2026-07-12",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1143,7 +1143,7 @@
     "date": "2026-07-12",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1172,7 +1172,7 @@
     "date": "2026-07-12",
     "startTime": "11:30",
     "endTime": "12:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1201,7 +1201,7 @@
     "date": "2026-07-12",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1230,7 +1230,7 @@
     "date": "2026-07-14",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1259,7 +1259,7 @@
     "date": "2026-07-14",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1289,7 +1289,7 @@
     "date": "2026-07-14",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1304,8 +1304,8 @@
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_17_01_53.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16546788",
     "verifiedDate": "2026-06-30",
-    "lat": 37.3945,
-    "lng": -122.0786,
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1320,7 +1320,7 @@
     "date": "2026-07-14",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1349,7 +1349,7 @@
     "date": "2026-07-14",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1378,7 +1378,7 @@
     "date": "2026-07-14",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1407,7 +1407,7 @@
     "date": "2026-07-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1436,7 +1436,7 @@
     "date": "2026-07-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1466,7 +1466,7 @@
     "date": "2026-07-15",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1496,7 +1496,7 @@
     "date": "2026-07-15",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1525,7 +1525,7 @@
     "date": "2026-07-15",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1554,7 +1554,7 @@
     "date": "2026-07-15",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1583,7 +1583,7 @@
     "date": "2026-07-15",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1612,7 +1612,7 @@
     "date": "2026-07-15",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1625,8 +1625,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c6",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1642,7 +1642,7 @@
     "date": "2026-07-15",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1671,7 +1671,7 @@
     "date": "2026-07-16",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1686,8 +1686,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a8",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1702,7 +1702,7 @@
     "date": "2026-07-16",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1731,7 +1731,7 @@
     "date": "2026-07-16",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1760,7 +1760,7 @@
     "date": "2026-07-16",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1789,7 +1789,7 @@
     "date": "2026-07-16",
     "startTime": "18:30",
     "endTime": "18:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1820,7 +1820,7 @@
     "date": "2026-07-17",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1850,7 +1850,7 @@
     "date": "2026-07-17",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1879,7 +1879,7 @@
     "date": "2026-07-17",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1892,8 +1892,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50482",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -1908,7 +1908,7 @@
     "date": "2026-07-17",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1938,7 +1938,7 @@
     "date": "2026-07-17",
     "startTime": "19:30",
     "endTime": "22:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1970,7 +1970,7 @@
     "date": "2026-07-17",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2001,7 +2001,7 @@
     "date": "2026-07-18",
     "startTime": "10:00",
     "endTime": "20:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2030,7 +2030,7 @@
     "date": "2026-07-18",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2043,8 +2043,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bd9",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -2060,7 +2060,7 @@
     "date": "2026-07-18",
     "startTime": "11:00",
     "endTime": "12:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2091,7 +2091,7 @@
     "date": "2026-07-18",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2121,7 +2121,7 @@
     "date": "2026-07-18",
     "startTime": "13:30",
     "endTime": "14:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2150,7 +2150,7 @@
     "date": "2026-07-18",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2165,8 +2165,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/61343712c18382e95e4eb08e772e70cc/dragon-boat-festival-main-780x400.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69fd26c6f56bd86e00ae4709",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -2181,7 +2181,7 @@
     "date": "2026-07-19",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2212,7 +2212,7 @@
     "date": "2026-07-19",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2243,7 +2243,7 @@
     "date": "2026-07-19",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2272,7 +2272,7 @@
     "date": "2026-07-19",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2368,7 +2368,7 @@
     "date": "2026-07-21",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2397,7 +2397,7 @@
     "date": "2026-07-21",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2427,7 +2427,7 @@
     "date": "2026-07-21",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2442,8 +2442,8 @@
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_17_01_53.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16546789",
     "verifiedDate": "2026-06-30",
-    "lat": 37.3945,
-    "lng": -122.0786,
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -2458,7 +2458,7 @@
     "date": "2026-07-21",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2487,7 +2487,7 @@
     "date": "2026-07-21",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2516,7 +2516,7 @@
     "date": "2026-07-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2545,7 +2545,7 @@
     "date": "2026-07-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2575,7 +2575,7 @@
     "date": "2026-07-22",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2605,7 +2605,7 @@
     "date": "2026-07-22",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2634,7 +2634,7 @@
     "date": "2026-07-22",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2663,7 +2663,7 @@
     "date": "2026-07-22",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2692,7 +2692,7 @@
     "date": "2026-07-22",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2721,7 +2721,7 @@
     "date": "2026-07-22",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2734,8 +2734,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c7",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -2750,7 +2750,7 @@
     "date": "2026-07-23",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2781,7 +2781,7 @@
     "date": "2026-07-23",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2796,8 +2796,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638a9",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -2812,7 +2812,7 @@
     "date": "2026-07-23",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2841,7 +2841,7 @@
     "date": "2026-07-23",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2870,7 +2870,7 @@
     "date": "2026-07-23",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2899,7 +2899,7 @@
     "date": "2026-07-23",
     "startTime": "18:30",
     "endTime": "18:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2931,7 +2931,7 @@
     "date": "2026-07-24",
     "startTime": "09:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2960,7 +2960,7 @@
     "date": "2026-07-24",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2989,7 +2989,7 @@
     "date": "2026-07-24",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3002,8 +3002,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50483",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3018,7 +3018,7 @@
     "date": "2026-07-24",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3048,7 +3048,7 @@
     "date": "2026-07-24",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3079,7 +3079,7 @@
     "date": "2026-07-25",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3092,8 +3092,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bda",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3108,7 +3108,7 @@
     "date": "2026-07-25",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3137,7 +3137,7 @@
     "date": "2026-07-25",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3166,7 +3166,7 @@
     "date": "2026-07-26",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3201,7 +3201,7 @@
     "date": "2026-07-26",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3232,7 +3232,7 @@
     "date": "2026-07-26",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3261,7 +3261,7 @@
     "date": "2026-07-26",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3274,8 +3274,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69fd15cb1773192800183afe",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3291,7 +3291,7 @@
     "date": "2026-07-27",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3320,7 +3320,7 @@
     "date": "2026-07-28",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3349,7 +3349,7 @@
     "date": "2026-07-28",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3379,7 +3379,7 @@
     "date": "2026-07-28",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3394,8 +3394,8 @@
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_17_01_53.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16546790",
     "verifiedDate": "2026-06-30",
-    "lat": 37.3945,
-    "lng": -122.0786,
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3410,7 +3410,7 @@
     "date": "2026-07-28",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3439,7 +3439,7 @@
     "date": "2026-07-28",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3468,7 +3468,7 @@
     "date": "2026-07-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3497,7 +3497,7 @@
     "date": "2026-07-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3527,7 +3527,7 @@
     "date": "2026-07-29",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3557,7 +3557,7 @@
     "date": "2026-07-29",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3586,7 +3586,7 @@
     "date": "2026-07-29",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3617,7 +3617,7 @@
     "date": "2026-07-29",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3648,7 +3648,7 @@
     "date": "2026-07-29",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3677,7 +3677,7 @@
     "date": "2026-07-29",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3690,8 +3690,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c8",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3707,7 +3707,7 @@
     "date": "2026-07-29",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "2-5, 5+",
+    "ageRange": "2–5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -3738,7 +3738,7 @@
     "date": "2026-07-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3753,8 +3753,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638aa",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3770,7 +3770,7 @@
     "date": "2026-07-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3799,7 +3799,7 @@
     "date": "2026-07-30",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3828,7 +3828,7 @@
     "date": "2026-07-30",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3888,7 +3888,7 @@
     "date": "2026-07-30",
     "startTime": "18:30",
     "endTime": "18:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3919,7 +3919,7 @@
     "date": "2026-07-31",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3949,7 +3949,7 @@
     "date": "2026-07-31",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3978,7 +3978,7 @@
     "date": "2026-07-31",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3991,8 +3991,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50484",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4007,7 +4007,7 @@
     "date": "2026-07-31",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4036,7 +4036,7 @@
     "date": "2026-07-31",
     "startTime": "18:30",
     "endTime": "21:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4065,7 +4065,7 @@
     "date": "2026-07-31",
     "startTime": "18:30",
     "endTime": "21:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4095,7 +4095,7 @@
     "date": "2026-07-31",
     "startTime": "19:30",
     "endTime": "22:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4127,7 +4127,7 @@
     "date": "2026-07-31",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4158,7 +4158,7 @@
     "date": "2026-08-01",
     "startTime": "10:00",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4187,7 +4187,7 @@
     "date": "2026-08-01",
     "startTime": "10:00",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4216,7 +4216,7 @@
     "date": "2026-08-01",
     "startTime": "10:30",
     "endTime": "12:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4251,7 +4251,7 @@
     "date": "2026-08-01",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2-5, 5+",
+    "ageRange": "2–5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -4264,8 +4264,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3761",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4280,7 +4280,7 @@
     "date": "2026-08-01",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4309,7 +4309,7 @@
     "date": "2026-08-01",
     "startTime": "15:00",
     "endTime": "15:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4338,7 +4338,7 @@
     "date": "2026-08-01",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4369,7 +4369,7 @@
     "date": "2026-08-02",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4398,7 +4398,7 @@
     "date": "2026-08-02",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4429,7 +4429,7 @@
     "date": "2026-08-02",
     "startTime": "11:00",
     "endTime": "14:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4458,7 +4458,7 @@
     "date": "2026-08-02",
     "startTime": "11:00",
     "endTime": "14:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4487,7 +4487,7 @@
     "date": "2026-08-02",
     "startTime": "16:00",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4517,7 +4517,7 @@
     "date": "2026-08-03",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4546,7 +4546,7 @@
     "date": "2026-08-04",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4576,7 +4576,7 @@
     "date": "2026-08-04",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4591,8 +4591,8 @@
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_17_01_53.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16546791",
     "verifiedDate": "2026-06-30",
-    "lat": 37.3945,
-    "lng": -122.0786,
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4607,7 +4607,7 @@
     "date": "2026-08-04",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4636,7 +4636,7 @@
     "date": "2026-08-04",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4665,7 +4665,7 @@
     "date": "2026-08-04",
     "startTime": "17:30",
     "endTime": "19:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4695,7 +4695,7 @@
     "date": "2026-08-05",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4725,7 +4725,7 @@
     "date": "2026-08-05",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4754,7 +4754,7 @@
     "date": "2026-08-05",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4784,7 +4784,7 @@
     "date": "2026-08-05",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "2-5, 5+",
+    "ageRange": "2–5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -4816,7 +4816,7 @@
     "date": "2026-08-06",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4846,7 +4846,7 @@
     "date": "2026-08-06",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4876,7 +4876,7 @@
     "date": "2026-08-07",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4905,7 +4905,7 @@
     "date": "2026-08-07",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4918,8 +4918,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50485",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4934,7 +4934,7 @@
     "date": "2026-08-07",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4964,7 +4964,7 @@
     "date": "2026-08-07",
     "startTime": "18:30",
     "endTime": "22:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4996,7 +4996,7 @@
     "date": "2026-08-07",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5028,7 +5028,7 @@
     "date": "2026-08-08",
     "startTime": "10:00",
     "endTime": "13:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5061,7 +5061,7 @@
     "date": "2026-08-08",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2-5, 5+",
+    "ageRange": "2–5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -5074,8 +5074,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3762",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5090,7 +5090,7 @@
     "date": "2026-08-08",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "2-5, 5+",
+    "ageRange": "2–5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -5103,8 +5103,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69fe5c8de8af4a2f00712d3f",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5119,7 +5119,7 @@
     "date": "2026-08-09",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5150,7 +5150,7 @@
     "date": "2026-08-09",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5179,7 +5179,7 @@
     "date": "2026-08-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5209,7 +5209,7 @@
     "date": "2026-08-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5224,8 +5224,8 @@
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_17_01_53.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16546792",
     "verifiedDate": "2026-06-30",
-    "lat": 37.3945,
-    "lng": -122.0786,
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5240,7 +5240,7 @@
     "date": "2026-08-11",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5269,7 +5269,7 @@
     "date": "2026-08-11",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5299,7 +5299,7 @@
     "date": "2026-08-12",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5330,7 +5330,7 @@
     "date": "2026-08-12",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5359,7 +5359,7 @@
     "date": "2026-08-12",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5389,7 +5389,7 @@
     "date": "2026-08-12",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5418,7 +5418,7 @@
     "date": "2026-08-13",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5450,7 +5450,7 @@
     "date": "2026-08-13",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5480,7 +5480,7 @@
     "date": "2026-08-13",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5510,7 +5510,7 @@
     "date": "2026-08-14",
     "startTime": "15:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5539,7 +5539,7 @@
     "date": "2026-08-14",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5552,8 +5552,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50486",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5568,7 +5568,7 @@
     "date": "2026-08-14",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5598,7 +5598,7 @@
     "date": "2026-08-14",
     "startTime": "19:30",
     "endTime": "22:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5630,7 +5630,7 @@
     "date": "2026-08-14",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5661,7 +5661,7 @@
     "date": "2026-08-15",
     "startTime": "10:00",
     "endTime": "20:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5692,7 +5692,7 @@
     "date": "2026-08-15",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2-5, 5+",
+    "ageRange": "2–5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -5705,8 +5705,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3763",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3763",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5750,7 +5750,7 @@
     "date": "2026-08-16",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5781,7 +5781,7 @@
     "date": "2026-08-16",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5812,7 +5812,7 @@
     "date": "2026-08-18",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5841,7 +5841,7 @@
     "date": "2026-08-18",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5870,7 +5870,7 @@
     "date": "2026-08-18",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5900,7 +5900,7 @@
     "date": "2026-08-19",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5931,7 +5931,7 @@
     "date": "2026-08-19",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5960,7 +5960,7 @@
     "date": "2026-08-19",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5990,7 +5990,7 @@
     "date": "2026-08-20",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6020,7 +6020,7 @@
     "date": "2026-08-20",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6049,7 +6049,7 @@
     "date": "2026-08-21",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6062,8 +6062,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50487",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6078,7 +6078,7 @@
     "date": "2026-08-21",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6109,7 +6109,7 @@
     "date": "2026-08-22",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2-5, 5+",
+    "ageRange": "2–5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -6122,8 +6122,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3764",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6138,7 +6138,7 @@
     "date": "2026-08-23",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6170,7 +6170,7 @@
     "date": "2026-08-24",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6199,7 +6199,7 @@
     "date": "2026-08-25",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6228,7 +6228,7 @@
     "date": "2026-08-25",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6257,7 +6257,7 @@
     "date": "2026-08-25",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6287,7 +6287,7 @@
     "date": "2026-08-26",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6318,7 +6318,7 @@
     "date": "2026-08-26",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6347,7 +6347,7 @@
     "date": "2026-08-26",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6376,7 +6376,7 @@
     "date": "2026-08-27",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6408,7 +6408,7 @@
     "date": "2026-08-27",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6438,7 +6438,7 @@
     "date": "2026-08-27",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6467,7 +6467,7 @@
     "date": "2026-08-28",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6480,8 +6480,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50488",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6496,7 +6496,7 @@
     "date": "2026-08-28",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6527,7 +6527,7 @@
     "date": "2026-08-29",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2-5, 5+",
+    "ageRange": "2–5, 5+",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -6540,8 +6540,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3765",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6556,7 +6556,7 @@
     "date": "2026-08-30",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6617,7 +6617,7 @@
     "date": "2026-08-31",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6646,7 +6646,7 @@
     "date": "2026-09-01",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6675,7 +6675,7 @@
     "date": "2026-09-01",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6704,7 +6704,7 @@
     "date": "2026-09-02",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6735,7 +6735,7 @@
     "date": "2026-09-02",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6764,7 +6764,7 @@
     "date": "2026-09-02",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6793,7 +6793,7 @@
     "date": "2026-09-02",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6806,8 +6806,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a3dbc0bfddb082f00fe149a",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6822,7 +6822,7 @@
     "date": "2026-09-03",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6837,8 +6837,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638af",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6853,7 +6853,7 @@
     "date": "2026-09-04",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6883,7 +6883,7 @@
     "date": "2026-09-04",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6912,7 +6912,7 @@
     "date": "2026-09-04",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6925,8 +6925,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50489",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6941,7 +6941,7 @@
     "date": "2026-09-04",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6970,7 +6970,7 @@
     "date": "2026-09-05",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6983,8 +6983,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73be0",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6999,7 +6999,7 @@
     "date": "2026-09-05",
     "startTime": "10:30",
     "endTime": "12:00",
-    "ageRange": "0-2",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7032,7 +7032,7 @@
     "date": "2026-09-06",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7063,7 +7063,7 @@
     "date": "2026-09-08",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7092,7 +7092,7 @@
     "date": "2026-09-08",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7121,7 +7121,7 @@
     "date": "2026-09-09",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7150,7 +7150,7 @@
     "date": "2026-09-09",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7179,7 +7179,7 @@
     "date": "2026-09-09",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7192,8 +7192,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a3dbc0bfddb082f00fe149b",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7208,7 +7208,7 @@
     "date": "2026-09-10",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7223,8 +7223,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638b0",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7239,7 +7239,7 @@
     "date": "2026-09-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7268,7 +7268,7 @@
     "date": "2026-09-11",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7281,8 +7281,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab5048a",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7297,7 +7297,7 @@
     "date": "2026-09-11",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7326,7 +7326,7 @@
     "date": "2026-09-12",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7339,8 +7339,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73be1",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7355,7 +7355,7 @@
     "date": "2026-09-13",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7386,7 +7386,7 @@
     "date": "2026-09-13",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7415,7 +7415,7 @@
     "date": "2026-09-13",
     "startTime": "16:00",
     "endTime": "16:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7444,7 +7444,7 @@
     "date": "2026-09-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7473,7 +7473,7 @@
     "date": "2026-09-15",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7502,7 +7502,7 @@
     "date": "2026-09-16",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7531,7 +7531,7 @@
     "date": "2026-09-16",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7560,7 +7560,7 @@
     "date": "2026-09-16",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7573,8 +7573,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a3dbc0bfddb082f00fe149c",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7589,7 +7589,7 @@
     "date": "2026-09-17",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7604,8 +7604,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638b1",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7620,7 +7620,7 @@
     "date": "2026-09-18",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7649,7 +7649,7 @@
     "date": "2026-09-18",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7662,8 +7662,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab5048b",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7678,7 +7678,7 @@
     "date": "2026-09-18",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7707,7 +7707,7 @@
     "date": "2026-09-19",
     "startTime": "10:00",
     "endTime": "20:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7736,7 +7736,7 @@
     "date": "2026-09-19",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7749,8 +7749,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73be2",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7765,7 +7765,7 @@
     "date": "2026-09-20",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7796,7 +7796,7 @@
     "date": "2026-09-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7825,7 +7825,7 @@
     "date": "2026-09-22",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7854,7 +7854,7 @@
     "date": "2026-09-23",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7883,7 +7883,7 @@
     "date": "2026-09-23",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7912,7 +7912,7 @@
     "date": "2026-09-23",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7925,8 +7925,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a3dbc0bfddb082f00fe149d",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7941,7 +7941,7 @@
     "date": "2026-09-24",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7956,8 +7956,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638b2",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7972,7 +7972,7 @@
     "date": "2026-09-25",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8001,7 +8001,7 @@
     "date": "2026-09-25",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8014,8 +8014,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab5048c",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4221,
-    "lng": -122.1381,
+    "lat": 37.4229,
+    "lng": -122.1489,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -8030,7 +8030,7 @@
     "date": "2026-09-26",
     "startTime": "09:00",
     "endTime": "12:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8059,7 +8059,7 @@
     "date": "2026-09-26",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8072,8 +8072,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73be3",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -8089,7 +8089,7 @@
     "date": "2026-09-28",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8118,7 +8118,7 @@
     "date": "2026-09-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8147,7 +8147,7 @@
     "date": "2026-09-29",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8176,7 +8176,7 @@
     "date": "2026-09-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8205,7 +8205,7 @@
     "date": "2026-09-30",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8218,8 +8218,8 @@
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a3dbc0bfddb082f00fe149e",
     "verifiedDate": "2026-06-30",
-    "lat": 37.4177,
-    "lng": -122.1288,
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -8235,7 +8235,7 @@
     "date": "2026-10-02",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8293,7 +8293,7 @@
     "date": "2026-10-17",
     "startTime": "10:00",
     "endTime": "15:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8325,7 +8325,7 @@
     "date": "2026-10-17",
     "startTime": "18:00",
     "endTime": "21:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8357,7 +8357,7 @@
     "date": "2026-10-24",
     "startTime": "10:00",
     "endTime": "14:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8388,7 +8388,7 @@
     "date": "2026-10-24",
     "startTime": "10:00",
     "endTime": "13:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8420,7 +8420,7 @@
     "date": "2026-10-26",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8450,7 +8450,7 @@
     "date": "2026-11-06",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8479,7 +8479,7 @@
     "date": "2026-11-21",
     "startTime": "10:00",
     "endTime": "15:00",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8510,7 +8510,7 @@
     "date": "2026-11-23",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8601,7 +8601,7 @@
     "date": "2026-12-07",
     "startTime": "17:30",
     "endTime": "20:00",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8631,7 +8631,7 @@
     "date": "2026-12-12",
     "startTime": "10:00",
     "endTime": "13:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8663,7 +8663,7 @@
     "date": "2026-12-21",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0-2, 2-5, 5+",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [

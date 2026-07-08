@@ -187,15 +187,41 @@ export function parseActivityTypes(raw) {
   return matched.length > 0 ? matched : ['Other']
 }
 
+function formatAgeRangeLabel(buckets, text) {
+  const order = ['0-2', '2-5', '5+']
+  const format = (bucket) => {
+    if (bucket === '0-2') return '0–2'
+    if (bucket === '2-5') return '2–5'
+    return '5+'
+  }
+
+  if (!text || /all\s*ages?/i.test(text)) {
+    return order.map(format).join(', ')
+  }
+
+  const compact = text.replace(/\s+/g, '')
+  const hasAll = buckets.has('0-2') && buckets.has('2-5') && buckets.has('5+')
+  if (hasAll || /^0[-–]5$/i.test(compact)) {
+    return order.map(format).join(', ')
+  }
+  if (buckets.has('0-2') && buckets.has('2-5') && buckets.size === 2) {
+    return order.map(format).join(', ')
+  }
+
+  const labels = order.filter((bucket) => buckets.has(bucket)).map(format)
+  if (labels.length > 0) return labels.join(', ')
+  return text || '0–2, 2–5, 5+'
+}
+
 export function parseAgeRange(raw) {
   const text = String(raw).trim()
-  if (!text) return { min: 0, max: 5, label: '0–5' }
+  if (!text) return { min: 0, max: 5, label: '0–2, 2–5, 5+' }
 
   const buckets = new Set()
   const lower = text.toLowerCase()
 
   if (/all\s*ages?/i.test(text)) {
-    return { min: 0, max: 5, label: text }
+    return { min: 0, max: 5, label: formatAgeRangeLabel(buckets, text) }
   }
 
   for (const part of text.split(/[,;]/)) {
@@ -214,7 +240,7 @@ export function parseAgeRange(raw) {
       if (/^5\+$/i.test(lower.replace(/\s+/g, ''))) {
         return { min: 5, max: 12, label: text }
       }
-      return { min: 0, max: 5, label: text || '0–5' }
+      return { min: 0, max: 5, label: formatAgeRangeLabel(buckets, text) }
     }
     const min = Math.min(...nums.map(([a]) => a))
     const max = Math.max(...nums.map(([, b]) => b))
@@ -231,7 +257,7 @@ export function parseAgeRange(raw) {
   return {
     min,
     max: hasAll ? 5 : max,
-    label: text,
+    label: formatAgeRangeLabel(buckets, text),
   }
 }
 

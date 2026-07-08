@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import { getPublicEventsFromCatalog } from '../data/events'
 import { EventCard } from '../components/EventCard'
@@ -102,7 +102,12 @@ interface BrowsePageProps {
   resultsCountStyle?: 'default' | 'contextual'
   mapInteractionMode?: 'default' | 'connected'
   defaultViewMode?: 'list' | 'map'
+  listLayout?: 'default' | 'compact-two-column'
   experimentNote?: ReactNode
+}
+
+function isBrowseHubPath(pathname: string): boolean {
+  return pathname === '/browse' || pathname === '/browse-v2'
 }
 
 export function BrowsePage({
@@ -111,6 +116,7 @@ export function BrowsePage({
   resultsCountStyle = 'default',
   mapInteractionMode = 'default',
   defaultViewMode = 'list',
+  listLayout = 'default',
   experimentNote,
 }: BrowsePageProps = {}) {
   const { browseFilters, setBrowseFilters } = useApp()
@@ -126,7 +132,10 @@ export function BrowsePage({
   })
   const [restoreSnapshot, setRestoreSnapshot] = useState<BrowseReturnSnapshot | null>(null)
   const skipViewModeSyncRef = useRef(false)
-  const secondaryCollapsed = useScrollDirectionCollapse()
+  const filterMenuOpen = openPopover !== null || openSheet !== null
+  const mobileControlsCollapsed = useScrollDirectionCollapse(!filterMenuOpen)
+  const browseControlsRef = useRef<HTMLDivElement>(null)
+  const [browseBandHeight, setBrowseBandHeight] = useState(0)
   const { coords, isRequesting, requestLocation } = useUserLocation()
   const isExperimentBrowse3 = shellClassName?.includes('experiment-3') ?? false
 
@@ -171,7 +180,7 @@ export function BrowsePage({
       return
     }
 
-    if (location.pathname !== '/browse') return
+    if (location.pathname !== '/browse' && location.pathname !== '/browse-v2') return
 
     if (skipViewModeSyncRef.current) {
       skipViewModeSyncRef.current = false
@@ -184,6 +193,16 @@ export function BrowsePage({
   useEffect(() => {
     if (location.pathname === '/map') {
       setPageTitle(formatDocumentTitle('Map'), '/map')
+      return
+    }
+
+    if (location.pathname === '/browse-v2') {
+      setPageTitle(
+        viewMode === 'map'
+          ? formatDocumentTitle('Map')
+          : formatDocumentTitle('Browse Bay Area Activities'),
+        '/browse-v2',
+      )
       return
     }
 
@@ -231,6 +250,29 @@ export function BrowsePage({
   const awaitingNearby = browseFilters.city === 'nearby' && !coords
   const showReset = !isBrowseFiltersDefault(browseFilters)
   const locationLabel = getBrowseLocationLabel(browseFilters.city)
+
+  useLayoutEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)')
+    const controls = browseControlsRef.current
+    if (!controls || !media.matches) return
+
+    const measure = () => {
+      if (!mobileControlsCollapsed) {
+        setBrowseBandHeight(controls.getBoundingClientRect().height)
+      }
+    }
+
+    measure()
+
+    const observer = new ResizeObserver(measure)
+    observer.observe(controls)
+    window.addEventListener('resize', measure)
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', measure)
+    }
+  }, [mobileControlsCollapsed, locationLabel, browseFilters, viewMode, showReset, events.length])
 
   const resultsSummary =
     resultsCountStyle === 'contextual'
@@ -281,7 +323,7 @@ export function BrowsePage({
     }
     setViewMode(mode)
 
-    if (location.pathname !== '/browse') return
+    if (!isBrowseHubPath(location.pathname)) return
 
     const next = new URLSearchParams(searchParams)
     if (mode === 'map') {
@@ -376,6 +418,16 @@ export function BrowsePage({
     </div>
   )
 
+  const listGridClassName =
+    listLayout === 'compact-two-column'
+      ? 'browse-event-grid browse-event-grid--compact-two-column'
+      : 'browse-event-grid'
+  const listCardVariant = listLayout === 'compact-two-column' ? 'compact-grid' : 'grid'
+  const browseBandStyle =
+    browseBandHeight > 0
+      ? ({ '--browse-band-height': `${browseBandHeight}px` } as CSSProperties)
+      : undefined
+
   return (
     <div className={['browse-page-shell', shellClassName].filter(Boolean).join(' ')}>
       <AppHeader
@@ -383,16 +435,22 @@ export function BrowsePage({
         logoSrc2x={useHomeHeader ? PUDDLES_WORDMARK_LOGO_SRC_2X : undefined}
         showBrandName={false}
         below={
-          <div className="browse-controls-band">
-            <div className="layout-container browse-controls relative">
+          <div
+            className={[
+              'browse-controls-band',
+              mobileControlsCollapsed ? 'browse-controls-band--collapsed' : '',
+            ]
+              .filter(Boolean)
+              .join(' ')}
+            style={browseBandStyle}
+          >
+            <div ref={browseControlsRef} className="layout-container browse-controls relative">
             <div className="browse-controls-row">
               <div className="browse-location-row">
                 <BrowseLocationPill label={locationLabel} onClick={openLocationFilter} />
               </div>
 
-              <div
-                className={`browse-secondary-controls ${secondaryCollapsed ? 'browse-secondary-controls--collapsed' : ''}`}
-              >
+              <div className="browse-secondary-controls">
                 {secondaryControls}
               </div>
             </div>
@@ -444,12 +502,12 @@ export function BrowsePage({
                   onSeeUpcomingEvents={seeUpcomingEvents}
                 />
               ) : (
-                <div className="browse-event-grid">
+                <div className={listGridClassName}>
                   {events.map((event) => (
                     <EventCard
                       key={event.id}
                       event={event}
-                      variant="grid"
+                      variant={listCardVariant}
                       discovery
                       onClick={() => handleOpenListEvent(event)}
                     />
@@ -464,7 +522,6 @@ export function BrowsePage({
           <Footer fullBleed className="mt-0" />
         </div>
       )}
-      {viewMode === 'map' && events.length > 0 ? experimentNote : null}
     </div>
   )
 }

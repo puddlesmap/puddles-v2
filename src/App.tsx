@@ -16,8 +16,11 @@ import { HomeExperiment3Page } from './pages/HomeExperiment3Page'
 import { HomeExperiment4Page } from './pages/HomeExperiment4Page'
 import { ExperimentBrowsePage } from './pages/ExperimentBrowsePage'
 import { ExperimentBrowseMapPage } from './pages/ExperimentBrowseMapPage'
+import { ExperimentBrowseTwoColumnPage } from './pages/ExperimentBrowseTwoColumnPage'
 import { BrowsePage } from './pages/BrowsePage'
 import { BrowseV1Page } from './pages/BrowseV1Page'
+import { BrowseV2Page } from './pages/BrowseV2Page'
+import { BROWSE_PAGE_PROPS } from './pages/browsePageConfigs'
 import { SharePage } from './pages/SharePage'
 import { ExperimentSharePage } from './pages/ExperimentSharePage'
 import { AboutPage } from './pages/AboutPage'
@@ -39,13 +42,6 @@ import { AdminSubmissionsPage } from './pages/admin/AdminSubmissionsPage'
 import { initAnalytics, trackPageView } from './utils/analytics'
 import { applySiteMeta } from './utils/siteMeta'
 import { getEventDetailBackground } from './utils/eventDetailNavigation'
-
-const BROWSE_PAGE_PROPS = {
-  shellClassName:
-    'browse-page-shell--experiment browse-page-shell--experiment-3 browse-page-shell--map-interaction',
-  resultsCountStyle: 'contextual' as const,
-  mapInteractionMode: 'connected' as const,
-}
 
 function AppShell() {
   const location = useLocation()
@@ -72,6 +68,7 @@ function AppShell() {
       <Route path="/discovery" element={<DiscoveryPage />} />
       <Route path="/browse" element={<BrowsePage {...BROWSE_PAGE_PROPS} />} />
       <Route path="/map" element={<BrowsePage {...BROWSE_PAGE_PROPS} defaultViewMode="map" />} />
+      <Route path="/browse-v2" element={<BrowseV2Page />} />
       <Route path="/palo-alto" element={<CityLandingPage citySlug="palo-alto" />} />
       <Route path="/los-altos" element={<CityLandingPage citySlug="los-altos" />} />
       <Route path="/mountain-view" element={<CityLandingPage citySlug="mountain-view" />} />
@@ -79,6 +76,8 @@ function AppShell() {
       <Route path="/browse-v1" element={<BrowseV1Page />} />
       <Route path="/experiment-browse" element={<ExperimentBrowsePage />} />
       <Route path="/experiment-browse-map" element={<ExperimentBrowseMapPage />} />
+      <Route path="/experiments/browse-2-column" element={<ExperimentBrowseTwoColumnPage />} />
+      <Route path="/browse-experiment-2-column" element={<Navigate to="/experiments/browse-2-column" replace />} />
       <Route path="/experiment-event-modal" element={<ExperimentEventModalPage />} />
       <Route path="/experiment-browse-3" element={<Navigate to="/browse" replace />} />
       <Route path="/browse-experiment" element={<Navigate to="/experiment-browse" replace />} />

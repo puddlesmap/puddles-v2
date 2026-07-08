@@ -57,6 +57,29 @@
   z-index: 4;
 }
 
+.event-detail-overlay .event-modal-floating-actions--persistent {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: auto;
+}
+
+.event-detail-overlay .event-modal-floating-actions--header-utility {
+  top: 0.625rem;
+  right: 0.75rem;
+  gap: 0.4375rem;
+}
+
+.event-detail-overlay .event-modal-floating-actions--persistent .event-modal-close-btn--floating {
+  position: static;
+  top: auto;
+  right: auto;
+}
+
 .event-detail-overlay__unavailable {
   padding: 1.5rem 1.25rem 2rem;
   border: 1px solid #ebebeb;
@@ -100,6 +123,16 @@
     right: 1rem;
   }
 
+  .event-detail-overlay .event-modal-floating-actions--persistent {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .event-detail-overlay .event-modal-floating-actions--header-utility {
+    top: 0.625rem;
+    right: 0.625rem;
+  }
+
   .event-detail-overlay .event-modal-sticky-header--overlay .event-modal-header-actions {
     margin-right: 3.5rem;
   }
@@ -127,6 +160,16 @@
   .event-detail-overlay .event-modal-close-btn--persistent {
     top: 0.875rem;
     right: 0.875rem;
+  }
+
+  .event-detail-overlay .event-modal-floating-actions--persistent {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .event-detail-overlay .event-modal-floating-actions--header-utility {
+    top: 0.625rem;
+    right: 0.625rem;
   }
 
   .event-detail-overlay .event-modal-sticky-header--overlay .event-modal-header-actions {

@@ -19,6 +19,11 @@ export function EventDetailModalOverlay() {
   const isWideExperiment =
     backgroundLocation?.pathname === '/experiment-event-modal' ||
     navState?.returnTo?.startsWith('/experiment-event-modal') === true
+  const shareInHeader =
+    backgroundLocation?.pathname === '/browse' ||
+    backgroundLocation?.pathname === '/map' ||
+    navState?.returnTo?.startsWith('/browse') === true ||
+    navState?.returnTo?.startsWith('/map') === true
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow
@@ -66,6 +71,7 @@ export function EventDetailModalOverlay() {
             onClose={close}
             presentation="overlay"
             overlayLayout={isWideExperiment ? 'wide' : 'default'}
+            shareInHeader={shareInHeader}
           />
         ) : (
           <div className="event-detail-overlay__unavailable">

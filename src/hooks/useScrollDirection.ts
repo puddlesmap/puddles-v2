@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 
 const MOBILE_MEDIA = '(max-width: 767px)'
-const SCROLL_THRESHOLD = 12
+const TOP_THRESHOLD = 8
+const COLLAPSE_DELTA = 5
+const EXPAND_DELTA = 5
+const MIN_SCROLL_Y_TO_COLLAPSE = 40
 
 /**
  * Returns true when secondary controls should collapse (mobile scroll-down).
@@ -9,32 +12,44 @@ const SCROLL_THRESHOLD = 12
  */
 export function useScrollDirectionCollapse(enabled = true) {
   const [collapsed, setCollapsed] = useState(false)
+  const collapsedRef = useRef(false)
   const lastScrollY = useRef(0)
   const ticking = useRef(false)
 
   useEffect(() => {
+    collapsedRef.current = collapsed
+  }, [collapsed])
+
+  useEffect(() => {
     if (!enabled) {
+      collapsedRef.current = false
       setCollapsed(false)
       return
     }
 
     const media = window.matchMedia(MOBILE_MEDIA)
 
+    function setCollapsedSafe(next: boolean) {
+      if (collapsedRef.current === next) return
+      collapsedRef.current = next
+      setCollapsed(next)
+    }
+
     function updateCollapsed() {
       if (!media.matches) {
-        setCollapsed(false)
+        setCollapsedSafe(false)
         return
       }
 
       const y = window.scrollY
+      const delta = y - lastScrollY.current
 
-      if (y <= SCROLL_THRESHOLD) {
-        setCollapsed(false)
-      } else {
-        const delta = y - lastScrollY.current
-        if (Math.abs(delta) >= SCROLL_THRESHOLD) {
-          setCollapsed(delta > 0)
-        }
+      if (y <= TOP_THRESHOLD) {
+        setCollapsedSafe(false)
+      } else if (!collapsedRef.current && delta > COLLAPSE_DELTA && y > MIN_SCROLL_Y_TO_COLLAPSE) {
+        setCollapsedSafe(true)
+      } else if (collapsedRef.current && delta < -EXPAND_DELTA) {
+        setCollapsedSafe(false)
       }
 
       lastScrollY.current = y
@@ -48,7 +63,7 @@ export function useScrollDirectionCollapse(enabled = true) {
     }
 
     function onResize() {
-      if (!media.matches) setCollapsed(false)
+      if (!media.matches) setCollapsedSafe(false)
     }
 
     lastScrollY.current = window.scrollY

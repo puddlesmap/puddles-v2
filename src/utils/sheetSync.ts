@@ -6,6 +6,7 @@ import {
   getCityCenter,
   getVenueGeoForEvent,
 } from '../data/venueGeo'
+import { formatPublicAgeRangeLabel } from './ageRange'
 import { inferActivityTypesFromText } from './eventImages'
 import { enrichPublishingFields, resolvePublishingFields } from './publishing'
 import { parseCsv, rowsToObjects } from './csv'
@@ -187,12 +188,12 @@ function parseActivityTypes(raw: string, title = '', description = ''): Activity
 
 function parseAgeRange(raw: string) {
   const text = raw.trim()
-  if (!text) return { min: 0, max: 5, label: '0–5' }
+  if (!text) return { min: 0, max: 5, label: '0–2, 2–5, 5+' }
 
   const buckets = new Set<'0-2' | '2-5' | '5+'>()
 
   if (/all\s*ages?/i.test(text)) {
-    return { min: 0, max: 5, label: text }
+    return { min: 0, max: 5, label: '0–2, 2–5, 5+' }
   }
 
   for (const part of text.split(/[,;]/)) {
@@ -209,9 +210,9 @@ function parseAgeRange(raw: string) {
     ])
     if (nums.length === 0) {
       if (/^5\+$/i.test(text.trim().toLowerCase().replace(/\s+/g, ''))) {
-        return { min: 5, max: 12, label: text }
+        return { min: 5, max: 12, label: formatPublicAgeRangeLabel(text) }
       }
-      return { min: 0, max: 5, label: text || '0–5' }
+      return { min: 0, max: 5, label: formatPublicAgeRangeLabel(text) }
     }
     const min = Math.min(...nums.map(([a]) => a))
     const max = Math.max(...nums.map(([, b]) => b))
@@ -228,7 +229,7 @@ function parseAgeRange(raw: string) {
   return {
     min,
     max: hasAll ? 5 : max,
-    label: text,
+    label: formatPublicAgeRangeLabel(text),
   }
 }
 

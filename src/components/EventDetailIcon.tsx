@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 
-type EventDetailIconKind = 'time' | 'location' | 'ages' | 'type'
+type EventDetailIconKind = 'time' | 'location' | 'ages' | 'type' | 'cost'
 
 const iconProps = {
   viewBox: '0 0 24 24',
@@ -54,11 +54,22 @@ function TypeIcon() {
   )
 }
 
+function CostIcon() {
+  return (
+    <svg {...iconProps}>
+      <circle cx="12" cy="12" r="8.25" />
+      <path d="M12 6.75v10.5" />
+      <path d="M14.5 9.25c0-1.25-1.1-2-2.5-2s-2.5.75-2.5 2 1.1 2 2.5 2 2.5.75 2.5 2-1.1 2-2.5 2-2.5-.75-2.5-2" />
+    </svg>
+  )
+}
+
 const ICONS: Record<EventDetailIconKind, () => ReactElement> = {
   time: TimeIcon,
   location: LocationIcon,
   ages: AgesIcon,
   type: TypeIcon,
+  cost: CostIcon,
 }
 
 interface EventDetailIconProps {

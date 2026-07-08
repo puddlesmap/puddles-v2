@@ -29,7 +29,7 @@ export function getDocumentTitle(pathname: string, search = ''): string {
 
   if (pathname === '/map') return formatDocumentTitle('Map')
 
-  if (pathname === '/browse' || pathname === '/experiment-browse-3') {
+  if (pathname === '/browse' || pathname === '/browse-v2' || pathname === '/experiment-browse-3') {
     if (params.get('view') === 'map') return formatDocumentTitle('Map')
     return formatDocumentTitle('Browse Bay Area Activities')
   }
@@ -45,7 +45,9 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   if (pathname.startsWith('/admin')) return formatDocumentTitle('Admin')
 
   if (pathname === '/discovery') return formatDocumentTitle('Discovery')
-  if (pathname === '/browse-v1') return formatDocumentTitle('Browse Bay Area Activities')
+  if (pathname === '/browse-v1' || pathname === '/browse-v2') {
+    return formatDocumentTitle('Browse Bay Area Activities')
+  }
   if (pathname === '/experiment-browse') return formatDocumentTitle('Browse Bay Area Activities')
   if (pathname === '/share-experiment') return formatDocumentTitle('Share Experiment')
   if (pathname === '/about-experiment' || pathname === '/experiment_about') {

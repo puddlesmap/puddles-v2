@@ -391,6 +391,14 @@
     min-height: 3rem;
   }
 
+  .event-modal-floating-actions--header-utility .event-modal-share-btn--floating,
+  .event-modal-floating-actions--header-utility .event-modal-close-btn--floating {
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+
   .event-modal-close-btn--floating {
     top: 0.875rem;
     right: 0.875rem;
@@ -403,6 +411,172 @@
 
 .event-modal-actions {
   border-top-color: #ebebeb !important;
+}
+
+.event-modal-actions__ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.event-modal-actions__utility {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding-top: 0.625rem;
+}
+
+.event-modal-cancel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0 0.875rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--type-supporting-color);
+  font-family: var(--font-sans);
+  font-size: var(--type-btn-compact);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.14s ease-out;
+}
+
+.event-modal-cancel-btn:hover {
+  color: var(--color-charcoal);
+}
+
+.event-modal-cancel-btn:focus-visible {
+  outline: 2px solid rgb(102 197 249 / 0.55);
+  outline-offset: 2px;
+}
+
+.event-modal-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  border: 1px solid rgb(102 197 249 / 0.28);
+  border-radius: 999px;
+  background: rgb(102 197 249 / 0.14);
+  color: rgb(102 197 249 / 0.78);
+  cursor: pointer;
+  box-shadow: none;
+  transition:
+    background-color 0.14s ease-out,
+    border-color 0.14s ease-out,
+    transform 0.12s ease-out;
+}
+
+.event-modal-share-btn--floating {
+  border: 1px solid rgb(255 255 255 / 0.72);
+  background: rgb(255 255 255 / 0.8);
+  color: #6c7a81;
+  box-shadow: 0 1px 4px rgb(34 34 34 / 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.event-modal-floating-actions--header-utility {
+  gap: 0.4375rem;
+}
+
+.event-modal-floating-actions--header-utility .event-modal-share-btn--floating,
+.event-modal-floating-actions--header-utility .event-modal-close-btn--floating {
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+.event-modal-floating-actions--header-utility .event-modal-share-btn--floating {
+  border: 1px solid rgb(255 255 255 / 0.55);
+  background: rgb(255 255 255 / 0.78);
+  color: #6c7a81;
+  box-shadow: 0 1px 5px rgb(34 34 34 / 0.14);
+}
+
+.event-modal-floating-actions--header-utility .event-modal-share-btn--floating:hover {
+  background: rgb(255 255 255 / 0.82);
+  border-color: rgb(255 255 255 / 0.72);
+  color: #6c7a81;
+}
+
+.event-modal-floating-actions--header-utility .event-modal-close-btn--floating {
+  border: 1px solid rgb(255 255 255 / 0.85);
+  background: rgb(255 255 255 / 0.96);
+  color: #282e31;
+  box-shadow: 0 2px 8px rgb(34 34 34 / 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.event-modal-floating-actions--header-utility .event-modal-close-btn--floating:hover {
+  background: #ffffff;
+  opacity: 1;
+}
+
+.event-modal-share-btn--floating:hover {
+  background: rgb(255 255 255 / 0.88);
+  border-color: rgb(255 255 255 / 0.92);
+  color: #66c5f9;
+}
+
+.event-modal-share-btn--floating:active {
+  transform: scale(0.98);
+}
+
+.event-modal-share-btn--floating:focus-visible {
+  outline: 2px solid rgb(102 197 249 / 0.55);
+  outline-offset: 2px;
+}
+
+.event-modal-share-btn svg {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.event-modal-share-btn:hover {
+  background: rgb(102 197 249 / 0.2);
+  border-color: rgb(102 197 249 / 0.34);
+}
+
+.event-modal-share-btn:active {
+  transform: scale(0.98);
+}
+
+.event-modal-share-btn:focus-visible {
+  outline: 2px solid rgb(102 197 249 / 0.55);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .event-modal-share-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .event-modal-share-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
 }
 
 .event-modal-actions .btn-primary {

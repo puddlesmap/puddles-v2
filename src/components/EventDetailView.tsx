@@ -9,11 +9,13 @@ import {
   getEventDirectionsLabel,
   getEventDirectionsUrl,
   getEventRoomLine,
+  isCityShownInAddress,
 } from '../utils/maps'
 import { ANALYTICS_EVENTS, trackActivityEngagement, trackActivityOpened } from '../utils/analytics'
 import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
 import { getEventCategoryTags } from '../utils/eventImages'
 import { getEventModalAgeLabel } from '../utils/ageRange'
+import { parseEventTips } from '../utils/eventTips'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
@@ -29,6 +31,8 @@ interface EventDetailViewProps {
   onClose: () => void
   presentation?: 'page' | 'overlay'
   overlayLayout?: EventDetailOverlayLayout
+  /** Share + close in top-right; no bottom Cancel/Share utility row */
+  shareInHeader?: boolean
 }
 
 const headerIconProps = {
@@ -41,11 +45,12 @@ const headerIconProps = {
   'aria-hidden': true,
 }
 
-function ShareStrokeIcon() {
+function ShareIcon() {
   return (
     <svg {...headerIconProps}>
-      <path d="M7 17 17 7" />
-      <path d="M9 7h8v8" />
+      <path d="M12 3v10" />
+      <path d="m8 7 4-4 4 4" />
+      <path d="M7 13v7h10v-7" />
     </svg>
   )
 }
@@ -145,7 +150,9 @@ function EventDetailMetadata({
           ) : (
             addressLine && <p className="event-modal-address-plain">{addressLine}</p>
           )}
-          {event.city ? <p className="event-detail-meta text-muted">{event.city}</p> : null}
+          {event.city && !isCityShownInAddress(addressLine ?? '', event.city) ? (
+            <p className="event-detail-meta text-muted">{event.city}</p>
+          ) : null}
         </div>
       </div>
 
@@ -173,7 +180,7 @@ function EventDetailMetadata({
           </div>
         ) : null}
         <div className="event-detail-row event-detail-field">
-          <EventDetailIcon kind="type" />
+          <EventDetailIcon kind="cost" />
           <div className="event-detail-row-content">
             <div className="event-detail-field-label">Cost</div>
             <p className="event-detail-field-value">{event.cost}</p>
@@ -264,39 +271,62 @@ function EventDetailActions({
   event,
   canAddToCalendar,
   hasOfficialPage,
+  onShare,
+  onClose,
+  shareInHeader = false,
   className = 'event-modal-actions shrink-0 border-t border-border bg-white px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]',
 }: {
   event: Event
   canAddToCalendar: boolean
   hasOfficialPage: boolean
+  onShare?: () => void
+  onClose?: () => void
+  shareInHeader?: boolean
   className?: string
 }) {
   return (
     <div className={className}>
-      <button
-        type="button"
-        onClick={() => {
-          const ok = downloadEventIcs(event)
-          if (ok) trackActivityEngagement(ANALYTICS_EVENTS.ADD_TO_CALENDAR_CLICKED, event)
-        }}
-        disabled={!canAddToCalendar}
-        className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
-      >
-        Add to calendar
-      </button>
-      {!canAddToCalendar ? (
-        <p className="event-modal-actions-note text-center">Calendar details unavailable</p>
-      ) : null}
-      {hasOfficialPage ? (
-        <a
-          href={event.eventUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="btn-secondary"
-          onClick={() => trackActivityEngagement(ANALYTICS_EVENTS.VISIT_OFFICIAL_PAGE_CLICKED, event)}
+      <div className="event-modal-actions__ctas">
+        <button
+          type="button"
+          onClick={() => {
+            const ok = downloadEventIcs(event)
+            if (ok) trackActivityEngagement(ANALYTICS_EVENTS.ADD_TO_CALENDAR_CLICKED, event)
+          }}
+          disabled={!canAddToCalendar}
+          className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
         >
-          Visit official page
-        </a>
+          Add to calendar
+        </button>
+        {!canAddToCalendar ? (
+          <p className="event-modal-actions-note text-center">Calendar details unavailable</p>
+        ) : null}
+        {hasOfficialPage ? (
+          <a
+            href={event.eventUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-secondary"
+            onClick={() => trackActivityEngagement(ANALYTICS_EVENTS.VISIT_OFFICIAL_PAGE_CLICKED, event)}
+          >
+            Visit official page
+          </a>
+        ) : null}
+      </div>
+      {!shareInHeader && onShare && onClose ? (
+        <div className="event-modal-actions__utility">
+          <button type="button" onClick={onClose} className="event-modal-cancel-btn">
+            Cancel
+          </button>
+          <button
+            type="button"
+            onClick={onShare}
+            className="event-modal-share-btn"
+            aria-label="Share event"
+          >
+            <ShareIcon />
+          </button>
+        </div>
       ) : null}
     </div>
   )
@@ -309,6 +339,7 @@ export function EventDetailView({
   onClose,
   presentation = 'page',
   overlayLayout = 'default',
+  shareInHeader = false,
 }: EventDetailViewProps) {
   const isOverlay = presentation === 'overlay'
   const isDesktop = useMediaQuery('(min-width: 768px)')
@@ -393,28 +424,56 @@ export function EventDetailView({
     },
   }
 
-  function renderCloseButton(className: string) {
+  function renderCloseButton(className: string, ariaLabel = 'Close event') {
     return (
-      <button type="button" onClick={onClose} className={className} aria-label="Close event">
+      <button type="button" onClick={onClose} className={className} aria-label={ariaLabel}>
         <CloseIcon />
       </button>
+    )
+  }
+
+  function renderShareButton(className: string) {
+    return (
+      <button
+        type="button"
+        onClick={() => void handleShare()}
+        className={className}
+        aria-label="Share event"
+      >
+        <ShareIcon />
+      </button>
+    )
+  }
+
+  function renderFloatingHeaderActions(closeClassName: string) {
+    const closeLabel = shareInHeader ? 'Close event details' : 'Close event'
+
+    return (
+      <div
+        className={[
+          'event-modal-floating-actions',
+          'event-modal-floating-actions--persistent',
+          shareInHeader ? 'event-modal-floating-actions--header-utility' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        {shareInHeader ? renderShareButton('event-modal-share-btn event-modal-share-btn--floating') : null}
+        {renderCloseButton(closeClassName, closeLabel)}
+      </div>
     )
   }
 
   if (isWideDesktop) {
     return (
       <article className="event-detail-page-panel event-modal-panel event-modal-panel--overlay event-modal-panel--wide">
-        <div className="event-modal-floating-actions">
-          <button
-            type="button"
-            onClick={() => void handleShare()}
-            className="event-modal-header-icon-btn"
-            aria-label="Share event"
-          >
-            <ShareStrokeIcon />
-          </button>
-          {renderCloseButton('event-modal-close-btn event-modal-close-btn--floating')}
-        </div>
+        {shareInHeader ? (
+          renderFloatingHeaderActions('event-modal-close-btn event-modal-close-btn--floating')
+        ) : (
+          <div className="event-modal-floating-actions">
+            {renderCloseButton('event-modal-close-btn event-modal-close-btn--floating')}
+          </div>
+        )}
 
         <div ref={scrollRef} className="event-modal-scroll">
           <div className="event-modal-wide-layout">
@@ -439,6 +498,9 @@ export function EventDetailView({
                 event={event}
                 canAddToCalendar={canAddToCalendar}
                 hasOfficialPage={hasOfficialPage}
+                shareInHeader={shareInHeader}
+                onShare={shareInHeader ? undefined : () => void handleShare()}
+                onClose={shareInHeader ? undefined : onClose}
                 className="event-modal-actions event-modal-actions--inline"
               />
             </aside>
@@ -458,13 +520,17 @@ export function EventDetailView({
         .join(' ')}
     >
       {(!headerCollapsed || isOverlay) ? (
-        renderCloseButton(
-          [
-            'event-modal-close-btn event-modal-close-btn--floating',
-            isOverlay ? 'event-modal-close-btn--persistent' : '',
-          ]
-            .filter(Boolean)
-            .join(' '),
+        shareInHeader && isOverlay ? (
+          renderFloatingHeaderActions('event-modal-close-btn event-modal-close-btn--floating')
+        ) : (
+          renderCloseButton(
+            [
+              'event-modal-close-btn event-modal-close-btn--floating',
+              isOverlay ? 'event-modal-close-btn--persistent' : '',
+            ]
+              .filter(Boolean)
+              .join(' '),
+          )
         )
       ) : null}
 
@@ -482,14 +548,6 @@ export function EventDetailView({
           <span className="event-modal-sticky-spacer" aria-hidden />
         )}
         <div className="event-modal-header-actions">
-          <button
-            type="button"
-            onClick={() => void handleShare()}
-            className="event-modal-header-icon-btn"
-            aria-label="Share event"
-          >
-            <ShareStrokeIcon />
-          </button>
           {headerCollapsed && !isOverlay ? renderCloseButton('event-modal-close-btn') : null}
         </div>
       </div>
@@ -530,6 +588,9 @@ export function EventDetailView({
         event={event}
         canAddToCalendar={canAddToCalendar}
         hasOfficialPage={hasOfficialPage}
+        shareInHeader={shareInHeader}
+        onShare={shareInHeader ? undefined : () => void handleShare()}
+        onClose={shareInHeader ? undefined : onClose}
       />
     </article>
   )

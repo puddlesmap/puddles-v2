@@ -6,13 +6,13 @@
   },
   "venueGeo": {
     "Downtown Library": { "city": "Palo Alto", "lat": 37.4443, "lng": -122.1598 },
-    "College Terrace Library": { "city": "Palo Alto", "lat": 37.4221, "lng": -122.1381 },
-    "Mitchell Park Library": { "city": "Palo Alto", "lat": 37.4177, "lng": -122.1288 },
+    "College Terrace Library": { "city": "Palo Alto", "lat": 37.4229, "lng": -122.1489 },
+    "Mitchell Park Library": { "city": "Palo Alto", "lat": 37.4179, "lng": -122.1077 },
     "Children's Library": { "city": "Palo Alto", "lat": 37.4448, "lng": -122.1452 },
     "Rinconada Library": { "city": "Palo Alto", "lat": 37.4281, "lng": -122.1425 },
     "Mountain View Library": { "city": "Mountain View", "lat": 37.3895, "lng": -122.0818 },
     "Los Altos Library": { "city": "Los Altos", "lat": 37.3791, "lng": -122.1142 },
-    "Pioneer Park": { "city": "Mountain View", "lat": 37.3945, "lng": -122.0786 },
+    "Pioneer Park": { "city": "Mountain View", "lat": 37.3896, "lng": -122.0832 },
     "Deer Hollow Farm": { "city": "Mountain View", "lat": 37.319, "lng": -122.085 },
     "Linden Tree Books": { "city": "Los Altos", "lat": 37.3792, "lng": -122.1161 },
     "Magical Bridge Playground at Rengstorff Park": {
