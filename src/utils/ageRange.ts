@@ -90,7 +90,7 @@ export function getBrowseAgeChipLabel(age: AgeFilter): string {
 /** Short parent-facing label for event card age pills. */
 export function getEventCardAgeLabel(ageRange: string): string {
   const text = ageRange.trim()
-  if (!text) return 'Ages 0–5'
+  if (!text) return 'All ages'
 
   if (/all\s*ages?/i.test(text)) return 'All ages'
 
@@ -98,7 +98,7 @@ export function getEventCardAgeLabel(ageRange: string): string {
   if (hasAllAgeBuckets(buckets)) return 'All ages'
 
   if (buckets.has('0-2') && buckets.has('2-5') && !buckets.has('5+')) {
-    return 'Ages 0–5'
+    return 'All ages'
   }
 
   if (buckets.size === 1) {
@@ -107,7 +107,7 @@ export function getEventCardAgeLabel(ageRange: string): string {
   }
 
   const compact = text.replace(/\s+/g, '')
-  if (/^0[-–]5$/i.test(compact)) return 'Ages 0–5'
+  if (/^0[-–]5$/i.test(compact)) return 'All ages'
   if (/^0[-–]2$/i.test(compact)) return 'Ages 0–2'
   if (/^2[-–]5$/i.test(compact)) return 'Ages 2–5'
 
