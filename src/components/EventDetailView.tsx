@@ -13,7 +13,7 @@ import {
 import { ANALYTICS_EVENTS, trackActivityEngagement, trackActivityOpened } from '../utils/analytics'
 import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
 import { getEventCategoryTags } from '../utils/eventImages'
-import { parseEventTips } from '../utils/eventTips'
+import { getEventModalAgeLabel } from '../utils/ageRange'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
@@ -154,7 +154,7 @@ function EventDetailMetadata({
           <EventDetailIcon kind="ages" />
           <div className="event-detail-row-content">
             <div className="event-detail-field-label">Ages</div>
-            <p className="event-detail-field-value">{event.ageRange}</p>
+            <p className="event-detail-field-value">{getEventModalAgeLabel(event.ageRange)}</p>
           </div>
         </div>
         {categoryTags.length > 0 ? (

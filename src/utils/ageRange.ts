@@ -114,6 +114,25 @@ export function getEventCardAgeLabel(ageRange: string): string {
   return `Ages ${text.replace(/-/g, '–')}`
 }
 
+const MODAL_AGE_BUCKET_ORDER: AgeBucket[] = ['0-2', '2-5', '5+']
+
+function formatAgeBucketLabel(bucket: AgeBucket): string {
+  if (bucket === '0-2') return '0–2'
+  if (bucket === '2-5') return '2–5'
+  return '5+'
+}
+
+/** Bucket breakdown for event detail / modal (e.g. 0–2, 2–5 instead of 0–5). */
+export function getEventModalAgeLabel(ageRange: string): string {
+  const buckets = parseAgeBuckets(ageRange)
+  const labels = MODAL_AGE_BUCKET_ORDER.filter((bucket) => buckets.has(bucket)).map(
+    formatAgeBucketLabel,
+  )
+
+  if (labels.length === 0) return '0–2, 2–5'
+  return labels.join(', ')
+}
+
 /** Derive min/max for sync and display from bucket tags. */
 export function ageBoundsFromRange(raw: string): { min: number; max: number; label: string } {
   const buckets = parseAgeBuckets(raw)
