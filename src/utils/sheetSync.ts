@@ -70,13 +70,20 @@ function normalizeHeader(value: string): string {
   return value.trim().toLowerCase().replace(/\s+/g, ' ')
 }
 
+function isSheetFormulaError(value: unknown): boolean {
+  const raw = String(value ?? '').trim().toUpperCase()
+  return raw === '#REF!' || raw === '#N/A' || raw === '#VALUE!' || raw === '#ERROR!'
+}
+
 function pickField(record: Record<string, string>, fieldKey: string): string {
   const aliases = COLUMN_ALIASES[fieldKey] ?? [fieldKey]
   for (const alias of aliases) {
     for (const [header, value] of Object.entries(record)) {
       const key = normalizeHeader(header)
       if (key === alias || key.includes(alias)) {
-        return String(value ?? '').trim()
+        const trimmed = String(value ?? '').trim()
+        if (isSheetFormulaError(trimmed)) return ''
+        return trimmed
       }
     }
   }
