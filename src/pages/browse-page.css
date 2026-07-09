@@ -21,31 +21,49 @@
 }
 
 @media (max-width: 767px) {
+  .browse-page-shell {
+    --browse-mobile-header-offset: calc(3.75rem + 1.25rem + env(safe-area-inset-top, 0px));
+  }
+
+  /* Logo row stays in flow; filters are fixed and animate out without resizing the page. */
   .browse-page-shell .browse-controls-band {
-    display: grid;
-    grid-template-rows: 1fr;
-    overflow: hidden;
+    position: fixed;
+    top: var(--browse-mobile-header-offset);
+    left: 0;
+    right: 0;
+    z-index: 29;
+    background: transparent;
+    pointer-events: auto;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.24s ease-out;
+  }
+
+  .browse-page-shell .browse-controls-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
     background: var(--page-background);
-    overflow-anchor: none;
-    transition:
-      grid-template-rows 280ms cubic-bezier(0.32, 0.72, 0, 1),
-      background-color 240ms ease-out;
+    opacity: 1;
+    transition: opacity 0.28s ease-out;
+    pointer-events: none;
   }
 
   .browse-page-shell .browse-controls-band > .browse-controls {
-    min-height: 0;
-    overflow: hidden;
-    transition: opacity 200ms ease-out;
+    transition: opacity 0.22s ease-out;
   }
 
   .browse-page-shell .browse-controls-band--collapsed {
-    grid-template-rows: 0fr;
-    background: transparent;
+    pointer-events: none;
+    transform: translate3d(0, -108%, 0);
+  }
+
+  .browse-page-shell .browse-controls-band--collapsed::before {
+    opacity: 0;
   }
 
   .browse-page-shell .browse-controls-band--collapsed > .browse-controls {
     opacity: 0;
-    pointer-events: none;
   }
 
   .browse-page-shell .browse-controls {
@@ -711,12 +729,8 @@
 /* —— Mobile map preview: readable peek sheet —— */
 @media (max-width: 767px) {
   .browse-page-shell {
-    --browse-map-mobile-sheet-height: 10.75rem;
+    --browse-map-mobile-sheet-height: 9.5rem;
     --browse-map-control-stack-gap: 1.5rem;
-  }
-
-  .browse-page-shell--map-interaction {
-    --browse-map-mobile-sheet-height: 13.5rem;
   }
 
   .browse-page-shell .browse-map-panel-mobile {
@@ -784,8 +798,8 @@
     z-index: 35;
     display: flex;
     flex-direction: column;
-    height: var(--browse-map-mobile-sheet-height);
-    min-height: var(--browse-map-mobile-sheet-height);
+    height: auto;
+    min-height: 0;
     overflow: hidden;
     border-radius: 16px 16px 0 0;
     background: #ffffff;
@@ -794,9 +808,13 @@
     animation: browse-map-sheet-in 0.24s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .browse-page-shell .browse-map-preview-sheet:has(.browse-map-preview-location-label) {
-    height: var(--browse-map-mobile-sheet-height);
-    min-height: var(--browse-map-mobile-sheet-height);
+  .browse-page-shell .browse-map-preview-sheet--grouped {
+    min-height: 0;
+  }
+
+  .browse-page-shell .browse-map-preview-sheet--single .browse-map-preview {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 
   .browse-page-shell .browse-map-panel-mobile:has(.browse-map-preview-sheet) .browse-map-control-stack {
@@ -830,7 +848,7 @@
   .browse-page-shell .browse-map-preview {
     position: relative;
     inset: auto;
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     display: flex;
     gap: 0;
     min-height: 0;
@@ -860,6 +878,12 @@
   .browse-page-shell .browse-map-preview-slot:last-child {
     border-right: none;
     padding-right: 1rem;
+  }
+
+  .browse-page-shell .browse-map-preview-slot:only-child {
+    flex: 0 0 100%;
+    padding-right: 0;
+    border-right: none;
   }
 
   .browse-page-shell .browse-map-preview > * {

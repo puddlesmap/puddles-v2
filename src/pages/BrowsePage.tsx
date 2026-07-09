@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import { getPublicEventsFromCatalog } from '../data/events'
 import { EventCard } from '../components/EventCard'
@@ -13,7 +13,7 @@ import { getBrowseLocationLabel } from '../components/layout/BrandLockup'
 import { useApp } from '../context/AppContext'
 import { BrowseEmptyState } from '../components/empty-states/BrowseEmptyState'
 import { BrowseMapView } from '../components/browse/BrowseMapView'
-import { useScrollDirectionCollapse } from '../hooks/useScrollDirection'
+import { useBrowseMobileControlsCollapse } from '../hooks/useBrowseMobileControlsCollapse'
 import { useUserLocation } from '../hooks/useUserLocation'
 import {
   DEFAULT_BROWSE_FILTERS,
@@ -133,11 +133,6 @@ export function BrowsePage({
   const [restoreSnapshot, setRestoreSnapshot] = useState<BrowseReturnSnapshot | null>(null)
   const skipViewModeSyncRef = useRef(false)
   const filterMenuOpen = openPopover !== null || openSheet !== null
-  const scrollSyncRef = useRef<number | null>(null)
-  const browseBandHeightRef = useRef(0)
-  const prevControlsCollapsedRef = useRef(false)
-  const mobileControlsCollapsed = useScrollDirectionCollapse(!filterMenuOpen, scrollSyncRef)
-  const browseControlsRef = useRef<HTMLDivElement>(null)
   const { coords, isRequesting, requestLocation } = useUserLocation()
   const isExperimentBrowse3 = shellClassName?.includes('experiment-3') ?? false
 
@@ -253,52 +248,7 @@ export function BrowsePage({
   const showReset = !isBrowseFiltersDefault(browseFilters)
   const locationLabel = getBrowseLocationLabel(browseFilters.city)
 
-  useLayoutEffect(() => {
-    const media = window.matchMedia('(max-width: 767px)')
-    const controls = browseControlsRef.current
-    if (!controls || !media.matches) return
-
-    const measure = () => {
-      const height = Math.ceil(controls.scrollHeight)
-      if (height > 0) {
-        browseBandHeightRef.current = height
-      }
-    }
-
-    measure()
-
-    const observer = new ResizeObserver(measure)
-    observer.observe(controls)
-    window.addEventListener('resize', measure)
-
-    return () => {
-      observer.disconnect()
-      window.removeEventListener('resize', measure)
-    }
-  }, [mobileControlsCollapsed, locationLabel, browseFilters, viewMode, showReset, events.length])
-
-  useLayoutEffect(() => {
-    const media = window.matchMedia('(max-width: 767px)')
-    if (!media.matches || filterMenuOpen) {
-      prevControlsCollapsedRef.current = filterMenuOpen ? false : mobileControlsCollapsed
-      return
-    }
-
-    const wasCollapsed = prevControlsCollapsedRef.current
-    const isCollapsed = mobileControlsCollapsed
-    const bandHeight = browseBandHeightRef.current
-
-    if (wasCollapsed !== isCollapsed && bandHeight > 0) {
-      const nextScrollY = isCollapsed
-        ? window.scrollY + bandHeight
-        : Math.max(0, window.scrollY - bandHeight)
-
-      window.scrollTo({ top: nextScrollY, left: 0, behavior: 'instant' })
-      scrollSyncRef.current = nextScrollY
-    }
-
-    prevControlsCollapsedRef.current = isCollapsed
-  }, [mobileControlsCollapsed, filterMenuOpen])
+  const mobileControlsCollapsed = useBrowseMobileControlsCollapse(!filterMenuOpen)
 
   const resultsSummary =
     resultsCountStyle === 'contextual'
@@ -465,7 +415,7 @@ export function BrowsePage({
               .filter(Boolean)
               .join(' ')}
           >
-            <div ref={browseControlsRef} className="layout-container browse-controls relative">
+            <div className="layout-container browse-controls relative">
             <div className="browse-controls-row">
               <div className="browse-location-row">
                 <BrowseLocationPill label={locationLabel} onClick={openLocationFilter} />

@@ -18,6 +18,7 @@ import { MapControls } from './MapControls'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { useBrowseMapListTwoColumn } from '../../hooks/useBrowseMapListTwoColumn'
 import { useBrowseMapInteraction, type MapOpenEventHandler } from '../../hooks/useBrowseMapInteraction'
+import { useMapPreviewSheetHeight } from '../../hooks/useMapPreviewSheetHeight'
 import { useUserLocation } from '../../hooks/useUserLocation'
 import type { BrowseReturnSnapshot } from '../../utils/browseReturnState'
 import {
@@ -87,6 +88,13 @@ export function BrowseGoogleMapView({
     interactionMode,
     restoreSnapshot,
   })
+
+  const previewSheetRef = useRef<HTMLDivElement>(null)
+  useMapPreviewSheetHeight(previewSheetRef, [
+    mobileLocationLabel,
+    mobileCarouselEvents.length,
+    selectedEvent?.id,
+  ])
 
   const handleMapReady = useCallback((map: google.maps.Map) => {
     setGoogleMap(map)
@@ -259,7 +267,15 @@ export function BrowseGoogleMapView({
         {renderMapControls()}
 
         {mappableEvents.length > 0 && (
-          <div className="browse-map-preview-sheet">
+          <div
+            ref={previewSheetRef}
+            className={[
+              'browse-map-preview-sheet',
+              mobileLocationLabel
+                ? 'browse-map-preview-sheet--grouped'
+                : 'browse-map-preview-sheet--single',
+            ].join(' ')}
+          >
             {mobileLocationLabel ? (
               <p className="browse-map-preview-location-label">{mobileLocationLabel}</p>
             ) : null}

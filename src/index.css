@@ -3071,6 +3071,7 @@ select.input-field,
   .filter-sheet-panel,
   .filter-sheet-overlay,
   .browse-page-shell .browse-controls-band,
+  .browse-page-shell .browse-controls-band::before,
   .browse-page-shell .browse-controls-band > .browse-controls {
     animation: none !important;
     transition-duration: 0.01ms !important;
