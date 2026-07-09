@@ -92,7 +92,7 @@
   {
     "id": "69b835c4b48451fc3c094428",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -269,7 +269,7 @@
   {
     "id": "69b835bbb48451fc3c094400",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -298,15 +298,15 @@
   {
     "id": "69b835b92866a5b488426bd3",
     "title": "Preschool Storytime",
-    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
+    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \nPreschool storytime is suitable for children 3-5 and their caregivers.",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-07-02",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -358,7 +358,7 @@
   {
     "id": "6a345d51c7d3cd58006151b2",
     "title": "Cult Movie: Sunday Matinee Movies",
-    "description": "Join us for the 30th anniversary of the Muppet Treasure Island movie.\n \n It's a rollicking and irreverent musical romp with Kermit, Miss Piggy, and all of the muppet gang -- with the welcome addition of Tim Curry as the dread pirate Long John...",
+    "description": "Join us for the 30th anniversary of the Muppet Treasure Island movie.\n \nIt's a rollicking and irreverent musical romp with Kermit, Miss Piggy, and all of the muppet gang -- with the welcome addition of Tim Curry as the dread pirate Long John...",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -387,7 +387,7 @@
   {
     "id": "smart-start-babytime-mountain-view-public-library-2026-07-06-18-00",
     "title": "Smart Start Babytime",
-    "description": "Smart Start Babytime is a special program for babies (0--2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford...",
+    "description": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School. Caregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
     "venue": "Mountain View Public Library",
     "room": "1st Floor Program Room",
     "address": "585 Franklin St, Mountain View, CA 94041",
@@ -395,14 +395,16 @@
     "date": "2026-07-06",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories"
+      "Stories",
+      "Build & Explore"
     ],
     "categoryTags": [
-      "Stories"
+      "Stories",
+      "Build & Explore"
     ],
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
@@ -507,7 +509,7 @@
   {
     "id": "69b835c4b48451fc3c094429",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -718,7 +720,7 @@
   {
     "id": "69b835bbb48451fc3c094401",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -776,15 +778,15 @@
   {
     "id": "69b835b92866a5b488426bd4",
     "title": "Preschool Storytime",
-    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
+    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \nPreschool storytime is suitable for children 3-5 and their caregivers.",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-07-09",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -866,15 +868,15 @@
   {
     "id": "6931edd1b5ff4730005608f3",
     "title": "Family Storytime",
-    "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are...",
+    "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library.  Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!",
     "venue": "Downtown Library",
     "address": "270 Forest Ave, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-07-10",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -1047,7 +1049,7 @@
   {
     "id": "698e125a2a787a47a5e73bd8",
     "title": "Family Storytime",
-    "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n \n Make sure to follow us on YouTube for more stories, songs and rhymes, including...",
+    "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -1076,16 +1078,16 @@
   {
     "id": "69fccf22177319280018194f",
     "title": "Astro Everywhere Presents \"What's Up in Astronomy?\"",
-    "description": "Join us at Rinconada Library in the Embarcadero Room for a portable planetarium show by Astro Everywhere.\n \n This program offers something for everyone! We begin by exploring the night sky and what's visible in the coming hours, days, and...",
+    "description": "Join us at Rinconada Library in the Embarcadero Room for a portable planetarium show by Astro Everywhere.\n\nThis program offers something for everyone! We begin by exploring the night sky and what's visible in the coming hours, days, and weeks. Then, we venture beyond Earth to understand our three-dimensional place in space. We also discuss a breaking astronomy headline and conclude with a group Q&A and discussion tailored to the audience's interests.",
     "venue": "Rinconada Library",
     "address": "1213 Newell Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
     "date": "2026-07-11",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "5+",
-    "ageMin": 5,
-    "ageMax": 12,
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
     "types": [
       "Build & Explore"
     ],
@@ -1136,15 +1138,15 @@
   {
     "id": "6a0fb6a3e13d3b4603b50f76",
     "title": "Family Storytime",
-    "description": "Join Librarian Rebecca on Sunday mornings at 11:00AM for Family Storytime at Rinconada Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n \n Make...",
+    "description": "Join Librarian Rebecca on Sunday mornings at 11:00AM for Family Storytime at Rinconada Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!",
     "venue": "Rinconada Library",
     "address": "1213 Newell Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
     "date": "2026-07-12",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -1223,15 +1225,15 @@
   {
     "id": "699f60146724c63d00f52cc5",
     "title": "Family Storytime",
-    "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
+    "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-07-14",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -1342,15 +1344,15 @@
   {
     "id": "69fccf0ef89ee15800513441",
     "title": "Circus of Smiles",
-    "description": "Join us at the Children's Library in the Secret Garden for a performance by Circus of Smiles.\n \n This family friendly show is filled with non-stop excitement and theatrics that will have you laughing, participating, and hoping for even more!",
+    "description": "Join us at the Children's Library in the Secret Garden for a performance by Circus of Smiles.\n \nThis family friendly show is filled with non-stop excitement and theatrics that will have you laughing, participating, and hoping for even more!",
     "venue": "Children's Library",
     "address": "1276 Harriet St, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-07-14",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Outdoor"
@@ -1407,7 +1409,7 @@
     "date": "2026-07-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1429,7 +1431,7 @@
   {
     "id": "69b835c4b48451fc3c09442a",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -1605,7 +1607,7 @@
   {
     "id": "69a0b0f2b48451fc3c0563c6",
     "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
+    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -1642,8 +1644,8 @@
     "date": "2026-07-15",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -1695,7 +1697,7 @@
   {
     "id": "69b835bbb48451fc3c094402",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -1753,15 +1755,15 @@
   {
     "id": "69b835b92866a5b488426bd5",
     "title": "Preschool Storytime",
-    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
+    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \nPreschool storytime is suitable for children 3-5 and their caregivers.",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-07-16",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -1820,8 +1822,8 @@
     "date": "2026-07-17",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -2052,7 +2054,8 @@
   {
     "id": "toddler-drive-in-mountain-view-public-library-2026-07-18-11-00",
     "title": "Toddler Drive In",
-    "description": "Little ones will design and decorate their very own \"car\" using cardboard boxes and craft materials provided by the library. Once their creations are complete, toddlers can settle into their custom...",
+    "description": "Little ones will design and decorate their very own “car” using cardboard boxes and craft materials provided by the library. Once their creations are complete, toddlers can settle into their custom vehicles to enjoy a selection of short picture-book video stories on the big screen. \n\nThis hands-on, imagination-filled program encourages creativity, motor skills, and a love of stories. Perfect for toddlers and their grown-ups—come build, play, and enjoy a cozy drive-in experience made just for the",
+    "tips": "Registration is required.",
     "venue": "Mountain View Public Library",
     "room": "1st Floor Program Room",
     "address": "585 Franklin St, Mountain View, CA 94041",
@@ -2113,7 +2116,7 @@
   {
     "id": "69fcd2d51773192800181a98",
     "title": "Happy Birds",
-    "description": "oin us at the Mitchell Park Community Center in the El Palo Alto Room for a performance from the Happy Birds!\n\nAmazing and colorful parrots will perform over 25 tricks during this exciting bird show! Ed and Julie Cardoza’s macaws, cockatoos, and amazons have been featured on The Tonight Show, Pet Star, The Ellen show and even the Guinness Book of World Records.",
+    "description": "Join us at the Mitchell Park Community Center in the El Palo Alto Room for a performance from the Happy Birds!\n\nAmazing and colorful parrots will perform over 25 tricks during this exciting bird show! Ed and Julie Cardoza’s macaws, cockatoos, and amazons have been featured on The Tonight Show, Pet Star, The Ellen show and even the Guinness Book of World Records.",
     "venue": "Mitchell Park Community Center",
     "room": "El Palo Alto Room",
     "address": "3700 Middlefield Road\nPalo Alto CA 94303",
@@ -2144,13 +2147,14 @@
     "id": "69fd26c6f56bd86e00ae4709",
     "title": "Baby Dragon Boat Festival",
     "description": "Note: This program has been rescheduled to Saturday, July 18 from Saturday, June 20.\n \n Celebrate this year's Dragon Boat Festival with some family fun!\n \n Families with babies and toddlers are invited to decorate their own...",
+    "tips": "• Registration required.\n• Supplies are held for registered attendees until 15 minutes after the program starts.\n• Designed for babies and toddlers.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
     "date": "2026-07-18",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2243,8 +2247,8 @@
     "date": "2026-07-19",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -2303,9 +2307,9 @@
     "date": "2026-07-19",
     "startTime": "16:00",
     "endTime": "16:00",
-    "ageRange": "5+",
-    "ageMin": 5,
-    "ageMax": 12,
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
     "types": [
       "Arts & Crafts",
       "Build & Explore",
@@ -2368,8 +2372,8 @@
     "date": "2026-07-21",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -2516,7 +2520,7 @@
     "date": "2026-07-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2538,7 +2542,7 @@
   {
     "id": "69b835c4b48451fc3c09442b",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -2714,7 +2718,7 @@
   {
     "id": "69a0b0f2b48451fc3c0563c7",
     "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
+    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -2805,7 +2809,7 @@
   {
     "id": "69b835bbb48451fc3c094403",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -2863,15 +2867,15 @@
   {
     "id": "69b835b92866a5b488426bd6",
     "title": "Preschool Storytime",
-    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \n Preschool storytime is suitable for children 3-5 and their caregivers.\n \n For accessibility accommodations...",
+    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m.\n \nPreschool storytime is suitable for children 3-5 and their caregivers.",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-07-23",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -2923,7 +2927,7 @@
   {
     "id": "steam-fridays-mountain-view-public-library-2026-07-24-09-00",
     "title": "STEAM Fridays",
-    "description": "Get ready to tinker, build, explore, and create! Join us for STEAM Fridays, a drop-in program full of hands-on activities that spark curiosity and creativity. Whether you're a budding scientist, an...",
+    "description": "Get ready to tinker, build, explore, and create!\n\nJoin us for STEAM Fridays, a drop-in program full of hands-on activities that spark curiosity and creativity. Whether you're a budding scientist, an imaginative engineer, or an artistic innovator, there’s something for everyone to discover.\n\nEach week features a variety of self-directed projects in Science, Technology, Engineering, Art, and Math, perfect for curious minds who love to experiment and play.",
     "venue": "Mountain View Public Library",
     "room": "1st Floor Program Room",
     "address": "585 Franklin St, Mountain View, CA 94041",
@@ -2960,8 +2964,8 @@
     "date": "2026-07-24",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -3232,8 +3236,8 @@
     "date": "2026-07-26",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -3320,8 +3324,8 @@
     "date": "2026-07-28",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -3468,7 +3472,7 @@
     "date": "2026-07-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3490,7 +3494,7 @@
   {
     "id": "69b835c4b48451fc3c09442c",
     "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n \n Due...",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
     "venue": "Los Altos Library",
     "address": "13 S. San Antonio Road, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -3670,7 +3674,7 @@
   {
     "id": "69a0b0f2b48451fc3c0563c8",
     "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
+    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -3707,7 +3711,7 @@
     "date": "2026-07-29",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -3828,8 +3832,8 @@
     "date": "2026-07-30",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -3859,9 +3863,9 @@
     "date": "2026-07-30",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "5+",
-    "ageMin": 5,
-    "ageMax": 12,
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
     "types": [
       "Other"
     ],
@@ -3919,8 +3923,8 @@
     "date": "2026-07-31",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -3941,7 +3945,7 @@
   {
     "id": "steam-fridays-mountain-view-public-library-2026-07-31-14-00",
     "title": "STEAM Fridays",
-    "description": "Get ready to tinker, build, explore, and create! Join us for STEAM Fridays, a drop-in program full of hands-on activities that spark curiosity and creativity. Whether you're a budding scientist, an...",
+    "description": "Get ready to tinker, build, explore, and create!\n\nJoin us for STEAM Fridays, a drop-in program full of hands-on activities that spark curiosity and creativity. Whether you're a budding scientist, an imaginative engineer, or an artistic innovator, there’s something for everyone to discover.\n\nEach week features a variety of self-directed projects in Science, Technology, Engineering, Art, and Math, perfect for curious minds who love to experiment and play.",
     "venue": "Mountain View Public Library",
     "room": "1st Floor Program Room",
     "address": "585 Franklin St, Mountain View, CA 94041",
@@ -4251,7 +4255,7 @@
     "date": "2026-08-01",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -4784,7 +4788,7 @@
     "date": "2026-08-05",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -4846,8 +4850,8 @@
     "date": "2026-08-06",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -5061,7 +5065,7 @@
     "date": "2026-08-08",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -5090,7 +5094,7 @@
     "date": "2026-08-08",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -5389,8 +5393,8 @@
     "date": "2026-08-12",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -5480,8 +5484,8 @@
     "date": "2026-08-13",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -5692,7 +5696,7 @@
     "date": "2026-08-15",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -5721,9 +5725,9 @@
     "date": "2026-08-15",
     "startTime": "15:00",
     "endTime": "15:00",
-    "ageRange": "5+",
-    "ageMin": 5,
-    "ageMax": 12,
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
     "types": [
       "Other"
     ],
@@ -6020,8 +6024,8 @@
     "date": "2026-08-20",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -6109,7 +6113,7 @@
     "date": "2026-08-22",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -6438,8 +6442,8 @@
     "date": "2026-08-27",
     "startTime": "15:30",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -6527,7 +6531,7 @@
     "date": "2026-08-29",
     "startTime": "11:00",
     "endTime": "11:30",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -6587,9 +6591,9 @@
     "date": "2026-08-30",
     "startTime": "16:00",
     "endTime": "16:00",
-    "ageRange": "5+",
-    "ageMin": 5,
-    "ageMax": 12,
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
     "types": [
       "Other"
     ],
@@ -6646,8 +6650,8 @@
     "date": "2026-09-01",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -6704,7 +6708,7 @@
     "date": "2026-09-02",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6786,7 +6790,7 @@
   {
     "id": "6a3dbc0bfddb082f00fe149a",
     "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
+    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -6853,8 +6857,8 @@
     "date": "2026-09-04",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -7063,8 +7067,8 @@
     "date": "2026-09-08",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -7121,7 +7125,7 @@
     "date": "2026-09-09",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7172,7 +7176,7 @@
   {
     "id": "6a3dbc0bfddb082f00fe149b",
     "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
+    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -7239,8 +7243,8 @@
     "date": "2026-09-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -7444,8 +7448,8 @@
     "date": "2026-09-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -7502,7 +7506,7 @@
     "date": "2026-09-16",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7553,7 +7557,7 @@
   {
     "id": "6a3dbc0bfddb082f00fe149c",
     "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
+    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -7620,8 +7624,8 @@
     "date": "2026-09-18",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -7796,8 +7800,8 @@
     "date": "2026-09-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -7854,7 +7858,7 @@
     "date": "2026-09-23",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7905,7 +7909,7 @@
   {
     "id": "6a3dbc0bfddb082f00fe149d",
     "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
+    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -7972,8 +7976,8 @@
     "date": "2026-09-25",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -8118,8 +8122,8 @@
     "date": "2026-09-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "ageRange": "2–5",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -8176,7 +8180,7 @@
     "date": "2026-09-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8198,7 +8202,7 @@
   {
     "id": "6a3dbc0bfddb082f00fe149e",
     "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n \n Instruments, songs, and dance moves will all be...",
+    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
     "venue": "Mitchell Park Library",
     "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "city": "Palo Alto",
@@ -8264,9 +8268,9 @@
     "date": "2026-10-04",
     "startTime": "11:00",
     "endTime": "13:00",
-    "ageRange": "5+",
-    "ageMin": 5,
-    "ageMax": 12,
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
     "types": [
       "Other"
     ],
@@ -8540,9 +8544,9 @@
     "date": "2026-12-04",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "5+",
-    "ageMin": 5,
-    "ageMax": 12,
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
     "types": [
       "Stories"
     ],
@@ -8569,9 +8573,9 @@
     "date": "2026-12-06",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "5+",
-    "ageMin": 5,
-    "ageMax": 12,
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 5,
     "types": [
       "Arts & Crafts",
       "Build & Explore"
@@ -8693,9 +8697,9 @@
     "date": "2027-01-08",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "5+",
-    "ageMin": 5,
-    "ageMax": 12,
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
     "types": [
       "Stories"
     ],
