@@ -620,9 +620,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "music-on-castro-downtown-mountain-view-2026-07-08-17-00",
@@ -649,14 +649,14 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.3905,
     "lng": -122.0788,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "magical-bridge-storytime-magical-bridge-playground-at-rengstorff-park-2026-07-09-10-00",
     "title": "Magical Bridge Storytime",
-    "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Rengstorff Park! Enjoy a fun-filled storytime at the Magical Bridge Playground, and take advantage of full library services...",
+    "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Rengstorff Park! Enjoy a fun-filled storytime at the Magical Bridge Playground, and take advantage of full library services available from 10:00–11:00 a.m.\n\nEvents are weather permitting.",
     "venue": "Magical Bridge Playground at Rengstorff Park",
     "address": "201 S. Rengstorff Ave, Mountain View, CA 94040",
     "city": "Mountain View",
@@ -680,9 +680,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4001,
     "lng": -122.0986,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69276b597eb3e430002638a7",
@@ -711,9 +711,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4229,
     "lng": -122.1489,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835bbb48451fc3c094401",
@@ -740,9 +740,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "summer-concert-marshall-magoon-magic-linden-tree-books-2026-07-09-11-00",
@@ -769,9 +769,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835b92866a5b488426bd4",
@@ -798,14 +798,14 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "cascada-de-flores-el-brujo-y-la-sirena-the-wizard-and-the-mermaid-mountain-view-public-library-2026-",
     "title": "Cascada de Flores: El Brujo y la Sirena (The Wizard and the Mermaid)",
-    "description": "El Brujo y La Sirena is a musical story about music and the sea, where a mermaid lives singing through the waters of the Americas. One day, a nice and funny wizard hears the mermaid's song, for the...",
+    "description": "El Brujo y La Sirena is a musical story about music and the sea, where a mermaid lives singing through the waters of the Americas. One day, a nice and funny wizard hears the mermaid’s song, for the first time ever, and seeing that he doesn't have it in his magic books, decides to go look for her. Don't miss this exciting bilingual tale with Cascada de Flores!",
     "venue": "Mountain View Public Library",
     "room": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
@@ -2329,7 +2329,7 @@
   {
     "id": "story-stones-mountain-view-public-library-2026-07-20-15-30",
     "title": "Story Stones",
-    "description": "Plant a seed of creativity and let your imagination grow! Paint a rock that tells a story, or expresses your favorite part of summer. Every stone adds a touch of magic to summer reading. We would also...",
+    "description": "Plant a seed of creativity and let your imagination grow! Paint a rock that tells a story, or expresses your favorite part of summer. Every stone adds a touch of magic to summer reading. We would also welcome kids to donate their rock to the bookmobile to inspire readers everywhere. All materials will be provided.\n\nThis program is for children ages 5 and up.",
     "venue": "Mountain View Public Library",
     "room": "1st Floor Program Room",
     "address": "585 Franklin St, Mountain View, CA 94041",
@@ -2419,7 +2419,7 @@
   {
     "id": "summer-outdoor-storytime-mountain-view-public-library-2026-07-21-10-30",
     "title": "Summer Outdoor Storytime",
-    "description": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park. Tuesdays at 10:30 a.m. All ages welcome, no registration required. All events are weather...",
+    "description": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park. Tuesdays at 10:30 a.m.\n\nAll ages welcome, no registration required. All events are weather permitting.",
     "venue": "Mountain View Public Library",
     "room": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
