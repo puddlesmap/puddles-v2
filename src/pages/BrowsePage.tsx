@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import { getPublicEventsFromCatalog } from '../data/events'
 import { EventCard } from '../components/EventCard'
@@ -133,6 +133,7 @@ export function BrowsePage({
   const [restoreSnapshot, setRestoreSnapshot] = useState<BrowseReturnSnapshot | null>(null)
   const skipViewModeSyncRef = useRef(false)
   const filterMenuOpen = openPopover !== null || openSheet !== null
+  const browseControlsRef = useRef<HTMLDivElement>(null)
   const { coords, isRequesting, requestLocation } = useUserLocation()
   const isExperimentBrowse3 = shellClassName?.includes('experiment-3') ?? false
 
@@ -249,6 +250,36 @@ export function BrowsePage({
   const locationLabel = getBrowseLocationLabel(browseFilters.city)
 
   const mobileControlsCollapsed = useBrowseMobileControlsCollapse(!filterMenuOpen)
+
+  useLayoutEffect(() => {
+    const controls = browseControlsRef.current
+    if (!controls) return
+
+    const shell = controls.closest('.browse-page-shell') as HTMLElement | null
+
+    const measure = () => {
+      if (!window.matchMedia('(max-width: 767px)').matches) {
+        shell?.style.removeProperty('--browse-band-height')
+        return
+      }
+
+      const height = Math.ceil(controls.scrollHeight)
+      if (height > 0) {
+        shell?.style.setProperty('--browse-band-height', `${height}px`)
+      }
+    }
+
+    measure()
+
+    const observer = new ResizeObserver(measure)
+    observer.observe(controls)
+    window.addEventListener('resize', measure)
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', measure)
+    }
+  }, [locationLabel, browseFilters, viewMode, showReset, events.length])
 
   const resultsSummary =
     resultsCountStyle === 'contextual'
@@ -401,7 +432,15 @@ export function BrowsePage({
   const listCardVariant = listLayout === 'compact-two-column' ? 'compact-grid' : 'grid'
 
   return (
-    <div className={['browse-page-shell', shellClassName].filter(Boolean).join(' ')}>
+    <div
+      className={[
+        'browse-page-shell',
+        shellClassName,
+        mobileControlsCollapsed ? 'browse-page-shell--controls-collapsed' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
       <AppHeader
         logoSrc={useHomeHeader ? PUDDLES_WORDMARK_LOGO_SRC : HOME_HEADER_LOGO_SRC}
         logoSrc2x={useHomeHeader ? PUDDLES_WORDMARK_LOGO_SRC_2X : undefined}
@@ -415,7 +454,7 @@ export function BrowsePage({
               .filter(Boolean)
               .join(' ')}
           >
-            <div className="layout-container browse-controls relative">
+            <div ref={browseControlsRef} className="layout-container browse-controls relative">
             <div className="browse-controls-row">
               <div className="browse-location-row">
                 <BrowseLocationPill label={locationLabel} onClick={openLocationFilter} />

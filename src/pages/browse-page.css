@@ -70,6 +70,12 @@
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
   }
+
+  /* Fixed filters are out of flow — pad list/map content while filters are visible. */
+  .browse-page-shell:not(.browse-page-shell--controls-collapsed) .browse-page-body,
+  .browse-page-shell:not(.browse-page-shell--controls-collapsed) .browse-map-shell--mobile {
+    padding-top: var(--browse-band-height, 9.5rem);
+  }
 }
 
 /* —— Filter bar (location pill + list/map toggle) —— */
