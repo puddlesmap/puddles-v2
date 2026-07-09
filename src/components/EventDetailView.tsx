@@ -239,7 +239,7 @@ function EventDetailTrustCard({
         <span className="event-modal-trust-timestamp">· Last checked {verified}</span>
       </div>
       <p className="event-modal-trust-note">
-        Details can change. Please check the official page before you go.
+        Before you head out, please check the official page.
       </p>
 
       {reportSubmitted ? (
