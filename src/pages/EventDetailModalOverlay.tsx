@@ -6,6 +6,7 @@ import { useCloseEventDetail } from '../hooks/useCloseEventDetail'
 import { useEventDetailDocument } from '../hooks/useEventDetailDocument'
 import {
   getEventDetailBackground,
+  isEventModalOverlaySource,
   parseEventDetailLocationState,
 } from '../utils/eventDetailNavigation'
 
@@ -20,10 +21,8 @@ export function EventDetailModalOverlay() {
     backgroundLocation?.pathname === '/experiment-event-modal' ||
     navState?.returnTo?.startsWith('/experiment-event-modal') === true
   const shareInHeader =
-    backgroundLocation?.pathname === '/browse' ||
-    backgroundLocation?.pathname === '/map' ||
-    navState?.returnTo?.startsWith('/browse') === true ||
-    navState?.returnTo?.startsWith('/map') === true
+    navState?.eventOpenSource != null &&
+    isEventModalOverlaySource(navState.eventOpenSource)
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow

@@ -798,9 +798,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
   },
   {
     "id": "cascada-de-flores-el-brujo-y-la-sirena-the-wizard-and-the-mermaid-mountain-view-public-library-2026-",
