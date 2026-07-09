@@ -256,10 +256,12 @@ export function BrowsePage({
     if (!controls) return
 
     const shell = controls.closest('.browse-page-shell') as HTMLElement | null
+    const headerRow = shell?.querySelector('.app-header-row') as HTMLElement | null
 
     const measure = () => {
       if (!window.matchMedia('(max-width: 767px)').matches) {
         shell?.style.removeProperty('--browse-band-height')
+        shell?.style.removeProperty('--browse-mobile-header-offset')
         return
       }
 
@@ -267,12 +269,20 @@ export function BrowsePage({
       if (height > 0) {
         shell?.style.setProperty('--browse-band-height', `${height}px`)
       }
+
+      if (headerRow) {
+        const offset = Math.ceil(headerRow.getBoundingClientRect().height)
+        if (offset > 0) {
+          shell?.style.setProperty('--browse-mobile-header-offset', `${offset}px`)
+        }
+      }
     }
 
     measure()
 
     const observer = new ResizeObserver(measure)
     observer.observe(controls)
+    if (headerRow) observer.observe(headerRow)
     window.addEventListener('resize', measure)
 
     return () => {

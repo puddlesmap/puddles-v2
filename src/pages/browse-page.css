@@ -22,7 +22,7 @@
 
 @media (max-width: 767px) {
   .browse-page-shell {
-    --browse-mobile-header-offset: calc(3.75rem + 1.25rem + env(safe-area-inset-top, 0px));
+    --browse-mobile-header-offset: 3.75rem;
   }
 
   /* Logo row stays in flow; filters are fixed and animate out without resizing the page. */
