@@ -20,35 +20,69 @@ import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './exper
 type ShareTab = 'activity' | 'idea'
 type View = 'form' | 'success'
 
-function ShareSideIntro({ tab }: { tab: ShareTab }) {
-  if (tab === 'idea') {
+function ShareActivityIntro({ variant }: { variant: 'mobile' | 'desktop' }) {
+  if (variant === 'mobile') {
     return (
-      <div className="share-side-intro">
-        <p className="share-page-body">What would make Puddles more helpful?</p>
-        <p className="share-page-body-muted">
-          Your ideas help us grow a small, trustworthy guide for local family moments.
+      <div className="share-activity-intro share-activity-intro--mobile">
+        <p className="share-activity-lead">
+          Help nearby families discover a storytime, an open gym session, or a park concert.
         </p>
       </div>
     )
   }
 
   return (
-    <div className="share-side-intro">
-      <div className="share-page-activity-intro">
-        <p className="share-page-body">
-          Know a great local activity? Share it with nearby families.
+    <div className="share-page-activity-intro">
+      <p className="share-page-body">
+        Know a great local activity? Share it with nearby families.
+      </p>
+      <div className="share-page-body-muted share-page-activity-details">
+        <p className="share-page-activity-details-lead">
+          We&apos;re looking for easy, casual fun like:
         </p>
-        <div className="share-page-body-muted share-page-activity-details">
-          <p className="share-page-activity-details-lead">
-            We&apos;re looking for easy, casual fun like:
-          </p>
-          <ul className="share-page-activity-examples">
-            <li>Free/Low-cost: Storytimes &amp; open gym times</li>
-            <li>Drop-in: Music circle &amp; art classes</li>
-            <li>Casual: Park concerts &amp; outdoor gatherings</li>
-          </ul>
-        </div>
+        <ul className="share-page-activity-examples">
+          <li>Free/Low-cost: Storytimes &amp; open gym times</li>
+          <li>Drop-in: Music circle &amp; art classes</li>
+          <li>Casual: Park concerts &amp; outdoor gatherings</li>
+        </ul>
       </div>
+    </div>
+  )
+}
+
+function ShareIdeaIntro({ variant }: { variant: 'mobile' | 'desktop' }) {
+  if (variant === 'mobile') {
+    return (
+      <div className="share-activity-intro share-activity-intro--mobile">
+        <p className="share-activity-lead">
+          Your ideas help us build a small, trustworthy guide to local family moments.
+        </p>
+      </div>
+    )
+  }
+
+  return (
+    <>
+      <p className="share-page-body">What would make Puddles more helpful?</p>
+      <p className="share-page-body-muted">
+        Your ideas help us grow a small, trustworthy guide for local family moments.
+      </p>
+    </>
+  )
+}
+
+function ShareSideIntro({ tab, variant }: { tab: ShareTab; variant: 'mobile' | 'desktop' }) {
+  if (tab === 'idea') {
+    return (
+      <div className="share-side-intro">
+        <ShareIdeaIntro variant={variant} />
+      </div>
+    )
+  }
+
+  return (
+    <div className="share-side-intro">
+      <ShareActivityIntro variant={variant} />
     </div>
   )
 }
@@ -58,7 +92,7 @@ function TabSwitcher({ tab, onChange }: { tab: ShareTab; onChange: (t: ShareTab)
     <div className="share-tab-switcher" role="tablist" aria-label="Share page tabs">
       {(
         [
-          ['activity', 'Share activity'],
+          ['activity', 'Share an activity'],
           ['idea', 'Suggest an idea'],
         ] as const
       ).map(([key, label]) => (
@@ -105,7 +139,7 @@ function ShareSubmitBlock({
         type="button"
         onClick={onSubmit}
         disabled={disabled}
-        className="btn-primary w-full disabled:opacity-40"
+        className="btn-primary share-submit-button w-full"
       >
         {label}
       </button>
@@ -274,19 +308,14 @@ export function SharePage({
         <PageContainer className="pt-6">
           <div className="share-layout">
             <aside className="hidden lg:block">
-              <ShareSideIntro tab={tab} />
+              <ShareSideIntro tab={tab} variant="desktop" />
             </aside>
 
             <div className="share-layout-form">
-              <div className="lg:hidden">
-                <ShareSideIntro tab={tab} />
-                <div className="mt-6">
-                  <TabSwitcher tab={tab} onChange={handleTabChange} />
-                </div>
-              </div>
+              <TabSwitcher tab={tab} onChange={handleTabChange} />
 
-              <div className="hidden lg:block">
-                <TabSwitcher tab={tab} onChange={handleTabChange} />
+              <div className="lg:hidden">
+                <ShareSideIntro tab={tab} variant="mobile" />
               </div>
 
               <div key={tab} className="share-form-card motion-feed-in">

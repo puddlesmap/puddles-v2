@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import type { Event } from '../../types/event'
@@ -34,6 +34,7 @@ interface BrowseLeafletMapViewProps {
   onOpenEvent: MapOpenEventHandler
   interactionMode?: 'default' | 'connected'
   restoreSnapshot?: BrowseReturnSnapshot | null
+  detachedViewToggle?: ReactNode
 }
 
 const MAP_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
@@ -120,6 +121,7 @@ export function BrowseLeafletMapView({
   onOpenEvent,
   interactionMode = 'default',
   restoreSnapshot = null,
+  detachedViewToggle = null,
 }: BrowseLeafletMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
@@ -314,6 +316,7 @@ export function BrowseLeafletMapView({
         </p>
 
         <div className="browse-map-panel-mobile">
+          {detachedViewToggle}
           <MapContainer
             center={mapCenter}
             zoom={BROWSE_MAP_DEFAULT_ZOOM}
@@ -418,6 +421,7 @@ export function BrowseLeafletMapView({
         </aside>
 
         <div className="browse-map-map">
+          {detachedViewToggle}
           <MapContainer
             center={mapCenter}
             zoom={BROWSE_MAP_DEFAULT_ZOOM}

@@ -14,6 +14,8 @@ import { useApp } from '../context/AppContext'
 import { BrowseEmptyState } from '../components/empty-states/BrowseEmptyState'
 import { BrowseMapView } from '../components/browse/BrowseMapView'
 import { useBrowseMobileControlsCollapse } from '../hooks/useBrowseMobileControlsCollapse'
+import { useBrowseViewToggleSeparation } from '../hooks/useBrowseViewToggleSeparation'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 import { useUserLocation } from '../hooks/useUserLocation'
 import {
   DEFAULT_BROWSE_FILTERS,
@@ -31,7 +33,11 @@ import {
   sortEventsByDistance,
 } from '../utils/geo'
 import { trackCitySelected, trackViewModeChanged } from '../utils/analytics'
-import { getBrowseActivityNoun, getBrowseResultsSummary } from '../utils/browseResultsCopy'
+import {
+  formatActivityCount,
+  getBrowseActivityNoun,
+  getBrowseResultsSummary,
+} from '../utils/browseResultsCopy'
 import {
   HOME_HEADER_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC,
@@ -134,6 +140,8 @@ export function BrowsePage({
   const skipViewModeSyncRef = useRef(false)
   const filterMenuOpen = openPopover !== null || openSheet !== null
   const browseControlsRef = useRef<HTMLDivElement>(null)
+  const secondaryControlsRowRef = useRef<HTMLDivElement>(null)
+  const isMobileViewport = useMediaQuery('(max-width: 767px)')
   const { coords, isRequesting, requestLocation } = useUserLocation()
   const isExperimentBrowse3 = shellClassName?.includes('experiment-3') ?? false
 
@@ -250,6 +258,12 @@ export function BrowsePage({
   const locationLabel = getBrowseLocationLabel(browseFilters.city)
 
   const mobileControlsCollapsed = useBrowseMobileControlsCollapse(!filterMenuOpen)
+  const viewToggleSeparated = useBrowseViewToggleSeparation(secondaryControlsRowRef, [
+    locationLabel,
+    browseFilters,
+    showReset,
+    events.length,
+  ])
 
   useLayoutEffect(() => {
     const controls = browseControlsRef.current
@@ -295,6 +309,23 @@ export function BrowsePage({
     resultsCountStyle === 'contextual'
       ? getBrowseResultsSummary(events.length, browseFilters.city, browseFilters.day)
       : `${events.length} ${getBrowseActivityNoun(events.length, browseFilters.day)}`
+
+  const mobileResultsLabel =
+    awaitingNearby ? null : `${formatActivityCount(events.length)}.`
+
+  const listResultsLabel = awaitingNearby
+    ? null
+    : isMobileViewport
+      ? mobileResultsLabel
+      : resultsSummary
+
+  const detachedViewToggle = (
+    <BrowseViewToggle
+      viewMode={viewMode}
+      onChange={handleViewModeChange}
+      className="browse-view-toggle-floating"
+    />
+  )
 
   const feedKey = useMemo(
     () =>
@@ -412,7 +443,7 @@ export function BrowsePage({
   ]
 
   const secondaryControls = (
-    <div className="browse-secondary-controls-row">
+    <div ref={secondaryControlsRowRef} className="browse-secondary-controls-row">
       <div className="browse-filter-chips-scroll">
         <div className="browse-filter-chips">
           {filterChips.map((chip) => (
@@ -431,7 +462,13 @@ export function BrowsePage({
           )}
         </div>
       </div>
-      <BrowseViewToggle viewMode={viewMode} onChange={handleViewModeChange} className="browse-view-toggle-inline" />
+      {!viewToggleSeparated ? (
+        <BrowseViewToggle
+          viewMode={viewMode}
+          onChange={handleViewModeChange}
+          className="browse-view-toggle-inline"
+        />
+      ) : null}
     </div>
   )
 
@@ -447,6 +484,7 @@ export function BrowsePage({
         'browse-page-shell',
         shellClassName,
         mobileControlsCollapsed ? 'browse-page-shell--controls-collapsed' : '',
+        viewToggleSeparated ? 'browse-page-shell--view-toggle-separated' : '',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -505,13 +543,23 @@ export function BrowsePage({
           interactionMode={mapInteractionMode}
           restoreSnapshot={restoreSnapshot}
           onOpenEvent={handleOpenMapEvent}
+          detachedViewToggle={viewToggleSeparated ? detachedViewToggle : null}
         />
       ) : (
         <div className="browse-page-body">
           <PageContainer layout="wide" className="browse-content">
-            <p className="browse-results-count">
-              {awaitingNearby ? null : resultsSummary}
-            </p>
+            {viewToggleSeparated ? (
+              <div className="browse-results-toolbar">
+                <p className="browse-results-count">{listResultsLabel}</p>
+                <BrowseViewToggle
+                  viewMode={viewMode}
+                  onChange={handleViewModeChange}
+                  className="browse-view-toggle-toolbar"
+                />
+              </div>
+            ) : (
+              <p className="browse-results-count">{listResultsLabel}</p>
+            )}
 
             <div key={feedKey} className="browse-feed motion-feed-in">
               {awaitingNearby ? null : events.length === 0 ? (

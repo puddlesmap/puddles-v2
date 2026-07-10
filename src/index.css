@@ -16,7 +16,7 @@
   --color-gray-100: #f7f7f7;
   --color-gray-50: #f7f7f7;
   --color-chrome-end: #f8f8f8;
-  --color-nav-active-bg: #f0f0f0;
+  --color-nav-active-bg: #f1f2f2;
   --color-footer-band: #66c5f9;
   --color-privacy: #758289;
   --color-footer-text: #ffffff;
@@ -324,7 +324,6 @@ textarea {
 }
 
 .top-nav-link-active {
-  font-weight: 700;
   color: var(--color-black);
   background-color: var(--color-nav-active-bg);
 }
@@ -1091,22 +1090,12 @@ textarea {
   z-index: 1;
 }
 
-@media (max-width: 767px) {
-  .browse-view-toggle-inline.browse-view-toggle {
-    background: var(--color-surface, #fff);
-    box-shadow: -10px 0 12px -8px var(--color-surface, #fff);
-  }
-
-  .browse-view-toggle-inline.browse-view-toggle button {
-    min-height: 36px;
-    padding: 0 14px;
-  }
-}
-
 @media (max-width: 360px) {
-  .browse-view-toggle-inline.browse-view-toggle button {
-    padding: 0 11px;
-    font-size: 13px;
+  .browse-page-shell .browse-view-toggle-toolbar button,
+  .browse-page-shell .browse-view-toggle-floating button,
+  .browse-page-shell .browse-controls .browse-view-toggle-inline button {
+    padding: 0 8px;
+    font-size: 12px;
   }
 }
 
@@ -1122,6 +1111,7 @@ textarea {
 
 .browse-view-toggle {
   display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
   border-radius: var(--radius-pill);
   border: 1px solid var(--color-border);

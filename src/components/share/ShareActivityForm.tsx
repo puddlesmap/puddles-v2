@@ -26,7 +26,7 @@ const SIGNUP_OPTIONS: ShareSignupRequirement[] = [
   'Not sure',
 ]
 
-const AGE_OPTIONS: ShareAgeRange[] = ['0–2', '2–5', '5+', 'All ages', 'Not sure']
+const AGE_OPTIONS: ShareAgeRange[] = ['0–2', '2–5', 'All ages', 'Not sure']
 
 const RECURRING_DAYS = [
   'Monday',
@@ -133,6 +133,29 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
 
   const canSubmit = canSubmitShareActivity(formState, isSubmitting)
 
+  const questionNumbers = useMemo(() => {
+    if (category) {
+      return {
+        when: 4,
+        age: 5,
+        link: 6,
+        cost: 7,
+        signup: 8,
+        description: 9,
+        tips: 10,
+      }
+    }
+
+    return {
+      age: 4,
+      link: 5,
+      cost: 6,
+      signup: 7,
+      description: 8,
+      tips: 9,
+    }
+  }, [category])
+
   useEffect(() => {
     onCanSubmitChange?.(canSubmit)
   }, [canSubmit, onCanSubmitChange])
@@ -227,7 +250,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
   return (
     <div className="space-y-8">
       <fieldset>
-        <legend className="mb-3 text-base font-semibold">1. What kind of activity is this?</legend>
+        <legend className="share-form-question mb-3">1. What kind of activity is this?</legend>
         <div className="pill-wrap">
           {(
             [
@@ -248,7 +271,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
       </fieldset>
 
       <div>
-        <label className="mb-2 block font-semibold" htmlFor="share-title">
+        <label className="share-form-question mb-2 block" htmlFor="share-title">
           2. What is it called?
         </label>
         <input
@@ -261,7 +284,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
       </div>
 
       <div ref={venueRef}>
-        <p className="mb-4 font-semibold">3. Where is it?</p>
+        <p className="share-form-question mb-4">3. Where is it?</p>
 
         <div className="space-y-4">
           <label className="share-time-field block">
@@ -353,7 +376,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
 
       {category && (
         <div>
-          <label className="mb-2 block font-semibold">4. When is it?</label>
+          <label className="mb-2 block share-form-question">{questionNumbers.when}. When is it?</label>
           {category === 'one-time' ? (
             <div className="share-time-grid">
               <label className="share-time-field">
@@ -440,8 +463,8 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
       )}
 
       <fieldset>
-        <legend className="mb-2 block font-semibold">
-          5. Best for what age? <span className="font-normal text-muted">(Optional)</span>
+        <legend className="share-form-question mb-2 block">
+          {questionNumbers.age}. Best for what age? <span className="font-normal text-muted">(Optional)</span>
         </legend>
         <p className="share-field-hint mb-3">
           A guess is okay — we&apos;ll review before posting.
@@ -461,8 +484,8 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
       </fieldset>
 
       <div>
-        <label className="mb-2 block font-semibold" htmlFor="share-link">
-          6. Link to the event <span className="font-normal text-muted">(Optional)</span>
+        <label className="share-form-question mb-2 block" htmlFor="share-link">
+          {questionNumbers.link}. Link to the event <span className="font-normal text-muted">(Optional)</span>
         </label>
         <input
           id="share-link"
@@ -477,8 +500,8 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
       </div>
 
       <fieldset>
-        <legend className="mb-2 block font-semibold">
-          7. Is there a cost? <span className="font-normal text-muted">(Optional)</span>
+        <legend className="share-form-question mb-2 block">
+          {questionNumbers.cost}. Is there a cost? <span className="font-normal text-muted">(Optional)</span>
         </legend>
         <p className="share-field-hint mb-3">
           Free is wonderful to know — but if it costs money, a rough estimate helps.
@@ -512,8 +535,8 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
       </fieldset>
 
       <fieldset>
-        <legend className="mb-2 block font-semibold">
-          8. Do families need to sign up first?{' '}
+        <legend className="share-form-question mb-2 block">
+          {questionNumbers.signup}. Do families need to sign up first?{' '}
           <span className="font-normal text-muted">(Optional)</span>
         </legend>
         <p className="share-field-hint mb-3">
@@ -551,8 +574,8 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
       </fieldset>
 
       <div>
-        <label className="mb-2 block font-semibold" htmlFor="share-description">
-          9. What happens at the activity?{' '}
+        <label className="share-form-question mb-2 block" htmlFor="share-description">
+          {questionNumbers.description}. What happens at the activity?{' '}
           <span className="font-normal text-muted">(Optional)</span>
         </label>
         <textarea
@@ -569,8 +592,8 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
       </div>
 
       <div>
-        <label className="mb-2 block font-semibold" htmlFor="share-tips">
-          10. Parent-to-parent insider tips{' '}
+        <label className="share-form-question mb-2 block" htmlFor="share-tips">
+          {questionNumbers.tips}. Parent-to-parent insider tips{' '}
           <span className="font-normal text-muted">(Optional)</span>
         </label>
         <textarea

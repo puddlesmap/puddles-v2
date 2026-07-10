@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Map } from '@vis.gl/react-google-maps'
 import type { Event } from '../../types/event'
 import type { BrowseFilters } from '../../utils/filters'
@@ -35,6 +35,7 @@ interface BrowseGoogleMapViewProps {
   onOpenEvent: MapOpenEventHandler
   interactionMode?: 'default' | 'connected'
   restoreSnapshot?: BrowseReturnSnapshot | null
+  detachedViewToggle?: ReactNode
 }
 
 export function BrowseGoogleMapView({
@@ -44,6 +45,7 @@ export function BrowseGoogleMapView({
   onOpenEvent,
   interactionMode = 'default',
   restoreSnapshot = null,
+  detachedViewToggle = null,
 }: BrowseGoogleMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
@@ -259,6 +261,7 @@ export function BrowseGoogleMapView({
       </p>
 
       <div className="browse-map-panel-mobile">
+        {detachedViewToggle}
         <GoogleMapProvider>
           <div className="browse-map-canvas browse-map-canvas--google">
             {renderGoogleMap('browse-map-google-inner')}
@@ -354,6 +357,7 @@ export function BrowseGoogleMapView({
         </aside>
 
         <div className="browse-map-map">
+          {detachedViewToggle}
           <GoogleMapProvider>
             <div className="browse-map-canvas browse-map-canvas--google">
               {renderGoogleMap('browse-map-google-inner')}

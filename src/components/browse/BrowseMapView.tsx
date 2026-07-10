@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { Event } from '../../types/event'
 import type { BrowseFilters } from '../../utils/filters'
 import type { MapInteractionMode, MapOpenEventHandler } from '../../hooks/useBrowseMapInteraction'
@@ -13,6 +14,7 @@ interface BrowseMapViewProps {
   onOpenEvent: MapOpenEventHandler
   interactionMode?: MapInteractionMode
   restoreSnapshot?: BrowseReturnSnapshot | null
+  detachedViewToggle?: ReactNode
 }
 
 export function BrowseMapView({ browseFilters, interactionMode = 'default', ...props }: BrowseMapViewProps) {
