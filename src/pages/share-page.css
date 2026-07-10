@@ -51,16 +51,16 @@
 }
 
 .share-page-shell .share-activity-intro--mobile {
-  margin-top: 0.25rem;
+  margin-top: 6px;
 }
 
-.share-page-shell .share-activity-lead {
+.share-page-shell .share-activity-intro--mobile .share-activity-lead {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: var(--type-page-body-size);
-  font-weight: var(--type-page-body-weight);
-  line-height: var(--type-page-body-line-height);
-  color: var(--type-page-body-color);
+  font-size: var(--share-supporting-size);
+  font-weight: 400;
+  line-height: var(--share-supporting-line-height);
+  color: var(--share-supporting-color);
 }
 
 .share-page-shell .share-page-activity-details-lead {
@@ -139,47 +139,7 @@
 }
 
 /* —— Primary buttons —— */
-.share-page-shell .btn-primary.share-submit-button {
-  min-height: 46px;
-  padding: 0 1.5rem;
-  border: none;
-  border-radius: 23px;
-  font-size: 16px;
-  font-weight: 700;
-  transition:
-    background-color 0.14s ease-out,
-    box-shadow 0.14s ease-out,
-    transform 0.12s ease-out,
-    color 0.14s ease-out;
-}
-
-.share-page-shell .btn-primary.share-submit-button:not(:disabled) {
-  background-color: #3aabeb;
-  color: #ffffff;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.08),
-    0 6px 16px rgba(58, 171, 235, 0.32);
-}
-
-.share-page-shell .btn-primary.share-submit-button:not(:disabled):hover {
-  background-color: #2f9fe0;
-  box-shadow:
-    0 2px 4px rgb(40 46 49 / 0.06),
-    0 4px 12px rgb(58 171 235 / 0.28);
-}
-
-.share-page-shell .btn-primary.share-submit-button:not(:disabled):active {
-  transform: scale(0.98);
-}
-
-.share-page-shell .btn-primary.share-submit-button:disabled {
-  background-color: var(--color-brand-soft);
-  color: #8ec9ea;
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
-.share-page-shell .btn-primary:not(.share-submit-button) {
+.share-page-shell .btn-primary {
   min-height: 46px;
   padding: 0 1.5rem;
   border: none;
@@ -197,14 +157,14 @@
     transform 0.12s ease-out;
 }
 
-.share-page-shell .btn-primary:not(.share-submit-button):hover:not(:disabled) {
+.share-page-shell .btn-primary:hover:not(:disabled) {
   background-color: #4db8f2;
   box-shadow:
     0 2px 4px rgb(40 46 49 / 0.06),
     0 4px 12px rgb(102 197 249 / 0.24);
 }
 
-.share-page-shell .btn-primary:not(.share-submit-button):active:not(:disabled) {
+.share-page-shell .btn-primary:active:not(:disabled) {
   transform: scale(0.98);
 }
 
@@ -328,14 +288,6 @@
   color: var(--share-supporting-color);
 }
 
-.share-page-shell .share-submit-consent {
-  font-family: var(--font-sans);
-  font-size: var(--type-form-hint-size);
-  font-weight: var(--type-form-hint-weight);
-  line-height: var(--type-form-hint-line-height);
-  color: var(--type-supporting-color);
-}
-
 .share-page-shell .share-time-label {
   font-size: 15px;
   font-weight: 500;
@@ -369,25 +321,7 @@
   }
 }
 
-/* —— Mobile submit bar (floating, gradient fade) —— */
-.share-page-shell .share-submit-bar {
-  position: fixed;
-  inset-inline: 0;
-  bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px));
-  z-index: 30;
-  border-top: none;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, #ffffff 36%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.08);
-}
-
-@media (min-width: 768px) {
-  .share-page-shell .share-submit-bar {
-    display: none;
-  }
-}
-
 .share-page-shell .share-submit-bar .layout-container {
-  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  padding-top: 1rem;
+  padding-bottom: 1.75rem;
 }

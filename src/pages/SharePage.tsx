@@ -130,8 +130,13 @@ function ShareSubmitBlock({
   const label = isSubmitting
     ? 'Sending…'
     : tab === 'activity'
-      ? 'Submit activity'
-      : 'Submit idea'
+      ? 'Share activity'
+      : 'Share idea'
+
+  const helperText =
+    tab === 'activity'
+      ? 'Thanks for helping keep Puddles current for local families.'
+      : 'Thanks for helping make Puddles more useful for local families.'
 
   return (
     <div className={`share-submit-block ${className}`.trim()}>
@@ -139,13 +144,11 @@ function ShareSubmitBlock({
         type="button"
         onClick={onSubmit}
         disabled={disabled}
-        className="btn-primary share-submit-button w-full"
+        className="btn-primary w-full disabled:opacity-40"
       >
         {label}
       </button>
-      <p className="share-submit-consent">
-        By sharing, you help us keep the map current and helpful for all local families.
-      </p>
+      <p className="share-submit-consent">{helperText}</p>
     </div>
   )
 }
@@ -382,7 +385,7 @@ export function SharePage({
         </PageContainer>
 
         <div className="share-submit-bar">
-          <div className="layout-container py-4">
+          <div className="layout-container">
             <ShareSubmitBlock
               tab={tab}
               isSubmitting={isSubmitting}
