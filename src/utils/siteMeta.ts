@@ -142,7 +142,7 @@ function applyMetaTags(
   setMeta('property', 'og:title', ogTitle)
   setMeta('property', 'og:description', socialDescription)
   setMeta('property', 'og:url', canonical)
-  setMeta('property', 'og:site_name', SITE.name)
+  setMeta('property', 'og:site_name', SITE.siteName)
   setMeta('property', 'og:type', 'website')
   setMeta('property', 'og:image', ogImage)
   setMeta('name', 'twitter:card', 'summary_large_image')
