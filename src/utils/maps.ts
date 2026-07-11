@@ -98,6 +98,30 @@ export function isCityShownInAddress(address: string, city: string): boolean {
   return address.toLowerCase().includes(city.trim().toLowerCase())
 }
 
+function getStreetAddressFirstLine(event: Event): string {
+  const address = getStreetAddress(event)
+  if (!address) return ''
+  return address.split('\n')[0]?.trim() ?? ''
+}
+
+/** Compact location line for event cards: venue · city, with address/city fallbacks. */
+export function formatEventCardLocation(event: Event): string {
+  const city = event.city?.trim() ?? ''
+  const venue = event.venue?.trim() ?? ''
+
+  if (venue && city) return `${venue} · ${city}`
+  if (venue) return venue
+
+  const street = getStreetAddressFirstLine(event)
+  if (street && city && !isCityShownInAddress(street, city)) {
+    return `${street} · ${city}`
+  }
+  if (street) return street
+  if (city) return city
+
+  return ''
+}
+
 function isTrustedEventCoordinates(event: Event): boolean {
   return (
     Number.isFinite(event.lat) &&

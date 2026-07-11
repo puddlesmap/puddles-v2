@@ -4,6 +4,7 @@ import type { Event } from '../types/event'
 import { getEventCardAgeLabel } from '../utils/ageRange'
 import { getEventDisplayCategory } from '../utils/eventImages'
 import { formatCardDateTime } from '../utils/dates'
+import { formatEventCardLocation } from '../utils/maps'
 import { eventDetailPath } from '../utils/eventPages'
 import { EventImage } from './EventImage'
 
@@ -104,7 +105,7 @@ function EventCardLocation({ event, discovery = false }: { event: Event; discove
           : 'card-listing-location event-location'
       }
     >
-      {event.venue} · {event.city}
+      {formatEventCardLocation(event)}
     </p>
   )
 }

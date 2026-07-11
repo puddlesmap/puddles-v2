@@ -1,7 +1,7 @@
 import { getPublicEventsFromCatalog } from '../data/events'
 import type { DayFilter, Event, TimeFilter, ActivityType } from '../types/event'
 import type { TemporalTab } from './dates'
-import { getAnchorDate, dateInDayFilter, dateInTemporalTab, timeInBucket } from './dates'
+import { getAnchorDate, dateInDayFilter, dateInTemporalTab, isEventVisibleForTodayFilter, timeInBucket } from './dates'
 import { isPublicEvent } from './publishing'
 import {
   getBrowseAgeChipLabel,
@@ -48,21 +48,33 @@ export function filterEvents(
   },
 ): Event[] {
   const { city = 'all', temporalTab, browse } = opts
+  const anchor = getAnchorDate()
+  const now = new Date()
 
   return events.filter((event) => {
-    if (!isPublicEvent(event)) return false
+    if (!isPublicEvent(event, now)) return false
     if (!isPublicAgeEligible(event.ageRange)) return false
 
     if (!matchesCity(event, city)) return false
 
-    if (temporalTab && !dateInTemporalTab(event.date, temporalTab, getAnchorDate())) {
+    if (temporalTab === 'today') {
+      if (!isEventVisibleForTodayFilter(event.date, event.startTime, event.endTime, anchor, now)) {
+        return false
+      }
+    } else if (temporalTab && !dateInTemporalTab(event.date, temporalTab, anchor)) {
       return false
     }
 
     if (browse) {
       const f = { ...DEFAULT_BROWSE_FILTERS, ...browse }
       if (!matchesCity(event, f.city)) return false
-      if (!dateInDayFilter(event.date, f.day, getAnchorDate())) return false
+      if (f.day === 'today') {
+        if (!isEventVisibleForTodayFilter(event.date, event.startTime, event.endTime, anchor, now)) {
+          return false
+        }
+      } else if (!dateInDayFilter(event.date, f.day, anchor)) {
+        return false
+      }
       if (!timeInBucket(event.startTime, f.time)) return false
       if (!matchesAge(event, f.age)) return false
       if (f.types.length > 0 && !f.types.some((t) => event.types.includes(t))) return false

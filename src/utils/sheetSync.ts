@@ -390,6 +390,7 @@ function mapRecord(record: Record<string, string>): Event | null {
     isPastRaw: null,
     isLiveRaw: null,
     date,
+    startTime,
     endTime,
   })
 

@@ -81,10 +81,6 @@ export function formatEventTimeRange(startTime?: string, endTime?: string): stri
   return timeParts.length > 0 ? timeParts.join(' – ') : '—'
 }
 
-export function formatTime(time24: string): string {
-  return formatTimeLabel(time24)
-}
-
 function formatTimeLabel(time: string): string {
   const raw = time.trim()
   if (!raw) return raw
@@ -97,6 +93,87 @@ function formatTimeLabel(time: string): string {
   const period = h >= 12 ? 'PM' : 'AM'
   const hour = h % 12 || 12
   return `${hour}:${m.toString().padStart(2, '0')} ${period}`
+}
+
+export function formatTime(time24: string): string {
+  return formatTimeLabel(time24)
+}
+
+/** Default visible window for events without a distinct end time. */
+export const DEFAULT_EVENT_DURATION_MS = 30 * 60 * 1000
+
+/** Local date + 24h time (matches calendar export parsing). */
+export function parseEventDateTime(dateStr: string, time24: string): Date | null {
+  if (!dateStr?.trim() || !time24?.trim()) return null
+
+  const [h, m] = time24.split(':').map(Number)
+  if (!Number.isFinite(h) || !Number.isFinite(m)) return null
+
+  const d = parseFlexibleDate(dateStr) ?? new Date(`${dateStr}T12:00:00`)
+  if (Number.isNaN(d.getTime())) return null
+
+  d.setHours(h, m, 0, 0)
+  return d
+}
+
+/** True when the event start is still in the future. */
+export function isEventUpcoming(
+  dateStr: string,
+  startTime: string,
+  now: Date = new Date(),
+): boolean {
+  const start = parseEventDateTime(dateStr, startTime)
+  if (!start) return true
+  return start.getTime() > now.getTime()
+}
+
+/** End of the visible window: explicit end time, or start + 30 minutes. */
+export function getEventEffectiveEnd(
+  dateStr: string,
+  startTime: string,
+  endTime?: string,
+): Date | null {
+  const start = parseEventDateTime(dateStr, startTime)
+  if (!start) return null
+
+  const endTrimmed = endTime?.trim()
+  if (endTrimmed && endTrimmed !== startTime.trim()) {
+    const end = parseEventDateTime(dateStr, endTrimmed)
+    if (end && end.getTime() > start.getTime()) {
+      return end
+    }
+  }
+
+  return new Date(start.getTime() + DEFAULT_EVENT_DURATION_MS)
+}
+
+/** True while an event is still in progress or upcoming. */
+export function isEventStillActive(
+  dateStr: string,
+  startTime: string,
+  endTime: string | undefined,
+  now: Date = new Date(),
+): boolean {
+  const effectiveEnd = getEventEffectiveEnd(dateStr, startTime, endTime)
+  if (!effectiveEnd) return true
+  return now.getTime() <= effectiveEnd.getTime()
+}
+
+/** Today tab/filter: same calendar day, and still active when viewing real today. */
+export function isEventVisibleForTodayFilter(
+  dateStr: string,
+  startTime: string,
+  endTime: string | undefined,
+  anchor = getAnchorDate(),
+  now: Date = new Date(),
+): boolean {
+  if (!dateInTemporalTab(dateStr, 'today', anchor)) return false
+
+  if (startOfDay(anchor).getTime() !== startOfDay(now).getTime()) {
+    return true
+  }
+
+  return isEventStillActive(dateStr, startTime, endTime, now)
 }
 
 /** Card line: TODAY · 4:00 PM, TOMORROW · 10:30 AM, or FRI, JUN 14 · 10:30 AM */
@@ -233,12 +310,29 @@ export function dateInTemporalTab(dateStr: string, tab: TemporalTab, anchor = ge
 }
 
 export function getFirstTemporalTabWithEvents(
-  events: { date: string }[],
+  events: { date: string; startTime?: string; endTime?: string }[],
   anchor = getAnchorDate(),
+  now: Date = new Date(),
 ): TemporalTab {
   const order: TemporalTab[] = ['today', 'tomorrow', 'weekend']
   for (const tab of order) {
-    if (events.some((event) => dateInTemporalTab(event.date, tab, anchor))) return tab
+    if (
+      events.some((event) => {
+        if (!dateInTemporalTab(event.date, tab, anchor)) return false
+        if (tab === 'today' && event.startTime) {
+          return isEventVisibleForTodayFilter(
+            event.date,
+            event.startTime,
+            event.endTime,
+            anchor,
+            now,
+          )
+        }
+        return true
+      })
+    ) {
+      return tab
+    }
   }
   return 'today'
 }

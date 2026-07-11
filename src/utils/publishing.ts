@@ -3,6 +3,7 @@ import {
   PUBLIC_DISPLAY_WINDOW_DAYS,
   addDays,
   getAnchorDate,
+  getEventEffectiveEnd,
   parseFlexibleDate,
   startOfDay,
 } from './dates'
@@ -23,19 +24,17 @@ export function parseSheetBoolean(value: unknown): boolean | null {
   return null
 }
 
-/** TRUE when the event end (or end of day) is before now. */
+/** TRUE when the event end (or default duration) is at or before now. */
 export function computeIsPast(
   date: string,
+  startTime: string,
   endTime: string,
   referenceDate: Date = new Date(),
 ): boolean {
   if (!date) return false
-  const end = endTime || '23:59'
-  const eventEnd = new Date(`${date}T${end}:00`)
-  if (Number.isNaN(eventEnd.getTime())) {
-    return new Date(`${date}T23:59:59`).getTime() < referenceDate.getTime()
-  }
-  return eventEnd.getTime() < referenceDate.getTime()
+  const effectiveEnd = getEventEffectiveEnd(date, startTime, endTime)
+  if (!effectiveEnd) return false
+  return effectiveEnd.getTime() <= referenceDate.getTime()
 }
 
 /** Public website gate: Status = Published AND Is Past = FALSE. */
@@ -83,8 +82,11 @@ export function resolvePublishingFields(input: {
   isLiveRaw?: boolean | null
   date: string
   endTime: string
+  startTime?: string
 }): Pick<Event, 'status' | 'isPast' | 'isLive'> {
-  const isPast = input.isPastRaw ?? computeIsPast(input.date, input.endTime)
+  const isPast =
+    input.isPastRaw ??
+    computeIsPast(input.date, input.startTime ?? input.endTime, input.endTime)
   const statusFromSheet = normalizeEventStatus(input.statusRaw)
   const approved = parseSheetBoolean(input.approvedRaw)
   const status = migrateStatusFromApproved(approved, isPast, statusFromSheet)
@@ -96,7 +98,7 @@ export function resolvePublishingFields(input: {
 export function enrichPublishingFields(
   event: Omit<Event, 'isPast' | 'isLive'> & Partial<Pick<Event, 'isPast' | 'isLive'>>,
 ): Event {
-  const isPast = computeIsPast(event.date, event.endTime)
+  const isPast = computeIsPast(event.date, event.startTime, event.endTime)
   const isLive = computeIsLive(event.status, isPast)
   return { ...event, isPast, isLive }
 }
@@ -107,7 +109,7 @@ export function enrichPublishingFields(
  */
 export function isPublicEvent(event: Event, now: Date = new Date()): boolean {
   if (event.status !== 'Published') return false
-  if (computeIsPast(event.date, event.endTime, now)) return false
+  if (computeIsPast(event.date, event.startTime, event.endTime, now)) return false
   return isWithinPublicDisplayWindow(event.date)
 }
 
