@@ -800,9 +800,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "cascada-de-flores-el-brujo-y-la-sirena-the-wizard-and-the-mermaid-mountain-view-public-library-2026-",
@@ -830,9 +830,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3896,
     "lng": -122.0832,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "2026-summer-concert-series-carnaval-grant-park-soccer-field-2026-07-09-18-30",
@@ -861,9 +861,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.3458,
     "lng": -122.0704,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6931edd1b5ff4730005608f3",
@@ -890,9 +890,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "steam-fridays-mountain-view-public-library-2026-07-10-14-00",
@@ -920,9 +920,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a25aace2ea730c17ab50481",
@@ -949,9 +949,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4229,
     "lng": -122.1489,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "concerts-on-the-plaza-2026-07-10-18-00",
@@ -978,9 +978,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.39,
     "lng": -122.0815,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "zootopia-2-family-movie-night-series-2026-mitchell-park-athletics-fields-2026-07-10-19-30",
@@ -1010,9 +1010,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.419,
     "lng": -122.1095,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "zootopia-2-summer-outdoor-movie-night-series-cuesta-park-2026-07-10-20-30",
@@ -1042,9 +1042,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3734,
     "lng": -122.0816,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "698e125a2a787a47a5e73bd8",
@@ -1071,9 +1071,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69fccf22177319280018194f",
