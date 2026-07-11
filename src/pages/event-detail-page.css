@@ -97,6 +97,94 @@
 }
 
 @media (max-width: 767px) {
+  .event-detail-page-shell--mobile {
+    min-height: 100dvh;
+    background: #ffffff;
+  }
+
+  .event-detail-page-shell--mobile .event-detail-page-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+    padding: 0;
+    padding-bottom: 0;
+  }
+
+  .event-detail-page-shell--mobile .layout-shell-app {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+    max-width: none;
+    padding-inline: 0;
+    padding-bottom: 0;
+  }
+
+  .event-detail-page-shell--mobile .event-detail-page-panel.event-modal-panel {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    max-height: 100dvh;
+    min-height: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+  }
+
+  .event-detail-page-shell--mobile .event-modal-panel--overlay {
+    position: relative;
+  }
+
+  .event-detail-page-shell--mobile .event-modal-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .event-detail-page-shell--mobile .event-modal-close-btn--persistent {
+    position: absolute;
+    top: 0.875rem;
+    right: 0.875rem;
+    z-index: 4;
+  }
+
+  .event-detail-page-shell--mobile .event-modal-floating-actions--persistent {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    pointer-events: auto;
+  }
+
+  .event-detail-page-shell--mobile .event-modal-floating-actions--header-utility {
+    top: 0.625rem;
+    right: 0.625rem;
+    gap: 0.4375rem;
+  }
+
+  .event-detail-page-shell--mobile
+    .event-modal-floating-actions--persistent
+    .event-modal-close-btn--floating {
+    position: static;
+    top: auto;
+    right: auto;
+  }
+
+  .event-detail-page-shell--mobile .event-modal-sticky-header--overlay .event-modal-header-actions {
+    margin-right: 3.5rem;
+  }
+
   .event-detail-page-shell .site-footer--full-bleed {
     margin-bottom: calc(4rem + env(safe-area-inset-bottom));
   }

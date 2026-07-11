@@ -63,6 +63,61 @@ export function canAddEventToCalendar(event: Event): boolean {
   return parseEventDateTime(event.date, event.startTime) !== null
 }
 
+function toGoogleCalendarUtc(date: Date): string {
+  return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
+}
+
+export function buildGoogleCalendarUrl(event: Event): string | null {
+  const start = parseEventDateTime(event.date, event.startTime)
+  if (!start) return null
+
+  let end = event.endTime?.trim() ? parseEventDateTime(event.date, event.endTime) : null
+  if (!end || end <= start) {
+    end = new Date(start.getTime() + 60 * 60 * 1000)
+  }
+
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: event.title,
+    dates: `${toGoogleCalendarUtc(start)}/${toGoogleCalendarUtc(end)}`,
+    details: getCalendarDescription(event),
+  })
+
+  const location = getCalendarLocation(event)
+  if (location) params.set('location', location)
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`
+}
+
+export function isLikelyInAppBrowser(): boolean {
+  if (typeof navigator === 'undefined') return false
+
+  const ua = navigator.userAgent || ''
+  return (
+    /FBAN|FBAV|Instagram|Line\/|LinkedInApp|Twitter/i.test(ua) ||
+    /Messenger/i.test(ua) ||
+    (/iPhone|iPad|iPod/i.test(ua) && /AppleWebKit/i.test(ua) && !/Safari/i.test(ua)) ||
+    (/Android/i.test(ua) && /;\s*wv\)/i.test(ua))
+  )
+}
+
+export type AddEventToCalendarResult = 'ics' | 'google' | false
+
+export function addEventToCalendar(event: Event): AddEventToCalendarResult {
+  const googleUrl = buildGoogleCalendarUrl(event)
+  if (!googleUrl) return false
+
+  if (isLikelyInAppBrowser()) {
+    window.open(googleUrl, '_blank', 'noopener,noreferrer')
+    return 'google'
+  }
+
+  if (downloadEventIcs(event)) return 'ics'
+
+  window.open(googleUrl, '_blank', 'noopener,noreferrer')
+  return 'google'
+}
+
 export function getEventRouteCardSubtext(event: Event): string {
   const venue = event.venue?.trim()
   const address = event.address?.trim()

@@ -48,6 +48,8 @@ function AppShell() {
   const backgroundLocation = getEventDetailBackground(location.state)
   const isAdminRoute = location.pathname.startsWith('/admin')
   const isLogoLab = location.pathname === '/logo-lab'
+  const isStandaloneEventDetail =
+    /^\/event\/[^/]+$/.test(location.pathname) && !backgroundLocation
 
   useEffect(() => {
     applySiteMeta(location.pathname, location.search)
@@ -121,7 +123,7 @@ function AppShell() {
           <Route path="/event/:eventId" element={<EventDetailModalOverlay />} />
         </Routes>
       ) : null}
-      {!isAdminRoute && !isLogoLab && <BottomNav />}
+      {!isAdminRoute && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
       {!isAdminRoute && <LocationBridge />}
     </div>
   )

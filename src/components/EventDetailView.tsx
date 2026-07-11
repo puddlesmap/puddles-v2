@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import type { Event } from '../types/event'
 import type { EventOpenSource } from '../types/analytics'
 import { formatModalDate, formatModalTimeRange } from '../utils/dates'
-import { canAddEventToCalendar, downloadEventIcs } from '../utils/calendar'
+import { addEventToCalendar, canAddEventToCalendar, isLikelyInAppBrowser } from '../utils/calendar'
 import {
   getEventAddressLine,
   getEventDirectionsLabel,
@@ -290,8 +290,8 @@ function EventDetailActions({
         <button
           type="button"
           onClick={() => {
-            const ok = downloadEventIcs(event)
-            if (ok) trackActivityEngagement(ANALYTICS_EVENTS.ADD_TO_CALENDAR_CLICKED, event)
+            const result = addEventToCalendar(event)
+            if (result) trackActivityEngagement(ANALYTICS_EVENTS.ADD_TO_CALENDAR_CLICKED, event)
           }}
           disabled={!canAddToCalendar}
           className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
@@ -300,6 +300,8 @@ function EventDetailActions({
         </button>
         {!canAddToCalendar ? (
           <p className="event-modal-actions-note text-center">Calendar details unavailable</p>
+        ) : isLikelyInAppBrowser() ? (
+          <p className="event-modal-actions-note text-center">Opens Google Calendar</p>
         ) : null}
         {hasOfficialPage ? (
           <a
@@ -564,7 +566,7 @@ export function EventDetailView({
         <div className="event-modal-content px-6 pb-6 pt-6">
           <h1 className="event-detail-title">{event.title}</h1>
 
-          {!hasInAppReturn ? (
+          {!hasInAppReturn && !shareInHeader ? (
             <p className="event-detail-direct-fallback">
               <Link to="/browse">Browse more events</Link>
             </p>
