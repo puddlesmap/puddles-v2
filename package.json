@@ -4,10 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "node scripts/generate-sitemap.mjs && tsc -b && vite build",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "dev:vite": "vite",
+    "build:vite": "node scripts/generate-sitemap.mjs && tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "next start",
     "parse-events": "node scripts/sync-events.mjs",
     "sync-events": "node scripts/sync-events.mjs",
     "sync-submissions": "node scripts/sync-submissions.mjs",
@@ -15,8 +18,11 @@
     "verify-expansion-watch": "node scripts/verify-expansion-watch-submission.mjs"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^5.15.12",
+    "@tailwindcss/postcss": "^4.3.2",
     "@vis.gl/react-google-maps": "^1.8.3",
     "leaflet": "^1.9.4",
+    "next": "^15.5.20",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-leaflet": "^5.0.0",

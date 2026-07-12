@@ -3,6 +3,7 @@ import type { DayFilter, Event, TimeFilter, ActivityType } from '../types/event'
 import type { TemporalTab } from './dates'
 import { getAnchorDate, dateInDayFilter, dateInTemporalTab, isEventVisibleForTodayFilter, timeInBucket } from './dates'
 import { isPublicEvent } from './publishing'
+import { isDiscoverableLifecycleEvent } from './eventLifecycle'
 import {
   getBrowseAgeChipLabel,
   isPublicAgeEligible,
@@ -39,20 +40,27 @@ function matchesCity(event: Event, city: string): boolean {
   return event.city === city
 }
 
+export type DiscoveryGate = 'public' | 'lifecycle-upcoming'
+
 export function filterEvents(
   events: Event[],
   opts: {
     city?: string
     temporalTab?: TemporalTab
     browse?: Partial<BrowseFilters>
+    discoveryGate?: DiscoveryGate
   },
 ): Event[] {
-  const { city = 'all', temporalTab, browse } = opts
+  const { city = 'all', temporalTab, browse, discoveryGate = 'public' } = opts
   const anchor = getAnchorDate()
   const now = new Date()
 
   return events.filter((event) => {
-    if (!isPublicEvent(event, now)) return false
+    if (discoveryGate === 'lifecycle-upcoming') {
+      if (!isDiscoverableLifecycleEvent(event, now)) return false
+    } else if (!isPublicEvent(event, now)) {
+      return false
+    }
     if (!isPublicAgeEligible(event.ageRange)) return false
 
     if (!matchesCity(event, city)) return false

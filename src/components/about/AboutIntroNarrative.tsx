@@ -1,4 +1,4 @@
-import { ABOUT_INTRO_NARRATIVE } from '../../pages/aboutShared'
+import { ABOUT_INTRO_NARRATIVE } from '../../views/aboutShared'
 
 export function AboutIntroNarrative() {
   return (

@@ -1,3 +1,5 @@
+import { getPublicEnv } from './env'
+
 /** Same-origin proxy for sheet write API — Netlify function (prod) or vite middleware (dev). */
 export const SHEET_API_PATH = '/api/sheet-api'
 
@@ -56,7 +58,7 @@ interface SheetApiResponse<T = unknown> {
 
 function apiHeaders(): HeadersInit {
   const headers: HeadersInit = { 'Content-Type': 'application/json' }
-  const key = import.meta.env.VITE_PUDDLES_API_KEY
+  const key = getPublicEnv('PUDDLES_API_KEY')
   if (key) headers['X-Puddles-Api-Key'] = key
   return headers
 }

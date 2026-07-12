@@ -7,10 +7,14 @@ import {
 import type { Event } from '../types/event'
 import {
   eventDetailPath,
-  eventDocumentTitle,
   eventIdFromPathname,
-  eventMetaDescription,
 } from './eventPages'
+import {
+  eventMetaDescription,
+  eventOgDescription,
+  eventOgImageUrl,
+  eventPageTitle,
+} from './eventShare'
 
 const SEP = ' · '
 
@@ -154,9 +158,10 @@ function applyMetaTags(
 
 export function applyEventPageMeta(event: Event): void {
   const pathname = eventDetailPath(event)
-  const title = eventDocumentTitle(event)
+  const title = eventPageTitle(event)
   const description = eventMetaDescription(event)
-  const image = event.imageUrl?.trim()
+  const socialDescription = eventOgDescription(event)
+  const image = eventOgImageUrl(event)
 
   if (typeof document !== 'undefined') {
     document.title = title
@@ -164,10 +169,12 @@ export function applyEventPageMeta(event: Event): void {
 
   applyMetaTags(title, pathname, {
     description,
-    socialDescription: description,
-    ogImage: image && image !== '#' ? image : absoluteUrl(SITE.ogImagePath),
+    socialDescription,
+    ogImage: image,
   })
   setMeta('property', 'og:type', 'article')
+  setMeta('property', 'og:title', event.title)
+  setMeta('name', 'twitter:title', event.title)
 }
 
 export function applyUnavailableEventPageMeta(pathname: string, eventTitle?: string): void {

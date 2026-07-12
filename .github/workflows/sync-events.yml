@@ -50,7 +50,22 @@ jobs:
           git add src/data/sheet-events.json src/data/sheet-submissions.json src/data/sync-meta.json data/events-export.csv
           if git diff --staged --quiet; then
             echo "No sheet changes — skipping commit."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "chore: sync events from Google Sheet"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
+        id: commit
+
+      - name: Revalidate event metadata cache
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          REVALIDATE_SECRET: ${{ secrets.REVALIDATE_SECRET }}
+        run: |
+          if [ -z "$REVALIDATE_SECRET" ]; then
+            echo "REVALIDATE_SECRET not configured — skipping on-demand revalidation."
+            exit 0
+          fi
+          curl -fsS -X POST "https://puddlesmap.com/api/revalidate?secret=${REVALIDATE_SECRET}" || \
+          echo "Revalidation request failed — deploy will still refresh metadata on next build."

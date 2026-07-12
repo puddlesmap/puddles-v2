@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { DiscoveryMapPreview } from '../discovery/DiscoveryMapPreview'
-import { PUDDLES_SPOTLIGHT_MARKER_SRC } from '../../pages/experimentShared'
+import { PUDDLES_SPOTLIGHT_MARKER_SRC } from '../../views/experimentShared'
 import type { Event } from '../../types/event'
 import type { TemporalTab } from '../../utils/dates'
 import type { UserLocationCoords } from '../../hooks/useUserLocation'

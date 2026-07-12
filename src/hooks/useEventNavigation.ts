@@ -1,21 +1,23 @@
+'use client'
+
 import { useCallback } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import type { Event } from '../types/event'
-import type { EventOpenSource } from '../types/analytics'
-import { saveBrowseReturnSnapshot, type BrowseReturnSnapshot } from '../utils/browseReturnState'
-import {
-  isEventModalOverlaySource,
-  type EventDetailLocationState,
-} from '../utils/eventDetailNavigation'
-import { eventDetailPath } from '../utils/eventPages'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import type { Event } from '@/types/event'
+import type { EventOpenSource } from '@/types/analytics'
+import { saveBrowseReturnSnapshot, type BrowseReturnSnapshot } from '@/utils/browseReturnState'
+import { isEventModalOverlaySource } from '@/utils/eventDetailNavigation'
+import { saveEventDetailOverlayState } from '@/utils/nextEventDetailState'
+import { eventDetailPath } from '@/utils/eventPages'
 
 export function useEventNavigation() {
-  const navigate = useNavigate()
-  const location = useLocation()
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   return useCallback(
     (event: Event, source: EventOpenSource, extra?: Partial<BrowseReturnSnapshot>) => {
-      const returnTo = `${location.pathname}${location.search}${location.hash}`
+      const search = searchParams.toString()
+      const returnTo = `${pathname}${search ? `?${search}` : ''}`
       const useBrowseOverlay = isEventModalOverlaySource(source)
 
       if (!useBrowseOverlay) {
@@ -23,17 +25,16 @@ export function useEventNavigation() {
           scrollY: window.scrollY,
           ...extra,
         })
-      }
-
-      navigate(eventDetailPath(event), {
-        state: {
-          fromApp: true,
+      } else {
+        saveEventDetailOverlayState({
           eventOpenSource: source,
           returnTo,
-          ...(useBrowseOverlay ? { backgroundLocation: location } : {}),
-        } satisfies EventDetailLocationState,
-      })
+          backgroundPath: returnTo,
+        })
+      }
+
+      router.push(eventDetailPath(event))
     },
-    [location.hash, location.pathname, location.search, navigate],
+    [pathname, router, searchParams],
   )
 }

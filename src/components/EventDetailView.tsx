@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom'
 import type { Event } from '../types/event'
 import type { EventOpenSource } from '../types/analytics'
 import { formatModalDate, formatModalTimeRange } from '../utils/dates'
+import {
+  buildClipboardShareText,
+  buildNativeSharePayload,
+} from '../utils/eventShare'
 import { addEventToCalendar, canAddEventToCalendar, isLikelyInAppBrowser } from '../utils/calendar'
+import type { EventLifecycleStatus } from '../utils/eventLifecycle'
+import { EventLifecycleBanner } from './event-detail/EventLifecycleBanner'
+import { EventLifecycleActions } from './event-detail/EventLifecycleActions'
 import {
   getEventAddressLine,
   getEventDirectionsLabel,
@@ -33,6 +40,8 @@ interface EventDetailViewProps {
   overlayLayout?: EventDetailOverlayLayout
   /** Share + close in top-right; no bottom Cancel/Share utility row */
   shareInHeader?: boolean
+  lifecycleStatus?: EventLifecycleStatus
+  lifecycleNow?: Date
 }
 
 const headerIconProps = {
@@ -342,8 +351,14 @@ export function EventDetailView({
   presentation = 'page',
   overlayLayout = 'default',
   shareInHeader = false,
+  lifecycleStatus,
+  lifecycleNow = new Date(),
 }: EventDetailViewProps) {
   const isOverlay = presentation === 'overlay'
+  const isEndedLifecycle =
+    lifecycleStatus === 'ended' ||
+    lifecycleStatus === 'archived' ||
+    lifecycleStatus === 'cancelled'
   const isDesktop = useMediaQuery('(min-width: 768px)')
   const isWideDesktop = isOverlay && overlayLayout === 'wide' && isDesktop
   const [showReportForm, setShowReportForm] = useState(false)
@@ -385,11 +400,8 @@ export function EventDetailView({
 
     if (canNativeShare) {
       try {
-        await navigator.share({
-          title: event.title,
-          text: `${formatModalDate(event.date)} · ${event.venue}`,
-          url: shareUrl,
-        })
+        const payload = buildNativeSharePayload(event, shareUrl)
+        await navigator.share(payload)
         return
       } catch (error) {
         if (error instanceof DOMException && error.name === 'AbortError') return
@@ -397,11 +409,7 @@ export function EventDetailView({
     }
 
     try {
-      await navigator.clipboard.writeText(
-        [event.title, `${formatModalDate(event.date)} · ${event.venue}`, shareUrl]
-          .filter(Boolean)
-          .join('\n'),
-      )
+      await navigator.clipboard.writeText(buildClipboardShareText(event, shareUrl))
     } catch {
       // Clipboard unavailable — no-op.
     }
@@ -566,7 +574,9 @@ export function EventDetailView({
         <div className="event-modal-content px-6 pb-6 pt-6">
           <h1 className="event-detail-title">{event.title}</h1>
 
-          {!hasInAppReturn && !shareInHeader ? (
+          {lifecycleStatus ? <EventLifecycleBanner event={event} status={lifecycleStatus} /> : null}
+
+          {!hasInAppReturn && !shareInHeader && !isEndedLifecycle ? (
             <p className="event-detail-direct-fallback">
               <Link to="/browse">Browse more events</Link>
             </p>
@@ -586,14 +596,24 @@ export function EventDetailView({
         </div>
       </div>
 
-      <EventDetailActions
-        event={event}
-        canAddToCalendar={canAddToCalendar}
-        hasOfficialPage={hasOfficialPage}
-        shareInHeader={shareInHeader}
-        onShare={shareInHeader ? undefined : () => void handleShare()}
-        onClose={shareInHeader ? undefined : onClose}
-      />
+      {isEndedLifecycle && lifecycleStatus ? (
+        <EventLifecycleActions
+          event={event}
+          status={lifecycleStatus}
+          now={lifecycleNow}
+          shareInHeader={shareInHeader}
+          onShare={shareInHeader ? undefined : () => void handleShare()}
+        />
+      ) : (
+        <EventDetailActions
+          event={event}
+          canAddToCalendar={canAddToCalendar}
+          hasOfficialPage={hasOfficialPage}
+          shareInHeader={shareInHeader}
+          onShare={shareInHeader ? undefined : () => void handleShare()}
+          onClose={shareInHeader ? undefined : onClose}
+        />
+      )}
     </article>
   )
 }

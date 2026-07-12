@@ -1,7 +1,10 @@
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = ".next"
   functions = "netlify/functions"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [[redirects]]
   from = "/api/sheet-api"
@@ -26,9 +29,4 @@
 [[redirects]]
   from = "/api/trigger-sync"
   to = "/.netlify/functions/trigger-sync"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
   status = 200

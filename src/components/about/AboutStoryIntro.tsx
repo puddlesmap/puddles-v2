@@ -5,7 +5,7 @@ import {
   ABOUT_BRAND_TAG,
   ABOUT_HERO_ART,
   ABOUT_LEAD_LINES,
-} from '../../pages/aboutShared'
+} from '../../views/aboutShared'
 
 export function AboutStoryIntro() {
   return (

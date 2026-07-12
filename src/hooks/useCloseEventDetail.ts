@@ -1,27 +1,33 @@
+'use client'
+
 import { useCallback } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import { getEventDetailBackground, parseEventDetailLocationState } from '../utils/eventDetailNavigation'
+import { useRouter } from 'next/navigation'
+import {
+  clearEventDetailOverlayState,
+  readEventDetailOverlayState,
+} from '@/utils/nextEventDetailState'
 
 export function useCloseEventDetail() {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const navState = parseEventDetailLocationState(location.state)
-  const backgroundLocation = getEventDetailBackground(location.state)
-  const hasInAppReturn = Boolean(navState)
+  const router = useRouter()
+  const hasInAppReturn =
+    typeof window !== 'undefined' ? Boolean(readEventDetailOverlayState()) : false
 
   const close = useCallback(() => {
-    if (backgroundLocation) {
-      navigate(-1)
+    const overlayState = readEventDetailOverlayState()
+    clearEventDetailOverlayState()
+
+    if (overlayState?.backgroundPath) {
+      router.back()
       return
     }
 
-    if (navState) {
-      navigate(-1)
+    if (overlayState?.returnTo) {
+      router.push(overlayState.returnTo)
       return
     }
 
-    navigate('/browse')
-  }, [backgroundLocation, navState, navigate])
+    router.push('/browse')
+  }, [router])
 
   return { close, hasInAppReturn }
 }

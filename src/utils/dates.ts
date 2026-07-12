@@ -1,11 +1,12 @@
 import type { DayFilter } from '../types/event'
+import { getPublicEnv } from './env'
 
 /** Rolling public calendar window — today through this many days ahead (inclusive). */
 export const PUBLIC_DISPLAY_WINDOW_DAYS = 60
 
 /** Optional demo override: VITE_ANCHOR_DATE=2026-06-05 */
 export function getAnchorDate(): Date {
-  const override = import.meta.env.VITE_ANCHOR_DATE
+  const override = getPublicEnv('ANCHOR_DATE')
   if (typeof override === 'string' && override.trim()) {
     return startOfDay(new Date(`${override.trim()}T12:00:00`))
   }

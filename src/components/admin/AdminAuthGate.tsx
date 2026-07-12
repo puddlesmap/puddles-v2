@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { AdminAuthContext } from '../../context/AdminAuthContext'
 import { fetchAdminSession, logoutAdmin } from '../../utils/adminAuth'
-import { AdminLoginPage } from '../../pages/admin/AdminLoginPage'
+import { AdminLoginPage } from '../../views/admin/AdminLoginPage'
 
 type GateState = 'loading' | 'ready' | 'login'
 

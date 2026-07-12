@@ -1,5 +1,7 @@
+'use client'
+
 import { useEffect, useMemo } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams } from 'next/navigation'
 import { useStructuredData } from './useStructuredData'
 import {
   getCatalogEventById,
@@ -12,8 +14,13 @@ import {
 } from '../utils/eventStructuredData'
 import { applyEventPageMeta, applyUnavailableEventPageMeta } from '../utils/siteMeta'
 
-export function useEventDetailDocument() {
-  const { eventId } = useParams<{ eventId: string }>()
+interface UseEventDetailDocumentOptions {
+  skipPageMeta?: boolean
+}
+
+export function useEventDetailDocument(options: UseEventDetailDocumentOptions = {}) {
+  const params = useParams<{ eventId: string }>()
+  const eventId = params.eventId
   const catalogEvent = eventId ? getCatalogEventById(eventId) : undefined
   const publicEvent = eventId ? getPublicEventById(eventId) : undefined
   const isIndexable = publicEvent ? isEventIndexable(publicEvent) : false
@@ -29,6 +36,8 @@ export function useEventDetailDocument() {
   )
 
   useEffect(() => {
+    if (options.skipPageMeta) return
+
     if (!eventId) {
       applyUnavailableEventPageMeta('/event/unknown')
       return
@@ -40,7 +49,7 @@ export function useEventDetailDocument() {
     }
 
     applyUnavailableEventPageMeta(`/event/${eventId}`, catalogEvent?.title)
-  }, [catalogEvent?.title, eventId, isIndexable, publicEvent])
+  }, [catalogEvent?.title, eventId, isIndexable, options.skipPageMeta, publicEvent])
 
   return { eventId, catalogEvent, publicEvent, isIndexable }
 }

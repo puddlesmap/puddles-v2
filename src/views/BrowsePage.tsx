@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import { useLocation, useSearchParams } from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { getPublicEventsFromCatalog } from '../data/events'
+import { ACTIVITY_TYPES, type Event } from '../types/event'
+import { PUBLIC_AGE_FILTER_OPTIONS } from '../utils/ageRange'
 import { EventCard } from '../components/EventCard'
 import { FilterChipButton } from '../components/FilterChipButton'
 import { FilterPopover, type FilterPopoverType } from '../components/FilterPopover'
@@ -26,6 +28,7 @@ import {
   getResetBrowseFilters,
   isBrowseFiltersDefault,
   type BrowseFilters,
+  type DiscoveryGate,
 } from '../utils/filters'
 import {
   NEARBY_RADIUS_MILES,
@@ -110,6 +113,9 @@ interface BrowsePageProps {
   defaultViewMode?: 'list' | 'map'
   listLayout?: 'default' | 'compact-two-column'
   experimentNote?: ReactNode
+  getEventsCatalog?: () => Event[]
+  discoveryGate?: DiscoveryGate
+  buildEventDetailPath?: (event: Event) => string
 }
 
 function isBrowseHubPath(pathname: string): boolean {
@@ -124,8 +130,12 @@ export function BrowsePage({
   defaultViewMode = 'list',
   listLayout = 'default',
   experimentNote,
+  getEventsCatalog,
+  discoveryGate = 'public',
+  buildEventDetailPath,
 }: BrowsePageProps = {}) {
   const { browseFilters, setBrowseFilters } = useApp()
+  const navigate = useNavigate()
   const openEvent = useEventNavigation()
   const location = useLocation()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -160,7 +170,19 @@ export function BrowsePage({
     const cityFromQuery = resolveCitySlugParam(searchParams.get('city'))
     if (!cityFromQuery) return
 
-    setBrowseFilters({ ...DEFAULT_BROWSE_FILTERS, city: cityFromQuery, cityLocked: true })
+    const activityFromQuery = searchParams.get('activity')
+    const activityType = ACTIVITY_TYPES.find((type) => type === activityFromQuery)
+
+    const ageFromQuery = searchParams.get('age')
+    const age = PUBLIC_AGE_FILTER_OPTIONS.find((option) => option.key === ageFromQuery)?.key
+
+    setBrowseFilters({
+      ...DEFAULT_BROWSE_FILTERS,
+      city: cityFromQuery,
+      cityLocked: true,
+      ...(activityType ? { types: [activityType] } : null),
+      ...(age ? { age } : null),
+    })
   }, [searchParams, setBrowseFilters])
 
   useEffect(() => {
@@ -241,7 +263,8 @@ export function BrowsePage({
   }, [browseFilters, coords, isRequesting, requestLocation, setBrowseFilters])
 
   const events = useMemo(() => {
-    const base = filterEvents(getPublicEventsFromCatalog(), { browse: browseFilters })
+    const catalog = getEventsCatalog ? getEventsCatalog() : getPublicEventsFromCatalog()
+    const base = filterEvents(catalog, { browse: browseFilters, discoveryGate })
 
     if (browseFilters.city === 'nearby' && coords) {
       return sortEventsByDistance(
@@ -251,7 +274,7 @@ export function BrowsePage({
     }
 
     return base
-  }, [browseFilters, coords])
+  }, [browseFilters, coords, discoveryGate, getEventsCatalog])
 
   const awaitingNearby = browseFilters.city === 'nearby' && !coords
   const showReset = !isBrowseFiltersDefault(browseFilters)
@@ -343,7 +366,8 @@ export function BrowsePage({
   )
 
   function countBrowseEvents(filters: BrowseFilters) {
-    const base = filterEvents(getPublicEventsFromCatalog(), { browse: filters })
+    const catalog = getEventsCatalog ? getEventsCatalog() : getPublicEventsFromCatalog()
+    const base = filterEvents(catalog, { browse: filters, discoveryGate })
 
     if (filters.city === 'nearby' && coords) {
       return filterEventsByRadius(base, coords, NEARBY_RADIUS_MILES).length
@@ -384,16 +408,41 @@ export function BrowsePage({
 
   const handleOpenListEvent = useCallback(
     (event: Parameters<typeof openEvent>[0]) => {
+      if (buildEventDetailPath) {
+        navigate(buildEventDetailPath(event), {
+          state: {
+            fromApp: true,
+            eventOpenSource: 'browse_list',
+            returnTo: `${location.pathname}${location.search}${location.hash}`,
+            backgroundLocation: location,
+          },
+        })
+        return
+      }
+
       openEvent(event, 'browse_list', { viewMode: 'list' })
     },
-    [openEvent],
+    [buildEventDetailPath, location, navigate, openEvent],
   )
 
   const handleOpenMapEvent = useCallback(
     (event: Parameters<typeof openEvent>[0], mapSnapshot?: BrowseMapOpenSnapshot) => {
+      if (buildEventDetailPath) {
+        navigate(buildEventDetailPath(event), {
+          state: {
+            fromApp: true,
+            eventOpenSource: 'browse_map',
+            returnTo: `${location.pathname}${location.search}${location.hash}`,
+            backgroundLocation: location,
+            ...mapSnapshot,
+          },
+        })
+        return
+      }
+
       openEvent(event, 'browse_map', { viewMode: 'map', ...mapSnapshot })
     },
-    [openEvent],
+    [buildEventDetailPath, location, navigate, openEvent],
   )
 
   function openLocationFilter() {

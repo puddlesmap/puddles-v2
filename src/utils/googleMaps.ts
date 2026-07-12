@@ -8,7 +8,9 @@ import {
   type MapBoundsBox,
 } from './mapBounds'
 
-export const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY?.trim() ?? ''
+import { getPublicEnv } from './env'
+
+export const GOOGLE_MAPS_API_KEY = getPublicEnv('GOOGLE_MAPS_API_KEY')
 
 export function hasGoogleMapsApiKey(): boolean {
   return GOOGLE_MAPS_API_KEY.length > 0
