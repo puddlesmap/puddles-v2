@@ -14,16 +14,12 @@ interface EventLifecycleActionsProps {
   event: Event
   status: EventLifecycleStatus
   now: Date
-  onShare?: () => void
-  shareInHeader?: boolean
 }
 
 export function EventLifecycleActions({
   event,
   status,
   now,
-  onShare,
-  shareInHeader = false,
 }: EventLifecycleActionsProps) {
   if (status === 'upcoming') return null
 
@@ -59,14 +55,6 @@ export function EventLifecycleActions({
           <p className="event-lifecycle-actions__official-note">
             The original activity page may no longer be available.
           </p>
-        </div>
-      ) : null}
-
-      {!shareInHeader && onShare ? (
-        <div className="event-lifecycle-actions__utility">
-          <button type="button" onClick={onShare} className="event-modal-share-btn" aria-label="Share event">
-            Share
-          </button>
         </div>
       ) : null}
     </div>

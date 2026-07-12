@@ -11,6 +11,7 @@ import { addEventToCalendar, canAddEventToCalendar, isLikelyInAppBrowser } from 
 import type { EventLifecycleStatus } from '../utils/eventLifecycle'
 import { EventLifecycleBanner } from './event-detail/EventLifecycleBanner'
 import { EventLifecycleActions } from './event-detail/EventLifecycleActions'
+import { SharedEventVisitorIntro } from './event-detail/SharedEventVisitorIntro'
 import {
   getEventAddressLine,
   getEventDirectionsLabel,
@@ -42,6 +43,8 @@ interface EventDetailViewProps {
   shareInHeader?: boolean
   lifecycleStatus?: EventLifecycleStatus
   lifecycleNow?: Date
+  /** Direct shared URL for first-time visitors — site header context, no close control */
+  visitorContext?: 'shared-direct'
 }
 
 const headerIconProps = {
@@ -283,6 +286,7 @@ function EventDetailActions({
   onShare,
   onClose,
   shareInHeader = false,
+  hideCloseButton = false,
   className = 'event-modal-actions shrink-0 border-t border-border bg-white px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]',
 }: {
   event: Event
@@ -291,6 +295,7 @@ function EventDetailActions({
   onShare?: () => void
   onClose?: () => void
   shareInHeader?: boolean
+  hideCloseButton?: boolean
   className?: string
 }) {
   return (
@@ -324,11 +329,13 @@ function EventDetailActions({
           </a>
         ) : null}
       </div>
-      {!shareInHeader && onShare && onClose ? (
+      {!shareInHeader && onShare && (onClose || hideCloseButton) ? (
         <div className="event-modal-actions__utility">
-          <button type="button" onClick={onClose} className="event-modal-cancel-btn">
-            Cancel
-          </button>
+          {onClose && !hideCloseButton ? (
+            <button type="button" onClick={onClose} className="event-modal-cancel-btn">
+              Cancel
+            </button>
+          ) : null}
           <button
             type="button"
             onClick={onShare}
@@ -353,12 +360,15 @@ export function EventDetailView({
   shareInHeader = false,
   lifecycleStatus,
   lifecycleNow = new Date(),
+  visitorContext,
 }: EventDetailViewProps) {
   const isOverlay = presentation === 'overlay'
+  const hideCloseControl = visitorContext === 'shared-direct'
   const isEndedLifecycle =
     lifecycleStatus === 'ended' ||
     lifecycleStatus === 'archived' ||
     lifecycleStatus === 'cancelled'
+  const effectiveShareInHeader = shareInHeader || isEndedLifecycle
   const isDesktop = useMediaQuery('(min-width: 768px)')
   const isWideDesktop = isOverlay && overlayLayout === 'wide' && isDesktop
   const [showReportForm, setShowReportForm] = useState(false)
@@ -456,19 +466,19 @@ export function EventDetailView({
   }
 
   function renderFloatingHeaderActions(closeClassName: string) {
-    const closeLabel = shareInHeader ? 'Close event details' : 'Close event'
+    const closeLabel = effectiveShareInHeader ? 'Close event details' : 'Close event'
 
     return (
       <div
         className={[
           'event-modal-floating-actions',
           'event-modal-floating-actions--persistent',
-          shareInHeader ? 'event-modal-floating-actions--header-utility' : '',
+          effectiveShareInHeader ? 'event-modal-floating-actions--header-utility' : '',
         ]
           .filter(Boolean)
           .join(' ')}
       >
-        {shareInHeader ? renderShareButton('event-modal-share-btn event-modal-share-btn--floating') : null}
+        {effectiveShareInHeader ? renderShareButton('event-modal-share-btn event-modal-share-btn--floating') : null}
         {renderCloseButton(closeClassName, closeLabel)}
       </div>
     )
@@ -477,7 +487,7 @@ export function EventDetailView({
   if (isWideDesktop) {
     return (
       <article className="event-detail-page-panel event-modal-panel event-modal-panel--overlay event-modal-panel--wide">
-        {shareInHeader ? (
+        {effectiveShareInHeader ? (
           renderFloatingHeaderActions('event-modal-close-btn event-modal-close-btn--floating')
         ) : (
           <div className="event-modal-floating-actions">
@@ -508,9 +518,9 @@ export function EventDetailView({
                 event={event}
                 canAddToCalendar={canAddToCalendar}
                 hasOfficialPage={hasOfficialPage}
-                shareInHeader={shareInHeader}
-                onShare={shareInHeader ? undefined : () => void handleShare()}
-                onClose={shareInHeader ? undefined : onClose}
+                shareInHeader={effectiveShareInHeader}
+                onShare={effectiveShareInHeader ? undefined : () => void handleShare()}
+                onClose={effectiveShareInHeader ? undefined : onClose}
                 className="event-modal-actions event-modal-actions--inline"
               />
             </aside>
@@ -529,8 +539,8 @@ export function EventDetailView({
         .filter(Boolean)
         .join(' ')}
     >
-      {(!headerCollapsed || isOverlay) ? (
-        shareInHeader && isOverlay ? (
+      {(!headerCollapsed || isOverlay) && !hideCloseControl ? (
+        effectiveShareInHeader && (isOverlay || isEndedLifecycle) ? (
           renderFloatingHeaderActions('event-modal-close-btn event-modal-close-btn--floating')
         ) : (
           renderCloseButton(
@@ -558,7 +568,7 @@ export function EventDetailView({
           <span className="event-modal-sticky-spacer" aria-hidden />
         )}
         <div className="event-modal-header-actions">
-          {headerCollapsed && !isOverlay ? renderCloseButton('event-modal-close-btn') : null}
+          {headerCollapsed && !isOverlay && !hideCloseControl ? renderCloseButton('event-modal-close-btn') : null}
         </div>
       </div>
 
@@ -574,9 +584,11 @@ export function EventDetailView({
         <div className="event-modal-content px-6 pb-6 pt-6">
           <h1 className="event-detail-title">{event.title}</h1>
 
+          {visitorContext === 'shared-direct' ? <SharedEventVisitorIntro event={event} /> : null}
+
           {lifecycleStatus ? <EventLifecycleBanner event={event} status={lifecycleStatus} /> : null}
 
-          {!hasInAppReturn && !shareInHeader && !isEndedLifecycle ? (
+          {!hasInAppReturn && !effectiveShareInHeader && !isEndedLifecycle && visitorContext !== 'shared-direct' ? (
             <p className="event-detail-direct-fallback">
               <Link to="/browse">Browse more events</Link>
             </p>
@@ -601,17 +613,16 @@ export function EventDetailView({
           event={event}
           status={lifecycleStatus}
           now={lifecycleNow}
-          shareInHeader={shareInHeader}
-          onShare={shareInHeader ? undefined : () => void handleShare()}
         />
       ) : (
         <EventDetailActions
           event={event}
           canAddToCalendar={canAddToCalendar}
           hasOfficialPage={hasOfficialPage}
-          shareInHeader={shareInHeader}
-          onShare={shareInHeader ? undefined : () => void handleShare()}
-          onClose={shareInHeader ? undefined : onClose}
+          shareInHeader={effectiveShareInHeader}
+          hideCloseButton={hideCloseControl}
+          onShare={effectiveShareInHeader ? undefined : () => void handleShare()}
+          onClose={hideCloseControl ? undefined : onClose}
         />
       )}
     </article>
