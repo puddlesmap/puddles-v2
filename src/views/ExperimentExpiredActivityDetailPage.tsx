@@ -11,6 +11,11 @@ export function ExperimentExpiredActivityDetailPage() {
   const { close, hasInAppReturn } = useCloseEventDetail()
   const { catalogEvent, lifecycleStatus, now } = useExperimentLifecycleDocument()
 
+  const isEndedLifecycle =
+    lifecycleStatus === 'ended' ||
+    lifecycleStatus === 'archived' ||
+    lifecycleStatus === 'cancelled'
+
   return (
     <div
       className={[
@@ -38,7 +43,7 @@ export function ExperimentExpiredActivityDetailPage() {
             hasInAppReturn={hasInAppReturn}
             onClose={close}
             presentation={isMobile ? 'overlay' : 'page'}
-            shareInHeader={isMobile && !hasInAppReturn}
+            shareInHeader={isMobile && (isEndedLifecycle || !hasInAppReturn)}
             lifecycleStatus={lifecycleStatus}
             lifecycleNow={now}
           />

@@ -152,9 +152,40 @@
 }
 
 .experiment-expired-activity-detail--mobile .event-detail-page-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: 100dvh;
   border: none;
   border-radius: 0;
   box-shadow: none;
+  overflow: hidden;
+}
+
+.experiment-expired-activity-detail--mobile .event-modal-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.experiment-expired-activity-detail--mobile .event-modal-floating-actions--persistent {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 4;
+}
+
+.experiment-expired-activity-detail--mobile
+  .event-modal-floating-actions--persistent
+  .event-modal-close-btn--floating {
+  position: static;
+  top: auto;
+  right: auto;
+}
+
+/* Legacy bottom share row — removed from lifecycle actions */
+.event-lifecycle-actions__utility {
+  display: none !important;
 }
 
 /* Warm, informational status banner — not an error alert. */
@@ -216,12 +247,6 @@
   font-size: 0.75rem;
   line-height: 1.45;
   color: var(--type-supporting-color);
-}
-
-.event-lifecycle-actions__utility {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.75rem;
 }
 
 @media (max-width: 767px) {

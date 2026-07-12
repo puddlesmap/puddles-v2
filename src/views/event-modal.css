@@ -639,3 +639,8 @@
     box-shadow: var(--elevation-shadow-lifted);
   }
 }
+
+/* Legacy lifecycle bottom share row — removed in favor of header share + close */
+.event-lifecycle-actions__utility {
+  display: none !important;
+}
