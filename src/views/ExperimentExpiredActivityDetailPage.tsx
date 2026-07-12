@@ -25,7 +25,7 @@ export function ExperimentExpiredActivityDetailPage() {
         .filter(Boolean)
         .join(' ')}
     >
-      <div className="experiment-expired-activity-detail__note-wrap layout-shell-app">
+      <div className="experiment-expired-activity-detail__note-wrap">
         <ExperimentExpiredActivityNote>
           Experiment event detail — lifecycle state:{' '}
           <strong>{lifecycleStatus ?? 'unavailable'}</strong>.{' '}
