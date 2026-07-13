@@ -2,6 +2,8 @@ import type { AdminEventFilters, AdminEventRecord, AdminEventView } from '../typ
 import { ADMIN_EVENT_VIEWS } from '../types/admin'
 import type { Event } from '../types/event'
 import { addDays, getAnchorDate, startOfDay } from './dates'
+import { collectAdminReviewFlags } from './adminReviewFlags'
+import { eventsInDuplicateClusters, findDuplicateClusters } from './eventDuplicates'
 
 export const VERIFICATION_STALE_DAYS = 30
 
@@ -58,6 +60,15 @@ export function filterAdminEventsByView(
   events: AdminEventRecord[],
   viewId: AdminEventView['id'],
 ): AdminEventRecord[] {
+  if (viewId === 'duplicates') {
+    return eventsInDuplicateClusters(events)
+  }
+  if (viewId === 'needs-attention') {
+    const ids = new Set(
+      collectAdminReviewFlags(events).flatMap((flag) => flag.eventIds),
+    )
+    return events.filter((event) => ids.has(event.id))
+  }
   const view = getAdminEventView(viewId)
   if (!view) return events
   return filterAdminEvents(events, view.filters)
@@ -68,6 +79,8 @@ export function countAdminEvents(events: AdminEventRecord[], filters: AdminEvent
 }
 
 export function summarizePublishingCounts(events: AdminEventRecord[]) {
+  const duplicateClusters = findDuplicateClusters(events)
+  const reviewFlags = collectAdminReviewFlags(events)
   return {
     published: countAdminEvents(events, { status: 'Published' }),
     draft: countAdminEvents(events, { status: 'Draft' }),
@@ -76,5 +89,8 @@ export function summarizePublishingCounts(events: AdminEventRecord[]) {
     live: countAdminEvents(events, { isLive: true }),
     past: countAdminEvents(events, { isPast: true }),
     needsVerification: countAdminEvents(events, { verificationStatus: 'Needs Review' }),
+    duplicates: eventsInDuplicateClusters(events).length,
+    duplicateGroups: duplicateClusters.length,
+    needsAttention: reviewFlags.length,
   }
 }

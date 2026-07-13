@@ -8,6 +8,9 @@ interface AdminOverviewProps {
     expired: number
     past: number
     needsVerification: number
+    duplicates: number
+    duplicateGroups: number
+    needsAttention: number
   }
   activeView: AdminEventViewId | 'all'
   onSelectView: (view: AdminEventViewId | 'all') => void
@@ -21,10 +24,27 @@ const CARDS: {
 }[] = [
   { key: 'live', label: 'Live', countKey: 'live', hint: 'On the public website' },
   { key: 'draft', label: 'Draft', countKey: 'draft', hint: 'Not published yet' },
+  {
+    key: 'needs-attention',
+    label: 'Needs attention',
+    countKey: 'needsAttention',
+    hint: 'Duplicates, age, area, mismatches',
+  },
   { key: 'hidden', label: 'Hidden', countKey: 'hidden', hint: 'Removed from site' },
   { key: 'expired', label: 'Expired', countKey: 'expired', hint: 'Archived manually' },
   { key: 'past', label: 'Past', countKey: 'past', hint: 'Schedule has passed' },
-  { key: 'needs-verification', label: 'Needs check', countKey: 'needsVerification', hint: 'Stale or missing last checked' },
+  {
+    key: 'needs-verification',
+    label: 'Needs check',
+    countKey: 'needsVerification',
+    hint: 'Stale or missing last checked',
+  },
+  {
+    key: 'duplicates',
+    label: 'Duplicates',
+    countKey: 'duplicateGroups',
+    hint: 'Possible same-outing groups',
+  },
 ]
 
 export function AdminOverview({ counts, activeView, onSelectView }: AdminOverviewProps) {

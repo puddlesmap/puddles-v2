@@ -10,6 +10,8 @@
  *   { action: 'updateSubmissionStatus', payload: { id, status } }
  *   { action: 'promoteSubmission', payload: { id } }
  *   { action: 'updateEventStatus', payload: { id, status } }
+ *   { action: 'notifyDuplicates', payload: { subject, body, clusterCount?, to? } }
+ *   { action: 'notifyAdminReviewFlags', payload: { subject, body, flagCount?, to? } }
  */
 
 var SUBMISSIONS_SHEET = 'Submissions';
@@ -26,7 +28,7 @@ function doPost(e) {
 }
 
 function doGet() {
-  return jsonOutput({ ok: true, service: 'Puddles Sheet API', version: 2 });
+  return jsonOutput({ ok: true, service: 'Puddles Sheet API', version: 3 });
 }
 
 function jsonOutput(obj) {
@@ -45,6 +47,10 @@ function handleAction(action, payload) {
       return promoteSubmission(payload);
     case 'updateEventStatus':
       return updateEventStatus(payload);
+    case 'notifyDuplicates':
+      return notifyDuplicates(payload);
+    case 'notifyAdminReviewFlags':
+      return notifyAdminReviewFlags(payload);
     default:
       throw new Error('Unknown action: ' + action);
   }
@@ -324,6 +330,52 @@ function updateEventStatus(payload) {
   var found = findEventRow(payload.id);
   setCellByAliases(found, ['status'], payload.status, true);
   return { id: payload.id, status: payload.status };
+}
+
+function notifyDuplicates(payload) {
+  var to = String((payload && payload.to) || 'puddlesmap@gmail.com').trim();
+  var subject = String((payload && payload.subject) || '').trim();
+  var body = String((payload && payload.body) || '').trim();
+  var clusterCount = payload && payload.clusterCount;
+
+  if (!to) throw new Error('Missing email recipient');
+  if (!subject) throw new Error('Missing email subject');
+  if (!body) throw new Error('Missing email body');
+
+  MailApp.sendEmail({
+    to: to,
+    subject: subject,
+    body: body,
+  });
+
+  return {
+    sent: true,
+    to: to,
+    clusterCount: clusterCount || null,
+  };
+}
+
+function notifyAdminReviewFlags(payload) {
+  var to = String((payload && payload.to) || 'puddlesmap@gmail.com').trim();
+  var subject = String((payload && payload.subject) || '').trim();
+  var body = String((payload && payload.body) || '').trim();
+  var flagCount = payload && payload.flagCount;
+
+  if (!to) throw new Error('Missing email recipient');
+  if (!subject) throw new Error('Missing email subject');
+  if (!body) throw new Error('Missing email body');
+
+  MailApp.sendEmail({
+    to: to,
+    subject: subject,
+    body: body,
+  });
+
+  return {
+    sent: true,
+    to: to,
+    flagCount: flagCount || null,
+  };
 }
 
 function promoteSubmission(payload) {

@@ -1,6 +1,7 @@
 import { ALL_EVENTS, getPublicEventsFromCatalog } from '../data/events'
 import type { Event } from '../types/event'
 import { isPublicAgeEligible } from './ageRange'
+import { isOutOfAgeAudienceForPublic } from './eventAudienceAge'
 import { absoluteUrl } from '../config/site'
 import { isPublicEvent } from './publishing'
 
@@ -27,7 +28,11 @@ export function getPublicEventById(id: string, now: Date = new Date()): Event | 
 }
 
 export function isEventIndexable(event: Event, now: Date = new Date()): boolean {
-  return isPublicEvent(event, now) && isPublicAgeEligible(event.ageRange)
+  return (
+    isPublicEvent(event, now) &&
+    isPublicAgeEligible(event.ageRange) &&
+    !isOutOfAgeAudienceForPublic(event)
+  )
 }
 
 export function isOfficialEventUrl(url?: string): boolean {

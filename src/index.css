@@ -3240,6 +3240,154 @@ select.input-field,
   color: var(--color-muted);
 }
 
+.admin-duplicate-banner,
+.admin-needs-attention-banner {
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid #f3d5b3;
+  border-radius: 0.75rem;
+  background: #fffaf3;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: #8a4b12;
+}
+
+.admin-duplicate-banner .admin-btn-text,
+.admin-needs-attention-banner .admin-btn-text {
+  color: #c05e12;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.admin-needs-attention {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-needs-attention__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.admin-needs-attention__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.875rem;
+}
+
+.admin-review-flag {
+  border: 1px solid #ebebeb;
+  border-radius: 0.875rem;
+  background: #ffffff;
+  padding: 1rem 1.1rem;
+}
+
+.admin-review-flag__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-review-flag__title {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+}
+
+.admin-review-flag__note {
+  margin: 0.4rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-charcoal);
+}
+
+.admin-review-flag__evidence {
+  margin: 0.35rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.admin-review-flag__meta {
+  margin: 0.35rem 0 0;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.admin-review-flag__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.admin-review-flag-badge--duplicate {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
+.admin-review-flag-badge--out_of_age {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.admin-review-flag-badge--out_of_area {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.admin-review-flag-badge--field_mismatch {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.admin-duplicates-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.admin-duplicate-cluster {
+  border: 1px solid #ebebeb;
+  border-radius: 0.875rem;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.admin-duplicate-cluster__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.admin-duplicate-cluster__title {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+}
+
+.admin-duplicate-cluster__meta {
+  margin: 0.35rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.admin-duplicate-row-winner td {
+  background: #f3faf6;
+}
+
 .admin-submissions-intro {
   margin: 0 0 1rem;
   font-size: 14px;

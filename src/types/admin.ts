@@ -24,6 +24,8 @@ export type AdminEventViewId =
   | 'expired'
   | 'past'
   | 'needs-verification'
+  | 'duplicates'
+  | 'needs-attention'
 
 export interface AdminEventView {
   id: AdminEventViewId
@@ -69,6 +71,20 @@ export const ADMIN_EVENT_VIEWS: AdminEventView[] = [
     label: 'Needs Verification',
     description: 'Last checked more than 30 days ago or missing.',
     filters: { verificationStatus: 'Needs Review' },
+  },
+  {
+    id: 'duplicates',
+    label: 'Possible duplicates',
+    description:
+      'Same outing listed more than once — keep the richest row and hide the rest.',
+    filters: {},
+  },
+  {
+    id: 'needs-attention',
+    label: 'Needs attention',
+    description:
+      'Flags that need review: duplicates, out-of-age audience, out-of-area, and field mismatches.',
+    filters: {},
   },
 ]
 

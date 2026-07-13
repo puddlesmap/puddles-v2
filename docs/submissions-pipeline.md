@@ -115,8 +115,15 @@ Expansion Watch sign-ups show a tailored detail panel (email, requested location
 
 Each event appears as a **table row**. Click the row to expand full details inline below it.
 
-- **Refresh** — pulls latest Events tab CSV
+- **Refresh** — pulls latest Events tab CSV; if anything needs attention, emails a digest to `puddlesmap@gmail.com` (throttled per flag set until you refresh again with a changed set)
 - **Hide from site** — sets Events tab `Status` to **Hidden** via `updateEventStatus` API (row stays in sheet; use Hidden Events view to find it)
+- **Needs attention** — unified review inbox for flags that need action:
+  - **Duplicates** — same-outing groups; **Keep winner · hide N**
+  - **Out of age** — title/description age range with no overlap on 0–5 (also excluded from the public catalog automatically)
+  - **Out of area** — city/address outside Palo Alto · Los Altos · Mountain View
+  - **Mismatch** — e.g. Cost tag Free but description has `$75`
+  - **Dismiss for now** — hides a flag in this browser only (localStorage); does not write the sheet
+- **Possible duplicates** — deep link into the same duplicate tooling (also listed under Needs attention)
 
 After promoting, open the Events tab (or `/admin/events`), set **Status = Published**, then sync/deploy for the public site.
 
@@ -128,8 +135,10 @@ After promoting, open the Events tab (or `/admin/events`), set **Status = Publis
 | `updateSubmissionStatus` | API key | Admin status changes + Solved |
 | `promoteSubmission` | API key | Send approved submission to Events tab |
 | `updateEventStatus` | API key | Hide event (or other status change) |
+| `notifyDuplicates` | API key | Email duplicate summary to `puddlesmap@gmail.com` (legacy) |
+| `notifyAdminReviewFlags` | API key | Email Needs attention digest to `puddlesmap@gmail.com` |
 
-Archived submissions and hidden events are **not deleted** from Google Sheets — they remain for your records. Dashboard-only deletes are stored in browser localStorage.
+**Redeploy Apps Script** after updating [`PuddlesSheetApi.gs`](../google-apps-script/PuddlesSheetApi.gs) (Deploy → Manage deployments → Edit → New version) so `notifyAdminReviewFlags` is live.
 
 ## Public site sync
 

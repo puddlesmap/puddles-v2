@@ -4,6 +4,7 @@ import type { TemporalTab } from './dates'
 import { getAnchorDate, dateInDayFilter, dateInTemporalTab, isEventVisibleForTodayFilter, timeInBucket } from './dates'
 import { isPublicEvent } from './publishing'
 import { isDiscoverableLifecycleEvent } from './eventLifecycle'
+import { isOutOfAgeAudienceForPublic } from './eventAudienceAge'
 import {
   getBrowseAgeChipLabel,
   isPublicAgeEligible,
@@ -62,6 +63,7 @@ export function filterEvents(
       return false
     }
     if (!isPublicAgeEligible(event.ageRange)) return false
+    if (isOutOfAgeAudienceForPublic(event)) return false
 
     if (!matchesCity(event, city)) return false
 

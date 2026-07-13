@@ -20,6 +20,24 @@ export type SheetApiAction =
       action: 'updateEventStatus'
       payload: { id: string; status: string }
     }
+  | {
+      action: 'notifyDuplicates'
+      payload: {
+        to?: string
+        subject: string
+        body: string
+        clusterCount?: number
+      }
+    }
+  | {
+      action: 'notifyAdminReviewFlags'
+      payload: {
+        to?: string
+        subject: string
+        body: string
+        flagCount?: number
+      }
+    }
 
 export interface AppendSubmissionPayload {
   submissionType: 'Event' | 'Idea' | 'ExpansionWatch'
