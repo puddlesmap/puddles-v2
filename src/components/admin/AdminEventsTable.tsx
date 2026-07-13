@@ -243,11 +243,13 @@ export function AdminEventsTable({
                   <td>
                     <BoolBadge value={event.isPast} trueLabel="Past" falseLabel="Upcoming" />
                   </td>
-                  <td className="whitespace-nowrap">
-                    <span className={stale ? 'admin-verified-stale' : ''}>
-                      {formatVerifiedDate(event.verifiedDate)}
-                    </span>
-                    {stale && <span className="admin-stale-tag">Needs check</span>}
+                  <td className="admin-table-last-checked">
+                    <div className="admin-last-checked">
+                      <span className={stale ? 'admin-verified-stale' : ''}>
+                        {formatVerifiedDate(event.verifiedDate)}
+                      </span>
+                      {stale ? <span className="admin-stale-tag">Needs check</span> : null}
+                    </div>
                   </td>
                   <td className="admin-table-actions-cell" onClick={(e) => e.stopPropagation()}>
                     <div className="admin-table-actions">
