@@ -42,9 +42,6 @@ import { ExperimentExpiredActivityLayout } from '@/views/ExperimentExpiredActivi
 import { ExperimentExpiredActivityPage } from '@/views/ExperimentExpiredActivityPage'
 import { ExperimentExpiredActivityBrowsePage } from '@/views/ExperimentExpiredActivityBrowsePage'
 import { ExperimentExpiredActivityDetailPage } from '@/views/ExperimentExpiredActivityDetailPage'
-import { ExperimentSharedEventLayout } from '@/views/ExperimentSharedEventLayout'
-import { ExperimentSharedEventPage } from '@/views/ExperimentSharedEventPage'
-import { ExperimentSharedEventDetailPage } from '@/views/ExperimentSharedEventDetailPage'
 import { AdminEventsPage } from '@/views/admin/AdminEventsPage'
 import { AdminSubmissionsPage } from '@/views/admin/AdminSubmissionsPage'
 import { trackPageView } from '@/utils/analytics'
@@ -99,10 +96,6 @@ function ClientRoutes() {
               <Route index element={<ExperimentExpiredActivityPage />} />
               <Route path="browse" element={<ExperimentExpiredActivityBrowsePage />} />
               <Route path="event/:eventId" element={<ExperimentExpiredActivityDetailPage />} />
-            </Route>
-            <Route path="/experiment-shared-event" element={<ExperimentSharedEventLayout />}>
-              <Route index element={<ExperimentSharedEventPage />} />
-              <Route path="event/:eventId" element={<ExperimentSharedEventDetailPage />} />
             </Route>
             <Route path="/experiment-browse-3" element={<Navigate to="/browse" replace />} />
             <Route path="/browse-experiment" element={<Navigate to="/experiment-browse" replace />} />
