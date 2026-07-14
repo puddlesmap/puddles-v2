@@ -42,10 +42,10 @@ export const ABOUT_CTA_BODY =
   'Share a storytime, a parent-friendly tip, or an idea for Puddles.'
 
 export const ABOUT_HERO_ART = {
-  src: '/about/hero.png',
-  src2x: '/about/hero@2x.png',
-  width: 448,
-  height: 301,
+  src: '/about/hero.png?v=5',
+  src2x: '/about/hero@2x.png?v=5',
+  width: 501,
+  height: 386,
   displayWidth: 335,
 } as const
 

@@ -39,7 +39,7 @@ export function AboutStoryIntro() {
             intrinsicWidth={ABOUT_HERO_ART.width}
             intrinsicHeight={ABOUT_HERO_ART.height}
             displayWidth={ABOUT_HERO_ART.displayWidth}
-            sizes="(max-width: 639px) 8.25rem, (max-width: 1023px) 10.625rem, 18.75rem"
+            sizes="(max-width: 767px) 67vw, (max-width: 1023px) 10.625rem, 18.75rem"
             className="about-intro-art"
             loading="eager"
           />
