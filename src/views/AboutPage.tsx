@@ -4,7 +4,7 @@ import { Footer } from '../components/layout/Footer'
 import { AppHeader } from '../components/layout/AppHeader'
 import { AboutPageContent } from './AboutPageContent'
 import { AboutStoryIntro } from '../components/about/AboutStoryIntro'
-import { ExpansionWatch } from '../components/expansion-watch/ExpansionWatch'
+import { dispatchOpenNearbyRequest } from '../utils/welcomeOnboarding'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 
 interface AboutPageProps {
@@ -31,10 +31,13 @@ export function AboutPage({ shellClassName, experimentNote }: AboutPageProps = {
         <AboutPageContent
           trailing={
             <>
-              <ExpansionWatch
-                sourceContext="footer_about"
-                className="about-expansion-watch"
-              />
+              <button
+                type="button"
+                className="about-bring-nearby-link"
+                onClick={() => dispatchOpenNearbyRequest('about')}
+              >
+                Not nearby? Bring Puddles to your area →
+              </button>
               {experimentNote}
             </>
           }

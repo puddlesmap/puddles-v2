@@ -26,6 +26,7 @@ import './views/event-detail-page.css'
 import './views/event-detail-overlay.css'
 import './views/event-detail-overlay-wide.css'
 import './views/experiment-expired-activity.css'
+import './views/welcome-onboarding.css'
 import './views/visitor-status-page.css'
 import App from './App.tsx'
 

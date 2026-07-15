@@ -42,6 +42,8 @@ import { ExperimentExpiredActivityLayout } from '@/views/ExperimentExpiredActivi
 import { ExperimentExpiredActivityPage } from '@/views/ExperimentExpiredActivityPage'
 import { ExperimentExpiredActivityBrowsePage } from '@/views/ExperimentExpiredActivityBrowsePage'
 import { ExperimentExpiredActivityDetailPage } from '@/views/ExperimentExpiredActivityDetailPage'
+import { ExperimentWelcomePage } from '@/views/ExperimentWelcomePage'
+import { WelcomeOnboarding } from '@/components/welcome/WelcomeOnboarding'
 import { AdminEventsPage } from '@/views/admin/AdminEventsPage'
 import { AdminSubmissionsPage } from '@/views/admin/AdminSubmissionsPage'
 import { trackPageView } from '@/utils/analytics'
@@ -92,6 +94,7 @@ function ClientRoutes() {
             <Route path="/experiments/browse-2-column" element={<ExperimentBrowseTwoColumnPage />} />
             <Route path="/browse-experiment-2-column" element={<Navigate to="/experiments/browse-2-column" replace />} />
             <Route path="/experiment-event-modal" element={<ExperimentEventModalPage />} />
+            <Route path="/experiment-welcome" element={<ExperimentWelcomePage />} />
             <Route path="/experiment-expired-activity" element={<ExperimentExpiredActivityLayout />}>
               <Route index element={<ExperimentExpiredActivityPage />} />
               <Route path="browse" element={<ExperimentExpiredActivityBrowsePage />} />
@@ -127,6 +130,7 @@ function ClientRoutes() {
       </main>
       {!isAdminRoute && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
       {!isAdminRoute && <LocationBridge />}
+      {!isAdminRoute && !isLogoLab && <WelcomeOnboarding />}
     </div>
   )
 }

@@ -6,6 +6,9 @@ const SOURCE_LABELS: Record<ExpansionWatchSourceContext, string> = {
   feedback_add_neighborhood: 'Share idea: add neighborhood',
   footer_about: 'About / footer',
   browse_inline_card: 'Browse feed card',
+  welcome_popup: 'Welcome popup',
+  welcome_floating_cta: 'Welcome floating CTA',
+  welcome_about: 'About bring-nearby link',
 }
 
 export function isExpansionWatchSubmission(submission: SheetSubmission): boolean {

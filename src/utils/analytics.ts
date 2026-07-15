@@ -41,6 +41,12 @@ export const ANALYTICS_EVENTS = {
   SHARE_FORM_SUBMITTED: 'share_form_submitted',
   EXPANSION_WATCH_SUBMITTED: 'expansion_watch_submitted',
   OUTDATED_INFO_REPORTED: 'outdated_info_reported',
+  WELCOME_SHOWN: 'welcome_shown',
+  WELCOME_DISMISSED: 'welcome_dismissed',
+  WELCOME_EXPLORE_CLICKED: 'welcome_explore_clicked',
+  NEARBY_REQUEST_OPENED: 'nearby_request_opened',
+  NEARBY_REQUEST_SUBMITTED: 'nearby_request_submitted',
+  NEARBY_REQUEST_ERROR: 'nearby_request_error',
 } as const
 
 type PlausibleInitOptions = {
@@ -283,6 +289,54 @@ export function trackExpansionWatchSubmitted({
     requested_location: bucketRequestedLocation(requestedLocation),
     source_context: sourceContext,
   })
+}
+
+export function trackWelcomeShown(page: string): void {
+  trackEvent(ANALYTICS_EVENTS.WELCOME_SHOWN, { page })
+}
+
+export function trackWelcomeDismissed(page: string): void {
+  trackEvent(ANALYTICS_EVENTS.WELCOME_DISMISSED, { page })
+}
+
+export function trackWelcomeExploreClicked(page: string): void {
+  trackEvent(ANALYTICS_EVENTS.WELCOME_EXPLORE_CLICKED, { page })
+}
+
+export function trackNearbyRequestOpened({
+  source,
+  page,
+}: {
+  source: string
+  page: string
+}): void {
+  trackEvent(ANALYTICS_EVENTS.NEARBY_REQUEST_OPENED, { source, page })
+}
+
+export function trackNearbyRequestSubmitted({
+  source,
+  page,
+  requestedLocation,
+}: {
+  source: string
+  page: string
+  requestedLocation: string
+}): void {
+  trackEvent(ANALYTICS_EVENTS.NEARBY_REQUEST_SUBMITTED, {
+    source,
+    page,
+    requested_location: bucketRequestedLocation(requestedLocation),
+  })
+}
+
+export function trackNearbyRequestError({
+  source,
+  page,
+}: {
+  source: string
+  page: string
+}): void {
+  trackEvent(ANALYTICS_EVENTS.NEARBY_REQUEST_ERROR, { source, page })
 }
 
 export function trackOutdatedInfoReported(event: Event): void {

@@ -53,6 +53,7 @@ export function getDocumentTitle(pathname: string, search = ''): string {
     return formatDocumentTitle('Browse Bay Area Activities')
   }
   if (pathname === '/experiment-browse') return formatDocumentTitle('Browse Bay Area Activities')
+  if (pathname === '/experiment-welcome') return formatDocumentTitle('Welcome Experiment')
   if (pathname === '/share-experiment') return formatDocumentTitle('Share Experiment')
   if (pathname === '/about-experiment' || pathname === '/experiment_about') {
     return formatDocumentTitle('About Experiment')
