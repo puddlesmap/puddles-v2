@@ -1100,9 +1100,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "outdoor-storytime-linden-tree-books-2026-07-12-10-30",
@@ -1131,9 +1131,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a0fb6a3e13d3b4603b50f76",
@@ -1160,9 +1160,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a2f1d25c7d3cd58006061c0",
@@ -1190,7 +1190,7 @@
     "lat": 37.4419,
     "lng": -122.143,
     "status": "Draft",
-    "isPast": false,
+    "isPast": true,
     "isLive": false
   },
   {
@@ -1218,9 +1218,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "699f60146724c63d00f52cc5",
@@ -1247,9 +1247,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835d42866a5b488426bfc",
@@ -1276,9 +1276,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "summer-outdoor-storytime-mountain-view-public-library-2026-07-14-10-30",
@@ -1308,9 +1308,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3896,
     "lng": -122.0832,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835d281b67dfe32acec7a",
@@ -1337,9 +1337,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69fccf0ef89ee15800513441",
@@ -1366,9 +1366,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "68afa7b0022de53d00d2716f",
@@ -1395,9 +1395,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69265595a2f9562900e5f95a",
@@ -1424,9 +1424,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835c4b48451fc3c09442a",
@@ -1453,9 +1453,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "baby-storytime-mountain-view-public-library-2026-07-15-10-30",
@@ -1483,9 +1483,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835bdb48451fc3c094414",
@@ -1513,9 +1513,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69d6a8952866a5b488474e4c",
@@ -3161,6 +3161,41 @@
     "isLive": true
   },
   {
+    "id": "family-yoga-class-with-mini-yoga-club-google-visitor-experience-2026-07-26-10-00",
+    "title": "Family Yoga Class with Mini Yoga Club",
+    "description": "Join Mini Yoga Club in our outdoor plaza for a free and fun yoga adventure through movement, music, and mindfulness. Kids (ages 2+ with an accompanying adult) can build calm, focus, and self regulation through play! No experience needed. Bring a yoga mat and comfortable clothes for moving.\n\nEnjoy songs, games, and gentle poses that explore movement, mindfulness, and breathing. Grown-ups will also benefit from gentle stretches and quality time with their little ones.",
+    "tips": "Register for a Reminder\nThis event is first-come, first-served.",
+    "venue": "Google Visitor Experience",
+    "room": "The Huddle",
+    "address": "2000 N Shoreline Blvd, Mountain View, 94043",
+    "city": "Mountain View",
+    "date": "2026-07-26",
+    "startTime": "10:00",
+    "endTime": "10:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore",
+      "Outdoor",
+      "Classes"
+    ],
+    "categoryTags": [
+      "Build & Explore",
+      "Outdoor",
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://services.google.com/fh/files/misc/mini-yoga-club-flipped.png",
+    "eventUrl": "https://rsvp.withgoogle.com/events/family-yoga-class-with-mini-yoga-club-july",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.3894,
+    "lng": -122.0833,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "storytime-with-lisa-frenkel-riddiough-furious-turtle-linden-tree-books-2026-07-26-10-30",
     "title": "Storytime with Lisa Frenkel Riddiough, Furious Turtle",
     "description": "Join us for a special storytime with author Lisa Frenkel Riddiough as she shares her adorable new picture book, [Furious Turtle](https://www.lindentreebooks.com/furious-turtle.html), illustrated by Andrea Tsurumi.\n \n What is Turtle to do when his fishing pole breaks, he isn't the winner of the drawing contest, his number isn't chosen during the prize walk, and the arcade machine won't accept his token? He gets frustrated, flabbergasted, and, of course, furious! But with help from his teacher Ms.",
@@ -4148,6 +4183,36 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3989,
     "lng": -122.0664,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "free-in-store-kids-workshops-rocket-game-home-depot-2026-08-01-09-00",
+    "title": "Free In-Store Kids Workshops: Rocket Game",
+    "description": "Join Us at 9 a.m. the First Saturday of Every Month. While Supplies Last.",
+    "tips": "Registration required",
+    "venue": "Home Depot",
+    "address": "1781 E Bayshore Rd\n\nEast Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-08-01",
+    "startTime": "09:00",
+    "endTime": "12:00",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://dam.thdstatic.com/content/production/rgdkSn91AufHtfKhVwnqbA/0vexx6W5gyypRzu_PUWCzQ/Original%20file/2025_Kids_Workshops_hero_01032025_Ps.png",
+    "eventUrl": "https://www.homedepot.com/c/kids-workshop",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.4419,
+    "lng": -122.143,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6965,6 +7030,36 @@
     "isLive": true
   },
   {
+    "id": "free-in-store-kids-workshops-school-bus-organizer-home-depot-2026-09-05-09-00",
+    "title": "Free In-Store Kids Workshops: School Bus Organizer",
+    "description": "Join Us at 9 a.m. the First Saturday of Every Month. While Supplies Last.",
+    "tips": "Registration Opens August 1",
+    "venue": "Home Depot",
+    "address": "1781 E Bayshore Rd\n\nEast Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-09-05",
+    "startTime": "09:00",
+    "endTime": "12:00",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://dam.thdstatic.com/content/production/rgdkSn91AufHtfKhVwnqbA/0vexx6W5gyypRzu_PUWCzQ/Original%20file/2025_Kids_Workshops_hero_01032025_Ps.png",
+    "eventUrl": "https://www.homedepot.com/c/kids-workshop",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.4419,
+    "lng": -122.143,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "698e125a2a787a47a5e73be0",
     "title": "Family Storytime",
     "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n \n Make sure to follow us on YouTube for more stories, songs and rhymes, including...",
@@ -8254,6 +8349,36 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "free-in-store-kids-workshops-witch-candy-box-home-depot-2026-10-03-09-00",
+    "title": "Free In-Store Kids Workshops: Witch Candy Box",
+    "description": "Join Us at 9 a.m. the First Saturday of Every Month. While Supplies Last.",
+    "tips": "Registration Opens September 5",
+    "venue": "Home Depot",
+    "address": "1781 E Bayshore Rd\n\nEast Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-10-03",
+    "startTime": "09:00",
+    "endTime": "12:00",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://dam.thdstatic.com/content/production/rgdkSn91AufHtfKhVwnqbA/0vexx6W5gyypRzu_PUWCzQ/Original%20file/2025_Kids_Workshops_hero_01032025_Ps.png",
+    "eventUrl": "https://www.homedepot.com/c/kids-workshop",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.4419,
+    "lng": -122.143,
     "status": "Published",
     "isPast": false,
     "isLive": true
