@@ -9,7 +9,9 @@ export function Footer({
   fullBleed?: boolean
 }) {
   const { pathname } = useLocation()
-  const showExpansionWatch = !pathname.startsWith('/about')
+  // Home/Browse use the floating CTA; About uses a text link. Keep footer form on Share only.
+  const showExpansionWatch =
+    pathname === '/share' || pathname.startsWith('/share-')
 
   return (
     <footer

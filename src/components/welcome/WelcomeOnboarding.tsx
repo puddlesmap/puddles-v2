@@ -171,6 +171,7 @@ export function WelcomeOnboarding({
       pathname: location.pathname,
       isStandaloneEvent,
       blockingUiOpen: showLocationBridge || blockingDom || hasOverlayBackground,
+      includeExperiment: experiment,
     })
   }, [
     ready,
@@ -184,6 +185,7 @@ export function WelcomeOnboarding({
     showLocationBridge,
     blockingDom,
     hasOverlayBackground,
+    experiment,
   ])
 
   useEffect(() => {
@@ -241,6 +243,7 @@ export function WelcomeOnboarding({
       blockingUiOpen:
         showLocationBridge || hasOverlayBackground || blockingDom,
       engagementReady,
+      includeExperiment: experiment,
     })
   }, [
     ready,
@@ -257,6 +260,7 @@ export function WelcomeOnboarding({
     hasOverlayBackground,
     blockingDom,
     engagementReady,
+    experiment,
   ])
 
   function handleWelcomeDismiss(reason: 'close' | 'explore') {
@@ -349,11 +353,16 @@ export function WelcomeOnboarding({
               type="button"
               className="welcome-tester-btn"
               onClick={() => {
-                handleWelcomeDismiss('close')
+                persistWelcomeSeen()
+                setForceWelcomeOpen(false)
+                setSuccessHold(false)
+                setPhase('intro')
+                setRequestOpen(false)
+                setCtaDismissed(false)
                 setEngagementReady(true)
               }}
             >
-              Dismiss → floating CTA
+              Show floating CTA
             </button>
             <button
               type="button"

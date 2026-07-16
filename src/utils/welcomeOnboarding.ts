@@ -132,8 +132,10 @@ export function clearWelcomeStorage(keys: WelcomeStorageKeys = WELCOME_STORAGE_K
   }
 }
 
-export function isWelcomeAllowedPath(pathname: string): boolean {
-  return pathname === '/' || pathname === '/browse' || pathname === '/about'
+export function isWelcomeAllowedPath(pathname: string, includeExperiment = false): boolean {
+  if (pathname === '/' || pathname === '/browse' || pathname === '/about') return true
+  if (includeExperiment && pathname === '/experiment-welcome') return true
+  return false
 }
 
 export function isBrowseMapView(pathname: string, search: string): boolean {
@@ -164,16 +166,18 @@ export function shouldAutoShowWelcome({
   pathname,
   isStandaloneEvent,
   blockingUiOpen,
+  includeExperiment = false,
 }: {
   welcomeSeen: boolean
   submitted: boolean
   pathname: string
   isStandaloneEvent: boolean
   blockingUiOpen: boolean
+  includeExperiment?: boolean
 }): boolean {
   if (welcomeSeen || submitted) return false
   if (isStandaloneEvent) return false
-  if (!isWelcomeAllowedPath(pathname)) return false
+  if (!isWelcomeAllowedPath(pathname, includeExperiment)) return false
   if (blockingUiOpen) return false
   return true
 }
@@ -187,6 +191,7 @@ export function shouldShowFloatingCta({
   isStandaloneEvent,
   blockingUiOpen,
   engagementReady,
+  includeExperiment = false,
 }: {
   welcomeSeen: boolean
   submitted: boolean
@@ -196,12 +201,13 @@ export function shouldShowFloatingCta({
   isStandaloneEvent: boolean
   blockingUiOpen: boolean
   engagementReady: boolean
+  includeExperiment?: boolean
 }): boolean {
   if (submitted || ctaDismissed) return false
   if (!welcomeSeen) return false
   if (!engagementReady) return false
   if (isStandaloneEvent || pathname.startsWith('/event/')) return false
-  if (!isWelcomeAllowedPath(pathname)) return false
+  if (!isWelcomeAllowedPath(pathname, includeExperiment)) return false
   if (isBrowseMapView(pathname, search)) return false
   if (blockingUiOpen) return false
   return true
