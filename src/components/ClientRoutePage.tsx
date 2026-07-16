@@ -38,10 +38,14 @@ import { MaintenancePage } from '@/views/MaintenancePage'
 import { LogoLabPage } from '@/views/LogoLabPage'
 import { CityLandingPage } from '@/views/CityLandingPage'
 import { ExperimentEventModalPage } from '@/views/ExperimentEventModalPage'
+import { ExperimentEventModalV3Page } from '@/views/ExperimentEventModalV3Page'
 import { ExperimentExpiredActivityLayout } from '@/views/ExperimentExpiredActivityLayout'
 import { ExperimentExpiredActivityPage } from '@/views/ExperimentExpiredActivityPage'
 import { ExperimentExpiredActivityBrowsePage } from '@/views/ExperimentExpiredActivityBrowsePage'
 import { ExperimentExpiredActivityDetailPage } from '@/views/ExperimentExpiredActivityDetailPage'
+import { ExperimentSharedEventLayout } from '@/views/ExperimentSharedEventLayout'
+import { ExperimentSharedEventPage } from '@/views/ExperimentSharedEventPage'
+import { ExperimentSharedEventDetailPage } from '@/views/ExperimentSharedEventDetailPage'
 import { ExperimentWelcomePage } from '@/views/ExperimentWelcomePage'
 import { WelcomeOnboarding } from '@/components/welcome/WelcomeOnboarding'
 import { AdminEventsPage } from '@/views/admin/AdminEventsPage'
@@ -94,7 +98,12 @@ function ClientRoutes() {
             <Route path="/experiments/browse-2-column" element={<ExperimentBrowseTwoColumnPage />} />
             <Route path="/browse-experiment-2-column" element={<Navigate to="/experiments/browse-2-column" replace />} />
             <Route path="/experiment-event-modal" element={<ExperimentEventModalPage />} />
+            <Route path="/experiment-event-modal-v3" element={<ExperimentEventModalV3Page />} />
             <Route path="/experiment-welcome" element={<ExperimentWelcomePage />} />
+            <Route path="/experiment-shared-event" element={<ExperimentSharedEventLayout />}>
+              <Route index element={<ExperimentSharedEventPage />} />
+              <Route path="event/:eventId" element={<ExperimentSharedEventDetailPage />} />
+            </Route>
             <Route path="/experiment-expired-activity" element={<ExperimentExpiredActivityLayout />}>
               <Route index element={<ExperimentExpiredActivityPage />} />
               <Route path="browse" element={<ExperimentExpiredActivityBrowsePage />} />

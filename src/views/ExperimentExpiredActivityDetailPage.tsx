@@ -1,33 +1,30 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { EventDetailView } from '../components/EventDetailView'
 import { EventUnavailableState } from '../components/empty-states/EventUnavailableState'
+import { SharedEventDesignLayout } from '../components/event-detail/SharedEventDesignLayouts'
+import { AppHeader } from '../components/layout/AppHeader'
+import { Footer } from '../components/layout/Footer'
 import { useCloseEventDetail } from '../hooks/useCloseEventDetail'
 import { useExperimentLifecycleDocument } from '../hooks/useExperimentLifecycleDocument'
-import { useMediaQuery } from '../hooks/useMediaQuery'
+import { experimentEventDetailPath } from '../utils/eventLifecycleBrowse'
+import { getSharedEventNearbyActivities } from '../utils/sharedEventNearby'
+import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 import { ExperimentExpiredActivityNote } from './ExperimentExpiredActivityLayout'
 
 export function ExperimentExpiredActivityDetailPage() {
-  const isMobile = useMediaQuery('(max-width: 767px)')
   const { close, hasInAppReturn } = useCloseEventDetail()
   const { catalogEvent, lifecycleStatus, now } = useExperimentLifecycleDocument()
 
-  const isEndedLifecycle =
-    lifecycleStatus === 'ended' ||
-    lifecycleStatus === 'archived' ||
-    lifecycleStatus === 'cancelled'
+  const nearbyEvents = useMemo(
+    () => (catalogEvent ? getSharedEventNearbyActivities(catalogEvent, 6, now) : []),
+    [catalogEvent, now],
+  )
 
   return (
-    <div
-      className={[
-        'experiment-expired-activity-detail',
-        isMobile ? 'experiment-expired-activity-detail--mobile' : '',
-      ]
-        .filter(Boolean)
-        .join(' ')}
-    >
+    <div className="experiment-expired-activity-detail experiment-expired-activity-detail--v3">
       <div className="experiment-expired-activity-detail__note-wrap">
         <ExperimentExpiredActivityNote>
-          Experiment event detail — lifecycle state:{' '}
+          Lifecycle prototype on Airbnb v3 shared-event layout — state:{' '}
           <strong>{lifecycleStatus ?? 'unavailable'}</strong>.{' '}
           <Link to="/experiment-expired-activity" className="experiment-expired-activity-note__link">
             Hub
@@ -35,22 +32,28 @@ export function ExperimentExpiredActivityDetailPage() {
         </ExperimentExpiredActivityNote>
       </div>
 
-      <div className="experiment-expired-activity-detail__body layout-shell-app">
-        {catalogEvent && lifecycleStatus ? (
-          <EventDetailView
+      {catalogEvent && lifecycleStatus ? (
+        <>
+          <AppHeader
+            logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
+            logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
+            showBrandName={false}
+          />
+          <SharedEventDesignLayout
             event={catalogEvent}
-            analyticsSource="discovery"
-            hasInAppReturn={hasInAppReturn}
-            onClose={close}
-            presentation={isMobile ? 'overlay' : 'page'}
-            shareInHeader={isMobile && (isEndedLifecycle || !hasInAppReturn)}
+            nearbyEvents={nearbyEvents}
+            layout="airbnb-v3"
             lifecycleStatus={lifecycleStatus}
             lifecycleNow={now}
+            buildNearbyEventHref={(id) => experimentEventDetailPath({ id })}
           />
-        ) : (
+          <Footer fullBleed className="mt-0" />
+        </>
+      ) : (
+        <div className="experiment-expired-activity-detail__body layout-shell-app">
           <EventUnavailableState hasInAppReturn={hasInAppReturn} onClose={close} />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   )
 }

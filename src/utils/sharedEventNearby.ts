@@ -34,11 +34,39 @@ export function getSharedEventNearbyActivities(
 export function experimentSharedEventDetailPath(
   eventId: string,
   mode: 'direct' | 'modal' = 'direct',
+  layout?: 'airbnb' | 'airbnb-v2' | 'airbnb-v3' | 'luma' | 'eventbrite',
 ): string {
   const base = `/experiment-shared-event/event/${eventId}`
-  return mode === 'modal' ? `${base}?mode=modal` : base
+  const params = new URLSearchParams()
+  if (mode === 'modal') params.set('mode', 'modal')
+  if (layout) params.set('layout', layout)
+  const query = params.toString()
+  return query ? `${base}?${query}` : base
 }
 
 export function sharedEventCityLabel(city: string): string {
-  return city.trim() || 'the Bay Area'
+  const trimmed = city.trim()
+  if (!trimmed) return 'the Bay Area'
+  return trimmed
+    .split(/\s+/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ')
+}
+
+/** Normalize known Bay Area city casing inside an address line. */
+export function capitalizeCitiesInText(text: string, city?: string): string {
+  let result = text
+  const known = ['Palo Alto', 'Los Altos', 'Mountain View']
+  for (const name of known) {
+    result = result.replace(new RegExp(name.replace(/\s+/g, '\\s+'), 'gi'), name)
+  }
+  if (city?.trim()) {
+    const proper = sharedEventCityLabel(city)
+    const pattern = city
+      .trim()
+      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      .replace(/\s+/g, '\\s+')
+    result = result.replace(new RegExp(pattern, 'gi'), proper)
+  }
+  return result
 }

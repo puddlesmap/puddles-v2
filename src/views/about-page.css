@@ -291,11 +291,11 @@
   max-width: none;
   min-height: 0;
   margin: 0;
-  padding: 1.25rem 1.5rem 1.5rem;
+  padding: 1.25rem;
   border: 1px solid #ebebeb;
-  border-radius: 24px;
+  border-radius: var(--radius-md);
   background: #ffffff;
-  box-shadow: none;
+  box-shadow: 0 8px 28px rgb(34 34 34 / 0.08);
 }
 
 .about-page-shell .about-page .about-cta-card .cta-title {
@@ -316,7 +316,7 @@
 .about-page-shell .about-page .about-cta-card .btn-primary {
   min-height: 46px;
   padding: 0 1.5rem;
-  border-radius: 23px;
+  border-radius: var(--radius-button);
   font-size: var(--about-type-body);
   font-weight: 700;
 }

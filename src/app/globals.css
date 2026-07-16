@@ -24,5 +24,7 @@
 @import '../views/event-detail-overlay.css';
 @import '../views/event-detail-overlay-wide.css';
 @import '../views/experiment-expired-activity.css';
+@import '../views/experiment-shared-event.css';
+@import '../views/shared-event-design-layouts.css';
 @import '../views/welcome-onboarding.css';
 @import '../views/visitor-status-page.css';

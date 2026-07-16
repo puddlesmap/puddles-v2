@@ -292,6 +292,19 @@
   color: var(--type-supporting-color);
 }
 
+.experiment-expired-activity-detail--v3 .experiment-expired-activity-detail__note-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 0.5rem var(--layout-padding-mobile);
+  border-bottom: 1px solid #f0e6d8;
+  background: #fffaf3;
+}
+
+.experiment-expired-activity-detail--v3 .experiment-expired-activity-note {
+  margin: 0;
+}
+
 @media (max-width: 767px) {
   .experiment-expired-activity-metrics {
     grid-template-columns: 1fr;

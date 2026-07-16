@@ -4,7 +4,7 @@
 .home-experiment-page--refined .discovery-event-card {
   overflow: hidden;
   border: 1px solid #ebebeb;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   background: #ffffff;
   box-shadow: none;
   transition:

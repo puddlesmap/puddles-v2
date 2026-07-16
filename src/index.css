@@ -53,11 +53,23 @@
     0 4px 4px rgba(0, 0, 0, 0.08);
   --shadow-elevated: 0 6px 20px rgba(0, 0, 0, 0.12);
   --shadow-search: none;
-  --radius-card: 16px;
-  --radius-image: 18px;
-  --radius-modal: 24px;
-  --radius-button: 999px;
-  --radius-pill: 999px;
+  /*
+   * Radius scale (Puddles)
+   * none → xs(8) → sm(12) → md(16) → lg(24) → full(999)
+   * button(23) = soft capsule for primary/secondary CTAs
+   */
+  --radius-none: 0;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+  --radius-button: 23px;
+  /* Aliases — prefer md/lg/full/sm in new code */
+  --radius-card: var(--radius-md);
+  --radius-image: var(--radius-md);
+  --radius-modal: var(--radius-lg);
+  --radius-pill: var(--radius-full);
   --layout-min: 320px;
   --layout-max: 1120px;
   --layout-max-admin: 1360px;
@@ -1820,7 +1832,7 @@ textarea {
 .input-field {
   width: 100%;
   min-height: 48px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
   background: #fff;
   padding: 14px 16px;
@@ -2083,7 +2095,8 @@ select.input-field,
   position: relative;
   margin-inline: auto;
   max-width: 100%;
-  overflow: hidden;
+  /* Keep visible so primary-button elevation shadows aren’t boxed/clipped */
+  overflow: visible;
   border-radius: var(--radius-card);
   border: none;
   background: var(--color-surface);
@@ -2747,7 +2760,7 @@ select.input-field,
 
 .share-tab-switcher {
   display: flex;
-  border-radius: var(--radius-button);
+  border-radius: var(--radius-full);
   border: 1px solid var(--color-border);
   padding: 3px;
   background: #fff;
@@ -2757,7 +2770,7 @@ select.input-field,
   flex: 1;
   min-height: 36px;
   border: none;
-  border-radius: calc(var(--radius-button) - 3px);
+  border-radius: var(--radius-full);
   background: transparent;
   padding: 0 0.75rem;
   font-size: var(--type-toggle-size);
@@ -2886,19 +2899,26 @@ select.input-field,
 .share-submit-consent {
   margin: 0;
   text-align: center;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 12px;
+  line-height: 1.4;
   color: var(--color-muted);
 }
 
 .share-submit-bar {
   position: fixed;
   inset-inline: 0;
-  bottom: calc(3.75rem + env(safe-area-inset-bottom));
+  /* Sit above BottomNav (~4.5rem including safe-area padding in the nav) */
+  bottom: 4.5rem;
   z-index: 30;
   border-top: 1px solid var(--color-border);
-  background: #fff;
+  background: rgb(255 255 255 / 0.96);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   box-shadow: var(--shadow-elevated);
+}
+
+.share-submit-bar .share-submit-block {
+  gap: 0.5rem;
 }
 
 .bottom-nav {

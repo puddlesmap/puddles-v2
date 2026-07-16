@@ -124,7 +124,7 @@ export function ExperimentExpiredActivityPage() {
 
       <section className="experiment-expired-activity-panel" aria-labelledby="expired-activity-samples">
         <h2 id="expired-activity-samples" className="experiment-expired-activity-panel__title">
-          Sample detail pages
+          Sample detail pages (Airbnb v3 + lifecycle banner)
         </h2>
         <ul className="experiment-expired-activity-samples">
           {samples.map(({ label, event }) => (

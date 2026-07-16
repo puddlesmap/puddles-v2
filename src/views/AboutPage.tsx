@@ -4,7 +4,6 @@ import { Footer } from '../components/layout/Footer'
 import { AppHeader } from '../components/layout/AppHeader'
 import { AboutPageContent } from './AboutPageContent'
 import { AboutStoryIntro } from '../components/about/AboutStoryIntro'
-import { dispatchOpenNearbyRequest } from '../utils/welcomeOnboarding'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 
 interface AboutPageProps {
@@ -28,20 +27,7 @@ export function AboutPage({ shellClassName, experimentNote }: AboutPageProps = {
         </PageContainer>
       </div>
       <PageContainer className="about-page about-page--body pb-0">
-        <AboutPageContent
-          trailing={
-            <>
-              <button
-                type="button"
-                className="about-bring-nearby-link"
-                onClick={() => dispatchOpenNearbyRequest('about')}
-              >
-                Not nearby? Bring Puddles to your area →
-              </button>
-              {experimentNote}
-            </>
-          }
-        />
+        <AboutPageContent trailing={experimentNote} />
       </PageContainer>
 
       <Footer fullBleed className="mt-0" />

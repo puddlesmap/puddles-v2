@@ -1,9 +1,10 @@
 'use client'
 
+import { Suspense } from 'react'
+import { useParams } from 'next/navigation'
+import { MemoryRouter } from 'react-router-dom'
 import { ClientRoutePage } from '@/components/ClientRoutePage'
-import { EventDetailView } from '@/components/EventDetailView'
-import { EventUnavailableState } from '@/components/empty-states/EventUnavailableState'
-import { PageContainer } from '@/components/layout/PageContainer'
+import { SharedEventUrlPage } from '@/components/event-detail/SharedEventUrlPage'
 import { useCloseEventDetail } from '@/hooks/useCloseEventDetail'
 import { useEventDetailDocument } from '@/hooks/useEventDetailDocument'
 import { readEventDetailOverlayState } from '@/utils/nextEventDetailState'
@@ -20,6 +21,7 @@ function backgroundEntryParts(backgroundPath: string): { pathname: string; searc
 }
 
 export function EventDetailPageClient() {
+  const params = useParams<{ eventId: string }>()
   const { close, hasInAppReturn } = useCloseEventDetail()
   const { publicEvent, isIndexable } = useEventDetailDocument({ skipPageMeta: true })
   const overlayBackground = readEventDetailOverlayState()?.backgroundPath
@@ -30,22 +32,19 @@ export function EventDetailPageClient() {
     return <ClientRoutePage pathname={pathname} search={search} />
   }
 
+  const entry = params.eventId ? `/event/${params.eventId}` : '/event/unknown'
+
   return (
-    <div className="event-detail-page-shell event-detail-page-shell--standalone">
-      <PageContainer layout="app" className="event-detail-page-body">
-        {publicEvent && isIndexable ? (
-          <EventDetailView
-            event={publicEvent}
-            analyticsSource="discovery"
-            hasInAppReturn={hasInAppReturn}
-            onClose={close}
-            presentation="overlay"
-            shareInHeader={!hasInAppReturn}
-          />
-        ) : (
-          <EventUnavailableState hasInAppReturn={hasInAppReturn} onClose={close} />
-        )}
-      </PageContainer>
-    </div>
+    <Suspense fallback={null}>
+      <MemoryRouter key={entry} initialEntries={[entry]}>
+        <SharedEventUrlPage
+          event={publicEvent}
+          isIndexable={isIndexable}
+          hasInAppReturn={hasInAppReturn}
+          onClose={close}
+          analyticsSource="discovery"
+        />
+      </MemoryRouter>
+    </Suspense>
   )
 }

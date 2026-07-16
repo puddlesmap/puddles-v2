@@ -4,11 +4,13 @@ import { EventDetailView } from '../components/EventDetailView'
 import { EventUnavailableState } from '../components/empty-states/EventUnavailableState'
 import { useCloseEventDetail } from '../hooks/useCloseEventDetail'
 import { useEventDetailDocument } from '../hooks/useEventDetailDocument'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 import {
   getEventDetailBackground,
   isEventModalOverlaySource,
   parseEventDetailLocationState,
 } from '../utils/eventDetailNavigation'
+import { resolveEventOverlayLayout } from '../utils/eventOverlayLayout'
 
 export function EventDetailModalOverlay() {
   const location = useLocation()
@@ -17,9 +19,14 @@ export function EventDetailModalOverlay() {
   const navState = parseEventDetailLocationState(location.state)
   const analyticsSource = navState?.eventOpenSource
   const backgroundLocation = getEventDetailBackground(location.state)
-  const isWideExperiment =
-    backgroundLocation?.pathname === '/experiment-event-modal' ||
-    navState?.returnTo?.startsWith('/experiment-event-modal') === true
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+  const resolvedLayout = resolveEventOverlayLayout(
+    backgroundLocation?.pathname ?? navState?.returnTo ?? null,
+  )
+  // v3 / wide chrome is desktop-only; mobile keeps the classic modal shell
+  const overlayLayout = isDesktop ? resolvedLayout : 'default'
+  const isWideDesktop = overlayLayout === 'wide'
+  const isV3Desktop = overlayLayout === 'v3'
   const shareInHeader =
     navState?.eventOpenSource != null &&
     isEventModalOverlaySource(navState.eventOpenSource)
@@ -43,7 +50,8 @@ export function EventDetailModalOverlay() {
     <div
       className={[
         'event-detail-overlay',
-        isWideExperiment ? 'event-detail-overlay--wide' : '',
+        isWideDesktop ? 'event-detail-overlay--wide' : '',
+        isV3Desktop ? 'event-detail-overlay--v3' : '',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -53,7 +61,8 @@ export function EventDetailModalOverlay() {
       <div
         className={[
           'event-detail-overlay__dialog',
-          isWideExperiment ? 'event-detail-overlay__dialog--wide' : '',
+          isWideDesktop ? 'event-detail-overlay__dialog--wide' : '',
+          isV3Desktop ? 'event-detail-overlay__dialog--v3' : '',
         ]
           .filter(Boolean)
           .join(' ')}
@@ -69,7 +78,7 @@ export function EventDetailModalOverlay() {
             hasInAppReturn
             onClose={close}
             presentation="overlay"
-            overlayLayout={isWideExperiment ? 'wide' : 'default'}
+            overlayLayout={overlayLayout}
             shareInHeader={shareInHeader}
           />
         ) : (

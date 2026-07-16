@@ -1,0 +1,878 @@
+/* Shared-event design layout variants (experiment + production /event URL) */
+
+.shared-event-url-page {
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  background: var(--page-background);
+}
+
+.shared-event-url-page__unavailable {
+  flex: 1;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.sedl-switcher {
+  position: sticky;
+  /* Keep below the global sticky AppHeader */
+  top: 3.75rem;
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem var(--layout-padding-mobile);
+  border-bottom: 1px solid #e8e8e6;
+  background: rgb(255 255 255 / 0.96);
+  backdrop-filter: blur(8px);
+}
+
+.sedl-switcher__label {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.sedl-switcher__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+@media (min-width: 768px) {
+  .sedl-switcher {
+    top: 4rem; /* matches .app-header-row min-height */
+  }
+}
+
+@media (min-width: 1024px) {
+  .sedl-switcher {
+    top: 4.5rem; /* matches .app-header-row min-height */
+  }
+}
+
+.sedl-switcher__tab {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #e6e6e5;
+  border-radius: 999px;
+  background: #fff;
+  color: #222;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sedl-switcher__tab--active {
+  border-color: #66c5f9;
+  background: #f3f9fd;
+  color: #1e293b;
+}
+
+.sedl-kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #717171;
+}
+
+.sedl-section {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #efefed;
+}
+
+.sedl-section-title {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.sedl-body {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #3d4549;
+}
+
+.sedl-fact-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.sedl-fact-value {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #222;
+}
+
+.sedl-text-link {
+  display: inline-block;
+  margin-top: 0.35rem;
+  border: 0;
+  background: transparent;
+  color: #3a9fd4;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sedl-cta {
+  width: 100%;
+}
+
+.sedl-cta + .sedl-cta {
+  margin-top: 0.6rem;
+}
+
+.sedl-trust {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.sedl-trust__mark {
+  color: #66c5f9;
+  font-weight: 700;
+}
+
+.sedl-trust__label {
+  font-weight: 700;
+  color: #3a9fd4;
+}
+
+.sedl-trust__meta {
+  color: #717171;
+}
+
+.sedl-trust-note {
+  margin: 0.4rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #717171;
+}
+
+.sedl-nearby-wrap {
+  padding: 2.5rem var(--layout-padding-mobile) 3rem;
+}
+
+.sedl-nearby-wrap--narrow {
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+/* ——— Airbnb-inspired: photo-first + sticky rail ——— */
+
+.sedl--airbnb {
+  background: #fff;
+}
+
+.sedl-airbnb-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: min(52vh, 28rem);
+  overflow: hidden;
+  background: #eef2f4;
+}
+
+.sedl-airbnb-hero__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sedl-airbnb-share {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid #e6e6e5;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.08);
+}
+
+.sedl-airbnb-shell {
+  display: grid;
+  gap: 2rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.75rem var(--layout-padding-mobile) 0;
+}
+
+.sedl-airbnb-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #222;
+}
+
+.sedl-airbnb-facts {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid #efefed;
+  border-bottom: 1px solid #efefed;
+}
+
+.sedl-airbnb-rail {
+  padding: 1.25rem;
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: 0 8px 28px rgb(34 34 34 / 0.08);
+}
+
+.sedl-airbnb-rail__cost {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.sedl-airbnb-rail__when,
+.sedl-airbnb-rail__where {
+  margin: 0 0 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: #3d4549;
+}
+
+.sedl-airbnb-rail__where {
+  margin-bottom: 1.1rem;
+}
+
+@media (min-width: 900px) {
+  .sedl-airbnb-shell {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    align-items: start;
+    gap: 3rem;
+    padding-top: 2.25rem;
+  }
+
+  .sedl-airbnb-rail {
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .sedl-airbnb-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ——— Luma-inspired: centered invite card ——— */
+
+.sedl--luma {
+  min-height: 60vh;
+  background:
+    radial-gradient(1200px 480px at 50% -10%, #d9f0ff 0%, transparent 55%),
+    linear-gradient(180deg, #f7fbfe 0%, #ffffff 42%);
+}
+
+.sedl-luma-stage {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem var(--layout-padding-mobile) 0;
+}
+
+.sedl-luma-card {
+  width: min(40rem, 100%);
+  overflow: hidden;
+  border: 1px solid #e4eef5;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 18px 50px rgb(58 159 212 / 0.12);
+}
+
+.sedl-luma-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #e8f4fb;
+}
+
+.sedl-luma-card__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sedl-luma-datebadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  padding: 0.45rem 0.35rem;
+  border-radius: 0.75rem;
+  background: rgb(255 255 255 / 0.95);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.1);
+  text-align: center;
+}
+
+.sedl-luma-datebadge__month {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #3a9fd4;
+}
+
+.sedl-luma-datebadge__day {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #1e293b;
+}
+
+.sedl-luma-card__body {
+  padding: 1.5rem 1.35rem 1.75rem;
+}
+
+.sedl-luma-hosted {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #3a9fd4;
+}
+
+.sedl-luma-title {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #1e293b;
+}
+
+.sedl-luma-meta {
+  margin: 0 0 0.35rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #4b5563;
+}
+
+.sedl-luma-actions {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1.25rem 0 1.35rem;
+}
+
+.sedl-luma-share {
+  padding: 0.7rem 1rem;
+  border: 1px solid #e6e6e5;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sedl-luma-desc {
+  margin-bottom: 1.15rem;
+}
+
+/* ——— Eventbrite-inspired: listing + ticket panel ——— */
+
+.sedl--eventbrite {
+  background: #f6f6f4;
+  padding-bottom: 5.5rem;
+}
+
+.sedl-eb-hero-band {
+  background: #1e293b;
+  color: #fff;
+}
+
+.sedl-eb-hero-band__inner {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.25rem var(--layout-padding-mobile) 1.75rem;
+}
+
+.sedl-eb-hero-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  background: #334155;
+}
+
+.sedl-eb-hero-copy .sedl-kicker {
+  color: #b9e6fc;
+}
+
+.sedl-eb-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.sedl-eb-subtitle {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+.sedl-eb-hero-copy .shared-event-visitor-intro {
+  color: #94a3b8;
+}
+
+.sedl-eb-shell {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 72rem;
+  margin: -1.25rem auto 0;
+  padding: 0 var(--layout-padding-mobile);
+}
+
+.sedl-eb-main,
+.sedl-eb-tickets {
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 4px 18px rgb(0 0 0 / 0.06);
+}
+
+.sedl-eb-block + .sedl-eb-block {
+  margin-top: 1.5rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid #efefed;
+}
+
+.sedl-eb-tickets__label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.sedl-eb-tickets__price {
+  margin: 0.35rem 0 0.15rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.sedl-eb-tickets__ages {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  color: #717171;
+}
+
+.sedl-eb-share {
+  display: block;
+  width: 100%;
+  margin-top: 0.85rem;
+  text-align: center;
+}
+
+.sedl-eb-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 35;
+  border-top: 1px solid #e6e6e5;
+  background: rgb(255 255 255 / 0.97);
+  padding: 0.75rem var(--layout-padding-mobile);
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -8px 24px rgb(0 0 0 / 0.08);
+}
+
+.sedl-eb-sticky__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.sedl-eb-sticky__title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #222;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sedl-eb-sticky__meta {
+  margin: 0.15rem 0 0;
+  font-size: 0.75rem;
+  color: #717171;
+}
+
+@media (min-width: 900px) {
+  .sedl-eb-hero-band__inner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 2rem;
+    padding-top: 1.75rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .sedl-eb-shell {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    align-items: start;
+    gap: 1.5rem;
+    margin-top: -2rem;
+  }
+
+  .sedl-eb-tickets {
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .sedl-eb-sticky {
+    display: none;
+  }
+
+  .sedl--eventbrite {
+    padding-bottom: 0;
+  }
+}
+
+/* ——— Airbnb v2: Airbnb structure + event-modal design language ——— */
+
+.sedl--airbnb-v2 {
+  background: var(--page-background, #fff);
+}
+
+.sedl-v2-hero-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.sedl-v2-hero.event-modal-hero {
+  width: 100%;
+  height: 12.5rem;
+  object-fit: cover;
+}
+
+.sedl-v2-hero.event-modal-hero.event-image--fallback {
+  width: auto;
+  max-width: min(100%, 18rem);
+  height: 12.5rem;
+  margin-inline: auto;
+  object-fit: contain;
+  background: transparent;
+}
+
+.sedl-v2-floating-actions {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 4;
+}
+
+.sedl-v2-shell {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 var(--layout-padding-mobile) 0;
+}
+
+.sedl-v2-content {
+  padding: 1.25rem 0 0.5rem;
+}
+
+.sedl-v2-title.event-detail-title {
+  margin: 0;
+  font-size: var(--type-event-detail-title, 27px);
+  font-weight: 700;
+  line-height: 1.37;
+  letter-spacing: -0.01em;
+  color: var(--type-hero-title-color, #282e31);
+}
+
+.sedl-v2-meta {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sedl-v2-body.event-detail-body {
+  margin-top: 1.25rem;
+}
+
+.sedl-v2-trust.event-modal-trust-card {
+  margin-top: 1.25rem;
+}
+
+.sedl-v2-trust .event-modal-trust-header {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.sedl-v2-route {
+  margin-top: 1rem;
+}
+
+.sedl-v2-rail {
+  padding: 1.125rem;
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-card, 16px);
+  background: #ffffff;
+  box-shadow: var(--elevation-shadow-soft, 0 4px 16px rgb(34 34 34 / 0.06));
+}
+
+.sedl-v2-rail__when {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-charcoal, #222);
+}
+
+.sedl-v2-rail__time {
+  margin: 0.2rem 0 0.65rem;
+  font-size: var(--type-meta, 13px);
+  line-height: 1.35;
+}
+
+.sedl-v2-rail__venue {
+  margin: 0 0 0.35rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-charcoal, #222);
+}
+
+.sedl-v2-rail__cost {
+  margin: 0 0 1rem;
+  font-size: var(--type-meta, 13px);
+  color: #717171;
+}
+
+.sedl-v2-rail__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sedl-v2-rail__actions .btn-primary,
+.sedl-v2-rail__actions .btn-secondary {
+  width: 100%;
+}
+
+.sedl-v2-nearby {
+  padding-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .sedl-v2-hero.event-modal-hero {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: 22rem;
+  }
+
+  .sedl-v2-hero.event-modal-hero.event-image--fallback {
+    height: auto;
+    max-height: none;
+    aspect-ratio: 4 / 3;
+  }
+
+  .sedl-v2-shell {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 23rem);
+    align-items: start;
+    gap: 1.5rem;
+    padding-top: 1.25rem;
+  }
+
+  .sedl-v2-content {
+    padding: 0.25rem 0.25rem 0;
+  }
+
+  .sedl-v2-rail {
+    position: sticky;
+    top: 5.5rem;
+  }
+
+  .sedl-v2-hero-wrap {
+    border-radius: 0 0 var(--radius-image, 18px) var(--radius-image, 18px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sedl-v2-shell {
+    grid-template-columns: minmax(0, 1.15fr) minmax(22rem, 25rem);
+    gap: 2rem;
+  }
+}
+
+.event-detail-relative-day {
+  font-weight: 600;
+}
+
+/* Airbnb v3 mobile: v2 content stack + v1 CTA rail under content */
+.sedl-v3-mobile-shell {
+  display: flex;
+  flex-direction: column;
+  /* Airbnb section gap (~32px) between map block and CTA rail */
+  gap: 2rem;
+}
+
+.sedl-v3-mobile-cta .sedl-airbnb-rail {
+  position: static;
+  box-shadow: 0 8px 28px rgb(34 34 34 / 0.08);
+}
+
+.sedl--airbnb-v3-desktop .sedl-section .event-modal-trust-card {
+  margin-top: 0;
+}
+
+.sedl--airbnb-v3-desktop .sedl-v3-desktop-desc {
+  margin-top: 1.5rem;
+}
+
+/*
+ * V3 desktop rhythm: spacing only between description → verified → map.
+ * No hairline dividers — they stacked awkwardly with the trust card.
+ */
+.sedl--airbnb-v3-desktop .sedl-section {
+  margin-top: 1.5rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.sedl--airbnb-v3 .sedl-v2-route {
+  margin-top: 1.5rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+.sedl--airbnb-v3-desktop .sedl-v2-route {
+  margin-top: 1.75rem;
+}
+
+.sedl--airbnb-v3-desktop .sedl-nearby-wrap {
+  /* ~64px after the listing/map column into “More nearby” */
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.sedl--airbnb-v3-mobile .sedl-nearby-wrap {
+  /* ~48px after CTA / map into “More nearby” */
+  padding-top: 3rem;
+  padding-bottom: 3.5rem;
+}
+
+.sedl--airbnb-v3-mobile .sedl-nearby-wrap.sedl-v2-nearby {
+  padding-top: 3rem;
+}
+
+/* Lifecycle (ended / cancelled) on shared-event v3 */
+.sedl--airbnb-v3 .event-lifecycle-banner {
+  margin: 1rem 0 1.25rem;
+}
+
+.sedl--airbnb-v3-desktop .event-lifecycle-banner {
+  margin: 0.75rem 0 1.5rem;
+}
+
+.sedl-airbnb-rail--lifecycle .sedl-airbnb-rail__lifecycle-status {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8a4b12;
+}
+
+.sedl-airbnb-rail--lifecycle .sedl-airbnb-rail__lifecycle-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--type-supporting-color, #717171);
+}
+
+.sedl-airbnb-rail--lifecycle .sedl-airbnb-rail__lifecycle-note a {
+  font-weight: 600;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sedl--airbnb-v3-mobile .sedl-v3-mobile-cta .event-lifecycle-actions {
+  border-top: none;
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+}
+
+.sedl--lifecycle-ended.sedl--airbnb-v3-desktop .sedl-airbnb-hero__img {
+  filter: grayscale(0.15);
+}
+
+@media (min-width: 768px) {
+  .sedl-switcher,
+  .sedl-nearby-wrap,
+  .sedl-airbnb-shell,
+  .sedl-luma-stage,
+  .sedl-eb-hero-band__inner,
+  .sedl-eb-shell,
+  .sedl-eb-sticky,
+  .sedl-v2-shell {
+    padding-inline: var(--layout-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sedl-switcher,
+  .sedl-nearby-wrap,
+  .sedl-airbnb-shell,
+  .sedl-luma-stage,
+  .sedl-eb-hero-band__inner,
+  .sedl-eb-shell,
+  .sedl-eb-sticky,
+  .sedl-v2-shell {
+    padding-inline: var(--layout-padding-desktop);
+  }
+}

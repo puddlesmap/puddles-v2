@@ -214,16 +214,21 @@ export function formatModalDate(dateStr: string, anchor = getAnchorDate()): stri
   return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
 }
 
-/** Modal time line: 11:30 am, or 11:30 am to 12:00 pm when end differs */
+/** Modal meridiem: keep AM/PM in all caps. */
+function formatModalMeridiem(time: string): string {
+  return formatTime(time).replace(/\b(am|pm)\b/gi, (match) => match.toUpperCase())
+}
+
+/** Modal time line: 11:30 AM, or 11:30 AM to 12:00 PM when end differs */
 export function formatModalTimeRange(startTime: string, endTime?: string): string {
   const startRaw = startTime?.trim()
   if (!startRaw) return ''
 
-  const start = formatTime(startRaw).toLowerCase()
+  const start = formatModalMeridiem(startRaw)
   const endRaw = endTime?.trim()
   if (!endRaw || endRaw === startRaw) return start
 
-  const end = formatTime(endRaw).toLowerCase()
+  const end = formatModalMeridiem(endRaw)
   if (end === start) return start
 
   return `${start} to ${end}`

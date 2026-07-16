@@ -1,34 +1,49 @@
 /* Shared app header — About page wordmark lockup on all primary pages */
 
-.about-page-shell .app-header.page-header-sticky,
-.about-experiment-shell .app-header.page-header-sticky,
-.browse-page-shell .app-header.page-header-sticky,
-.share-page-shell .app-header.page-header-sticky,
-.home-experiment-shell .app-header.page-header-sticky,
-.discovery-page-shell .app-header.page-header-sticky,
-.event-detail-page-shell .app-header.page-header-sticky {
+:is(
+  .about-page-shell,
+  .about-experiment-shell,
+  .browse-page-shell,
+  .share-page-shell,
+  .home-experiment-shell,
+  .discovery-page-shell,
+  .event-detail-page-shell,
+  .experiment-shared-event-shell,
+  .shared-event-url-page,
+  .experiment-expired-activity-detail
+) .app-header.page-header-sticky {
   background: var(--page-background);
   border-bottom: none;
 }
 
-.about-page-shell .app-header-row,
-.about-experiment-shell .app-header-row,
-.browse-page-shell .app-header-row,
-.share-page-shell .app-header-row,
-.home-experiment-shell .app-header-row,
-.discovery-page-shell .app-header-row,
-.event-detail-page-shell .app-header-row {
+:is(
+  .about-page-shell,
+  .about-experiment-shell,
+  .browse-page-shell,
+  .share-page-shell,
+  .home-experiment-shell,
+  .discovery-page-shell,
+  .event-detail-page-shell,
+  .experiment-shared-event-shell,
+  .shared-event-url-page,
+  .experiment-expired-activity-detail
+) .app-header-row {
   background: var(--page-background);
   box-shadow: none;
 }
 
-.about-page-shell .logo-mark,
-.about-experiment-shell .logo-mark,
-.browse-page-shell .logo-mark,
-.share-page-shell .logo-mark,
-.home-experiment-shell .logo-mark,
-.discovery-page-shell .logo-mark,
-.event-detail-page-shell .logo-mark {
+:is(
+  .about-page-shell,
+  .about-experiment-shell,
+  .browse-page-shell,
+  .share-page-shell,
+  .home-experiment-shell,
+  .discovery-page-shell,
+  .event-detail-page-shell,
+  .experiment-shared-event-shell,
+  .shared-event-url-page,
+  .experiment-expired-activity-detail
+) .logo-mark {
   display: flex;
   align-items: center;
   width: auto;
@@ -37,13 +52,18 @@
   border-radius: 0;
 }
 
-.about-page-shell .logo-mark-img,
-.about-experiment-shell .logo-mark-img,
-.browse-page-shell .logo-mark-img,
-.share-page-shell .logo-mark-img,
-.home-experiment-shell .logo-mark-img,
-.discovery-page-shell .logo-mark-img,
-.event-detail-page-shell .logo-mark-img {
+:is(
+  .about-page-shell,
+  .about-experiment-shell,
+  .browse-page-shell,
+  .share-page-shell,
+  .home-experiment-shell,
+  .discovery-page-shell,
+  .event-detail-page-shell,
+  .experiment-shared-event-shell,
+  .shared-event-url-page,
+  .experiment-expired-activity-detail
+) .logo-mark-img {
   width: auto;
   height: 100%;
   max-width: 7.5rem;
@@ -51,86 +71,126 @@
   object-position: left center;
 }
 
-.about-page-shell .brand-lockup-subtitle,
-.about-experiment-shell .brand-lockup-subtitle,
-.browse-page-shell .brand-lockup-subtitle,
-.share-page-shell .brand-lockup-subtitle,
-.home-experiment-shell .brand-lockup-subtitle,
-.discovery-page-shell .brand-lockup-subtitle,
-.event-detail-page-shell .brand-lockup-subtitle {
+:is(
+  .about-page-shell,
+  .about-experiment-shell,
+  .browse-page-shell,
+  .share-page-shell,
+  .home-experiment-shell,
+  .discovery-page-shell,
+  .event-detail-page-shell,
+  .experiment-shared-event-shell,
+  .shared-event-url-page,
+  .experiment-expired-activity-detail
+) .brand-lockup-subtitle {
   font-size: 15px;
 }
 
 @media (min-width: 768px) {
-  .about-page-shell .brand-lockup--wordmark-only .logo-mark,
-  .about-experiment-shell .brand-lockup--wordmark-only .logo-mark,
-  .browse-page-shell .brand-lockup--wordmark-only .logo-mark,
-  .share-page-shell .brand-lockup--wordmark-only .logo-mark,
-  .home-experiment-shell .brand-lockup--wordmark-only .logo-mark,
-  .discovery-page-shell .brand-lockup--wordmark-only .logo-mark,
-  .event-detail-page-shell .brand-lockup--wordmark-only .logo-mark {
+  :is(
+    .about-page-shell,
+    .about-experiment-shell,
+    .browse-page-shell,
+    .share-page-shell,
+    .home-experiment-shell,
+    .discovery-page-shell,
+    .event-detail-page-shell,
+    .experiment-shared-event-shell,
+    .shared-event-url-page,
+    .experiment-expired-activity-detail
+  ) .brand-lockup--wordmark-only .logo-mark {
     transform: translateY(-2px);
   }
 }
 
 @media (max-width: 767px) {
-  .about-page-shell .app-header-row,
-  .about-experiment-shell .app-header-row,
-  .browse-page-shell .app-header-row,
-  .share-page-shell .app-header-row,
-  .home-experiment-shell .app-header-row,
-  .discovery-page-shell .app-header-row,
-  .event-detail-page-shell .app-header-row {
+  :is(
+    .about-page-shell,
+    .about-experiment-shell,
+    .browse-page-shell,
+    .share-page-shell,
+    .home-experiment-shell,
+    .discovery-page-shell,
+    .event-detail-page-shell,
+    .experiment-shared-event-shell,
+    .shared-event-url-page,
+    .experiment-expired-activity-detail
+  ) .app-header-row {
     justify-content: center;
   }
 
-  .about-page-shell .app-header-brand-link,
-  .about-experiment-shell .app-header-brand-link,
-  .browse-page-shell .app-header-brand-link,
-  .share-page-shell .app-header-brand-link,
-  .home-experiment-shell .app-header-brand-link,
-  .discovery-page-shell .app-header-brand-link,
-  .event-detail-page-shell .app-header-brand-link {
+  :is(
+    .about-page-shell,
+    .about-experiment-shell,
+    .browse-page-shell,
+    .share-page-shell,
+    .home-experiment-shell,
+    .discovery-page-shell,
+    .event-detail-page-shell,
+    .experiment-shared-event-shell,
+    .shared-event-url-page,
+    .experiment-expired-activity-detail
+  ) .app-header-brand-link {
     flex: 1;
     display: flex;
     justify-content: center;
   }
 
-  .about-page-shell .brand-lockup-subtitle,
-  .about-experiment-shell .brand-lockup-subtitle,
-  .browse-page-shell .brand-lockup-subtitle,
-  .share-page-shell .brand-lockup-subtitle,
-  .home-experiment-shell .brand-lockup-subtitle,
-  .discovery-page-shell .brand-lockup-subtitle,
-  .event-detail-page-shell .brand-lockup-subtitle {
+  :is(
+    .about-page-shell,
+    .about-experiment-shell,
+    .browse-page-shell,
+    .share-page-shell,
+    .home-experiment-shell,
+    .discovery-page-shell,
+    .event-detail-page-shell,
+    .experiment-shared-event-shell,
+    .shared-event-url-page,
+    .experiment-expired-activity-detail
+  ) .brand-lockup-subtitle {
     display: none;
   }
 
   /* Brand-blue mobile header — white wordmark */
-  .about-page-shell .app-header.page-header-sticky,
-  .about-experiment-shell .app-header.page-header-sticky,
-  .browse-page-shell .app-header.page-header-sticky,
-  .share-page-shell .app-header.page-header-sticky,
-  .home-experiment-shell .app-header.page-header-sticky,
-  .discovery-page-shell .app-header.page-header-sticky,
-  .event-detail-page-shell .app-header.page-header-sticky,
-  .about-page-shell .app-header-row,
-  .about-experiment-shell .app-header-row,
-  .browse-page-shell .app-header-row,
-  .share-page-shell .app-header-row,
-  .home-experiment-shell .app-header-row,
-  .discovery-page-shell .app-header-row,
-  .event-detail-page-shell .app-header-row {
+  :is(
+    .about-page-shell,
+    .about-experiment-shell,
+    .browse-page-shell,
+    .share-page-shell,
+    .home-experiment-shell,
+    .discovery-page-shell,
+    .event-detail-page-shell,
+    .experiment-shared-event-shell,
+    .shared-event-url-page,
+    .experiment-expired-activity-detail
+  ) .app-header.page-header-sticky,
+  :is(
+    .about-page-shell,
+    .about-experiment-shell,
+    .browse-page-shell,
+    .share-page-shell,
+    .home-experiment-shell,
+    .discovery-page-shell,
+    .event-detail-page-shell,
+    .experiment-shared-event-shell,
+    .shared-event-url-page,
+    .experiment-expired-activity-detail
+  ) .app-header-row {
     background: var(--color-brand);
   }
 
-  .about-page-shell .logo-mark-img,
-  .about-experiment-shell .logo-mark-img,
-  .browse-page-shell .logo-mark-img,
-  .share-page-shell .logo-mark-img,
-  .home-experiment-shell .logo-mark-img,
-  .discovery-page-shell .logo-mark-img,
-  .event-detail-page-shell .logo-mark-img {
+  :is(
+    .about-page-shell,
+    .about-experiment-shell,
+    .browse-page-shell,
+    .share-page-shell,
+    .home-experiment-shell,
+    .discovery-page-shell,
+    .event-detail-page-shell,
+    .experiment-shared-event-shell,
+    .shared-event-url-page,
+    .experiment-expired-activity-detail
+  ) .logo-mark-img {
     filter: brightness(0) invert(1);
   }
 

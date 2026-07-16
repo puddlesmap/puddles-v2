@@ -395,28 +395,32 @@ export function HomeExperimentPage({
       >
         {isRefinedLayout ? (
           <div className="home-experiment-refined-layout">
-            <div className="home-experiment-refined-main">
-              <section className="home-experiment-control w-full" aria-label="Find activities">
-                <HomeExperimentHero variant={heroVariant} />
-                {filterSection}
-                <div className="home-experiment-refined-map home-experiment-refined-map--mobile home-experiment-refined-panel">
-                  {renderMapPreview()}
-                </div>
-              </section>
-              {resultsSection}
-              <div className="home-experiment-refined-cta home-experiment-refined-cta--inline home-experiment-refined-panel">
-                {shareCta}
-              </div>
-            </div>
-
-            <aside className="home-experiment-refined-aside" aria-label="Map preview">
-              <div className="home-experiment-refined-map home-experiment-refined-map--desktop">
+            <section className="home-experiment-control w-full" aria-label="Find activities">
+              <HomeExperimentHero variant={heroVariant} />
+              {filterSection}
+              <div className="home-experiment-refined-map home-experiment-refined-map--mobile home-experiment-refined-panel">
                 {renderMapPreview()}
               </div>
-              <div className="home-experiment-refined-cta home-experiment-refined-cta--aside">
-                {shareCta}
+            </section>
+
+            {/* Sticky track ends with results so the aside parks on that grid line */}
+            <div className="home-experiment-refined-sticky-track">
+              <div className="home-experiment-refined-main">
+                {resultsSection}
+                <div className="home-experiment-refined-cta home-experiment-refined-cta--inline home-experiment-refined-panel">
+                  {shareCta}
+                </div>
               </div>
-            </aside>
+
+              <aside className="home-experiment-refined-aside" aria-label="Map preview">
+                <div className="home-experiment-refined-map home-experiment-refined-map--desktop">
+                  {renderMapPreview()}
+                </div>
+                <div className="home-experiment-refined-cta home-experiment-refined-cta--aside">
+                  {shareCta}
+                </div>
+              </aside>
+            </div>
           </div>
         ) : (
           <>

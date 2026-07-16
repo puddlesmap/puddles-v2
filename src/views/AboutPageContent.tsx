@@ -46,9 +46,6 @@ export function AboutPageContent({ trailing }: AboutPageContentProps) {
                 Share with us
               </Link>
             </CommunityCtaCard>
-            <Link to="/" className="about-secondary-link">
-              Or find something nearby →
-            </Link>
           </div>
         </section>
       </div>

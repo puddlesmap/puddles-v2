@@ -24,9 +24,9 @@
     "Town Hall Council Chambers": { "city": "Los Altos", "lat": 37.3837, "lng": -122.1387 },
     "Westwind Community Barn": { "city": "Los Altos", "lat": 37.3649, "lng": -122.16 },
     "Redwood Grove Nature Preserve": { "city": "Los Altos", "lat": 37.3775, "lng": -122.1136 },
-    "Los Altos Community Center": { "city": "Los Altos", "lat": 37.3796, "lng": -122.1145 },
+    "Los Altos Community Center": { "city": "Los Altos", "lat": 37.3804, "lng": -122.1113 },
     "Grant Park Soccer Field": { "city": "Los Altos", "lat": 37.3458, "lng": -122.0704 },
-    "Hillview Soccer Field": { "city": "Los Altos", "lat": 37.3796, "lng": -122.1145 },
+    "Hillview Soccer Field": { "city": "Los Altos", "lat": 37.38, "lng": -122.1124 },
     "Civic Center Plaza": { "city": "Mountain View", "lat": 37.39, "lng": -122.0815 },
     "Downtown Castro Street": { "city": "Mountain View", "lat": 37.3905, "lng": -122.0788 },
     "Mitchell Park Athletics Fields": { "city": "Palo Alto", "lat": 37.419, "lng": -122.1095 },
@@ -37,7 +37,12 @@
     "Whisman Park": { "city": "Mountain View", "lat": 37.3989, "lng": -122.0664 },
     "Eagle Park": { "city": "Mountain View", "lat": 37.3893, "lng": -122.0857 },
     "Heritage Park": { "city": "Mountain View", "lat": 37.4139, "lng": -122.0925 },
-    "Mountain View Senior Center": { "city": "Mountain View", "lat": 37.3988, "lng": -122.0942 }
+    "Mountain View Senior Center": { "city": "Mountain View", "lat": 37.3988, "lng": -122.0942 },
+    "Mitchell Park Community Center": { "city": "Palo Alto", "lat": 37.4181, "lng": -122.108 },
+    "State Street Market": { "city": "Los Altos", "lat": 37.3784, "lng": -122.1146 },
+    "Spangenberg Theater in Palo Alto": { "city": "Palo Alto", "lat": 37.4013, "lng": -122.1327 },
+    "Google Visitor Experience": { "city": "Mountain View", "lat": 37.4227, "lng": -122.0844 },
+    "Home Depot": { "city": "Palo Alto", "lat": 37.4664, "lng": -122.1404 }
   },
   "venueAddresses": {
     "Downtown Library": "270 Forest Ave, Palo Alto, CA 94301",
@@ -68,7 +73,12 @@
     "Whisman Park": "300 Easy St, Mountain View, CA 94043",
     "Eagle Park": "650 Franklin St, Mountain View, CA 94041",
     "Heritage Park": "771 N Rengstorff Avenue, Mountain View, CA 94043",
-    "Mountain View Senior Center": "266 Escuela Avenue, Mountain View, CA 94040"
+    "Mountain View Senior Center": "266 Escuela Avenue, Mountain View, CA 94040",
+    "Mitchell Park Community Center": "3700 Middlefield Rd, Palo Alto, CA 94303",
+    "State Street Market": "170 State St, Los Altos, CA 94022",
+    "Spangenberg Theater in Palo Alto": "780 Arastradero Rd, Palo Alto, CA 94306",
+    "Google Visitor Experience": "2000 N Shoreline Blvd, Mountain View, CA 94043",
+    "Home Depot": "1781 E Bayshore Rd, East Palo Alto, CA 94303"
   },
   "cityCenters": {
     "Palo Alto": { "lat": 37.4419, "lng": -122.143 },

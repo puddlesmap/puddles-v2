@@ -3,7 +3,7 @@
 .home-experiment-page--refined {
   padding-top: 1.375rem;
   padding-bottom: 3rem;
-  --refined-sidebar-card-radius: 24px;
+  --refined-sidebar-card-radius: var(--radius-md);
   --refined-sidebar-card-border: 1px solid #ebebeb;
 }
 
@@ -53,6 +53,13 @@
   width: 100%;
 }
 
+.home-experiment-refined-sticky-track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
 .home-experiment-refined-main {
   display: flex;
   flex-direction: column;
@@ -83,6 +90,10 @@
 .home-experiment-refined-cta--inline.home-experiment-refined-panel {
   width: 100%;
   max-width: 25.25rem;
+  /* Let card/button shadows breathe without shifting layout */
+  padding: 0.25rem 0.375rem 0.75rem;
+  margin-inline: -0.375rem;
+  box-sizing: content-box;
 }
 
 .home-experiment-refined-map--mobile.home-experiment-refined-panel .home-map-preview-card,
@@ -219,7 +230,8 @@
   width: 100%;
   max-width: none;
   margin: 0;
-  overflow: hidden;
+  /* Keep overflow visible so card + primary-button elevation shadows aren’t boxed */
+  overflow: visible;
   border: var(--refined-sidebar-card-border);
   border-radius: var(--refined-sidebar-card-radius);
   background: #ffffff;
@@ -229,7 +241,14 @@
 
 .home-experiment-page--refined .about-cta-section.community-cta-card {
   min-height: 0;
-  padding: 1.25rem 1.5rem 1.5rem;
+  padding: 1.25rem;
+  /* Extra bottom room for the primary button glow */
+  padding-bottom: 1.5rem;
+  box-shadow: var(--elevation-shadow-soft);
+}
+
+.home-experiment-page--refined .home-map-preview-card {
+  box-shadow: var(--elevation-shadow-soft);
 }
 
 .home-experiment-page--refined .about-cta-section .cta-title {
@@ -251,7 +270,7 @@
 .home-experiment-page--refined .about-cta-section .btn-primary {
   min-height: 46px;
   padding: 0 1.5rem;
-  border-radius: 23px;
+  border-radius: var(--radius-button);
   font-size: 1rem;
   font-weight: 700;
 }
@@ -290,23 +309,28 @@
   max-height: 7.5rem;
   overflow: hidden;
   border: none;
-  border-radius: 0;
+  /* Match the card radius on all corners (footer lives inside this canvas).
+     Inset by the card border so the curve sits flush with the outer edge. */
+  border-radius: calc(var(--refined-sidebar-card-radius) - 1px);
   background: #f7f7f7;
 }
 
 .home-map-preview__map-layer {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
   opacity: 0.82;
   filter: saturate(0.72) contrast(0.98);
 }
 
-.home-map-preview__map-layer .discovery-map-preview-canvas {
+.home-map-preview__map-layer .discovery-map-preview-canvas,
+.home-map-preview__map-layer .leaflet-container {
   width: 100%;
   height: 100%;
   min-height: 100%;
   border: none;
-  border-radius: 0;
+  border-radius: inherit;
   box-shadow: none;
   background: #f7f7f7;
   object-fit: cover;
@@ -540,9 +564,15 @@
   }
 }
 
-/* —— Desktop: 2-column grid + sticky sidebar —— */
+/* —— Desktop: results + sticky aside track (stops at end of results grid) —— */
 @media (min-width: 769px) {
-  .home-experiment-refined-layout {
+  .home-experiment-shell--refined {
+    /* AppHeader row ~4–4.5rem + gap — matches V3 rail parking line */
+    --home-sticky-aside-top: 5.5rem;
+    --home-sticky-aside-bottom-gap: 1.5rem;
+  }
+
+  .home-experiment-refined-sticky-track {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 18.75rem;
     column-gap: 2rem;
@@ -563,13 +593,16 @@
     grid-row: 1;
     align-self: start;
     position: sticky;
-    top: 1.5rem;
+    top: var(--home-sticky-aside-top);
     width: 100%;
     max-width: 18.75rem;
+    /* Avoid an internal scrollport — it boxes card/button elevation shadows */
+    overflow: visible;
   }
 
   .home-experiment-refined-aside > * {
     width: 100%;
+    flex-shrink: 0;
   }
 
   .home-experiment-refined-map--mobile {
@@ -639,7 +672,7 @@
 }
 
 @media (min-width: 1024px) {
-  .home-experiment-refined-layout {
+  .home-experiment-refined-sticky-track {
     grid-template-columns: minmax(0, 1fr) 19.5rem;
     column-gap: 2.5rem;
   }
@@ -658,7 +691,7 @@
 }
 
 @media (min-width: 1280px) {
-  .home-experiment-refined-layout {
+  .home-experiment-refined-sticky-track {
     grid-template-columns: minmax(0, 1fr) 20rem;
     column-gap: 2.75rem;
   }

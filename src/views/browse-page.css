@@ -575,7 +575,7 @@
   min-width: 0;
   padding: 0.75rem 1rem 0.75rem 0.75rem;
   border: 1px solid #ebebeb;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   background: #ffffff;
   box-shadow: none;
   text-align: left;
@@ -789,7 +789,7 @@
 /* Mobile preview sheet */
 .browse-page-shell .card-listing--map-preview-sheet {
   border: none;
-  border-radius: 20px;
+  border-radius: var(--radius-md);
   background: #ffffff;
   box-shadow: var(--elevation-shadow-lifted);
 }
@@ -892,7 +892,7 @@
     height: auto;
     min-height: 0;
     overflow: hidden;
-    border-radius: 16px 16px 0 0;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
     background: #ffffff;
     box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.06);
     pointer-events: none;
@@ -1009,12 +1009,12 @@
     width: 100%;
     height: auto;
     min-height: 0;
-    border-radius: 8px;
+    border-radius: var(--radius-xs);
     overflow: hidden;
   }
 
   .browse-page-shell .browse-map-preview-sheet .card-listing--map-preview-sheet .card-listing-image {
-    border-radius: 8px;
+    border-radius: var(--radius-xs);
     height: 100%;
     object-fit: cover;
   }

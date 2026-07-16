@@ -54,7 +54,7 @@
   flex-direction: column;
   overflow: hidden;
   border: 1px solid #ebebeb;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   background: #ffffff;
   box-shadow: 0 1px 2px rgb(40 46 49 / 0.04);
   transition:
@@ -154,7 +154,7 @@
   margin-top: 2rem;
   padding: 1rem 1.125rem;
   border: 1px solid #ebebeb;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   background: #fafafa;
   color: #4a4a4a;
   font-size: 14px;

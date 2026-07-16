@@ -138,11 +138,12 @@
   max-width: none;
   min-height: 0;
   margin: 0;
-  padding: 1.25rem 1.5rem 1.5rem;
+  padding: 1.25rem;
+  padding-bottom: 1.5rem;
   border: 1px solid #ebebeb;
-  border-radius: 24px;
+  border-radius: var(--radius-md);
   background: #ffffff;
-  box-shadow: none;
+  box-shadow: var(--elevation-shadow-soft);
 }
 
 .home-experiment-shell .home-experiment-page .about-cta-section .cta-title {
@@ -163,7 +164,7 @@
 .home-experiment-shell .home-experiment-page .about-cta-section .btn-primary {
   min-height: 46px;
   padding: 0 1.5rem;
-  border-radius: 23px;
+  border-radius: var(--radius-button);
   font-size: 1rem;
   font-weight: 700;
 }

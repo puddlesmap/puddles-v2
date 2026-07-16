@@ -12,6 +12,7 @@ import type { EventLifecycleStatus } from '../utils/eventLifecycle'
 import { EventLifecycleBanner } from './event-detail/EventLifecycleBanner'
 import { EventLifecycleActions } from './event-detail/EventLifecycleActions'
 import { SharedEventVisitorIntro } from './event-detail/SharedEventVisitorIntro'
+import { RelativeDateLabel } from './event-detail/RelativeDateLabel'
 import {
   getEventAddressLine,
   getEventDirectionsLabel,
@@ -19,6 +20,7 @@ import {
   getEventRoomLine,
   isCityShownInAddress,
 } from '../utils/maps'
+import { capitalizeCitiesInText, sharedEventCityLabel } from '../utils/sharedEventNearby'
 import { ANALYTICS_EVENTS, trackActivityEngagement, trackActivityOpened } from '../utils/analytics'
 import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
 import { getEventCategoryTags } from '../utils/eventImages'
@@ -29,8 +31,9 @@ import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
 import { EventDetailIcon } from './EventDetailIcon'
 import { EventImage } from './EventImage'
+import { AirbnbV3DesktopContent } from './event-detail/SharedEventDesignLayouts'
 
-export type EventDetailOverlayLayout = 'default' | 'wide'
+export type EventDetailOverlayLayout = 'default' | 'wide' | 'v3'
 
 interface EventDetailViewProps {
   event: Event
@@ -136,7 +139,9 @@ function EventDetailMetadata({
       <div className="event-detail-row">
         <EventDetailIcon kind="time" />
         <div className="event-detail-row-content">
-          <p className="event-detail-meta">{formatModalDate(event.date)}</p>
+          <p className="event-detail-meta">
+            <RelativeDateLabel label={formatModalDate(event.date)} />
+          </p>
           <p className="event-detail-meta text-muted">
             {formatModalTimeRange(event.startTime, event.endTime)}
           </p>
@@ -163,7 +168,7 @@ function EventDetailMetadata({
             addressLine && <p className="event-modal-address-plain">{addressLine}</p>
           )}
           {event.city && !isCityShownInAddress(addressLine ?? '', event.city) ? (
-            <p className="event-detail-meta text-muted">{event.city}</p>
+            <p className="event-detail-meta text-muted">{sharedEventCityLabel(event.city)}</p>
           ) : null}
         </div>
       </div>
@@ -371,6 +376,7 @@ export function EventDetailView({
   const effectiveShareInHeader = shareInHeader || isEndedLifecycle
   const isDesktop = useMediaQuery('(min-width: 768px)')
   const isWideDesktop = isOverlay && overlayLayout === 'wide' && isDesktop
+  const isV3Desktop = isOverlay && overlayLayout === 'v3' && isDesktop
   const [showReportForm, setShowReportForm] = useState(false)
   const [reportSubmitted, setReportSubmitted] = useState(false)
   const [headerCollapsed, setHeaderCollapsed] = useState(false)
@@ -383,8 +389,11 @@ export function EventDetailView({
     year: 'numeric',
   })
   const directionsUrl = getEventDirectionsUrl(event)
-  const addressLine = getEventAddressLine(event)
+  const addressLine = capitalizeCitiesInText(getEventAddressLine(event) ?? '', event.city) || null
   const roomLine = getEventRoomLine(event)
+  const description = event.description
+    ? capitalizeCitiesInText(event.description, event.city)
+    : ''
   const canAddToCalendar = canAddEventToCalendar(event)
   const hasOfficialPage = isOfficialEventUrl(event.eventUrl)
   const canNativeShare = typeof navigator !== 'undefined' && 'share' in navigator
@@ -396,7 +405,7 @@ export function EventDetailView({
   }, [event, analyticsSource])
 
   function handleScroll() {
-    if (isWideDesktop) return
+    if (isWideDesktop || isV3Desktop) return
     const scrollEl = scrollRef.current
     const heroEl = heroRef.current
     if (!scrollEl || !heroEl) return
@@ -467,6 +476,7 @@ export function EventDetailView({
 
   function renderFloatingHeaderActions(closeClassName: string) {
     const closeLabel = effectiveShareInHeader ? 'Close event details' : 'Close event'
+    const showClose = !hideCloseControl
 
     return (
       <div
@@ -479,21 +489,47 @@ export function EventDetailView({
           .join(' ')}
       >
         {effectiveShareInHeader ? renderShareButton('event-modal-share-btn event-modal-share-btn--floating') : null}
-        {renderCloseButton(closeClassName, closeLabel)}
+        {showClose ? renderCloseButton(closeClassName, closeLabel) : null}
       </div>
+    )
+  }
+
+  if (isV3Desktop) {
+    return (
+      <article className="event-detail-page-panel event-modal-panel event-modal-panel--overlay event-modal-panel--v3">
+        {effectiveShareInHeader || !hideCloseControl ? (
+          effectiveShareInHeader ? (
+            renderFloatingHeaderActions('event-modal-close-btn event-modal-close-btn--floating')
+          ) : (
+            <div className="event-modal-floating-actions">
+              {renderCloseButton('event-modal-close-btn event-modal-close-btn--floating')}
+            </div>
+          )
+        ) : null}
+
+        <div ref={scrollRef} className="event-modal-scroll event-modal-scroll--v3">
+          <AirbnbV3DesktopContent
+            event={event}
+            chrome="modal"
+            hideHeroShare={effectiveShareInHeader}
+          />
+        </div>
+      </article>
     )
   }
 
   if (isWideDesktop) {
     return (
       <article className="event-detail-page-panel event-modal-panel event-modal-panel--overlay event-modal-panel--wide">
-        {effectiveShareInHeader ? (
-          renderFloatingHeaderActions('event-modal-close-btn event-modal-close-btn--floating')
-        ) : (
-          <div className="event-modal-floating-actions">
-            {renderCloseButton('event-modal-close-btn event-modal-close-btn--floating')}
-          </div>
-        )}
+        {effectiveShareInHeader || !hideCloseControl ? (
+          effectiveShareInHeader ? (
+            renderFloatingHeaderActions('event-modal-close-btn event-modal-close-btn--floating')
+          ) : (
+            <div className="event-modal-floating-actions">
+              {renderCloseButton('event-modal-close-btn event-modal-close-btn--floating')}
+            </div>
+          )
+        ) : null}
 
         <div ref={scrollRef} className="event-modal-scroll">
           <div className="event-modal-wide-layout">
@@ -504,9 +540,7 @@ export function EventDetailView({
                 loading="eager"
               />
               <h1 className="event-detail-title">{event.title}</h1>
-              {event.description ? (
-                <p className="event-detail-body">{event.description}</p>
-              ) : null}
+              {description ? <p className="event-detail-body">{description}</p> : null}
               <EventDetailTips tips={event.tips} />
             </div>
 
@@ -519,8 +553,9 @@ export function EventDetailView({
                 canAddToCalendar={canAddToCalendar}
                 hasOfficialPage={hasOfficialPage}
                 shareInHeader={effectiveShareInHeader}
+                hideCloseButton={hideCloseControl}
                 onShare={effectiveShareInHeader ? undefined : () => void handleShare()}
-                onClose={effectiveShareInHeader ? undefined : onClose}
+                onClose={hideCloseControl || effectiveShareInHeader ? undefined : onClose}
                 className="event-modal-actions event-modal-actions--inline"
               />
             </aside>
@@ -598,7 +633,7 @@ export function EventDetailView({
             <EventDetailMetadata {...contentProps} />
           </div>
 
-          {event.description ? <p className="event-detail-body">{event.description}</p> : null}
+          {description ? <p className="event-detail-body">{description}</p> : null}
 
           <EventDetailTips tips={event.tips} />
 

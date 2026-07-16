@@ -68,7 +68,7 @@
 
 .discovery-page .discovery-hero-placeholder-card {
   position: absolute;
-  border-radius: 23px;
+  border-radius: var(--radius-button);
   border: 1.5px solid #ffffff;
   background: #f0f0f0;
   box-shadow:
@@ -429,7 +429,7 @@
   margin-bottom: 4.375rem;
   margin-inline: 0;
   padding: 1.25rem 1.5625rem 2rem;
-  border-radius: 24px;
+  border-radius: var(--radius-md);
   border: none;
   background: #ffffff;
   box-shadow: var(--elevation-shadow-lifted);
@@ -452,7 +452,7 @@
 .discovery-page-shell .discovery-page .discovery-cta-section .btn-primary {
   min-height: 46px;
   padding: 0 1.5rem;
-  border-radius: 23px;
+  border-radius: var(--radius-button);
   font-size: 16px;
   font-weight: 700;
 }

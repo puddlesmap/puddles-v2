@@ -143,8 +143,17 @@ export function formatPublicAgeRangeLabel(ageRange: string): string {
   return labels.join(', ')
 }
 
-/** Bucket breakdown for event detail / modal (e.g. 0–2, 2–5, 5+ instead of 0–5). */
+/**
+ * Parent-facing age label for event detail / modal.
+ * 0–5+ friendly ranges (all buckets, 0–2+2–5, or 0–5) show as All Ages.
+ */
 export function getEventModalAgeLabel(ageRange: string): string {
+  const text = ageRange.trim()
+  if (!text || /all\s*ages?/i.test(text)) return 'All Ages'
+
+  const buckets = parseAgeBuckets(text)
+  if (isFullSiteAgeRange(buckets, text)) return 'All Ages'
+
   return formatPublicAgeRangeLabel(ageRange)
 }
 

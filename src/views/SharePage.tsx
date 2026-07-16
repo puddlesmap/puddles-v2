@@ -288,6 +288,7 @@ export function SharePage({
   }
 
   return (
+    <>
     <div className={['share-page-shell', shellClassName].filter(Boolean).join(' ')}>
       <AppHeader
         logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
@@ -384,26 +385,28 @@ export function SharePage({
           </div>
         </PageContainer>
 
-        <div className="share-submit-bar">
-          <div className="layout-container">
-            <ShareSubmitBlock
-              tab={tab}
-              isSubmitting={isSubmitting}
-              canSubmitActivity={canSubmitActivity}
-              canSubmitIdea={canSubmitIdea}
-              onSubmit={handleSubmit}
-            />
-            {submitError && (
-              <p className="mt-3 text-sm text-red-700" role="alert">
-                {submitError}
-              </p>
-            )}
-          </div>
-        </div>
         {experimentNote ? (
           <PageContainer className="pb-8">{experimentNote}</PageContainer>
         ) : null}
       </div>
     </div>
+
+    <div className="share-submit-bar">
+      <div className="layout-container">
+        <ShareSubmitBlock
+          tab={tab}
+          isSubmitting={isSubmitting}
+          canSubmitActivity={canSubmitActivity}
+          canSubmitIdea={canSubmitIdea}
+          onSubmit={handleSubmit}
+        />
+        {submitError && (
+          <p className="mt-3 text-sm text-red-700" role="alert">
+            {submitError}
+          </p>
+        )}
+      </div>
+    </div>
+    </>
   )
 }
