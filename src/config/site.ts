@@ -10,6 +10,10 @@ export const SITE = {
     'Find storytimes, music, drop-ins, library events, community programs, and local family activities for ages 0–5 in the Bay Area.',
   ogImagePath: '/og-image.png',
   themeColor: '#FFFFFF',
+  social: {
+    instagram: 'https://www.instagram.com/puddlesmap/',
+    facebook: 'https://www.facebook.com/profile.php?id=61591864649613',
+  },
 } as const
 
 export function absoluteUrl(path: string): string {
