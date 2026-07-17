@@ -32,36 +32,35 @@ No env var is required for Plausible on production.
 
 ### PostHog
 
-Initialized in [`instrumentation-client.ts`](../instrumentation-client.ts) when `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` is set. Events are proxied through `/ingest` ([`next.config.ts`](../next.config.ts)) to reduce ad-blocker drops.
+Initialized in [`instrumentation-client.ts`](../instrumentation-client.ts) when `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` is set. Events go through the `/ingest` reverse proxy ([`next.config.ts`](../next.config.ts)) — **`NEXT_PUBLIC_POSTHOG_HOST` is not required**.
 
 **Netlify env (required for production):**
 
 | Variable | Value |
 |----------|--------|
 | `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` | Project API Key (`phc_…`) from PostHog → Project settings |
-| `NEXT_PUBLIC_POSTHOG_HOST` | `https://us.i.posthog.com` (optional; client uses `/ingest`) |
+
+Optional local debug:
+
+| Variable | Value |
+|----------|--------|
+| `NEXT_PUBLIC_POSTHOG_DEBUG` | `true` to allow PostHog on `localhost` / `127.0.0.1` only |
 
 After changing env vars, **trigger a new deploy** so the public token is baked into the client bundle.
 
-Custom events and SPA `$pageview` are sent only on `puddlesmap.com` via [`capturePostHog`](../src/utils/analytics.ts) (same host gate as Plausible). Autocapture pageviews are off; [`trackPageView()`](../src/utils/analytics.ts) owns SPA navigations.
+**Policy (product analytics):**
 
-### PostHog event aliases
-
-Plausible keeps the catalog names below. PostHog receives these aliases for product insights:
-
-| Plausible / code | PostHog |
-|------------------|---------|
-| `activity_opened` | `event_detail_view` |
-| `add_to_calendar_clicked` | `calendar_add` |
-| `visit_official_page_clicked` | `official_link_click` |
-| `activity_shared` | `event_share` |
-| `share_form_submitted` | `share_submission` |
+- Canonical event names match Plausible / code (`activity_opened`, `add_to_calendar_clicked`, etc.) — **no alias duplicates**
+- Manual SPA `$pageview` via [`trackPageView()`](../src/utils/analytics.ts) only (`capture_pageview: false`)
+- Autocapture off; session replay off; no `identify()`
+- No names, emails, form content, or precise location (existing prop sanitizer)
+- Production capture on `puddlesmap.com` only (unless `NEXT_PUBLIC_POSTHOG_DEBUG=true` on localhost)
 
 Suggested PostHog insights:
 
-- Funnel: `$pageview` → `event_detail_view` → (`calendar_add` OR `official_link_click` OR `event_share`)
-- Weekly retention: `event_detail_view` → return with `event_detail_view`
-- Weekly trends: visitors (`$pageview`), `event_detail_view`, `calendar_add`, `official_link_click`
+- Funnel: `$pageview` → `activity_opened` → (`add_to_calendar_clicked` OR `visit_official_page_clicked` OR `activity_shared`)
+- Weekly retention: `activity_opened` → return with `activity_opened`
+- Weekly trends: `$pageview`, `activity_opened`, `add_to_calendar_clicked`, `visit_official_page_clicked`
 
 ## Event catalog
 
@@ -145,10 +144,10 @@ Remove legacy V1 goals (`browse_filter_apply`, `event_open`, `share_submit`, etc
 3. Open Plausible **Realtime** and PostHog **Activity** / Live; confirm yourself as a visitor
 4. Visit Home → Browse → Map → Event → Share → About; confirm `page` props / `$pageview`
 5. Change filters on Home and Browse; confirm discovery events
-6. Open an activity from Home vs map; confirm `event_detail_view` (PostHog) / `activity_opened` (Plausible)
-7. Click official page, calendar, route, share; confirm engagement aliases on PostHog
+6. Open an activity from Home vs map; confirm `activity_opened` (same name in Plausible + PostHog)
+7. Click official page, calendar, route, share; confirm `visit_official_page_clicked` / `add_to_calendar_clicked` / `activity_shared`
 8. Submit share form and expansion watch; confirm no email in network payload
-9. Confirm localhost and Netlify preview do **not** send production analytics
+9. Confirm localhost does **not** send analytics unless `NEXT_PUBLIC_POSTHOG_DEBUG=true` (PostHog only); Netlify previews do not track
 
 ## Code map
 

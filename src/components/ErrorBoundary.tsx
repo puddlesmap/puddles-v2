@@ -1,7 +1,7 @@
 'use client'
 
 import { Component, type ErrorInfo, type ReactNode } from 'react'
-import { isProductionAnalyticsHost } from '../utils/analyticsHost'
+import { isPostHogDebugLocalhost, isProductionAnalyticsHost } from '../utils/analyticsHost'
 
 interface Props {
   children: ReactNode
@@ -21,7 +21,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     console.error(error, info.componentStack)
-    if (!isProductionAnalyticsHost()) return
+    if (!(isProductionAnalyticsHost() || isPostHogDebugLocalhost())) return
     const posthog = (window as Window & {
       posthog?: { captureException: (error: unknown) => void }
     }).posthog

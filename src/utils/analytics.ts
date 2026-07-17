@@ -22,7 +22,7 @@ import {
   sourceContextSlug,
   timeFilterSlug,
 } from './analyticsMappers'
-import { isAdminPath, isProductionAnalyticsHost } from './analyticsHost'
+import { isAdminPath, isPostHogDebugLocalhost, isProductionAnalyticsHost } from './analyticsHost'
 import { PLAUSIBLE_SCRIPT_SRC } from './plausibleSnippet'
 
 export { isProductionAnalyticsHost } from './analyticsHost'
@@ -52,15 +52,6 @@ export const ANALYTICS_EVENTS = {
   NEARBY_REQUEST_SUBMITTED: 'nearby_request_submitted',
   NEARBY_REQUEST_ERROR: 'nearby_request_error',
 } as const
-
-/** PostHog-facing names for product analytics (Plausible keeps ANALYTICS_EVENTS values). */
-export const POSTHOG_EVENT_ALIASES: Partial<Record<string, string>> = {
-  [ANALYTICS_EVENTS.ACTIVITY_OPENED]: 'event_detail_view',
-  [ANALYTICS_EVENTS.ADD_TO_CALENDAR_CLICKED]: 'calendar_add',
-  [ANALYTICS_EVENTS.VISIT_OFFICIAL_PAGE_CLICKED]: 'official_link_click',
-  [ANALYTICS_EVENTS.ACTIVITY_SHARED]: 'event_share',
-  [ANALYTICS_EVENTS.SHARE_FORM_SUBMITTED]: 'share_submission',
-}
 
 type PlausibleInitOptions = {
   autoCapturePageviews?: boolean
@@ -120,7 +111,7 @@ export function isAnalyticsEnabled(): boolean {
 }
 
 function isPostHogCaptureEnabled(): boolean {
-  return isAnalyticsEnabled()
+  return isProductionAnalyticsHost() || isPostHogDebugLocalhost()
 }
 
 /** Use window.posthog from instrumentation-client — never import posthog-js here (Netlify SSR). */
@@ -128,8 +119,7 @@ function capturePostHog(eventName: string, props?: AnalyticsProps): void {
   if (typeof window === 'undefined' || !isPostHogCaptureEnabled()) return
   if (isAdminPath(window.location.pathname)) return
 
-  const posthogName = POSTHOG_EVENT_ALIASES[eventName] ?? eventName
-  window.posthog?.capture(posthogName, props as Record<string, unknown> | undefined)
+  window.posthog?.capture(eventName, props as Record<string, unknown> | undefined)
 }
 
 /** Ensure queue stub + tracker script exist before any track/init call. */
