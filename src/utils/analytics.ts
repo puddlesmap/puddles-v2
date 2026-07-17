@@ -1,4 +1,3 @@
-import posthog from 'posthog-js'
 import type { Event } from '../types/event'
 import type {
   ActivityEngagementAction,
@@ -23,9 +22,11 @@ import {
   sourceContextSlug,
   timeFilterSlug,
 } from './analyticsMappers'
-import { PLAUSIBLE_PRODUCTION_HOSTNAME, PLAUSIBLE_SCRIPT_SRC } from './plausibleSnippet'
+import { isAdminPath, isProductionAnalyticsHost } from './analyticsHost'
+import { PLAUSIBLE_SCRIPT_SRC } from './plausibleSnippet'
 
-const PRODUCTION_HOSTNAME = PLAUSIBLE_PRODUCTION_HOSTNAME
+export { isProductionAnalyticsHost } from './analyticsHost'
+
 const TRACKER_SCRIPT_ID = 'plausible-tracker'
 
 export const ANALYTICS_EVENTS = {
@@ -78,6 +79,10 @@ type PlausibleFn = ((event: string, options?: { props?: AnalyticsProps }) => voi
 declare global {
   interface Window {
     plausible?: PlausibleFn
+    posthog?: {
+      capture: (event: string, properties?: Record<string, unknown>) => void
+      captureException: (error: unknown) => void
+    }
   }
 }
 
@@ -110,16 +115,6 @@ const BLOCKED_PROP_KEYS = new Set([
   'payload',
 ])
 
-function isAdminPath(pathname: string): boolean {
-  return pathname.startsWith('/admin')
-}
-
-export function isProductionAnalyticsHost(): boolean {
-  if (typeof window === 'undefined') return false
-  const host = window.location.hostname
-  return host === PRODUCTION_HOSTNAME || host === `www.${PRODUCTION_HOSTNAME}`
-}
-
 export function isAnalyticsEnabled(): boolean {
   return isProductionAnalyticsHost()
 }
@@ -128,12 +123,13 @@ function isPostHogCaptureEnabled(): boolean {
   return isAnalyticsEnabled()
 }
 
+/** Use window.posthog from instrumentation-client — never import posthog-js here (Netlify SSR). */
 function capturePostHog(eventName: string, props?: AnalyticsProps): void {
   if (typeof window === 'undefined' || !isPostHogCaptureEnabled()) return
   if (isAdminPath(window.location.pathname)) return
 
   const posthogName = POSTHOG_EVENT_ALIASES[eventName] ?? eventName
-  posthog.capture(posthogName, props)
+  window.posthog?.capture(posthogName, props as Record<string, unknown> | undefined)
 }
 
 /** Ensure queue stub + tracker script exist before any track/init call. */

@@ -1,6 +1,7 @@
-import posthog from 'posthog-js'
+'use client'
+
 import { Component, type ErrorInfo, type ReactNode } from 'react'
-import { isProductionAnalyticsHost } from '../utils/analytics'
+import { isProductionAnalyticsHost } from '../utils/analyticsHost'
 
 interface Props {
   children: ReactNode
@@ -20,9 +21,11 @@ export class ErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     console.error(error, info.componentStack)
-    if (isProductionAnalyticsHost()) {
-      posthog.captureException(error)
-    }
+    if (!isProductionAnalyticsHost()) return
+    const posthog = (window as Window & {
+      posthog?: { captureException: (error: unknown) => void }
+    }).posthog
+    posthog?.captureException(error)
   }
 
   render() {

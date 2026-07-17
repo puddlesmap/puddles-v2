@@ -6,9 +6,9 @@ if (token) {
   posthog.init(token, {
     api_host: '/ingest',
     ui_host: 'https://us.posthog.com',
-    defaults: '2026-01-30',
     // SPA pageviews are sent manually from trackPageView() (Next + React Router).
     capture_pageview: false,
+    capture_pageleave: true,
     capture_exceptions: true,
     debug: process.env.NODE_ENV === 'development',
   })
