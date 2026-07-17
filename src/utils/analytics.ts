@@ -71,10 +71,60 @@ declare global {
   interface Window {
     plausible?: PlausibleFn
     posthog?: {
+      __loaded?: boolean
       capture: (event: string, properties?: Record<string, unknown>) => void
       captureException: (error: unknown) => void
+      identify: (distinctId: string, properties?: Record<string, unknown>) => void
     }
   }
+}
+
+const INTERNAL_OWNER_DISTINCT_ID = 'schei_internal'
+
+/** Wait until posthog-js finished init (or fail). Does not auto-identify anyone. */
+function waitForPostHogReady(timeoutMs = 5000): Promise<NonNullable<Window['posthog']>> {
+  return new Promise((resolve, reject) => {
+    if (typeof window === 'undefined') {
+      reject(new Error('PostHog is only available in the browser.'))
+      return
+    }
+
+    const started = Date.now()
+
+    function tryResolve(): boolean {
+      const ph = window.posthog
+      if (!ph || typeof ph.identify !== 'function') return false
+      // Wait while the SDK reports it is still loading.
+      if (ph.__loaded === false) return false
+      resolve(ph)
+      return true
+    }
+
+    if (tryResolve()) return
+
+    const timer = window.setInterval(() => {
+      if (tryResolve()) {
+        window.clearInterval(timer)
+        return
+      }
+      if (Date.now() - started >= timeoutMs) {
+        window.clearInterval(timer)
+        reject(new Error('PostHog is not initialized in this browser.'))
+      }
+    }, 50)
+  })
+}
+
+/**
+ * Admin-only: mark this browser's PostHog person as internal owner.
+ * Call only from an explicit admin UI action — never on public page load.
+ */
+export async function markBrowserAsInternalOwner(): Promise<void> {
+  const ph = await waitForPostHogReady()
+  ph.identify(INTERNAL_OWNER_DISTINCT_ID, {
+    is_internal: true,
+    user_type: 'owner',
+  })
 }
 
 let analyticsInitialized = false

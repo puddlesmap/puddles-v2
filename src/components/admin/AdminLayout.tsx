@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 import { PageContainer } from '../layout/PageContainer'
 import { SHEET_SOURCE } from '../../data/sheet-source'
 import { useAdminAuth } from '../../context/AdminAuthContext'
+import { AdminMarkInternalAnalytics } from './AdminMarkInternalAnalytics'
 
 const NAV_ITEMS = [
   { to: '/admin/events', label: 'Events' },
@@ -52,6 +53,7 @@ export function AdminLayout() {
               >
                 Open Google Sheet ↗
               </a>
+              <AdminMarkInternalAnalytics />
               {authRequired ? (
                 <button
                   type="button"

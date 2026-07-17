@@ -3262,6 +3262,25 @@ select.input-field,
   cursor: not-allowed;
 }
 
+.admin-mark-internal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.admin-mark-internal-msg {
+  margin: 0;
+  max-width: 16rem;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--color-muted);
+}
+
+.admin-mark-internal-msg-error {
+  color: #b42318;
+}
+
 .admin-btn-primary {
   border-color: var(--color-charcoal);
   background: var(--color-charcoal);

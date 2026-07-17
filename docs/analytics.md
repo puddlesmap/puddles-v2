@@ -52,7 +52,8 @@ After changing env vars, **trigger a new deploy** so the public token is baked i
 
 - Canonical event names match Plausible / code (`activity_opened`, `add_to_calendar_clicked`, etc.) — **no alias duplicates**
 - Manual SPA `$pageview` via [`trackPageView()`](../src/utils/analytics.ts) only (`capture_pageview: false`)
-- Autocapture off; session replay off; no `identify()`
+- Autocapture off; session replay off; no automatic `identify()` for public visitors
+- Optional admin-only control: “Mark this browser as internal” → `identify('schei_internal', { is_internal: true, user_type: 'owner' })` (no email/name)
 - No names, emails, form content, or precise location (existing prop sanitizer)
 - Production capture on `puddlesmap.com` only (unless `NEXT_PUBLIC_POSTHOG_DEBUG=true` on localhost)
 

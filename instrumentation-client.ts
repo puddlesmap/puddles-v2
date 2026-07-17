@@ -20,7 +20,7 @@ if (shouldInitPostHog()) {
     capture_pageleave: true,
     // Product events are explicit; do not autocapture clicks/inputs.
     autocapture: false,
-    // Privacy: no session replay, no identify in app code.
+    // Privacy: no session replay. Public visitors are never identified.
     disable_session_recording: true,
     capture_exceptions: true,
     debug: process.env.NODE_ENV === 'development' && allowLocalDebug,
