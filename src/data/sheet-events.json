@@ -1777,9 +1777,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "2026-summer-concert-series-smokin-slice-of-mojo-hillview-soccer-field-2026-07-16-18-30",
@@ -1808,9 +1808,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.38,
     "lng": -122.1124,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6931edd1b5ff4730005608f4",
@@ -1837,9 +1837,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "steam-fridays-mountain-view-public-library-2026-07-17-14-00",
