@@ -25,4 +25,6 @@ if (shouldInitPostHog()) {
     capture_exceptions: true,
     debug: process.env.NODE_ENV === 'development' && allowLocalDebug,
   })
+  // posthog-js ES module does not set window.posthog; analytics.ts captures via the global.
+  window.posthog = posthog
 }

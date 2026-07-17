@@ -246,7 +246,15 @@ export function trackPageView(pathname: string): void {
     }
   }
 
-  capturePostHog('$pageview', props)
+  // PostHog SPA pageviews need $current_url for Pages / path breakdowns.
+  const currentUrl =
+    typeof window !== 'undefined'
+      ? `${window.location.origin}${pathname}${window.location.search}`
+      : pathname
+  capturePostHog('$pageview', {
+    ...(props ?? {}),
+    $current_url: currentUrl,
+  })
 }
 
 export function track(eventName: string, props?: AnalyticsProps): void {
