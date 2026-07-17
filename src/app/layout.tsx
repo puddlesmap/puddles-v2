@@ -33,16 +33,17 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&family=Quicksand:wght@700&display=swap"
           rel="stylesheet"
         />
+      </head>
+      <body>
         {/*
-          Raw inline script (not next/script): Next App Router was serializing
-          beforeInteractive Script into the RSC payload without executing it.
+          Inline in body (not next/script / not only in <head>): App Router can
+          leave head scripts in the RSC payload. Client analytics also injects
+          the tracker as a fallback on hydrate.
         */}
         <script
           id="plausible-bootstrap"
           dangerouslySetInnerHTML={{ __html: PLAUSIBLE_BOOTSTRAP_SCRIPT }}
         />
-      </head>
-      <body>
         <AppProviders>
           {children}
           {modal}

@@ -22,9 +22,10 @@ import {
   sourceContextSlug,
   timeFilterSlug,
 } from './analyticsMappers'
-import { PLAUSIBLE_PRODUCTION_HOSTNAME } from './plausibleSnippet'
+import { PLAUSIBLE_PRODUCTION_HOSTNAME, PLAUSIBLE_SCRIPT_SRC } from './plausibleSnippet'
 
 const PRODUCTION_HOSTNAME = PLAUSIBLE_PRODUCTION_HOSTNAME
+const TRACKER_SCRIPT_ID = 'plausible-tracker'
 
 export const ANALYTICS_EVENTS = {
   CITY_SELECTED: 'city_selected',
@@ -113,6 +114,35 @@ export function isAnalyticsEnabled(): boolean {
   return isProductionAnalyticsHost()
 }
 
+/** Ensure queue stub + tracker script exist before any track/init call. */
+function ensurePlausibleLoaded(): void {
+  if (typeof window === 'undefined' || !isAnalyticsEnabled()) return
+
+  window.plausible =
+    window.plausible ||
+    function () {
+      // eslint-disable-next-line prefer-rest-params
+      ;(window.plausible!.q = window.plausible!.q || []).push(arguments)
+    }
+  window.plausible.init =
+    window.plausible.init ||
+    function (i) {
+      window.plausible!.o = i || {}
+    }
+
+  const alreadyInjected =
+    Boolean(document.getElementById(TRACKER_SCRIPT_ID)) ||
+    Array.from(document.scripts).some((script) => script.src.includes('plausible.io/js/'))
+
+  if (alreadyInjected) return
+
+  const script = document.createElement('script')
+  script.id = TRACKER_SCRIPT_ID
+  script.async = true
+  script.src = PLAUSIBLE_SCRIPT_SRC
+  document.head.appendChild(script)
+}
+
 function sanitizeProps(props?: AnalyticsProps): AnalyticsProps | undefined {
   if (!props) return undefined
 
@@ -146,6 +176,8 @@ function transformRequest(payload: Record<string, unknown>): Record<string, unkn
 
 export function initAnalytics(): void {
   if (!isAnalyticsEnabled() || analyticsInitialized || typeof window === 'undefined') return
+
+  ensurePlausibleLoaded()
 
   window.plausible?.init?.({
     autoCapturePageviews: false,
@@ -190,6 +222,8 @@ export function pageNameFromPath(pathname: string): string | null {
 export function trackPageView(pathname: string): void {
   if (!isAnalyticsEnabled() || isAdminPath(pathname)) return
 
+  initAnalytics()
+
   const info = resolvePageView(pathname)
   if (!info || !window.plausible) return
 
@@ -205,6 +239,8 @@ export function trackPageView(pathname: string): void {
 export function track(eventName: string, props?: AnalyticsProps): void {
   if (!isAnalyticsEnabled()) return
   if (typeof window !== 'undefined' && isAdminPath(window.location.pathname)) return
+
+  initAnalytics()
 
   const clean = sanitizeProps(props)
   window.plausible?.(eventName, clean ? { props: clean } : undefined)
