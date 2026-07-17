@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { AppProviders } from '@/components/AppProviders'
+import { PLAUSIBLE_BOOTSTRAP_SCRIPT } from '@/utils/plausibleSnippet'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -34,6 +36,10 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {/* Privacy-friendly analytics by Plausible (production hostname only) */}
+        <Script id="plausible-bootstrap" strategy="beforeInteractive">
+          {PLAUSIBLE_BOOTSTRAP_SCRIPT}
+        </Script>
         <AppProviders>
           {children}
           {modal}

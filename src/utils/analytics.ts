@@ -22,8 +22,9 @@ import {
   sourceContextSlug,
   timeFilterSlug,
 } from './analyticsMappers'
+import { PLAUSIBLE_PRODUCTION_HOSTNAME } from './plausibleSnippet'
 
-const PRODUCTION_HOSTNAME = 'puddlesmap.com'
+const PRODUCTION_HOSTNAME = PLAUSIBLE_PRODUCTION_HOSTNAME
 
 export const ANALYTICS_EVENTS = {
   CITY_SELECTED: 'city_selected',

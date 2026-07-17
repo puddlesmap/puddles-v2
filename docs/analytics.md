@@ -4,13 +4,20 @@ Puddles uses [Plausible Analytics](https://plausible.io) for privacy-friendly us
 
 ## Setup
 
-Plausible loads from [`index.html`](../index.html) only when the site is served on **`puddlesmap.com`**. Localhost, Netlify preview URLs, and other hosts do not load the script.
+Plausible loads **only on `puddlesmap.com`** via a shared bootstrap snippet:
 
-On production, [`initAnalytics()`](../src/utils/analytics.ts) configures:
+- Next.js production (Netlify): [`src/app/layout.tsx`](../src/app/layout.tsx) loads [`PLAUSIBLE_BOOTSTRAP_SCRIPT`](../src/utils/plausibleSnippet.ts)
+- Vite / `index.html`: same loader inline in [`index.html`](../index.html)
+
+Localhost, Netlify preview URLs, and other hosts do **not** load the script.
+
+On production, [`initAnalytics()`](../src/utils/analytics.ts) (from [`AppProviders`](../src/components/AppProviders.tsx) / Vite `App`) configures:
 
 - **Outbound link** click tracking
 - **Form submission** tracking (counts submissions only — no field values)
 - Manual SPA pageviews (`autoCapturePageviews: false` — no double-counting on route changes)
+
+[`trackPageView()`](../src/utils/analytics.ts) runs on Next route changes in [`ClientRoutePage`](../src/components/ClientRoutePage.tsx) and on Vite route changes in [`App.tsx`](../src/App.tsx).
 
 No env var is required for production.
 
@@ -93,13 +100,14 @@ Remove legacy V1 goals (`browse_filter_apply`, `event_open`, `share_submit`, etc
 
 ## Manual verification
 
-1. Open https://puddlesmap.com and Plausible **Realtime**
-2. Visit Home → Browse → Map → Event → Share → About; confirm `page` props
-3. Change filters on Home and Browse; confirm discovery events
-4. Open an activity from Home vs map; confirm `source_context`
-5. Click official page, calendar, route, share; confirm engagement events
-6. Submit share form and expansion watch; confirm no email in network payload (DevTools → filter `plausible`)
-7. Confirm localhost and Netlify preview do not load the script
+1. Open https://puddlesmap.com — DevTools → Network → filter `plausible` / `pa-qS64` and confirm the script loads
+2. Open Plausible **Realtime** and confirm yourself as a visitor
+3. Visit Home → Browse → Map → Event → Share → About; confirm `page` props
+4. Change filters on Home and Browse; confirm discovery events
+5. Open an activity from Home vs map; confirm `source_context`
+6. Click official page, calendar, route, share; confirm engagement events
+7. Submit share form and expansion watch; confirm no email in network payload
+8. Confirm localhost and Netlify preview do **not** load the script
 
 ## Code map
 
@@ -108,5 +116,8 @@ Remove legacy V1 goals (`browse_filter_apply`, `event_open`, `share_submit`, etc
 | Event constants + helpers | [`src/utils/analytics.ts`](../src/utils/analytics.ts) |
 | Enum normalization | [`src/utils/analyticsMappers.ts`](../src/utils/analyticsMappers.ts) |
 | Types | [`src/types/analytics.ts`](../src/types/analytics.ts) |
-| Pageview on route change | [`src/App.tsx`](../src/App.tsx) |
-| Plausible script | [`index.html`](../index.html) |
+| Bootstrap snippet (prod host gate) | [`src/utils/plausibleSnippet.ts`](../src/utils/plausibleSnippet.ts) |
+| Next.js script load | [`src/app/layout.tsx`](../src/app/layout.tsx) |
+| Next.js pageview on route change | [`src/components/ClientRoutePage.tsx`](../src/components/ClientRoutePage.tsx) |
+| Vite pageview / init | [`src/App.tsx`](../src/App.tsx) |
+| Vite HTML fallback | [`index.html`](../index.html) |
