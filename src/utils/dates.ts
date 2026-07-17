@@ -19,7 +19,7 @@ export function zonedCalendarDate(now: Date = new Date(), timeZone = SITE_TIMEZO
 
 /**
  * Build an absolute Instant for a Pacific wall-clock date + 24h time.
- * Shared by live/past gates, SEO, and structured data.
+ * Uses hour-in-zone (widely supported) — not timeZoneName longOffset/shortOffset.
  */
 export function toPacificIsoDateTime(date: string, time: string): string | null {
   if (!date?.trim() || !time?.trim()) return null
@@ -31,47 +31,32 @@ export function toPacificIsoDateTime(date: string, time: string): string | null 
   const minutes = Number(match[2])
   if (Number.isNaN(hours) || Number.isNaN(minutes)) return null
 
-  const probe = new Date(`${date.trim()}T12:00:00Z`)
-  if (Number.isNaN(probe.getTime())) return null
+  const ymd = date.trim()
+  const noonUtc = new Date(`${ymd}T12:00:00Z`)
+  if (Number.isNaN(noonUtc.getTime())) return null
 
+  // At 12:00 UTC, Pacific clock hour is 4 (PDT, UTC−7) or 5 (PST, UTC−8).
   let offset = '-08:00'
   try {
-    const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: SITE_TIMEZONE,
-      timeZoneName: 'longOffset',
-    }).formatToParts(probe)
-    const offsetPart = parts.find((part) => part.type === 'timeZoneName')?.value
-    const normalized = normalizeGmtOffset(offsetPart)
-    if (normalized) offset = normalized
-  } catch {
-    try {
-      const parts = new Intl.DateTimeFormat('en-US', {
+    const pacificHour = Number(
+      new Intl.DateTimeFormat('en-US', {
         timeZone: SITE_TIMEZONE,
-        timeZoneName: 'shortOffset',
-      }).formatToParts(probe)
-      const normalized = normalizeGmtOffset(
-        parts.find((part) => part.type === 'timeZoneName')?.value,
-      )
-      if (normalized) offset = normalized
-    } catch {
-      // July → PDT (−07); Jan → PST (−08)
-      const month = Number(date.trim().slice(5, 7))
-      offset = month >= 3 && month <= 11 ? '-07:00' : '-08:00'
+        hour: 'numeric',
+        hourCycle: 'h23',
+      }).format(noonUtc),
+    )
+    if (Number.isFinite(pacificHour)) {
+      const offsetHours = pacificHour - 12
+      offset = `${offsetHours <= 0 ? '-' : '+'}${String(Math.abs(offsetHours)).padStart(2, '0')}:00`
     }
+  } catch {
+    const month = Number(ymd.slice(5, 7))
+    offset = month >= 3 && month <= 11 ? '-07:00' : '-08:00'
   }
 
   const paddedHours = String(hours).padStart(2, '0')
   const paddedMinutes = String(minutes).padStart(2, '0')
-  return `${date.trim()}T${paddedHours}:${paddedMinutes}:00${offset}`
-}
-
-/** "GMT-7" / "GMT-07:00" / "UTC-7" → "-07:00" */
-function normalizeGmtOffset(offsetPart: string | undefined): string | null {
-  if (!offsetPart) return null
-  const raw = offsetPart.replace(/^(GMT|UTC)/i, '')
-  const matched = raw.match(/^([+-])(\d{1,2})(?::?(\d{2}))?$/)
-  if (!matched) return null
-  return `${matched[1]}${matched[2].padStart(2, '0')}:${(matched[3] ?? '00').padStart(2, '0')}`
+  return `${ymd}T${paddedHours}:${paddedMinutes}:00${offset}`
 }
 
 /** Optional demo override: VITE_ANCHOR_DATE=2026-06-05 */
@@ -81,12 +66,7 @@ export function getAnchorDate(): Date {
     typeof override === 'string' && override.trim()
       ? override.trim()
       : zonedCalendarDate()
-  // Noon Pacific on that calendar day — stable day key across UTC servers.
-  const iso = toPacificIsoDateTime(ymd, '12:00')
-  if (iso) {
-    const anchored = new Date(iso)
-    if (!Number.isNaN(anchored.getTime())) return startOfDay(anchored)
-  }
+  // Noon on the Pacific calendar day — string form avoids server-local TZ drift.
   return startOfDay(new Date(`${ymd}T12:00:00`))
 }
 
