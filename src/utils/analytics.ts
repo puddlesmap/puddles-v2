@@ -105,7 +105,8 @@ function isAdminPath(pathname: string): boolean {
 
 export function isProductionAnalyticsHost(): boolean {
   if (typeof window === 'undefined') return false
-  return window.location.hostname === PRODUCTION_HOSTNAME
+  const host = window.location.hostname
+  return host === PRODUCTION_HOSTNAME || host === `www.${PRODUCTION_HOSTNAME}`
 }
 
 export function isAnalyticsEnabled(): boolean {

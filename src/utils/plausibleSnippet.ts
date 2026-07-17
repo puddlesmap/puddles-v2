@@ -7,7 +7,8 @@ export const PLAUSIBLE_PRODUCTION_HOSTNAME = 'puddlesmap.com'
  * Safe to embed as an inline `<script>` — no-ops off the production hostname.
  */
 export const PLAUSIBLE_BOOTSTRAP_SCRIPT = `(function () {
-  if (location.hostname !== '${PLAUSIBLE_PRODUCTION_HOSTNAME}') return;
+  var host = location.hostname;
+  if (host !== 'puddlesmap.com' && host !== 'www.puddlesmap.com') return;
   window.plausible =
     window.plausible ||
     function () {

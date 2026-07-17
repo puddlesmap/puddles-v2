@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import { AppProviders } from '@/components/AppProviders'
 import { PLAUSIBLE_BOOTSTRAP_SCRIPT } from '@/utils/plausibleSnippet'
 import './globals.css'
@@ -34,12 +33,16 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,400&family=Quicksand:wght@700&display=swap"
           rel="stylesheet"
         />
+        {/*
+          Raw inline script (not next/script): Next App Router was serializing
+          beforeInteractive Script into the RSC payload without executing it.
+        */}
+        <script
+          id="plausible-bootstrap"
+          dangerouslySetInnerHTML={{ __html: PLAUSIBLE_BOOTSTRAP_SCRIPT }}
+        />
       </head>
       <body>
-        {/* Privacy-friendly analytics by Plausible (production hostname only) */}
-        <Script id="plausible-bootstrap" strategy="beforeInteractive">
-          {PLAUSIBLE_BOOTSTRAP_SCRIPT}
-        </Script>
         <AppProviders>
           {children}
           {modal}
