@@ -32,7 +32,7 @@ No env var is required for Plausible on production.
 
 ### PostHog
 
-Initialized in [`instrumentation-client.ts`](../instrumentation-client.ts) when `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` is set. Events go through the `/ingest` reverse proxy ([`next.config.ts`](../next.config.ts)) — **`NEXT_PUBLIC_POSTHOG_HOST` is not required**.
+Initialized in [`instrumentation-client.ts`](../instrumentation-client.ts) when `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` is set. Events go through the `/ingest` reverse proxy via **Netlify redirects** in [`netlify.toml`](../netlify.toml) (not Next.js rewrites — those break PostHog on Netlify). **`NEXT_PUBLIC_POSTHOG_HOST` is not required**.
 
 **Netlify env (required for production):**
 
@@ -158,7 +158,7 @@ Remove legacy V1 goals (`browse_filter_apply`, `event_open`, `share_submit`, etc
 | Types | [`src/types/analytics.ts`](../src/types/analytics.ts) |
 | Bootstrap snippet (prod host gate) | [`src/utils/plausibleSnippet.ts`](../src/utils/plausibleSnippet.ts) |
 | PostHog client init | [`instrumentation-client.ts`](../instrumentation-client.ts) |
-| PostHog `/ingest` proxy | [`next.config.ts`](../next.config.ts) |
+| PostHog `/ingest` proxy | [`netlify.toml`](../netlify.toml) |
 | Next.js script load | [`src/app/layout.tsx`](../src/app/layout.tsx) |
 | Next.js pageview on route change | [`src/components/ClientRoutePage.tsx`](../src/components/ClientRoutePage.tsx) |
 | Vite pageview / init | [`src/App.tsx`](../src/App.tsx) |

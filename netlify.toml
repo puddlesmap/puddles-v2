@@ -6,6 +6,28 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# PostHog reverse proxy (Netlify redirects — Next.js rewrites corrupt Content-Encoding here)
+[[redirects]]
+  from = "/ingest/static/*"
+  to = "https://us-assets.i.posthog.com/static/:splat"
+  host = "us-assets.i.posthog.com"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/ingest/array/*"
+  to = "https://us-assets.i.posthog.com/array/:splat"
+  host = "us-assets.i.posthog.com"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/ingest/*"
+  to = "https://us.i.posthog.com/:splat"
+  host = "us.i.posthog.com"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/api/sheet-api"
   to = "/.netlify/functions/sheet-api"

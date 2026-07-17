@@ -6,22 +6,8 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/ingest/static/:path*',
-        destination: 'https://us-assets.i.posthog.com/static/:path*',
-      },
-      {
-        source: '/ingest/array/:path*',
-        destination: 'https://us-assets.i.posthog.com/array/:path*',
-      },
-      {
-        source: '/ingest/:path*',
-        destination: 'https://us.i.posthog.com/:path*',
-      },
-    ]
-  },
+  // Required for PostHog trailing-slash endpoints (/e/, etc.).
+  // Proxy itself lives in netlify.toml — Next rewrites break PostHog on Netlify.
   skipTrailingSlashRedirect: true,
 }
 
