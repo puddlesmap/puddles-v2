@@ -1,8 +1,15 @@
 # Puddles analytics
 
-Puddles uses [Plausible Analytics](https://plausible.io) for privacy-friendly usage tracking. No cookies, no personal data, admin routes excluded.
+Puddles uses dual analytics on production (`puddlesmap.com`):
+
+- [Plausible](https://plausible.io) — privacy-friendly web analytics (no cookies)
+- [PostHog](https://posthog.com) — product analytics (funnels, retention; anonymous distinct ID)
+
+Admin routes are excluded from both.
 
 ## Setup
+
+### Plausible
 
 Plausible loads **only on `puddlesmap.com`** via a shared bootstrap snippet:
 
@@ -19,9 +26,42 @@ On production, [`initAnalytics()`](../src/utils/analytics.ts) (from [`AppProvide
 
 [`trackPageView()`](../src/utils/analytics.ts) runs on Next route changes in [`ClientRoutePage`](../src/components/ClientRoutePage.tsx) and on Vite route changes in [`App.tsx`](../src/App.tsx).
 
-No env var is required for production.
+No env var is required for Plausible on production.
 
 **Mobile vs desktop:** Plausible automatically breaks down visitors by device, browser, and OS in the dashboard. No custom code needed.
+
+### PostHog
+
+Initialized in [`instrumentation-client.ts`](../instrumentation-client.ts) when `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` is set. Events are proxied through `/ingest` ([`next.config.ts`](../next.config.ts)) to reduce ad-blocker drops.
+
+**Netlify env (required for production):**
+
+| Variable | Value |
+|----------|--------|
+| `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` | Project API Key (`phc_…`) from PostHog → Project settings |
+| `NEXT_PUBLIC_POSTHOG_HOST` | `https://us.i.posthog.com` (optional; client uses `/ingest`) |
+
+After changing env vars, **trigger a new deploy** so the public token is baked into the client bundle.
+
+Custom events and SPA `$pageview` are sent only on `puddlesmap.com` via [`capturePostHog`](../src/utils/analytics.ts) (same host gate as Plausible). Autocapture pageviews are off; [`trackPageView()`](../src/utils/analytics.ts) owns SPA navigations.
+
+### PostHog event aliases
+
+Plausible keeps the catalog names below. PostHog receives these aliases for product insights:
+
+| Plausible / code | PostHog |
+|------------------|---------|
+| `activity_opened` | `event_detail_view` |
+| `add_to_calendar_clicked` | `calendar_add` |
+| `visit_official_page_clicked` | `official_link_click` |
+| `activity_shared` | `event_share` |
+| `share_form_submitted` | `share_submission` |
+
+Suggested PostHog insights:
+
+- Funnel: `$pageview` → `event_detail_view` → (`calendar_add` OR `official_link_click` OR `event_share`)
+- Weekly retention: `event_detail_view` → return with `event_detail_view`
+- Weekly trends: visitors (`$pageview`), `event_detail_view`, `calendar_add`, `official_link_click`
 
 ## Event catalog
 
@@ -101,13 +141,14 @@ Remove legacy V1 goals (`browse_filter_apply`, `event_open`, `share_submit`, etc
 ## Manual verification
 
 1. Open https://puddlesmap.com — DevTools → Network → filter `plausible` / `pa-qS64` and confirm the script loads
-2. Open Plausible **Realtime** and confirm yourself as a visitor
-3. Visit Home → Browse → Map → Event → Share → About; confirm `page` props
-4. Change filters on Home and Browse; confirm discovery events
-5. Open an activity from Home vs map; confirm `source_context`
-6. Click official page, calendar, route, share; confirm engagement events
-7. Submit share form and expansion watch; confirm no email in network payload
-8. Confirm localhost and Netlify preview do **not** load the script
+2. Filter Network for `ingest` and confirm PostHog requests succeed (after token + redeploy)
+3. Open Plausible **Realtime** and PostHog **Activity** / Live; confirm yourself as a visitor
+4. Visit Home → Browse → Map → Event → Share → About; confirm `page` props / `$pageview`
+5. Change filters on Home and Browse; confirm discovery events
+6. Open an activity from Home vs map; confirm `event_detail_view` (PostHog) / `activity_opened` (Plausible)
+7. Click official page, calendar, route, share; confirm engagement aliases on PostHog
+8. Submit share form and expansion watch; confirm no email in network payload
+9. Confirm localhost and Netlify preview do **not** send production analytics
 
 ## Code map
 
@@ -117,6 +158,8 @@ Remove legacy V1 goals (`browse_filter_apply`, `event_open`, `share_submit`, etc
 | Enum normalization | [`src/utils/analyticsMappers.ts`](../src/utils/analyticsMappers.ts) |
 | Types | [`src/types/analytics.ts`](../src/types/analytics.ts) |
 | Bootstrap snippet (prod host gate) | [`src/utils/plausibleSnippet.ts`](../src/utils/plausibleSnippet.ts) |
+| PostHog client init | [`instrumentation-client.ts`](../instrumentation-client.ts) |
+| PostHog `/ingest` proxy | [`next.config.ts`](../next.config.ts) |
 | Next.js script load | [`src/app/layout.tsx`](../src/app/layout.tsx) |
 | Next.js pageview on route change | [`src/components/ClientRoutePage.tsx`](../src/components/ClientRoutePage.tsx) |
 | Vite pageview / init | [`src/App.tsx`](../src/App.tsx) |

@@ -1,3 +1,4 @@
+import posthog from 'posthog-js'
 import type { Event } from '../types/event'
 import type {
   ActivityEngagementAction,
@@ -50,6 +51,15 @@ export const ANALYTICS_EVENTS = {
   NEARBY_REQUEST_SUBMITTED: 'nearby_request_submitted',
   NEARBY_REQUEST_ERROR: 'nearby_request_error',
 } as const
+
+/** PostHog-facing names for product analytics (Plausible keeps ANALYTICS_EVENTS values). */
+export const POSTHOG_EVENT_ALIASES: Partial<Record<string, string>> = {
+  [ANALYTICS_EVENTS.ACTIVITY_OPENED]: 'event_detail_view',
+  [ANALYTICS_EVENTS.ADD_TO_CALENDAR_CLICKED]: 'calendar_add',
+  [ANALYTICS_EVENTS.VISIT_OFFICIAL_PAGE_CLICKED]: 'official_link_click',
+  [ANALYTICS_EVENTS.ACTIVITY_SHARED]: 'event_share',
+  [ANALYTICS_EVENTS.SHARE_FORM_SUBMITTED]: 'share_submission',
+}
 
 type PlausibleInitOptions = {
   autoCapturePageviews?: boolean
@@ -112,6 +122,18 @@ export function isProductionAnalyticsHost(): boolean {
 
 export function isAnalyticsEnabled(): boolean {
   return isProductionAnalyticsHost()
+}
+
+function isPostHogCaptureEnabled(): boolean {
+  return isAnalyticsEnabled()
+}
+
+function capturePostHog(eventName: string, props?: AnalyticsProps): void {
+  if (typeof window === 'undefined' || !isPostHogCaptureEnabled()) return
+  if (isAdminPath(window.location.pathname)) return
+
+  const posthogName = POSTHOG_EVENT_ALIASES[eventName] ?? eventName
+  posthog.capture(posthogName, props)
 }
 
 /** Ensure queue stub + tracker script exist before any track/init call. */
@@ -220,12 +242,10 @@ export function pageNameFromPath(pathname: string): string | null {
 }
 
 export function trackPageView(pathname: string): void {
-  if (!isAnalyticsEnabled() || isAdminPath(pathname)) return
-
-  initAnalytics()
+  if (isAdminPath(pathname)) return
 
   const info = resolvePageView(pathname)
-  if (!info || !window.plausible) return
+  if (!info) return
 
   const props = sanitizeProps({
     page: info.page,
@@ -233,17 +253,27 @@ export function trackPageView(pathname: string): void {
     ...(info.city ? { city: info.city } : {}),
   })
 
-  window.plausible('pageview', props ? { props } : undefined)
+  if (isAnalyticsEnabled()) {
+    initAnalytics()
+    if (window.plausible) {
+      window.plausible('pageview', props ? { props } : undefined)
+    }
+  }
+
+  capturePostHog('$pageview', props)
 }
 
 export function track(eventName: string, props?: AnalyticsProps): void {
-  if (!isAnalyticsEnabled()) return
   if (typeof window !== 'undefined' && isAdminPath(window.location.pathname)) return
 
-  initAnalytics()
-
   const clean = sanitizeProps(props)
-  window.plausible?.(eventName, clean ? { props: clean } : undefined)
+
+  if (isAnalyticsEnabled()) {
+    initAnalytics()
+    window.plausible?.(eventName, clean ? { props: clean } : undefined)
+  }
+
+  capturePostHog(eventName, clean)
 }
 
 export function trackEvent(eventName: string, props?: AnalyticsProps): void {
