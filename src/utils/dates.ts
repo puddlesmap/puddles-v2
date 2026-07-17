@@ -34,18 +34,44 @@ export function toPacificIsoDateTime(date: string, time: string): string | null 
   const probe = new Date(`${date.trim()}T12:00:00Z`)
   if (Number.isNaN(probe.getTime())) return null
 
-  // longOffset → "GMT-07:00" (shortOffset can be "GMT-7", which Date rejects)
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: SITE_TIMEZONE,
-    timeZoneName: 'longOffset',
-  }).formatToParts(probe)
+  let offset = '-08:00'
+  try {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: SITE_TIMEZONE,
+      timeZoneName: 'longOffset',
+    }).formatToParts(probe)
+    const offsetPart = parts.find((part) => part.type === 'timeZoneName')?.value
+    const normalized = normalizeGmtOffset(offsetPart)
+    if (normalized) offset = normalized
+  } catch {
+    try {
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: SITE_TIMEZONE,
+        timeZoneName: 'shortOffset',
+      }).formatToParts(probe)
+      const normalized = normalizeGmtOffset(
+        parts.find((part) => part.type === 'timeZoneName')?.value,
+      )
+      if (normalized) offset = normalized
+    } catch {
+      // July → PDT (−07); Jan → PST (−08)
+      const month = Number(date.trim().slice(5, 7))
+      offset = month >= 3 && month <= 11 ? '-07:00' : '-08:00'
+    }
+  }
 
-  const offsetPart = parts.find((part) => part.type === 'timeZoneName')?.value ?? 'GMT-08:00'
-  const offset = offsetPart.replace(/^GMT/i, '') || '-08:00'
   const paddedHours = String(hours).padStart(2, '0')
   const paddedMinutes = String(minutes).padStart(2, '0')
-
   return `${date.trim()}T${paddedHours}:${paddedMinutes}:00${offset}`
+}
+
+/** "GMT-7" / "GMT-07:00" / "UTC-7" → "-07:00" */
+function normalizeGmtOffset(offsetPart: string | undefined): string | null {
+  if (!offsetPart) return null
+  const raw = offsetPart.replace(/^(GMT|UTC)/i, '')
+  const matched = raw.match(/^([+-])(\d{1,2})(?::?(\d{2}))?$/)
+  if (!matched) return null
+  return `${matched[1]}${matched[2].padStart(2, '0')}:${(matched[3] ?? '00').padStart(2, '0')}`
 }
 
 /** Optional demo override: VITE_ANCHOR_DATE=2026-06-05 */
