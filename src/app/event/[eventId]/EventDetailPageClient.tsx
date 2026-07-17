@@ -1,13 +1,19 @@
 'use client'
 
 import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import { useParams } from 'next/navigation'
 import { MemoryRouter } from 'react-router-dom'
-import { ClientRoutePage } from '@/components/ClientRoutePage'
 import { SharedEventUrlPage } from '@/components/event-detail/SharedEventUrlPage'
 import { useCloseEventDetail } from '@/hooks/useCloseEventDetail'
 import { useEventDetailDocument } from '@/hooks/useEventDetailDocument'
 import { readEventDetailOverlayState } from '@/utils/nextEventDetailState'
+
+/** Lazy: soft-open background must not pull Leaflet into the event route graph. */
+const ClientRoutePage = dynamic(
+  () => import('@/components/ClientRoutePage').then((mod) => mod.ClientRoutePage),
+  { ssr: false },
+)
 
 function backgroundEntryParts(backgroundPath: string): { pathname: string; search: string } {
   const queryIndex = backgroundPath.indexOf('?')

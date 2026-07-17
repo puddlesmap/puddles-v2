@@ -1,4 +1,5 @@
 import type { Event } from '../types/event'
+import { parseEventDateTime } from './dates'
 import { getEventDirectionsDestination } from './maps'
 
 function escapeIcsText(text: string): string {
@@ -7,19 +8,6 @@ function escapeIcsText(text: string): string {
 
 function sanitizeFilename(title: string): string {
   return title.replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-').slice(0, 60) || 'puddles-event'
-}
-
-function parseEventDateTime(dateStr: string, time24: string): Date | null {
-  if (!dateStr?.trim() || !time24?.trim()) return null
-
-  const [h, m] = time24.split(':').map(Number)
-  if (!Number.isFinite(h) || !Number.isFinite(m)) return null
-
-  const d = new Date(`${dateStr}T12:00:00`)
-  if (Number.isNaN(d.getTime())) return null
-
-  d.setHours(h, m, 0, 0)
-  return d
 }
 
 function toIcsDateTimeLocal(d: Date): string {

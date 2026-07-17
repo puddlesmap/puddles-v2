@@ -1,34 +1,7 @@
 import type { Event } from '../types/event'
+import { toPacificIsoDateTime } from './dates'
 import { getEventAddressLine, getEventRoomLine } from './maps'
 import { eventDetailUrl, isOfficialEventUrl } from './eventPages'
-
-const PACIFIC_TIMEZONE = 'America/Los_Angeles'
-
-function toPacificIsoDateTime(date: string, time: string): string | null {
-  if (!date || !time) return null
-
-  const match = time.trim().match(/^(\d{1,2}):(\d{2})$/)
-  if (!match) return null
-
-  const hours = Number(match[1])
-  const minutes = Number(match[2])
-  if (Number.isNaN(hours) || Number.isNaN(minutes)) return null
-
-  const probe = new Date(`${date}T12:00:00Z`)
-  if (Number.isNaN(probe.getTime())) return null
-
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: PACIFIC_TIMEZONE,
-    timeZoneName: 'shortOffset',
-  }).formatToParts(probe)
-
-  const offsetPart = parts.find((part) => part.type === 'timeZoneName')?.value ?? 'GMT-8'
-  const offset = offsetPart.replace('GMT', '')
-  const normalizedOffset = offset.includes(':') ? offset : `${offset}:00`
-  const paddedHours = String(hours).padStart(2, '0')
-
-  return `${date}T${paddedHours}:${match[2]}:00${normalizedOffset}`
-}
 
 function buildLocation(event: Event) {
   const venue = event.venue?.trim()

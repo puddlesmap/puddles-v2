@@ -4,13 +4,64 @@ import { getPublicEnv } from './env'
 /** Rolling public calendar window — today through this many days ahead (inclusive). */
 export const PUBLIC_DISPLAY_WINDOW_DAYS = 60
 
+/** All public schedule math is Bay Area local time (Netlify/SSR runs in UTC). */
+export const SITE_TIMEZONE = 'America/Los_Angeles'
+
+/** Calendar YYYY-MM-DD in the site timezone. */
+export function zonedCalendarDate(now: Date = new Date(), timeZone = SITE_TIMEZONE): string {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(now)
+}
+
+/**
+ * Build an absolute Instant for a Pacific wall-clock date + 24h time.
+ * Shared by live/past gates, SEO, and structured data.
+ */
+export function toPacificIsoDateTime(date: string, time: string): string | null {
+  if (!date?.trim() || !time?.trim()) return null
+
+  const match = time.trim().match(/^(\d{1,2}):(\d{2})$/)
+  if (!match) return null
+
+  const hours = Number(match[1])
+  const minutes = Number(match[2])
+  if (Number.isNaN(hours) || Number.isNaN(minutes)) return null
+
+  const probe = new Date(`${date.trim()}T12:00:00Z`)
+  if (Number.isNaN(probe.getTime())) return null
+
+  // longOffset → "GMT-07:00" (shortOffset can be "GMT-7", which Date rejects)
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: SITE_TIMEZONE,
+    timeZoneName: 'longOffset',
+  }).formatToParts(probe)
+
+  const offsetPart = parts.find((part) => part.type === 'timeZoneName')?.value ?? 'GMT-08:00'
+  const offset = offsetPart.replace(/^GMT/i, '') || '-08:00'
+  const paddedHours = String(hours).padStart(2, '0')
+  const paddedMinutes = String(minutes).padStart(2, '0')
+
+  return `${date.trim()}T${paddedHours}:${paddedMinutes}:00${offset}`
+}
+
 /** Optional demo override: VITE_ANCHOR_DATE=2026-06-05 */
 export function getAnchorDate(): Date {
   const override = getPublicEnv('ANCHOR_DATE')
-  if (typeof override === 'string' && override.trim()) {
-    return startOfDay(new Date(`${override.trim()}T12:00:00`))
+  const ymd =
+    typeof override === 'string' && override.trim()
+      ? override.trim()
+      : zonedCalendarDate()
+  // Noon Pacific on that calendar day — stable day key across UTC servers.
+  const iso = toPacificIsoDateTime(ymd, '12:00')
+  if (iso) {
+    const anchored = new Date(iso)
+    if (!Number.isNaN(anchored.getTime())) return startOfDay(anchored)
   }
-  return startOfDay(new Date())
+  return startOfDay(new Date(`${ymd}T12:00:00`))
 }
 
 /** @deprecated Prefer getAnchorDate() so dates stay current. */
@@ -103,18 +154,12 @@ export function formatTime(time24: string): string {
 /** Default visible window for events without a distinct end time. */
 export const DEFAULT_EVENT_DURATION_MS = 30 * 60 * 1000
 
-/** Local date + 24h time (matches calendar export parsing). */
+/** Pacific date + 24h time → absolute Instant (safe on UTC servers). */
 export function parseEventDateTime(dateStr: string, time24: string): Date | null {
-  if (!dateStr?.trim() || !time24?.trim()) return null
-
-  const [h, m] = time24.split(':').map(Number)
-  if (!Number.isFinite(h) || !Number.isFinite(m)) return null
-
-  const d = parseFlexibleDate(dateStr) ?? new Date(`${dateStr}T12:00:00`)
-  if (Number.isNaN(d.getTime())) return null
-
-  d.setHours(h, m, 0, 0)
-  return d
+  const iso = toPacificIsoDateTime(dateStr, time24)
+  if (!iso) return null
+  const d = new Date(iso)
+  return Number.isNaN(d.getTime()) ? null : d
 }
 
 /** True when the event start is still in the future. */
