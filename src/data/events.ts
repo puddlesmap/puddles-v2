@@ -4,6 +4,7 @@ import { getShowcaseEvents } from './showcase-events'
 import { isPublicAgeEligible } from '../utils/ageRange'
 import { isOutOfAgeAudienceForPublic } from '../utils/eventAudienceAge'
 import { enrichPublishingFields, isPublicEvent } from '../utils/publishing'
+import { collapseSameSlotDuplicates } from '../utils/eventDuplicates'
 
 const sheetLiveCount = (sheetEvents as Event[]).filter((event) => event.isLive).length
 const includeShowcaseEvents = sheetLiveCount === 0
@@ -28,12 +29,13 @@ export const ALL_EVENTS: Event[] = [...ALL_SHOWCASE_EVENTS, ...ALL_SHEET_EVENTS]
  * Used by Discovery, Browse (list + map), Event Details, and calendar actions.
  */
 export function getPublicEventsFromCatalog(now: Date = new Date()): Event[] {
-  return ALL_EVENTS.filter(
+  const publicEvents = ALL_EVENTS.filter(
     (event) =>
       isPublicEvent(event, now) &&
       isPublicAgeEligible(event.ageRange) &&
       !isOutOfAgeAudienceForPublic(event),
   )
+  return collapseSameSlotDuplicates(publicEvents)
 }
 
 /** Snapshot at module load — prefer getPublicEventsFromCatalog() when freshness matters. */

@@ -21,7 +21,11 @@ import {
   getEventRoomLine,
   isCityShownInAddress,
 } from '../utils/maps'
-import { capitalizeCitiesInText, sharedEventCityLabel } from '../utils/sharedEventNearby'
+import {
+  capitalizeCitiesInText,
+  keepCityNameOnOneLine,
+  sharedEventCityLabel,
+} from '../utils/sharedEventNearby'
 import { ANALYTICS_EVENTS, trackActivityEngagement, trackActivityOpened } from '../utils/analytics'
 import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
 import { getEventCategoryTags } from '../utils/eventImages'
@@ -393,7 +397,11 @@ export function EventDetailView({
     year: 'numeric',
   })
   const directionsUrl = getEventDirectionsUrl(event)
-  const addressLine = capitalizeCitiesInText(getEventAddressLine(event) ?? '', event.city) || null
+  const addressLine =
+    keepCityNameOnOneLine(
+      capitalizeCitiesInText(getEventAddressLine(event) ?? '', event.city),
+      event.city,
+    ) || null
   const roomLine = getEventRoomLine(event)
   const description = event.description
     ? capitalizeCitiesInText(event.description, event.city)

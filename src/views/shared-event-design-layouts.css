@@ -827,17 +827,29 @@
 }
 
 .sedl-airbnb-rail--lifecycle .sedl-airbnb-rail__lifecycle-note {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
   margin: 0.75rem 0 0;
-  font-size: 0.75rem;
   line-height: 1.45;
-  color: var(--type-supporting-color, #717171);
+  text-align: left;
 }
 
-.sedl-airbnb-rail--lifecycle .sedl-airbnb-rail__lifecycle-note a {
+.sedl-airbnb-rail--lifecycle .sedl-airbnb-rail__lifecycle-link {
+  font-size: 0.8125rem;
   font-weight: 600;
-  color: inherit;
+  color: #3d4549;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.sedl-airbnb-rail--lifecycle .sedl-airbnb-rail__lifecycle-note-text {
+  margin: 0;
+  font-size: 0.75rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--type-supporting-color, #8a8a8a);
 }
 
 .sedl--airbnb-v3-mobile .sedl-v3-mobile-cta .event-lifecycle-actions {

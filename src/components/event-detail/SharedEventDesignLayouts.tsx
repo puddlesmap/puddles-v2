@@ -39,7 +39,11 @@ import {
   isCityShownInAddress,
 } from '../../utils/maps'
 import { ANALYTICS_EVENTS, trackActivityEngagement } from '../../utils/analytics'
-import { sharedEventCityLabel, capitalizeCitiesInText } from '../../utils/sharedEventNearby'
+import {
+  sharedEventCityLabel,
+  capitalizeCitiesInText,
+  keepCityNameOnOneLine,
+} from '../../utils/sharedEventNearby'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 
 export const SHARED_EVENT_LAYOUTS = ['airbnb', 'airbnb-v2', 'airbnb-v3', 'luma', 'eventbrite'] as const
@@ -86,7 +90,10 @@ function formatV3TimeRange(startTime: string, endTime?: string): string {
 function getEventPresentation(event: Event) {
   const dateLabel = formatEventDate(event.date)
   const timeLabel = formatEventTimeRange(event.startTime, event.endTime)
-  const addressLine = capitalizeCitiesInText(getEventAddressLine(event), event.city)
+  const addressLine = keepCityNameOnOneLine(
+    capitalizeCitiesInText(getEventAddressLine(event), event.city),
+    event.city,
+  )
   const directionsUrl = getEventDirectionsUrl(event)
   const canCalendar = canAddEventToCalendar(event)
   const hasOfficial = isOfficialEventUrl(event.eventUrl)
@@ -250,12 +257,19 @@ function AirbnbV3LifecycleRail({
         Browse all activities
       </Link>
       {hasOfficialPage ? (
-        <p className="sedl-airbnb-rail__lifecycle-note">
-          <a href={event.eventUrl} target="_blank" rel="noreferrer">
+        <div className="sedl-airbnb-rail__lifecycle-note">
+          <a
+            href={event.eventUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sedl-airbnb-rail__lifecycle-link"
+          >
             View original activity page
           </a>
-          <span> — may no longer be available.</span>
-        </p>
+          <span className="sedl-airbnb-rail__lifecycle-note-text">
+            This page may no longer be available.
+          </span>
+        </div>
       ) : null}
     </aside>
   )

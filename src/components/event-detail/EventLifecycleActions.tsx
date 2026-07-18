@@ -55,11 +55,16 @@ export function EventLifecycleActions({
 
       {hasOfficialPage ? (
         <div className="event-lifecycle-actions__official">
-          <a href={event.eventUrl} target="_blank" rel="noreferrer" className="event-lifecycle-actions__official-link">
+          <a
+            href={event.eventUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="event-lifecycle-actions__official-link"
+          >
             View original activity page
           </a>
           <p className="event-lifecycle-actions__official-note">
-            The original activity page may no longer be available.
+            This page may no longer be available.
           </p>
         </div>
       ) : null}

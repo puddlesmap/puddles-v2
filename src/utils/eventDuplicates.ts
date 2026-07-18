@@ -292,6 +292,92 @@ export function eventsInDuplicateClusters(events: Event[]): Event[] {
   return events.filter((event) => ids.has(event.id))
 }
 
+function categorySlugSet(event: Event): Set<string> {
+  const slugs = new Set<string>()
+  for (const value of [...(event.types ?? []), ...(event.categoryTags ?? [])]) {
+    const slug = slugify(value)
+    if (slug) slugs.add(slug)
+  }
+  return slugs
+}
+
+function sharesCategory(a: Event, b: Event): boolean {
+  const setB = categorySlugSet(b)
+  for (const slug of categorySlugSet(a)) {
+    if (setB.has(slug)) return true
+  }
+  return false
+}
+
+function sharesEventUrl(a: Event, b: Event): boolean {
+  const urlA = a.eventUrl?.trim().toLowerCase()
+  const urlB = b.eventUrl?.trim().toLowerCase()
+  if (!urlA || !urlB || urlA === '#' || urlB === '#') return false
+  return urlA === urlB
+}
+
+/**
+ * Same-slot duplicate: same venue + date, start times within tolerance, even when
+ * titles differ (e.g. a generic recurring "Outdoor Storytime" vs a specific guest
+ * "Storytime with … , Furious Turtle"). A shared category or the same series URL
+ * guards against collapsing genuinely different concurrent programs at one venue.
+ */
+function isSameSlotDuplicate(a: Event, b: Event): boolean {
+  if (a.date !== b.date) return false
+  const venueA = slugify(a.venue)
+  const venueB = slugify(b.venue)
+  if (!venueA || venueA !== venueB) return false
+  if (!timesWithinTolerance(a, b)) return false
+  return sharesCategory(a, b) || sharesEventUrl(a, b)
+}
+
+/**
+ * Collapse same-slot duplicates for public display: within each venue+date bucket,
+ * merge events that occupy the same time slot and keep only the richest one
+ * (highest detail score), suppressing the thinner generic copies.
+ */
+export function collapseSameSlotDuplicates(events: Event[]): Event[] {
+  const buckets = new Map<string, Event[]>()
+  for (const event of events) {
+    const venue = slugify(event.venue)
+    if (!venue) continue
+    const key = `${venue}|${event.date}`
+    const list = buckets.get(key) ?? []
+    list.push(event)
+    buckets.set(key, list)
+  }
+
+  const suppressed = new Set<string>()
+  for (const group of buckets.values()) {
+    if (group.length < 2) continue
+    const used = new Set<string>()
+    for (let i = 0; i < group.length; i++) {
+      const seed = group[i]!
+      if (used.has(seed.id)) continue
+      const members = [seed]
+      used.add(seed.id)
+
+      for (let j = i + 1; j < group.length; j++) {
+        const other = group[j]!
+        if (used.has(other.id)) continue
+        if (members.some((member) => isSameSlotDuplicate(member, other))) {
+          members.push(other)
+          used.add(other.id)
+        }
+      }
+
+      if (members.length < 2) continue
+      const { winner } = pickWinner(members)
+      for (const member of members) {
+        if (member.id !== winner.id) suppressed.add(member.id)
+      }
+    }
+  }
+
+  if (suppressed.size === 0) return events
+  return events.filter((event) => !suppressed.has(event.id))
+}
+
 export function clusterSummaryForEmail(clusters: DuplicateCluster[]): {
   subject: string
   body: string

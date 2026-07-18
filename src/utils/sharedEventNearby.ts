@@ -70,3 +70,23 @@ export function capitalizeCitiesInText(text: string, city?: string): string {
   }
   return result
 }
+
+const NON_BREAKING_SPACE = '\u00A0'
+
+/**
+ * Keep multi-word city names (e.g. "Mountain View") from splitting across a
+ * line break in an address line. Expects `text` to already be casing-normalized
+ * by capitalizeCitiesInText, then swaps the space inside each city name for a
+ * non-breaking space so the whole name wraps to the next line together.
+ */
+export function keepCityNameOnOneLine(text: string, city?: string): string {
+  const names = ['Palo Alto', 'Los Altos', 'Mountain View']
+  if (city?.trim()) names.push(sharedEventCityLabel(city))
+
+  let result = text
+  for (const name of names) {
+    if (!name.includes(' ')) continue
+    result = result.split(name).join(name.replace(/ /g, NON_BREAKING_SPACE))
+  }
+  return result
+}

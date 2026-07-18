@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { SITE } from '../../config/site'
 import { ExpansionWatch } from '../expansion-watch/ExpansionWatch'
 
@@ -56,9 +56,16 @@ export function Footer({
             Starting in Palo Alto, Los Altos, and Mountain View.
           </p>
           <p className="site-footer-lead-line">
-            <Link to="/share" className="link-tertiary whitespace-nowrap">
+            {/*
+              Real navigation (not a react-router <Link>): the shared footer renders
+              in several router contexts — including the standalone event page whose
+              in-memory router has no matching <Routes>, where a <Link> is inert. A
+              plain anchor guarantees "Growing with your help" always lands on the
+              Share with Us page at the top, with normal history/back, on every page.
+            */}
+            <a href="/share" className="link-tertiary whitespace-nowrap">
               Growing with your help.
-            </Link>
+            </a>
           </p>
         </div>
 

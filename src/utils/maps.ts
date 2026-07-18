@@ -95,7 +95,10 @@ export function getEventAddressLine(event: Event): string {
 
 export function isCityShownInAddress(address: string, city: string): boolean {
   if (!address.trim() || !city.trim()) return false
-  return address.toLowerCase().includes(city.trim().toLowerCase())
+  // Whitespace-insensitive so a non-breaking space in the address (used to keep
+  // multi-word city names on one line) still matches the plain-space city.
+  const normalize = (value: string) => value.replace(/\s+/g, ' ').toLowerCase()
+  return normalize(address).includes(normalize(city.trim()))
 }
 
 function getStreetAddressFirstLine(event: Event): string {

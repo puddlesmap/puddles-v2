@@ -4,16 +4,19 @@ import { useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import {
   clearEventDetailOverlayState,
+  isEventDetailOverlayActive,
   readEventDetailOverlayState,
 } from '@/utils/nextEventDetailState'
 
 export function useCloseEventDetail() {
   const router = useRouter()
+  // Only an in-app soft-open has a real history entry to return to. A hard-loaded
+  // standalone page (possibly with stale sessionStorage) should fall back to /browse.
   const hasInAppReturn =
-    typeof window !== 'undefined' ? Boolean(readEventDetailOverlayState()) : false
+    typeof window !== 'undefined' ? isEventDetailOverlayActive() : false
 
   const close = useCallback(() => {
-    const overlayState = readEventDetailOverlayState()
+    const overlayState = isEventDetailOverlayActive() ? readEventDetailOverlayState() : null
     clearEventDetailOverlayState()
 
     if (overlayState?.backgroundPath) {
