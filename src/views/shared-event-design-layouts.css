@@ -182,6 +182,13 @@
   margin-inline: auto;
 }
 
+/* Airbnb v3 desktop: keep the nearby section inside the same centered column as
+   the event content + status rail (hero stays full width above). */
+.sedl--airbnb-v3-desktop .sedl-nearby-wrap {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
 /* ——— Airbnb-inspired: photo-first + sticky rail ——— */
 
 .sedl--airbnb {

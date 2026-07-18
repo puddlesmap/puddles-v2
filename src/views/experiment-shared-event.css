@@ -375,11 +375,11 @@
 @media (min-width: 768px) {
   .shared-event-nearby--v3 .shared-event-nearby__cards.browse-event-grid {
     display: grid;
-    /* Cap each track at the browse card width instead of stretching to fill the
-       wide event-detail column (mirrors .browse-content .browse-event-grid). */
-    grid-template-columns: repeat(3, minmax(0, var(--discovery-card-width)));
+    /* Fill the centered event-content column evenly so the cards align to both
+       the left and right edge of the event content above (no empty gap). */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.25rem;
-    justify-content: start;
+    justify-content: stretch;
     overflow: visible;
     margin-inline: 0;
     padding-inline: 0;
@@ -389,12 +389,12 @@
   .shared-event-nearby--v3 .shared-event-nearby__card {
     flex: none;
     width: 100%;
-    max-width: var(--discovery-card-width);
+    max-width: none;
   }
 
   .shared-event-nearby--v3 .shared-event-nearby__card .discovery-event-card {
     width: 100%;
-    max-width: var(--discovery-card-width);
+    max-width: none;
   }
 
   .shared-event-nearby--v3 .shared-event-nearby__cards.browse-event-grid::after {
