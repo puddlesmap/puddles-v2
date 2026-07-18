@@ -12,7 +12,9 @@ import { resolveEventOverlayLayout } from '@/utils/eventOverlayLayout'
 export function EventDetailModalClient() {
   const { close } = useCloseEventDetail()
   const overlayState = readEventDetailOverlayState()
-  const { publicEvent, isIndexable } = useEventDetailDocument({ skipPageMeta: true })
+  const { event: publicEvent, lifecycleStatus, now } = useEventDetailDocument({
+    skipPageMeta: true,
+  })
   const isDesktop = useMediaQuery('(min-width: 768px)')
   const resolvedLayout = resolveEventOverlayLayout(
     overlayState?.backgroundPath ?? overlayState?.returnTo ?? null,
@@ -64,7 +66,7 @@ export function EventDetailModalClient() {
         aria-label={publicEvent?.title ?? 'Event details'}
         onClick={(event) => event.stopPropagation()}
       >
-        {publicEvent && isIndexable ? (
+        {publicEvent ? (
           <EventDetailView
             event={publicEvent}
             analyticsSource={overlayState?.eventOpenSource ?? 'discovery'}
@@ -73,6 +75,8 @@ export function EventDetailModalClient() {
             presentation="overlay"
             overlayLayout={overlayLayout}
             shareInHeader={shareInHeader}
+            lifecycleStatus={lifecycleStatus ?? undefined}
+            lifecycleNow={now}
           />
         ) : (
           <div className="event-detail-overlay__unavailable">

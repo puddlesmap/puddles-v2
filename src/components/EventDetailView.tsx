@@ -9,6 +9,7 @@ import {
 } from '../utils/eventShare'
 import { addEventToCalendar, canAddEventToCalendar, isLikelyInAppBrowser } from '../utils/calendar'
 import type { EventLifecycleStatus } from '../utils/eventLifecycle'
+import type { LifecycleLinkTarget } from '../utils/eventLifecycleBrowse'
 import { EventLifecycleBanner } from './event-detail/EventLifecycleBanner'
 import { EventLifecycleActions } from './event-detail/EventLifecycleActions'
 import { SharedEventVisitorIntro } from './event-detail/SharedEventVisitorIntro'
@@ -46,6 +47,8 @@ interface EventDetailViewProps {
   shareInHeader?: boolean
   lifecycleStatus?: EventLifecycleStatus
   lifecycleNow?: Date
+  /** Where ended-state CTAs point (defaults to production /event + /browse). */
+  lifecycleLinkTarget?: LifecycleLinkTarget
   /** Direct shared URL for first-time visitors — site header context, no close control */
   visitorContext?: 'shared-direct'
 }
@@ -365,6 +368,7 @@ export function EventDetailView({
   shareInHeader = false,
   lifecycleStatus,
   lifecycleNow = new Date(),
+  lifecycleLinkTarget = 'production',
   visitorContext,
 }: EventDetailViewProps) {
   const isOverlay = presentation === 'overlay'
@@ -512,6 +516,9 @@ export function EventDetailView({
             event={event}
             chrome="modal"
             hideHeroShare={effectiveShareInHeader}
+            lifecycleStatus={lifecycleStatus}
+            lifecycleNow={lifecycleNow}
+            lifecycleLinkTarget={lifecycleLinkTarget}
           />
         </div>
       </article>
@@ -621,7 +628,13 @@ export function EventDetailView({
 
           {visitorContext === 'shared-direct' ? <SharedEventVisitorIntro event={event} /> : null}
 
-          {lifecycleStatus ? <EventLifecycleBanner event={event} status={lifecycleStatus} /> : null}
+          {lifecycleStatus ? (
+            <EventLifecycleBanner
+              event={event}
+              status={lifecycleStatus}
+              linkTarget={lifecycleLinkTarget}
+            />
+          ) : null}
 
           {!hasInAppReturn && !effectiveShareInHeader && !isEndedLifecycle && visitorContext !== 'shared-direct' ? (
             <p className="event-detail-direct-fallback">
@@ -648,6 +661,7 @@ export function EventDetailView({
           event={event}
           status={lifecycleStatus}
           now={lifecycleNow}
+          linkTarget={lifecycleLinkTarget}
         />
       ) : (
         <EventDetailActions

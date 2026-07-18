@@ -50,7 +50,9 @@ export function isDiscoverableLifecycleEvent(event: Event, now: Date = new Date(
 }
 
 export function isLifecycleDetailAccessible(event: Event): boolean {
-  return event.status !== 'Draft'
+  // Draft = never public; Hidden = intentionally removed. Both stay "unavailable".
+  // Published (upcoming) and Expired (past) detail URLs remain reachable.
+  return event.status !== 'Draft' && event.status !== 'Hidden'
 }
 
 export function isLifecycleEventIndexable(event: Event, now: Date = new Date()): boolean {

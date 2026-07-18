@@ -67,6 +67,62 @@ export function experimentNextEventPath(event: Event, catalog: Event[], now: Dat
   return next ? experimentEventDetailPath(next) : null
 }
 
+/** Where the ended/expired lifecycle CTAs point. */
+export type LifecycleLinkTarget = 'production' | 'experiment'
+
+/** Production browse href preserving city / activity / age context. */
+export function productionLifecycleBrowseHref(context: LifecycleBrowseContext = {}): string {
+  const params = new URLSearchParams()
+  if (context.city && context.city !== 'all') {
+    params.set('city', slugifyCity(context.city))
+  }
+  if (context.types?.length === 1) {
+    params.set('activity', context.types[0]!)
+  }
+  if (context.age && context.age !== 'all') {
+    params.set('age', context.age)
+  }
+  const query = params.toString()
+  return query ? `/browse?${query}` : '/browse'
+}
+
+export function productionNextEventPath(
+  event: Event,
+  catalog: Event[],
+  now: Date = new Date(),
+): string | null {
+  const next = findNextLifecycleOccurrence(event, catalog, now)
+  return next ? eventDetailPath(next) : null
+}
+
+/** "See what's coming up nearby" — production or experiment target. */
+export function resolveLifecycleNearbyHref(
+  event: Event,
+  target: LifecycleLinkTarget = 'production',
+): string {
+  const context = lifecycleBrowseContextFromEvent(event)
+  return target === 'experiment'
+    ? buildLifecycleBrowseHref(context)
+    : productionLifecycleBrowseHref(context)
+}
+
+/** "Browse all activities" — always production browse. */
+export function resolveLifecycleBrowseAllHref(event: Event): string {
+  return lifecycleProductionBrowseHref(lifecycleBrowseContextFromEvent(event))
+}
+
+/** "View the next date" — production or experiment detail path. */
+export function resolveLifecycleNextEventHref(
+  event: Event,
+  catalog: Event[],
+  now: Date,
+  target: LifecycleLinkTarget = 'production',
+): string | null {
+  return target === 'experiment'
+    ? experimentNextEventPath(event, catalog, now)
+    : productionNextEventPath(event, catalog, now)
+}
+
 export function lifecycleNearbyBrowseHref(event: Event): string {
   const slug = citySlugForCity(event.city)
   return slug ? cityBrowseHref(slug) : '/browse'

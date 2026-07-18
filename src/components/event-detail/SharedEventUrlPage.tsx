@@ -3,6 +3,7 @@
 import { useEffect, useMemo } from 'react'
 import type { Event } from '../../types/event'
 import type { EventOpenSource } from '../../types/analytics'
+import type { EventLifecycleStatus } from '../../utils/eventLifecycle'
 import { AppHeader } from '../layout/AppHeader'
 import { Footer } from '../layout/Footer'
 import { EventUnavailableState } from '../empty-states/EventUnavailableState'
@@ -16,7 +17,8 @@ import {
 
 interface SharedEventUrlPageProps {
   event?: Event
-  isIndexable: boolean
+  lifecycleStatus?: EventLifecycleStatus | null
+  lifecycleNow?: Date
   hasInAppReturn: boolean
   onClose: () => void
   analyticsSource?: EventOpenSource
@@ -25,21 +27,23 @@ interface SharedEventUrlPageProps {
 /** Production standalone /event/:id experience — Airbnb v3 shared-link layout. */
 export function SharedEventUrlPage({
   event,
-  isIndexable,
+  lifecycleStatus,
+  lifecycleNow,
   hasInAppReturn,
   onClose,
   analyticsSource = 'discovery',
 }: SharedEventUrlPageProps) {
+  const now = useMemo(() => lifecycleNow ?? new Date(), [lifecycleNow])
   const nearbyEvents = useMemo(
-    () => (event && isIndexable ? getSharedEventNearbyActivities(event, 6) : []),
-    [event, isIndexable],
+    () => (event ? getSharedEventNearbyActivities(event, 6, now) : []),
+    [event, now],
   )
 
   useEffect(() => {
-    if (event && isIndexable) {
+    if (event) {
       trackActivityOpened(event, analyticsSource)
     }
-  }, [analyticsSource, event, isIndexable])
+  }, [analyticsSource, event])
 
   return (
     <div className="shared-event-url-page">
@@ -49,8 +53,14 @@ export function SharedEventUrlPage({
         showBrandName={false}
       />
 
-      {event && isIndexable ? (
-        <SharedEventDesignLayout event={event} nearbyEvents={nearbyEvents} layout="airbnb-v3" />
+      {event ? (
+        <SharedEventDesignLayout
+          event={event}
+          nearbyEvents={nearbyEvents}
+          layout="airbnb-v3"
+          lifecycleStatus={lifecycleStatus ?? undefined}
+          lifecycleNow={now}
+        />
       ) : (
         <div className="shared-event-url-page__unavailable layout-shell-app">
           <EventUnavailableState hasInAppReturn={hasInAppReturn} onClose={onClose} />

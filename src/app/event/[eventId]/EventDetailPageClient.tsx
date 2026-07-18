@@ -29,7 +29,7 @@ function backgroundEntryParts(backgroundPath: string): { pathname: string; searc
 export function EventDetailPageClient() {
   const params = useParams<{ eventId: string }>()
   const { close, hasInAppReturn } = useCloseEventDetail()
-  const { publicEvent, isIndexable } = useEventDetailDocument({ skipPageMeta: true })
+  const { event, lifecycleStatus, now } = useEventDetailDocument({ skipPageMeta: true })
   const overlayBackground = readEventDetailOverlayState()?.backgroundPath
 
   // Soft-open with @modal: keep Home/Browse as children instead of the standalone event shell.
@@ -44,8 +44,9 @@ export function EventDetailPageClient() {
     <Suspense fallback={null}>
       <MemoryRouter key={entry} initialEntries={[entry]}>
         <SharedEventUrlPage
-          event={publicEvent}
-          isIndexable={isIndexable}
+          event={event}
+          lifecycleStatus={lifecycleStatus}
+          lifecycleNow={now}
           hasInAppReturn={hasInAppReturn}
           onClose={close}
           analyticsSource="discovery"

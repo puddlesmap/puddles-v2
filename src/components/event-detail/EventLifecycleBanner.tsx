@@ -6,16 +6,21 @@ import {
   formatLifecycleEndedPhrase,
 } from '../../utils/eventLifecycle'
 import {
-  buildLifecycleBrowseHref,
-  lifecycleBrowseContextFromEvent,
+  resolveLifecycleNearbyHref,
+  type LifecycleLinkTarget,
 } from '../../utils/eventLifecycleBrowse'
 
 interface EventLifecycleBannerProps {
   event: Event
   status: EventLifecycleStatus
+  linkTarget?: LifecycleLinkTarget
 }
 
-export function EventLifecycleBanner({ event, status }: EventLifecycleBannerProps) {
+export function EventLifecycleBanner({
+  event,
+  status,
+  linkTarget = 'production',
+}: EventLifecycleBannerProps) {
   if (status === 'upcoming') return null
 
   const isCancelled = status === 'cancelled'
@@ -26,7 +31,7 @@ export function EventLifecycleBanner({ event, status }: EventLifecycleBannerProp
   const ctaLabel = isCancelled
     ? 'See what else is coming up nearby'
     : 'See what\u2019s coming up nearby'
-  const ctaHref = buildLifecycleBrowseHref(lifecycleBrowseContextFromEvent(event))
+  const ctaHref = resolveLifecycleNearbyHref(event, linkTarget)
 
   return (
     <section className="event-lifecycle-banner" aria-labelledby="event-lifecycle-banner-title">

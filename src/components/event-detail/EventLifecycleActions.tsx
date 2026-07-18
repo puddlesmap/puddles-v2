@@ -3,10 +3,10 @@ import type { Event } from '../../types/event'
 import type { EventLifecycleStatus } from '../../utils/eventLifecycle'
 import { isOfficialEventUrl } from '../../utils/eventPages'
 import {
-  buildLifecycleBrowseHref,
-  experimentNextEventPath,
-  lifecycleBrowseContextFromEvent,
-  lifecycleProductionBrowseHref,
+  resolveLifecycleBrowseAllHref,
+  resolveLifecycleNearbyHref,
+  resolveLifecycleNextEventHref,
+  type LifecycleLinkTarget,
 } from '../../utils/eventLifecycleBrowse'
 import { getAllCatalogEventsForLifecycle } from '../../utils/eventLifecycle'
 
@@ -14,19 +14,25 @@ interface EventLifecycleActionsProps {
   event: Event
   status: EventLifecycleStatus
   now: Date
+  linkTarget?: LifecycleLinkTarget
 }
 
 export function EventLifecycleActions({
   event,
   status,
   now,
+  linkTarget = 'production',
 }: EventLifecycleActionsProps) {
   if (status === 'upcoming') return null
 
-  const browseContext = lifecycleBrowseContextFromEvent(event)
-  const nearbyHref = buildLifecycleBrowseHref(browseContext)
-  const browseAllHref = lifecycleProductionBrowseHref(browseContext)
-  const nextPath = experimentNextEventPath(event, getAllCatalogEventsForLifecycle(), now)
+  const nearbyHref = resolveLifecycleNearbyHref(event, linkTarget)
+  const browseAllHref = resolveLifecycleBrowseAllHref(event)
+  const nextPath = resolveLifecycleNextEventHref(
+    event,
+    getAllCatalogEventsForLifecycle(),
+    now,
+    linkTarget,
+  )
   const hasOfficialPage = isOfficialEventUrl(event.eventUrl)
 
   return (

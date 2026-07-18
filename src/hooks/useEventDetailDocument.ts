@@ -4,15 +4,20 @@ import { useEffect, useMemo } from 'react'
 import { useParams } from 'next/navigation'
 import { useStructuredData } from './useStructuredData'
 import {
-  getCatalogEventById,
-  getPublicEventById,
-  isEventIndexable,
-} from '../utils/eventPages'
+  getEventLifecycleStatus,
+  getLifecycleDetailEventById,
+  isLifecycleEventIndexable,
+} from '../utils/eventLifecycle'
+import { eventDocumentTitle } from '../utils/eventPages'
 import {
   buildEventJsonLd,
   eventStructuredDataId,
 } from '../utils/eventStructuredData'
-import { applyEventPageMeta, applyUnavailableEventPageMeta } from '../utils/siteMeta'
+import {
+  applyEventPageMeta,
+  applyUnavailableEventPageMeta,
+  formatDocumentTitle,
+} from '../utils/siteMeta'
 
 interface UseEventDetailDocumentOptions {
   skipPageMeta?: boolean
@@ -21,35 +26,42 @@ interface UseEventDetailDocumentOptions {
 export function useEventDetailDocument(options: UseEventDetailDocumentOptions = {}) {
   const params = useParams<{ eventId: string }>()
   const eventId = params.eventId
-  const catalogEvent = eventId ? getCatalogEventById(eventId) : undefined
-  const publicEvent = eventId ? getPublicEventById(eventId) : undefined
-  const isIndexable = publicEvent ? isEventIndexable(publicEvent) : false
+  const now = useMemo(() => new Date(), [])
+  const event = eventId ? getLifecycleDetailEventById(eventId) : undefined
+  const lifecycleStatus = event ? getEventLifecycleStatus(event, now) : null
+  const isIndexable = event ? isLifecycleEventIndexable(event, now) : false
 
   const jsonLd = useMemo(
-    () => (publicEvent && isIndexable ? buildEventJsonLd(publicEvent) : null),
-    [publicEvent, isIndexable],
+    () => (event && isIndexable ? buildEventJsonLd(event) : null),
+    [event, isIndexable],
   )
 
   useStructuredData(
-    publicEvent ? eventStructuredDataId(publicEvent) : 'puddles-event-jsonld-unavailable',
+    event ? eventStructuredDataId(event) : 'puddles-event-jsonld-unavailable',
     jsonLd,
   )
 
   useEffect(() => {
     if (options.skipPageMeta) return
 
-    if (!eventId) {
-      applyUnavailableEventPageMeta('/event/unknown')
+    if (!eventId || !event) {
+      applyUnavailableEventPageMeta(`/event/${eventId ?? 'unknown'}`)
       return
     }
 
-    if (publicEvent && isIndexable) {
-      applyEventPageMeta(publicEvent)
+    if (isIndexable) {
+      applyEventPageMeta(event)
       return
     }
 
-    applyUnavailableEventPageMeta(`/event/${eventId}`, catalogEvent?.title)
-  }, [catalogEvent?.title, eventId, isIndexable, options.skipPageMeta, publicEvent])
+    // Ended / archived: keep a real title but out of the index.
+    const robots = lifecycleStatus === 'archived' ? 'noindex, follow' : 'noindex, nofollow'
+    document.title = formatDocumentTitle(eventDocumentTitle(event))
+    const robotsMeta = document.querySelector('meta[name="robots"]')
+    if (robotsMeta) {
+      robotsMeta.setAttribute('content', robots)
+    }
+  }, [event, eventId, isIndexable, lifecycleStatus, options.skipPageMeta])
 
-  return { eventId, catalogEvent, publicEvent, isIndexable }
+  return { eventId, event, publicEvent: event, lifecycleStatus, isIndexable, now }
 }

@@ -30,6 +30,14 @@ Show event  ⇔  Is Live = TRUE
 
 Hide when Status is Draft, Hidden, or Expired, or when Is Past = TRUE.
 
+## Event detail URLs for past events
+
+Discovery (Home / Browse / Map) and the sitemap only show `Is Live = TRUE` events. However, a Published event's detail URL (`/event/:id`) stays reachable after it is past: it renders the full event page with an "This activity has ended" banner and recovery CTAs (next date / browse nearby) instead of the generic "unavailable" state.
+
+- `ended` (0-90 days past) and `archived` (90+ days) both render the ended page; both are served `noindex` (archived uses `noindex, follow`) and stay out of the sitemap.
+- `Draft` events and unknown IDs still render the "Activity unavailable" state.
+- Lifecycle status is derived at render time (see `src/utils/eventLifecycle.ts`); it is never persisted to the sheet.
+
 ## Google Sheets formulas
 
 Adjust column letters to match your Events tab layout.

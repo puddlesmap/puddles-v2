@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
-import { getPublicEventsFromCatalog } from '@/data/events'
+import { eventDetailUrl } from '@/utils/eventPages'
 import {
-  getPublicEventById,
-  isEventIndexable,
-  eventDetailUrl,
-} from '@/utils/eventPages'
+  getAllCatalogEventsForLifecycle,
+  getEventLifecycleStatus,
+  getLifecycleDetailEventById,
+  isLifecycleDetailAccessible,
+  isLifecycleEventIndexable,
+} from '@/utils/eventLifecycle'
 import {
   eventMetaDescription,
   eventOgDescription,
@@ -22,15 +24,19 @@ interface EventPageProps {
 }
 
 export async function generateStaticParams() {
-  return getPublicEventsFromCatalog().map((event) => ({ eventId: event.id }))
+  // Prebuild every non-Draft event so ended/archived detail URLs stay reachable
+  // as static shells (this route is force-static; missing params would 404).
+  return getAllCatalogEventsForLifecycle()
+    .filter((event) => isLifecycleDetailAccessible(event))
+    .map((event) => ({ eventId: event.id }))
 }
 
 export async function generateMetadata({ params }: EventPageProps): Promise<Metadata> {
   try {
     const { eventId } = await params
-    const publicEvent = getPublicEventById(eventId)
+    const event = getLifecycleDetailEventById(eventId)
 
-    if (!publicEvent || !isEventIndexable(publicEvent)) {
+    if (!event) {
       return {
         title: 'Activity unavailable · Puddles',
         description: 'This activity is no longer listed on Puddles.',
@@ -38,18 +44,29 @@ export async function generateMetadata({ params }: EventPageProps): Promise<Meta
       }
     }
 
-    const canonical = eventDetailUrl(publicEvent)
-    const title = eventPageTitle(publicEvent)
-    const description = eventMetaDescription(publicEvent)
-    const socialDescription = eventOgDescription(publicEvent)
-    const image = eventOgImageUrl(publicEvent)
+    const canonical = eventDetailUrl(event)
+    const title = eventPageTitle(event)
+    const description = eventMetaDescription(event)
+    const socialDescription = eventOgDescription(event)
+    const image = eventOgImageUrl(event)
+
+    // Ended / archived pages stay live but out of the index.
+    if (!isLifecycleEventIndexable(event)) {
+      const status = getEventLifecycleStatus(event)
+      return {
+        title,
+        description,
+        alternates: { canonical },
+        robots: { index: false, follow: status === 'archived' },
+      }
+    }
 
     return {
       title,
       description,
       alternates: { canonical },
       openGraph: {
-        title: publicEvent.title,
+        title: event.title,
         description: socialDescription,
         url: canonical,
         type: 'article',
@@ -58,7 +75,7 @@ export async function generateMetadata({ params }: EventPageProps): Promise<Meta
       },
       twitter: {
         card: 'summary_large_image',
-        title: publicEvent.title,
+        title: event.title,
         description: socialDescription,
         images: [image],
       },

@@ -22,10 +22,10 @@ import {
   type EventLifecycleStatus,
 } from '../../utils/eventLifecycle'
 import {
-  buildLifecycleBrowseHref,
-  experimentNextEventPath,
-  lifecycleBrowseContextFromEvent,
-  lifecycleProductionBrowseHref,
+  resolveLifecycleBrowseAllHref,
+  resolveLifecycleNearbyHref,
+  resolveLifecycleNextEventHref,
+  type LifecycleLinkTarget,
 } from '../../utils/eventLifecycleBrowse'
 import { eventDetailUrl, isOfficialEventUrl } from '../../utils/eventPages'
 import { getEventCategoryTags } from '../../utils/eventImages'
@@ -62,6 +62,8 @@ interface SharedEventDesignLayoutProps {
   /** Optional lifecycle overlay (ended / cancelled / archived experiment). */
   lifecycleStatus?: EventLifecycleStatus
   lifecycleNow?: Date
+  /** Where ended-state CTAs point (defaults to production /event + /browse). */
+  lifecycleLinkTarget?: LifecycleLinkTarget
 }
 
 function isEndedLifecycleStatus(status?: EventLifecycleStatus): boolean {
@@ -207,16 +209,22 @@ function AirbnbV3LifecycleRail({
   event,
   status,
   now,
+  linkTarget = 'production',
 }: {
   event: Event
   status: EventLifecycleStatus
   now: Date
+  linkTarget?: LifecycleLinkTarget
 }) {
   const isCancelled = status === 'cancelled'
-  const browseContext = lifecycleBrowseContextFromEvent(event)
-  const nearbyHref = buildLifecycleBrowseHref(browseContext)
-  const browseAllHref = lifecycleProductionBrowseHref(browseContext)
-  const nextPath = experimentNextEventPath(event, getAllCatalogEventsForLifecycle(), now)
+  const nearbyHref = resolveLifecycleNearbyHref(event, linkTarget)
+  const browseAllHref = resolveLifecycleBrowseAllHref(event)
+  const nextPath = resolveLifecycleNextEventHref(
+    event,
+    getAllCatalogEventsForLifecycle(),
+    now,
+    linkTarget,
+  )
   const hasOfficialPage = isOfficialEventUrl(event.eventUrl)
   const schedule = isCancelled
     ? formatLifecycleCancelledPhrase(event)
@@ -820,6 +828,7 @@ export function AirbnbV3DesktopContent({
   hideHeroShare = false,
   lifecycleStatus,
   lifecycleNow = new Date(),
+  lifecycleLinkTarget = 'production',
 }: {
   event: Event
   nearbyEvents?: Event[]
@@ -828,6 +837,7 @@ export function AirbnbV3DesktopContent({
   hideHeroShare?: boolean
   lifecycleStatus?: EventLifecycleStatus
   lifecycleNow?: Date
+  lifecycleLinkTarget?: LifecycleLinkTarget
 }) {
   const p = getEventPresentation(event)
   const v3 = {
@@ -868,7 +878,11 @@ export function AirbnbV3DesktopContent({
           <h1 className="sedl-airbnb-title">{event.title}</h1>
 
           {lifecycleStatus ? (
-            <EventLifecycleBanner event={event} status={lifecycleStatus} />
+            <EventLifecycleBanner
+              event={event}
+              status={lifecycleStatus}
+              linkTarget={lifecycleLinkTarget}
+            />
           ) : null}
 
           <div className="sedl-airbnb-facts">
@@ -930,7 +944,12 @@ export function AirbnbV3DesktopContent({
         </div>
 
         {isEnded && lifecycleStatus ? (
-          <AirbnbV3LifecycleRail event={event} status={lifecycleStatus} now={lifecycleNow} />
+          <AirbnbV3LifecycleRail
+            event={event}
+            status={lifecycleStatus}
+            now={lifecycleNow}
+            linkTarget={lifecycleLinkTarget}
+          />
         ) : (
           <AirbnbV1CtaRail event={event} presentation={v3} />
         )}
@@ -960,6 +979,7 @@ function AirbnbV3Layout({
   buildNearbyEventHref,
   lifecycleStatus,
   lifecycleNow = new Date(),
+  lifecycleLinkTarget = 'production',
 }: Omit<SharedEventDesignLayoutProps, 'layout'>) {
   const p = getEventPresentation(event)
   const tipItems = parseEventTips(event.tips)
@@ -980,6 +1000,7 @@ function AirbnbV3Layout({
         chrome="page"
         lifecycleStatus={lifecycleStatus}
         lifecycleNow={lifecycleNow}
+        lifecycleLinkTarget={lifecycleLinkTarget}
       />
     )
   }
@@ -1008,7 +1029,11 @@ function AirbnbV3Layout({
             <h1 className="event-detail-title sedl-v2-title">{event.title}</h1>
 
             {lifecycleStatus ? (
-              <EventLifecycleBanner event={event} status={lifecycleStatus} />
+              <EventLifecycleBanner
+                event={event}
+                status={lifecycleStatus}
+                linkTarget={lifecycleLinkTarget}
+              />
             ) : null}
 
             <div className="sedl-v2-meta event-detail-fields">
@@ -1110,7 +1135,12 @@ function AirbnbV3Layout({
 
         <div className="sedl-v3-mobile-cta">
           {isEnded && lifecycleStatus ? (
-            <EventLifecycleActions event={event} status={lifecycleStatus} now={lifecycleNow} />
+            <EventLifecycleActions
+              event={event}
+              status={lifecycleStatus}
+              now={lifecycleNow}
+              linkTarget={lifecycleLinkTarget}
+            />
           ) : (
             <AirbnbV1CtaRail event={event} presentation={v3} />
           )}
@@ -1136,8 +1166,16 @@ export function SharedEventDesignLayout({
   buildNearbyEventHref,
   lifecycleStatus,
   lifecycleNow,
+  lifecycleLinkTarget,
 }: SharedEventDesignLayoutProps) {
-  const props = { event, nearbyEvents, buildNearbyEventHref, lifecycleStatus, lifecycleNow }
+  const props = {
+    event,
+    nearbyEvents,
+    buildNearbyEventHref,
+    lifecycleStatus,
+    lifecycleNow,
+    lifecycleLinkTarget,
+  }
   if (layout === 'luma') return <LumaLayout {...props} />
   if (layout === 'eventbrite') return <EventbriteLayout {...props} />
   if (layout === 'airbnb-v2') return <AirbnbV2Layout {...props} />

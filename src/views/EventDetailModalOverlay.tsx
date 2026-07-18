@@ -15,7 +15,7 @@ import { resolveEventOverlayLayout } from '../utils/eventOverlayLayout'
 export function EventDetailModalOverlay() {
   const location = useLocation()
   const { close } = useCloseEventDetail()
-  const { publicEvent, isIndexable } = useEventDetailDocument()
+  const { event: publicEvent, lifecycleStatus, now } = useEventDetailDocument()
   const navState = parseEventDetailLocationState(location.state)
   const analyticsSource = navState?.eventOpenSource
   const backgroundLocation = getEventDetailBackground(location.state)
@@ -71,7 +71,7 @@ export function EventDetailModalOverlay() {
         aria-label={publicEvent?.title ?? 'Event details'}
         onClick={(event) => event.stopPropagation()}
       >
-        {publicEvent && isIndexable ? (
+        {publicEvent ? (
           <EventDetailView
             event={publicEvent}
             analyticsSource={analyticsSource}
@@ -80,6 +80,8 @@ export function EventDetailModalOverlay() {
             presentation="overlay"
             overlayLayout={overlayLayout}
             shareInHeader={shareInHeader}
+            lifecycleStatus={lifecycleStatus ?? undefined}
+            lifecycleNow={now}
           />
         ) : (
           <div className="event-detail-overlay__unavailable">

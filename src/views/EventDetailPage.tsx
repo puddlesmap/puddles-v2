@@ -7,13 +7,14 @@ import { parseEventDetailLocationState } from '../utils/eventDetailNavigation'
 export function EventDetailPage() {
   const location = useLocation()
   const { close, hasInAppReturn } = useCloseEventDetail()
-  const { publicEvent, isIndexable } = useEventDetailDocument()
+  const { event, lifecycleStatus, now } = useEventDetailDocument()
   const analyticsSource = parseEventDetailLocationState(location.state)?.eventOpenSource
 
   return (
     <SharedEventUrlPage
-      event={publicEvent}
-      isIndexable={isIndexable}
+      event={event}
+      lifecycleStatus={lifecycleStatus}
+      lifecycleNow={now}
       hasInAppReturn={hasInAppReturn}
       onClose={close}
       analyticsSource={analyticsSource}

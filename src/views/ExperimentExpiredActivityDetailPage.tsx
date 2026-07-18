@@ -45,6 +45,7 @@ export function ExperimentExpiredActivityDetailPage() {
             layout="airbnb-v3"
             lifecycleStatus={lifecycleStatus}
             lifecycleNow={now}
+            lifecycleLinkTarget="experiment"
             buildNearbyEventHref={(id) => experimentEventDetailPath({ id })}
           />
           <Footer fullBleed className="mt-0" />
