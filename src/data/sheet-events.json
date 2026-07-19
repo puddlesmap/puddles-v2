@@ -648,7 +648,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3295/656",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-07-02",
     "lat": 37.3905,
     "lng": -122.0788,
     "status": "Expired",
@@ -1867,9 +1867,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a25aace2ea730c17ab50482",
@@ -1896,9 +1896,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4229,
     "lng": -122.1489,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "concerts-on-the-plaza-civic-center-plaza-2026-07-17-18-00",
@@ -1925,9 +1925,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.39,
     "lng": -122.0815,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "goat-family-movie-night-series-2026-mitchell-park-athletics-fields-2026-07-17-19-30",
@@ -1957,9 +1957,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.419,
     "lng": -122.1095,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "spongebob-the-search-for-squarepants-summer-outdoor-movie-night-series-sylvan-park-2026-07-17-20-30",
@@ -1989,9 +1989,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3816,
     "lng": -122.0619,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6961562d8b29ea2800c880a4",
@@ -2018,9 +2018,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "698e125a2a787a47a5e73bd9",
@@ -2047,9 +2047,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "toddler-drive-in-mountain-view-public-library-2026-07-18-11-00",
@@ -2080,9 +2080,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "book-launch-with-dashka-slater-the-big-one-linden-tree-books-2026-07-18-11-00",
@@ -2109,9 +2109,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69fcd2d51773192800181a98",
@@ -2139,9 +2139,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4181,
     "lng": -122.108,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69fd26c6f56bd86e00ae4709",
@@ -2171,9 +2171,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "storytime-with-rob-sayegh-jr-big-rig-pig-linden-tree-books-2026-07-19-10-30",
@@ -2202,9 +2202,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "outdoor-storytime-linden-tree-books-2026-07-19-10-30",
@@ -2233,9 +2233,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a0fb6a3e13d3b4603b50f77",
@@ -2262,9 +2262,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "697025281e64afd01e559e36",
@@ -2293,39 +2293,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "illustration-workshop-with-laura-g-lee-linden-tree-books-2026-07-19-16-00",
-    "title": "Illustration Workshop with Laura G. Lee",
-    "description": "Calling all young artists ages 10-13! Join us this summer for a series of hands-on art workshops led by a trio of talented, published illustrators:\n \n * Sunday, June 14 at 4pm: **Christy Hale** , author-illustrator of *Reaching Across the Sky* , *Serious Fun!*, and more\n * Sunday, July 19 at 4pm: **Laura G. Lee** , author-illustrator of *Soy Sauce!*\n * Sunday, August 16 at 4pm: **Cindy Chang** , author-illustrator of *How to Draw a Secret*\n \n Each workshop lasts 90 minutes and costs $75. Materia",
-    "venue": "Linden Tree Books",
-    "address": "265 State Street\nLos Altos, CA 94022",
-    "city": "Los Altos",
-    "date": "2026-07-19",
-    "startTime": "16:00",
-    "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Arts & Crafts",
-      "Build & Explore",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Arts & Crafts",
-      "Build & Explore",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://cdn.shoplightspeed.com/shops/611345/files/76147279/summer-art-workshops-rsvp-now.jpg",
-    "eventUrl": "https://www.lindentreebooks.com/workshops-summer2026",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.3792,
-    "lng": -122.1161,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4390,7 +4357,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://www.jotform.com/form/261546842625058",
-    "verifiedDate": "2026-07-02",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
