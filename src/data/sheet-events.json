@@ -1,5 +1,36 @@
 [
   {
+    "id": "thursday-live-on-cal-ave-cal-ave-2001-09-24-17-00",
+    "title": "Thursday Live on Cal Ave.",
+    "description": "Palo Alto Recreation Foundation, in partnership with the City of Palo Alto, and signature event series sponsors Mark Zuckerberg and Priscilla Chan, Stanford Research Park, and the Palo Alto Weekly, present Thursday Live on Cal Ave., a free outdoor concert series bringing together local musical talent, themed experiences and community activity to California Avenue. Thursday Live on Cal Ave. will transform car free Cal Ave. into a lively gathering space with popular, local music talent, interactiv",
+    "venue": "Cal Ave",
+    "address": "El Camino & California (E) Palo Alto, CA 94306",
+    "city": "Palo Alto",
+    "date": "2001-09-24",
+    "startTime": "17:00",
+    "endTime": "20:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Build & Explore",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/city-manager/communications-office/events/thursday-live-flyer.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/City-Manager/Thursday-Live-on-Cal-Ave.-July-30",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4419,
+    "lng": -122.143,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
     "id": "69b835d42866a5b488426bfa",
     "title": "Bilingual Spanish Family Storytime / Hora de cuentos bilingüe para familias",
     "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n \n ¡Venga a la biblioteca...",
@@ -2176,6 +2207,36 @@
     "isLive": false
   },
   {
+    "id": "fleetwood-mask-the-ultimate-fleetwood-mac-tribute-with-opening-band-business-casual-rinconda-park-20",
+    "title": "Fleetwood Mask - The Ultimate Fleetwood Mac Tribute! With Opening Band - Business Casual",
+    "description": "The legend lives on with the world’s most authentic tribute to Fleetwood Mac - the only tribute in the Americas officially endorsed by Fleetwood Mac founding member Mick Fleetwood. For more information about Fleetwood Mask, visit their website.\n\nBonus Opening Band! Business Casual at 5 p.m.  | Business Casual is a five-member a cappella vocal band celebrated for their smart and surprising covers of popular songs. Business Casual delights audiences with genre-swapped arrangements of crowd-pleasin",
+    "tips": "Bonus Opening Band! Business Casual at 5 p.m. \n\nFood Truck Fare Provided by El Amanecer Taquiera.",
+    "venue": "Rinconda Park",
+    "address": "777 Embarcadero Rd, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-07-18",
+    "startTime": "18:30",
+    "endTime": "20:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/childrens-theatre/production-pictures/sun-kings-audience.jpg?w=600&h=338",
+    "eventUrl": "https://www.paloalto.gov/Departments/Community-Services/Arts-Sciences/Palo-Alto-Childrens-Theatre/Twilight-Concert-Series",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4419,
+    "lng": -122.143,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
     "id": "storytime-with-rob-sayegh-jr-big-rig-pig-linden-tree-books-2026-07-19-10-30",
     "title": "Storytime with Rob Sayegh Jr., Big Rig Pig",
     "description": "Join us for a special storytime with illustrator Rob Sayegh Jr. as he shares his delightful new picture book, [Big Rig Pig](https://www.lindentreebooks.com/big-rig-pig.html), written by Claire Tattersfield.\n \n When Miles spends the whole day helping out others, hauling boxes, five tons of apples, and even an entire circus, he learns that maybe he doesn't have to do it all. And that sometimes, it's okay if he's the one who needs help; good friends will always be there to lend a helping hand, or t",
@@ -2293,9 +2354,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "story-stones-mountain-view-public-library-2026-07-20-15-30",
@@ -2325,9 +2386,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "699f60146724c63d00f52cc6",
@@ -2892,6 +2953,35 @@
     "isLive": true
   },
   {
+    "id": "lori-rj-lively-interactive-music-magical-bridge-foundation-summer-concert-series-magical-bridge-play",
+    "title": "Lori & RJ Lively & Interactive Music: Magical Bridge Foundation - Summer Concert Series",
+    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
+    "venue": "Magical Bridge Playground",
+    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
+    "city": "Palo Alto",
+    "date": "2026-07-24",
+    "startTime": "06:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4179,
+    "lng": -122.1077,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "steam-fridays-mountain-view-public-library-2026-07-24-09-00",
     "title": "STEAM Fridays",
     "description": "Get ready to tinker, build, explore, and create!\n\nJoin us for STEAM Fridays, a drop-in program full of hands-on activities that spark curiosity and creativity. Whether you're a budding scientist, an imaginative engineer, or an artistic innovator, there’s something for everyone to discover.\n\nEach week features a variety of self-directed projects in Science, Technology, Engineering, Art, and Math, perfect for curious minds who love to experiment and play.",
@@ -3123,6 +3213,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "magical-bridge-foundation-the-dome-combo-lytton-plaza-2026-07-25-19-30",
+    "title": "Magical Bridge Foundation - The Dome Combo",
+    "description": "Join us at Lytton Plaza in Palo Alto for a jazz performance by The Dome Combo, a talented group of students from Palo Alto High School and Gunn High School! All ages and abilities are welcome!",
+    "venue": "Lytton Plaza",
+    "address": "200 University Ave, Palo Alto, CA",
+    "city": "Palo Alto",
+    "date": "2026-07-25",
+    "startTime": "19:30",
+    "endTime": "21:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/the-dome-combo.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-The-Dome-Combo",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4419,
+    "lng": -122.143,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -3854,6 +3973,37 @@
     "isLive": true
   },
   {
+    "id": "thursday-live-on-cal-ave-cal-ave-2026-07-30-17-00",
+    "title": "Thursday Live on Cal Ave.",
+    "description": "Palo Alto Recreation Foundation, in partnership with the City of Palo Alto, and signature event series sponsors Mark Zuckerberg and Priscilla Chan, Stanford Research Park, and the Palo Alto Weekly, present Thursday Live on Cal Ave., a free outdoor concert series bringing together local musical talent, themed experiences and community activity to California Avenue. Thursday Live on Cal Ave. will transform car free Cal Ave. into a lively gathering space with popular, local music talent, interactiv",
+    "venue": "Cal Ave",
+    "address": "El Camino & California (E) Palo Alto, CA 94306",
+    "city": "Palo Alto",
+    "date": "2026-07-30",
+    "startTime": "17:00",
+    "endTime": "20:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Build & Explore",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/city-manager/communications-office/events/thursday-live-flyer.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/City-Manager/Thursday-Live-on-Cal-Ave.-July-30",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4419,
+    "lng": -122.143,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69e9504bb6c4ac1fedce1fe0",
     "title": "KDC: Kids Dance Carnival",
     "description": "Join us for KDC Palo Alto 2026! Come get moving and grooving at this kid-centered dance party. We'll be dancing with bubbles, jamming with glow sticks, and making a collaborative art piece.\n\nCome decked out in neon, sequins, glow-in-the-dark, kandi bracelets/necklaces, and colorful costumes. Bring your own light up and glow-in-the-dark accessories and dance the early evening away! Costumes and accessories encouraged but not required.\n\nRecommended age is 2-8 years old, but we won’t be checking ID",
@@ -3911,6 +4061,37 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.38,
     "lng": -122.1124,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "james-henry-house-of-samba-kids-imaginative-musical-workshop-magical-bridge-foundation-summer-concer",
+    "title": "James Henry House of Samba Kids Imaginative Musical Workshop: Magical Bridge Foundation - Summer Concert Series",
+    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
+    "venue": "Magical Bridge Playground",
+    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
+    "city": "Palo Alto",
+    "date": "2026-07-31",
+    "startTime": "06:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement",
+      "Classes"
+    ],
+    "categoryTags": [
+      "Music & Movement",
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4692,6 +4873,35 @@
     "isLive": true
   },
   {
+    "id": "national-night-out-2026-bol-park-2026-08-04-17-00",
+    "title": "National Night Out 2026",
+    "description": "The Palo Alto Police Department is hosting National Night Out on the evening of Tuesday, August 4, 2026 from 5 to 8 p.m.\n\nThere will be games, emergency vehicles on display (including police cars, ranger trucks, and vehicles from the Palo Alto Fire Department and the Office of Emergency Services) and police personnel with whom you can chat. Come enjoy the evening with us!",
+    "venue": "Bol Park",
+    "address": "3590 Laguna Avenue Palo Alto, CA",
+    "city": "Palo Alto",
+    "date": "2026-08-04",
+    "startTime": "17:00",
+    "endTime": "20:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore"
+    ],
+    "categoryTags": [
+      "Build & Explore"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/police-department/community-involvement/national-night-out-2026-advertisement-graphic.png?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Police-Department/National-Night-Out-2026",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4419,
+    "lng": -122.143,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "national-night-out-civic-center-plaza-2026-08-04-17-30",
     "title": "National Night Out",
     "description": "Join Us for National Night Out! Together, we're building a safer, more connected community. National Night Out returns on Tuesday, August 4, 2026, from 5:30--7:30 p.m. at Civic Center Plaza (500 Castro Street) and Mercy Street. Stop by for an evening of cold treats, music by a live DJ, and fun for all ages! Connect with your neighbors and meet members of the Mountain View Police Department, Fire Department, and Recreation Division. Enjoy vehicle displays, City information booths, and more!",
@@ -4928,6 +5138,37 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "charline-pelloux-gervais-classic-hits-disney-favorites-magical-bridge-foundation-summer-concert-seri",
+    "title": "Charline Pelloux-Gervais Classic Hits & Disney Favorites: Magical Bridge Foundation - Summer Concert Series",
+    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
+    "venue": "Magical Bridge Playground",
+    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
+    "city": "Palo Alto",
+    "date": "2026-08-07",
+    "startTime": "06:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement",
+      "Classes"
+    ],
+    "categoryTags": [
+      "Music & Movement",
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5172,6 +5413,36 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "legally-blue-crowd-pleasing-electrifying-blues-rinconada-park-2026-08-08-18-30",
+    "title": "Legally Blue – Crowd-Pleasing & Electrifying Blues",
+    "description": "An electrifying blues band that stands out in the genre with its dynamic blend of traditional and contemporary influences. The six-member ensemble is known for their deep-rooted blues authenticity and innovative arrangements, making each performance a memorable experience. For more information about Legally Blue, visit their website.",
+    "tips": "Food Truck Fare Provided by El Amanecer Taquiera.",
+    "venue": "Rinconada Park",
+    "address": "777 Embarcadero Rd, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-08-08",
+    "startTime": "18:30",
+    "endTime": "20:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/childrens-theatre/production-pictures/sun-kings-audience.jpg?w=600&h=338",
+    "eventUrl": "https://www.paloalto.gov/Departments/Community-Services/Arts-Sciences/Palo-Alto-Childrens-Theatre/Twilight-Concert-Series",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4419,
+    "lng": -122.143,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5562,6 +5833,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "andy-z-music-movement-storytelling-puppetry-magical-bridge-foundation-summer-concert-series-magical-",
+    "title": "Andy Z Music, Movement, Storytelling, Puppetry: Magical Bridge Foundation - Summer Concert Series",
+    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
+    "venue": "Magical Bridge Playground",
+    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
+    "city": "Palo Alto",
+    "date": "2026-08-14",
+    "startTime": "06:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
