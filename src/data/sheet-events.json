@@ -2415,9 +2415,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835d42866a5b488426bfd",
@@ -2444,9 +2444,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "summer-outdoor-storytime-mountain-view-public-library-2026-07-21-10-30",
@@ -2476,9 +2476,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3896,
     "lng": -122.0832,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835d281b67dfe32acec7b",
@@ -2505,9 +2505,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "68afa7b0022de53d00d27170",
