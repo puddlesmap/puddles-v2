@@ -2953,35 +2953,6 @@
     "isLive": true
   },
   {
-    "id": "lori-rj-lively-interactive-music-magical-bridge-foundation-summer-concert-series-magical-bridge-play",
-    "title": "Lori & RJ Lively & Interactive Music: Magical Bridge Foundation - Summer Concert Series",
-    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
-    "venue": "Magical Bridge Playground",
-    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
-    "city": "Palo Alto",
-    "date": "2026-07-24",
-    "startTime": "06:00",
-    "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
-    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
-    "verifiedDate": "2026-07-20",
-    "lat": 37.4179,
-    "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "steam-fridays-mountain-view-public-library-2026-07-24-09-00",
     "title": "STEAM Fridays",
     "description": "Get ready to tinker, build, explore, and create!\n\nJoin us for STEAM Fridays, a drop-in program full of hands-on activities that spark curiosity and creativity. Whether you're a budding scientist, an imaginative engineer, or an artistic innovator, there’s something for everyone to discover.\n\nEach week features a variety of self-directed projects in Science, Technology, Engineering, Art, and Math, perfect for curious minds who love to experiment and play.",
@@ -3094,6 +3065,35 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.39,
     "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "lori-rj-lively-interactive-music-magical-bridge-foundation-summer-concert-series-magical-bridge-play",
+    "title": "Lori & RJ Lively & Interactive Music: Magical Bridge Foundation - Summer Concert Series",
+    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
+    "venue": "Magical Bridge Playground",
+    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
+    "city": "Palo Alto",
+    "date": "2026-07-24",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -4098,37 +4098,6 @@
     "isLive": true
   },
   {
-    "id": "james-henry-house-of-samba-kids-imaginative-musical-workshop-magical-bridge-foundation-summer-concer",
-    "title": "James Henry House of Samba Kids Imaginative Musical Workshop: Magical Bridge Foundation - Summer Concert Series",
-    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
-    "venue": "Magical Bridge Playground",
-    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
-    "city": "Palo Alto",
-    "date": "2026-07-31",
-    "startTime": "06:00",
-    "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
-    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
-    "verifiedDate": "2026-07-20",
-    "lat": 37.4179,
-    "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "6931edd1b5ff4730005608f6",
     "title": "Family Storytime",
     "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are...",
@@ -4241,6 +4210,37 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.39,
     "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "james-henry-house-of-samba-kids-imaginative-musical-workshop-magical-bridge-foundation-summer-concer",
+    "title": "James Henry House of Samba Kids Imaginative Musical Workshop: Magical Bridge Foundation - Summer Concert Series",
+    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
+    "venue": "Magical Bridge Playground",
+    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
+    "city": "Palo Alto",
+    "date": "2026-07-31",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement",
+      "Classes"
+    ],
+    "categoryTags": [
+      "Music & Movement",
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5175,37 +5175,6 @@
     "isLive": true
   },
   {
-    "id": "charline-pelloux-gervais-classic-hits-disney-favorites-magical-bridge-foundation-summer-concert-seri",
-    "title": "Charline Pelloux-Gervais Classic Hits & Disney Favorites: Magical Bridge Foundation - Summer Concert Series",
-    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
-    "venue": "Magical Bridge Playground",
-    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
-    "city": "Palo Alto",
-    "date": "2026-08-07",
-    "startTime": "06:00",
-    "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement",
-      "Classes"
-    ],
-    "categoryTags": [
-      "Music & Movement",
-      "Classes"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
-    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
-    "verifiedDate": "2026-07-20",
-    "lat": 37.4179,
-    "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "pages-and-paws-reading-buddy-mountain-view-public-library-2026-08-07-15-30",
     "title": "Pages and Paws Reading Buddy",
     "description": "Therapy reading dogs provide a comforting presence for children as they navigate the exciting realm of books. This initiative aims to build confidence, enhance literacy skills and instill a lifelong...",
@@ -5289,6 +5258,37 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.39,
     "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "charline-pelloux-gervais-classic-hits-disney-favorites-magical-bridge-foundation-summer-concert-seri",
+    "title": "Charline Pelloux-Gervais Classic Hits & Disney Favorites: Magical Bridge Foundation - Summer Concert Series",
+    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
+    "venue": "Magical Bridge Playground",
+    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
+    "city": "Palo Alto",
+    "date": "2026-08-07",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement",
+      "Classes"
+    ],
+    "categoryTags": [
+      "Music & Movement",
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5928,35 +5928,6 @@
     "isLive": true
   },
   {
-    "id": "andy-z-music-movement-storytelling-puppetry-magical-bridge-foundation-summer-concert-series-magical-",
-    "title": "Andy Z Music, Movement, Storytelling, Puppetry: Magical Bridge Foundation - Summer Concert Series",
-    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
-    "venue": "Magical Bridge Playground",
-    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
-    "city": "Palo Alto",
-    "date": "2026-08-14",
-    "startTime": "06:00",
-    "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
-    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
-    "verifiedDate": "2026-07-20",
-    "lat": 37.4179,
-    "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "tech-take-apart-mountain-view-public-library-2026-08-14-15-00",
     "title": "Tech Take Apart",
     "description": "Curious about what's inside a computer? Join us for this hands-on program where kids can take apart e-waste like CPUs, monitors, and mice to discover how computers work. Learn about the different...",
@@ -6040,6 +6011,35 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.39,
     "lng": -122.0815,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "andy-z-music-movement-storytelling-puppetry-magical-bridge-foundation-summer-concert-series-magical-",
+    "title": "Andy Z Music, Movement, Storytelling, Puppetry: Magical Bridge Foundation - Summer Concert Series",
+    "description": "We're excited to unite our community through this fun and inviting concert by Musical Memories Foundation, which sets out to enhance the lives of seniors. All ages and abilities are welcome!\n\nJoin us for performances every Friday evening (6 - 7:30 p.m.) July 10 through August 14 as part of our Summer Concert Series!",
+    "venue": "Magical Bridge Playground",
+    "address": "3700 Middlefield Rd, Palo Alto, CA, 94306",
+    "city": "Palo Alto",
+    "date": "2026-08-14",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/mb-summer-concert-serries.jpg?dimension=pageimage&w=480",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Magical-Bridge-Foundation-Summer-Concert-Series",
+    "verifiedDate": "2026-07-20",
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
