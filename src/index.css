@@ -4488,3 +4488,103 @@ select.input-field,
   animation: droplet-bounce 1.8s ease-in-out infinite;
 }
 
+/* Admin Discovery */
+.admin-discovery-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.admin-discovery-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-discovery-form__row {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .admin-discovery-form__row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.admin-discovery-field {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.admin-discovery-field__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-discovery-input {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.875rem;
+  background: #fff;
+  color: var(--color-charcoal);
+}
+
+.admin-discovery-input:focus {
+  outline: 2px solid color-mix(in srgb, var(--color-primary) 35%, transparent);
+  outline-offset: 1px;
+}
+
+.admin-discovery-textarea {
+  resize: vertical;
+  min-height: 4.5rem;
+  line-height: 1.45;
+}
+
+.admin-discovery-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+}
+
+.admin-discovery-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  color: var(--color-charcoal);
+}
+
+.admin-discovery-checked {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-discovery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.admin-discovery-tips-preview {
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+

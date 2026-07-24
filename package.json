@@ -15,6 +15,7 @@
     "sync-events": "node scripts/sync-events.mjs",
     "sync-submissions": "node scripts/sync-submissions.mjs",
     "sync-all": "npm run sync-events && npm run sync-submissions",
+    "discover:palo-alto": "node scripts/discover-palo-alto.mjs",
     "verify-expansion-watch": "node scripts/verify-expansion-watch-submission.mjs"
   },
   "dependencies": {

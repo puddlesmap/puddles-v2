@@ -10,6 +10,7 @@
  *   { action: 'updateSubmissionStatus', payload: { id, status } }
  *   { action: 'promoteSubmission', payload: { id } }
  *   { action: 'updateEventStatus', payload: { id, status } }
+ *   { action: 'appendEventDraft', payload: { title, date, ... } }
  *   { action: 'notifyDuplicates', payload: { subject, body, clusterCount?, to? } }
  *   { action: 'notifyAdminReviewFlags', payload: { subject, body, flagCount?, to? } }
  */
@@ -28,7 +29,7 @@ function doPost(e) {
 }
 
 function doGet() {
-  return jsonOutput({ ok: true, service: 'Puddles Sheet API', version: 3 });
+  return jsonOutput({ ok: true, service: 'Puddles Sheet API', version: 4 });
 }
 
 function jsonOutput(obj) {
@@ -47,6 +48,8 @@ function handleAction(action, payload) {
       return promoteSubmission(payload);
     case 'updateEventStatus':
       return updateEventStatus(payload);
+    case 'appendEventDraft':
+      return appendEventDraft(payload);
     case 'notifyDuplicates':
       return notifyDuplicates(payload);
     case 'notifyAdminReviewFlags':
@@ -375,6 +378,58 @@ function notifyAdminReviewFlags(payload) {
     sent: true,
     to: to,
     flagCount: flagCount || null,
+  };
+}
+
+function appendEventDraft(payload) {
+  if (!payload || !payload.title) throw new Error('Missing event title');
+
+  var eventId = payload.eventId || generateEventId();
+  var types = payload.types;
+  if (Object.prototype.toString.call(types) === '[object Array]') {
+    types = types.join(', ');
+  }
+  types = String(types || '').trim();
+
+  var lat = payload.lat;
+  var lng = payload.lng;
+  var latValue = lat === null || lat === undefined || lat === '' ? '' : lat;
+  var lngValue = lng === null || lng === undefined || lng === '' ? '' : lng;
+
+  var eventValues = {
+    'Event ID': eventId,
+    Title: payload.title,
+    TItle: payload.title,
+    'Event description': payload.description || '',
+    Tips: payload.tips || '',
+    Venue: payload.venue || payload.address || '',
+    Room: payload.room || '',
+    Address: payload.address || payload.venue || '',
+    City: payload.city || '',
+    'Event Date': toSheetDate(payload.date),
+    'Start DateTime': toSheetDateTime(payload.date, payload.startTime),
+    'End DateTime': toSheetDateTime(payload.date, payload.endTime || payload.startTime),
+    'Event URL': payload.eventUrl || '#',
+    'Image URL': payload.imageUrl || '',
+    Cost: payload.cost || 'Free',
+    'Age Tags Clean': payload.ageRange || '',
+    'Category Tags': types,
+    Status: 'Draft',
+    Approved: 'FALSE',
+    Source: payload.source || 'Discovery',
+    'Imported at': formatSubmittedDate(),
+    'Last Checked Date': toSheetDate(payload.verifiedDate || payload.lastChecked),
+    Latitude: latValue,
+    Longitude: lngValue,
+    Longtitide: lngValue,
+  };
+
+  appendRow(EVENTS_SHEET, eventValues);
+
+  return {
+    eventId: eventId,
+    status: 'Draft',
+    discoveryId: payload.discoveryId || null,
   };
 }
 

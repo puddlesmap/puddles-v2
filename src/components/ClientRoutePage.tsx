@@ -49,6 +49,7 @@ import { ExperimentSharedEventDetailPage } from '@/views/ExperimentSharedEventDe
 import { ExperimentWelcomePage } from '@/views/ExperimentWelcomePage'
 import { WelcomeOnboarding } from '@/components/welcome/WelcomeOnboarding'
 import { AdminEventsPage } from '@/views/admin/AdminEventsPage'
+import { AdminDiscoveryPage } from '@/views/admin/AdminDiscoveryPage'
 import { AdminSubmissionsPage } from '@/views/admin/AdminSubmissionsPage'
 import { trackPageView } from '@/utils/analytics'
 import { applySiteMeta } from '@/utils/siteMeta'
@@ -129,6 +130,7 @@ function ClientRoutes() {
               <Route element={<AdminLayout />}>
                 <Route index element={<Navigate to="events" replace />} />
                 <Route path="events" element={<AdminEventsPage />} />
+                <Route path="discovery" element={<AdminDiscoveryPage />} />
                 <Route path="submissions" element={<AdminSubmissionsPage />} />
               </Route>
             </Route>

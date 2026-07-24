@@ -7,6 +7,7 @@ import { AdminMarkInternalAnalytics } from './AdminMarkInternalAnalytics'
 
 const NAV_ITEMS = [
   { to: '/admin/events', label: 'Events' },
+  { to: '/admin/discovery', label: 'Discovery' },
   { to: '/admin/submissions', label: 'Submissions' },
 ] as const
 

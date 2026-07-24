@@ -21,6 +21,10 @@ export type SheetApiAction =
       payload: { id: string; status: string }
     }
   | {
+      action: 'appendEventDraft'
+      payload: AppendEventDraftPayload
+    }
+  | {
       action: 'notifyDuplicates'
       payload: {
         to?: string
@@ -38,6 +42,30 @@ export type SheetApiAction =
         flagCount?: number
       }
     }
+
+export interface AppendEventDraftPayload {
+  discoveryId?: string
+  title: string
+  description?: string
+  tips?: string
+  venue?: string
+  room?: string
+  address?: string
+  city?: string
+  date?: string
+  startTime?: string
+  endTime?: string
+  ageRange?: string
+  types?: string[] | string
+  cost?: string
+  eventUrl?: string
+  imageUrl?: string
+  verifiedDate?: string
+  lat?: number | null
+  lng?: number | null
+  source?: string
+  eventId?: string
+}
 
 export interface AppendSubmissionPayload {
   submissionType: 'Event' | 'Idea' | 'ExpansionWatch'
