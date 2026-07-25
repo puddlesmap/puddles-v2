@@ -2948,9 +2948,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.38,
     "lng": -122.1124,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "steam-fridays-mountain-view-public-library-2026-07-24-09-00",
@@ -2961,7 +2961,7 @@
     "address": "585 Franklin St, Mountain View, CA 94041",
     "city": "Mountain View",
     "date": "2026-07-24",
-    "startTime": "14:00",
+    "startTime": "09:00",
     "endTime": "17:00",
     "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
@@ -2978,9 +2978,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6931edd1b5ff4730005608f5",
@@ -3007,9 +3007,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a25aace2ea730c17ab50483",
@@ -3036,9 +3036,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4229,
     "lng": -122.1489,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "concerts-on-the-plaza-civic-center-plaza-2026-07-24-18-00",
@@ -3065,9 +3065,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.39,
     "lng": -122.0815,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "lori-rj-lively-interactive-music-magical-bridge-foundation-summer-concert-series-magical-bridge-play",
@@ -3094,9 +3094,9 @@
     "verifiedDate": "2026-07-20",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "hoppers-summer-outdoor-movie-night-series-stevenson-park-2026-07-24-20-30",
@@ -3126,9 +3126,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.4036,
     "lng": -122.0841,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "698e125a2a787a47a5e73bda",
@@ -3155,9 +3155,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "book-launch-with-jen-de-oliveira-pip-pals-otter-space-linden-tree-books-2026-07-25-11-00",
@@ -3184,9 +3184,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69fd1345f89ee1580051535d",
