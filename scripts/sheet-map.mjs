@@ -262,10 +262,22 @@ export function parseAgeRange(raw) {
 }
 
 export function parseCost(raw) {
-  const value = String(raw).trim().toLowerCase()
+  const value = String(raw ?? '').trim().toLowerCase()
   if (!value) return 'Free'
-  if (value.includes('paid')) return 'Paid'
-  if (value.includes('low')) return 'Low-cost'
+  if (/\bpaid\b/.test(value)) return 'Paid'
+  if (/\blow(?:-|\s*)cost\b/.test(value) || value.includes('low-cost') || value === 'low') {
+    return 'Low-cost'
+  }
+  if (/\bfree\b/.test(value) || value === '0' || value === '$0') return 'Free'
+
+  const amountMatch = value.match(/\$\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)/)
+  if (amountMatch) {
+    const n = Number(amountMatch[1] || amountMatch[2])
+    if (!Number.isFinite(n) || n <= 0) return 'Free'
+    // Membership / small fees → Low-cost; larger ticket prices → Paid
+    return n < 25 ? 'Low-cost' : 'Paid'
+  }
+
   return 'Free'
 }
 

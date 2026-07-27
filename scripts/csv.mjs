@@ -52,7 +52,13 @@ export function rowsToObjects(rows) {
     const record = {}
     headers.forEach((header, index) => {
       if (!header) return
-      record[header] = cells[index] ?? ''
+      const next = cells[index] ?? ''
+      // Google Sheet exports can repeat headers (e.g. two "Cost" columns).
+      // Keep the first non-empty value so the primary Cost ($10) isn't overwritten by a later Free.
+      if (Object.prototype.hasOwnProperty.call(record, header) && String(record[header]).trim() !== '') {
+        return
+      }
+      record[header] = next
     })
     return record
   })
