@@ -3213,9 +3213,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "magical-bridge-foundation-the-dome-combo-lytton-plaza-2026-07-25-19-30",
@@ -3242,9 +3242,9 @@
     "verifiedDate": "2026-07-20",
     "lat": 37.4419,
     "lng": -122.143,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "family-yoga-class-with-mini-yoga-club-google-visitor-experience-2026-07-26-10-00",
@@ -3277,9 +3277,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.4227,
     "lng": -122.0844,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "community-arts-day-community-school-of-music-and-arts-2026-07-26-10-00",
@@ -3309,9 +3309,9 @@
     "verifiedDate": "2026-06-05",
     "lat": 37.3894,
     "lng": -122.0833,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "storytime-with-lisa-frenkel-riddiough-furious-turtle-linden-tree-books-2026-07-26-10-30",
@@ -3344,9 +3344,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "outdoor-storytime-linden-tree-books-2026-07-26-10-30",
@@ -3375,9 +3375,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a0fb6a3e13d3b4603b50f78",
@@ -3404,9 +3404,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69fd15cb1773192800183afe",
@@ -3433,9 +3433,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "sleepy-stories-mountain-view-public-library-2026-07-27-18-30",
