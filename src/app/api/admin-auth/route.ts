@@ -24,7 +24,7 @@ function eventFromRequest(request: NextRequest) {
 
 function hasSession(request: NextRequest) {
   const cookies = parseCookies(request.headers.get('cookie') || '')
-  return verifySessionToken(cookies[ADMIN_SESSION_COOKIE])
+  return verifySessionToken(cookies[ADMIN_SESSION_COOKIE] ?? '')
 }
 
 export async function GET(request: NextRequest) {

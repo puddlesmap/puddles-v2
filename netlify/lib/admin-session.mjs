@@ -20,7 +20,9 @@ function isProductionEvent(event) {
   return !host.includes('localhost') && !host.includes('127.0.0.1')
 }
 
+/** @returns {Record<string, string>} */
 export function parseCookies(header = '') {
+  /** @type {Record<string, string>} */
   const cookies = {}
   for (const part of header.split(';')) {
     const [rawKey, ...rest] = part.trim().split('=')
