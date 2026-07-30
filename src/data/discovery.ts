@@ -4,19 +4,46 @@ import type {
   DiscoveryCatalog,
   DiscoveryViewFilter,
 } from '../types/discovery'
+import { inferAgeRangeFromText, isAgeTargetingSentence } from '../utils/discoveryAgeHints'
 
 export const DISCOVERY_CATALOG = catalog as DiscoveryCatalog
 
-export const ALL_DISCOVERY_CANDIDATES: DiscoveryCandidate[] = DISCOVERY_CATALOG.candidates.map(
-  (candidate) => ({
+function withInferredAges(candidate: DiscoveryCandidate): DiscoveryCandidate {
+  const inferred = inferAgeRangeFromText(
+    [candidate.description, candidate.tips, candidate.title].filter(Boolean).join('\n'),
+  )
+  if (!inferred) return candidate
+
+  const tips = (candidate.tips || '')
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .filter((line) => {
+      const fromLine = inferAgeRangeFromText(line)
+      return !(fromLine && isAgeTargetingSentence(line))
+    })
+    .join('\n')
+
+  return {
     ...candidate,
-    types: Array.isArray(candidate.types) ? candidate.types : [],
-    categoryTags: Array.isArray(candidate.categoryTags) ? candidate.categoryTags : [],
-    reviewStatus: candidate.reviewStatus ?? 'pending',
-    convertedEventId: candidate.convertedEventId ?? '',
-    lastChecked: candidate.lastChecked ?? '',
-    alreadyOnPuddles: Boolean(candidate.alreadyOnPuddles),
-  }),
+    ageRange: inferred.ageRange,
+    ageMin: inferred.ageMin,
+    ageMax: inferred.ageMax,
+    tips,
+  }
+}
+
+export const ALL_DISCOVERY_CANDIDATES: DiscoveryCandidate[] = DISCOVERY_CATALOG.candidates.map(
+  (candidate) =>
+    withInferredAges({
+      ...candidate,
+      types: Array.isArray(candidate.types) ? candidate.types : [],
+      categoryTags: Array.isArray(candidate.categoryTags) ? candidate.categoryTags : [],
+      reviewStatus: candidate.reviewStatus ?? 'pending',
+      convertedEventId: candidate.convertedEventId ?? '',
+      lastChecked: candidate.lastChecked ?? '',
+      alreadyOnPuddles: Boolean(candidate.alreadyOnPuddles),
+    }),
 )
 
 export function summarizeDiscoveryCounts(candidates: DiscoveryCandidate[]) {

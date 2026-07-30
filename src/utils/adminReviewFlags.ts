@@ -1,4 +1,5 @@
 import type { Event } from '../types/event'
+import { isFreeCost } from '../types/event'
 import {
   findDuplicateClusters,
   type DuplicateCluster,
@@ -124,7 +125,7 @@ function collectFieldMismatchFlags(events: Event[]): AdminReviewFlag[] {
     if (!isCandidateStatus(event)) continue
 
     const description = event.description || ''
-    if (event.cost === 'Free' && descriptionHasDollarPrice(description)) {
+    if (isFreeCost(event.cost) && descriptionHasDollarPrice(description)) {
       const priceMatch = description.match(/\$\s*\d[\d,]*(?:\.\d+)?/)
       flags.push({
         id: `field_mismatch:cost:${event.id}`,

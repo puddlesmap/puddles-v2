@@ -1,7 +1,15 @@
 export type EventStatus = 'Draft' | 'Published' | 'Hidden' | 'Expired'
 
 export type City = 'Palo Alto' | 'Los Altos' | 'Mountain View'
-export type CostLabel = 'Free' | 'Low-cost' | 'Paid'
+export type CostLabel = 'Free' | 'Low-cost' | 'Paid' | (string & {})
+
+/** True when the activity is free to attend (not a dollar amount / paid tag). */
+export function isFreeCost(cost: string | undefined | null): boolean {
+  const value = String(cost ?? '')
+    .trim()
+    .toLowerCase()
+  return !value || value === 'free' || value === '$0' || value === '0'
+}
 export type ActivityType =
   | 'Stories'
   | 'Music & Movement'

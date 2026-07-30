@@ -4579,12 +4579,191 @@ select.input-field,
 }
 
 .admin-discovery-tips-preview {
-  max-width: 14rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  max-width: none;
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
   font-size: 0.8125rem;
   color: var(--color-muted);
+  line-height: 1.35;
+}
+
+.admin-discovery-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-discovery-table {
+  table-layout: auto;
+}
+
+.admin-discovery-col-when {
+  width: 9.75rem;
+  max-width: 9.75rem;
+  white-space: nowrap;
+}
+
+.admin-discovery-time {
+  white-space: nowrap;
+}
+
+.admin-discovery-col-title {
+  width: 9.5rem;
+  min-width: 9.5rem;
+  max-width: 9.5rem;
+}
+
+.admin-discovery-title-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-discovery-col-venue {
+  min-width: 8rem;
+}
+
+.admin-discovery-col-ages {
+  width: 6.75rem;
+  max-width: 6.75rem;
+  white-space: nowrap;
+}
+
+.admin-discovery-col-tips {
+  min-width: 18rem;
+  max-width: 22rem;
+}
+
+.admin-discovery-col-status {
+  width: 5.5rem;
+  white-space: nowrap;
+}
+
+.admin-discovery-col-checked {
+  width: 7.5rem;
+  white-space: nowrap;
+}
+
+.admin-discovery-col-actions {
+  width: 5.5rem;
+  white-space: nowrap;
+}
+
+.admin-discovery-check-btn {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-muted);
+  font: inherit;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.admin-discovery-check-btn:hover {
+  color: var(--color-charcoal);
+}
+
+.admin-discovery-table-shell {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-discovery-drag-hint {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+.admin-discovery-bulk-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: #fff;
+}
+
+.admin-discovery-bulk-count {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.admin-discovery-bulk-hint {
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.admin-discovery-bulk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.admin-discovery-row {
+  user-select: none;
+  touch-action: none;
+}
+
+.admin-discovery-row.is-multi-selected > td {
+  background: color-mix(in srgb, var(--color-primary, #2f6fed) 10%, #fff);
+}
+
+.admin-discovery-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  justify-content: flex-end;
+}
+
+.admin-table .admin-discovery-sticky-actions {
+  position: sticky;
+  right: 0;
+  background: #fff;
+  box-shadow: -8px 0 10px -10px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+.admin-table thead .admin-discovery-sticky-actions {
+  background: #f8f8f7;
+  z-index: 2;
+}
+
+.admin-sort-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.admin-sort-header:hover {
+  color: var(--color-charcoal);
+}
+
+.admin-sort-header__indicator {
+  font-size: 0.7em;
+  opacity: 0.55;
+  font-weight: 500;
+}
+
+.admin-sort-header[aria-sort='ascending'] .admin-sort-header__indicator,
+.admin-sort-header[aria-sort='descending'] .admin-sort-header__indicator,
+th[aria-sort='ascending'] .admin-sort-header__indicator,
+th[aria-sort='descending'] .admin-sort-header__indicator {
+  opacity: 1;
 }
 
 

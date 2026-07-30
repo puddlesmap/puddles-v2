@@ -87,31 +87,27 @@ export function getBrowseAgeChipLabel(age: AgeFilter): string {
   return option ? `Age ${option.label}` : 'Age'
 }
 
-/** Short parent-facing label for event card age pills. */
+/**
+ * Puddles parent-facing age tags only: Ages 0–2 | Ages 2–5 | All ages.
+ * 2–5 + 5+ (or 5+ only) maps to Ages 2–5 — never precise copy ranges like 2–8.
+ */
 export function getEventCardAgeLabel(ageRange: string): string {
   const text = ageRange.trim()
-  if (!text) return 'All ages'
-
-  if (/all\s*ages?/i.test(text)) return 'All ages'
+  if (!text || /all\s*ages?/i.test(text)) return 'All ages'
 
   const buckets = parseAgeBuckets(text)
-  if (hasAllAgeBuckets(buckets)) return 'All ages'
+  if (isFullSiteAgeRange(buckets, text)) return 'All ages'
 
-  if (buckets.has('0-2') && buckets.has('2-5') && !buckets.has('5+')) {
-    return 'All ages'
+  if (buckets.has('0-2') && !buckets.has('2-5') && !buckets.has('5+')) {
+    return 'Ages 0–2'
   }
 
-  if (buckets.size === 1) {
-    if (buckets.has('0-2')) return 'Ages 0–2'
-    if (buckets.has('2-5')) return 'Ages 2–5'
+  // 2–5 only, 2–5 + 5+, or 5+ only → Ages 2–5
+  if (!buckets.has('0-2') && (buckets.has('2-5') || buckets.has('5+'))) {
+    return 'Ages 2–5'
   }
 
-  const compact = text.replace(/\s+/g, '')
-  if (/^0[-–]5$/i.test(compact)) return 'All ages'
-  if (/^0[-–]2$/i.test(compact)) return 'Ages 0–2'
-  if (/^2[-–]5$/i.test(compact)) return 'Ages 2–5'
-
-  return `Ages ${text.replace(/-/g, '–')}`
+  return 'All ages'
 }
 
 const MODAL_AGE_BUCKET_ORDER: AgeBucket[] = ['0-2', '2-5', '5+']
@@ -145,16 +141,11 @@ export function formatPublicAgeRangeLabel(ageRange: string): string {
 
 /**
  * Parent-facing age label for event detail / modal.
- * 0–5+ friendly ranges (all buckets, 0–2+2–5, or 0–5) show as All Ages.
+ * Same three Puddles labels as cards (title-cased All Ages).
  */
 export function getEventModalAgeLabel(ageRange: string): string {
-  const text = ageRange.trim()
-  if (!text || /all\s*ages?/i.test(text)) return 'All Ages'
-
-  const buckets = parseAgeBuckets(text)
-  if (isFullSiteAgeRange(buckets, text)) return 'All Ages'
-
-  return formatPublicAgeRangeLabel(ageRange)
+  const label = getEventCardAgeLabel(ageRange)
+  return label === 'All ages' ? 'All Ages' : label
 }
 
 /** Derive min/max for sync and display from bucket tags. */

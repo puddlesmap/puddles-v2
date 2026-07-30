@@ -192,7 +192,7 @@
     "endTime": "14:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories"
     ],
@@ -428,7 +428,7 @@
     "endTime": "19:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories",
       "Build & Explore"
@@ -609,7 +609,7 @@
     "endTime": "14:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories"
     ],
@@ -1442,7 +1442,7 @@
     "endTime": "11:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -1531,7 +1531,7 @@
     "endTime": "14:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories"
     ],
@@ -2550,7 +2550,7 @@
     "endTime": "11:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -2639,7 +2639,7 @@
     "endTime": "14:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories"
     ],
@@ -3627,7 +3627,7 @@
     "endTime": "11:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -3716,7 +3716,7 @@
     "endTime": "14:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories"
     ],
@@ -4047,9 +4047,9 @@
     "date": "2026-07-30",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "2–5, 5+",
+    "ageMin": 2,
+    "ageMax": 8,
     "types": [
       "Other"
     ],
@@ -4264,7 +4264,7 @@
     "categoryTags": [
       "Other"
     ],
-    "cost": "Low-cost",
+    "cost": "$10",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/6a29b52ecaf9343600621646",
     "verifiedDate": "2026-06-30",
@@ -4293,7 +4293,7 @@
     "categoryTags": [
       "Other"
     ],
-    "cost": "Low-cost",
+    "cost": "$10",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/6a29b56c8d1b82ca9f78fc85",
     "verifiedDate": "2026-06-30",
@@ -4416,7 +4416,7 @@
     "categoryTags": [
       "Other"
     ],
-    "cost": "Low-cost",
+    "cost": "$10",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/6a29b53116554cd59fc7d044",
     "verifiedDate": "2026-06-30",
@@ -4445,7 +4445,7 @@
     "categoryTags": [
       "Other"
     ],
-    "cost": "Low-cost",
+    "cost": "$10",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/6a29b5717550c8bf9f5c581f",
     "verifiedDate": "2026-06-30",
@@ -4467,7 +4467,7 @@
     "endTime": "12:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories",
       "Outdoor",
@@ -4687,7 +4687,7 @@
     "categoryTags": [
       "Other"
     ],
-    "cost": "Low-cost",
+    "cost": "$10",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/6a29b5768d1b82ca9f78fc87",
     "verifiedDate": "2026-06-30",
@@ -4716,7 +4716,7 @@
     "categoryTags": [
       "Other"
     ],
-    "cost": "Low-cost",
+    "cost": "$10",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/76806adb157fd004860e14cabb9ab02d/Used Book Sales.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/6a29b53416554cd59fc7d046",
     "verifiedDate": "2026-06-30",
@@ -4766,9 +4766,9 @@
     "date": "2026-08-03",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -5005,7 +5005,7 @@
     "endTime": "14:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories"
     ],
@@ -5760,7 +5760,7 @@
     "endTime": "14:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories"
     ],
@@ -6390,7 +6390,7 @@
     "endTime": "14:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories"
     ],
@@ -6777,7 +6777,7 @@
     "endTime": "14:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories"
     ],
@@ -7074,9 +7074,9 @@
     "date": "2026-08-31",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -7163,7 +7163,7 @@
     "endTime": "11:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -7194,7 +7194,7 @@
     "endTime": "14:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories"
     ],
@@ -7488,7 +7488,7 @@
     "endTime": "12:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 1,
     "types": [
       "Stories",
       "Outdoor",
@@ -7610,7 +7610,7 @@
     "endTime": "11:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -7991,7 +7991,7 @@
     "endTime": "11:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -8343,7 +8343,7 @@
     "endTime": "11:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -8576,9 +8576,9 @@
     "date": "2026-09-28",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -8665,7 +8665,7 @@
     "endTime": "11:00",
     "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -8937,9 +8937,9 @@
     "date": "2026-10-26",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -9027,9 +9027,9 @@
     "date": "2026-11-23",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -9180,9 +9180,9 @@
     "date": "2026-12-21",
     "startTime": "18:00",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–2",
     "ageMin": 0,
-    "ageMax": 5,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],

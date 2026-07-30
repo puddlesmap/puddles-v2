@@ -10,6 +10,10 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import {
+  inferAgeRangeFromText,
+  isAgeTargetingSentence,
+} from './age-hints.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = join(__dirname, '..')
@@ -169,6 +173,12 @@ function mapAgeRange(audienceIds) {
   return { ageRange: unique.join(', '), ageMin, ageMax }
 }
 
+function resolveAge(audienceIds, plainDescription, tipsText) {
+  const inferred = inferAgeRangeFromText(`${plainDescription}\n${tipsText || ''}`)
+  if (inferred) return inferred
+  return mapAgeRange(audienceIds)
+}
+
 function mapActivityTypes(def, entities) {
   const typeNames = (def.typeIds || [])
     .map((id) => entities.eventTypes?.[id]?.name)
@@ -293,9 +303,15 @@ function normalizeCandidate(event, entities) {
   const room = def.locationDetails || ''
   const eventUrl = `${EVENT_URL_PREFIX}${event.id}`
   const plainDescription = stripHtml(def.description)
-  const tips = extractTips(def, plainDescription)
-  const description = descriptionWithoutTips(plainDescription, tips)
-  const age = mapAgeRange(def.audienceIds)
+  const tipsRaw = extractTips(def, plainDescription)
+  const age = resolveAge(def.audienceIds, plainDescription, tipsRaw)
+  const tips = tipsRaw
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .filter((line) => !(inferAgeRangeFromText(line) && isAgeTargetingSentence(line)))
+    .join('\n')
+  const description = descriptionWithoutTips(plainDescription, tipsRaw)
   const { types, categoryTags } = mapActivityTypes(def, entities)
   const address = formatBranchAddress(location)
   const lat = location?.mapLocation?.centrePoint?.lat ?? null

@@ -277,7 +277,7 @@ export function AdminDiscoveryDetailPanel({
                 })
               }
             >
-              {busy ? 'Approving…' : 'Approve → Draft'}
+              {busy ? 'Approving…' : 'Approve'}
             </button>
             <button
               type="button"

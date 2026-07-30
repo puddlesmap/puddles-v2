@@ -5,13 +5,13 @@ import { parseCsv, rowsToObjects } from './csv.mjs'
 import {
   deriveEventId,
   parseActivityTypes,
-  parseAgeRange,
   parseCategoryTags,
-  parseCost,
   parseSheetDate,
   parseSheetDateTime,
   parseTimeRange,
   pickField,
+  resolveEventAge,
+  resolveEventCost,
   resolveGeo,
   sanitizeRoom,
 } from './sheet-map.mjs'
@@ -83,7 +83,12 @@ function mapRecord(record) {
     pickField(record, 'lng'),
     room,
   )
-  const age = parseAgeRange(pickField(record, 'ageRange'))
+  const verifiedDateRaw = pickField(record, 'verifiedDate')
+  const verifiedDate = parseSheetDate(verifiedDateRaw) ?? '2026-06-05'
+  const tips = pickField(record, 'tips')
+  // Infer ages from full description before truncating for storage.
+  const descriptionFull = pickField(record, 'description')
+  const age = resolveEventAge(pickField(record, 'ageRange'), descriptionFull, tips)
   const publishing = resolvePublishingFields({
     statusRaw: pickField(record, 'status'),
     approvedRaw: pickField(record, 'approved'),
@@ -94,14 +99,10 @@ function mapRecord(record) {
     referenceDate: PUBLISHING_REFERENCE,
   })
 
-  const verifiedDateRaw = pickField(record, 'verifiedDate')
-  const verifiedDate = parseSheetDate(verifiedDateRaw) ?? '2026-06-05'
-  const tips = pickField(record, 'tips')
-
   return {
     id: deriveEventId(record),
     title,
-    description: pickField(record, 'description').slice(0, 500),
+    description: descriptionFull.slice(0, 500),
     ...(tips ? { tips } : {}),
     venue,
     ...(room ? { room } : {}),
@@ -115,7 +116,7 @@ function mapRecord(record) {
     ageMax: age.max,
     types: parseActivityTypes(pickField(record, 'types')),
     categoryTags: parseCategoryTags(pickField(record, 'categoryTags')),
-    cost: parseCost(pickField(record, 'cost')),
+    cost: resolveEventCost(pickField(record, 'cost'), descriptionFull, tips),
     imageUrl: pickField(record, 'imageUrl') || '',
     eventUrl: pickField(record, 'eventUrl') || '#',
     verifiedDate,

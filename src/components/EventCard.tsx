@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { ReactNode } from 'react'
 import type { Event } from '../types/event'
+import { isFreeCost } from '../types/event'
 import { getEventCardAgeLabel } from '../utils/ageRange'
 import { getEventDisplayCategory } from '../utils/eventImages'
 import { formatCardDateTime } from '../utils/dates'
@@ -25,7 +26,7 @@ function EventCardPills({
   mode?: 'full' | 'free-only' | 'compact-key'
 }) {
   if (mode === 'free-only') {
-    if (event.cost !== 'Free') return null
+    if (!isFreeCost(event.cost)) return null
 
     return (
       <div className="event-card-pills" aria-hidden>
@@ -38,7 +39,7 @@ function EventCardPills({
     const pills: Array<{ key: string; label: string; tone?: 'free' }> = []
     const ageLabel = getEventCardAgeLabel(event.ageRange)
     if (ageLabel) pills.push({ key: 'age', label: ageLabel })
-    if (event.cost === 'Free') {
+    if (isFreeCost(event.cost)) {
       pills.push({ key: 'cost', label: 'Free', tone: 'free' })
     } else {
       pills.push({ key: 'cost', label: event.cost })
@@ -70,15 +71,22 @@ function EventCardPills({
   if (category) pills.push({ key: 'category', label: category, tone: 'category' })
   pills.push({ key: 'age', label: getEventCardAgeLabel(event.ageRange) })
 
-  if (event.cost === 'Free') {
+  // Always show Free or a sticker price ($10); keep Low-cost/Paid when no dollar amount.
+  if (isFreeCost(event.cost)) {
     pills.push({ key: 'cost', label: 'Free', tone: 'free' })
-  } else if (pills.length < 3) {
+  } else {
     pills.push({ key: 'cost', label: event.cost })
   }
 
+  // Prefer age + cost when we overflow (drop category first).
+  const visible =
+    pills.length <= 3
+      ? pills
+      : pills.filter((pill) => pill.key !== 'category').slice(0, 3)
+
   return (
     <div className="event-card-pills" aria-hidden>
-      {pills.slice(0, 3).map((pill) => (
+      {visible.map((pill) => (
         <span
           key={pill.key}
           className={[

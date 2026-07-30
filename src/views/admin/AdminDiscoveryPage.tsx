@@ -10,6 +10,7 @@ import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryViewFilter }
 import { callSheetApi } from '../../utils/sheetApi'
 import {
   applyDiscoveryReviewOverrides,
+  editableFieldsFromCandidate,
   loadDiscoveryReviewStore,
   pacificTodayYmd,
   saveDiscoveryReviewRecord,
@@ -46,6 +47,7 @@ export function AdminDiscoveryPage() {
   const [search, setSearch] = useState('')
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
+  const [bulkBusy, setBulkBusy] = useState(false)
   const [actionMessage, setActionMessage] = useState<ActionMessage | null>(null)
 
   const counts = useMemo(() => summarizeDiscoveryCounts(candidates), [candidates])
@@ -77,7 +79,17 @@ export function AdminDiscoveryPage() {
     const next = mergeCandidate(candidate, edits)
     updateCandidate(candidate.id, () => next)
     persistCandidate(next, edits)
-    setActionMessage({ type: 'success', text: 'Edits saved on this device.' })
+    const onlyChecked =
+      edits.lastChecked &&
+      edits.lastChecked !== candidate.lastChecked &&
+      edits.title === candidate.title &&
+      edits.tips === candidate.tips
+    setActionMessage({
+      type: 'success',
+      text: onlyChecked
+        ? `Marked “${candidate.title}” as checked (${edits.lastChecked}).`
+        : 'Edits saved on this device.',
+    })
   }
 
   async function handleApprove(candidate: DiscoveryCandidate, edits: DiscoveryEditableFields) {
@@ -145,6 +157,96 @@ export function AdminDiscoveryPage() {
     }
   }
 
+  function handleBulkCheck(rows: DiscoveryCandidate[]) {
+    const today = pacificTodayYmd()
+    const idSet = new Set(rows.map((row) => row.id))
+    setCandidates((current) =>
+      current.map((row) => {
+        if (!idSet.has(row.id)) return row
+        return mergeCandidate(row, {
+          ...editableFieldsFromCandidate(row),
+          lastChecked: today,
+        })
+      }),
+    )
+    for (const row of rows) {
+      const edits = { ...editableFieldsFromCandidate(row), lastChecked: today }
+      persistCandidate(mergeCandidate(row, edits), edits)
+    }
+    setActionMessage({
+      type: 'success',
+      text: `Marked ${rows.length} event${rows.length === 1 ? '' : 's'} as checked (${today}).`,
+    })
+  }
+
+  async function handleBulkApprove(rows: DiscoveryCandidate[]) {
+    setBulkBusy(true)
+    setActionMessage(null)
+    let okCount = 0
+    let failMessage = ''
+    for (const candidate of rows) {
+      const lastChecked = candidate.lastChecked || pacificTodayYmd()
+      const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
+      try {
+        const result = await callSheetApi<{ eventId: string; status: string }>({
+          action: 'appendEventDraft',
+          payload: {
+            discoveryId: candidate.id,
+            title: payloadEdits.title,
+            description: payloadEdits.description,
+            tips: payloadEdits.tips,
+            venue: payloadEdits.venue,
+            room: payloadEdits.room,
+            address: payloadEdits.address,
+            city: payloadEdits.city,
+            date: payloadEdits.date,
+            startTime: payloadEdits.startTime,
+            endTime: payloadEdits.endTime,
+            ageRange: payloadEdits.ageRange,
+            types: payloadEdits.types,
+            cost: payloadEdits.cost,
+            eventUrl: payloadEdits.eventUrl,
+            imageUrl: payloadEdits.imageUrl,
+            verifiedDate: lastChecked,
+            lat: candidate.lat,
+            lng: candidate.lng,
+            source: candidate.source || 'Discovery',
+          },
+        })
+        const next = mergeCandidate(candidate, payloadEdits, {
+          reviewStatus: 'approved',
+          convertedEventId: result.eventId,
+          lastChecked,
+        })
+        updateCandidate(candidate.id, () => next)
+        persistCandidate(next, payloadEdits)
+        okCount += 1
+      } catch (error) {
+        failMessage =
+          error instanceof Error ? error.message : 'Could not approve one or more candidates.'
+        break
+      }
+    }
+    setBulkBusy(false)
+    setSelectedId(null)
+    if (okCount > 0 && !failMessage) {
+      setActionMessage({
+        type: 'success',
+        text: `Approved ${okCount} event${okCount === 1 ? '' : 's'} as Draft. Refresh Events from Sheet when ready.`,
+      })
+    } else if (okCount > 0 && failMessage) {
+      setActionMessage({
+        type: 'error',
+        text: `Approved ${okCount}, then stopped: ${failMessage}`,
+      })
+    } else {
+      setActionMessage({
+        type: 'error',
+        text: failMessage || 'Could not approve selected events.',
+      })
+    }
+  }
+
   function handleDismiss(candidate: DiscoveryCandidate) {
     const next = { ...candidate, reviewStatus: 'dismissed' as const }
     updateCandidate(candidate.id, () => next)
@@ -165,7 +267,7 @@ export function AdminDiscoveryPage() {
       <section className="admin-sync-bar" aria-label="Discovery overview">
         <p className="admin-submissions-intro">
           Library discovery candidates for review. Edit content and Good to know, set{' '}
-          <strong>Last checked</strong>, then <strong>Approve → Draft</strong> on the Events sheet.
+          <strong>Last checked</strong>, then <strong>Approve</strong> to add an Events Draft.
           Publish from Events when ready.
         </p>
         <div className="admin-stat-grid admin-stat-grid-compact">
@@ -264,9 +366,12 @@ export function AdminDiscoveryPage() {
           candidates={filtered}
           selectedId={selectedId}
           busyId={busyId}
+          bulkBusy={bulkBusy}
           onSelect={handleSelect}
           onSaveEdits={handleSaveEdits}
           onApprove={handleApprove}
+          onBulkCheck={handleBulkCheck}
+          onBulkApprove={(rows) => void handleBulkApprove(rows)}
           onDismiss={handleDismiss}
           onRestore={handleRestore}
         />

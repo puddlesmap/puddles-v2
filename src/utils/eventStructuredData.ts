@@ -1,4 +1,5 @@
 import type { Event } from '../types/event'
+import { isFreeCost } from '../types/event'
 import { toPacificIsoDateTime } from './dates'
 import { getEventAddressLine, getEventRoomLine } from './maps'
 import { eventDetailUrl, isOfficialEventUrl } from './eventPages'
@@ -78,7 +79,7 @@ export function buildEventJsonLd(event: Event): Record<string, unknown> | null {
     payload.about = categories
   }
 
-  if (event.cost === 'Free') {
+  if (isFreeCost(event.cost)) {
     payload.isAccessibleForFree = true
     payload.offers = {
       '@type': 'Offer',
@@ -86,6 +87,17 @@ export function buildEventJsonLd(event: Event): Record<string, unknown> | null {
       priceCurrency: 'USD',
       url: officialUrl ?? pageUrl,
       availability: 'https://schema.org/InStock',
+    }
+  } else {
+    const amount = String(event.cost).match(/\$?\s*(\d+(?:\.\d+)?)/)
+    if (amount) {
+      payload.offers = {
+        '@type': 'Offer',
+        price: Number(amount[1]),
+        priceCurrency: 'USD',
+        url: officialUrl ?? pageUrl,
+        availability: 'https://schema.org/InStock',
+      }
     }
   }
 

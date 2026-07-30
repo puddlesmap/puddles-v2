@@ -6,25 +6,29 @@ export interface AdminSessionState {
 }
 
 export async function fetchAdminSession(): Promise<AdminSessionState> {
-  const response = await fetch(ADMIN_AUTH_PATH, {
-    method: 'GET',
-    credentials: 'include',
-    cache: 'no-store',
-  })
+  try {
+    const response = await fetch(ADMIN_AUTH_PATH, {
+      method: 'GET',
+      credentials: 'include',
+      cache: 'no-store',
+    })
 
-  const data = (await response.json()) as {
-    ok?: boolean
-    authRequired?: boolean
-    authenticated?: boolean
-  }
+    const data = (await response.json()) as {
+      ok?: boolean
+      authRequired?: boolean
+      authenticated?: boolean
+    }
 
-  if (!response.ok || !data.ok) {
+    if (!response.ok || !data.ok) {
+      return { authRequired: true, authenticated: false }
+    }
+
+    return {
+      authRequired: Boolean(data.authRequired),
+      authenticated: Boolean(data.authenticated),
+    }
+  } catch {
     return { authRequired: true, authenticated: false }
-  }
-
-  return {
-    authRequired: Boolean(data.authRequired),
-    authenticated: Boolean(data.authenticated),
   }
 }
 
