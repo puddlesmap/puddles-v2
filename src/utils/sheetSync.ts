@@ -8,7 +8,7 @@ import {
 } from '../data/venueGeo'
 import { formatPublicAgeRangeLabel } from './ageRange'
 import { resolveAgeFromSheetAndText } from './discoveryAgeHints'
-import { parseCost, resolveEventCost } from './eventCost'
+import { resolveEventCost } from './eventCost'
 import { inferActivityTypesFromText } from './eventImages'
 import { enrichPublishingFields, resolvePublishingFields } from './publishing'
 import { parseCsv, rowsToObjects } from './csv'
