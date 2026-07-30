@@ -2,6 +2,7 @@ import type { Event } from '../types/event'
 import sheetEvents from './sheet-events.json'
 import { getShowcaseEvents } from './showcase-events'
 import { isPublicAgeEligible } from '../utils/ageRange'
+import { enrichEventsFromCopy } from '../utils/enrichEventFromCopy'
 import { isOutOfAgeAudienceForPublic } from '../utils/eventAudienceAge'
 import { enrichPublishingFields, isPublicEvent } from '../utils/publishing'
 import { collapseSameSlotDuplicates } from '../utils/eventDuplicates'
@@ -10,7 +11,7 @@ const sheetLiveCount = (sheetEvents as Event[]).filter((event) => event.isLive).
 const includeShowcaseEvents = sheetLiveCount === 0
 
 function withPublishing(events: Array<Omit<Event, 'isPast' | 'isLive'> & Partial<Pick<Event, 'isPast' | 'isLive'>>>): Event[] {
-  return events.map((event) => enrichPublishingFields(event as Event))
+  return enrichEventsFromCopy(events.map((event) => enrichPublishingFields(event as Event)))
 }
 
 /** All sheet-sourced events (every Status) — for admin dashboard. */
