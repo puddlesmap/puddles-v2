@@ -3760,9 +3760,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69f14e36bd9a3c316a561b4b",
@@ -3791,9 +3791,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "music-on-castro-downtown-mountain-view-2026-07-29-17-00",
@@ -3820,9 +3820,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.3905,
     "lng": -122.0788,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69a0b0f2b48451fc3c0563c8",
@@ -3849,9 +3849,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "lego-time-mountain-view-public-library-2026-07-29-18-30",
@@ -3881,9 +3881,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69276b597eb3e430002638aa",
@@ -3912,9 +3912,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4229,
     "lng": -122.1489,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835bbb48451fc3c094404",
@@ -3942,9 +3942,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "summer-concert-james-henry-s-house-of-samba-kids-linden-tree-books-2026-07-30-11-00",
@@ -3971,9 +3971,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835b92866a5b488426bd7",
@@ -4000,9 +4000,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "thursday-live-on-cal-ave-cal-ave-2026-07-30-17-00",
@@ -4031,9 +4031,9 @@
     "verifiedDate": "2026-07-20",
     "lat": 37.4419,
     "lng": -122.143,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69e9504bb6c4ac1fedce1fe0",
@@ -4062,9 +4062,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4281,
     "lng": -122.1425,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "2026-summer-concert-series-mustache-harbor-hillview-soccer-field-2026-07-30-18-30",
@@ -4093,9 +4093,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.38,
     "lng": -122.1124,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6931edd1b5ff4730005608f6",
@@ -4122,9 +4122,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "steam-fridays-mountain-view-public-library-2026-07-31-14-00",
