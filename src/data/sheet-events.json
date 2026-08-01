@@ -4152,9 +4152,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a25aace2ea730c17ab50484",
@@ -4181,9 +4181,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4229,
     "lng": -122.1489,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "concerts-on-the-plaza-civic-center-plaza-2026-07-31-18-00",
@@ -4210,9 +4210,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.39,
     "lng": -122.0815,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "james-henry-house-of-samba-kids-imaginative-musical-workshop-magical-bridge-foundation-summer-concer",
@@ -4241,9 +4241,9 @@
     "verifiedDate": "2026-07-20",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a29b52ecaf9343600621646",
@@ -4271,7 +4271,7 @@
     "lat": 37.4419,
     "lng": -122.143,
     "status": "Draft",
-    "isPast": false,
+    "isPast": true,
     "isLive": false
   },
   {
@@ -4299,9 +4299,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "hoppers-family-movie-night-series-2026-mitchell-park-athletics-fields-2026-07-31-19-30",
@@ -4331,9 +4331,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.419,
     "lng": -122.1095,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "super-mario-galaxy-summer-outdoor-movie-night-series-whisman-park-2026-07-31-20-30",
@@ -4363,9 +4363,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3989,
     "lng": -122.0664,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "free-in-store-kids-workshops-rocket-game-home-depot-2026-08-01-09-00",
@@ -4393,9 +4393,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.4664,
     "lng": -122.1404,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a29b53116554cd59fc7d044",
@@ -4484,9 +4484,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a120e06c7d3cd58005b3761",
@@ -4515,9 +4515,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69fd17aef89ee15800515554",
