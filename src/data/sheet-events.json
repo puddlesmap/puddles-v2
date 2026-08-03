@@ -4423,7 +4423,7 @@
     "lat": 37.4419,
     "lng": -122.143,
     "status": "Draft",
-    "isPast": false,
+    "isPast": true,
     "isLive": false
   },
   {
@@ -4451,9 +4451,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "696191ef992fc18a86dc9a3c",
@@ -4544,9 +4544,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "experiment-extravaganza-linden-tree-books-2026-08-01-15-00",
@@ -4573,9 +4573,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69fd185143b41b3d0064f7c5",
@@ -4604,9 +4604,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4448,
     "lng": -122.1452,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "storytime-with-alan-barillaro-today-we-ll-be-eaten-linden-tree-books-2026-08-02-10-30",
@@ -4633,9 +4633,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "outdoor-storytime-linden-tree-books-2026-08-02-10-30",
@@ -4664,9 +4664,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a29b5768d1b82ca9f78fc87",
@@ -4693,9 +4693,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a29b53416554cd59fc7d046",
@@ -4723,7 +4723,7 @@
     "lat": 37.4419,
     "lng": -122.143,
     "status": "Draft",
-    "isPast": false,
+    "isPast": true,
     "isLive": false
   },
   {
@@ -4751,9 +4751,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "smart-start-babytime-mountain-view-public-library-2026-08-03-18-00",
