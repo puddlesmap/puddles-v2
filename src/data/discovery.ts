@@ -5,8 +5,27 @@ import type {
   DiscoveryViewFilter,
 } from '../types/discovery'
 import { inferAgeRangeFromText, isAgeTargetingSentence } from '../utils/discoveryAgeHints'
+import { pacificTodayYmd } from '../utils/discoveryReview'
+import { computeIsPast } from '../utils/publishing'
 
 export const DISCOVERY_CATALOG = catalog as DiscoveryCatalog
+
+/** True when the candidate’s session has already ended (Pacific calendar + end time). */
+export function isDiscoveryCandidateExpired(
+  candidate: Pick<DiscoveryCandidate, 'date' | 'startTime' | 'endTime'>,
+  now: Date = new Date(),
+): boolean {
+  const date = String(candidate.date || '').trim()
+  if (!date) return false
+
+  const today = pacificTodayYmd()
+  if (date < today) return true
+  if (date > today) return false
+
+  const start = candidate.startTime || '00:00'
+  const end = candidate.endTime || start
+  return computeIsPast(date, start, end, now)
+}
 
 function withInferredAges(candidate: DiscoveryCandidate): DiscoveryCandidate {
   const inferred = inferAgeRangeFromText(
@@ -33,8 +52,9 @@ function withInferredAges(candidate: DiscoveryCandidate): DiscoveryCandidate {
   }
 }
 
-export const ALL_DISCOVERY_CANDIDATES: DiscoveryCandidate[] = DISCOVERY_CATALOG.candidates.map(
-  (candidate) =>
+/** Upcoming discovery queue only — past sessions are dropped automatically. */
+export const ALL_DISCOVERY_CANDIDATES: DiscoveryCandidate[] = DISCOVERY_CATALOG.candidates
+  .map((candidate) =>
     withInferredAges({
       ...candidate,
       types: Array.isArray(candidate.types) ? candidate.types : [],
@@ -44,7 +64,8 @@ export const ALL_DISCOVERY_CANDIDATES: DiscoveryCandidate[] = DISCOVERY_CATALOG.
       lastChecked: candidate.lastChecked ?? '',
       alreadyOnPuddles: Boolean(candidate.alreadyOnPuddles),
     }),
-)
+  )
+  .filter((candidate) => !isDiscoveryCandidateExpired(candidate))
 
 export function summarizeDiscoveryCounts(candidates: DiscoveryCandidate[]) {
   return {
@@ -64,6 +85,8 @@ export function filterDiscoveryCandidates(
 ): DiscoveryCandidate[] {
   const q = opts.search.trim().toLowerCase()
   return candidates.filter((candidate) => {
+    if (isDiscoveryCandidateExpired(candidate)) return false
+
     if (opts.view === 'pending' && candidate.reviewStatus !== 'pending') return false
     if (opts.view === 'new' && !(candidate.reviewStatus === 'pending' && !candidate.alreadyOnPuddles)) {
       return false
