@@ -472,6 +472,52 @@ export function loadCachedAdminRefresh(): { events: Event[]; refreshedAt: string
   }
 }
 
+export function clearCachedAdminRefresh() {
+  try {
+    localStorage.removeItem(ADMIN_REFRESH_STORAGE_KEY)
+  } catch {
+    // ignore
+  }
+}
+
 export function saveCachedAdminRefresh(payload: { events: Event[]; refreshedAt: string }) {
   localStorage.setItem(ADMIN_REFRESH_STORAGE_KEY, JSON.stringify(payload))
+}
+
+/**
+ * Prefer a browser refresh cache only when it is at least as new as the last
+ * deployed sheet sync. Always recompute isPast / isLive for “today”.
+ */
+export function resolveAdminEventsSource(
+  bundledEvents: Event[],
+  deployedSyncedAt: string,
+): { events: Event[]; refreshedAt: string | null; usedCache: boolean } {
+  const cached = loadCachedAdminRefresh()
+  if (!cached?.events?.length) {
+    return {
+      events: bundledEvents.map((event) => enrichPublishingFields(event)),
+      refreshedAt: null,
+      usedCache: false,
+    }
+  }
+
+  const cacheTime = Date.parse(cached.refreshedAt)
+  const syncTime = Date.parse(deployedSyncedAt)
+  const cacheIsStaleVsDeploy =
+    Number.isFinite(syncTime) && Number.isFinite(cacheTime) && syncTime > cacheTime
+
+  if (cacheIsStaleVsDeploy) {
+    clearCachedAdminRefresh()
+    return {
+      events: bundledEvents.map((event) => enrichPublishingFields(event)),
+      refreshedAt: null,
+      usedCache: false,
+    }
+  }
+
+  return {
+    events: cached.events.map((event) => enrichPublishingFields(event)),
+    refreshedAt: cached.refreshedAt,
+    usedCache: true,
+  }
 }

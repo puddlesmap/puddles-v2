@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { ALL_EVENTS } from '../../data/events'
+import { SYNC_META } from '../../data/syncInfo'
 import { AdminEventsTable } from '../../components/admin/AdminEventsTable'
 import { AdminNeedsAttentionInbox } from '../../components/admin/AdminNeedsAttentionInbox'
 import { AdminOverview } from '../../components/admin/AdminOverview'
@@ -29,7 +30,7 @@ import { EVENT_EXPORT_COLUMNS, exportFilename } from '../../utils/adminExport'
 import { enrichPublishingFields } from '../../utils/publishing'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
-  loadCachedAdminRefresh,
+  resolveAdminEventsSource,
   refreshEventsFromSheet,
   saveCachedAdminRefresh,
 } from '../../utils/sheetSync'
@@ -39,9 +40,9 @@ const CITIES = ['All cities', 'Palo Alto', 'Los Altos', 'Mountain View'] as cons
 const REVIEW_EMAIL_NOTICE_KEY = 'puddles-admin-review-email-fingerprint'
 const DISMISSED_FLAGS_KEY = 'puddles-admin-dismissed-review-flags'
 
-function getInitialEvents(): Event[] {
-  const cached = loadCachedAdminRefresh()
-  return cached?.events ?? ALL_EVENTS
+function getInitialAdminState(): { events: Event[]; refreshedAt: string | null } {
+  const resolved = resolveAdminEventsSource(ALL_EVENTS, SYNC_META.syncedAt)
+  return { events: resolved.events, refreshedAt: resolved.refreshedAt }
 }
 
 function loadDismissedFlagIds(): Set<string> {
@@ -65,10 +66,9 @@ function persistDismissedFlagIds(ids: Set<string>) {
 }
 
 export function AdminEventsPage() {
-  const [events, setEvents] = useState<Event[]>(getInitialEvents)
-  const [adminRefreshedAt, setAdminRefreshedAt] = useState<string | null>(() => {
-    return loadCachedAdminRefresh()?.refreshedAt ?? null
-  })
+  const [initial] = useState(getInitialAdminState)
+  const [events, setEvents] = useState<Event[]>(initial.events)
+  const [adminRefreshedAt, setAdminRefreshedAt] = useState<string | null>(initial.refreshedAt)
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [isPublishing, setIsPublishing] = useState(false)
   const [refreshError, setRefreshError] = useState<string | null>(null)
@@ -186,10 +186,11 @@ export function AdminEventsPage() {
     setActionMessage(null)
     try {
       const result = await refreshEventsFromSheet()
-      setEvents(result.events)
+      const events = result.events.map((event) => enrichPublishingFields(event))
+      setEvents(events)
       setAdminRefreshedAt(result.refreshedAt)
-      saveCachedAdminRefresh(result)
-      await maybeNotifyNeedsAttention(result.events)
+      saveCachedAdminRefresh({ events, refreshedAt: result.refreshedAt })
+      await maybeNotifyNeedsAttention(events)
     } catch (error) {
       setRefreshError(
         error instanceof Error
