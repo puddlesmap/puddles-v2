@@ -2,6 +2,7 @@ import { Fragment, useEffect, useMemo, useRef, useState, type PointerEvent as Re
 import type { DiscoveryCandidate, DiscoveryEditableFields } from '../../types/discovery'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
 import { editableFieldsFromCandidate } from '../../utils/discoveryReview'
+import { latestApprovedOnForCandidate } from '../../utils/discoveryMatchEvents'
 import { AdminDiscoveryDetailPanel } from './AdminDiscoveryDetail'
 
 const COLUMN_COUNT = 8
@@ -336,8 +337,8 @@ export function AdminDiscoveryTable({
               const isMulti = multiSet.has(candidate.id)
               const isBusy = busyId === candidate.id
               const canApprove = candidate.reviewStatus === 'pending'
-              const approvedOn =
-                candidate.reviewStatus === 'approved' ? formatApprovedOn(candidate.lastChecked) : '—'
+              const approvedOnRaw = latestApprovedOnForCandidate(candidate)
+              const approvedOn = formatApprovedOn(approvedOnRaw)
               return (
                 <Fragment key={candidate.id}>
                   <tr
@@ -389,12 +390,16 @@ export function AdminDiscoveryTable({
                     <td
                       className="admin-discovery-col-checked"
                       title={
-                        candidate.reviewStatus === 'approved' && candidate.lastChecked
-                          ? `Approved on ${candidate.lastChecked} — Verified / Last checked date on Puddles`
+                        approvedOnRaw
+                          ? candidate.reviewStatus === 'approved'
+                            ? `Approved on ${approvedOnRaw} — Verified / Last checked on Puddles`
+                            : `Last verified ${approvedOnRaw} on Puddles (Approve to refresh to today)`
                           : 'Approve to stamp today’s date as Verified on Puddles'
                       }
                     >
-                      <span className="text-sm text-muted">{approvedOn}</span>
+                      <span className="text-sm text-muted">
+                        {approvedOn === '—' ? '—' : approvedOn}
+                      </span>
                     </td>
                     <td className="admin-discovery-sticky-actions admin-discovery-col-actions">
                       {canApprove ? (

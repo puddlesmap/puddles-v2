@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState, type ReactNode } from 'react'
 import type { DiscoveryCandidate, DiscoveryEditableFields } from '../../types/discovery'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
+import { latestApprovedOnForCandidate } from '../../utils/discoveryMatchEvents'
 import { editableFieldsFromCandidate } from '../../utils/discoveryReview'
 import { DetailSection } from './AdminDetailGrid'
 
@@ -71,6 +72,7 @@ export function AdminDiscoveryDetailPanel({
 
   const canApprove = candidate.reviewStatus === 'pending'
   const approveDisabled = busy || !canApprove || !draft.title.trim() || !draft.date.trim()
+  const approvedOnDisplay = latestApprovedOnForCandidate({ ...candidate, ...draft })
 
   return (
     <div className="admin-table-expand-panel" aria-label="Discovery candidate details">
@@ -84,6 +86,9 @@ export function AdminDiscoveryDetailPanel({
         {candidate.source ? <span className="text-sm text-muted">{candidate.source}</span> : null}
         {candidate.convertedEventId ? (
           <span className="text-sm text-muted">Draft ID: {candidate.convertedEventId}</span>
+        ) : null}
+        {approvedOnDisplay ? (
+          <span className="text-sm text-muted">Approved on {approvedOnDisplay}</span>
         ) : null}
       </div>
 
@@ -233,20 +238,22 @@ export function AdminDiscoveryDetailPanel({
               disabled={busy}
             />
           </Field>
-          {candidate.reviewStatus === 'approved' && candidate.lastChecked ? (
+          {candidate.reviewStatus === 'approved' && approvedOnDisplay ? (
             <p className="text-sm text-muted">
-              <strong>Approved on {candidate.lastChecked}</strong> — this is the Verified / Last
-              checked date shown on Puddles after Events sync from the Sheet.
+              <strong>Approved on {approvedOnDisplay}</strong> — Verified / Last checked on Puddles
+              after Events sync from the Sheet.
             </p>
           ) : candidate.alreadyOnPuddles ? (
             <p className="text-sm text-muted">
-              <strong>Update verified date</strong> stamps today on the existing Events row (Last
-              Checked Date on the Sheet).
+              Already on Puddles
+              {approvedOnDisplay ? ` (last verified ${approvedOnDisplay})` : ''}.{' '}
+              <strong>Approve</strong> updates that Events row’s Last Checked Date to{' '}
+              <em>today</em> — it does not add a duplicate Draft.
             </p>
           ) : (
             <p className="text-sm text-muted">
-              <strong>Approve</strong> stamps today’s date as Approved on, and writes it to the
-              Sheet as Last Checked Date (Verified on Puddles).
+              <strong>Approve</strong> stamps today’s date as Approved on, and writes a new Events{' '}
+              <strong>Draft</strong> (Ready here → Refresh Events → Publish when live).
             </p>
           )}
         </div>
@@ -310,8 +317,7 @@ export function AdminDiscoveryDetailPanel({
 
       {candidate.alreadyOnPuddles && canApprove ? (
         <p className="mt-3 text-sm text-muted">
-          This URL is already on Puddles. Approve updates the existing row’s Last Checked / Verified
-          date to today (does not add a duplicate Draft).
+          Already on site: Approve only refreshes the verified date (no second listing).
         </p>
       ) : null}
 
