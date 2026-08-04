@@ -5,7 +5,7 @@ import { editableFieldsFromCandidate } from '../../utils/discoveryReview'
 import { latestApprovedOnForCandidate } from '../../utils/discoveryMatchEvents'
 import { AdminDiscoveryDetailPanel } from './AdminDiscoveryDetail'
 
-const COLUMN_COUNT = 8
+const COLUMN_COUNT = 9
 const DRAG_THRESHOLD_PX = 6
 
 export type DiscoverySortKey =
@@ -283,7 +283,7 @@ export function AdminDiscoveryTable({
         <div className="admin-discovery-bulk-bar" role="status">
           <span className="admin-discovery-bulk-count">
             {multiIds.length} selected
-            <span className="admin-discovery-bulk-hint"> — drag across rows to select</span>
+            <span className="admin-discovery-bulk-hint"> — checkboxes or drag to select</span>
           </span>
           <div className="admin-discovery-bulk-actions">
             <button
@@ -306,15 +306,48 @@ export function AdminDiscoveryTable({
         </div>
       ) : (
         <p className="admin-discovery-drag-hint">
-          Tip: drag across rows to select several, then Approve (new → Draft; already on site →
-          update Verified date).
+          Tip: use checkboxes (or drag across rows) to select several, then Approve.
         </p>
       )}
 
       <div className="admin-table-wrap admin-discovery-table-wrap">
         <table className="admin-table admin-discovery-table">
+          <colgroup>
+            <col className="admin-col-check-col" />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
           <thead>
             <tr>
+              <th className="admin-col-check" scope="col">
+                <label className="admin-check">
+                  <span className="sr-only">Select all visible candidates</span>
+                  <input
+                    type="checkbox"
+                    checked={sorted.length > 0 && sorted.every((row) => multiSet.has(row.id))}
+                    ref={(el) => {
+                      if (!el) return
+                      const some = sorted.some((row) => multiSet.has(row.id))
+                      const all = sorted.length > 0 && sorted.every((row) => multiSet.has(row.id))
+                      el.indeterminate = some && !all
+                    }}
+                    disabled={bulkBusy}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setMultiIds(sorted.map((row) => row.id))
+                      } else {
+                        clearMulti()
+                      }
+                    }}
+                  />
+                </label>
+              </th>
               {SORTABLE_COLUMNS.map((column) => (
                 <SortHeader
                   key={column.key}
@@ -358,6 +391,27 @@ export function AdminDiscoveryTable({
                       if (event.buttons === 1) extendDrag(index, event)
                     }}
                   >
+                    <td
+                      className="admin-col-check"
+                      onClick={(e) => e.stopPropagation()}
+                      onPointerDown={(e) => e.stopPropagation()}
+                    >
+                      <label className="admin-check">
+                        <span className="sr-only">Select {candidate.title}</span>
+                        <input
+                          type="checkbox"
+                          checked={isMulti}
+                          disabled={bulkBusy}
+                          onChange={() => {
+                            setMultiIds((current) =>
+                              current.includes(candidate.id)
+                                ? current.filter((id) => id !== candidate.id)
+                                : [...current, candidate.id],
+                            )
+                          }}
+                        />
+                      </label>
+                    </td>
                     <td className="admin-discovery-col-when">
                       <div>{formatEventDate(candidate.date)}</div>
                       <div className="text-xs text-muted admin-discovery-time">

@@ -250,10 +250,21 @@ export function AdminEventsTable({
 
       <div className="admin-table-wrap">
         <table className="admin-table">
+          <colgroup>
+            <col className="admin-col-check-col" />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
           <thead>
             <tr>
-              <th className="admin-events-col-check" scope="col">
-                <label className="admin-events-check">
+              <th className="admin-col-check" scope="col">
+                <label className="admin-check">
                   <span className="sr-only">Select all visible events</span>
                   <input
                     type="checkbox"
@@ -309,11 +320,11 @@ export function AdminEventsTable({
                     aria-label={`${isExpanded ? 'Collapse' : 'Expand'} details for ${event.title}`}
                   >
                     <td
-                      className="admin-events-col-check"
+                      className="admin-col-check"
                       onClick={(e) => e.stopPropagation()}
                       onKeyDown={(e) => e.stopPropagation()}
                     >
-                      <label className="admin-events-check">
+                      <label className="admin-check">
                         <span className="sr-only">Select {event.title}</span>
                         <input
                           type="checkbox"

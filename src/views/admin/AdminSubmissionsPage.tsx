@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   ALL_SUBMISSIONS,
   filterSubmissions,
@@ -56,6 +56,8 @@ export function AdminSubmissionsPage() {
   const [actionMessage, setActionMessage] = useState<ActionMessage | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [checkedIds, setCheckedIds] = useState<string[]>([])
+  const [bulkBusy, setBulkBusy] = useState(false)
 
   const counts = useMemo(
     () => summarizeSubmissionCounts(submissions, hiddenSubmissionIds),
@@ -73,11 +75,124 @@ export function AdminSubmissionsPage() {
     [submissions, status, submissionType, search, hiddenSubmissionIds],
   )
 
+  useEffect(() => {
+    setCheckedIds([])
+  }, [status, submissionType, search])
+
   function persistState(
     nextSubmissions: SheetSubmission[],
     nextHiddenIds: string[] = hiddenSubmissionIds,
   ) {
     persistAdminSubmissionsCache(nextSubmissions, nextHiddenIds, adminRefreshedAt)
+  }
+
+  function handleToggleChecked(submissionId: string) {
+    setCheckedIds((current) =>
+      current.includes(submissionId)
+        ? current.filter((id) => id !== submissionId)
+        : [...current, submissionId],
+    )
+  }
+
+  function handleToggleCheckAll(checked: boolean) {
+    if (!checked) {
+      setCheckedIds((current) =>
+        current.filter((id) => !filteredSubmissions.some((row) => row.id === id)),
+      )
+      return
+    }
+    setCheckedIds((current) => {
+      const next = new Set(current)
+      for (const row of filteredSubmissions) next.add(row.id)
+      return [...next]
+    })
+  }
+
+  async function handleBulkStatusChange(rows: SheetSubmission[], nextStatus: string) {
+    if (rows.length === 0) return
+    const ok = window.confirm(
+      `Set ${rows.length} submission${rows.length === 1 ? '' : 's'} to “${submissionStatusLabel(nextStatus)}”?`,
+    )
+    if (!ok) return
+
+    setBulkBusy(true)
+    setActionMessage(null)
+    let okCount = 0
+    let failMessage = ''
+    for (const submission of rows) {
+      if (submission.status === nextStatus) {
+        okCount += 1
+        continue
+      }
+      try {
+        await callSheetApi({
+          action: 'updateSubmissionStatus',
+          payload: { id: submission.id, status: nextStatus },
+        })
+        setSubmissions((current) => {
+          const next = updateSubmissionById(current, submission.id.trim(), { status: nextStatus })
+          persistState(next)
+          return next
+        })
+        okCount += 1
+      } catch (error) {
+        failMessage = error instanceof Error ? error.message : 'Could not update one or more submissions.'
+        break
+      }
+    }
+    setCheckedIds([])
+    setBulkBusy(false)
+    if (okCount > 0 && !failMessage) {
+      setActionMessage({
+        type: 'success',
+        text: `Updated ${okCount} to “${submissionStatusLabel(nextStatus)}”.`,
+      })
+    } else if (okCount > 0 && failMessage) {
+      setActionMessage({ type: 'error', text: `Updated ${okCount}, then stopped: ${failMessage}` })
+    } else {
+      setActionMessage({ type: 'error', text: failMessage || 'Could not update selected submissions.' })
+    }
+  }
+
+  async function handleBulkSolved(rows: SheetSubmission[]) {
+    if (rows.length === 0) return
+    const ok = window.confirm(
+      `Mark ${rows.length} submission${rows.length === 1 ? '' : 's'} as solved?\n\nThey will be archived in the Sheet and leave the review queue.`,
+    )
+    if (!ok) return
+
+    setBulkBusy(true)
+    setActionMessage(null)
+    let okCount = 0
+    let failMessage = ''
+    for (const submission of rows) {
+      try {
+        await callSheetApi({
+          action: 'updateSubmissionStatus',
+          payload: { id: submission.id, status: SOLVED_SUBMISSION_STATUS },
+        })
+        setSubmissions((current) => {
+          const next = updateSubmissionById(current, submission.id.trim(), {
+            status: SOLVED_SUBMISSION_STATUS,
+          })
+          persistState(next)
+          return next
+        })
+        okCount += 1
+      } catch (error) {
+        failMessage = error instanceof Error ? error.message : 'Could not mark one or more as solved.'
+        break
+      }
+    }
+    setCheckedIds([])
+    setBulkBusy(false)
+    if (okCount > 0 && !failMessage) {
+      setActionMessage({ type: 'success', text: `Marked ${okCount} as solved.` })
+    } else if (okCount > 0 && failMessage) {
+      setActionMessage({ type: 'error', text: `Solved ${okCount}, then stopped: ${failMessage}` })
+    } else {
+      setActionMessage({ type: 'error', text: failMessage || 'Could not solve selected submissions.' })
+    }
   }
 
   async function handleRefresh() {
@@ -395,10 +510,17 @@ export function AdminSubmissionsPage() {
           submissions={filteredSubmissions}
           busyId={busyId}
           selectedId={selectedId}
+          checkedIds={checkedIds}
+          bulkBusy={bulkBusy}
           showHiddenActions={status === 'hidden'}
           onSelect={(submission) =>
             setSelectedId((current) => (current === submission.id ? null : submission.id))
           }
+          onToggleChecked={handleToggleChecked}
+          onToggleCheckAll={handleToggleCheckAll}
+          onClearChecked={() => setCheckedIds([])}
+          onBulkStatusChange={(rows, nextStatus) => void handleBulkStatusChange(rows, nextStatus)}
+          onBulkSolved={(rows) => void handleBulkSolved(rows)}
           onStatusChange={handleStatusChange}
           onPromote={handlePromote}
           onSolved={handleSolved}
