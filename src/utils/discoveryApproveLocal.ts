@@ -1,4 +1,5 @@
 import { ALL_EVENTS } from '../data/events'
+import { ALL_DISCOVERY_CANDIDATES } from '../data/discovery'
 import { SYNC_META } from '../data/syncInfo'
 import type { DiscoveryCandidate, DiscoveryEditableFields } from '../types/discovery'
 import type { ActivityType, City, Event } from '../types/event'
@@ -6,6 +7,11 @@ import { ACTIVITY_TYPES } from '../types/event'
 import { resolveEventCost } from './eventCost'
 import { enrichPublishingFields } from './publishing'
 import { findMatchingEventIdsForCandidate } from './discoveryMatchEvents'
+import {
+  applyDiscoveryReviewOverrides,
+  editableFieldsFromCandidate,
+  loadDiscoveryReviewStore,
+} from './discoveryReview'
 import {
   loadCachedAdminRefresh,
   resolveAdminEventsSource,
@@ -202,4 +208,127 @@ export function ensureAdminEventsCacheSeeded() {
   if (loadCachedAdminRefresh()?.events?.length) return
   const resolved = resolveAdminEventsSource(ALL_EVENTS, SYNC_META.syncedAt)
   persistAdminEvents(resolved.events)
+}
+
+/**
+ * Pull Discovery Ready items into the Admin Events cache.
+ * Fixes cases where Ready was stamped but Drafts never appeared (older Approve path,
+ * cache cleared, or Events opened before Approve finished writing).
+ */
+export function syncReadyDiscoveryIntoAdminCache(): {
+  events: Event[]
+  draftsAdded: number
+  verifiedUpdated: number
+} {
+  ensureAdminEventsCacheSeeded()
+  const store = loadDiscoveryReviewStore()
+  const candidates = applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, store)
+  const ready = candidates.filter((candidate) => candidate.reviewStatus === 'approved')
+
+  let draftsAdded = 0
+  let verifiedUpdated = 0
+
+  for (const candidate of ready) {
+    const edits = editableFieldsFromCandidate(candidate)
+    const verifiedDate = (candidate.lastChecked || edits.lastChecked || '').trim()
+    if (!verifiedDate) continue
+
+    if (candidate.alreadyOnPuddles) {
+      const matchedIds = findMatchingEventIdsForCandidate({ ...candidate, ...edits })
+      if (matchedIds.length === 0) continue
+      const events = currentAdminEvents()
+      const needsUpdate = matchedIds.some((id) => {
+        const row = events.find((event) => event.id === id)
+        return row && row.verifiedDate !== verifiedDate
+      })
+      if (!needsUpdate) continue
+      try {
+        applyVerifiedDateInAdminCache(candidate, edits, verifiedDate)
+        verifiedUpdated += 1
+      } catch {
+        // Matching row missing in this browser — skip.
+      }
+      continue
+    }
+
+    const events = currentAdminEvents()
+    const draftId = localDraftId(candidate, edits)
+    const urlKey = String(edits.eventUrl || candidate.eventUrl || '')
+      .trim()
+      .replace(/\/$/, '')
+      .toLowerCase()
+    const targetDate = edits.date || candidate.date
+    const alreadyPresent =
+      events.some((event) => event.id === draftId) ||
+      (Boolean(candidate.convertedEventId) &&
+        events.some((event) => event.id === candidate.convertedEventId)) ||
+      (Boolean(urlKey) &&
+        urlKey !== '#' &&
+        events.some(
+          (event) =>
+            String(event.eventUrl || '')
+              .trim()
+              .replace(/\/$/, '')
+              .toLowerCase() === urlKey && event.date === targetDate,
+        ))
+
+    if (alreadyPresent) continue
+
+    appendDraftInAdminCache(candidate, edits, verifiedDate)
+    draftsAdded += 1
+  }
+
+  return {
+    events: currentAdminEvents(),
+    draftsAdded,
+    verifiedUpdated,
+  }
+}
+
+/**
+ * Prepare Ready Discovery candidates for Go live: ensure Admin cache rows exist,
+ * set Status = Published, return the Event payloads to commit to the public catalog.
+ */
+export function prepareGoLiveEvents(
+  candidates: DiscoveryCandidate[],
+  verifiedDate: string,
+): { events: Event[]; results: Array<{ candidateId: string; eventId: string }> } {
+  ensureAdminEventsCacheSeeded()
+  const results: Array<{ candidateId: string; eventId: string }> = []
+  const publishIds = new Set<string>()
+
+  for (const candidate of candidates) {
+    const edits = editableFieldsFromCandidate(candidate)
+    const stamped = { ...edits, lastChecked: verifiedDate }
+
+    let eventId = ''
+    if (candidate.alreadyOnPuddles) {
+      try {
+        const result = applyVerifiedDateInAdminCache(candidate, stamped, verifiedDate)
+        eventId = result.eventId
+      } catch {
+        const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate)
+        eventId = draft.eventId
+      }
+    } else {
+      const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate)
+      eventId = draft.eventId
+    }
+
+    publishIds.add(eventId)
+    results.push({ candidateId: candidate.id, eventId })
+  }
+
+  let events = currentAdminEvents().map((event) => {
+    if (!publishIds.has(event.id)) return event
+    return enrichPublishingFields({
+      ...event,
+      status: 'Published',
+      verifiedDate,
+    })
+  })
+  persistAdminEvents(events)
+
+  const toPublish = events.filter((event) => publishIds.has(event.id))
+  return { events: toPublish, results }
 }

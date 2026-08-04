@@ -11,6 +11,7 @@ import {
   isAdminAuthEnabled,
   sessionCookieHeader,
 } from './netlify/lib/admin-session.mjs'
+import { publishEventsToGithub } from './netlify/lib/publish-events.mjs'
 
 const SPREADSHEET_ID = '1ko8p-HMzXMnSHT8qPxv14X-TPaac0RJTrfw8PwjikH8'
 const EVENTS_GID = '1023308778'
@@ -217,6 +218,42 @@ export default defineConfig(({ mode }) => {
               sendJson(res, 502, {
                 ok: false,
                 error: error instanceof Error ? error.message : 'Could not reach GitHub',
+              })
+            }
+          })
+
+          server.middlewares.use('/api/publish-events', async (req, res) => {
+            if (req.method !== 'POST') {
+              sendJson(res, 405, { ok: false, error: 'Method not allowed' })
+              return
+            }
+
+            const event = mockEvent(req)
+            if (!isAdminAuthEnabled() || !hasAdminSession(event)) {
+              sendJson(res, 401, { ok: false, error: 'Unauthorized' })
+              return
+            }
+
+            try {
+              const raw = await readBody(req)
+              const body = raw ? JSON.parse(raw) : {}
+              const result = await publishEventsToGithub({
+                events: body.events || [],
+                env,
+              })
+              sendJson(result.status || (result.ok ? 200 : 502), {
+                ok: result.ok,
+                message: result.message,
+                error: result.error,
+                upserted: result.upserted,
+                inserted: result.inserted,
+                eventCount: result.eventCount,
+                liveCount: result.liveCount,
+              })
+            } catch (error) {
+              sendJson(res, 502, {
+                ok: false,
+                error: error instanceof Error ? error.message : 'Could not publish events',
               })
             }
           })

@@ -12,8 +12,10 @@ import {
   approveDiscoveryLocally,
   ensureAdminEventsCacheSeeded,
   loadWriteSheetPreference,
+  prepareGoLiveEvents,
   saveWriteSheetPreference,
 } from '../../utils/discoveryApproveLocal'
+import { publishEventsToSite } from '../../utils/publishEvents'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
   applyDiscoveryReviewOverrides,
@@ -30,6 +32,7 @@ const VIEW_OPTIONS: { id: DiscoveryViewFilter; label: string }[] = [
   { id: 'new', label: 'New only' },
   { id: 'already', label: 'Already on site' },
   { id: 'approved', label: 'Ready' },
+  { id: 'live', label: 'Live' },
   { id: 'dismissed', label: 'Dismissed' },
   { id: 'all', label: 'All' },
 ]
@@ -149,6 +152,7 @@ export function AdminDiscoveryPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
   const [bulkBusy, setBulkBusy] = useState(false)
+  const [goLiveBusy, setGoLiveBusy] = useState(false)
   const [writeSheet, setWriteSheet] = useState(() => loadWriteSheetPreference())
   const [actionMessage, setActionMessage] = useState<ActionMessage | null>(null)
 
@@ -445,15 +449,75 @@ export function AdminDiscoveryPage() {
     setActionMessage({ type: 'success', text: 'Restored to pending.' })
   }
 
+  async function handleGoLive(rows: DiscoveryCandidate[]) {
+    const targets = rows.filter((row) => row.reviewStatus === 'approved')
+    if (targets.length === 0) {
+      setActionMessage({ type: 'error', text: 'Select Ready items to Go live.' })
+      return
+    }
+
+    const ok = window.confirm(
+      `Go live with ${targets.length} activit${targets.length === 1 ? 'y' : 'ies'}?\n\nThey will be Published on the public site (usually updates in 2–4 minutes).`,
+    )
+    if (!ok) return
+
+    setGoLiveBusy(true)
+    setActionMessage({
+      type: 'success',
+      text: `Going live with ${targets.length}…`,
+    })
+
+    try {
+      const verifiedDate = pacificTodayYmd()
+      const { events, results } = prepareGoLiveEvents(targets, verifiedDate)
+      const message = await publishEventsToSite(events)
+
+      for (const result of results) {
+        const candidate = targets.find((row) => row.id === result.candidateId)
+        if (!candidate) continue
+        const edits = editableFieldsFromCandidate(candidate)
+        const next = mergeCandidate(
+          candidate,
+          { ...edits, lastChecked: verifiedDate },
+          {
+            reviewStatus: 'live',
+            convertedEventId: result.eventId,
+            lastChecked: verifiedDate,
+          },
+        )
+        updateCandidate(candidate.id, () => next)
+        persistCandidate(next, { ...edits, lastChecked: verifiedDate }, verifiedDate)
+      }
+
+      setSelectedId(null)
+      setView('live')
+      setActionMessage({
+        type: 'success',
+        text: message,
+      })
+      requestAnimationFrame(() => {
+        document.getElementById('admin-discovery-action-message')?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        })
+      })
+    } catch (error) {
+      setActionMessage({
+        type: 'error',
+        text: error instanceof Error ? error.message : 'Could not Go live.',
+      })
+    } finally {
+      setGoLiveBusy(false)
+    }
+  }
+
   return (
     <>
       <section className="admin-sync-bar" aria-label="Discovery overview">
         <p className="admin-submissions-intro">
-          Library discovery candidates for review. <strong>Approve</strong> works in Admin first
-          (no Google Sheet required): status becomes <strong>Ready</strong>,{' '}
-          <strong>Approved on</strong> = today, and Events gets a <strong>Draft</strong> (new) or
-          updated <strong>Last checked</strong> (already on site). Then open <strong>Events</strong>,
-          set Published, and <strong>Publish to site</strong> when you want the public site updated.
+          Review library candidates here. <strong>Approve</strong> → <strong>Ready</strong>, then{' '}
+          <strong>Go live</strong> to publish them on the public site (~2–4 min). Events tab monitors
+          what is already Live / Needs attention / Past.
         </p>
         <label className="admin-discovery-sheet-toggle">
           <input
@@ -462,8 +526,8 @@ export function AdminDiscoveryPage() {
             onChange={(e) => handleWriteSheetToggle(e.target.checked)}
           />
           <span>
-            Also write Google Sheet (optional — leave off unless you still sync the Sheet). Sheet
-            failures never undo Ready.
+            Also write Google Sheet on Approve (optional). Sheet failures never undo Ready. Go live
+            does not need the Sheet.
           </span>
         </label>
         <div className="admin-stat-grid admin-stat-grid-compact">
@@ -484,10 +548,29 @@ export function AdminDiscoveryPage() {
             <div className="admin-stat-label">Ready</div>
           </div>
           <div className="admin-stat-card admin-stat-card-static">
+            <div className="admin-stat-value">{counts.live}</div>
+            <div className="admin-stat-label">Live</div>
+          </div>
+          <div className="admin-stat-card admin-stat-card-static">
             <div className="admin-stat-value">{counts.dismissed}</div>
             <div className="admin-stat-label">Dismissed</div>
           </div>
         </div>
+        {view === 'approved' && counts.approved > 0 ? (
+          <div className="admin-discovery-golive-bar">
+            <button
+              type="button"
+              className="admin-btn admin-btn-primary"
+              disabled={goLiveBusy || bulkBusy}
+              onClick={() => void handleGoLive(filtered)}
+            >
+              {goLiveBusy ? 'Going live…' : `Go live all Ready (${counts.approved})`}
+            </button>
+            <span className="text-sm text-muted">
+              Publishes Ready activities to the public catalog without Google Sheet.
+            </span>
+          </div>
+        ) : null}
         <p className="mt-3 text-sm text-muted">
           Queue: {DISCOVERY_CATALOG.window.start} → {DISCOVERY_CATALOG.window.end} · generated{' '}
           {DISCOVERY_CATALOG.generatedAt
@@ -541,9 +624,11 @@ export function AdminDiscoveryPage() {
                     ? counts.alreadyPending
                     : option.id === 'approved'
                       ? counts.approved
-                      : option.id === 'dismissed'
-                        ? counts.dismissed
-                        : counts.total
+                      : option.id === 'live'
+                        ? counts.live
+                        : option.id === 'dismissed'
+                          ? counts.dismissed
+                          : counts.total
             return (
               <button
                 key={option.id}
@@ -563,11 +648,12 @@ export function AdminDiscoveryPage() {
           candidates={filtered}
           selectedId={selectedId}
           busyId={busyId}
-          bulkBusy={bulkBusy}
+          bulkBusy={bulkBusy || goLiveBusy}
           onSelect={handleSelect}
           onSaveEdits={handleSaveEdits}
           onApprove={handleApprove}
           onBulkApprove={(rows) => void handleBulkApprove(rows)}
+          onGoLive={(rows) => void handleGoLive(rows)}
           onDismiss={handleDismiss}
           onRestore={handleRestore}
         />

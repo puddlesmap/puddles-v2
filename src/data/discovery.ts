@@ -75,6 +75,7 @@ export function summarizeDiscoveryCounts(candidates: DiscoveryCandidate[]) {
     alreadyPending: candidates.filter((c) => c.reviewStatus === 'pending' && c.alreadyOnPuddles)
       .length,
     approved: candidates.filter((c) => c.reviewStatus === 'approved').length,
+    live: candidates.filter((c) => c.reviewStatus === 'live').length,
     dismissed: candidates.filter((c) => c.reviewStatus === 'dismissed').length,
   }
 }
@@ -98,6 +99,7 @@ export function filterDiscoveryCandidates(
       return false
     }
     if (opts.view === 'approved' && candidate.reviewStatus !== 'approved') return false
+    if (opts.view === 'live' && candidate.reviewStatus !== 'live') return false
     if (opts.view === 'dismissed' && candidate.reviewStatus !== 'dismissed') return false
 
     if (!q) return true

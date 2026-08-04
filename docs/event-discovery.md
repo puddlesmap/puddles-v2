@@ -20,16 +20,14 @@ Automated collection of family events (ages 0–5) for Puddles review, then publ
 4. **Dedupe by official URL** so weekly runs stay small after the first pass.
 5. **One publishing path** — Events → sync → site (unchanged until a full Admin/DB migration).
 
-### Approve path (Phase 1 — Admin-first)
+### Approve path (Admin → Go live)
 
 1. Run `npm run discover:bay-area` (PA + Los Altos + Mountain View) or a single-city script → updates `src/data/discovery-candidates.json`
 2. Open **Admin → Discovery** (`/admin/discovery`)
 3. Edit title / tips (Good to know) / room / ages / types as needed
-4. **Approve** (works in this browser without Google Sheet)
-   - **New** → **Ready** + **Approved on** = today + local **Draft** in Admin Events
-   - **Already on site** → **Ready** + updates that event’s **Last checked** in Admin (no duplicate Draft)
-5. Optional: turn on **Also write Google Sheet** if you still sync the Sheet (failures never undo Ready)
-6. Open **Events** → set Published → **Publish to site** when the public catalog should update
+4. **Approve** → **Ready** + **Approved on** = today (this browser)
+5. **Go live** on Ready items → Published on the public catalog via Admin publish API (~2–4 min). Items move to Discovery **Live**.
+6. Monitor **Events** → Live / Needs attention / Past
 
 Dismiss keeps the candidate out of the pending queue (saved in this browser’s localStorage).
 

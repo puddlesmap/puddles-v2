@@ -27,33 +27,32 @@ export function AdminSyncBar({
   const adminLabel = adminRefreshedAt ? formatSyncTimestamp(adminRefreshedAt) : null
 
   return (
-    <section className="admin-sync-bar" aria-label="Sync status">
+    <section className="admin-sync-bar" aria-label="Events monitor status">
+      <p className="admin-submissions-intro">
+        Monitor what is on the public site. Promote new activities from{' '}
+        <strong>Discovery → Ready → Go live</strong>. Sheet refresh is optional/advanced.
+      </p>
       <div className="admin-sync-grid">
         <div className="admin-sync-item">
-          <div className="admin-sync-label">Scheduled sync</div>
-          <div className="admin-sync-value">{SYNC_CONFIG.scheduleLabel}</div>
-          <div className="admin-sync-hint">{SYNC_CONFIG.scheduleDescription}</div>
-        </div>
-
-        <div className="admin-sync-item">
-          <div className="admin-sync-label">Last deployed sync</div>
+          <div className="admin-sync-label">Public catalog</div>
           <div className="admin-sync-value">{deployedLabel}</div>
           <div className="admin-sync-hint">
-            {SYNC_META.eventCount} events · {SYNC_META.liveCount} live on public site
+            {SYNC_META.eventCount} events · {SYNC_META.liveCount} live · scheduled{' '}
+            {SYNC_CONFIG.scheduleLabel}
           </div>
         </div>
 
         <div className="admin-sync-item">
           <div className="admin-sync-label">Admin refreshed</div>
           <div className="admin-sync-value">{adminLabel ?? 'Not yet this session'}</div>
-          <div className="admin-sync-hint">Pulls latest sheet data into this dashboard</div>
+          <div className="admin-sync-hint">Optional pull from Google Sheet into this browser</div>
         </div>
       </div>
 
       <div className="admin-sync-actions">
         <button
           type="button"
-          className="admin-btn admin-btn-primary"
+          className="admin-btn admin-btn-secondary"
           onClick={onRefresh}
           disabled={isRefreshing || isPublishing}
         >
@@ -65,8 +64,9 @@ export function AdminSyncBar({
             className="admin-btn admin-btn-secondary"
             onClick={onPublish}
             disabled={isRefreshing || isPublishing}
+            title="Advanced: re-sync the Google Sheet and deploy"
           >
-            {isPublishing ? 'Publishing…' : 'Publish to site'}
+            {isPublishing ? 'Publishing…' : 'Sync Sheet to site'}
           </button>
         ) : null}
         {(refreshError || publishError) && (
@@ -81,8 +81,8 @@ export function AdminSyncBar({
         ) : null}
         {!refreshError && !publishError && !publishMessage && (
           <p className="admin-sync-note-inline">
-            <strong>Refresh</strong> updates this dashboard. <strong>Publish to site</strong> syncs the
-            sheet and deploys the public site (2–4 min).
+            Prefer <strong>Discovery → Go live</strong> to update the public site. Sheet tools above
+            are for legacy sync only.
           </p>
         )}
       </div>

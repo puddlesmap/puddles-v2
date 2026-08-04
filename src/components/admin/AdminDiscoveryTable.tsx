@@ -28,6 +28,7 @@ interface AdminDiscoveryTableProps {
   onSaveEdits: (candidate: DiscoveryCandidate, edits: DiscoveryEditableFields) => void
   onApprove: (candidate: DiscoveryCandidate, edits: DiscoveryEditableFields) => void
   onBulkApprove: (candidates: DiscoveryCandidate[]) => void
+  onGoLive: (candidates: DiscoveryCandidate[]) => void
   onDismiss: (candidate: DiscoveryCandidate) => void
   onRestore: (candidate: DiscoveryCandidate) => void
 }
@@ -43,9 +44,16 @@ const SORTABLE_COLUMNS: { key: DiscoverySortKey; label: string; className?: stri
 ]
 
 function StatusBadge({ candidate }: { candidate: DiscoveryCandidate }) {
+  if (candidate.reviewStatus === 'live') {
+    return (
+      <span className="admin-badge admin-badge-yes" title="Published to the public site via Go live">
+        Live
+      </span>
+    )
+  }
   if (candidate.reviewStatus === 'approved') {
     return (
-      <span className="admin-badge admin-badge-yes" title="Draft is on the Events sheet — Refresh Events, then Publish when ready">
+      <span className="admin-badge admin-badge-yes" title="Approved — use Go live to publish on the site">
         Ready
       </span>
     )
@@ -68,8 +76,9 @@ function formatApprovedOn(dateStr: string): string {
 }
 
 function statusSortValue(candidate: DiscoveryCandidate): string {
-  if (candidate.reviewStatus === 'approved') return '3-approved'
-  if (candidate.reviewStatus === 'dismissed') return '4-dismissed'
+  if (candidate.reviewStatus === 'live') return '3-live'
+  if (candidate.reviewStatus === 'approved') return '4-approved'
+  if (candidate.reviewStatus === 'dismissed') return '5-dismissed'
   if (candidate.alreadyOnPuddles) return '2-onsite'
   return '1-new'
 }
@@ -158,6 +167,7 @@ export function AdminDiscoveryTable({
   onSaveEdits,
   onApprove,
   onBulkApprove,
+  onGoLive,
   onDismiss,
   onRestore,
 }: AdminDiscoveryTableProps) {
@@ -268,6 +278,16 @@ export function AdminDiscoveryTable({
     clearMulti()
   }
 
+  function handleBulkGoLiveClick() {
+    const targets = multiCandidates.filter((row) => row.reviewStatus === 'approved')
+    if (targets.length === 0) {
+      window.alert('No Ready events in the selection to Go live.')
+      return
+    }
+    onGoLive(targets)
+    clearMulti()
+  }
+
   if (candidates.length === 0) {
     return (
       <div className="admin-empty">
@@ -294,7 +314,15 @@ export function AdminDiscoveryTable({
               disabled={bulkBusy}
               onClick={handleBulkApproveClick}
             >
-              {bulkBusy ? 'Approving…' : 'Approve'}
+              {bulkBusy ? 'Working…' : 'Approve'}
+            </button>
+            <button
+              type="button"
+              className="admin-btn admin-btn-primary"
+              disabled={bulkBusy}
+              onClick={handleBulkGoLiveClick}
+            >
+              {bulkBusy ? 'Working…' : 'Go live'}
             </button>
             <button
               type="button"
@@ -372,6 +400,7 @@ export function AdminDiscoveryTable({
               const isMulti = multiSet.has(candidate.id)
               const isBusy = busyId === candidate.id
               const canApprove = candidate.reviewStatus === 'pending'
+              const canGoLive = candidate.reviewStatus === 'approved'
               const approvedOnRaw = latestApprovedOnForCandidate(candidate)
               const approvedOn = formatApprovedOn(approvedOnRaw)
               return (
@@ -472,6 +501,20 @@ export function AdminDiscoveryTable({
                           {isBusy ? '…' : 'Approve'}
                         </button>
                       ) : null}
+                      {canGoLive ? (
+                        <button
+                          type="button"
+                          className="admin-btn admin-btn-primary"
+                          disabled={isBusy || bulkBusy}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            onGoLive([candidate])
+                          }}
+                          onPointerDown={(e) => e.stopPropagation()}
+                        >
+                          {isBusy ? '…' : 'Go live'}
+                        </button>
+                      ) : null}
                     </td>
                   </tr>
                   {isExpanded ? (
@@ -482,6 +525,7 @@ export function AdminDiscoveryTable({
                           busy={isBusy || bulkBusy}
                           onSaveEdits={(edits) => onSaveEdits(candidate, edits)}
                           onApprove={(edits) => onApprove(candidate, edits)}
+                          onGoLive={() => onGoLive([candidate])}
                           onDismiss={() => onDismiss(candidate)}
                           onRestore={() => onRestore(candidate)}
                         />

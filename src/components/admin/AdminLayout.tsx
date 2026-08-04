@@ -141,30 +141,24 @@ export function AdminLayout() {
           {howToOpen ? (
             <div id="admin-howto-panel" className="admin-howto-panel">
               <p className="admin-howto-panel__lead">
-                Twice-a-week flow: review in Admin, write the Sheet live, publish the public site once when
-                ready. Full guide:{' '}
-                <code>docs/admin-howto.md</code>
+                Twice-a-week flow: Approve in Discovery, Go live to update the public site, monitor
+                Events. Full guide: <code>docs/admin-howto.md</code>
               </p>
               <ol className="admin-howto-panel__list">
                 <li>
-                  <strong>Discovery</strong> — Edit if needed. Approve <em>new</em> → Events Draft +
-                  Approved on date. Approve <em>already on site</em> → updates Last Checked / Verified
-                  (no duplicate). Dismiss noise.
+                  <strong>Discovery</strong> — Edit if needed, <strong>Approve</strong> → Ready, then{' '}
+                  <strong>Go live</strong> to publish on the public site (~2–4 min).
                 </li>
                 <li>
-                  <strong>Events</strong> — Refresh from Sheet (no deploy). Click <strong>Approve</strong> to
-                  stamp Approved on = today (Last Checked / Verified). Set Status = Published when ready.
+                  <strong>Events</strong> — Monitor <strong>Live</strong>, <strong>Needs attention</strong>,
+                  and <strong>Past</strong>.
                 </li>
                 <li>
-                  <strong>Publish to site</strong> — once at the end so the public catalog updates.
-                </li>
-                <li>
-                  <strong>Submissions</strong> — Refresh, approve, send to Events as needed.
+                  <strong>Submissions</strong> — Refresh, approve, send toward Events as needed.
                 </li>
               </ol>
               <p className="admin-howto-panel__note">
-                Do not redeploy after every Approve. Redeploy Apps Script only when Sheet API code
-                changes.
+                Prefer Discovery Go live over Sheet sync. Sheet tools on Events are advanced/legacy.
               </p>
             </div>
           ) : null}

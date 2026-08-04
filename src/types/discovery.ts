@@ -1,4 +1,4 @@
-export type DiscoveryReviewStatus = 'pending' | 'approved' | 'dismissed'
+export type DiscoveryReviewStatus = 'pending' | 'approved' | 'dismissed' | 'live'
 
 export interface DiscoveryCandidate {
   id: string
@@ -64,4 +64,11 @@ export type DiscoveryEditableFields = Pick<
   | 'lastChecked'
 >
 
-export type DiscoveryViewFilter = 'pending' | 'new' | 'already' | 'approved' | 'dismissed' | 'all'
+export type DiscoveryViewFilter =
+  | 'pending'
+  | 'new'
+  | 'already'
+  | 'approved'
+  | 'live'
+  | 'dismissed'
+  | 'all'

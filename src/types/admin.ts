@@ -38,10 +38,23 @@ export interface AdminEventView {
 export const ADMIN_EVENT_VIEWS: AdminEventView[] = [
   {
     id: 'live',
-    label: 'Live Events',
+    label: 'Live',
     description: 'Published and not yet past — visible on the public website.',
     filters: { isLive: true },
   },
+  {
+    id: 'needs-attention',
+    label: 'Needs attention',
+    description: 'Live events that need review: duplicates, age, area, and field mismatches.',
+    filters: {},
+  },
+  {
+    id: 'past',
+    label: 'Past',
+    description: 'Schedule has passed — may explain why Published events are not live.',
+    filters: { isPast: true },
+  },
+  // Kept for filters/helpers; not shown as top-level Events cards.
   {
     id: 'draft',
     label: 'Draft Events',
@@ -61,12 +74,6 @@ export const ADMIN_EVENT_VIEWS: AdminEventView[] = [
     filters: { status: 'Expired' },
   },
   {
-    id: 'past',
-    label: 'Past Events',
-    description: 'Schedule has passed — may explain why Published events are not live.',
-    filters: { isPast: true },
-  },
-  {
     id: 'needs-verification',
     label: 'Needs Verification',
     description: 'Last checked more than 30 days ago or missing.',
@@ -77,13 +84,6 @@ export const ADMIN_EVENT_VIEWS: AdminEventView[] = [
     label: 'Possible duplicates',
     description:
       'Same outing listed more than once — keep the richest row and hide the rest.',
-    filters: {},
-  },
-  {
-    id: 'needs-attention',
-    label: 'Needs attention',
-    description:
-      'Flags that need review: duplicates, out-of-age audience, out-of-area, and field mismatches.',
     filters: {},
   },
 ]

@@ -21,6 +21,7 @@ interface AdminDiscoveryDetailProps {
   busy: boolean
   onSaveEdits: (edits: DiscoveryEditableFields) => void
   onApprove: (edits: DiscoveryEditableFields) => void
+  onGoLive: () => void
   onDismiss: () => void
   onRestore: () => void
 }
@@ -45,6 +46,7 @@ export function AdminDiscoveryDetailPanel({
   busy,
   onSaveEdits,
   onApprove,
+  onGoLive,
   onDismiss,
   onRestore,
 }: AdminDiscoveryDetailProps) {
@@ -71,6 +73,7 @@ export function AdminDiscoveryDetailPanel({
   }
 
   const canApprove = candidate.reviewStatus === 'pending'
+  const canGoLive = candidate.reviewStatus === 'approved'
   const approveDisabled = busy || !canApprove || !draft.title.trim() || !draft.date.trim()
   const approvedOnDisplay = latestApprovedOnForCandidate({ ...candidate, ...draft })
 
@@ -238,22 +241,27 @@ export function AdminDiscoveryDetailPanel({
               disabled={busy}
             />
           </Field>
-          {candidate.reviewStatus === 'approved' && approvedOnDisplay ? (
+          {candidate.reviewStatus === 'live' && approvedOnDisplay ? (
             <p className="text-sm text-muted">
-              <strong>Approved on {approvedOnDisplay}</strong> — Verified / Last checked on Puddles
-              after Events sync from the Sheet.
+              <strong>Live on the public site</strong> (Approved on {approvedOnDisplay}). Check Events
+              → Live after deploy finishes.
+            </p>
+          ) : candidate.reviewStatus === 'approved' && approvedOnDisplay ? (
+            <p className="text-sm text-muted">
+              <strong>Ready — Approved on {approvedOnDisplay}</strong>. Click <strong>Go live</strong>{' '}
+              to publish on the public site (~2–4 min).
             </p>
           ) : candidate.alreadyOnPuddles ? (
             <p className="text-sm text-muted">
               Already on Puddles
               {approvedOnDisplay ? ` (last verified ${approvedOnDisplay})` : ''}.{' '}
-              <strong>Approve</strong> updates that Events row’s Last Checked Date to{' '}
-              <em>today</em> — it does not add a duplicate Draft.
+              <strong>Approve</strong> updates Last checked to <em>today</em>, then{' '}
+              <strong>Go live</strong> refreshes the public catalog.
             </p>
           ) : (
             <p className="text-sm text-muted">
-              <strong>Approve</strong> stamps today’s date as Approved on, and writes a new Events{' '}
-              <strong>Draft</strong> (Ready here → Refresh Events → Publish when live).
+              <strong>Approve</strong> marks Ready. <strong>Go live</strong> publishes to the public
+              site.
             </p>
           )}
         </div>
@@ -293,7 +301,18 @@ export function AdminDiscoveryDetailPanel({
               Dismiss
             </button>
           </Fragment>
-        ) : (
+        ) : null}
+        {canGoLive ? (
+          <button
+            type="button"
+            className="admin-btn admin-btn-primary"
+            disabled={busy}
+            onClick={onGoLive}
+          >
+            {busy ? 'Going live…' : 'Go live'}
+          </button>
+        ) : null}
+        {!canApprove && !canGoLive ? (
           <button
             type="button"
             className="admin-btn admin-btn-secondary"
@@ -302,7 +321,7 @@ export function AdminDiscoveryDetailPanel({
           >
             Restore to pending
           </button>
-        )}
+        ) : null}
         {candidate.eventUrl ? (
           <a
             href={candidate.eventUrl}

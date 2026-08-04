@@ -1,6 +1,4 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ALL_EVENTS } from '../../data/events'
-import { SYNC_META } from '../../data/syncInfo'
 import { AdminEventsTable } from '../../components/admin/AdminEventsTable'
 import { AdminNeedsAttentionInbox } from '../../components/admin/AdminNeedsAttentionInbox'
 import { AdminOverview } from '../../components/admin/AdminOverview'
@@ -21,17 +19,14 @@ import {
   fingerprintAdminReviewFlags,
   type AdminReviewFlagType,
 } from '../../utils/adminReviewFlags'
-import {
-  findDuplicateClusters,
-  type DuplicateCluster,
-} from '../../utils/eventDuplicates'
+import { type DuplicateCluster } from '../../utils/eventDuplicates'
 import { downloadRowsAsCsv } from '../../utils/exportCsv'
 import { EVENT_EXPORT_COLUMNS, exportFilename } from '../../utils/adminExport'
 import { enrichPublishingFields } from '../../utils/publishing'
 import { pacificTodayYmd } from '../../utils/discoveryReview'
+import { syncReadyDiscoveryIntoAdminCache } from '../../utils/discoveryApproveLocal'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
-  resolveAdminEventsSource,
   refreshEventsFromSheet,
   saveCachedAdminRefresh,
 } from '../../utils/sheetSync'
@@ -40,10 +35,19 @@ import { triggerPublishToSite } from '../../utils/triggerPublish'
 const CITIES = ['All cities', 'Palo Alto', 'Los Altos', 'Mountain View'] as const
 const REVIEW_EMAIL_NOTICE_KEY = 'puddles-admin-review-email-fingerprint'
 const DISMISSED_FLAGS_KEY = 'puddles-admin-dismissed-review-flags'
+const EVENTS_MONITOR_VIEWS = ADMIN_EVENT_VIEWS.filter((view) =>
+  view.id === 'live' || view.id === 'needs-attention' || view.id === 'past',
+)
 
-function getInitialAdminState(): { events: Event[]; refreshedAt: string | null } {
-  const resolved = resolveAdminEventsSource(ALL_EVENTS, SYNC_META.syncedAt)
-  return { events: resolved.events, refreshedAt: resolved.refreshedAt }
+function getInitialAdminState(): {
+  events: Event[]
+  refreshedAt: string | null
+} {
+  const synced = syncReadyDiscoveryIntoAdminCache()
+  return {
+    events: synced.events.map((event) => enrichPublishingFields(event)),
+    refreshedAt: new Date().toISOString(),
+  }
 }
 
 function loadDismissedFlagIds(): Set<string> {
@@ -90,16 +94,43 @@ export function AdminEventsPage() {
   const [dismissedFlagIds, setDismissedFlagIds] = useState<Set<string>>(loadDismissedFlagIds)
 
   useEffect(() => {
+    function reloadFromDiscoveryReady() {
+      const synced = syncReadyDiscoveryIntoAdminCache()
+      if (synced.draftsAdded === 0 && synced.verifiedUpdated === 0) return
+      setEvents(synced.events.map((event) => enrichPublishingFields(event)))
+      setAdminRefreshedAt(new Date().toISOString())
+    }
+
+    function onVisible() {
+      if (document.visibilityState === 'visible') reloadFromDiscoveryReady()
+    }
+
+    window.addEventListener('focus', reloadFromDiscoveryReady)
+    document.addEventListener('visibilitychange', onVisible)
+    return () => {
+      window.removeEventListener('focus', reloadFromDiscoveryReady)
+      document.removeEventListener('visibilitychange', onVisible)
+    }
+  }, [])
+
+  useEffect(() => {
     setCheckedIds([])
   }, [activeView, search, city])
 
   const counts = useMemo(() => summarizePublishingCounts(events), [events])
   const viewMeta = activeView === 'all' ? null : getAdminEventView(activeView)
-  const duplicateClusters = useMemo(() => findDuplicateClusters(events), [events])
+  const liveEventIds = useMemo(
+    () => new Set(events.filter((event) => event.isLive).map((event) => event.id)),
+    [events],
+  )
   const allReviewFlags = useMemo(() => collectAdminReviewFlags(events), [events])
   const openReviewFlags = useMemo(
-    () => allReviewFlags.filter((flag) => !dismissedFlagIds.has(flag.id)),
-    [allReviewFlags, dismissedFlagIds],
+    () =>
+      allReviewFlags.filter(
+        (flag) =>
+          !dismissedFlagIds.has(flag.id) && flag.eventIds.some((id) => liveEventIds.has(id)),
+      ),
+    [allReviewFlags, dismissedFlagIds, liveEventIds],
   )
   const openNeedsAttentionCount = openReviewFlags.length
 
@@ -110,40 +141,28 @@ export function AdminEventsPage() {
   }, [events])
 
   const filteredEvents = useMemo(() => {
-    const base = activeView === 'all' ? events : filterAdminEventsByView(events, activeView)
+    let base: Event[]
+    if (activeView === 'all') {
+      base = events
+    } else if (activeView === 'needs-attention') {
+      const ids = new Set(openReviewFlags.flatMap((flag) => flag.eventIds))
+      base = events.filter((event) => event.isLive && ids.has(event.id))
+    } else {
+      base = filterAdminEventsByView(events, activeView)
+    }
     return filterAdminEvents(base, {
       search,
       city: city === 'All cities' ? 'all' : city,
     }).sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title))
-  }, [events, activeView, search, city])
-
-  const visibleClusters = useMemo(() => {
-    if (activeView !== 'duplicates') return []
-    const allowedIds = new Set(filteredEvents.map((event) => event.id))
-    return duplicateClusters
-      .map((cluster) => {
-        const members = cluster.members.filter((event) => allowedIds.has(event.id))
-        if (members.length < 2) return null
-        const winner =
-          members.find((event) => event.id === cluster.winner.id) ?? members[0]!
-        const losers = members.filter((event) => event.id !== winner.id)
-        if (losers.length === 0) return null
-        return {
-          ...cluster,
-          winner,
-          losers,
-          members: [winner, ...losers],
-        }
-      })
-      .filter((cluster): cluster is DuplicateCluster => cluster != null)
-  }, [activeView, duplicateClusters, filteredEvents])
+  }, [events, activeView, search, city, openReviewFlags])
 
   const overviewCounts = useMemo(
     () => ({
-      ...counts,
+      live: counts.live,
+      past: counts.past,
       needsAttention: openNeedsAttentionCount,
     }),
-    [counts, openNeedsAttentionCount],
+    [counts.live, counts.past, openNeedsAttentionCount],
   )
 
   async function maybeNotifyNeedsAttention(nextEvents: Event[]) {
@@ -412,7 +431,6 @@ export function AdminEventsPage() {
   }
 
   const isNeedsAttentionView = activeView === 'needs-attention'
-  const isDuplicatesView = activeView === 'duplicates'
 
   return (
     <>
@@ -431,7 +449,7 @@ export function AdminEventsPage() {
 
       {openNeedsAttentionCount > 0 && activeView !== 'needs-attention' ? (
         <p className="admin-needs-attention-banner">
-          {openNeedsAttentionCount} item{openNeedsAttentionCount === 1 ? '' : 's'} need attention.{' '}
+          {openNeedsAttentionCount} live item{openNeedsAttentionCount === 1 ? '' : 's'} need attention.{' '}
           <button
             type="button"
             className="admin-btn admin-btn-text"
@@ -445,16 +463,14 @@ export function AdminEventsPage() {
       <section className="admin-events-section">
         <div className="admin-events-header">
           <div>
-            <h2 className="font-display text-lg text-charcoal">{viewMeta?.label ?? 'All events'}</h2>
+            <h2 className="font-display text-lg text-charcoal">{viewMeta?.label ?? 'Events'}</h2>
             {viewMeta?.description && <p className="mt-1 text-sm text-muted">{viewMeta.description}</p>}
           </div>
           <div className="admin-events-header-actions">
             <div className="text-sm text-muted">
               {isNeedsAttentionView
                 ? `${openNeedsAttentionCount} open flags`
-                : isDuplicatesView
-                  ? `${visibleClusters.length} groups · ${filteredEvents.length} events`
-                  : `${filteredEvents.length} shown`}
+                : `${filteredEvents.length} shown`}
             </div>
             {!isNeedsAttentionView ? (
               <button type="button" className="admin-btn admin-btn-secondary" onClick={handleExportCsv}>
@@ -501,17 +517,11 @@ export function AdminEventsPage() {
                 ))}
               </select>
             </label>
-
-            {activeView !== 'all' && (
-              <button type="button" className="admin-btn admin-btn-secondary" onClick={() => setActiveView('all')}>
-                Show all
-              </button>
-            )}
           </div>
         ) : null}
 
-        <div className="admin-view-tabs" role="tablist" aria-label="Saved views">
-          {ADMIN_EVENT_VIEWS.map((view) => (
+        <div className="admin-view-tabs" role="tablist" aria-label="Events views">
+          {EVENTS_MONITOR_VIEWS.map((view) => (
             <button
               key={view.id}
               type="button"
@@ -519,7 +529,6 @@ export function AdminEventsPage() {
               aria-selected={activeView === view.id}
               onClick={() => {
                 setActiveView(view.id)
-                if (view.id === 'duplicates') setFlagTypeFilter('duplicate')
                 if (view.id === 'needs-attention') setFlagTypeFilter('all')
               }}
               className={`admin-btn ${activeView === view.id ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
@@ -528,9 +537,8 @@ export function AdminEventsPage() {
               {view.id === 'needs-attention' && openNeedsAttentionCount > 0
                 ? ` (${openNeedsAttentionCount})`
                 : ''}
-              {view.id === 'duplicates' && counts.duplicateGroups > 0
-                ? ` (${counts.duplicateGroups})`
-                : ''}
+              {view.id === 'live' ? ` (${counts.live})` : ''}
+              {view.id === 'past' ? ` (${counts.past})` : ''}
             </button>
           ))}
         </div>
@@ -563,7 +571,7 @@ export function AdminEventsPage() {
             onBulkApproveVerified={(rows) => void handleBulkApproveVerified(rows)}
             onHide={(event) => void handleHide(event)}
             onApproveVerified={(event) => void handleApproveVerified(event)}
-            duplicateClusters={isDuplicatesView ? visibleClusters : undefined}
+            duplicateClusters={undefined}
             busyClusterId={busyClusterId}
             onKeepWinner={handleKeepWinner}
           />

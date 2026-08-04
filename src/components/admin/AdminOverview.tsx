@@ -3,13 +3,7 @@ import type { AdminEventViewId } from '../../types/admin'
 interface AdminOverviewProps {
   counts: {
     live: number
-    draft: number
-    hidden: number
-    expired: number
     past: number
-    needsVerification: number
-    duplicates: number
-    duplicateGroups: number
     needsAttention: number
   }
   activeView: AdminEventViewId | 'all'
@@ -17,42 +11,27 @@ interface AdminOverviewProps {
 }
 
 const CARDS: {
-  key: AdminEventViewId | 'all'
+  key: AdminEventViewId
   label: string
-  countKey: keyof AdminOverviewProps['counts'] | null
+  countKey: keyof AdminOverviewProps['counts']
   hint: string
 }[] = [
   { key: 'live', label: 'Live', countKey: 'live', hint: 'On the public website' },
-  { key: 'draft', label: 'Draft', countKey: 'draft', hint: 'Not published yet' },
   {
     key: 'needs-attention',
     label: 'Needs attention',
     countKey: 'needsAttention',
-    hint: 'Duplicates, age, area, mismatches',
+    hint: 'Live events that need review',
   },
-  { key: 'hidden', label: 'Hidden', countKey: 'hidden', hint: 'Removed from site' },
-  { key: 'expired', label: 'Expired', countKey: 'expired', hint: 'Archived manually' },
   { key: 'past', label: 'Past', countKey: 'past', hint: 'Schedule has passed' },
-  {
-    key: 'needs-verification',
-    label: 'Needs check',
-    countKey: 'needsVerification',
-    hint: 'Stale or missing last checked',
-  },
-  {
-    key: 'duplicates',
-    label: 'Duplicates',
-    countKey: 'duplicateGroups',
-    hint: 'Possible same-outing groups',
-  },
 ]
 
 export function AdminOverview({ counts, activeView, onSelectView }: AdminOverviewProps) {
   return (
     <section aria-label="Overview">
-      <div className="admin-stat-grid">
+      <div className="admin-stat-grid admin-stat-grid-compact">
         {CARDS.map((card) => {
-          const count = card.countKey ? counts[card.countKey] : 0
+          const count = counts[card.countKey]
           const isActive = activeView === card.key
           return (
             <button
