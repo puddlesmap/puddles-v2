@@ -23,7 +23,7 @@ const VIEW_OPTIONS: { id: DiscoveryViewFilter; label: string }[] = [
   { id: 'pending', label: 'Pending' },
   { id: 'new', label: 'New only' },
   { id: 'already', label: 'Already on site' },
-  { id: 'approved', label: 'Approved' },
+  { id: 'approved', label: 'Ready' },
   { id: 'dismissed', label: 'Dismissed' },
   { id: 'all', label: 'All' },
 ]
@@ -209,11 +209,12 @@ export function AdminDiscoveryPage() {
       updateCandidate(candidate.id, () => next)
       persistCandidate(next, payloadEdits, lastChecked)
       setSelectedId(null)
+      setView('approved')
       setActionMessage({
         type: 'success',
         text: isExisting
-          ? `Updated verified date on existing event (${result.eventId}) to ${lastChecked}. Refresh Events from Sheet to see it on Admin / Puddles.`
-          : `Approved as Draft (Event ID: ${result.eventId}). Approved on ${lastChecked} — that is the Verified / Last checked date on Puddles after you sync Events from the Sheet.`,
+          ? `Updated verified date on existing event (${result.eventId}) to ${lastChecked}. Refresh Events from Sheet to see Approved on / Last checked.`
+          : `Ready — added as Draft on Events (ID: ${result.eventId}). Approved on ${lastChecked}. Open Events → Refresh from Sheet, then Publish when you want it live.`,
       })
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Could not approve discovery candidate.'
@@ -257,10 +258,11 @@ export function AdminDiscoveryPage() {
     }
     setBulkBusy(false)
     setSelectedId(null)
+    if (okCount > 0) setView('approved')
     if (okCount > 0 && !failMessage) {
       setActionMessage({
         type: 'success',
-        text: `Approved ${okCount} event${okCount === 1 ? '' : 's'} (updated verified on ${updatedExisting} already on site). Approved on ${lastChecked}.`,
+        text: `Marked ${okCount} Ready (updated verified on ${updatedExisting} already on site). Approved on ${lastChecked}. Refresh Events from Sheet to see Drafts.`,
       })
     } else if (okCount > 0 && failMessage) {
       setActionMessage({
@@ -294,9 +296,10 @@ export function AdminDiscoveryPage() {
     <>
       <section className="admin-sync-bar" aria-label="Discovery overview">
         <p className="admin-submissions-intro">
-          Library discovery candidates for review. <strong>Approve</strong> on a new event appends a
-          Draft; on an event already on Puddles it updates <strong>Last Checked Date</strong>{' '}
-          (Verified date). Refresh Events from Sheet, then Publish when ready.
+          Library discovery candidates for review. <strong>Approve</strong> on a <em>new</em> event
+          adds a <strong>Draft</strong> on the Events sheet (status becomes <strong>Ready</strong> here).
+          On an event already on Puddles it updates <strong>Last Checked Date</strong>. Then open{' '}
+          <strong>Events → Refresh from Sheet</strong>, set Published, and <strong>Publish to site</strong>.
         </p>
         <div className="admin-stat-grid admin-stat-grid-compact">
           <div className="admin-stat-card admin-stat-card-static">
@@ -313,7 +316,7 @@ export function AdminDiscoveryPage() {
           </div>
           <div className="admin-stat-card admin-stat-card-static">
             <div className="admin-stat-value">{counts.approved}</div>
-            <div className="admin-stat-label">Approved</div>
+            <div className="admin-stat-label">Ready</div>
           </div>
           <div className="admin-stat-card admin-stat-card-static">
             <div className="admin-stat-value">{counts.dismissed}</div>

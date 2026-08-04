@@ -43,7 +43,11 @@ const SORTABLE_COLUMNS: { key: DiscoverySortKey; label: string; className?: stri
 
 function StatusBadge({ candidate }: { candidate: DiscoveryCandidate }) {
   if (candidate.reviewStatus === 'approved') {
-    return <span className="admin-badge admin-badge-yes">Approved</span>
+    return (
+      <span className="admin-badge admin-badge-yes" title="Draft is on the Events sheet — Refresh Events, then Publish when ready">
+        Ready
+      </span>
+    )
   }
   if (candidate.reviewStatus === 'dismissed') {
     return <span className="admin-badge admin-badge-no">Dismissed</span>
