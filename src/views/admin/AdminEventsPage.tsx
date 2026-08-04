@@ -28,6 +28,7 @@ import {
 import { downloadRowsAsCsv } from '../../utils/exportCsv'
 import { EVENT_EXPORT_COLUMNS, exportFilename } from '../../utils/adminExport'
 import { enrichPublishingFields } from '../../utils/publishing'
+import { pacificTodayYmd } from '../../utils/discoveryReview'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
   resolveAdminEventsSource,
@@ -221,6 +222,41 @@ export function AdminEventsPage() {
     }
   }
 
+  async function handleApproveVerified(event: Event) {
+    const approvedOn = pacificTodayYmd()
+    setBusyId(event.id)
+    setActionMessage(null)
+    try {
+      await callSheetApi({
+        action: 'updateEventVerifiedDate',
+        payload: { id: event.id, verifiedDate: approvedOn },
+      })
+      setEvents((current) => {
+        const next = current.map((row) =>
+          row.id === event.id
+            ? enrichPublishingFields({ ...row, verifiedDate: approvedOn })
+            : row,
+        )
+        saveCachedAdminRefresh({ events: next, refreshedAt: new Date().toISOString() })
+        return next
+      })
+      setAdminRefreshedAt(new Date().toISOString())
+      setActionMessage(
+        `“${event.title}” — Approved on ${approvedOn}. That is Last Checked / Verified on Puddles after Publish to site.`,
+      )
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Could not update approved date.'
+      const needsDeploy = /unknown action/i.test(message)
+      setActionMessage(
+        needsDeploy
+          ? `${message} Redeploy google-apps-script/PuddlesSheetApi.gs (New version) so Approve can update Last Checked Date.`
+          : message,
+      )
+    } finally {
+      setBusyId(null)
+    }
+  }
+
   async function handleHide(event: Event, flagId?: string) {
     const confirmed = window.confirm(
       `Hide “${event.title}” from the public site?\n\nThis sets Status to Hidden in the Events tab. You can restore it from the sheet later.`,
@@ -361,7 +397,14 @@ export function AdminEventsPage() {
         </div>
 
         {exportMessage && <p className="admin-export-message">{exportMessage}</p>}
-        {actionMessage && <p className="admin-export-message">{actionMessage}</p>}
+        {actionMessage ? (
+          <p
+            className={`admin-action-alert ${/could not|redeploy|failed|error/i.test(actionMessage) ? 'admin-action-alert--error' : 'admin-action-alert--success'}`}
+            role="status"
+          >
+            {actionMessage}
+          </p>
+        ) : null}
 
         {!isNeedsAttentionView ? (
           <div className="admin-toolbar">
@@ -445,6 +488,7 @@ export function AdminEventsPage() {
               setSelectedId((current) => (current === event.id ? null : event.id))
             }
             onHide={(event) => void handleHide(event)}
+            onApproveVerified={(event) => void handleApproveVerified(event)}
             duplicateClusters={isDuplicatesView ? visibleClusters : undefined}
             busyClusterId={busyClusterId}
             onKeepWinner={handleKeepWinner}

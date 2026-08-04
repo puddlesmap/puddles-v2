@@ -5,7 +5,7 @@ Quick ops guide for `/admin`. Rule of thumb: **Admin is for review and Sheet wri
 ## Typical session
 
 1. **Discovery** (`/admin/discovery`) — review the queue
-2. **Events** (`/admin/events`) — Refresh from Sheet, set Published
+2. **Events** (`/admin/events`) — Refresh from Sheet; **Approve** to stamp today’s date; set Published
 3. **Publish to site** — once at the end when something should go live
 4. **Submissions** (`/admin/submissions`) — as needed
 
@@ -23,7 +23,7 @@ Refresh the candidate list by running `npm run discover:bay-area` (or a city scr
 ## Events
 
 1. Click **Refresh from Sheet** — updates Admin in this browser only (no deploy).
-2. Confirm Drafts and **Last checked** dates.
+2. Click **Approve** on a row — sets **Approved on** = today in Admin immediately and writes Sheet **Last Checked Date** (Verified on Puddles after Publish).
 3. Set **Status = Published** for anything that should appear on the public site.
 4. Click **Publish to site** once when ready — syncs `sheet-events.json` and redeploys Netlify (~2–4 min).
 

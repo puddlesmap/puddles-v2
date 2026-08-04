@@ -33,7 +33,14 @@ export function AdminEventDetailPanel({ event }: { event: AdminEventRecord }) {
           label="Types"
           value={event.types.length > 0 ? event.types.join(', ') : undefined}
         />
-        <DetailRow label="Last checked" value={formatVerifiedDate(event.verifiedDate)} />
+        <DetailRow
+          label="Approved on"
+          value={
+            event.verifiedDate?.trim()
+              ? `Approved on ${formatVerifiedDate(event.verifiedDate)}`
+              : '—'
+          }
+        />
         <DetailRow label="Event URL" value={event.eventUrl !== '#' ? event.eventUrl : undefined} />
         <DetailRow label="Event ID" value={event.id} />
       </DetailSection>
