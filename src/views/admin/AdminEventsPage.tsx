@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { ALL_EVENTS } from '../../data/events'
 import { SYNC_META } from '../../data/syncInfo'
 import { AdminEventsTable } from '../../components/admin/AdminEventsTable'
@@ -81,11 +81,17 @@ export function AdminEventsPage() {
   const [busyClusterId, setBusyClusterId] = useState<string | null>(null)
   const [busyFlagId, setBusyFlagId] = useState<string | null>(null)
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [checkedIds, setCheckedIds] = useState<string[]>([])
+  const [bulkBusy, setBulkBusy] = useState(false)
   const [activeView, setActiveView] = useState<AdminEventViewId | 'all'>('live')
   const [search, setSearch] = useState('')
   const [city, setCity] = useState<(typeof CITIES)[number]>('All cities')
   const [flagTypeFilter, setFlagTypeFilter] = useState<'all' | AdminReviewFlagType>('all')
   const [dismissedFlagIds, setDismissedFlagIds] = useState<Set<string>>(loadDismissedFlagIds)
+
+  useEffect(() => {
+    setCheckedIds([])
+  }, [activeView, search, city])
 
   const counts = useMemo(() => summarizePublishingCounts(events), [events])
   const viewMeta = activeView === 'all' ? null : getAdminEventView(activeView)
@@ -255,6 +261,84 @@ export function AdminEventsPage() {
     } finally {
       setBusyId(null)
     }
+  }
+
+  async function handleBulkApproveVerified(rows: Event[]) {
+    if (rows.length === 0) return
+    const approvedOn = pacificTodayYmd()
+    const ok = window.confirm(
+      `Approve ${rows.length} event${rows.length === 1 ? '' : 's'}?\n\nApproved on / Last checked will be set to ${approvedOn}.`,
+    )
+    if (!ok) return
+
+    setBulkBusy(true)
+    setActionMessage(null)
+    let okCount = 0
+    let failMessage = ''
+    const succeededIds = new Set<string>()
+
+    for (const event of rows) {
+      try {
+        await callSheetApi({
+          action: 'updateEventVerifiedDate',
+          payload: { id: event.id, verifiedDate: approvedOn },
+        })
+        succeededIds.add(event.id)
+        okCount += 1
+      } catch (error) {
+        failMessage = error instanceof Error ? error.message : 'Could not approve one or more events.'
+        break
+      }
+    }
+
+    if (succeededIds.size > 0) {
+      setEvents((current) => {
+        const next = current.map((row) =>
+          succeededIds.has(row.id)
+            ? enrichPublishingFields({ ...row, verifiedDate: approvedOn })
+            : row,
+        )
+        saveCachedAdminRefresh({ events: next, refreshedAt: new Date().toISOString() })
+        return next
+      })
+      setAdminRefreshedAt(new Date().toISOString())
+    }
+
+    setCheckedIds([])
+    setBulkBusy(false)
+
+    if (okCount > 0 && !failMessage) {
+      setActionMessage(
+        `Approved ${okCount} event${okCount === 1 ? '' : 's'} — Approved on ${approvedOn}.`,
+      )
+    } else if (okCount > 0 && failMessage) {
+      setActionMessage(`Approved ${okCount}, then stopped: ${failMessage}`)
+    } else {
+      const needsDeploy = /unknown action/i.test(failMessage)
+      setActionMessage(
+        needsDeploy
+          ? `${failMessage} Redeploy google-apps-script/PuddlesSheetApi.gs (New version) so Approve can update Last Checked Date.`
+          : failMessage || 'Could not approve selected events.',
+      )
+    }
+  }
+
+  function handleToggleChecked(eventId: string) {
+    setCheckedIds((current) =>
+      current.includes(eventId) ? current.filter((id) => id !== eventId) : [...current, eventId],
+    )
+  }
+
+  function handleToggleCheckAll(checked: boolean) {
+    if (!checked) {
+      setCheckedIds((current) => current.filter((id) => !filteredEvents.some((e) => e.id === id)))
+      return
+    }
+    setCheckedIds((current) => {
+      const next = new Set(current)
+      for (const event of filteredEvents) next.add(event.id)
+      return [...next]
+    })
   }
 
   async function handleHide(event: Event, flagId?: string) {
@@ -484,9 +568,15 @@ export function AdminEventsPage() {
             events={filteredEvents}
             busyId={busyId}
             selectedId={selectedId}
+            checkedIds={checkedIds}
+            bulkBusy={bulkBusy}
             onSelect={(event) =>
               setSelectedId((current) => (current === event.id ? null : event.id))
             }
+            onToggleChecked={handleToggleChecked}
+            onToggleCheckAll={handleToggleCheckAll}
+            onClearChecked={() => setCheckedIds([])}
+            onBulkApproveVerified={(rows) => void handleBulkApproveVerified(rows)}
             onHide={(event) => void handleHide(event)}
             onApproveVerified={(event) => void handleApproveVerified(event)}
             duplicateClusters={isDuplicatesView ? visibleClusters : undefined}

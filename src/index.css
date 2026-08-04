@@ -4810,6 +4810,42 @@ select.input-field,
   background: color-mix(in srgb, var(--color-primary, #2f6fed) 10%, #fff);
 }
 
+.admin-events-table-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.admin-events-select-hint {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+.admin-events-col-check {
+  width: 2.5rem;
+  vertical-align: middle;
+}
+
+.admin-events-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  cursor: pointer;
+}
+
+.admin-events-check input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--color-charcoal, #1f2937);
+  cursor: pointer;
+}
+
+.admin-events-row.is-multi-selected > td {
+  background: color-mix(in srgb, var(--color-primary, #2f6fed) 10%, #fff);
+}
+
 .admin-discovery-row-actions {
   display: flex;
   flex-wrap: wrap;

@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useMemo } from 'react'
 import type { AdminEventRecord } from '../../types/admin'
 import type { EventStatus } from '../../types/event'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
@@ -30,13 +30,20 @@ function formatVerifiedDate(dateStr: string): string {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 }
 
-const COLUMN_COUNT = 8
+const COLUMN_COUNT = 9
 
 interface AdminEventsTableProps {
   events: AdminEventRecord[]
   busyId: string | null
   selectedId: string | null
+  /** Checkbox multi-select ids (bulk actions). */
+  checkedIds: string[]
+  bulkBusy?: boolean
   onSelect: (event: AdminEventRecord) => void
+  onToggleChecked: (eventId: string) => void
+  onToggleCheckAll: (checked: boolean) => void
+  onClearChecked: () => void
+  onBulkApproveVerified?: (events: AdminEventRecord[]) => void
   onHide: (event: AdminEventRecord) => void
   /** Stamp Last Checked / Approved on = today (Sheet + local Admin). */
   onApproveVerified?: (event: AdminEventRecord) => void
@@ -50,13 +57,27 @@ export function AdminEventsTable({
   events,
   busyId,
   selectedId,
+  checkedIds,
+  bulkBusy = false,
   onSelect,
+  onToggleChecked,
+  onToggleCheckAll,
+  onClearChecked,
+  onBulkApproveVerified,
   onHide,
   onApproveVerified,
   duplicateClusters,
   busyClusterId = null,
   onKeepWinner,
 }: AdminEventsTableProps) {
+  const checkedSet = useMemo(() => new Set(checkedIds), [checkedIds])
+  const allVisibleChecked = events.length > 0 && events.every((event) => checkedSet.has(event.id))
+  const someVisibleChecked = events.some((event) => checkedSet.has(event.id))
+  const checkedEvents = useMemo(
+    () => events.filter((event) => checkedSet.has(event.id)),
+    [events, checkedSet],
+  )
+
   if (duplicateClusters) {
     if (duplicateClusters.length === 0) {
       return (
@@ -165,7 +186,7 @@ export function AdminEventsTable({
                           </tr>
                           {isExpanded && (
                             <tr className="admin-table-expand-row">
-                              <td colSpan={COLUMN_COUNT}>
+                              <td colSpan={8}>
                                 <AdminEventDetailPanel event={event} />
                               </td>
                             </tr>
@@ -193,113 +214,185 @@ export function AdminEventsTable({
   }
 
   return (
-    <div className="admin-table-wrap">
-      <table className="admin-table">
-        <thead>
-          <tr>
-            <th>Event</th>
-            <th>City</th>
-            <th>When</th>
-            <th>Status</th>
-            <th>Live</th>
-            <th>Past</th>
-            <th title="Same as Sheet Last Checked Date / Verified on Puddles">Approved on</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {events.map((event) => {
-            const stale = isVerificationStale(event)
-            const isExpanded = selectedId === event.id
-            const isBusy = busyId === event.id
-            const canHide = event.status !== 'Hidden'
-            const approvedLabel = formatVerifiedDate(event.verifiedDate)
+    <div className="admin-events-table-shell">
+      {checkedIds.length > 0 ? (
+        <div className="admin-discovery-bulk-bar" role="status">
+          <span className="admin-discovery-bulk-count">
+            {checkedIds.length} selected
+            <span className="admin-discovery-bulk-hint"> — check more rows for bulk actions</span>
+          </span>
+          <div className="admin-discovery-bulk-actions">
+            {onBulkApproveVerified ? (
+              <button
+                type="button"
+                className="admin-btn admin-btn-primary"
+                disabled={bulkBusy || checkedEvents.length === 0}
+                onClick={() => onBulkApproveVerified(checkedEvents)}
+              >
+                {bulkBusy ? 'Approving…' : `Approve selected (${checkedEvents.length})`}
+              </button>
+            ) : null}
+            <button
+              type="button"
+              className="admin-btn admin-btn-secondary"
+              disabled={bulkBusy}
+              onClick={onClearChecked}
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      ) : (
+        <p className="admin-events-select-hint">
+          Tip: use the checkboxes to select several events, then Approve selected.
+        </p>
+      )}
 
-            return (
-              <Fragment key={event.id}>
-                <tr
-                  className={`admin-table-row-clickable ${isExpanded ? 'admin-table-row-selected' : ''}`}
-                  onClick={() => onSelect(event)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault()
-                      onSelect(event)
-                    }
-                  }}
-                  tabIndex={0}
-                  role="button"
-                  aria-expanded={isExpanded}
-                  aria-label={`${isExpanded ? 'Collapse' : 'Expand'} details for ${event.title}`}
-                >
-                  <td>
-                    <div className="admin-event-title">{event.title}</div>
-                    <div className="admin-event-meta">{event.venue}</div>
-                  </td>
-                  <td>{event.city}</td>
-                  <td>
-                    <div className="whitespace-nowrap">{formatEventDate(event.date)}</div>
-                    <div className="admin-event-meta whitespace-nowrap">
-                      {formatEventTimeRange(event.startTime, event.endTime)}
-                    </div>
-                  </td>
-                  <td>
-                    <StatusBadge status={event.status} />
-                  </td>
-                  <td>
-                    <BoolBadge value={event.isLive} trueLabel="Live" falseLabel="Not live" />
-                  </td>
-                  <td>
-                    <BoolBadge value={event.isPast} trueLabel="Past" falseLabel="Upcoming" />
-                  </td>
-                  <td className="admin-table-last-checked">
-                    <div className="admin-last-checked">
-                      <span className={stale ? 'admin-verified-stale' : ''}>
-                        {approvedLabel === '—' ? '—' : `Approved on ${approvedLabel}`}
-                      </span>
-                      {stale ? <span className="admin-stale-tag">Needs check</span> : null}
-                    </div>
-                  </td>
-                  <td className="admin-table-actions-cell" onClick={(e) => e.stopPropagation()}>
-                    <div className="admin-table-actions">
-                      {onApproveVerified ? (
-                        <button
-                          type="button"
-                          className="admin-btn admin-btn-primary"
-                          disabled={isBusy}
-                          onClick={() => onApproveVerified(event)}
-                        >
-                          {isBusy ? '…' : 'Approve'}
-                        </button>
-                      ) : null}
-                      {canHide ? (
-                        <button
-                          type="button"
-                          className="admin-btn admin-btn-text"
-                          disabled={isBusy}
-                          onClick={() => onHide(event)}
-                        >
-                          {isBusy ? 'Hiding…' : 'Hide'}
-                        </button>
-                      ) : (
-                        <span className="admin-badge admin-badge-status admin-badge-status-hidden">
-                          Hidden
+      <div className="admin-table-wrap">
+        <table className="admin-table">
+          <thead>
+            <tr>
+              <th className="admin-events-col-check" scope="col">
+                <label className="admin-events-check">
+                  <span className="sr-only">Select all visible events</span>
+                  <input
+                    type="checkbox"
+                    checked={allVisibleChecked}
+                    ref={(el) => {
+                      if (el) el.indeterminate = someVisibleChecked && !allVisibleChecked
+                    }}
+                    onChange={(e) => onToggleCheckAll(e.target.checked)}
+                    disabled={bulkBusy}
+                  />
+                </label>
+              </th>
+              <th>Event</th>
+              <th>City</th>
+              <th>When</th>
+              <th>Status</th>
+              <th>Live</th>
+              <th>Past</th>
+              <th title="Same as Sheet Last Checked Date / Verified on Puddles">Approved on</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {events.map((event) => {
+              const stale = isVerificationStale(event)
+              const isExpanded = selectedId === event.id
+              const isBusy = busyId === event.id
+              const isChecked = checkedSet.has(event.id)
+              const canHide = event.status !== 'Hidden'
+              const approvedLabel = formatVerifiedDate(event.verifiedDate)
+
+              return (
+                <Fragment key={event.id}>
+                  <tr
+                    className={[
+                      'admin-table-row-clickable',
+                      'admin-events-row',
+                      isExpanded ? 'admin-table-row-selected' : '',
+                      isChecked ? 'is-multi-selected' : '',
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
+                    onClick={() => onSelect(event)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault()
+                        onSelect(event)
+                      }
+                    }}
+                    tabIndex={0}
+                    role="button"
+                    aria-expanded={isExpanded}
+                    aria-label={`${isExpanded ? 'Collapse' : 'Expand'} details for ${event.title}`}
+                  >
+                    <td
+                      className="admin-events-col-check"
+                      onClick={(e) => e.stopPropagation()}
+                      onKeyDown={(e) => e.stopPropagation()}
+                    >
+                      <label className="admin-events-check">
+                        <span className="sr-only">Select {event.title}</span>
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          disabled={bulkBusy}
+                          onChange={() => onToggleChecked(event.id)}
+                        />
+                      </label>
+                    </td>
+                    <td>
+                      <div className="admin-event-title">{event.title}</div>
+                      <div className="admin-event-meta">{event.venue}</div>
+                    </td>
+                    <td>{event.city}</td>
+                    <td>
+                      <div className="whitespace-nowrap">{formatEventDate(event.date)}</div>
+                      <div className="admin-event-meta whitespace-nowrap">
+                        {formatEventTimeRange(event.startTime, event.endTime)}
+                      </div>
+                    </td>
+                    <td>
+                      <StatusBadge status={event.status} />
+                    </td>
+                    <td>
+                      <BoolBadge value={event.isLive} trueLabel="Live" falseLabel="Not live" />
+                    </td>
+                    <td>
+                      <BoolBadge value={event.isPast} trueLabel="Past" falseLabel="Upcoming" />
+                    </td>
+                    <td className="admin-table-last-checked">
+                      <div className="admin-last-checked">
+                        <span className={stale ? 'admin-verified-stale' : ''}>
+                          {approvedLabel === '—' ? '—' : `Approved on ${approvedLabel}`}
                         </span>
-                      )}
-                    </div>
-                  </td>
-                </tr>
-                {isExpanded && (
-                  <tr className="admin-table-expand-row">
-                    <td colSpan={COLUMN_COUNT}>
-                      <AdminEventDetailPanel event={event} />
+                        {stale ? <span className="admin-stale-tag">Needs check</span> : null}
+                      </div>
+                    </td>
+                    <td className="admin-table-actions-cell" onClick={(e) => e.stopPropagation()}>
+                      <div className="admin-table-actions">
+                        {onApproveVerified ? (
+                          <button
+                            type="button"
+                            className="admin-btn admin-btn-primary"
+                            disabled={isBusy || bulkBusy}
+                            onClick={() => onApproveVerified(event)}
+                          >
+                            {isBusy ? '…' : 'Approve'}
+                          </button>
+                        ) : null}
+                        {canHide ? (
+                          <button
+                            type="button"
+                            className="admin-btn admin-btn-text"
+                            disabled={isBusy || bulkBusy}
+                            onClick={() => onHide(event)}
+                          >
+                            {isBusy ? 'Hiding…' : 'Hide'}
+                          </button>
+                        ) : (
+                          <span className="admin-badge admin-badge-status admin-badge-status-hidden">
+                            Hidden
+                          </span>
+                        )}
+                      </div>
                     </td>
                   </tr>
-                )}
-              </Fragment>
-            )
-          })}
-        </tbody>
-      </table>
+                  {isExpanded && (
+                    <tr className="admin-table-expand-row">
+                      <td colSpan={COLUMN_COUNT}>
+                        <AdminEventDetailPanel event={event} />
+                      </td>
+                    </tr>
+                  )}
+                </Fragment>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
