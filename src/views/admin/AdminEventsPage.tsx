@@ -273,25 +273,13 @@ export function AdminEventsPage() {
 
     setBulkBusy(true)
     setActionMessage(null)
-    let okCount = 0
-    let failMessage = ''
-    const succeededIds = new Set<string>()
-
-    for (const event of rows) {
-      try {
-        await callSheetApi({
-          action: 'updateEventVerifiedDate',
-          payload: { id: event.id, verifiedDate: approvedOn },
-        })
-        succeededIds.add(event.id)
-        okCount += 1
-      } catch (error) {
-        failMessage = error instanceof Error ? error.message : 'Could not approve one or more events.'
-        break
-      }
-    }
-
-    if (succeededIds.size > 0) {
+    const ids = rows.map((event) => event.id)
+    try {
+      await callSheetApi({
+        action: 'bulkUpdateEventVerifiedDate',
+        payload: { ids, verifiedDate: approvedOn },
+      })
+      const succeededIds = new Set(ids)
       setEvents((current) => {
         const next = current.map((row) =>
           succeededIds.has(row.id)
@@ -302,24 +290,20 @@ export function AdminEventsPage() {
         return next
       })
       setAdminRefreshedAt(new Date().toISOString())
-    }
-
-    setCheckedIds([])
-    setBulkBusy(false)
-
-    if (okCount > 0 && !failMessage) {
+      setCheckedIds([])
       setActionMessage(
-        `Approved ${okCount} event${okCount === 1 ? '' : 's'} — Approved on ${approvedOn}.`,
+        `Approved ${ids.length} event${ids.length === 1 ? '' : 's'} — Approved on ${approvedOn}.`,
       )
-    } else if (okCount > 0 && failMessage) {
-      setActionMessage(`Approved ${okCount}, then stopped: ${failMessage}`)
-    } else {
-      const needsDeploy = /unknown action/i.test(failMessage)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Could not approve selected events.'
+      const needsDeploy = /unknown action/i.test(message)
       setActionMessage(
         needsDeploy
-          ? `${failMessage} Redeploy google-apps-script/PuddlesSheetApi.gs (New version) so Approve can update Last Checked Date.`
-          : failMessage || 'Could not approve selected events.',
+          ? `${message} Redeploy google-apps-script/PuddlesSheetApi.gs (New version) so bulk Approve works.`
+          : message,
       )
+    } finally {
+      setBulkBusy(false)
     }
   }
 

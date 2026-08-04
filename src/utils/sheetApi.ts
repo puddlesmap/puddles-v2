@@ -29,6 +29,10 @@ export type SheetApiAction =
       payload: UpdateEventVerifiedDatePayload
     }
   | {
+      action: 'bulkUpdateEventVerifiedDate'
+      payload: BulkUpdateEventVerifiedDatePayload
+    }
+  | {
       action: 'notifyDuplicates'
       payload: {
         to?: string
@@ -81,6 +85,12 @@ export interface UpdateEventVerifiedDatePayload {
   discoveryId?: string
 }
 
+export interface BulkUpdateEventVerifiedDatePayload {
+  ids: string[]
+  verifiedDate: string
+  lastChecked?: string
+}
+
 export interface AppendSubmissionPayload {
   submissionType: 'Event' | 'Idea' | 'ExpansionWatch'
   eventName: string
@@ -123,33 +133,85 @@ function apiHeaders(): HeadersInit {
   return headers
 }
 
-export async function callSheetApi<T>(request: SheetApiAction): Promise<T> {
-  const isPublicAction = request.action === 'appendSubmission'
-  const response = await fetch(SHEET_API_PATH, {
-    method: 'POST',
-    headers: apiHeaders(),
-    credentials: isPublicAction ? 'same-origin' : 'include',
-    body: JSON.stringify(request),
-  })
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
 
-  const raw = await response.text()
-  let data: SheetApiResponse<T>
-  try {
-    data = JSON.parse(raw) as SheetApiResponse<T>
-  } catch {
-    const snippet = raw.replace(/\s+/g, ' ').trim().slice(0, 160)
-    throw new Error(
-      snippet
-        ? `Sheet API returned an invalid response: ${snippet}`
-        : 'Sheet API returned an invalid response (empty body). Redeploy google-apps-script/PuddlesSheetApi.gs if Approve is broken.',
+function isTransientSheetApiBody(raw: string): boolean {
+  return /inactivity timeout|<html[\s>]/i.test(raw)
+}
+
+function friendlySheetApiError(rawOrMessage: string): string {
+  if (/inactivity timeout/i.test(rawOrMessage)) {
+    return (
+      'Google Sheet connection timed out (Inactivity Timeout). ' +
+      'This often happens when approving many items at once. Wait a few seconds and Approve again in smaller batches (about 10–20). ' +
+      'Some items before the error may already be updated — check the Ready filter.'
     )
   }
+  return rawOrMessage
+}
 
-  if (!response.ok || !data.ok) {
-    throw new Error(data.error || `Sheet API failed (${response.status})`)
+export async function callSheetApi<T>(
+  request: SheetApiAction,
+  options?: { retries?: number },
+): Promise<T> {
+  const retries = options?.retries ?? 2
+  const isPublicAction = request.action === 'appendSubmission'
+  let lastError: Error | null = null
+
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const response = await fetch(SHEET_API_PATH, {
+        method: 'POST',
+        headers: apiHeaders(),
+        credentials: isPublicAction ? 'same-origin' : 'include',
+        body: JSON.stringify(request),
+      })
+
+      const raw = await response.text()
+      let data: SheetApiResponse<T>
+      try {
+        data = JSON.parse(raw) as SheetApiResponse<T>
+      } catch {
+        const snippet = raw.replace(/\s+/g, ' ').trim().slice(0, 160)
+        const message = friendlySheetApiError(
+          snippet
+            ? `Sheet API returned an invalid response: ${snippet}`
+            : 'Sheet API returned an invalid response (empty body). Redeploy google-apps-script/PuddlesSheetApi.gs if Approve is broken.',
+        )
+        if (attempt < retries && isTransientSheetApiBody(raw)) {
+          await sleep(1200 * (attempt + 1))
+          lastError = new Error(message)
+          continue
+        }
+        throw new Error(message)
+      }
+
+      if (!response.ok || !data.ok) {
+        const message = friendlySheetApiError(
+          data.error || `Sheet API failed (${response.status})`,
+        )
+        if (attempt < retries && /inactivity timeout/i.test(message)) {
+          await sleep(1200 * (attempt + 1))
+          lastError = new Error(message)
+          continue
+        }
+        throw new Error(message)
+      }
+
+      return data.result as T
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error))
+      if (attempt < retries && /inactivity timeout|timed out/i.test(lastError.message)) {
+        await sleep(1200 * (attempt + 1))
+        continue
+      }
+      throw lastError
+    }
   }
 
-  return data.result as T
+  throw lastError || new Error('Sheet API failed')
 }
 
 export function buildActivitySubmissionRow(

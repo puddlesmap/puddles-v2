@@ -41,8 +41,10 @@ function mergeCandidate(
 }
 
 function deployHint(message: string): string {
-  if (!/unknown action/i.test(message)) return message
-  return `${message} Redeploy google-apps-script/PuddlesSheetApi.gs (Deploy → Manage deployments → New version) so Approve / update verified date works.`
+  if (/unknown action/i.test(message)) {
+    return `${message} Redeploy google-apps-script/PuddlesSheetApi.gs (Deploy → Manage deployments → New version) so Approve / update verified date works.`
+  }
+  return message
 }
 
 async function approveExistingOnSite(
@@ -230,34 +232,98 @@ export function AdminDiscoveryPage() {
   }
 
   async function handleBulkApprove(rows: DiscoveryCandidate[]) {
+    if (rows.length > 25) {
+      const ok = window.confirm(
+        `You’re approving ${rows.length} items.\n\nLarge batches can time out the Google Sheet connection. Continue?\n\nTip: batches of ~15–25 are more reliable.`,
+      )
+      if (!ok) return
+    }
+
     setBulkBusy(true)
     setActionMessage(null)
     let okCount = 0
     let updatedExisting = 0
     let failMessage = ''
     const lastChecked = pacificTodayYmd()
-    for (const candidate of rows) {
-      const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
-      try {
-        const isExisting = candidate.alreadyOnPuddles
-        const result = isExisting
-          ? await approveExistingOnSite(candidate, payloadEdits, lastChecked)
-          : await approveAsNewDraft(candidate, payloadEdits, lastChecked)
-        const next = mergeCandidate(candidate, payloadEdits, {
-          reviewStatus: 'approved',
-          convertedEventId: result.eventId,
-          lastChecked,
-        })
-        updateCandidate(candidate.id, () => next)
-        persistCandidate(next, payloadEdits, lastChecked)
-        okCount += 1
-        if (isExisting) updatedExisting += 1
-      } catch (error) {
-        failMessage =
-          error instanceof Error ? error.message : 'Could not approve one or more candidates.'
-        break
+
+    const existing = rows.filter((row) => row.alreadyOnPuddles)
+    const neu = rows.filter((row) => !row.alreadyOnPuddles)
+
+    // Already on site: one (or few) batch Sheet calls instead of one request per row.
+    if (existing.length > 0) {
+      const idByCandidate = new Map<string, string>()
+      const allIds: string[] = []
+      for (const candidate of existing) {
+        const ids = findMatchingEventIdsForCandidate(candidate)
+        if (ids.length === 0) {
+          failMessage = `Could not match “${candidate.title}” to an Events row. Refresh Events from Sheet, then retry that item.`
+          break
+        }
+        idByCandidate.set(candidate.id, ids[0])
+        for (const id of ids) {
+          if (!allIds.includes(id)) allIds.push(id)
+        }
+      }
+
+      if (!failMessage && allIds.length > 0) {
+        const CHUNK = 40
+        try {
+          for (let i = 0; i < allIds.length; i += CHUNK) {
+            const chunk = allIds.slice(i, i + CHUNK)
+            await callSheetApi({
+              action: 'bulkUpdateEventVerifiedDate',
+              payload: { ids: chunk, verifiedDate: lastChecked },
+            })
+            if (i + CHUNK < allIds.length) {
+              await new Promise((r) => setTimeout(r, 400))
+            }
+          }
+          for (const candidate of existing) {
+            const eventId = idByCandidate.get(candidate.id) || ''
+            const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
+            const next = mergeCandidate(candidate, payloadEdits, {
+              reviewStatus: 'approved',
+              convertedEventId: eventId,
+              lastChecked,
+            })
+            updateCandidate(candidate.id, () => next)
+            persistCandidate(next, payloadEdits, lastChecked)
+            okCount += 1
+            updatedExisting += 1
+          }
+        } catch (error) {
+          failMessage =
+            error instanceof Error ? error.message : 'Could not update verified dates in bulk.'
+        }
       }
     }
+
+    // New candidates: still one Draft append each, with a short pause to avoid timeouts.
+    if (!failMessage) {
+      for (let i = 0; i < neu.length; i++) {
+        const candidate = neu[i]
+        const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
+        try {
+          const result = await approveAsNewDraft(candidate, payloadEdits, lastChecked)
+          const next = mergeCandidate(candidate, payloadEdits, {
+            reviewStatus: 'approved',
+            convertedEventId: result.eventId,
+            lastChecked,
+          })
+          updateCandidate(candidate.id, () => next)
+          persistCandidate(next, payloadEdits, lastChecked)
+          okCount += 1
+          if (i < neu.length - 1) {
+            await new Promise((r) => setTimeout(r, 350))
+          }
+        } catch (error) {
+          failMessage =
+            error instanceof Error ? error.message : 'Could not approve one or more candidates.'
+          break
+        }
+      }
+    }
+
     setBulkBusy(false)
     setSelectedId(null)
     if (okCount > 0) setView('approved')

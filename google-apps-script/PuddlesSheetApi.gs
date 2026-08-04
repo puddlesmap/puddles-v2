@@ -12,6 +12,7 @@
  *   { action: 'updateEventStatus', payload: { id, status } }
  *   { action: 'appendEventDraft', payload: { title, date, ... } }
  *   { action: 'updateEventVerifiedDate', payload: { id?|eventUrl?, verifiedDate, date? } }
+ *   { action: 'bulkUpdateEventVerifiedDate', payload: { ids: [], verifiedDate } }
  *   { action: 'notifyDuplicates', payload: { subject, body, clusterCount?, to? } }
  *   { action: 'notifyAdminReviewFlags', payload: { subject, body, flagCount?, to? } }
  */
@@ -30,7 +31,7 @@ function doPost(e) {
 }
 
 function doGet() {
-  return jsonOutput({ ok: true, service: 'Puddles Sheet API', version: 5 });
+  return jsonOutput({ ok: true, service: 'Puddles Sheet API', version: 6 });
 }
 
 function jsonOutput(obj) {
@@ -53,6 +54,8 @@ function handleAction(action, payload) {
       return appendEventDraft(payload);
     case 'updateEventVerifiedDate':
       return updateEventVerifiedDate(payload);
+    case 'bulkUpdateEventVerifiedDate':
+      return bulkUpdateEventVerifiedDate(payload);
     case 'notifyDuplicates':
       return notifyDuplicates(payload);
     case 'notifyAdminReviewFlags':
@@ -419,6 +422,37 @@ function updateEventVerifiedDate(payload) {
     eventIds: updated,
     verifiedDate: String(verifiedRaw),
     updated: updated.length || 1,
+  };
+}
+
+/** Update Last Checked Date for many Events rows in one request (bulk Approve). */
+function bulkUpdateEventVerifiedDate(payload) {
+  var verifiedRaw = payload.verifiedDate || payload.lastChecked;
+  if (!verifiedRaw) throw new Error('Missing verifiedDate');
+  var ids = payload.ids || payload.eventIds || [];
+  if (!ids || !ids.length) throw new Error('Missing ids');
+
+  var verified = toSheetDate(verifiedRaw);
+  var updated = [];
+  var missing = [];
+
+  for (var i = 0; i < ids.length; i++) {
+    var id = String(ids[i] || '').trim();
+    if (!id) continue;
+    try {
+      var found = findEventRow(id);
+      setCellByAliases(found, ['last checked date', 'last verified'], verified, true);
+      updated.push(id);
+    } catch (err) {
+      missing.push(id);
+    }
+  }
+
+  return {
+    verifiedDate: String(verifiedRaw),
+    updated: updated.length,
+    eventIds: updated,
+    missing: missing,
   };
 }
 
