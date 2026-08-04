@@ -4824,27 +4824,48 @@ select.input-field,
 }
 
 .admin-events-col-check {
-  width: 2.5rem;
+  width: 2rem;
+  max-width: 2rem;
+  min-width: 2rem;
+  padding-left: 0.5rem !important;
+  padding-right: 0.2rem !important;
   vertical-align: middle;
+  box-sizing: border-box;
 }
 
 .admin-events-check {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 1.15rem;
+  height: 1.15rem;
   margin: 0;
   cursor: pointer;
 }
 
 .admin-events-check input {
-  width: 1.05rem;
-  height: 1.05rem;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin: 0;
   accent-color: var(--color-charcoal, #1f2937);
   cursor: pointer;
 }
 
 .admin-events-row.is-multi-selected > td {
   background: color-mix(in srgb, var(--color-primary, #2f6fed) 10%, #fff);
+}
+
+/* Keep actions from sitting flush against the card edge */
+.admin-table th:last-child,
+.admin-table td:last-child {
+  padding-right: 0.875rem;
+}
+
+@media (min-width: 1024px) {
+  .admin-table th:last-child,
+  .admin-table td:last-child {
+    padding-right: 1rem;
+  }
 }
 
 .admin-discovery-row-actions {
