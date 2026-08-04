@@ -1448,6 +1448,25 @@ textarea {
   color: var(--color-muted);
 }
 
+.card-listing-meta,
+.discovery-event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.card-listing-age,
+.discovery-event-age {
+  font-family: var(--font-sans);
+  font-size: var(--type-meta);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: var(--color-muted);
+  margin: 0;
+}
+
 .card-listing-title,
 .event-title {
   margin-top: var(--space-2xs);
@@ -1476,9 +1495,19 @@ textarea {
   color: var(--color-muted);
 }
 
+.browse-event-grid .card-listing-meta {
+  min-height: 1.25em;
+}
+
 .browse-event-grid .card-listing-datetime {
   min-height: 1.25em;
   max-height: 1.25em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.browse-event-grid .card-listing-age {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -3611,6 +3640,73 @@ select.input-field,
 .admin-sync-note-inline {
   margin: 0;
   font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.admin-reminder-banner {
+  border-bottom: 1px solid #f5d0b0;
+  background: #fff7ed;
+}
+
+.admin-reminder-banner__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.admin-reminder-banner__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 16rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: #9a3412;
+}
+
+.admin-reminder-banner__copy strong {
+  color: #7c2d12;
+}
+
+.admin-reminder-banner__dismiss {
+  flex-shrink: 0;
+}
+
+.admin-howto-panel {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: #fafafa;
+}
+
+.admin-howto-panel__lead {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-charcoal);
+}
+
+.admin-howto-panel__list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-charcoal);
+}
+
+.admin-howto-panel__list li + li {
+  margin-top: 0.4rem;
+}
+
+.admin-howto-panel__note {
+  margin: 0.75rem 0 0;
+  font-size: 0.8125rem;
   line-height: 1.45;
   color: var(--color-muted);
 }
