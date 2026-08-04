@@ -25,6 +25,10 @@ export type SheetApiAction =
       payload: AppendEventDraftPayload
     }
   | {
+      action: 'updateEventVerifiedDate'
+      payload: UpdateEventVerifiedDatePayload
+    }
+  | {
       action: 'notifyDuplicates'
       payload: {
         to?: string
@@ -65,6 +69,16 @@ export interface AppendEventDraftPayload {
   lng?: number | null
   source?: string
   eventId?: string
+}
+
+export interface UpdateEventVerifiedDatePayload {
+  id?: string
+  eventId?: string
+  eventUrl?: string
+  date?: string
+  verifiedDate: string
+  lastChecked?: string
+  discoveryId?: string
 }
 
 export interface AppendSubmissionPayload {
@@ -118,11 +132,17 @@ export async function callSheetApi<T>(request: SheetApiAction): Promise<T> {
     body: JSON.stringify(request),
   })
 
+  const raw = await response.text()
   let data: SheetApiResponse<T>
   try {
-    data = (await response.json()) as SheetApiResponse<T>
+    data = JSON.parse(raw) as SheetApiResponse<T>
   } catch {
-    throw new Error('Sheet API returned an invalid response')
+    const snippet = raw.replace(/\s+/g, ' ').trim().slice(0, 160)
+    throw new Error(
+      snippet
+        ? `Sheet API returned an invalid response: ${snippet}`
+        : 'Sheet API returned an invalid response (empty body). Redeploy google-apps-script/PuddlesSheetApi.gs if Approve is broken.',
+    )
   }
 
   if (!response.ok || !data.ok) {

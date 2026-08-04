@@ -6,6 +6,8 @@ export interface DiscoveryReviewRecord {
   reviewStatus: DiscoveryReviewStatus
   edits?: Partial<DiscoveryEditableFields>
   convertedEventId?: string
+  /** Approve stamp (YYYY-MM-DD) — becomes Last Checked / verifiedDate on the site. */
+  approvedOn?: string
   updatedAt: string
 }
 
@@ -56,13 +58,18 @@ export function applyDiscoveryReviewOverrides(
     const override = store[candidate.id]
     if (!override) return candidate
     const edits = override.edits ?? {}
+    const fromEdits =
+      typeof edits.lastChecked === 'string' && edits.lastChecked.trim()
+        ? edits.lastChecked.trim()
+        : ''
+    const approvedOn = override.approvedOn || fromEdits || candidate.lastChecked || ''
     return {
       ...candidate,
       ...edits,
       types: edits.types ?? candidate.types,
       reviewStatus: override.reviewStatus ?? candidate.reviewStatus,
       convertedEventId: override.convertedEventId ?? candidate.convertedEventId,
-      lastChecked: edits.lastChecked ?? candidate.lastChecked,
+      lastChecked: approvedOn,
     }
   })
 }

@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState, type ReactNode } from 'react'
 import type { DiscoveryCandidate, DiscoveryEditableFields } from '../../types/discovery'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
-import { editableFieldsFromCandidate, pacificTodayYmd } from '../../utils/discoveryReview'
+import { editableFieldsFromCandidate } from '../../utils/discoveryReview'
 import { DetailSection } from './AdminDetailGrid'
 
 const ACTIVITY_TYPE_OPTIONS = [
@@ -233,25 +233,22 @@ export function AdminDiscoveryDetailPanel({
               disabled={busy}
             />
           </Field>
-          <Field label="Last checked">
-            <div className="admin-discovery-checked">
-              <input
-                type="date"
-                className="admin-discovery-input"
-                value={draft.lastChecked || pacificTodayYmd()}
-                onChange={(e) => update('lastChecked', e.target.value)}
-                disabled={busy}
-              />
-              <button
-                type="button"
-                className="admin-btn admin-btn-text"
-                disabled={busy}
-                onClick={() => update('lastChecked', pacificTodayYmd())}
-              >
-                Use today
-              </button>
-            </div>
-          </Field>
+          {candidate.reviewStatus === 'approved' && candidate.lastChecked ? (
+            <p className="text-sm text-muted">
+              <strong>Approved on {candidate.lastChecked}</strong> — this is the Verified / Last
+              checked date shown on Puddles after Events sync from the Sheet.
+            </p>
+          ) : candidate.alreadyOnPuddles ? (
+            <p className="text-sm text-muted">
+              <strong>Update verified date</strong> stamps today on the existing Events row (Last
+              Checked Date on the Sheet).
+            </p>
+          ) : (
+            <p className="text-sm text-muted">
+              <strong>Approve</strong> stamps today’s date as Approved on, and writes it to the
+              Sheet as Last Checked Date (Verified on Puddles).
+            </p>
+          )}
         </div>
       </DetailSection>
 
@@ -270,14 +267,15 @@ export function AdminDiscoveryDetailPanel({
               type="button"
               className="admin-btn admin-btn-primary"
               disabled={approveDisabled}
-              onClick={() =>
-                onApprove({
-                  ...draft,
-                  lastChecked: draft.lastChecked || pacificTodayYmd(),
-                })
-              }
+              onClick={() => onApprove(draft)}
             >
-              {busy ? 'Approving…' : 'Approve'}
+              {busy
+                ? candidate.alreadyOnPuddles
+                  ? 'Updating…'
+                  : 'Approving…'
+                : candidate.alreadyOnPuddles
+                  ? 'Update verified date'
+                  : 'Approve'}
             </button>
             <button
               type="button"
@@ -312,8 +310,8 @@ export function AdminDiscoveryDetailPanel({
 
       {candidate.alreadyOnPuddles && canApprove ? (
         <p className="mt-3 text-sm text-muted">
-          This URL is already on Puddles. Approving will add another Draft row — only do that if
-          you want a fresh listing.
+          This URL is already on Puddles. Approve updates the existing row’s Last Checked / Verified
+          date to today (does not add a duplicate Draft).
         </p>
       ) : null}
 

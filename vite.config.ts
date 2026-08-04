@@ -259,9 +259,23 @@ export default defineConfig(({ mode }) => {
                 redirect: 'follow',
               })
               const text = await upstream.text()
-              res.statusCode = upstream.status
-              res.setHeader('Content-Type', 'application/json')
-              res.end(text)
+              try {
+                JSON.parse(text)
+                res.statusCode = upstream.status
+                res.setHeader('Content-Type', 'application/json')
+                res.end(text)
+              } catch {
+                const snippet = String(text || '')
+                  .replace(/\s+/g, ' ')
+                  .trim()
+                  .slice(0, 200)
+                sendJson(res, 502, {
+                  ok: false,
+                  error: snippet
+                    ? `Invalid response from Google Apps Script: ${snippet}`
+                    : 'Invalid response from Google Apps Script (empty body). Redeploy PuddlesSheetApi.gs.',
+                })
+              }
             } catch (error) {
               sendJson(res, 502, {
                 ok: false,

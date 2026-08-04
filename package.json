@@ -16,6 +16,9 @@
     "sync-submissions": "node scripts/sync-submissions.mjs",
     "sync-all": "npm run sync-events && npm run sync-submissions",
     "discover:palo-alto": "node scripts/discover-palo-alto.mjs",
+    "discover:los-altos": "node scripts/discover-los-altos.mjs",
+    "discover:mountain-view": "node scripts/discover-mountain-view.mjs",
+    "discover:bay-area": "node scripts/discover-bay-area.mjs",
     "verify-expansion-watch": "node scripts/verify-expansion-watch-submission.mjs"
   },
   "dependencies": {

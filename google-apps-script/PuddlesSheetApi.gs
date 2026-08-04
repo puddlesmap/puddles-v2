@@ -11,6 +11,7 @@
  *   { action: 'promoteSubmission', payload: { id } }
  *   { action: 'updateEventStatus', payload: { id, status } }
  *   { action: 'appendEventDraft', payload: { title, date, ... } }
+ *   { action: 'updateEventVerifiedDate', payload: { id?|eventUrl?, verifiedDate, date? } }
  *   { action: 'notifyDuplicates', payload: { subject, body, clusterCount?, to? } }
  *   { action: 'notifyAdminReviewFlags', payload: { subject, body, flagCount?, to? } }
  */
@@ -29,7 +30,7 @@ function doPost(e) {
 }
 
 function doGet() {
-  return jsonOutput({ ok: true, service: 'Puddles Sheet API', version: 4 });
+  return jsonOutput({ ok: true, service: 'Puddles Sheet API', version: 5 });
 }
 
 function jsonOutput(obj) {
@@ -50,6 +51,8 @@ function handleAction(action, payload) {
       return updateEventStatus(payload);
     case 'appendEventDraft':
       return appendEventDraft(payload);
+    case 'updateEventVerifiedDate':
+      return updateEventVerifiedDate(payload);
     case 'notifyDuplicates':
       return notifyDuplicates(payload);
     case 'notifyAdminReviewFlags':
@@ -333,6 +336,90 @@ function updateEventStatus(payload) {
   var found = findEventRow(payload.id);
   setCellByAliases(found, ['status'], payload.status, true);
   return { id: payload.id, status: payload.status };
+}
+
+function normalizeEventUrl(value) {
+  return String(value || '')
+    .trim()
+    .replace(/\/$/, '')
+    .toLowerCase();
+}
+
+function findEventRowsByUrl(eventUrl, eventDate) {
+  var sheet = getSheetByName(EVENTS_SHEET);
+  var headers = getHeaders(sheet);
+  var map = headerIndexMap(headers);
+  var urlCol = findHeaderIndex(map, ['event url', 'link', 'url']);
+  if (urlCol < 0) throw new Error('Events sheet missing Event URL column');
+  var idCol = findHeaderIndex(map, ['event id', 'softr record id']);
+  var dateCol = findHeaderIndex(map, ['event date', 'date']);
+  var target = normalizeEventUrl(eventUrl);
+  if (!target) return [];
+
+  var lastRow = sheet.getLastRow();
+  var matches = [];
+  var dateMatches = [];
+  var wantDate = eventDate ? toSheetDate(eventDate) : '';
+  for (var r = 2; r <= lastRow; r++) {
+    var cell = sheet.getRange(r, urlCol + 1).getValue();
+    if (normalizeEventUrl(cell) !== target) continue;
+    var rowRef = { sheet: sheet, headers: headers, map: map, row: r };
+    var eventId =
+      idCol >= 0 ? String(sheet.getRange(r, idCol + 1).getValue() || '').trim() : '';
+    matches.push({ found: rowRef, eventId: eventId });
+    if (wantDate && dateCol >= 0) {
+      var rawDate = sheet.getRange(r, dateCol + 1).getValue();
+      var sheetDate = '';
+      if (Object.prototype.toString.call(rawDate) === '[object Date]') {
+        sheetDate =
+          rawDate.getMonth() +
+          1 +
+          '/' +
+          rawDate.getDate() +
+          '/' +
+          rawDate.getFullYear();
+      } else {
+        sheetDate = toSheetDate(String(rawDate || '').trim()) || String(rawDate || '').trim();
+      }
+      if (sheetDate === wantDate || String(rawDate || '').indexOf(String(eventDate)) === 0) {
+        dateMatches.push({ found: rowRef, eventId: eventId });
+      }
+    }
+  }
+  return dateMatches.length ? dateMatches : matches;
+}
+
+/** Stamp Last Checked Date on an existing Events row (by id and/or URL). */
+function updateEventVerifiedDate(payload) {
+  var verifiedRaw = payload.verifiedDate || payload.lastChecked;
+  if (!verifiedRaw) throw new Error('Missing verifiedDate');
+  var verified = toSheetDate(verifiedRaw);
+  var eventId = payload.id || payload.eventId || '';
+  var updated = [];
+
+  if (eventId) {
+    var found = findEventRow(eventId);
+    setCellByAliases(found, ['last checked date', 'last verified'], verified, true);
+    updated.push(eventId);
+  } else if (payload.eventUrl) {
+    var rows = findEventRowsByUrl(payload.eventUrl, payload.date);
+    if (!rows.length) {
+      throw new Error('No Events row found for URL: ' + payload.eventUrl);
+    }
+    for (var i = 0; i < rows.length; i++) {
+      setCellByAliases(rows[i].found, ['last checked date', 'last verified'], verified, true);
+      if (rows[i].eventId) updated.push(rows[i].eventId);
+    }
+  } else {
+    throw new Error('Missing event id or eventUrl');
+  }
+
+  return {
+    eventId: updated[0] || eventId || null,
+    eventIds: updated,
+    verifiedDate: String(verifiedRaw),
+    updated: updated.length || 1,
+  };
 }
 
 function notifyDuplicates(payload) {

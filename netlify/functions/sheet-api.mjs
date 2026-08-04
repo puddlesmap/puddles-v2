@@ -62,7 +62,16 @@ export async function handler(event) {
     try {
       parsed = JSON.parse(text)
     } catch {
-      parsed = { ok: false, error: text || 'Invalid response from Google Apps Script' }
+      const snippet = String(text || '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 200)
+      parsed = {
+        ok: false,
+        error: snippet
+          ? `Invalid response from Google Apps Script: ${snippet}`
+          : 'Invalid response from Google Apps Script (empty body). Redeploy PuddlesSheetApi.gs.',
+      }
     }
 
     return {
