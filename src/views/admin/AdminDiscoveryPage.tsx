@@ -7,7 +7,7 @@ import {
 } from '../../data/discovery'
 import { AdminDiscoveryTable } from '../../components/admin/AdminDiscoveryTable'
 import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryViewFilter } from '../../types/discovery'
-import { findMatchingEventIdsForCandidate } from '../../utils/discoveryMatchEvents'
+import { findMatchingEventIdsForCandidate, enrichCandidatesWithSiteVerifiedDates } from '../../utils/discoveryMatchEvents'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
   applyDiscoveryReviewOverrides,
@@ -130,7 +130,9 @@ async function approveAsNewDraft(
 
 export function AdminDiscoveryPage() {
   const [candidates, setCandidates] = useState<DiscoveryCandidate[]>(() =>
-    applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, loadDiscoveryReviewStore()),
+    enrichCandidatesWithSiteVerifiedDates(
+      applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, loadDiscoveryReviewStore()),
+    ),
   )
   const [view, setView] = useState<DiscoveryViewFilter>('pending')
   const [search, setSearch] = useState('')
