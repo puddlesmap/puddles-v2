@@ -3903,11 +3903,12 @@ select.input-field,
   border-radius: var(--radius-card);
   border: 1px solid var(--color-border);
   background: #fff;
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {
   .admin-table-wrap {
-    overflow-x: visible;
+    overflow-x: hidden;
   }
 }
 
