@@ -58,7 +58,7 @@ Each candidate is enriched toward a Puddles Events row:
 - **address / lat / lng** — from branch location
 - **ageRange** — mapped from BiblioCommons audiences (babies / toddlers / preschoolers)
 - **types** — mapped from event type + title heuristics
-- **tips** (“Good to know”) — practical notes extracted from registration fields and description (bring a blanket, weather/indoor-outdoor, registration/space limits, accompaniment, etc.)
+- **tips** (“Good to know”) — practical notes extracted from registration fields and description (bring a blanket, weather/indoor-outdoor, registration/space limits, accompaniment, etc.). Discovery scripts voice tips in a friendly soft-imperative Puddles tone (`voiceTipLine` / `finalizeTips` in `scripts/discovery-shared.mjs`): keep “Bring a blanket,” drop library “we/our,” skip Admin ops notes.
 - **imageUrl** — featured event image when present
 
 ### Optional Sheet write

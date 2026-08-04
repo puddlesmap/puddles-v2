@@ -31,6 +31,8 @@ When updating public-facing language, change the source file listed here — the
 | **free / low-cost / drop-in** | — (signals low commitment) |
 | **ages 0–5** | toddlers only (unless context-specific) |
 
+**Good-to-know tips** (Discovery extract): friendly soft-imperative parent notes — “Bring a blanket,” “No registration — just show up.” Prefer practical prep over library “we invite…” copy. Applied in `scripts/discovery-shared.mjs` → `finalizeTips`.
+
 **Exception:** “library events” is OK in descriptive copy (e.g. home subtitle). Individual listings may still use “event” in URLs (`/event/:id`) and internal data models.
 
 **List counter pattern:** `162 upcoming activities` — `src/utils/browseResultsCopy.ts`

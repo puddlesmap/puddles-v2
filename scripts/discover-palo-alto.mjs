@@ -10,10 +10,8 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import {
-  inferAgeRangeFromText,
-  isAgeTargetingSentence,
-} from './age-hints.mjs'
+import { inferAgeRangeFromText } from './age-hints.mjs'
+import { finalizeTips } from './discovery-shared.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = join(__dirname, '..')
@@ -307,12 +305,7 @@ function normalizeCandidate(event, entities) {
   const plainDescription = stripHtml(def.description)
   const tipsRaw = extractTips(def, plainDescription)
   const age = resolveAge(def.audienceIds, plainDescription, tipsRaw)
-  const tips = tipsRaw
-    .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .filter((line) => !(inferAgeRangeFromText(line) && isAgeTargetingSentence(line)))
-    .join('\n')
+  const tips = finalizeTips(tipsRaw)
   const description = descriptionWithoutTips(plainDescription, tipsRaw)
   const { types, categoryTags } = mapActivityTypes(def, entities)
   const address = formatBranchAddress(location)

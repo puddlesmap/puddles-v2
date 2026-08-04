@@ -158,12 +158,114 @@ export function descriptionWithoutTips(plainDescription, tipsText) {
   return (kept.length ? kept.join(' ') : plainDescription).slice(0, 500)
 }
 
+/**
+ * Soft-imperative Puddles voice for Good-to-know tips.
+ * Keep friendly prep lines (“Bring a blanket”); drop library “we/our” and hype.
+ */
+export function voiceTipLine(raw) {
+  let tip = String(raw ?? '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (!tip) return ''
+
+  // Never surface Admin/ops notes as parent tips.
+  if (
+    /\b(approve this|retire\/?update|duplicate(?:d)? row|events row|convertedEventId|refresh from sheet)\b/i.test(
+      tip,
+    )
+  ) {
+    return ''
+  }
+
+  tip = tip
+    // Limited space / tickets (library “we”)
+    .replace(
+      /\bDue to limited space,\s*we will begin handing out free tickets\b/gi,
+      'Space is limited — free tickets are handed out',
+    )
+    .replace(/\bwe will begin handing out free tickets\b/gi, 'Free tickets are handed out')
+    .replace(/\bwe will (begin|start) handing out\b/gi, 'Tickets are handed out')
+    // Invitations / library narrator
+    .replace(/\bWe invite all\b/gi, 'For')
+    .replace(/\bWe invite\b/gi, 'For')
+    .replace(/\band their amazing caregivers\b/gi, 'and caregivers')
+    .replace(
+      /\bStick around afterward for our popular\s*["“]?Stay\s*&\s*Play["”]?\s*session\b[^.!?]*[.!]?/gi,
+      'Stay & Play follows afterward.',
+    )
+    .replace(/\bour popular\s*["“]?Stay\s*&\s*Play["”]?\b/gi, 'Stay & Play')
+    .replace(/\bour Children's Librarians\b/gi, "children's librarians")
+    .replace(/\bwith our Children's Librarians\b/gi, "with children's librarians")
+    .replace(/\bhelp celebrate\b/gi, 'celebrate')
+    .replace(/\bPlease feel free to bring\b/gi, 'Bring')
+    .replace(/\bfeel free to bring\b/gi, 'Bring')
+    .replace(/\bfor your baby['’]?s? comfort\b/gi, 'for comfort')
+    // Encouragement → soft imperative
+    .replace(/\bParticipants are encouraged to bring their own\b/gi, 'Bring')
+    .replace(/\bare encouraged to bring their own\b/gi, 'Bring')
+    .replace(/\bare encouraged to bring (a|an|the)\b/gi, 'Bring $1')
+    .replace(/\bare encouraged to\b/gi, '')
+    .replace(/\bPlease be sure to\b/gi, '')
+    .replace(
+      /\bLEGOs? will stay at the library,?\s*so (be sure to |please )?snap a pic of your creation!?\b/gi,
+      'LEGOs stay at the library — snap a pic of creations.',
+    )
+    .replace(/\bbe sure to\b/gi, '')
+    .replace(/\bsnap a pic of your creation\b/gi, 'snap a pic of creations')
+    // Registration / drop-in phrasing (keep mid-sentence lowercase)
+    .replace(/\bno registration is required\b/gi, 'no registration required')
+    .replace(/\bNo sign-up, just show up!\b/gi, 'No sign-up — just show up.')
+    // Accompaniment
+    .replace(
+      /\bChildren under (\d+) years? old must be accompanied by an adult\b/gi,
+      'Kids under $1 need an adult with them',
+    )
+    .replace(
+      /\bYoung children must be accompanied by an adult crafting buddy\b/gi,
+      'Young kids need an adult crafting buddy',
+    )
+    .replace(/\bmust be accompanied by an adult\b/gi, 'need an adult with them')
+    // LEGO stay-behind (fallback if not caught above)
+    .replace(/\bLEGOs? will stay at the library\b/gi, 'LEGOs stay at the library')
+    // Cleanup leftover narrator crumbs
+    .replace(/\bto jump into an interactive\b/gi, '—')
+    .replace(/\bjump into an interactive\b/gi, '')
+    .replace(/\b(\d+)\s*minutes of:\.?/gi, 'about $1 minutes')
+    .replace(/\band caregivers to enjoy\b/gi, 'and caregivers —')
+
+  tip = tip
+    .replace(/\s{2,}/g, ' ')
+    .replace(/\s+([,;:])/g, '$1')
+    .replace(/\s+\./g, '.')
+    .replace(/\.\s*\./g, '.')
+    .replace(/!\./g, '!')
+    .replace(/\.\s*!/g, '!')
+    .replace(/follows\.,/gi, 'follows.')
+    .replace(/^[,;:\s—-]+/, '')
+    .replace(/\s+—\s+—/g, ' — ')
+    .replace(/\s+—\s*\./g, '.')
+    .trim()
+
+  if (tip.length < 8) return ''
+  if (!/[.!?]$/.test(tip)) tip = `${tip}.`
+  // Capitalize first letter after rewrites that may have lowercased a mid-sentence fragment.
+  tip = tip.charAt(0).toUpperCase() + tip.slice(1)
+  return tip
+}
+
+/** Filter age-only lines and apply Puddles tip voice. */
 export function finalizeTips(tipsRaw) {
-  return tipsRaw
+  return String(tipsRaw || '')
     .split('\n')
     .map((line) => line.trim())
     .filter(Boolean)
     .filter((line) => !(inferAgeRangeFromText(line) && isAgeTargetingSentence(line)))
+    .map(voiceTipLine)
+    .filter(Boolean)
+    .filter((line, index, all) => {
+      const key = line.toLowerCase()
+      return all.findIndex((other) => other.toLowerCase() === key) === index
+    })
     .join('\n')
 }
 
