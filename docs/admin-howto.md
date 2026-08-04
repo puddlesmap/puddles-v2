@@ -1,11 +1,11 @@
 # Admin how-to (twice-a-week review)
 
-Quick ops guide for `/admin`. Rule of thumb: **Admin is for review and Sheet writes; deploy only when you want the public site updated.**
+Quick ops guide for `/admin`. Rule of thumb: **Approve and review in Admin first; Publish to site when the public catalog should update.** Google Sheet writes are optional.
 
 ## Typical session
 
-1. **Discovery** (`/admin/discovery`) — review the queue
-2. **Events** (`/admin/events`) — Refresh from Sheet; **Approve** to stamp today’s date; set Published
+1. **Discovery** (`/admin/discovery`) — review the queue and **Approve** (Ready)
+2. **Events** (`/admin/events`) — confirm Drafts / Last checked; set Published
 3. **Publish to site** — once at the end when something should go live
 4. **Submissions** (`/admin/submissions`) — as needed
 
@@ -13,21 +13,22 @@ Quick ops guide for `/admin`. Rule of thumb: **Admin is for review and Sheet wri
 
 1. Open **Discovery**.
 2. Edit title, tips (“Good to know”), room, ages, or types if needed.
-3. **Approve**
-   - **New** → adds an Events **Draft** and stamps **Approved on** = today → Sheet **Last Checked Date** (Verified on Puddles after sync).
-   - **Already on site** → updates that Events row’s **Last Checked Date** (does **not** create a duplicate Draft).
-4. **Dismiss** items you do not want in the pending queue (saved in this browser).
+3. **Approve** (Admin-first — no Sheet required)
+   - **New** → marks **Ready**, stamps **Approved on** = today, and adds a **Draft** in Admin Events (this browser).
+   - **Already on site** → marks **Ready** and updates that event’s **Last checked** / verified date in Admin (does **not** create a duplicate Draft).
+4. Leave **Also write Google Sheet** off unless you still maintain the Sheet. If you turn it on, Sheet failures never undo Ready.
+5. **Dismiss** items you do not want in the pending queue (saved in this browser).
 
 Refresh the candidate list by running `npm run discover:bay-area` (or a city script) and getting the updated `src/data/discovery-candidates.json` into Admin (local dev, or commit/deploy until live queue refresh exists).
 
 ## Events
 
-1. Click **Refresh from Sheet** — updates Admin in this browser only (no deploy).
-2. Click **Approve** on a row — sets **Approved on** = today in Admin immediately and writes Sheet **Last Checked Date** (Verified on Puddles after Publish).
+1. After Discovery Approve, open **Events** — Drafts and verified dates come from the Admin cache (this browser). **Refresh from Sheet** only if you still pull the Sheet as source of truth (it can overwrite local Drafts).
+2. Click **Approve** on a row — sets **Approved on** = today in Admin (and writes Sheet when that path still uses the API).
 3. Set **Status = Published** for anything that should appear on the public site.
 4. Click **Publish to site** once when ready — syncs `sheet-events.json` and redeploys Netlify (~2–4 min).
 
-Do **not** redeploy after every Approve. Approve already wrote the Sheet.
+Do **not** redeploy after every Approve. Publish once when the public site should change.
 
 ## Submissions
 
@@ -41,7 +42,7 @@ Do **not** redeploy after every Approve. Approve already wrote the Sheet.
 |------|--------|
 | Public site shows new/updated events | **Publish to site** (or wait for sync cron) |
 | New Discovery candidates on production Admin | Commit/deploy queue JSON (until Refresh queue exists) |
-| New Sheet API actions (Approve, etc.) | Redeploy Apps Script web app (not Netlify) |
+| Optional Sheet API actions still in use | Redeploy Apps Script web app (not Netlify) |
 
 ## Related docs
 

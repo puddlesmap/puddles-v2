@@ -20,15 +20,16 @@ Automated collection of family events (ages 0–5) for Puddles review, then publ
 4. **Dedupe by official URL** so weekly runs stay small after the first pass.
 5. **One publishing path** — Events → sync → site (unchanged until a full Admin/DB migration).
 
-### Approve path (Phase 1)
+### Approve path (Phase 1 — Admin-first)
 
 1. Run `npm run discover:bay-area` (PA + Los Altos + Mountain View) or a single-city script → updates `src/data/discovery-candidates.json`
 2. Open **Admin → Discovery** (`/admin/discovery`)
 3. Edit title / tips (Good to know) / room / ages / types as needed
-4. **Approve**
-   - **New** → appends an Events Draft and stamps **Approved on** = today → Sheet **Last Checked Date**
-   - **Already on site** → updates that Events row’s **Last Checked Date** (Verified on Puddles) — does not create a duplicate
-5. Refresh Events from Sheet → Publish when ready → sync → live
+4. **Approve** (works in this browser without Google Sheet)
+   - **New** → **Ready** + **Approved on** = today + local **Draft** in Admin Events
+   - **Already on site** → **Ready** + updates that event’s **Last checked** in Admin (no duplicate Draft)
+5. Optional: turn on **Also write Google Sheet** if you still sync the Sheet (failures never undo Ready)
+6. Open **Events** → set Published → **Publish to site** when the public catalog should update
 
 Dismiss keeps the candidate out of the pending queue (saved in this browser’s localStorage).
 
@@ -60,6 +61,6 @@ Each candidate is enriched toward a Puddles Events row:
 - **tips** (“Good to know”) — practical notes extracted from registration fields and description (bring a blanket, weather/indoor-outdoor, registration/space limits, accompaniment, etc.)
 - **imageUrl** — featured event image when present
 
-### Apps Script deploy note
+### Optional Sheet write
 
-Approve requires Sheet API actions `appendEventDraft` and `updateEventVerifiedDate` in `google-apps-script/PuddlesSheetApi.gs`. After pulling this change, redeploy the Apps Script web app (Deploy → Manage deployments → edit → New version) so production gets the new actions.
+If you enable **Also write Google Sheet** on Discovery, redeploy `google-apps-script/PuddlesSheetApi.gs` (Deploy → Manage deployments → New version) so `appendEventDraft` / `updateEventVerifiedDate` / `bulkUpdateEventVerifiedDate` are available. Default Approve does not need Apps Script.

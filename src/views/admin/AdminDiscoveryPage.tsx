@@ -8,6 +8,12 @@ import {
 import { AdminDiscoveryTable } from '../../components/admin/AdminDiscoveryTable'
 import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryViewFilter } from '../../types/discovery'
 import { findMatchingEventIdsForCandidate, enrichCandidatesWithSiteVerifiedDates } from '../../utils/discoveryMatchEvents'
+import {
+  approveDiscoveryLocally,
+  ensureAdminEventsCacheSeeded,
+  loadWriteSheetPreference,
+  saveWriteSheetPreference,
+} from '../../utils/discoveryApproveLocal'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
   applyDiscoveryReviewOverrides,
@@ -42,24 +48,26 @@ function mergeCandidate(
 
 function deployHint(message: string): string {
   if (/unknown action/i.test(message)) {
-    return `${message} Redeploy google-apps-script/PuddlesSheetApi.gs (Deploy → Manage deployments → New version) so Approve / update verified date works.`
+    return `${message} Redeploy google-apps-script/PuddlesSheetApi.gs (Deploy → Manage deployments → New version) so Sheet write works.`
   }
   return message
 }
 
-async function approveExistingOnSite(
+async function writeExistingToSheet(
   candidate: DiscoveryCandidate,
   edits: DiscoveryEditableFields,
   lastChecked: string,
-): Promise<{ eventId: string }> {
+  preferredEventId?: string,
+): Promise<string> {
   const matchedIds = findMatchingEventIdsForCandidate({
     ...candidate,
     ...edits,
   })
+  const ids = matchedIds.length > 0 ? matchedIds : preferredEventId ? [preferredEventId] : []
 
-  if (matchedIds.length > 0) {
-    let primaryId = matchedIds[0]
-    for (const id of matchedIds) {
+  if (ids.length > 0) {
+    let primaryId = ids[0]
+    for (const id of ids) {
       const result = await callSheetApi<{ eventId: string | null; verifiedDate: string }>({
         action: 'updateEventVerifiedDate',
         payload: {
@@ -70,10 +78,9 @@ async function approveExistingOnSite(
       })
       primaryId = result.eventId || id
     }
-    return { eventId: primaryId }
+    return primaryId
   }
 
-  // Fall back to Sheet-side URL match when local catalog IDs are missing.
   const result = await callSheetApi<{
     eventId: string | null
     eventIds?: string[]
@@ -90,18 +97,16 @@ async function approveExistingOnSite(
 
   const eventId = result.eventId || result.eventIds?.[0]
   if (!eventId) {
-    throw new Error(
-      'Could not find the matching Events row to update. Refresh Events from Sheet, then try again.',
-    )
+    throw new Error('Sheet could not find a matching Events row to update.')
   }
-  return { eventId }
+  return eventId
 }
 
-async function approveAsNewDraft(
+async function writeNewDraftToSheet(
   candidate: DiscoveryCandidate,
   edits: DiscoveryEditableFields,
   lastChecked: string,
-): Promise<{ eventId: string }> {
+): Promise<string> {
   const result = await callSheetApi<{ eventId: string; status: string }>({
     action: 'appendEventDraft',
     payload: {
@@ -127,7 +132,10 @@ async function approveAsNewDraft(
       source: candidate.source || 'Discovery',
     },
   })
-  return { eventId: result.eventId }
+  if (!result.eventId) {
+    throw new Error('Sheet approved the request but returned no Event ID.')
+  }
+  return result.eventId
 }
 
 export function AdminDiscoveryPage() {
@@ -141,6 +149,7 @@ export function AdminDiscoveryPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
   const [bulkBusy, setBulkBusy] = useState(false)
+  const [writeSheet, setWriteSheet] = useState(() => loadWriteSheetPreference())
   const [actionMessage, setActionMessage] = useState<ActionMessage | null>(null)
 
   const counts = useMemo(() => summarizeDiscoveryCounts(candidates), [candidates])
@@ -183,6 +192,11 @@ export function AdminDiscoveryPage() {
     })
   }
 
+  function handleWriteSheetToggle(enabled: boolean) {
+    setWriteSheet(enabled)
+    saveWriteSheetPreference(enabled)
+  }
+
   async function handleApprove(candidate: DiscoveryCandidate, edits: DiscoveryEditableFields) {
     const lastChecked = pacificTodayYmd()
     const payloadEdits = { ...edits, lastChecked }
@@ -202,34 +216,47 @@ export function AdminDiscoveryPage() {
     setActionMessage({
       type: 'success',
       text: isExisting
-        ? `Updating verified date for “${edits.title}”…`
-        : `Approving “${edits.title}” as Draft…`,
+        ? `Marking Ready and updating verified date for “${edits.title}”…`
+        : `Marking Ready and adding Draft for “${edits.title}”…`,
     })
-    try {
-      const result = isExisting
-        ? await approveExistingOnSite(candidate, payloadEdits, lastChecked)
-        : await approveAsNewDraft(candidate, payloadEdits, lastChecked)
 
-      if (!isExisting && !result.eventId) {
-        throw new Error(
-          'Sheet approved the request but returned no Event ID. Redeploy PuddlesSheetApi.gs (New version) and try again.',
-        )
-      }
+    try {
+      ensureAdminEventsCacheSeeded()
+      const local = approveDiscoveryLocally(candidate, payloadEdits, lastChecked)
 
       const next = mergeCandidate(candidate, payloadEdits, {
         reviewStatus: 'approved',
-        convertedEventId: result.eventId || candidate.convertedEventId || '',
+        convertedEventId: local.eventId || candidate.convertedEventId || '',
         lastChecked,
       })
       updateCandidate(candidate.id, () => next)
       persistCandidate(next, payloadEdits, lastChecked)
       setSelectedId(null)
       setView('approved')
+
+      let sheetNote = ''
+      if (writeSheet) {
+        try {
+          const sheetEventId = isExisting
+            ? await writeExistingToSheet(candidate, payloadEdits, lastChecked, local.eventId)
+            : await writeNewDraftToSheet(candidate, payloadEdits, lastChecked)
+          if (sheetEventId && sheetEventId !== local.eventId) {
+            const withSheetId = { ...next, convertedEventId: sheetEventId }
+            updateCandidate(candidate.id, () => withSheetId)
+            persistCandidate(withSheetId, payloadEdits, lastChecked)
+          }
+          sheetNote = ' Also wrote Google Sheet.'
+        } catch (error) {
+          const message = error instanceof Error ? error.message : 'Sheet write failed.'
+          sheetNote = ` Local Ready kept; Sheet write failed: ${deployHint(message)}`
+        }
+      }
+
       setActionMessage({
-        type: 'success',
+        type: sheetNote.includes('Sheet write failed') ? 'error' : 'success',
         text: isExisting
-          ? `Ready — Approved on ${lastChecked} for “${edits.title}” (Event ${result.eventId}). Open Events → Refresh from Sheet to confirm Last checked.`
-          : `Ready — “${edits.title}” added as Draft (${result.eventId}). Approved on ${lastChecked}. You’re on the Ready filter now.`,
+          ? `Ready — Approved on ${lastChecked} for “${edits.title}” (Event ${local.eventId}). Open Events to confirm Last checked.${sheetNote}`
+          : `Ready — “${edits.title}” added as Draft in Admin (${local.eventId}). Approved on ${lastChecked}. Open Events → Drafts.${sheetNote}`,
       })
       requestAnimationFrame(() => {
         document.getElementById('admin-discovery-action-message')?.scrollIntoView({
@@ -241,7 +268,7 @@ export function AdminDiscoveryPage() {
       const message = error instanceof Error ? error.message : 'Could not approve discovery candidate.'
       setActionMessage({
         type: 'error',
-        text: deployHint(message),
+        text: message,
       })
     } finally {
       setBusyId(null)
@@ -249,9 +276,9 @@ export function AdminDiscoveryPage() {
   }
 
   async function handleBulkApprove(rows: DiscoveryCandidate[]) {
-    if (rows.length > 25) {
+    if (writeSheet && rows.length > 25) {
       const ok = window.confirm(
-        `You’re approving ${rows.length} items.\n\nLarge batches can time out the Google Sheet connection. Continue?\n\nTip: batches of ~15–25 are more reliable.`,
+        `You’re approving ${rows.length} items with “Also write Google Sheet” on.\n\nLarge Sheet batches can time out. Continue?\n\nTip: turn Sheet write off for large batches, or use ~15–25 at a time.`,
       )
       if (!ok) return
     }
@@ -260,29 +287,78 @@ export function AdminDiscoveryPage() {
     setActionMessage(null)
     let okCount = 0
     let updatedExisting = 0
-    let failMessage = ''
+    let localFail = ''
+    let sheetFailMessage = ''
     const lastChecked = pacificTodayYmd()
+
+    ensureAdminEventsCacheSeeded()
 
     const existing = rows.filter((row) => row.alreadyOnPuddles)
     const neu = rows.filter((row) => !row.alreadyOnPuddles)
+    const localEventIds = new Map<string, string>()
 
-    // Already on site: one (or few) batch Sheet calls instead of one request per row.
-    if (existing.length > 0) {
-      const idByCandidate = new Map<string, string>()
-      const allIds: string[] = []
-      for (const candidate of existing) {
-        const ids = findMatchingEventIdsForCandidate(candidate)
-        if (ids.length === 0) {
-          failMessage = `Could not match “${candidate.title}” to an Events row. Refresh Events from Sheet, then retry that item.`
+    // Local-first: always mark Ready + patch Admin Events cache (no Sheet required).
+    for (const candidate of existing) {
+      try {
+        const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
+        const local = approveDiscoveryLocally(candidate, payloadEdits, lastChecked)
+        localEventIds.set(candidate.id, local.eventId)
+        const next = mergeCandidate(candidate, payloadEdits, {
+          reviewStatus: 'approved',
+          convertedEventId: local.eventId,
+          lastChecked,
+        })
+        updateCandidate(candidate.id, () => next)
+        persistCandidate(next, payloadEdits, lastChecked)
+        okCount += 1
+        updatedExisting += 1
+      } catch (error) {
+        localFail =
+          error instanceof Error ? error.message : 'Could not update one or more already-on-site items.'
+        break
+      }
+    }
+
+    if (!localFail) {
+      for (const candidate of neu) {
+        try {
+          const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
+          const local = approveDiscoveryLocally(candidate, payloadEdits, lastChecked)
+          localEventIds.set(candidate.id, local.eventId)
+          const next = mergeCandidate(candidate, payloadEdits, {
+            reviewStatus: 'approved',
+            convertedEventId: local.eventId,
+            lastChecked,
+          })
+          updateCandidate(candidate.id, () => next)
+          persistCandidate(next, payloadEdits, lastChecked)
+          okCount += 1
+        } catch (error) {
+          localFail =
+            error instanceof Error ? error.message : 'Could not approve one or more new candidates.'
           break
         }
-        idByCandidate.set(candidate.id, ids[0])
-        for (const id of ids) {
-          if (!allIds.includes(id)) allIds.push(id)
-        }
       }
+    }
 
-      if (!failMessage && allIds.length > 0) {
+    // Optional Sheet sync after local Ready (failures do not undo Ready).
+    if (writeSheet && okCount > 0) {
+      const approvedExisting = existing.filter((row) => localEventIds.has(row.id))
+      const approvedNew = neu.filter((row) => localEventIds.has(row.id))
+
+      if (approvedExisting.length > 0) {
+        const allIds = [
+          ...new Set(
+            approvedExisting.flatMap((candidate) => {
+              const matched = findMatchingEventIdsForCandidate(candidate)
+              return matched.length > 0
+                ? matched
+                : localEventIds.get(candidate.id)
+                  ? [localEventIds.get(candidate.id)!]
+                  : []
+            }),
+          ),
+        ]
         const CHUNK = 40
         try {
           for (let i = 0; i < allIds.length; i += CHUNK) {
@@ -295,48 +371,35 @@ export function AdminDiscoveryPage() {
               await new Promise((r) => setTimeout(r, 400))
             }
           }
-          for (const candidate of existing) {
-            const eventId = idByCandidate.get(candidate.id) || ''
-            const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
-            const next = mergeCandidate(candidate, payloadEdits, {
-              reviewStatus: 'approved',
-              convertedEventId: eventId,
-              lastChecked,
-            })
-            updateCandidate(candidate.id, () => next)
-            persistCandidate(next, payloadEdits, lastChecked)
-            okCount += 1
-            updatedExisting += 1
-          }
         } catch (error) {
-          failMessage =
-            error instanceof Error ? error.message : 'Could not update verified dates in bulk.'
+          sheetFailMessage =
+            error instanceof Error ? error.message : 'Could not update verified dates on Sheet.'
         }
       }
-    }
 
-    // New candidates: still one Draft append each, with a short pause to avoid timeouts.
-    if (!failMessage) {
-      for (let i = 0; i < neu.length; i++) {
-        const candidate = neu[i]
-        const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
-        try {
-          const result = await approveAsNewDraft(candidate, payloadEdits, lastChecked)
-          const next = mergeCandidate(candidate, payloadEdits, {
-            reviewStatus: 'approved',
-            convertedEventId: result.eventId,
-            lastChecked,
-          })
-          updateCandidate(candidate.id, () => next)
-          persistCandidate(next, payloadEdits, lastChecked)
-          okCount += 1
-          if (i < neu.length - 1) {
-            await new Promise((r) => setTimeout(r, 350))
+      if (!sheetFailMessage) {
+        for (let i = 0; i < approvedNew.length; i++) {
+          const candidate = approvedNew[i]
+          const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
+          try {
+            const sheetEventId = await writeNewDraftToSheet(candidate, payloadEdits, lastChecked)
+            if (sheetEventId) {
+              const next = mergeCandidate(candidate, payloadEdits, {
+                reviewStatus: 'approved',
+                convertedEventId: sheetEventId,
+                lastChecked,
+              })
+              updateCandidate(candidate.id, () => next)
+              persistCandidate(next, payloadEdits, lastChecked)
+            }
+            if (i < approvedNew.length - 1) {
+              await new Promise((r) => setTimeout(r, 350))
+            }
+          } catch (error) {
+            sheetFailMessage =
+              error instanceof Error ? error.message : 'Could not write one or more Drafts to Sheet.'
+            break
           }
-        } catch (error) {
-          failMessage =
-            error instanceof Error ? error.message : 'Could not approve one or more candidates.'
-          break
         }
       }
     }
@@ -344,20 +407,25 @@ export function AdminDiscoveryPage() {
     setBulkBusy(false)
     setSelectedId(null)
     if (okCount > 0) setView('approved')
-    if (okCount > 0 && !failMessage) {
+
+    if (okCount > 0 && !localFail && !sheetFailMessage) {
       setActionMessage({
         type: 'success',
-        text: `Marked ${okCount} Ready (updated verified on ${updatedExisting} already on site). Approved on ${lastChecked}. Refresh Events from Sheet to see Drafts.`,
+        text: writeSheet
+          ? `Marked ${okCount} Ready (updated verified on ${updatedExisting} already on site). Approved on ${lastChecked}. Also wrote Google Sheet.`
+          : `Marked ${okCount} Ready (updated verified on ${updatedExisting} already on site). Approved on ${lastChecked}. Open Events to see Drafts / Last checked.`,
       })
-    } else if (okCount > 0 && failMessage) {
+    } else if (okCount > 0 && (localFail || sheetFailMessage)) {
       setActionMessage({
         type: 'error',
-        text: `Approved ${okCount}, then stopped: ${deployHint(failMessage)}`,
+        text: localFail
+          ? `Marked ${okCount} Ready, then stopped: ${localFail}`
+          : `Marked ${okCount} Ready locally. Sheet write issue: ${deployHint(sheetFailMessage)}`,
       })
     } else {
       setActionMessage({
         type: 'error',
-        text: deployHint(failMessage || 'Could not approve selected events.'),
+        text: localFail || sheetFailMessage || 'Could not approve selected events.',
       })
     }
   }
@@ -381,11 +449,23 @@ export function AdminDiscoveryPage() {
     <>
       <section className="admin-sync-bar" aria-label="Discovery overview">
         <p className="admin-submissions-intro">
-          Library discovery candidates for review. <strong>Approve</strong> on a <em>new</em> event
-          adds a <strong>Draft</strong> on the Events sheet (status becomes <strong>Ready</strong> here).
-          On an event already on Puddles it updates <strong>Last Checked Date</strong>. Then open{' '}
-          <strong>Events → Refresh from Sheet</strong>, set Published, and <strong>Publish to site</strong>.
+          Library discovery candidates for review. <strong>Approve</strong> works in Admin first
+          (no Google Sheet required): status becomes <strong>Ready</strong>,{' '}
+          <strong>Approved on</strong> = today, and Events gets a <strong>Draft</strong> (new) or
+          updated <strong>Last checked</strong> (already on site). Then open <strong>Events</strong>,
+          set Published, and <strong>Publish to site</strong> when you want the public site updated.
         </p>
+        <label className="admin-discovery-sheet-toggle">
+          <input
+            type="checkbox"
+            checked={writeSheet}
+            onChange={(e) => handleWriteSheetToggle(e.target.checked)}
+          />
+          <span>
+            Also write Google Sheet (optional — leave off unless you still sync the Sheet). Sheet
+            failures never undo Ready.
+          </span>
+        </label>
         <div className="admin-stat-grid admin-stat-grid-compact">
           <div className="admin-stat-card admin-stat-card-static">
             <div className="admin-stat-value">{counts.pending}</div>
