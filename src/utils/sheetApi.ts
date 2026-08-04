@@ -154,19 +154,23 @@ function friendlySheetApiError(rawOrMessage: string): string {
 
 export async function callSheetApi<T>(
   request: SheetApiAction,
-  options?: { retries?: number },
+  options?: { retries?: number; timeoutMs?: number },
 ): Promise<T> {
   const retries = options?.retries ?? 2
+  const timeoutMs = options?.timeoutMs ?? 45000
   const isPublicAction = request.action === 'appendSubmission'
   let lastError: Error | null = null
 
   for (let attempt = 0; attempt <= retries; attempt++) {
+    const controller = new AbortController()
+    const timer = setTimeout(() => controller.abort(), timeoutMs)
     try {
       const response = await fetch(SHEET_API_PATH, {
         method: 'POST',
         headers: apiHeaders(),
         credentials: isPublicAction ? 'same-origin' : 'include',
         body: JSON.stringify(request),
+        signal: controller.signal,
       })
 
       const raw = await response.text()
@@ -202,12 +206,20 @@ export async function callSheetApi<T>(
 
       return data.result as T
     } catch (error) {
-      lastError = error instanceof Error ? error : new Error(String(error))
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        lastError = new Error(
+          'Sheet API timed out after 45s. Try again with a smaller batch, or redeploy Apps Script if this keeps happening.',
+        )
+      } else {
+        lastError = error instanceof Error ? error : new Error(String(error))
+      }
       if (attempt < retries && /inactivity timeout|timed out/i.test(lastError.message)) {
         await sleep(1200 * (attempt + 1))
         continue
       }
       throw lastError
+    } finally {
+      clearTimeout(timer)
     }
   }
 

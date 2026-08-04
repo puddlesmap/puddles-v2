@@ -184,18 +184,16 @@ export function AdminDiscoveryTable({
   )
 
   useEffect(() => {
-    setMultiIds([])
-  }, [candidates])
-
-  useEffect(() => {
-    function onPointerUp() {
+    function onPointerUp(event: PointerEvent) {
       const drag = dragRef.current
       if (!drag) return
+      if (drag.pointerId !== event.pointerId) return
       dragRef.current = null
+      // Tap (no drag): expand/collapse details. Do not treat as multi-select.
       if (!drag.moved) {
         const candidate = sorted[drag.startIndex]
         if (candidate) {
-          setMultiIds([])
+          setMultiIds((current) => (current.length <= 1 ? [] : current))
           onSelect(candidate)
         }
       }
@@ -227,15 +225,19 @@ export function AdminDiscoveryTable({
       moved: false,
       pointerId: event.pointerId,
     }
-    setMultiIds([sorted[index].id])
+    // Do not select yet — wait until the pointer actually moves (drag).
   }
 
   function extendDrag(index: number, event: ReactPointerEvent) {
     const drag = dragRef.current
     if (!drag) return
     const distance = Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY)
-    if (!drag.moved && distance < DRAG_THRESHOLD_PX && index === drag.startIndex) return
-    drag.moved = true
+    if (!drag.moved && distance < DRAG_THRESHOLD_PX) return
+    if (!drag.moved) {
+      drag.moved = true
+      setMultiIds(idsInRange(sorted, drag.startIndex, index))
+      return
+    }
     setMultiIds(idsInRange(sorted, drag.startIndex, index))
   }
 

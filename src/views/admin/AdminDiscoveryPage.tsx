@@ -199,15 +199,26 @@ export function AdminDiscoveryPage() {
     }
 
     setBusyId(candidate.id)
-    setActionMessage(null)
+    setActionMessage({
+      type: 'success',
+      text: isExisting
+        ? `Updating verified date for “${edits.title}”…`
+        : `Approving “${edits.title}” as Draft…`,
+    })
     try {
       const result = isExisting
         ? await approveExistingOnSite(candidate, payloadEdits, lastChecked)
         : await approveAsNewDraft(candidate, payloadEdits, lastChecked)
 
+      if (!isExisting && !result.eventId) {
+        throw new Error(
+          'Sheet approved the request but returned no Event ID. Redeploy PuddlesSheetApi.gs (New version) and try again.',
+        )
+      }
+
       const next = mergeCandidate(candidate, payloadEdits, {
         reviewStatus: 'approved',
-        convertedEventId: result.eventId,
+        convertedEventId: result.eventId || candidate.convertedEventId || '',
         lastChecked,
       })
       updateCandidate(candidate.id, () => next)
@@ -217,8 +228,14 @@ export function AdminDiscoveryPage() {
       setActionMessage({
         type: 'success',
         text: isExisting
-          ? `Updated verified date on existing event (${result.eventId}) to ${lastChecked}. Refresh Events from Sheet to see Approved on / Last checked.`
-          : `Ready — added as Draft on Events (ID: ${result.eventId}). Approved on ${lastChecked}. Open Events → Refresh from Sheet, then Publish when you want it live.`,
+          ? `Ready — Approved on ${lastChecked} for “${edits.title}” (Event ${result.eventId}). Open Events → Refresh from Sheet to confirm Last checked.`
+          : `Ready — “${edits.title}” added as Draft (${result.eventId}). Approved on ${lastChecked}. You’re on the Ready filter now.`,
+      })
+      requestAnimationFrame(() => {
+        document.getElementById('admin-discovery-action-message')?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        })
       })
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Could not approve discovery candidate.'
@@ -405,6 +422,7 @@ export function AdminDiscoveryPage() {
           <p
             className={`admin-action-alert admin-action-alert--${actionMessage.type}`}
             role="status"
+            id="admin-discovery-action-message"
           >
             {actionMessage.text}
           </p>
