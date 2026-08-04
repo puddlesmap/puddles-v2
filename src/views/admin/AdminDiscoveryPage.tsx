@@ -7,6 +7,7 @@ import {
 } from '../../data/discovery'
 import { AdminDiscoveryTable } from '../../components/admin/AdminDiscoveryTable'
 import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryViewFilter } from '../../types/discovery'
+import { findMatchingEventIdsForCandidate } from '../../utils/discoveryMatchEvents'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
   applyDiscoveryReviewOverrides,
@@ -39,6 +40,94 @@ function mergeCandidate(
   }
 }
 
+function deployHint(message: string): string {
+  if (!/unknown action/i.test(message)) return message
+  return `${message} Redeploy google-apps-script/PuddlesSheetApi.gs (Deploy → Manage deployments → New version) so Approve / update verified date works.`
+}
+
+async function approveExistingOnSite(
+  candidate: DiscoveryCandidate,
+  edits: DiscoveryEditableFields,
+  lastChecked: string,
+): Promise<{ eventId: string }> {
+  const matchedIds = findMatchingEventIdsForCandidate({
+    ...candidate,
+    ...edits,
+  })
+
+  if (matchedIds.length > 0) {
+    let primaryId = matchedIds[0]
+    for (const id of matchedIds) {
+      const result = await callSheetApi<{ eventId: string | null; verifiedDate: string }>({
+        action: 'updateEventVerifiedDate',
+        payload: {
+          id,
+          verifiedDate: lastChecked,
+          discoveryId: candidate.id,
+        },
+      })
+      primaryId = result.eventId || id
+    }
+    return { eventId: primaryId }
+  }
+
+  // Fall back to Sheet-side URL match when local catalog IDs are missing.
+  const result = await callSheetApi<{
+    eventId: string | null
+    eventIds?: string[]
+    verifiedDate: string
+  }>({
+    action: 'updateEventVerifiedDate',
+    payload: {
+      eventUrl: edits.eventUrl || candidate.eventUrl,
+      date: edits.date || candidate.date,
+      verifiedDate: lastChecked,
+      discoveryId: candidate.id,
+    },
+  })
+
+  const eventId = result.eventId || result.eventIds?.[0]
+  if (!eventId) {
+    throw new Error(
+      'Could not find the matching Events row to update. Refresh Events from Sheet, then try again.',
+    )
+  }
+  return { eventId }
+}
+
+async function approveAsNewDraft(
+  candidate: DiscoveryCandidate,
+  edits: DiscoveryEditableFields,
+  lastChecked: string,
+): Promise<{ eventId: string }> {
+  const result = await callSheetApi<{ eventId: string; status: string }>({
+    action: 'appendEventDraft',
+    payload: {
+      discoveryId: candidate.id,
+      title: edits.title,
+      description: edits.description,
+      tips: edits.tips,
+      venue: edits.venue,
+      room: edits.room,
+      address: edits.address,
+      city: edits.city,
+      date: edits.date,
+      startTime: edits.startTime,
+      endTime: edits.endTime,
+      ageRange: edits.ageRange,
+      types: edits.types,
+      cost: edits.cost,
+      eventUrl: edits.eventUrl,
+      imageUrl: edits.imageUrl,
+      verifiedDate: lastChecked,
+      lat: candidate.lat,
+      lng: candidate.lng,
+      source: candidate.source || 'Discovery',
+    },
+  })
+  return { eventId: result.eventId }
+}
+
 export function AdminDiscoveryPage() {
   const [candidates, setCandidates] = useState<DiscoveryCandidate[]>(() =>
     applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, loadDiscoveryReviewStore()),
@@ -57,11 +146,16 @@ export function AdminDiscoveryPage() {
     [candidates, view, search],
   )
 
-  function persistCandidate(next: DiscoveryCandidate, edits?: DiscoveryEditableFields) {
+  function persistCandidate(
+    next: DiscoveryCandidate,
+    edits?: DiscoveryEditableFields,
+    approvedOn?: string,
+  ) {
     saveDiscoveryReviewRecord(next.id, {
       reviewStatus: next.reviewStatus,
       convertedEventId: next.convertedEventId || undefined,
       edits,
+      ...(approvedOn ? { approvedOn } : next.lastChecked ? { approvedOn: next.lastChecked } : {}),
       updatedAt: new Date().toISOString(),
     })
   }
@@ -79,57 +173,33 @@ export function AdminDiscoveryPage() {
     const next = mergeCandidate(candidate, edits)
     updateCandidate(candidate.id, () => next)
     persistCandidate(next, edits)
-    const onlyChecked =
-      edits.lastChecked &&
-      edits.lastChecked !== candidate.lastChecked &&
-      edits.title === candidate.title &&
-      edits.tips === candidate.tips
     setActionMessage({
       type: 'success',
-      text: onlyChecked
-        ? `Marked “${candidate.title}” as checked (${edits.lastChecked}).`
-        : 'Edits saved on this device.',
+      text: 'Edits saved on this device.',
     })
   }
 
   async function handleApprove(candidate: DiscoveryCandidate, edits: DiscoveryEditableFields) {
-    if (candidate.alreadyOnPuddles) {
+    const lastChecked = pacificTodayYmd()
+    const payloadEdits = { ...edits, lastChecked }
+    const isExisting = candidate.alreadyOnPuddles
+
+    if (isExisting) {
       const ok = window.confirm(
-        `“${edits.title}” looks like it’s already on Puddles.\n\nApprove anyway as a new Draft?`,
+        [
+          `“${edits.title}” is already on Puddles.`,
+          `Approve will update Last Checked / Verified date to ${lastChecked} (not add a duplicate Draft).`,
+        ].join('\n\n'),
       )
       if (!ok) return
     }
 
-    const lastChecked = edits.lastChecked || pacificTodayYmd()
-    const payloadEdits = { ...edits, lastChecked }
     setBusyId(candidate.id)
     setActionMessage(null)
     try {
-      const result = await callSheetApi<{ eventId: string; status: string }>({
-        action: 'appendEventDraft',
-        payload: {
-          discoveryId: candidate.id,
-          title: payloadEdits.title,
-          description: payloadEdits.description,
-          tips: payloadEdits.tips,
-          venue: payloadEdits.venue,
-          room: payloadEdits.room,
-          address: payloadEdits.address,
-          city: payloadEdits.city,
-          date: payloadEdits.date,
-          startTime: payloadEdits.startTime,
-          endTime: payloadEdits.endTime,
-          ageRange: payloadEdits.ageRange,
-          types: payloadEdits.types,
-          cost: payloadEdits.cost,
-          eventUrl: payloadEdits.eventUrl,
-          imageUrl: payloadEdits.imageUrl,
-          verifiedDate: lastChecked,
-          lat: candidate.lat,
-          lng: candidate.lng,
-          source: candidate.source || 'Discovery',
-        },
-      })
+      const result = isExisting
+        ? await approveExistingOnSite(candidate, payloadEdits, lastChecked)
+        : await approveAsNewDraft(candidate, payloadEdits, lastChecked)
 
       const next = mergeCandidate(candidate, payloadEdits, {
         reviewStatus: 'approved',
@@ -137,90 +207,48 @@ export function AdminDiscoveryPage() {
         lastChecked,
       })
       updateCandidate(candidate.id, () => next)
-      persistCandidate(next, payloadEdits)
+      persistCandidate(next, payloadEdits, lastChecked)
       setSelectedId(null)
       setActionMessage({
         type: 'success',
-        text: `Approved as Draft (Event ID: ${result.eventId}). Refresh Events from Sheet to see it, then Publish when ready.`,
+        text: isExisting
+          ? `Updated verified date on existing event (${result.eventId}) to ${lastChecked}. Refresh Events from Sheet to see it on Admin / Puddles.`
+          : `Approved as Draft (Event ID: ${result.eventId}). Approved on ${lastChecked} — that is the Verified / Last checked date on Puddles after you sync Events from the Sheet.`,
       })
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Could not approve discovery candidate.'
-      const needsDeploy = /unknown action/i.test(message)
       setActionMessage({
         type: 'error',
-        text: needsDeploy
-          ? `${message} Redeploy google-apps-script/PuddlesSheetApi.gs (new action: appendEventDraft).`
-          : message,
+        text: deployHint(message),
       })
     } finally {
       setBusyId(null)
     }
   }
 
-  function handleBulkCheck(rows: DiscoveryCandidate[]) {
-    const today = pacificTodayYmd()
-    const idSet = new Set(rows.map((row) => row.id))
-    setCandidates((current) =>
-      current.map((row) => {
-        if (!idSet.has(row.id)) return row
-        return mergeCandidate(row, {
-          ...editableFieldsFromCandidate(row),
-          lastChecked: today,
-        })
-      }),
-    )
-    for (const row of rows) {
-      const edits = { ...editableFieldsFromCandidate(row), lastChecked: today }
-      persistCandidate(mergeCandidate(row, edits), edits)
-    }
-    setActionMessage({
-      type: 'success',
-      text: `Marked ${rows.length} event${rows.length === 1 ? '' : 's'} as checked (${today}).`,
-    })
-  }
-
   async function handleBulkApprove(rows: DiscoveryCandidate[]) {
     setBulkBusy(true)
     setActionMessage(null)
     let okCount = 0
+    let updatedExisting = 0
     let failMessage = ''
+    const lastChecked = pacificTodayYmd()
     for (const candidate of rows) {
-      const lastChecked = candidate.lastChecked || pacificTodayYmd()
       const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
       try {
-        const result = await callSheetApi<{ eventId: string; status: string }>({
-          action: 'appendEventDraft',
-          payload: {
-            discoveryId: candidate.id,
-            title: payloadEdits.title,
-            description: payloadEdits.description,
-            tips: payloadEdits.tips,
-            venue: payloadEdits.venue,
-            room: payloadEdits.room,
-            address: payloadEdits.address,
-            city: payloadEdits.city,
-            date: payloadEdits.date,
-            startTime: payloadEdits.startTime,
-            endTime: payloadEdits.endTime,
-            ageRange: payloadEdits.ageRange,
-            types: payloadEdits.types,
-            cost: payloadEdits.cost,
-            eventUrl: payloadEdits.eventUrl,
-            imageUrl: payloadEdits.imageUrl,
-            verifiedDate: lastChecked,
-            lat: candidate.lat,
-            lng: candidate.lng,
-            source: candidate.source || 'Discovery',
-          },
-        })
+        const isExisting = candidate.alreadyOnPuddles
+        const result = isExisting
+          ? await approveExistingOnSite(candidate, payloadEdits, lastChecked)
+          : await approveAsNewDraft(candidate, payloadEdits, lastChecked)
         const next = mergeCandidate(candidate, payloadEdits, {
           reviewStatus: 'approved',
           convertedEventId: result.eventId,
           lastChecked,
         })
         updateCandidate(candidate.id, () => next)
-        persistCandidate(next, payloadEdits)
+        persistCandidate(next, payloadEdits, lastChecked)
         okCount += 1
+        if (isExisting) updatedExisting += 1
       } catch (error) {
         failMessage =
           error instanceof Error ? error.message : 'Could not approve one or more candidates.'
@@ -232,17 +260,17 @@ export function AdminDiscoveryPage() {
     if (okCount > 0 && !failMessage) {
       setActionMessage({
         type: 'success',
-        text: `Approved ${okCount} event${okCount === 1 ? '' : 's'} as Draft. Refresh Events from Sheet when ready.`,
+        text: `Approved ${okCount} event${okCount === 1 ? '' : 's'} (updated verified on ${updatedExisting} already on site). Approved on ${lastChecked}.`,
       })
     } else if (okCount > 0 && failMessage) {
       setActionMessage({
         type: 'error',
-        text: `Approved ${okCount}, then stopped: ${failMessage}`,
+        text: `Approved ${okCount}, then stopped: ${deployHint(failMessage)}`,
       })
     } else {
       setActionMessage({
         type: 'error',
-        text: failMessage || 'Could not approve selected events.',
+        text: deployHint(failMessage || 'Could not approve selected events.'),
       })
     }
   }
@@ -266,9 +294,9 @@ export function AdminDiscoveryPage() {
     <>
       <section className="admin-sync-bar" aria-label="Discovery overview">
         <p className="admin-submissions-intro">
-          Library discovery candidates for review. Edit content and Good to know, set{' '}
-          <strong>Last checked</strong>, then <strong>Approve</strong> to add an Events Draft.
-          Publish from Events when ready.
+          Library discovery candidates for review. <strong>Approve</strong> on a new event appends a
+          Draft; on an event already on Puddles it updates <strong>Last Checked Date</strong>{' '}
+          (Verified date). Refresh Events from Sheet, then Publish when ready.
         </p>
         <div className="admin-stat-grid admin-stat-grid-compact">
           <div className="admin-stat-card admin-stat-card-static">
@@ -370,7 +398,6 @@ export function AdminDiscoveryPage() {
           onSelect={handleSelect}
           onSaveEdits={handleSaveEdits}
           onApprove={handleApprove}
-          onBulkCheck={handleBulkCheck}
           onBulkApprove={(rows) => void handleBulkApprove(rows)}
           onDismiss={handleDismiss}
           onRestore={handleRestore}

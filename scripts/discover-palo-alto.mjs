@@ -55,11 +55,13 @@ const TIP_EXCLUDE_RE =
 
 function parseArgs(argv) {
   let days = DEFAULT_DAYS
+  let writeAdmin = true
   for (const arg of argv) {
     const match = arg.match(/^--days=(\d+)$/)
     if (match) days = Number(match[1])
+    if (arg === '--skip-admin') writeAdmin = false
   }
-  return { days }
+  return { days, writeAdmin }
 }
 
 function pacificTodayYmd() {
@@ -380,7 +382,7 @@ function toCsv(rows) {
 }
 
 async function main() {
-  const { days } = parseArgs(process.argv.slice(2))
+  const { days, writeAdmin } = parseArgs(process.argv.slice(2))
   const startYmd = pacificTodayYmd()
   const endYmd = addDaysYmd(startYmd, days)
 
@@ -449,16 +451,18 @@ async function main() {
   writeFileSync(newCsvPath, toCsv(newOnly))
 
   const adminPath = join(rootDir, 'src/data/discovery-candidates.json')
-  const adminPayload = {
-    ...payload,
-    candidates: candidates.map((c) => ({
-      ...c,
-      reviewStatus: 'pending',
-      convertedEventId: '',
-      lastChecked: '',
-    })),
+  if (writeAdmin) {
+    const adminPayload = {
+      ...payload,
+      candidates: candidates.map((c) => ({
+        ...c,
+        reviewStatus: 'pending',
+        convertedEventId: '',
+        lastChecked: '',
+      })),
+    }
+    writeFileSync(adminPath, `${JSON.stringify(adminPayload, null, 2)}\n`)
   }
-  writeFileSync(adminPath, `${JSON.stringify(adminPayload, null, 2)}\n`)
 
   console.log('')
   console.log('Stats')
@@ -474,7 +478,8 @@ async function main() {
   console.log(`  ${jsonPath}`)
   console.log(`  ${csvPath}`)
   console.log(`  ${newCsvPath}`)
-  console.log(`  ${adminPath}`)
+  if (writeAdmin) console.log(`  ${adminPath}`)
+  else console.log('  (admin queue skipped — --skip-admin)')
   console.log('')
   console.log('Sample enriched rows (tips = Good to know):')
   for (const row of candidates.slice(0, 8)) {

@@ -53,8 +53,9 @@ function bandsFromInclusive(min: number, max: number): InferredAge | null {
 }
 
 /**
- * When copy names a specific age (e.g. “under the age of two”, “ages 2–8”),
- * return Puddles Age Tags. Otherwise null (keep audience-based ages).
+ * When copy names a specific age (e.g. “under the age of two”, “ages 2–8”,
+ * “early walkers, 1s, and 2s”, “older than 2”), return Puddles Age Tags.
+ * Otherwise null (keep audience-based ages).
  */
 export function inferAgeRangeFromText(text: string): InferredAge | null {
   const hay = String(text || '')
@@ -78,6 +79,42 @@ export function inferAgeRangeFromText(text: string): InferredAge | null {
     }
   }
 
+  // “geared towards those older than 2 years” / “older than 2”
+  const olderThan = hay.match(
+    /\b(?:geared\s+towards?\s+(?:those\s+)?)?older\s+than\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten)(?:\s*(?:years?|yrs?))?\b/,
+  )
+  if (olderThan) {
+    const n = parseAgeToken(olderThan[1])
+    if (n != null && n >= 0) {
+      // Exclusive lower bound; default storytime ceiling at 5 when no upper bound given.
+      return bandsFromInclusive(n + 0.01, 5)
+    }
+  }
+
+  // “younger than 3” / “younger than three years”
+  const youngerThan = hay.match(
+    /\byounger\s+than\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten)(?:\s*(?:years?|yrs?))?\b/,
+  )
+  if (youngerThan) {
+    const n = parseAgeToken(youngerThan[1])
+    if (n != null && n > 0) {
+      return bandsFromInclusive(0, Math.max(0, n - 0.01))
+    }
+  }
+
+  // “early walkers, 1s, and 2s” / “1s and 2s” / “for 1s, 2s, and 3s”
+  const yearOldsList = hay.match(
+    /\b(?:early\s+walkers?,?\s+(?:and\s+)?)?(\d+)s(?:\s*,\s*|\s+and\s+|\s*,\s*and\s+)(\d+)s(?:(?:\s*,\s*|\s+and\s+|\s*,\s*and\s+)(\d+)s)?\b/,
+  )
+  if (yearOldsList) {
+    const ages = [yearOldsList[1], yearOldsList[2], yearOldsList[3]]
+      .map((token) => parseAgeToken(token || ''))
+      .filter((n): n is number => n != null && n >= 0 && n <= 12)
+    if (ages.length >= 2) {
+      return bandsFromInclusive(Math.min(...ages), Math.max(...ages))
+    }
+  }
+
   // “recommended age is 2-8” / “ages 2–5” / “ages 0-12 months” / “for ages 0 to 5”
   const range = hay.match(
     /\b(?:recommended\s+age(?:\s+is)?|best\s+for\s+ages?|for\s+ages?|ages?)\s*(?:is\s+)?(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s*(?:[-–]|to)\s*(\d+|one|two|three|four|five|six|seven|eight|nine|ten)(?:\s*(months?|mos?|years?|yrs?))?\b/,
@@ -93,6 +130,29 @@ export function inferAgeRangeFromText(text: string): InferredAge | null {
         b = b / 12
       }
       return bandsFromInclusive(Math.min(a, b), Math.max(a, b))
+    }
+  }
+
+  // “suitable for children 3-5” / “children 3–5”
+  const childrenRange = hay.match(
+    /\b(?:suitable\s+for\s+)?children\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s*(?:[-–]|to)\s*(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\b/,
+  )
+  if (childrenRange) {
+    const a = parseAgeToken(childrenRange[1])
+    const b = parseAgeToken(childrenRange[2])
+    if (a != null && b != null) {
+      return bandsFromInclusive(Math.min(a, b), Math.max(a, b))
+    }
+  }
+
+  // “for ages 3+” / “ages 3+”
+  const agesPlus = hay.match(
+    /\b(?:for\s+)?ages?\s*(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s*\+/,
+  )
+  if (agesPlus) {
+    const n = parseAgeToken(agesPlus[1])
+    if (n != null && n >= 0) {
+      return bandsFromInclusive(n, 12)
     }
   }
 
@@ -116,7 +176,13 @@ export function isAgeTargetingSentence(sentence: string): boolean {
     .replace(/\s+/g, ' ')
   if (!hay.trim()) return false
   if (/\bunder(?:\s+the\s+age\s+of)?\s+(\d+|one|two|three|four|five)\b/.test(hay)) return true
+  if (/\bolder\s+than\s+(\d+|one|two|three|four|five)\b/.test(hay)) return true
+  if (/\byounger\s+than\s+(\d+|one|two|three|four|five)\b/.test(hay)) return true
+  if (/\bearly\s+walkers?\b/.test(hay) && /\b\d+s\b/.test(hay)) return true
+  if (/\b\d+s(?:\s*,\s*|\s+and\s+)\d+s\b/.test(hay)) return true
   if (/\brecommended\s+age\b/.test(hay)) return true
+  if (/\bsuitable\s+for\s+children\b/.test(hay) && /\d/.test(hay)) return true
+  if (/\b(?:for\s+)?ages?\s*\d+\s*\+/.test(hay)) return true
   if (/\btargeted\s+to\s+children\b/.test(hay) && /\bage\b/.test(hay)) return true
   return false
 }

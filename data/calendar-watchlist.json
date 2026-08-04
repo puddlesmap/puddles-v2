@@ -1,0 +1,106 @@
+{
+  "name": "Calendar Watchlist",
+  "description": "Human-curated calendars and recurring feeds Puddles checks for ages 0–5 activities. Distinct from Discovery library scrapers (BiblioCommons / LibCal) and from the live Events catalog.",
+  "updatedAt": "2026-08-03",
+  "sources": [
+    {
+      "id": "mv-special-events",
+      "name": "Mountain View Special Events",
+      "org": "City of Mountain View · Community Services",
+      "city": "Mountain View",
+      "url": "https://www.mountainview.gov/our-city/departments/community-services/special-events",
+      "fitFor0to5": "partial",
+      "notes": "Summer Music on Castro, Concerts on the Plaza, outdoor movies, festivals. Family-friendly all-ages; not toddler-specific. Site often blocks automated fetch (Akamai).",
+      "alreadyOnPuddles": true,
+      "checkCadence": "weekly in season"
+    },
+    {
+      "id": "la-family-fun-days",
+      "name": "Los Altos Family Fun Days",
+      "org": "City of Los Altos · Community Services",
+      "city": "Los Altos",
+      "url": "https://www.losaltosca.gov/329/Family-Fun-Days",
+      "fitFor0to5": "strong",
+      "notes": "Free themed Saturdays 10am–1pm at Community Center with library partners. Aug 8 Pirate Palooza, Oct 24 Halloween Hoopla, Dec 12 Winter Wonderland — already Published.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "seasonal"
+    },
+    {
+      "id": "dt-los-altos",
+      "name": "Downtown Los Altos Events",
+      "org": "Los Altos Village Association",
+      "city": "Los Altos",
+      "url": "https://downtownlosaltos.org/events/",
+      "fitFor0to5": "sparse",
+      "notes": "Most listings are adult. A BOO-tiful Downtown Halloween (Oct 30, ~12–4) is in Discovery.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "monthly"
+    },
+    {
+      "id": "csma-concerts",
+      "name": "CSMA Concerts",
+      "org": "Community School of Music and Arts",
+      "city": "Mountain View",
+      "url": "https://arts4all.org/concerts/",
+      "fitFor0to5": "weak",
+      "notes": "Evening concert series (jazz/classical) — not ages 0–5. Prefer CSMA family days / Community Arts Day style programs when posted elsewhere on arts4all.org.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "as needed"
+    },
+    {
+      "id": "linden-tree",
+      "name": "Linden Tree Books",
+      "org": "Linden Tree Books",
+      "city": "Los Altos",
+      "url": "https://www.lindentreebooks.com/events-calendar/",
+      "fitFor0to5": "strong",
+      "notes": "Weekly Outdoor Storytime + author picture-book storytimes in Discovery. Skip YA/MG launches and 9+ book clubs.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "weekly"
+    },
+    {
+      "id": "home-depot-kids",
+      "name": "Home Depot Kids Workshop",
+      "org": "The Home Depot",
+      "city": "Palo Alto",
+      "url": "https://www.homedepot.com/c/kids-workshop",
+      "fitFor0to5": "partial",
+      "notes": "Monthly free build workshops — Ages 2–5. Sep 5 + Oct 3 already Published.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "monthly"
+    },
+    {
+      "id": "ofjcc-families",
+      "name": "Oshman Family JCC · Jeff Center for Families",
+      "org": "Palo Alto JCC",
+      "city": "Palo Alto",
+      "url": "https://paloaltojcc.org/event-detail/es_1830684/",
+      "fitFor0to5": "strong",
+      "notes": "Doodle and Discover Wednesdays — free drop-in crafts for ages 2–6. Sep 2 in Discovery.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "monthly"
+    },
+    {
+      "id": "pyt-stories-on-stage",
+      "name": "Peninsula Youth Theatre · Stories on Stage",
+      "org": "Peninsula Youth Theatre",
+      "city": "Mountain View",
+      "url": "https://pytnet.org/boxoffice/creepy-carrots/",
+      "fitFor0to5": "strong",
+      "notes": "Picture-book stage shows at MVCPA SecondStage. Creepy Carrots Oct 10 (11:30 & 1:30) in Discovery — Paid.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "seasonal"
+    },
+    {
+      "id": "gamble-garden",
+      "name": "Elizabeth F. Gamble Garden",
+      "org": "Gamble Garden",
+      "city": "Palo Alto",
+      "url": "https://www.gamblegarden.org/event/halloween/",
+      "fitFor0to5": "partial",
+      "notes": "Halloween Magic Oct 24 (Paid tickets, outdoors) in Discovery. Skip adult-leaning Halloween Tea.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "seasonal"
+    }
+  ]
+}

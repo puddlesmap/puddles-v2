@@ -34,9 +34,12 @@ export interface DiscoveryCandidate {
 
 export interface DiscoveryCatalog {
   generatedAt: string
-  library: string
+  /** Single-city runs set this; bay-area runs may omit it. */
+  library?: string
+  libraries?: string[]
+  sources?: string[]
   window: { start: string; end: string; days: number }
-  stats: Record<string, number>
+  stats: Record<string, number | Record<string, unknown>>
   candidates: DiscoveryCandidate[]
 }
 

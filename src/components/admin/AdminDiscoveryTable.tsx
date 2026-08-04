@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import type { DiscoveryCandidate, DiscoveryEditableFields } from '../../types/discovery'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
-import { editableFieldsFromCandidate, pacificTodayYmd } from '../../utils/discoveryReview'
+import { editableFieldsFromCandidate } from '../../utils/discoveryReview'
 import { AdminDiscoveryDetailPanel } from './AdminDiscoveryDetail'
 
 const COLUMN_COUNT = 8
@@ -26,7 +26,6 @@ interface AdminDiscoveryTableProps {
   onSelect: (candidate: DiscoveryCandidate) => void
   onSaveEdits: (candidate: DiscoveryCandidate, edits: DiscoveryEditableFields) => void
   onApprove: (candidate: DiscoveryCandidate, edits: DiscoveryEditableFields) => void
-  onBulkCheck: (candidates: DiscoveryCandidate[]) => void
   onBulkApprove: (candidates: DiscoveryCandidate[]) => void
   onDismiss: (candidate: DiscoveryCandidate) => void
   onRestore: (candidate: DiscoveryCandidate) => void
@@ -39,7 +38,7 @@ const SORTABLE_COLUMNS: { key: DiscoverySortKey; label: string; className?: stri
   { key: 'ages', label: 'Ages', className: 'admin-discovery-col-ages' },
   { key: 'tips', label: 'Tips', className: 'admin-discovery-col-tips' },
   { key: 'status', label: 'Status', className: 'admin-discovery-col-status' },
-  { key: 'lastChecked', label: 'Last checked', className: 'admin-discovery-col-checked' },
+  { key: 'lastChecked', label: 'Approved on', className: 'admin-discovery-col-checked' },
 ]
 
 function StatusBadge({ candidate }: { candidate: DiscoveryCandidate }) {
@@ -55,8 +54,9 @@ function StatusBadge({ candidate }: { candidate: DiscoveryCandidate }) {
   return <span className="admin-badge admin-badge-yes">New</span>
 }
 
-function formatLastChecked(dateStr: string): string {
-  if (!dateStr?.trim()) return 'Not checked'
+/** Format approve stamp for the Discovery table (same value as site verifiedDate). */
+function formatApprovedOn(dateStr: string): string {
+  if (!dateStr?.trim()) return '—'
   const d = new Date(`${dateStr}T12:00:00`)
   if (Number.isNaN(d.getTime())) return dateStr
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
@@ -152,7 +152,6 @@ export function AdminDiscoveryTable({
   onSelect,
   onSaveEdits,
   onApprove,
-  onBulkCheck,
   onBulkApprove,
   onDismiss,
   onRestore,
@@ -213,15 +212,6 @@ export function AdminDiscoveryTable({
     setSortDir('asc')
   }
 
-  function markCheckedToday(candidate: DiscoveryCandidate) {
-    const today = pacificTodayYmd()
-    if (candidate.lastChecked === today) return
-    onSaveEdits(candidate, {
-      ...editableFieldsFromCandidate(candidate),
-      lastChecked: today,
-    })
-  }
-
   function beginDrag(index: number, event: ReactPointerEvent) {
     const target = event.target as HTMLElement | null
     if (target?.closest('button, a, input, textarea, select, label')) return
@@ -248,20 +238,6 @@ export function AdminDiscoveryTable({
     setMultiIds([])
   }
 
-  function handleBulkCheckClick() {
-    const targets = multiCandidates.filter((row) => !row.lastChecked?.trim())
-    if (targets.length === 0) {
-      window.alert('All selected events are already checked.')
-      return
-    }
-    const ok = window.confirm(
-      `Mark ${targets.length} event${targets.length === 1 ? '' : 's'} as checked (today)?`,
-    )
-    if (!ok) return
-    onBulkCheck(targets)
-    clearMulti()
-  }
-
   function handleBulkApproveClick() {
     const targets = multiCandidates.filter((row) => row.reviewStatus === 'pending')
     if (targets.length === 0) {
@@ -271,8 +247,11 @@ export function AdminDiscoveryTable({
     const already = targets.filter((row) => row.alreadyOnPuddles).length
     const ok = window.confirm(
       [
-        `Approve ${targets.length} event${targets.length === 1 ? '' : 's'} as Draft?`,
-        already > 0 ? `${already} already look like they’re on Puddles.` : null,
+        `Approve ${targets.length} event${targets.length === 1 ? '' : 's'}?`,
+        `Last checked / Verified date will be set to today.`,
+        already > 0
+          ? `${already} already on Puddles — those update the existing row (no duplicate Draft).`
+          : null,
       ]
         .filter(Boolean)
         .join('\n\n'),
@@ -304,14 +283,6 @@ export function AdminDiscoveryTable({
           <div className="admin-discovery-bulk-actions">
             <button
               type="button"
-              className="admin-btn admin-btn-secondary"
-              disabled={bulkBusy}
-              onClick={handleBulkCheckClick}
-            >
-              Mark checked
-            </button>
-            <button
-              type="button"
               className="admin-btn admin-btn-primary"
               disabled={bulkBusy}
               onClick={handleBulkApproveClick}
@@ -330,7 +301,8 @@ export function AdminDiscoveryTable({
         </div>
       ) : (
         <p className="admin-discovery-drag-hint">
-          Tip: drag across rows to select several, then Mark checked or Approve.
+          Tip: drag across rows to select several, then Approve (new → Draft; already on site →
+          update Verified date).
         </p>
       )}
 
@@ -360,8 +332,8 @@ export function AdminDiscoveryTable({
               const isMulti = multiSet.has(candidate.id)
               const isBusy = busyId === candidate.id
               const canApprove = candidate.reviewStatus === 'pending'
-              const isUnchecked = !candidate.lastChecked?.trim()
-              const checkedLabel = formatLastChecked(candidate.lastChecked)
+              const approvedOn =
+                candidate.reviewStatus === 'approved' ? formatApprovedOn(candidate.lastChecked) : '—'
               return (
                 <Fragment key={candidate.id}>
                   <tr
@@ -410,23 +382,15 @@ export function AdminDiscoveryTable({
                     <td className="admin-discovery-col-status">
                       <StatusBadge candidate={candidate} />
                     </td>
-                    <td className="admin-discovery-col-checked">
-                      {isUnchecked ? (
-                        <button
-                          type="button"
-                          className="admin-discovery-check-btn"
-                          title="Mark as checked today"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            markCheckedToday(candidate)
-                          }}
-                          onPointerDown={(e) => e.stopPropagation()}
-                        >
-                          Not checked
-                        </button>
-                      ) : (
-                        <span className="text-sm text-muted">{checkedLabel}</span>
-                      )}
+                    <td
+                      className="admin-discovery-col-checked"
+                      title={
+                        candidate.reviewStatus === 'approved' && candidate.lastChecked
+                          ? `Approved on ${candidate.lastChecked} — Verified / Last checked date on Puddles`
+                          : 'Approve to stamp today’s date as Verified on Puddles'
+                      }
+                    >
+                      <span className="text-sm text-muted">{approvedOn}</span>
                     </td>
                     <td className="admin-discovery-sticky-actions admin-discovery-col-actions">
                       {canApprove ? (
