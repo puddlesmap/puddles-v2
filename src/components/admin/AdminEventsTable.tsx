@@ -38,6 +38,8 @@ interface AdminEventsTableProps {
   selectedId: string | null
   onSelect: (event: AdminEventRecord) => void
   onHide: (event: AdminEventRecord) => void
+  /** Stamp Last Checked / Approved on = today (Sheet + local Admin). */
+  onApproveVerified?: (event: AdminEventRecord) => void
   /** When set, render events grouped by duplicate cluster with keep/hide actions. */
   duplicateClusters?: DuplicateCluster[]
   busyClusterId?: string | null
@@ -50,6 +52,7 @@ export function AdminEventsTable({
   selectedId,
   onSelect,
   onHide,
+  onApproveVerified,
   duplicateClusters,
   busyClusterId = null,
   onKeepWinner,
@@ -105,7 +108,7 @@ export function AdminEventsTable({
                       <th>Status</th>
                       <th>Live</th>
                       <th>Score</th>
-                      <th>Last checked</th>
+                      <th>Approved on</th>
                       <th>Role</th>
                     </tr>
                   </thead>
@@ -147,7 +150,11 @@ export function AdminEventsTable({
                               <BoolBadge value={event.isLive} trueLabel="Live" falseLabel="Not live" />
                             </td>
                             <td>{score}</td>
-                            <td className="whitespace-nowrap">{formatVerifiedDate(event.verifiedDate)}</td>
+                            <td className="whitespace-nowrap">
+                              {event.verifiedDate?.trim()
+                                ? `Approved on ${formatVerifiedDate(event.verifiedDate)}`
+                                : '—'}
+                            </td>
                             <td>
                               {isWinner ? (
                                 <span className="admin-badge admin-badge-yes">Keep</span>
@@ -196,7 +203,7 @@ export function AdminEventsTable({
             <th>Status</th>
             <th>Live</th>
             <th>Past</th>
-            <th>Last checked</th>
+            <th title="Same as Sheet Last Checked Date / Verified on Puddles">Approved on</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -206,6 +213,7 @@ export function AdminEventsTable({
             const isExpanded = selectedId === event.id
             const isBusy = busyId === event.id
             const canHide = event.status !== 'Hidden'
+            const approvedLabel = formatVerifiedDate(event.verifiedDate)
 
             return (
               <Fragment key={event.id}>
@@ -246,13 +254,23 @@ export function AdminEventsTable({
                   <td className="admin-table-last-checked">
                     <div className="admin-last-checked">
                       <span className={stale ? 'admin-verified-stale' : ''}>
-                        {formatVerifiedDate(event.verifiedDate)}
+                        {approvedLabel === '—' ? '—' : `Approved on ${approvedLabel}`}
                       </span>
                       {stale ? <span className="admin-stale-tag">Needs check</span> : null}
                     </div>
                   </td>
                   <td className="admin-table-actions-cell" onClick={(e) => e.stopPropagation()}>
                     <div className="admin-table-actions">
+                      {onApproveVerified ? (
+                        <button
+                          type="button"
+                          className="admin-btn admin-btn-primary"
+                          disabled={isBusy}
+                          onClick={() => onApproveVerified(event)}
+                        >
+                          {isBusy ? '…' : 'Approve'}
+                        </button>
+                      ) : null}
                       {canHide ? (
                         <button
                           type="button"

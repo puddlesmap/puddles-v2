@@ -152,8 +152,8 @@ export function AdminLayout() {
                   (no duplicate). Dismiss noise.
                 </li>
                 <li>
-                  <strong>Events</strong> — Refresh from Sheet (no deploy). Set Status = Published. Check
-                  Last checked.
+                  <strong>Events</strong> — Refresh from Sheet (no deploy). Click <strong>Approve</strong> to
+                  stamp Approved on = today (Last Checked / Verified). Set Status = Published when ready.
                 </li>
                 <li>
                   <strong>Publish to site</strong> — once at the end so the public catalog updates.
