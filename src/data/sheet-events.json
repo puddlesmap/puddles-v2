@@ -121,35 +121,6 @@
     "isLive": false
   },
   {
-    "id": "69b835c4b48451fc3c094428",
-    "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
-    "venue": "Los Altos Library",
-    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
-    "city": "Los Altos",
-    "date": "2026-07-01",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
-    "eventUrl": "https://sccl.bibliocommons.com/events/69b835c4b48451fc3c094428",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.3791,
-    "lng": -122.1142,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "baby-storytime-mountain-view-public-library-2026-07-01-10-30",
     "title": "Baby Storytime",
     "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is...",
@@ -175,6 +146,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "69b835c4b48451fc3c094428",
+    "title": "Toddler Storytime",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
+    "venue": "Los Altos Library",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-01",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+    "eventUrl": "https://sccl.bibliocommons.com/events/69b835c4b48451fc3c094428",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.3791,
+    "lng": -122.1142,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -538,35 +538,6 @@
     "isLive": false
   },
   {
-    "id": "69b835c4b48451fc3c094429",
-    "title": "Toddler Storytime",
-    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
-    "venue": "Los Altos Library",
-    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
-    "city": "Los Altos",
-    "date": "2026-07-08",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
-    "eventUrl": "https://sccl.bibliocommons.com/events/69b835c4b48451fc3c094429",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.3791,
-    "lng": -122.1142,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "baby-storytime-mountain-view-public-library-2026-07-08-10-30",
     "title": "Baby Storytime",
     "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is...",
@@ -592,6 +563,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "69b835c4b48451fc3c094429",
+    "title": "Toddler Storytime",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities!\n\nDue to limited space, we will begin handing out free tickets starting at 10 a.m. We look forward to seeing you there!",
+    "venue": "Los Altos Library",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-08",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+    "eventUrl": "https://sccl.bibliocommons.com/events/69b835c4b48451fc3c094429",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.3791,
+    "lng": -122.1142,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -836,36 +836,6 @@
     "isLive": false
   },
   {
-    "id": "cascada-de-flores-el-brujo-y-la-sirena-the-wizard-and-the-mermaid-mountain-view-public-library-2026-",
-    "title": "Cascada de Flores: El Brujo y la Sirena (The Wizard and the Mermaid)",
-    "description": "El Brujo y La Sirena is a musical story about music and the sea, where a mermaid lives singing through the waters of the Americas. One day, a nice and funny wizard hears the mermaid’s song, for the first time ever, and seeing that he doesn't have it in his magic books, decides to go look for her. Don't miss this exciting bilingual tale with Cascada de Flores!",
-    "venue": "Mountain View Public Library",
-    "room": "Pioneer Park",
-    "address": "1146 Church St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-07-09",
-    "startTime": "18:30",
-    "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Other"
-    ],
-    "categoryTags": [
-      "Other"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_16_51_06.jpg",
-    "eventUrl": "https://mountainview.libcal.com/event/16650840",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.3896,
-    "lng": -122.0832,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "2026-summer-concert-series-carnaval-grant-park-soccer-field-2026-07-09-18-30",
     "title": "2026 Summer Concert Series: Carnaval",
     "description": "The city of Los Altos Community Services department invites you to the 2026 Summer Concert Series! Enjoy a variety of musical genres and performers throughout the summer. Concerts will be held at the Grant Park and Hillview Soccer Fields; please refer to the schedule below for exact locations. Parking is limited at both locations; please consider walking, biking, or carpooling to the concerts.",
@@ -892,6 +862,36 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.3458,
     "lng": -122.0704,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "cascada-de-flores-el-brujo-y-la-sirena-the-wizard-and-the-mermaid-mountain-view-public-library-2026-",
+    "title": "Cascada de Flores: El Brujo y la Sirena (The Wizard and the Mermaid)",
+    "description": "El Brujo y La Sirena is a musical story about music and the sea, where a mermaid lives singing through the waters of the Americas. One day, a nice and funny wizard hears the mermaid’s song, for the first time ever, and seeing that he doesn't have it in his magic books, decides to go look for her. Don't miss this exciting bilingual tale with Cascada de Flores!",
+    "venue": "Mountain View Public Library",
+    "room": "Pioneer Park",
+    "address": "1146 Church St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-07-09",
+    "startTime": "18:30",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Other"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_16_51_06.jpg",
+    "eventUrl": "https://mountainview.libcal.com/event/16650840",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -1254,35 +1254,6 @@
     "isLive": false
   },
   {
-    "id": "699f60146724c63d00f52cc5",
-    "title": "Family Storytime",
-    "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!",
-    "venue": "Children's Library",
-    "address": "1276 Harriet St, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-07-14",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "2–5",
-    "ageMin": 2,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc5",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4448,
-    "lng": -122.1452,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "69b835d42866a5b488426bfc",
     "title": "Bilingual Spanish Family Storytime / Hora de cuentos bilingüe para familias",
     "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n \n ¡Venga a la biblioteca...",
@@ -1307,6 +1278,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "699f60146724c63d00f52cc5",
+    "title": "Family Storytime",
+    "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!",
+    "venue": "Children's Library",
+    "address": "1276 Harriet St, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "date": "2026-07-14",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc5",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -1431,6 +1431,36 @@
     "isLive": false
   },
   {
+    "id": "baby-storytime-mountain-view-public-library-2026-07-15-10-30",
+    "title": "Baby Storytime",
+    "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is...",
+    "venue": "Mountain View Public Library",
+    "room": "1st Floor Program Room",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-07-15",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
+    "eventUrl": "https://mountainview.libcal.com/event/16422253",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.3895,
+    "lng": -122.0818,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
     "id": "69265595a2f9562900e5f95a",
     "title": "Little Ones Storytime",
     "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
@@ -1484,36 +1514,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
-    "id": "baby-storytime-mountain-view-public-library-2026-07-15-10-30",
-    "title": "Baby Storytime",
-    "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is...",
-    "venue": "Mountain View Public Library",
-    "room": "1st Floor Program Room",
-    "address": "585 Franklin St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-07-15",
-    "startTime": "10:30",
-    "endTime": "11:15",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
-    "eventUrl": "https://mountainview.libcal.com/event/16422253",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.3895,
-    "lng": -122.0818,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -1636,35 +1636,6 @@
     "isLive": false
   },
   {
-    "id": "69a0b0f2b48451fc3c0563c6",
-    "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
-    "venue": "Mitchell Park Library",
-    "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
-    "city": "Palo Alto",
-    "date": "2026-07-15",
-    "startTime": "18:30",
-    "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c6",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4179,
-    "lng": -122.1077,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "bilingual-storytime-mandarin-english-mountain-view-public-library-2026-07-15-18-30",
     "title": "Bilingual Storytime: Mandarin/English",
     "description": "Stories, rhymes and songs in Mandarin and English with Miss Renee in the Children's Room Octagon. For ages 2-5, no registration required.",
@@ -1690,6 +1661,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "69a0b0f2b48451fc3c0563c6",
+    "title": "Music & Movement",
+    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
+    "venue": "Mitchell Park Library",
+    "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-07-15",
+    "startTime": "18:30",
+    "endTime": "19:15",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c6",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -2083,6 +2083,35 @@
     "isLive": false
   },
   {
+    "id": "book-launch-with-dashka-slater-the-big-one-linden-tree-books-2026-07-18-11-00",
+    "title": "Book Launch with Dashka Slater, The Big One",
+    "description": "Marina was the smallest of the town's children. Nana was the oldest of the town's elders. But even the old and the small have dreams.\n \n When word spreads around their small fishing town that the Big One is close to shore, Marina and Nana know that they will be the ones to catch the elusive and legendary fish. \"When we catch the Big One,\" says Nana, \"we'll need four hands to haul him in and two mouths to tell the story.\"\n \n They set out in a tiny boat with only grit, gumption, and a rose-ripe pe",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-18",
+    "startTime": "11:00",
+    "endTime": "11:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.3792,
+    "lng": -122.1161,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
     "id": "toddler-drive-in-mountain-view-public-library-2026-07-18-11-00",
     "title": "Toddler Drive In",
     "description": "Little ones will design and decorate their very own “car” using cardboard boxes and craft materials provided by the library. Once their creations are complete, toddlers can settle into their custom vehicles to enjoy a selection of short picture-book video stories on the big screen. \n\nThis hands-on, imagination-filled program encourages creativity, motor skills, and a love of stories. Perfect for toddlers and their grown-ups—come build, play, and enjoy a cozy drive-in experience made just for the",
@@ -2111,35 +2140,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
-    "id": "book-launch-with-dashka-slater-the-big-one-linden-tree-books-2026-07-18-11-00",
-    "title": "Book Launch with Dashka Slater, The Big One",
-    "description": "Marina was the smallest of the town's children. Nana was the oldest of the town's elders. But even the old and the small have dreams.\n \n When word spreads around their small fishing town that the Big One is close to shore, Marina and Nana know that they will be the ones to catch the elusive and legendary fish. \"When we catch the Big One,\" says Nana, \"we'll need four hands to haul him in and two mouths to tell the story.\"\n \n They set out in a tiny boat with only grit, gumption, and a rose-ripe pe",
-    "venue": "Linden Tree Books",
-    "address": "265 State Street\nLos Altos, CA 94022",
-    "city": "Los Altos",
-    "date": "2026-07-18",
-    "startTime": "11:00",
-    "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.3792,
-    "lng": -122.1161,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -2237,37 +2237,6 @@
     "isLive": false
   },
   {
-    "id": "storytime-with-rob-sayegh-jr-big-rig-pig-linden-tree-books-2026-07-19-10-30",
-    "title": "Storytime with Rob Sayegh Jr., Big Rig Pig",
-    "description": "Join us for a special storytime with illustrator Rob Sayegh Jr. as he shares his delightful new picture book, [Big Rig Pig](https://www.lindentreebooks.com/big-rig-pig.html), written by Claire Tattersfield.\n \n When Miles spends the whole day helping out others, hauling boxes, five tons of apples, and even an entire circus, he learns that maybe he doesn't have to do it all. And that sometimes, it's okay if he's the one who needs help; good friends will always be there to lend a helping hand, or t",
-    "venue": "Linden Tree Books",
-    "address": "265 State Street\nLos Altos, CA 94022",
-    "city": "Los Altos",
-    "date": "2026-07-19",
-    "startTime": "10:30",
-    "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Outdoor"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.3792,
-    "lng": -122.1161,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "outdoor-storytime-linden-tree-books-2026-07-19-10-30",
     "title": "Outdoor Storytime",
     "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
@@ -2292,6 +2261,37 @@
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
     "verifiedDate": "2026-07-02",
+    "lat": 37.3792,
+    "lng": -122.1161,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "storytime-with-rob-sayegh-jr-big-rig-pig-linden-tree-books-2026-07-19-10-30",
+    "title": "Storytime with Rob Sayegh Jr., Big Rig Pig",
+    "description": "Join us for a special storytime with illustrator Rob Sayegh Jr. as he shares his delightful new picture book, [Big Rig Pig](https://www.lindentreebooks.com/big-rig-pig.html), written by Claire Tattersfield.\n \n When Miles spends the whole day helping out others, hauling boxes, five tons of apples, and even an entire circus, he learns that maybe he doesn't have to do it all. And that sometimes, it's okay if he's the one who needs help; good friends will always be there to lend a helping hand, or t",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-07-19",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Stories",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-06-30",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Expired",
@@ -2391,35 +2391,6 @@
     "isLive": false
   },
   {
-    "id": "699f60146724c63d00f52cc6",
-    "title": "Family Storytime",
-    "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
-    "venue": "Children's Library",
-    "address": "1276 Harriet St, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-07-21",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "2–5",
-    "ageMin": 2,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc6",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4448,
-    "lng": -122.1452,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "69b835d42866a5b488426bfd",
     "title": "Bilingual Spanish Family Storytime / Hora de cuentos bilingüe para familias",
     "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n \n ¡Venga a la biblioteca...",
@@ -2444,6 +2415,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "699f60146724c63d00f52cc6",
+    "title": "Family Storytime",
+    "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
+    "venue": "Children's Library",
+    "address": "1276 Harriet St, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "date": "2026-07-21",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc6",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -2539,6 +2539,36 @@
     "isLive": false
   },
   {
+    "id": "baby-storytime-mountain-view-public-library-2026-07-22-10-30",
+    "title": "Baby Storytime",
+    "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is...",
+    "venue": "Mountain View Public Library",
+    "room": "1st Floor Program Room",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-07-22",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
+    "eventUrl": "https://mountainview.libcal.com/event/16422254",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.3895,
+    "lng": -122.0818,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
     "id": "69265595a2f9562900e5f95b",
     "title": "Little Ones Storytime",
     "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
@@ -2592,36 +2622,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
-    "id": "baby-storytime-mountain-view-public-library-2026-07-22-10-30",
-    "title": "Baby Storytime",
-    "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is...",
-    "venue": "Mountain View Public Library",
-    "room": "1st Floor Program Room",
-    "address": "585 Franklin St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-07-22",
-    "startTime": "10:30",
-    "endTime": "11:15",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
-    "eventUrl": "https://mountainview.libcal.com/event/16422254",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.3895,
-    "lng": -122.0818,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -3247,6 +3247,38 @@
     "isLive": false
   },
   {
+    "id": "community-arts-day-community-school-of-music-and-arts-2026-07-26-10-00",
+    "title": "Community Arts Day",
+    "description": "Get to know your neighborhood arts center with free activities for kids, teens and adults!\n\nEveryone is welcome at CSMA Community Arts Day! We’ll have live music, a food truck, hands-on art activities, drop-in demo classes, public art projects, face painting for kids, and a stunning new exhibition in our gallery.\n\nTour the building, explore what we have to offer, and get involved with Silicon Valley’s creative community this summer.",
+    "tips": "We request that attendees pre-register for free tickets, although walk-ins will be permitted.",
+    "venue": "Community School of Music and Arts",
+    "address": "230 San Antonio Circle\n\nMountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-07-26",
+    "startTime": "10:00",
+    "endTime": "14:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts",
+      "Classes"
+    ],
+    "categoryTags": [
+      "Arts & Crafts",
+      "Classes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.eventbrite.com/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1187743021%252F2991949830376%252F1%252Foriginal.20260626-221838%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D1880%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3D7bd2a26d7f8501f1b1cd8b91250800fb&w=1880&q=75",
+    "eventUrl": "https://arts4all.org/concerts/community-arts-day/",
+    "verifiedDate": "2026-06-05",
+    "lat": 37.3894,
+    "lng": -122.0833,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
     "id": "family-yoga-class-with-mini-yoga-club-google-visitor-experience-2026-07-26-10-00",
     "title": "Family Yoga Class with Mini Yoga Club",
     "description": "Join Mini Yoga Club in our outdoor plaza for a free and fun yoga adventure through movement, music, and mindfulness. Kids (ages 2+ with an accompanying adult) can build calm, focus, and self regulation through play! No experience needed. Bring a yoga mat and comfortable clothes for moving.\n\nEnjoy songs, games, and gentle poses that explore movement, mindfulness, and breathing. Grown-ups will also benefit from gentle stretches and quality time with their little ones.",
@@ -3282,33 +3314,32 @@
     "isLive": false
   },
   {
-    "id": "community-arts-day-community-school-of-music-and-arts-2026-07-26-10-00",
-    "title": "Community Arts Day",
-    "description": "Get to know your neighborhood arts center with free activities for kids, teens and adults!\n\nEveryone is welcome at CSMA Community Arts Day! We’ll have live music, a food truck, hands-on art activities, drop-in demo classes, public art projects, face painting for kids, and a stunning new exhibition in our gallery.\n\nTour the building, explore what we have to offer, and get involved with Silicon Valley’s creative community this summer.",
-    "tips": "We request that attendees pre-register for free tickets, although walk-ins will be permitted.",
-    "venue": "Community School of Music and Arts",
-    "address": "230 San Antonio Circle\n\nMountain View, CA 94040",
-    "city": "Mountain View",
+    "id": "outdoor-storytime-linden-tree-books-2026-07-26-10-30",
+    "title": "Outdoor Storytime",
+    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
     "date": "2026-07-26",
-    "startTime": "10:00",
-    "endTime": "14:00",
+    "startTime": "10:30",
+    "endTime": "10:30",
     "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Arts & Crafts",
-      "Classes"
+      "Stories",
+      "Outdoor"
     ],
     "categoryTags": [
-      "Arts & Crafts",
-      "Classes"
+      "Stories",
+      "Outdoor"
     ],
     "cost": "Free",
-    "imageUrl": "https://www.eventbrite.com/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1187743021%252F2991949830376%252F1%252Foriginal.20260626-221838%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D1880%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3D7bd2a26d7f8501f1b1cd8b91250800fb&w=1880&q=75",
-    "eventUrl": "https://arts4all.org/concerts/community-arts-day/",
-    "verifiedDate": "2026-06-05",
-    "lat": 37.3894,
-    "lng": -122.0833,
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-07-02",
+    "lat": 37.3792,
+    "lng": -122.1161,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -3342,37 +3373,6 @@
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
     "verifiedDate": "2026-06-30",
-    "lat": 37.3792,
-    "lng": -122.1161,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
-    "id": "outdoor-storytime-linden-tree-books-2026-07-26-10-30",
-    "title": "Outdoor Storytime",
-    "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
-    "venue": "Linden Tree Books",
-    "address": "265 State Street\nLos Altos, CA 94022",
-    "city": "Los Altos",
-    "date": "2026-07-26",
-    "startTime": "10:30",
-    "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Outdoor"
-    ],
-    "categoryTags": [
-      "Stories",
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-07-02",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Expired",
@@ -3468,35 +3468,6 @@
     "isLive": false
   },
   {
-    "id": "699f60146724c63d00f52cc7",
-    "title": "Family Storytime",
-    "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
-    "venue": "Children's Library",
-    "address": "1276 Harriet St, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-07-28",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "2–5",
-    "ageMin": 2,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc7",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4448,
-    "lng": -122.1452,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "69b835d42866a5b488426bfe",
     "title": "Bilingual Spanish Family Storytime / Hora de cuentos bilingüe para familias",
     "description": "Join us for stories, songs, and movement in Spanish and English on Tuesday mornings at 10:30 AM! This program is designed for children up to age 5 and their caregivers, and will be held indoors in the Orchard Room.\n \n ¡Venga a la biblioteca...",
@@ -3521,6 +3492,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "699f60146724c63d00f52cc7",
+    "title": "Family Storytime",
+    "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages...",
+    "venue": "Children's Library",
+    "address": "1276 Harriet St, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "date": "2026-07-28",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/699f60146724c63d00f52cc7",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.4448,
+    "lng": -122.1452,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -3616,6 +3616,36 @@
     "isLive": false
   },
   {
+    "id": "baby-storytime-mountain-view-public-library-2026-07-29-10-30",
+    "title": "Baby Storytime",
+    "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is...",
+    "venue": "Mountain View Public Library",
+    "room": "1st Floor Program Room",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-07-29",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
+    "eventUrl": "https://mountainview.libcal.com/event/16422255",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.3895,
+    "lng": -122.0818,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
     "id": "69265595a2f9562900e5f95c",
     "title": "Little Ones Storytime",
     "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library.\n\nStorytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages. This program is targeted to children under the age of two and their caregivers.",
@@ -3669,36 +3699,6 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
-    "id": "baby-storytime-mountain-view-public-library-2026-07-29-10-30",
-    "title": "Baby Storytime",
-    "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is...",
-    "venue": "Mountain View Public Library",
-    "room": "1st Floor Program Room",
-    "address": "585 Franklin St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-07-29",
-    "startTime": "10:30",
-    "endTime": "11:15",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
-    "eventUrl": "https://mountainview.libcal.com/event/16422255",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.3895,
-    "lng": -122.0818,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -3825,35 +3825,6 @@
     "isLive": false
   },
   {
-    "id": "69a0b0f2b48451fc3c0563c8",
-    "title": "Music & Movement",
-    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
-    "venue": "Mitchell Park Library",
-    "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
-    "city": "Palo Alto",
-    "date": "2026-07-29",
-    "startTime": "18:30",
-    "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c8",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4179,
-    "lng": -122.1077,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "lego-time-mountain-view-public-library-2026-07-29-18-30",
     "title": "LEGO® Time",
     "description": "It's an open invitation to a LEGO® building extravaganza! Everyone is encouraged to participate in the construction excitement. LEGOs® will be supplied Join the building fun on two...",
@@ -3881,6 +3852,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "69a0b0f2b48451fc3c0563c8",
+    "title": "Music & Movement",
+    "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\nInstruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.",
+    "venue": "Mitchell Park Library",
+    "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-07-29",
+    "startTime": "18:30",
+    "endTime": "19:15",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69a0b0f2b48451fc3c0563c8",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -4036,37 +4036,6 @@
     "isLive": false
   },
   {
-    "id": "69e9504bb6c4ac1fedce1fe0",
-    "title": "KDC: Kids Dance Carnival",
-    "description": "Join us for KDC Palo Alto 2026! Come get moving and grooving at this kid-centered dance party. We'll be dancing with bubbles, jamming with glow sticks, and making a collaborative art piece.\n\nCome decked out in neon, sequins, glow-in-the-dark, kandi bracelets/necklaces, and colorful costumes. Bring your own light up and glow-in-the-dark accessories and dance the early evening away! Costumes and accessories encouraged but not required.\n\nRecommended age is 2-8 years old, but we won’t be checking ID",
-    "tips": "There will be loud music and flashing lights.\nPlease arrive on time. We will be monitoring room capacity. You may need to wait to enter.",
-    "venue": "Rinconada Library",
-    "room": "Embarcadero Room",
-    "address": "1213 Newell Rd, Palo Alto, CA 94303",
-    "city": "Palo Alto",
-    "date": "2026-07-30",
-    "startTime": "18:30",
-    "endTime": "19:30",
-    "ageRange": "2–5, 5+",
-    "ageMin": 2,
-    "ageMax": 8,
-    "types": [
-      "Other"
-    ],
-    "categoryTags": [
-      "Seasonal"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b23725dc536d8b800aced0e5f3d044ff/BibliocommonsbannerCropsbc(7).png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/69e9504bb6c4ac1fedce1fe0",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4281,
-    "lng": -122.1425,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "2026-summer-concert-series-mustache-harbor-hillview-soccer-field-2026-07-30-18-30",
     "title": "2026 Summer Concert Series: Mustache Harbor",
     "description": "The city of Los Altos Community Services department invites you to the 2026 Summer Concert Series! Enjoy a variety of musical genres and performers throughout the summer. Concerts will be held at the Grant Park and Hillview Soccer Fields; please refer to the schedule below for exact locations. Parking is limited at both locations; please consider walking, biking, or carpooling to the concerts.",
@@ -4093,6 +4062,37 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.38,
     "lng": -122.1124,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "69e9504bb6c4ac1fedce1fe0",
+    "title": "KDC: Kids Dance Carnival",
+    "description": "Join us for KDC Palo Alto 2026! Come get moving and grooving at this kid-centered dance party. We'll be dancing with bubbles, jamming with glow sticks, and making a collaborative art piece.\n\nCome decked out in neon, sequins, glow-in-the-dark, kandi bracelets/necklaces, and colorful costumes. Bring your own light up and glow-in-the-dark accessories and dance the early evening away! Costumes and accessories encouraged but not required.\n\nRecommended age is 2-8 years old, but we won’t be checking ID",
+    "tips": "There will be loud music and flashing lights.\nPlease arrive on time. We will be monitoring room capacity. You may need to wait to enter.",
+    "venue": "Rinconada Library",
+    "room": "Embarcadero Room",
+    "address": "1213 Newell Rd, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-07-30",
+    "startTime": "18:30",
+    "endTime": "19:30",
+    "ageRange": "2–5, 5+",
+    "ageMin": 2,
+    "ageMax": 8,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [
+      "Seasonal"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b23725dc536d8b800aced0e5f3d044ff/BibliocommonsbannerCropsbc(7).png",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/69e9504bb6c4ac1fedce1fe0",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.4281,
+    "lng": -122.1425,
     "status": "Expired",
     "isPast": true,
     "isLive": false
@@ -4609,35 +4609,6 @@
     "isLive": false
   },
   {
-    "id": "storytime-with-alan-barillaro-today-we-ll-be-eaten-linden-tree-books-2026-08-02-10-30",
-    "title": "Storytime with Alan Barillaro, Today We'll Be Eaten",
-    "description": "We're excited to welcome award-winning author-illustrator Alan Barillaro back to Linden Tree to celebrate the launch of his delightful new picture book, [Today We'll Be Eaten](https://www.lindentreebooks.com/today-well-be-eaten.html).\n \n Ladybug and Dragonfly are caught in a storm, floating upside down and helplessly on the river. They are certain that today they'll be eaten.\n \n But as they stare nervously up at the sky, waiting for that terrible fate... something vastly different happens. By th",
-    "venue": "Linden Tree Books",
-    "address": "265 State Street\nLos Altos, CA 94022",
-    "city": "Los Altos",
-    "date": "2026-08-02",
-    "startTime": "10:30",
-    "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
-    "verifiedDate": "2026-07-02",
-    "lat": 37.3792,
-    "lng": -122.1161,
-    "status": "Expired",
-    "isPast": true,
-    "isLive": false
-  },
-  {
     "id": "outdoor-storytime-linden-tree-books-2026-08-02-10-30",
     "title": "Outdoor Storytime",
     "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
@@ -4657,6 +4628,35 @@
     "categoryTags": [
       "Stories",
       "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
+    "verifiedDate": "2026-07-02",
+    "lat": 37.3792,
+    "lng": -122.1161,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
+  },
+  {
+    "id": "storytime-with-alan-barillaro-today-we-ll-be-eaten-linden-tree-books-2026-08-02-10-30",
+    "title": "Storytime with Alan Barillaro, Today We'll Be Eaten",
+    "description": "We're excited to welcome award-winning author-illustrator Alan Barillaro back to Linden Tree to celebrate the launch of his delightful new picture book, [Today We'll Be Eaten](https://www.lindentreebooks.com/today-well-be-eaten.html).\n \n Ladybug and Dragonfly are caught in a storm, floating upside down and helplessly on the river. They are certain that today they'll be eaten.\n \n But as they stare nervously up at the sky, waiting for that terrible fate... something vastly different happens. By th",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street\nLos Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-02",
+    "startTime": "10:30",
+    "endTime": "10:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
     ],
     "cost": "Free",
     "imageUrl": "",
@@ -4973,9 +4973,9 @@
     "date": "2026-08-05",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "0–2",
+    "ageMin": 1,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -4985,7 +4985,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835c4b48451fc3c09442d",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -5015,7 +5015,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835bdb48451fc3c094417",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -5107,7 +5107,7 @@
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_01_16_21_41.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16620736",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3895,
     "lng": -122.0818,
     "status": "Published",
@@ -5125,9 +5125,9 @@
     "date": "2026-08-06",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "0–2",
+    "ageMin": 1,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -5137,7 +5137,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835bbb48451fc3c094405",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -5156,7 +5156,7 @@
     "startTime": "15:30",
     "endTime": "16:00",
     "ageRange": "2–5",
-    "ageMin": 2,
+    "ageMin": 3,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -5167,9 +5167,37 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835b92866a5b488426bd8",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-5d1a492a-44b",
+    "title": "End of Summer Dance Party",
+    "description": "The Library DJ will play both new and old hit songs to get everyone moving and shaking. Best of all, ice cream will be served! Weather permitting",
+    "tips": "Bring a blanket and help celebrate the end of summer with an outdoor dance party.\nNo registration required.",
+    "venue": "Pioneer Park",
+    "address": "1146 Church St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-06",
+    "startTime": "18:30",
+    "endTime": "20:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_01_14_57_53.png",
+    "eventUrl": "https://mountainview.libcal.com/event/16650443",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5226,38 +5254,9 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50485",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4229,
     "lng": -122.1489,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-07-18-00",
-    "title": "Concerts on the Plaza",
-    "description": "",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-08-07",
-    "startTime": "18:00",
-    "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3336/656",
-    "verifiedDate": "2026-07-07",
-    "lat": 37.39,
-    "lng": -122.0815,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5289,6 +5288,35 @@
     "verifiedDate": "2026-07-20",
     "lat": 37.4179,
     "lng": -122.1077,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-07-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-08-07",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3336/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5442,7 +5470,7 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3762",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4179,
     "lng": -122.1077,
     "status": "Published",
@@ -5471,7 +5499,7 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/b21f248f234c52ff53cfa3e470efd129/srp2026_beanstack_1572x583.png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/69fe5c8de8af4a2f00712d3f",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4179,
     "lng": -122.1077,
     "status": "Published",
@@ -5569,6 +5597,66 @@
     "isLive": true
   },
   {
+    "id": "puddles-03115e7b-5f2",
+    "title": "Storytime with Charlotte Cheng, Ama’s Purse",
+    "description": "Join Linden Tree for a special Sunday storytime with local author-illustrator Charlotte Cheng as she shares her picture book Ama’s Purse — a heartwarming story about a girl, her grandma, and the delightful surprises inside Ama’s purse.",
+    "tips": "Same Sunday 10:30 slot as Linden Outdoor Storytime — approve this author title and retire/update the generic Outdoor Storytime row for this date so the card isn’t duplicated.\nIn front of the store. Picture-book storytime for families. Grab a treat from Manresa Bread next door.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-09",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/#2026-08-09",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3792,
+    "lng": -122.1161,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-3f1e604c-66d",
+    "title": "Family Storytime: Sunshine Sketches",
+    "description": "Join us for our fun Sunshine Sketches, a special storytime filled with stories, songs, and fingerplays that spark giggles, wiggles, and wonder! Perfect for children 0-5 and their families. This fun and engaging storytime supports early literacy through music, movement, and interactive play. Every rhyme, song, and story helps build the skills kids need to become confident readers. Come to Sunshine Sketches, where the love of reading begins! For accessibility accommodations (ex. ASL), please fill ",
+    "tips": "No sign-up, just show up!",
+    "venue": "Woodland Branch Library",
+    "room": "in the Backyard",
+    "address": "1975 Grant Road, Los Altos, CA 94024",
+    "city": "Los Altos",
+    "date": "2026-08-09",
+    "startTime": "11:30",
+    "endTime": "12:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Subject Varies: Other Great Events",
+      "Early Learning & Storytimes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a50355d5c0d6159da9f5e6c0fe0864a2/Headers.jpg",
+    "eventUrl": "https://sccl.bibliocommons.com/events/6a555f75cca66c2f00a337ba",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3442675,
+    "lng": -122.07544430000002,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "6970253094297d3600a66ca0",
     "title": "Board Game Sunday!",
     "description": "Everyone is invited to play board games!\n \n Join us on the second Sunday of the month from 2:00 PM to 3:30 PM.\n \n We have board games for all ages: adults, teens, and children.\n \n Come with friends & family!\n \n (The room closes at 3:30 PM, so...",
@@ -5590,7 +5678,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/f00ce3e9afd5f0b0c0a1198e0b2103aa/kssboardgame;Header(1).png",
     "eventUrl": "https://sccl.bibliocommons.com/events/6970253094297d3600a66ca0",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -5651,7 +5739,7 @@
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_08_17_01_53.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/16546792",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3896,
     "lng": -122.0832,
     "status": "Published",
@@ -5680,7 +5768,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835d281b67dfe32acec7e",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -5709,7 +5797,7 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27173",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4443,
     "lng": -122.1598,
     "status": "Published",
@@ -5727,9 +5815,9 @@
     "date": "2026-08-12",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "0–2",
+    "ageMin": 1,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -5739,7 +5827,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835c4b48451fc3c09442e",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -5770,7 +5858,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835bdb48451fc3c094418",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -5829,7 +5917,7 @@
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_11_11_10_43.png",
     "eventUrl": "https://mountainview.libcal.com/event/16875108",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3895,
     "lng": -122.0818,
     "status": "Published",
@@ -5860,7 +5948,7 @@
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_10_12_23_00.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/17084764",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4001,
     "lng": -122.0986,
     "status": "Published",
@@ -5878,9 +5966,9 @@
     "date": "2026-08-13",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "0–2",
+    "ageMin": 1,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -5890,7 +5978,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835bbb48451fc3c094406",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -5909,7 +5997,7 @@
     "startTime": "15:30",
     "endTime": "16:00",
     "ageRange": "2–5",
-    "ageMin": 2,
+    "ageMin": 3,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -5920,9 +6008,40 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835b92866a5b488426bd9",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-281ea476-681",
+    "title": "Creative Maker Studio",
+    "description": "Dive into a giant treasure trove of supplies! We'll provide a wide variety of arts, crafts, and DIY materials to inspire you — just bring your creativity. Design, build, and invent whatever you can imagine! This is a self-directed activity for ages 3+. For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email ",
+    "tips": "Young children must be accompanied by an adult crafting buddy.",
+    "venue": "Los Altos Library",
+    "room": "Orchard Room",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-14",
+    "startTime": "15:00",
+    "endTime": "17:00",
+    "ageRange": "2–5, 5+",
+    "ageMin": 3,
+    "ageMax": 12,
+    "types": [
+      "Build & Explore"
+    ],
+    "categoryTags": [
+      "Crafts, Maker, & DIY"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/58075e61bc05652819ebea07a5783833/CreativeMakerStudio.png",
+    "eventUrl": "https://sccl.bibliocommons.com/events/6a53c4fecca66c2f00a2f1b6",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3808782,
+    "lng": -122.11330029999999,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -5979,38 +6098,9 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50486",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4229,
     "lng": -122.1489,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-14-18-00",
-    "title": "Concerts on the Plaza",
-    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
-    "venue": "Civic Center Plaza",
-    "address": "500 Castro Street\nMountain View, California 94041",
-    "city": "Mountain View",
-    "date": "2026-08-14",
-    "startTime": "18:00",
-    "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3335/656",
-    "verifiedDate": "2026-07-07",
-    "lat": 37.39,
-    "lng": -122.0815,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6040,6 +6130,35 @@
     "verifiedDate": "2026-07-20",
     "lat": 37.4179,
     "lng": -122.1077,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-14-18-00",
+    "title": "Concerts on the Plaza",
+    "description": "Get ready for an epic summer! Concerts on the Plaza is back in 2026, bringing you fifteen unforgettable live shows! Friday nights from June to September, from 6 - 7:30 p.m., Downtown Mountain View will pulse with energy as top music acts take the stage, filling the air with incredible sounds. Join your friends, neighbors, and fellow music lovers for nights packed with fun, food, and dancing. Mark your calendars---this is where the summer memories will be made!",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street\nMountain View, California 94041",
+    "city": "Mountain View",
+    "date": "2026-08-14",
+    "startTime": "18:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/8657/639045055484530000",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3335/656",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.39,
+    "lng": -122.0815,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6161,7 +6280,7 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3763",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3763",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4179,
     "lng": -122.1077,
     "status": "Published",
@@ -6222,6 +6341,34 @@
     "imageUrl": "",
     "eventUrl": "https://www.lindentreebooks.com/events-calendar/",
     "verifiedDate": "2026-07-02",
+    "lat": 37.3792,
+    "lng": -122.1161,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-e7a51189-db6",
+    "title": "Storytime with Claire Wrenn Bobrow, Cowboys at the Ballet",
+    "description": "Join Linden Tree for Sunday storytime with local author Claire Wrenn Bobrow as she shares Cowboys at the Ballet: The Story of Choreographer Agnes de Mille — a spirited picture book biography.",
+    "tips": "Same Sunday 10:30 slot as Linden Outdoor Storytime — approve this author title and retire/update the generic Outdoor Storytime row for this date so the card isn’t duplicated.\nIn front of the store. Picture-book storytime for families. Grab a treat from Manresa Bread next door.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-16",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/#2026-08-16",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3792,
     "lng": -122.1161,
     "status": "Published",
@@ -6310,7 +6457,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835d281b67dfe32acec7f",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -6339,9 +6486,37 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27174",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4443,
     "lng": -122.1598,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-de76c8e5-149",
+    "title": "Baby Storytime",
+    "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months.\n\n Assisted Listening Devices available upon request.",
+    "venue": "Mountain View Library",
+    "room": "1st Floor Program Room",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-19",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
+    "eventUrl": "https://mountainview.libcal.com/event/17170807",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3895,
+    "lng": -122.0818,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6357,9 +6532,9 @@
     "date": "2026-08-19",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "0–2",
+    "ageMin": 1,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -6369,7 +6544,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835c4b48451fc3c09442f",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -6400,7 +6575,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835bdb48451fc3c094419",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -6447,9 +6622,9 @@
     "date": "2026-08-20",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "0–2",
+    "ageMin": 1,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -6459,7 +6634,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835bbb48451fc3c094407",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -6478,7 +6653,7 @@
     "startTime": "15:30",
     "endTime": "16:00",
     "ageRange": "2–5",
-    "ageMin": 2,
+    "ageMin": 3,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -6489,9 +6664,37 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835b92866a5b488426bda",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-197bc946-a82",
+    "title": "Baby Storytime: Rerun",
+    "description": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months.\n\n Assisted Listening Devices available upon request.",
+    "venue": "Mountain View Library",
+    "room": "1st Floor Program Room",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-21",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1763669051.png",
+    "eventUrl": "https://mountainview.libcal.com/event/17170823",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3895,
+    "lng": -122.0818,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6518,7 +6721,7 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50487",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4229,
     "lng": -122.1489,
     "status": "Published",
@@ -6578,7 +6781,7 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3764",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4179,
     "lng": -122.1077,
     "status": "Published",
@@ -6617,6 +6820,34 @@
     "isLive": true
   },
   {
+    "id": "puddles-ef785c7c-a7c",
+    "title": "Storytime with Alison Kim, The Art of How Dogs Sleep",
+    "description": "Join Linden Tree for Sunday storytime with local author Alison Kim as she shares The Art of How Dogs Sleep — a playful picture book that invites families to slow down and be mindful.",
+    "tips": "Same Sunday 10:30 slot as Linden Outdoor Storytime — approve this author title and retire/update the generic Outdoor Storytime row for this date so the card isn’t duplicated.\nIn front of the store. Picture-book storytime for families. Grab a treat from Manresa Bread next door.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-23",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/#2026-08-23",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3792,
+    "lng": -122.1161,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "sleepy-stories-mountain-view-public-library-2026-08-24-18-30",
     "title": "Sleepy Stories",
     "description": "Snuggle in for a cozy pajama storytime! Join us for gentle rhymes, delightful books, songs, and a little dancing---perfect for winding down together.",
@@ -6639,7 +6870,7 @@
     "cost": "Free",
     "imageUrl": "",
     "eventUrl": "https://mountainview.libcal.com/event/16677137",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3895,
     "lng": -122.0818,
     "status": "Published",
@@ -6676,6 +6907,34 @@
     "isLive": true
   },
   {
+    "id": "puddles-260b655d-d25",
+    "title": "Juliette's Children's Concert",
+    "description": "Packed with instruments, props, shakers, drums, and scarves, Juliette's performances get everyone moving. Seamlessly weaving American Sign Language (ASL) and child-development themes into her songs, she uses her Master's degree in Child/Human Development to blend early education with pure musical fun.",
+    "tips": "Bring a blanket and join National Award-Winning children's songwriter Juliette McDonald brings her original music to life in a high-energy, interactive program perfect for kids from birth through 5th grade!",
+    "venue": "Pioneer Park",
+    "address": "1146 Church St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-25",
+    "startTime": "10:30",
+    "endTime": "11:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://mountainview.libcal.com/event/17194393",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3896,
+    "lng": -122.0832,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69b835d281b67dfe32acec80",
     "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
     "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。",
@@ -6697,7 +6956,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835d281b67dfe32acec80",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -6726,9 +6985,37 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27175",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4443,
     "lng": -122.1598,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-5d6a36e9-4fd",
+    "title": "Baby Storytime",
+    "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months.\n\n Assisted Listening Devices available upon request.",
+    "venue": "Mountain View Library",
+    "room": "1st Floor Program Room",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-26",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
+    "eventUrl": "https://mountainview.libcal.com/event/17170808",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3895,
+    "lng": -122.0818,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6744,9 +7031,9 @@
     "date": "2026-08-26",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "0–2",
+    "ageMin": 1,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -6756,7 +7043,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835c4b48451fc3c094430",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -6787,7 +7074,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835bdb48451fc3c09441a",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -6824,6 +7111,34 @@
     "isLive": true
   },
   {
+    "id": "puddles-7aa61b54-799",
+    "title": "LEGO® Time",
+    "description": "It's an open invitation to a LEGO&reg; building extravaganza! Everyone is encouraged to participate in the construction excitement.\n\n LEGOs&reg; will be supplied\n\n Join the building fun on two dates :\n\n Wednesday, June 24\n\n Wednesday, July 29\n\n This event is generously sponsored by the Friends of the Mountain View Library.",
+    "venue": "Mountain View Library",
+    "room": "1st Floor Program Room",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-26",
+    "startTime": "18:30",
+    "endTime": "19:30",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_13_15_45_47.webp",
+    "eventUrl": "https://mountainview.libcal.com/event/17238198",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3895,
+    "lng": -122.0818,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "magical-bridge-storytime-magical-bridge-playground-at-rengstorff-park-2026-08-27-10-00",
     "title": "Magical Bridge Storytime",
     "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Rengstorff Park! Enjoy a fun-filled storytime at the Magical Bridge Playground, and take advantage of full library services...",
@@ -6847,7 +7162,7 @@
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_10_12_23_00.jpg",
     "eventUrl": "https://mountainview.libcal.com/event/17084765",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4001,
     "lng": -122.0986,
     "status": "Published",
@@ -6865,9 +7180,9 @@
     "date": "2026-08-27",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "0–2",
+    "ageMin": 1,
+    "ageMax": 2,
     "types": [
       "Stories"
     ],
@@ -6877,7 +7192,7 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835bbb48451fc3c094408",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
     "status": "Published",
@@ -6896,7 +7211,7 @@
     "startTime": "15:30",
     "endTime": "16:00",
     "ageRange": "2–5",
-    "ageMin": 2,
+    "ageMin": 3,
     "ageMax": 5,
     "types": [
       "Stories"
@@ -6907,9 +7222,37 @@
     "cost": "Free",
     "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
     "eventUrl": "https://sccl.bibliocommons.com/events/69b835b92866a5b488426bdb",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-1cbf07d9-4ac",
+    "title": "Baby Storytime: Rerun",
+    "description": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months.\n\n Assisted Listening Devices available upon request.",
+    "venue": "Mountain View Library",
+    "room": "1st Floor Program Room",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-28",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1763669051.png",
+    "eventUrl": "https://mountainview.libcal.com/event/17170824",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3895,
+    "lng": -122.0818,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -6936,7 +7279,7 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50488",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4229,
     "lng": -122.1489,
     "status": "Published",
@@ -6996,7 +7339,7 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/31783359fd2480d286a0fa48aa5c8682/BibliocommonsbannerCropsbc(15).png",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a120e06c7d3cd58005b3765",
-    "verifiedDate": "2026-06-30",
+    "verifiedDate": "2026-08-04",
     "lat": 37.4179,
     "lng": -122.1077,
     "status": "Published",
@@ -7035,6 +7378,34 @@
     "isLive": true
   },
   {
+    "id": "puddles-540efe0d-7cb",
+    "title": "Storytime with Jerrold Connors, STAMPEDE!",
+    "description": "Join Linden Tree for Sunday storytime with local author-illustrator Jerrold Connors as he shares STAMPEDE! — a hilarious picture book about two little cows who join a wild stampede instead of napping.",
+    "tips": "Same Sunday 10:30 slot as Linden Outdoor Storytime — approve this author title and retire/update the generic Outdoor Storytime row for this date so the card isn’t duplicated.\nIn front of the store. Picture-book storytime for families. Grab a treat from Manresa Bread next door.",
+    "venue": "Linden Tree Books",
+    "address": "265 State Street, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-08-30",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.lindentreebooks.com/events-calendar/#2026-08-30",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3792,
+    "lng": -122.1161,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "middle-grade-book-club-the-missing-magic-of-sparrow-xia-linden-tree-books-2026-08-30-16-00",
     "title": "Middle Grade Book Club: The Missing Magic of Sparrow Xia",
     "description": "It's the next meeting of our middle grade book club for ages 9+! Led by bookseller extraordinaire Lorilee, we hope to introduce interested readers to amazing new books and the opportunity to talk about them in a fun, relaxed group setting.\n \n This month's book is [The Missing Magic of Sparrow Xia](https://www.lindentreebooks.com/the-missing-magic-of-sparrow-xia-an-illustrated-no.html) by Leia Ham, an unforgettable magical school story set in a world where kids have magic but adults don't. Please",
@@ -7059,6 +7430,34 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3792,
     "lng": -122.1161,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-93952ccd-3a6",
+    "title": "Bob Baker Marionette Theater Variety Show",
+    "description": "Bob Baker Marionette Theater is bringing the puppet magic to the Mountain View Public Library. This variety show will be roughly 30 minutes long and feature between 12 and 25 puppets from their iconic collection! After the show, there will be a quick 15 minute Q&A. This magical show will take place in Pioneer Park. Feel free to bring a fold-out chair, towel, or blanket for your comfort out in the park. This type of fun has no age limit! This event is generously sponsored by the Friends of the Mo",
+    "tips": "Registration is recommended.\nWalk-ins are also welcome.",
+    "venue": "Pioneer Park",
+    "address": "1146 Church St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-08-31",
+    "startTime": "16:00",
+    "endTime": "16:45",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_23_17_13_44.png",
+    "eventUrl": "https://mountainview.libcal.com/event/17225192",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3896,
+    "lng": -122.0832,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7123,6 +7522,65 @@
     "isLive": true
   },
   {
+    "id": "puddles-d974e696-a67",
+    "title": "Outdoor Storytime",
+    "description": "Tuesdays at 10:30 a.m. All events are weather permitting.",
+    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park.\nAll ages welcome, no registration required.",
+    "venue": "Pioneer Park",
+    "address": "1146 Church St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-09-01",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_21_15_59_33.png",
+    "eventUrl": "https://mountainview.libcal.com/event/17142481",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3896,
+    "lng": -122.0832,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-5c8482a1-baa",
+    "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
+    "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。\n\nFor accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or ",
+    "venue": "Los Altos Library",
+    "room": "Orchard Room",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-09-01",
+    "startTime": "13:00",
+    "endTime": "13:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Subject Varies: Other Great Events",
+      "Early Learning & Storytimes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+    "eventUrl": "https://sccl.bibliocommons.com/events/6a56d18488e9bf280030f047",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3808782,
+    "lng": -122.11330029999999,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "68afa7b0022de53d00d27176",
     "title": "LEGO Tuesdays!",
     "description": "We have the LEGOs! Bring your imagination and build something fun! LEGOs will stay at the library, so be sure to snap a pic of your creation!\n \n In addition to being a great way to introduce the engineering and art concepts of STEAM,...",
@@ -7147,6 +7605,34 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-fdb02a69-ad5",
+    "title": "Baby Storytime",
+    "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months.\n\n Assisted Listening Devices available upon request.",
+    "venue": "Mountain View Library",
+    "room": "1st Floor Program Room",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-09-02",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
+    "eventUrl": "https://mountainview.libcal.com/event/17170809",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3895,
+    "lng": -122.0818,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -7301,6 +7787,69 @@
     "isLive": true
   },
   {
+    "id": "puddles-abd2b0d8-7c6",
+    "title": "Toddler Storytime",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities! We look forward to seeing you there! For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) ",
+    "tips": "Due to limited space, we will begin handing out free tickets starting at 10 a.m.",
+    "venue": "Los Altos Library",
+    "room": "Orchard Room",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-09-03",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "ageRange": "0–2",
+    "ageMin": 1,
+    "ageMax": 2,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Arts & Culture",
+      "Early Learning & Storytimes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+    "eventUrl": "https://sccl.bibliocommons.com/events/6a68e7740d65ac360042cabb",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3808782,
+    "lng": -122.11330029999999,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "puddles-f47b1e8c-006",
+    "title": "Preschool Storytime",
+    "description": "Join us for stories, music, movement and more at our preschool storytime in the Orchard Room on Thursday afternoons at 3:30 p.m. For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@lib.sccgov.org.",
+    "venue": "Los Altos Library",
+    "room": "Orchard Room",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-09-03",
+    "startTime": "15:30",
+    "endTime": "16:00",
+    "ageRange": "2–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Entertainment & Recreation",
+      "Early Learning & Storytimes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+    "eventUrl": "https://sccl.bibliocommons.com/events/6a61506c7d824676437cda71",
+    "verifiedDate": "2026-08-04",
+    "lat": 37.3808782,
+    "lng": -122.11330029999999,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "6946005fea69de6e001069c1",
     "title": "Family Storytime",
     "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are...",
@@ -7448,35 +7997,6 @@
     "isLive": true
   },
   {
-    "id": "698e125a2a787a47a5e73be0",
-    "title": "Family Storytime",
-    "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n \n Make sure to follow us on YouTube for more stories, songs and rhymes, including...",
-    "venue": "Mitchell Park Library",
-    "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
-    "city": "Palo Alto",
-    "date": "2026-09-05",
-    "startTime": "10:30",
-    "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73be0",
-    "verifiedDate": "2026-06-30",
-    "lat": 37.4179,
-    "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "696191ef992fc18a86dc9a3d",
     "title": "Baby Sign and Stay and Play",
     "description": "Calling all non-walking babies ages 0-12 months for a special storytime featuring American Sign Language along with songs and stories and fun! Please bring a blanket for your baby.\nAfter storytime please stay or join us to play with age-appropriate toys! Enjoy this socialization for babies and their grownups.\n\n10:30-11:00am Storytime\n11:00-12:00pm Stay & Play",
@@ -7505,6 +8025,35 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "698e125a2a787a47a5e73be0",
+    "title": "Family Storytime",
+    "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n \n Make sure to follow us on YouTube for more stories, songs and rhymes, including...",
+    "venue": "Mitchell Park Library",
+    "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-09-05",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
+    "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73be0",
+    "verifiedDate": "2026-06-30",
+    "lat": 37.4179,
+    "lng": -122.1077,
     "status": "Published",
     "isPast": false,
     "isLive": true
@@ -8865,36 +9414,6 @@
     "isLive": true
   },
   {
-    "id": "monster-bash-rengstorff-park-2026-10-24-10-00",
-    "title": "Monster Bash",
-    "description": "On Saturday, October 24, 2026, Mountain View's Rengstorff Park will transform into a ghoulish good time for all ages with the return of MONSTER BASH. From 10 a.m. - 2 p.m., community members are encouraged to don their favorite costumes and enjoy a fall festival loaded with treats, fun games and more.",
-    "venue": "Rengstorff Park",
-    "address": "201 S Rengstorff Ave.\nMountain View, California 94040",
-    "city": "Mountain View",
-    "date": "2026-10-24",
-    "startTime": "10:00",
-    "endTime": "14:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Build & Explore"
-    ],
-    "categoryTags": [
-      "Build & Explore",
-      "Seasonal"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3486/656?npage=2",
-    "verifiedDate": "2026-07-07",
-    "lat": 37.396,
-    "lng": -122.1018,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
     "id": "family-fun-days-los-altos-community-center-2026-10-24-10-00",
     "title": "Family Fun Days",
     "description": "Join Community Services and the Los Altos Library for a series of Family Fun Days at the Los Altos Community Center! These free, themed events are held on select Saturdays and are packed with arts and crafts, games, movies, a scavenger hunt, and more. It's the perfect opportunity for families to come together and enjoy a day of fun and creativity.",
@@ -8922,6 +9441,36 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.3804,
     "lng": -122.1113,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "monster-bash-rengstorff-park-2026-10-24-10-00",
+    "title": "Monster Bash",
+    "description": "On Saturday, October 24, 2026, Mountain View's Rengstorff Park will transform into a ghoulish good time for all ages with the return of MONSTER BASH. From 10 a.m. - 2 p.m., community members are encouraged to don their favorite costumes and enjoy a fall festival loaded with treats, fun games and more.",
+    "venue": "Rengstorff Park",
+    "address": "201 S Rengstorff Ave.\nMountain View, California 94040",
+    "city": "Mountain View",
+    "date": "2026-10-24",
+    "startTime": "10:00",
+    "endTime": "14:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore"
+    ],
+    "categoryTags": [
+      "Build & Explore",
+      "Seasonal"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3486/656?npage=2",
+    "verifiedDate": "2026-07-07",
+    "lat": 37.396,
+    "lng": -122.1018,
     "status": "Published",
     "isPast": false,
     "isLive": true
