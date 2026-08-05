@@ -45,6 +45,8 @@ interface AdminSubmissionsTableProps {
   checkedIds: string[]
   bulkBusy?: boolean
   showHiddenActions?: boolean
+  hiddenCount?: number
+  onRestoreAllHidden?: () => void
   onSelect: (submission: SheetSubmission) => void
   onToggleChecked: (submissionId: string) => void
   onToggleCheckAll: (checked: boolean) => void
@@ -65,6 +67,8 @@ export function AdminSubmissionsTable({
   checkedIds,
   bulkBusy = false,
   showHiddenActions = false,
+  hiddenCount = 0,
+  onRestoreAllHidden,
   onSelect,
   onToggleChecked,
   onToggleCheckAll,
@@ -91,9 +95,19 @@ export function AdminSubmissionsTable({
       <div className="admin-empty">
         <p className="font-medium text-charcoal">No submissions match this view.</p>
         <p className="mt-1 text-sm text-muted">
-          Refresh from the sheet after a parent submits on the Share form, or run{' '}
-          <code>npm run sync-submissions</code> for deploy builds.
+          {hiddenCount > 0 && !showHiddenActions
+            ? 'Some submissions are hidden in this browser. Restore them, or click Refresh submissions.'
+            : 'Click Refresh submissions to load the Admin store, or wait for a new Share form entry.'}
         </p>
+        {hiddenCount > 0 && !showHiddenActions && onRestoreAllHidden ? (
+          <button
+            type="button"
+            className="admin-btn admin-btn-primary mt-3"
+            onClick={onRestoreAllHidden}
+          >
+            Restore all hidden ({hiddenCount})
+          </button>
+        ) : null}
       </div>
     )
   }

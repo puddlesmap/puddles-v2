@@ -13,6 +13,7 @@ import {
   SUBMISSION_STATUSES,
   type SheetSubmission,
   type SubmissionStatusFilter,
+  isLocallyHiddenSubmission,
   submissionIdsMatch,
   submissionStatusLabel,
 } from '../../types/submission'
@@ -64,6 +65,24 @@ export function AdminSubmissionsPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [checkedIds, setCheckedIds] = useState<string[]>([])
   const [bulkBusy, setBulkBusy] = useState(false)
+
+  // If every row was locally hidden (common stuck state), put them back in the queue.
+  useEffect(() => {
+    if (hiddenSubmissionIds.length === 0) return
+    if (submissions.length === 0) return
+    const allHidden = submissions.every((row) =>
+      isLocallyHiddenSubmission(row.id, hiddenSubmissionIds),
+    )
+    if (!allHidden) return
+    setHiddenSubmissionIds([])
+    persistAdminSubmissionsCache(submissions, [], adminRefreshedAt)
+    setActionMessage({
+      type: 'success',
+      text: 'Restored hidden submissions to the review queue.',
+    })
+    // Intentionally run once on mount for this stuck state.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const counts = useMemo(
     () => summarizeSubmissionCounts(submissions, hiddenSubmissionIds),
@@ -208,9 +227,12 @@ export function AdminSubmissionsPage() {
     setActionMessage(null)
     try {
       const result = await refreshSubmissionsFromAdminStore()
+      // Refresh restores the review queue — drop local browser hides so rows are visible again.
+      setHiddenSubmissionIds([])
       setSubmissions(result.submissions)
       setAdminRefreshedAt(result.refreshedAt)
-      persistAdminSubmissionsCache(result.submissions, hiddenSubmissionIds, result.refreshedAt)
+      persistAdminSubmissionsCache(result.submissions, [], result.refreshedAt)
+      setStatus('all')
       setActionMessage({
         type: 'success',
         text: `Loaded ${result.submissions.length} submissions from Admin store.`,
@@ -219,9 +241,11 @@ export function AdminSubmissionsPage() {
       // Fallback: optional Sheet CSV for legacy data.
       try {
         const sheet = await refreshSubmissionsFromSheet()
+        setHiddenSubmissionIds([])
         setSubmissions(sheet.submissions)
         setAdminRefreshedAt(sheet.refreshedAt)
-        persistAdminSubmissionsCache(sheet.submissions, hiddenSubmissionIds, sheet.refreshedAt)
+        persistAdminSubmissionsCache(sheet.submissions, [], sheet.refreshedAt)
+        setStatus('all')
         setActionMessage({
           type: 'success',
           text: `Admin store unavailable — loaded ${sheet.submissions.length} from Google Sheet fallback.`,
@@ -236,6 +260,16 @@ export function AdminSubmissionsPage() {
     } finally {
       setIsRefreshing(false)
     }
+  }
+
+  function handleRestoreAllHidden() {
+    setHiddenSubmissionIds([])
+    persistState(submissions, [])
+    setStatus('all')
+    setActionMessage({
+      type: 'success',
+      text: 'Restored all hidden submissions to the review queue.',
+    })
   }
 
   async function handleStatusChange(submission: SheetSubmission, nextStatus: string) {
@@ -362,6 +396,7 @@ export function AdminSubmissionsPage() {
       return next
     })
     setSelectedId(null)
+    setStatus('all')
     setActionMessage({
       type: 'success',
       text: 'Restored to the review queue.',
@@ -398,35 +433,75 @@ export function AdminSubmissionsPage() {
           Puddles (~2–4 min).
         </p>
         <div className="admin-stat-grid admin-stat-grid-compact">
-          <div className="admin-stat-card admin-stat-card-static">
+          <button
+            type="button"
+            className={`admin-stat-card ${status === 'all' ? 'admin-stat-card-active' : ''}`}
+            onClick={() => setStatus('all')}
+          >
             <div className="admin-stat-value">{counts.total}</div>
             <div className="admin-stat-label">Total</div>
-          </div>
-          <div className="admin-stat-card admin-stat-card-static">
+          </button>
+          <button
+            type="button"
+            className={`admin-stat-card ${status === 'New' ? 'admin-stat-card-active' : ''}`}
+            onClick={() => setStatus('New')}
+          >
             <div className="admin-stat-value">{counts.new}</div>
             <div className="admin-stat-label">New</div>
-          </div>
-          <div className="admin-stat-card admin-stat-card-static">
+          </button>
+          <button
+            type="button"
+            className={`admin-stat-card ${status === 'Needs review' ? 'admin-stat-card-active' : ''}`}
+            onClick={() => setStatus('Needs review')}
+          >
             <div className="admin-stat-value">{counts.needsReview}</div>
             <div className="admin-stat-label">Needs review</div>
-          </div>
-          <div className="admin-stat-card admin-stat-card-static">
+          </button>
+          <button
+            type="button"
+            className={`admin-stat-card ${status === 'Approved' ? 'admin-stat-card-active' : ''}`}
+            onClick={() => setStatus('Approved')}
+          >
             <div className="admin-stat-value">{counts.approved}</div>
             <div className="admin-stat-label">Approved</div>
-          </div>
-          <div className="admin-stat-card admin-stat-card-static">
+          </button>
+          <button
+            type="button"
+            className={`admin-stat-card ${status === 'Added to sheet' ? 'admin-stat-card-active' : ''}`}
+            onClick={() => setStatus('Added to sheet')}
+          >
             <div className="admin-stat-value">{counts.addedToSheet}</div>
             <div className="admin-stat-label">Ready / Live</div>
-          </div>
-          <div className="admin-stat-card admin-stat-card-static">
+          </button>
+          <button
+            type="button"
+            className={`admin-stat-card ${status === 'Solved' ? 'admin-stat-card-active' : ''}`}
+            onClick={() => setStatus('Solved')}
+          >
             <div className="admin-stat-value">{counts.solved}</div>
             <div className="admin-stat-label">Solved</div>
-          </div>
-          <div className="admin-stat-card admin-stat-card-static">
+          </button>
+          <button
+            type="button"
+            className={`admin-stat-card ${status === 'hidden' ? 'admin-stat-card-active' : ''}`}
+            onClick={() => setStatus('hidden')}
+          >
             <div className="admin-stat-value">{counts.hidden}</div>
             <div className="admin-stat-label">Hidden</div>
-          </div>
+          </button>
         </div>
+        {counts.hidden > 0 && status !== 'hidden' && filteredSubmissions.length === 0 ? (
+          <p className="admin-action-alert admin-action-alert--error" role="status">
+            {counts.hidden} submission{counts.hidden === 1 ? ' is' : 's are'} hidden in this browser,
+            so the queue looks empty.{' '}
+            <button type="button" className="admin-btn admin-btn-primary" onClick={handleRestoreAllHidden}>
+              Restore all to queue
+            </button>{' '}
+            <button type="button" className="admin-btn admin-btn-secondary" onClick={() => setStatus('hidden')}>
+              View hidden
+            </button>
+          </p>
+        ) : null}
         {actionMessage && (
           <p
             className={`admin-action-alert admin-action-alert--${actionMessage.type}`}
@@ -508,6 +583,9 @@ export function AdminSubmissionsPage() {
           busyId={busyId}
           checkedIds={checkedIds}
           bulkBusy={bulkBusy}
+          showHiddenActions={status === 'hidden'}
+          hiddenCount={counts.hidden}
+          onRestoreAllHidden={handleRestoreAllHidden}
           onSelect={(submission) =>
             setSelectedId((current) => (current === submission.id ? null : submission.id))
           }
