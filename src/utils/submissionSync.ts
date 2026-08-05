@@ -117,7 +117,7 @@ export async function refreshSubmissionsFromSheet(): Promise<{
   return { submissions: parseSubmissionsCsv(csvText), refreshedAt: new Date().toISOString() }
 }
 
-export const ADMIN_SUBMISSIONS_REFRESH_KEY = 'puddles-admin-submissions-refresh'
+export const ADMIN_SUBMISSIONS_REFRESH_KEY = 'puddles-admin-submissions-refresh-v2'
 
 export interface AdminSubmissionsCache {
   submissions: SheetSubmission[]

@@ -33,10 +33,17 @@ import {
 } from '../../utils/submissionSync'
 
 const TYPE_FILTERS = ['all', 'Event', 'Idea', 'ExpansionWatch'] as const
+const LEGACY_SUBMISSIONS_CACHE_KEY = 'puddles-admin-submissions-refresh'
 
 type ActionMessage = { type: 'success' | 'error'; text: string }
 
 function getInitialCache() {
+  try {
+    // Drop the pre-Admin-store cache so old June rows cannot mask the imported Sheet queue.
+    localStorage.removeItem(LEGACY_SUBMISSIONS_CACHE_KEY)
+  } catch {
+    // ignore
+  }
   return loadCachedSubmissionsRefresh()
 }
 
@@ -262,6 +269,12 @@ export function AdminSubmissionsPage() {
     }
   }
 
+  // Always pull the Admin store on open so Sheet imports appear without a manual refresh.
+  useEffect(() => {
+    void handleRefresh()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   function handleRestoreAllHidden() {
     setHiddenSubmissionIds([])
     persistState(submissions, [])
@@ -422,8 +435,10 @@ export function AdminSubmissionsPage() {
         adminRefreshedAt={adminRefreshedAt}
         isRefreshing={isRefreshing}
         refreshError={refreshError}
-        onRefresh={handleRefresh}
+        onRefresh={() => void handleRefresh()}
         refreshLabel="Refresh submissions"
+        adminHint="Loads the Admin submissions store (GitHub). Sheet is fallback only."
+        footerNote="Click Refresh if new Share form rows are missing. Go live publishes Event submissions to the public site."
       />
 
       <section className="admin-sync-bar" aria-label="Submissions overview">

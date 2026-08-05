@@ -6,6 +6,8 @@ interface AdminSyncBarProps {
   refreshError: string | null
   onRefresh: () => void
   refreshLabel?: string
+  adminHint?: string
+  footerNote?: string
   isPublishing?: boolean
   publishError?: string | null
   publishMessage?: string | null
@@ -18,6 +20,8 @@ export function AdminSyncBar({
   refreshError,
   onRefresh,
   refreshLabel = 'Refresh from Sheet',
+  adminHint = 'Optional pull from Google Sheet into this browser',
+  footerNote = 'Prefer Discovery → Go live to update the public site. Sheet tools above are for legacy sync only.',
   isPublishing = false,
   publishError = null,
   publishMessage = null,
@@ -45,7 +49,7 @@ export function AdminSyncBar({
         <div className="admin-sync-item">
           <div className="admin-sync-label">Admin refreshed</div>
           <div className="admin-sync-value">{adminLabel ?? 'Not yet this session'}</div>
-          <div className="admin-sync-hint">Optional pull from Google Sheet into this browser</div>
+          <div className="admin-sync-hint">{adminHint}</div>
         </div>
       </div>
 
@@ -79,12 +83,9 @@ export function AdminSyncBar({
             {publishMessage}
           </p>
         ) : null}
-        {!refreshError && !publishError && !publishMessage && (
-          <p className="admin-sync-note-inline">
-            Prefer <strong>Discovery → Go live</strong> to update the public site. Sheet tools above
-            are for legacy sync only.
-          </p>
-        )}
+        {!refreshError && !publishError && !publishMessage && footerNote ? (
+          <p className="admin-sync-note-inline">{footerNote}</p>
+        ) : null}
       </div>
     </section>
   )
