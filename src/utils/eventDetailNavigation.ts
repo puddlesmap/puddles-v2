@@ -32,7 +32,14 @@ export function getEventDetailBackground(state: unknown): Location | null {
 }
 
 export function isEventModalOverlaySource(source: EventOpenSource): boolean {
-  return source === 'browse_list' || source === 'browse_map' || source === 'home'
+  // Any in-app card open should use the desktop modal (not the standalone URL page).
+  return (
+    source === 'browse_list' ||
+    source === 'browse_map' ||
+    source === 'home' ||
+    source === 'discovery' ||
+    source === 'city_landing'
+  )
 }
 
 /** @deprecated Use isEventModalOverlaySource */

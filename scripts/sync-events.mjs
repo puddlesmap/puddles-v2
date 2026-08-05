@@ -15,7 +15,7 @@ import {
   resolveGeo,
   sanitizeRoom,
 } from './sheet-map.mjs'
-import { resolvePublishingFields } from './publishing.mjs'
+import { resolvePublishingFields, computeIsPast } from './publishing.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = join(__dirname, '..')
@@ -130,10 +130,39 @@ function mapRecord(record) {
 
 const csvText = await loadCsvText()
 const rows = rowsToObjects(parseCsv(csvText))
-const events = rows.map(mapRecord).filter(Boolean)
+let events = rows.map(mapRecord).filter(Boolean)
+
+// Sheet sync must not demote Admin Go live events back to Draft.
+// Those rows often land on the Sheet as Draft while the public catalog already Published them.
+let previousById = new Map()
+try {
+  const previous = JSON.parse(readFileSync(outputPath, 'utf8'))
+  if (Array.isArray(previous)) {
+    previousById = new Map(previous.map((event) => [event.id, event]))
+  }
+} catch {
+  // First sync or missing file — nothing to preserve.
+}
+
+let preservedPublishCount = 0
+events = events.map((event) => {
+  const previous = previousById.get(event.id)
+  if (!previous) return event
+  if (previous.status !== 'Published') return event
+  if (event.status !== 'Draft') return event
+
+  const isPast = computeIsPast(event.date, event.endTime, PUBLISHING_REFERENCE)
+  preservedPublishCount += 1
+  return {
+    ...event,
+    status: isPast ? 'Expired' : 'Published',
+    isPast,
+    isLive: !isPast,
+  }
+})
 
 events.sort((a, b) => a.date.localeCompare(b.date) || a.startTime.localeCompare(b.startTime))
-writeFileSync(outputPath, JSON.stringify(events, null, 2))
+writeFileSync(outputPath, `${JSON.stringify(events, null, 2)}\n`)
 
 const liveCount = events.filter((event) => event.isLive).length
 const syncedAt = new Date().toISOString()
@@ -155,5 +184,8 @@ writeFileSync(
 )
 
 console.log(`Synced ${events.length} events from Events tab (${liveCount} live)`)
+if (preservedPublishCount > 0) {
+  console.log(`Preserved Published status for ${preservedPublishCount} Admin Go live event(s)`)
+}
 console.log(`Wrote ${outputPath}`)
 console.log(`Wrote ${metaPath} (${syncedAt})`)

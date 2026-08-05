@@ -1,6 +1,7 @@
 import type { EventOpenSource } from '@/types/analytics'
 
 const STORAGE_KEY = 'puddles:event-detail-overlay'
+const SOFT_OPEN_KEY = 'puddles:event-detail-overlay-soft'
 
 export interface EventDetailOverlayState {
   eventOpenSource: EventOpenSource
@@ -8,24 +9,42 @@ export interface EventDetailOverlayState {
   backgroundPath: string
 }
 
+declare global {
+  interface Window {
+    __puddlesEventOverlaySoftOpen?: string
+  }
+}
+
 /**
- * In-memory marker for "the overlay was opened by a soft navigation in THIS JS
- * context." sessionStorage persists across hard loads/refreshes and can linger
- * when the modal is dismissed without our close() handler (e.g. browser Back).
- * A hard load starts a fresh module, so this resets to false — which is exactly
- * when the standalone event page must render instead of a stale background.
+ * Soft-open marker must live on `window` (not a module-level let).
+ * Next can evaluate this module in more than one chunk; a module flag would
+ * desync and force the standalone URL page instead of the desktop modal.
+ * Hard loads reset `window`, so stale sessionStorage alone cannot open a modal.
  */
-let overlayActiveInMemory = false
+function softOpenToken(): string | null {
+  if (typeof window === 'undefined') return null
+  return window.__puddlesEventOverlaySoftOpen ?? null
+}
 
 export function saveEventDetailOverlayState(state: EventDetailOverlayState): void {
-  overlayActiveInMemory = true
-  if (typeof sessionStorage === 'undefined') return
-  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+  if (typeof window === 'undefined' || typeof sessionStorage === 'undefined') return
+
+  const token = `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`
+  window.__puddlesEventOverlaySoftOpen = token
+  sessionStorage.setItem(SOFT_OPEN_KEY, token)
+  sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ ...state, softOpenToken: token }))
 }
 
 /** True only during an in-app soft-open (not on a hard load with stale storage). */
 export function isEventDetailOverlayActive(): boolean {
-  return overlayActiveInMemory && readEventDetailOverlayState() !== null
+  if (typeof window === 'undefined' || typeof sessionStorage === 'undefined') return false
+
+  const state = readEventDetailOverlayState()
+  if (!state) return false
+
+  const token = softOpenToken()
+  const storedToken = sessionStorage.getItem(SOFT_OPEN_KEY)
+  return Boolean(token && storedToken && token === storedToken)
 }
 
 export function readEventDetailOverlayState(): EventDetailOverlayState | null {
@@ -55,7 +74,10 @@ export function readEventDetailOverlayState(): EventDetailOverlayState | null {
 }
 
 export function clearEventDetailOverlayState(): void {
-  overlayActiveInMemory = false
+  if (typeof window !== 'undefined') {
+    delete window.__puddlesEventOverlaySoftOpen
+  }
   if (typeof sessionStorage === 'undefined') return
   sessionStorage.removeItem(STORAGE_KEY)
+  sessionStorage.removeItem(SOFT_OPEN_KEY)
 }
