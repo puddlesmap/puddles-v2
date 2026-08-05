@@ -8,13 +8,24 @@ function normalizeHeader(value: string): string {
   return value.trim().toLowerCase().replace(/\s+/g, ' ')
 }
 
+/** Prefer exact header matches so "date" does not steal "Submitted Date". */
 function pickField(record: Record<string, string>, aliases: string[]): string {
-  for (const [header, value] of Object.entries(record)) {
-    const key = normalizeHeader(header)
-    if (aliases.some((alias) => key === alias || key.includes(alias))) {
-      return String(value ?? '').trim()
-    }
+  const entries = Object.entries(record).map(([header, value]) => [
+    normalizeHeader(header),
+    String(value ?? '').trim(),
+  ])
+
+  for (const alias of aliases) {
+    const exact = entries.find(([key]) => key === alias)
+    if (exact?.[1]) return exact[1]
   }
+
+  for (const alias of aliases) {
+    if (alias.length <= 4) continue
+    const fuzzy = entries.find(([key]) => key.includes(alias))
+    if (fuzzy?.[1]) return fuzzy[1]
+  }
+
   return ''
 }
 

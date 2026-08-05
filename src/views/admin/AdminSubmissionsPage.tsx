@@ -428,9 +428,9 @@ export function AdminSubmissionsPage() {
 
       <section className="admin-sync-bar" aria-label="Submissions overview">
         <p className="admin-submissions-intro">
-          Share form submissions land here directly (no Google Sheet). Review, set{' '}
-          <strong>Approved</strong>, then <strong>Go live</strong> to publish Event submissions on
-          Puddles (~2–4 min).
+          Share form submissions land here and also mirror to the Google Sheet when configured.
+          Click <strong>Refresh submissions</strong> to load the latest queue. Review, set{' '}
+          <strong>Approved</strong>, then <strong>Go live</strong> for Event submissions (~2–4 min).
         </p>
         <div className="admin-stat-grid admin-stat-grid-compact">
           <button

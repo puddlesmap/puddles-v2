@@ -1,4 +1,5 @@
 import { hasAdminSession, isAdminAuthEnabled, jsonResponse, unauthorizedResponse } from '../lib/admin-session.mjs'
+import { mirrorSubmissionToGoogleSheet } from '../lib/mirror-submission-sheet.mjs'
 import {
   appendSubmissionToGithub,
   loadSubmissionsFromGithub,
@@ -20,26 +21,44 @@ export async function handler(event) {
     return jsonResponse(204, { ok: true })
   }
 
-  // Public form intake
+  // Public form intake → Admin store (required) + Google Sheet (best-effort mirror)
   if (method === 'POST') {
     const body = parseBody(event)
     if (!body) return jsonResponse(400, { ok: false, error: 'Invalid JSON body' })
 
-    const result = await appendSubmissionToGithub({
-      payload: body.payload || body,
+    const payload = body.payload || body
+    const result = await appendSubmissionToGithub({ payload })
+    if (!result.ok || !result.submission) {
+      return jsonResponse(result.status || 502, {
+        ok: false,
+        error: result.error || 'Could not save submission',
+      })
+    }
+
+    const sheetMirror = await mirrorSubmissionToGoogleSheet({
+      payload: {
+        ...payload,
+        id: result.submission.id,
+        submittedAt: result.submission.submittedAt,
+        status: result.submission.status,
+      },
     })
-    return jsonResponse(result.status || (result.ok ? 200 : 502), {
-      ok: result.ok,
-      message: result.message,
-      error: result.error,
+
+    return jsonResponse(200, {
+      ok: true,
+      message: sheetMirror.ok
+        ? 'Submission saved to Admin and Google Sheet.'
+        : sheetMirror.skipped
+          ? 'Submission saved to Admin. Google Sheet mirror skipped (not configured).'
+          : 'Submission saved to Admin. Google Sheet mirror failed (Admin still has it).',
+      sheetMirrored: Boolean(sheetMirror.ok),
+      sheetMirrorError: sheetMirror.ok ? undefined : sheetMirror.error,
       submission: result.submission,
-      result: result.submission
-        ? {
-            id: result.submission.id,
-            status: result.submission.status,
-            submittedAt: result.submission.submittedAt,
-          }
-        : undefined,
+      result: {
+        id: result.submission.id,
+        status: result.submission.status,
+        submittedAt: result.submission.submittedAt,
+      },
     })
   }
 

@@ -264,6 +264,9 @@ export function AdminSubmissionsTable({
                     <td>{formatSubmittedDate(submission.submittedAt)}</td>
                     <td>
                       <div className="admin-event-title">{submission.eventName || '—'}</div>
+                      {submission.locationName?.trim() ? (
+                        <div className="admin-event-meta">{submission.locationName.trim()}</div>
+                      ) : null}
                       {preview && <div className="admin-event-meta">{preview}</div>}
                     </td>
                     <td>

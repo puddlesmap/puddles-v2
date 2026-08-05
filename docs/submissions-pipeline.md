@@ -1,16 +1,15 @@
 # Submissions pipeline
 
-Parents submit on the website → **Admin → Submissions** → you review → **Go live** → public Puddles catalog.
-
-Google Sheet is **not** required. Submissions are stored in `src/data/sheet-submissions.json` via GitHub.
+Parents submit on the website → **Admin → Submissions** (and Google Sheet mirror) → you review → **Go live** → public Puddles catalog.
 
 ## Flow
 
 1. **Share form** (and Expansion Watch) POSTs to `/api/submissions`.
-2. Netlify function appends a row to `sheet-submissions.json` on `main` (Status = New).
-3. **Admin `/admin/submissions`** → **Refresh submissions** loads the Admin store (GitHub).
-4. Review / set status (local-first; syncs back to the store).
-5. For **Event** submissions, click **Go live** → publishes to `sheet-events.json` via the same publish API as Discovery (~2–4 min Netlify deploy).
+2. Netlify saves the row to **Admin store** `src/data/sheet-submissions.json` on `main` (required).
+3. The same row is **mirrored to the Google Sheet Submissions tab** when `GOOGLE_APPS_SCRIPT_URL` is set (best-effort — Sheet failure does not undo Admin save).
+4. **Admin `/admin/submissions`** → **Refresh submissions** loads the Admin store.
+5. Review / set status (syncs back to the Admin store).
+6. For **Event** submissions, click **Go live** → publishes to `sheet-events.json` (~2–4 min Netlify deploy).
 
 ## Admin actions
 
@@ -22,15 +21,23 @@ Google Sheet is **not** required. Submissions are stored in `src/data/sheet-subm
 | Solved | Archives from review queue |
 | Delete | Hides in this browser only |
 
+## One-time Sheet → Admin import
+
+```bash
+npm run sync-submissions
+git add src/data/sheet-submissions.json && git commit && git push
+```
+
+Then hard-refresh Admin → **Refresh submissions**.
+
 ## Environment
 
 | Variable | Purpose |
 |----------|---------|
 | `GITHUB_DEPLOY_TOKEN` | Required — append/patch submissions + Go live commits |
+| `GOOGLE_APPS_SCRIPT_URL` | Optional — mirrors new form rows to the Sheet |
 | `GITHUB_REPO` | Optional (`owner/repo`, default `puddlesmap/puddles-v2`) |
 | `ADMIN_PASSWORD` | Admin login for refresh / patch / Go live |
-
-Legacy Sheet vars (`GOOGLE_APPS_SCRIPT_URL`, etc.) are optional fallback only.
 
 ## Local development
 
@@ -38,6 +45,7 @@ Legacy Sheet vars (`GOOGLE_APPS_SCRIPT_URL`, etc.) are optional fallback only.
 # .env.local
 GITHUB_DEPLOY_TOKEN=...
 ADMIN_PASSWORD=...
+GOOGLE_APPS_SCRIPT_URL=...   # optional Sheet mirror
 ```
 
 `npm run dev` proxies `/api/submissions` through Vite middleware.

@@ -12,6 +12,7 @@ import {
   sessionCookieHeader,
 } from './netlify/lib/admin-session.mjs'
 import { publishEventsToGithub } from './netlify/lib/publish-events.mjs'
+import { mirrorSubmissionToGoogleSheet } from './netlify/lib/mirror-submission-sheet.mjs'
 import {
   appendSubmissionToGithub,
   loadSubmissionsFromGithub,
@@ -270,22 +271,44 @@ export default defineConfig(({ mode }) => {
               try {
                 const raw = await readBody(req)
                 const body = raw ? JSON.parse(raw) : {}
+                const payload = body.payload || body
                 const result = await appendSubmissionToGithub({
-                  payload: body.payload || body,
+                  payload,
                   env,
                 })
-                sendJson(res, result.status || (result.ok ? 200 : 502), {
-                  ok: result.ok,
-                  message: result.message,
-                  error: result.error,
+                if (!result.ok || !result.submission) {
+                  sendJson(res, result.status || 502, {
+                    ok: false,
+                    error: result.error || 'Could not save submission',
+                  })
+                  return
+                }
+
+                const sheetMirror = await mirrorSubmissionToGoogleSheet({
+                  payload: {
+                    ...payload,
+                    id: result.submission.id,
+                    submittedAt: result.submission.submittedAt,
+                    status: result.submission.status,
+                  },
+                  env,
+                })
+
+                sendJson(res, 200, {
+                  ok: true,
+                  message: sheetMirror.ok
+                    ? 'Submission saved to Admin and Google Sheet.'
+                    : sheetMirror.skipped
+                      ? 'Submission saved to Admin. Google Sheet mirror skipped (not configured).'
+                      : 'Submission saved to Admin. Google Sheet mirror failed (Admin still has it).',
+                  sheetMirrored: Boolean(sheetMirror.ok),
+                  sheetMirrorError: sheetMirror.ok ? undefined : sheetMirror.error,
                   submission: result.submission,
-                  result: result.submission
-                    ? {
-                        id: result.submission.id,
-                        status: result.submission.status,
-                        submittedAt: result.submission.submittedAt,
-                      }
-                    : undefined,
+                  result: {
+                    id: result.submission.id,
+                    status: result.submission.status,
+                    submittedAt: result.submission.submittedAt,
+                  },
                 })
               } catch (error) {
                 sendJson(res, 502, {
