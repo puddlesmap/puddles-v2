@@ -13,11 +13,13 @@ Quick ops guide for `/admin`.
 
 ## Submissions
 
-1. Parents submit via Share form → lands in Admin store automatically.
-2. Click **Refresh submissions** to pull the latest queue.
-3. Review details; set status if needed.
-4. For Event submissions, click **Go live** to publish on Puddles.
-5. Mark Ideas / Expansion Watch as Solved when done.
+1. Parents submit via Share form → lands in **Admin store** automatically (Sheet mirror optional).
+2. Open **Submissions** (auto-refreshes) or click **Refresh submissions**.
+3. Review details; set status if needed (local-first; syncs to Admin store).
+4. For Event submissions, click **Go live** to publish on Puddles (~2–4 min).
+5. Mark Ideas / Expansion Watch as **Solved** when done.
+
+Prefer Admin Refresh over Sheet CSV — Sheet fallback can overwrite local review state.
 
 ## Discovery
 

@@ -1,16 +1,32 @@
 /**
  * Best-effort mirror of a submission row to Google Sheet via Apps Script.
  * Admin GitHub store remains source of truth — Sheet failure must not undo Admin save.
+ *
+ * Optional flag: set SUBMISSIONS_MIRROR_TO_SHEET=0 to skip Sheet even when
+ * GOOGLE_APPS_SCRIPT_URL is configured (Admin-only intake).
  */
+
+function sheetMirrorEnabled(env = process.env) {
+  const flag = String(env.SUBMISSIONS_MIRROR_TO_SHEET ?? '1').trim().toLowerCase()
+  if (flag === '0' || flag === 'false' || flag === 'off' || flag === 'no') return false
+  return Boolean(env.GOOGLE_APPS_SCRIPT_URL?.trim())
+}
 
 export async function mirrorSubmissionToGoogleSheet({
   payload,
   env = process.env,
 } = {}) {
-  const scriptUrl = env.GOOGLE_APPS_SCRIPT_URL?.trim()
-  if (!scriptUrl) {
-    return { ok: false, skipped: true, error: 'GOOGLE_APPS_SCRIPT_URL not set' }
+  if (!sheetMirrorEnabled(env)) {
+    return {
+      ok: false,
+      skipped: true,
+      error: env.GOOGLE_APPS_SCRIPT_URL?.trim()
+        ? 'SUBMISSIONS_MIRROR_TO_SHEET is disabled'
+        : 'GOOGLE_APPS_SCRIPT_URL not set',
+    }
   }
+
+  const scriptUrl = env.GOOGLE_APPS_SCRIPT_URL.trim()
 
   try {
     const response = await fetch(scriptUrl, {

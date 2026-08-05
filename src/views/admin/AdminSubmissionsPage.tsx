@@ -443,8 +443,8 @@ export function AdminSubmissionsPage() {
 
       <section className="admin-sync-bar" aria-label="Submissions overview">
         <p className="admin-submissions-intro">
-          Share form submissions land here and also mirror to the Google Sheet when configured.
-          Click <strong>Refresh submissions</strong> to load the latest queue. Review, set{' '}
+          Share form submissions land in the Admin store (Google Sheet mirror is optional). Click{' '}
+          <strong>Refresh submissions</strong> if the queue looks stale. Review, set{' '}
           <strong>Approved</strong>, then <strong>Go live</strong> for Event submissions (~2–4 min).
         </p>
         <div className="admin-stat-grid admin-stat-grid-compact">
