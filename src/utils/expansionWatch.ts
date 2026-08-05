@@ -1,9 +1,7 @@
 import type { ExpansionWatchPayload } from '../types/expansionWatch'
-import { buildExpansionWatchSubmissionRow, callSheetApi } from './sheetApi'
+import { buildExpansionWatchSubmissionRow } from './sheetApi'
+import { submitSubmissionToAdmin } from './submissionsApi'
 
 export async function submitExpansionWatch(payload: ExpansionWatchPayload): Promise<void> {
-  await callSheetApi({
-    action: 'appendSubmission',
-    payload: buildExpansionWatchSubmissionRow(payload),
-  })
+  await submitSubmissionToAdmin(buildExpansionWatchSubmissionRow(payload))
 }

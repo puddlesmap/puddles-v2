@@ -57,3 +57,8 @@
   from = "/api/publish-events"
   to = "/.netlify/functions/publish-events"
   status = 200
+
+[[redirects]]
+  from = "/api/submissions"
+  to = "/.netlify/functions/submissions"
+  status = 200

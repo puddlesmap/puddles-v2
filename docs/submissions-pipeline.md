@@ -1,160 +1,49 @@
-# Submissions pipeline (V1)
+# Submissions pipeline
 
-Parents submit on the website → **Submissions** tab → admin dashboard review → approved events go to **Events** tab as **Draft** → set **Published** on Events tab → public site after sync.
+Parents submit on the website → **Admin → Submissions** → you review → **Go live** → public Puddles catalog.
+
+Google Sheet is **not** required. Submissions are stored in `src/data/sheet-submissions.json` via GitHub.
 
 ## Flow
 
-1. **Share form** POSTs to `/api/sheet-api` → Google Apps Script appends a row on **Submissions** (Status = New).
-2. **Admin `/admin/submissions`** refreshes from the Submissions tab CSV, updates status, and sends approved events to the Events tab.
-3. **Events tab** remains the publishing source. Set Status = **Published** (or legacy Approved) for live events.
-4. **Scheduled sync** (`npm run sync-events`) updates the public site JSON.
-
-## One-time setup
-
-### 1. Google Apps Script
-
-1. Open the [Events Data spreadsheet](https://docs.google.com/spreadsheets/d/1ko8p-HMzXMnSHT8qPxv14X-TPaac0RJTrfw8PwjikH8/edit).
-2. **Extensions → Apps Script**
-3. Replace `Code.gs` with [`google-apps-script/PuddlesSheetApi.gs`](../google-apps-script/PuddlesSheetApi.gs)
-4. **Deploy → New deployment → Web app**
-   - Execute as: **Me**
-   - Who has access: **Anyone**
-5. Copy the **/exec** URL
-
-### 2. Netlify environment
-
-In Netlify → Site settings → Environment variables:
-
-| Variable | Required | Purpose |
-|---|---|---|
-| `GOOGLE_APPS_SCRIPT_URL` | Yes | Web app /exec URL from step 1 |
-| `PUDDLES_API_SECRET` | Recommended | Protects admin status updates + promote |
-| `VITE_PUDDLES_API_KEY` | Same as secret | Sent from admin UI on write actions |
-
-Redeploy after setting variables.
-
-### 3. Local development
-
-Copy `.env.example` to `.env.local`:
-
-```bash
-GOOGLE_APPS_SCRIPT_URL=https://script.google.com/macros/s/.../exec
-VITE_PUDDLES_API_KEY=your-secret   # optional, for admin actions
-```
-
-Run `npm run dev`. Share form and admin actions proxy to the script via `/api/sheet-api`.
-
-For full Netlify parity locally: `netlify dev`.
-
-### 4. Submissions tab columns
-
-The Apps Script auto-adds missing headers on each new submission. Recommended column order:
-
-| Column | Source |
-|---|---|
-| Submission ID | Auto-generated |
-| Submitted Date | Form timestamp |
-| Submission Type | Event, Idea, or **ExpansionWatch** |
-| Status | Starts as **New** |
-| Event Type | One-time event / Recurring class |
-| Event Name | Form |
-| Location Name | Combined place or address |
-| Address | (optional; usually empty — location is in Location Name) |
-| City | Form |
-| Date | Form (one-time) |
-| Start Time / End Time | Form |
-| Age Range | Best for what age? |
-| Cost Type / Cost Detail | Form cost step |
-| Cost | Legacy summary (Free or detail) |
-| Signup Requirement / Signup Link / Info | Form sign-up step |
-| Event Description | What happens at the activity |
-| Parent-to-Parent Tips | Insider tips |
-| Category / Types | Idea types or tags |
-| Link | Optional URL |
-| Additional Info | Legacy (may mirror parent tips) |
-| Internal Notes | Event type, recurring day, review flags |
-| Converted Event ID | Set when promoted to Events tab |
-| Submitted By Email | Parent email |
-| Requested Location | Expansion Watch: parent’s city/ZIP |
-| Source Context | Expansion Watch: placement (e.g. `empty_state`, `footer_about`) |
-| Selected City | Expansion Watch: browse city filter when known |
-
-**Expansion Watch** rows use `Submission Type = ExpansionWatch`. Email and location are in **Submitted By Email** and **Requested Location**; placement is in **Source Context**. Full filter metadata remains in **Internal Notes** as JSON.
-
-**Promote to Events** maps: title, venue, city, dates, cost, age → **Age Tags Clean**, description (event + parent tips + sign-up), and form notes → **Notes**.
-
-## Submission statuses
-
-| Status | Meaning |
-|---|---|
-| New | Just submitted |
-| Needs review | Under review |
-| Approved | Ready to send to Events tab |
-| Added to sheet | Promoted to Events tab (see Converted Event ID) |
-| Solved | Archived in admin — removed from active queue (row kept in sheet) |
-| Rejected | Legacy dismissed status — still excluded from active queue |
-
-Legacy sheet values **Reviewing** and **Converted** map to the new labels in the admin UI.
+1. **Share form** (and Expansion Watch) POSTs to `/api/submissions`.
+2. Netlify function appends a row to `sheet-submissions.json` on `main` (Status = New).
+3. **Admin `/admin/submissions`** → **Refresh submissions** loads the Admin store (GitHub).
+4. Review / set status (local-first; syncs back to the store).
+5. For **Event** submissions, click **Go live** → publishes to `sheet-events.json` via the same publish API as Discovery (~2–4 min Netlify deploy).
 
 ## Admin actions
 
-### Submissions (`/admin/submissions`)
+| Action | Effect |
+|--------|--------|
+| Refresh submissions | Load latest from Admin store (GitHub). Sheet CSV is fallback only. |
+| Status / Approve | Updates Admin store |
+| **Go live** | Approves if needed, upserts Event into public catalog, marks submission Ready/Live |
+| Solved | Archives from review queue |
+| Delete | Hides in this browser only |
 
-Each submission appears as a **table row**. Click the row to expand full details inline below it.
+## Environment
 
-- **Refresh submissions** — pulls latest Submissions tab (no deploy needed)
-- **Type filter** — Event, Idea, or **Expansion Watch**
-- **Status dropdown** — writes to sheet via API
-- **Send to Events tab** — available when Type = Event, Status = Approved; creates Events row as **Draft**
-- **Solved** — sets Status to **Solved** in the sheet; removed from the active queue (filter **Solved** to review later)
-- **Delete** — hides from this dashboard only; Google Sheet row is unchanged (filter **Hidden (dashboard only)** to restore)
+| Variable | Purpose |
+|----------|---------|
+| `GITHUB_DEPLOY_TOKEN` | Required — append/patch submissions + Go live commits |
+| `GITHUB_REPO` | Optional (`owner/repo`, default `puddlesmap/puddles-v2`) |
+| `ADMIN_PASSWORD` | Admin login for refresh / patch / Go live |
 
-Expansion Watch sign-ups show a tailored detail panel (email, requested location, source, browse filters). Do not promote these to the Events tab.
+Legacy Sheet vars (`GOOGLE_APPS_SCRIPT_URL`, etc.) are optional fallback only.
 
-### Events (`/admin/events`)
-
-Each event appears as a **table row**. Click the row to expand full details inline below it.
-
-- **Refresh** — pulls latest Events tab CSV; if anything needs attention, emails a digest to `puddlesmap@gmail.com` (throttled per flag set until you refresh again with a changed set)
-- **Hide from site** — sets Events tab `Status` to **Hidden** via `updateEventStatus` API (row stays in sheet; use Hidden Events view to find it)
-- **Needs attention** — unified review inbox for flags that need action:
-  - **Duplicates** — same-outing groups; **Keep winner · hide N**
-  - **Out of age** — title/description age range with no overlap on 0–5 (also excluded from the public catalog automatically)
-  - **Out of area** — city/address outside Palo Alto · Los Altos · Mountain View
-  - **Mismatch** — e.g. Cost tag Free but description has `$75`
-  - **Dismiss for now** — hides a flag in this browser only (localStorage); does not write the sheet
-- **Possible duplicates** — deep link into the same duplicate tooling (also listed under Needs attention)
-
-After promoting, open the Events tab (or `/admin/events`), set **Status = Published**, then sync/deploy for the public site.
-
-## Sheet API actions
-
-| Action | Auth | Purpose |
-|---|---|---|
-| `appendSubmission` | Public | Share form intake |
-| `updateSubmissionStatus` | API key | Admin status changes + Solved |
-| `promoteSubmission` | API key | Send approved submission to Events tab |
-| `updateEventStatus` | API key | Hide event (or other status change) |
-| `notifyDuplicates` | API key | Email duplicate summary to `puddlesmap@gmail.com` (legacy) |
-| `notifyAdminReviewFlags` | API key | Email Needs attention digest to `puddlesmap@gmail.com` |
-
-**Redeploy Apps Script** after updating [`PuddlesSheetApi.gs`](../google-apps-script/PuddlesSheetApi.gs) (Deploy → Manage deployments → Edit → New version) so `notifyAdminReviewFlags` is live.
-
-## Public site sync
-
-Admin submission refresh is live. Public events still update via:
+## Local development
 
 ```bash
-npm run sync-events   # or scheduled GitHub Action every 2 days
+# .env.local
+GITHUB_DEPLOY_TOKEN=...
+ADMIN_PASSWORD=...
 ```
 
-Then deploy.
+`npm run dev` proxies `/api/submissions` through Vite middleware.
 
-## Troubleshooting
+## Related
 
-| Issue | Fix |
-|---|---|
-| Share form error “Sheet API not configured” | Set `GOOGLE_APPS_SCRIPT_URL` on Netlify and redeploy |
-| Submission succeeds but admin shows empty | Click **Refresh submissions**; confirm Submissions tab is shared Viewer to anyone with link |
-| Admin status update 401 | Set matching `PUDDLES_API_SECRET` and `VITE_PUDDLES_API_KEY` |
-| Promote fails | Submission must be **Approved** and Type **Event**; check Apps Script execution log |
+- [Admin how-to](./admin-howto.md)
+- [Event discovery](./event-discovery.md)
+- [Sheet publishing](./sheet-publishing.md) (legacy)

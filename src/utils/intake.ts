@@ -3,24 +3,18 @@ import type { ActivitySubmissionPayload, IdeaSubmissionPayload } from '../types/
 import {
   buildActivitySubmissionRow,
   buildIdeaSubmissionRow,
-  callSheetApi,
 } from './sheetApi'
+import { submitSubmissionToAdmin } from './submissionsApi'
 
 export async function submitActivitySubmission(payload: ActivitySubmissionPayload) {
-  await callSheetApi({
-    action: 'appendSubmission',
-    payload: buildActivitySubmissionRow(payload),
-  })
+  await submitSubmissionToAdmin(buildActivitySubmissionRow(payload))
 }
 
 export async function submitIdeaSubmission(payload: IdeaSubmissionPayload) {
-  await callSheetApi({
-    action: 'appendSubmission',
-    payload: buildIdeaSubmissionRow(payload),
-  })
+  await submitSubmissionToAdmin(buildIdeaSubmissionRow(payload))
 }
 
 /** Reports tab write-back is not wired yet. */
 export async function submitOutdatedReport(payload: OutdatedReportPayload) {
-  console.log('Outdated report (not yet saved to sheet):', payload)
+  console.log('Outdated report (not yet saved):', payload)
 }

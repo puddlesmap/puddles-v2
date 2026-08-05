@@ -133,7 +133,9 @@ export function isLocallyHiddenSubmission(id: string, hiddenSubmissionIds: strin
 /** Admin-facing label — sheet still stores Rejected for legacy dismissed rows. */
 export function submissionStatusLabel(status: string): string {
   if (isDismissedSubmission(status)) return 'Dismissed'
-  return status?.trim() || 'New'
+  const value = status?.trim() || 'New'
+  if (value.toLowerCase() === 'added to sheet') return 'Ready'
+  return value
 }
 
 export const SUBMISSION_TYPES = ['Event', 'Idea', 'ExpansionWatch', 'All types'] as const

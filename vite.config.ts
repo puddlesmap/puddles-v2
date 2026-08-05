@@ -12,6 +12,11 @@ import {
   sessionCookieHeader,
 } from './netlify/lib/admin-session.mjs'
 import { publishEventsToGithub } from './netlify/lib/publish-events.mjs'
+import {
+  appendSubmissionToGithub,
+  loadSubmissionsFromGithub,
+  patchSubmissionsInGithub,
+} from './netlify/lib/submissions-store.mjs'
 
 const SPREADSHEET_ID = '1ko8p-HMzXMnSHT8qPxv14X-TPaac0RJTrfw8PwjikH8'
 const EVENTS_GID = '1023308778'
@@ -210,7 +215,7 @@ export default defineConfig(({ mode }) => {
                 detail = await upstream.text()
               }
 
-              sendJson(upstream.status >= 500 ? 502 : upstream.status, {
+              sendJson(res, upstream.status >= 500 ? 502 : upstream.status, {
                 ok: false,
                 error: detail || `GitHub workflow could not be started (${upstream.status})`,
               })
@@ -241,7 +246,7 @@ export default defineConfig(({ mode }) => {
                 events: body.events || [],
                 env,
               })
-              sendJson(result.status || (result.ok ? 200 : 502), {
+              sendJson(res, result.status || (result.ok ? 200 : 502), {
                 ok: result.ok,
                 message: result.message,
                 error: result.error,
@@ -256,6 +261,80 @@ export default defineConfig(({ mode }) => {
                 error: error instanceof Error ? error.message : 'Could not publish events',
               })
             }
+          })
+
+          server.middlewares.use('/api/submissions', async (req, res) => {
+            const event = mockEvent(req)
+
+            if (req.method === 'POST') {
+              try {
+                const raw = await readBody(req)
+                const body = raw ? JSON.parse(raw) : {}
+                const result = await appendSubmissionToGithub({
+                  payload: body.payload || body,
+                  env,
+                })
+                sendJson(res, result.status || (result.ok ? 200 : 502), {
+                  ok: result.ok,
+                  message: result.message,
+                  error: result.error,
+                  submission: result.submission,
+                  result: result.submission
+                    ? {
+                        id: result.submission.id,
+                        status: result.submission.status,
+                        submittedAt: result.submission.submittedAt,
+                      }
+                    : undefined,
+                })
+              } catch (error) {
+                sendJson(res, 502, {
+                  ok: false,
+                  error: error instanceof Error ? error.message : 'Could not save submission',
+                })
+              }
+              return
+            }
+
+            if (!isAdminAuthEnabled() || !hasAdminSession(event)) {
+              sendJson(res, 401, { ok: false, error: 'Unauthorized' })
+              return
+            }
+
+            if (req.method === 'GET') {
+              const result = await loadSubmissionsFromGithub({ env })
+              sendJson(res, result.status || (result.ok ? 200 : 502), {
+                ok: result.ok,
+                error: result.error,
+                submissions: result.submissions || [],
+                refreshedAt: result.refreshedAt,
+              })
+              return
+            }
+
+            if (req.method === 'PATCH') {
+              try {
+                const raw = await readBody(req)
+                const body = raw ? JSON.parse(raw) : {}
+                const updates = body.updates || (body.id ? [body] : [])
+                const result = await patchSubmissionsInGithub({ updates, env })
+                sendJson(res, result.status || (result.ok ? 200 : 502), {
+                  ok: result.ok,
+                  error: result.error,
+                  message: result.message,
+                  patched: result.patched,
+                  submissions: result.submissions,
+                })
+              } catch (error) {
+                sendJson(res, 502, {
+                  ok: false,
+                  error: error instanceof Error ? error.message : 'Could not update submissions',
+                })
+              }
+              return
+            }
+
+            sendJson(res, 405, { ok: false, error: 'Method not allowed' })
           })
 
           server.middlewares.use('/api/sheet-api', async (req, res) => {

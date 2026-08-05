@@ -141,24 +141,25 @@ export function AdminLayout() {
           {howToOpen ? (
             <div id="admin-howto-panel" className="admin-howto-panel">
               <p className="admin-howto-panel__lead">
-                Twice-a-week flow: Approve in Discovery, Go live to update the public site, monitor
-                Events. Full guide: <code>docs/admin-howto.md</code>
+                Form → Submissions → Go live. Discovery → Approve → Go live. Events monitors the
+                public catalog. Full guide: <code>docs/admin-howto.md</code>
               </p>
               <ol className="admin-howto-panel__list">
                 <li>
-                  <strong>Discovery</strong> — Edit if needed, <strong>Approve</strong> → Ready, then{' '}
-                  <strong>Go live</strong> to publish on the public site (~2–4 min).
+                  <strong>Submissions</strong> — Refresh, review Share form items,{' '}
+                  <strong>Go live</strong> for Event submissions.
                 </li>
                 <li>
-                  <strong>Events</strong> — Monitor <strong>Live</strong>, <strong>Needs attention</strong>,
-                  and <strong>Past</strong>.
+                  <strong>Discovery</strong> — Approve library candidates, then{' '}
+                  <strong>Go live</strong>.
                 </li>
                 <li>
-                  <strong>Submissions</strong> — Refresh, approve, send toward Events as needed.
+                  <strong>Events</strong> — Monitor <strong>Live</strong>,{' '}
+                  <strong>Needs attention</strong>, and <strong>Past</strong>.
                 </li>
               </ol>
               <p className="admin-howto-panel__note">
-                Prefer Discovery Go live over Sheet sync. Sheet tools on Events are advanced/legacy.
+                Google Sheet is optional. Go live updates the public site in ~2–4 minutes.
               </p>
             </div>
           ) : null}

@@ -27,8 +27,8 @@ function formatFee(submission: SheetSubmission): string {
 function canPromote(submission: SheetSubmission): boolean {
   return (
     submission.submissionType === 'Event' &&
-    submission.status === 'Approved' &&
-    !submission.convertedEventId
+    !submission.convertedEventId &&
+    !isArchivedSubmission(submission.status)
   )
 }
 
@@ -308,16 +308,16 @@ export function AdminSubmissionsTable({
                           {canPromote(submission) && (
                             <button
                               type="button"
-                              className="admin-btn admin-btn-secondary"
+                              className="admin-btn admin-btn-primary"
                               disabled={isBusy || bulkBusy}
                               onClick={() => onPromote(submission)}
                             >
-                              {isBusy ? 'Sending…' : 'Send to Events'}
+                              {isBusy ? 'Going live…' : 'Go live'}
                             </button>
                           )}
                           {submission.convertedEventId && (
                             <span className="admin-badge admin-badge-status admin-badge-status-added-to-sheet">
-                              On Events tab · {submission.convertedEventId}
+                              Live · {submission.convertedEventId}
                             </span>
                           )}
                         </div>
