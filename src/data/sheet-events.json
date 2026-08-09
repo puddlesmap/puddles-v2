@@ -5178,7 +5178,7 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3896,
     "lng": -122.0832,
-    "status": "Expired",
+    "status": "Draft",
     "isPast": true,
     "isLive": false
   },
@@ -5208,9 +5208,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a25aace2ea730c17ab50485",
@@ -5237,9 +5237,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4229,
     "lng": -122.1489,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-07-18-00",
@@ -5266,9 +5266,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.39,
     "lng": -122.0815,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "charline-pelloux-gervais-classic-hits-disney-favorites-magical-bridge-foundation-summer-concert-seri",
@@ -5297,9 +5297,9 @@
     "verifiedDate": "2026-07-20",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "movie-night-at-the-purissima-park-zootopia-2-purissima-park-2026-08-07-18-30",
@@ -5328,9 +5328,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.3772,
     "lng": -122.1477,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "goat-summer-outdoor-movie-night-series-eagle-park-2026-08-07-20-30",
@@ -5359,9 +5359,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3893,
     "lng": -122.0857,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "family-fun-days-los-altos-community-center-2026-08-08-10-00",
@@ -5390,9 +5390,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.3804,
     "lng": -122.1113,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "fine-art-in-the-park-lincoln-park-2026-08-08-10-00",
@@ -5419,9 +5419,9 @@
     "verifiedDate": "2026-06-05",
     "lat": 37.3852,
     "lng": -122.1141,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a120e06c7d3cd58005b3762",
@@ -5449,9 +5449,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69fe5c8de8af4a2f00712d3f",
@@ -5478,9 +5478,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "legally-blue-crowd-pleasing-electrifying-blues-rinconada-park-2026-08-08-18-30",
@@ -5507,9 +5507,9 @@
     "verifiedDate": "2026-07-20",
     "lat": 37.4419,
     "lng": -122.143,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "fine-art-in-the-park-lincoln-park-2026-08-09-10-00",
@@ -5567,9 +5567,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "puddles-03115e7b-5f2",
@@ -5597,9 +5597,9 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "puddles-3f1e604c-66d",
@@ -5628,9 +5628,9 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3852,
     "lng": -122.1141,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6970253094297d3600a66ca0",
