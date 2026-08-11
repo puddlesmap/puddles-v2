@@ -5536,9 +5536,9 @@
     "verifiedDate": "2026-06-05",
     "lat": 37.3852,
     "lng": -122.1141,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "outdoor-storytime-linden-tree-books-2026-08-09-10-30",
@@ -5597,7 +5597,7 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Expired",
+    "status": "Draft",
     "isPast": true,
     "isLive": false
   },
@@ -5628,7 +5628,7 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3852,
     "lng": -122.1141,
-    "status": "Expired",
+    "status": "Draft",
     "isPast": true,
     "isLive": false
   },
@@ -5657,9 +5657,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835d42866a5b488426c00",
@@ -5686,9 +5686,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "summer-outdoor-storytime-mountain-view-public-library-2026-08-11-10-30",
@@ -5718,9 +5718,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3896,
     "lng": -122.0832,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835d281b67dfe32acec7e",
@@ -5747,9 +5747,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "68afa7b0022de53d00d27173",
