@@ -5776,9 +5776,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835c4b48451fc3c09442e",
@@ -5806,9 +5806,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835bdb48451fc3c094418",
@@ -5836,9 +5836,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "music-on-castro-downtown-mountain-view-2026-08-12-17-00",
@@ -5865,9 +5865,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.3905,
     "lng": -122.0788,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "bilingual-storytime-mandarin-english-mountain-view-public-library-2026-08-12-18-30",
@@ -5895,9 +5895,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "magical-bridge-storytime-magical-bridge-playground-at-rengstorff-park-2026-08-13-10-00",
@@ -5926,9 +5926,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4001,
     "lng": -122.0986,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835bbb48451fc3c094406",
@@ -5956,9 +5956,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835b92866a5b488426bd9",
