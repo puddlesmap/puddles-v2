@@ -5986,9 +5986,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "tech-take-apart-mountain-view-public-library-2026-08-14-15-00",
@@ -6016,9 +6016,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "puddles-281ea476-681",
@@ -6047,9 +6047,9 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a25aace2ea730c17ab50486",
@@ -6076,9 +6076,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4229,
     "lng": -122.1489,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "concerts-on-the-plaza-civic-center-plaza-2026-08-14-18-00",
@@ -6105,9 +6105,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.39,
     "lng": -122.0815,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "andy-z-music-movement-storytelling-puppetry-magical-bridge-foundation-summer-concert-series-magical-",
@@ -6134,9 +6134,9 @@
     "verifiedDate": "2026-07-20",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "the-super-mario-galaxy-movie-family-movie-night-series-2026-mitchell-park-athletics-fields-2026-08-1",
@@ -6165,9 +6165,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.419,
     "lng": -122.1095,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "lilo-stitch-live-action-summer-outdoor-movie-night-series-rengstorff-park-2026-08-14-20-30",
@@ -6196,9 +6196,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.396,
     "lng": -122.1018,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6961562d8b29ea2800c880a5",
@@ -6255,9 +6255,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4179,
     "lng": -122.1077,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "battle-of-the-books-state-street-market-2026-08-15-15-00",
