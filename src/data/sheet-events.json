@@ -6047,7 +6047,7 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Expired",
+    "status": "Draft",
     "isPast": true,
     "isLive": false
   },
@@ -6225,9 +6225,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a120e06c7d3cd58005b3763",
@@ -6284,9 +6284,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3784,
     "lng": -122.1146,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "outdoor-storytime-linden-tree-books-2026-08-16-10-30",
@@ -6315,9 +6315,9 @@
     "verifiedDate": "2026-07-02",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "puddles-e7a51189-db6",
@@ -6345,9 +6345,9 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "697025281e64afd01e559e37",
@@ -6376,9 +6376,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835d42866a5b488426c01",
