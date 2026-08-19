@@ -6345,7 +6345,7 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3792,
     "lng": -122.1161,
-    "status": "Expired",
+    "status": "Draft",
     "isPast": true,
     "isLive": false
   },
@@ -6405,9 +6405,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835d281b67dfe32acec7f",
@@ -6434,9 +6434,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "68afa7b0022de53d00d27174",
@@ -6463,9 +6463,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.4443,
     "lng": -122.1598,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835c4b48451fc3c09442f",
@@ -6493,9 +6493,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "puddles-de76c8e5-149",
@@ -6523,9 +6523,9 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835bdb48451fc3c094419",
@@ -6553,9 +6553,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "music-on-castro-downtown-mountain-view-2026-08-19-17-00",
