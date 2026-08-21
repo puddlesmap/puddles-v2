@@ -6523,7 +6523,7 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Expired",
+    "status": "Draft",
     "isPast": true,
     "isLive": false
   },
@@ -6582,9 +6582,9 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.3905,
     "lng": -122.0788,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835bbb48451fc3c094407",
@@ -6612,9 +6612,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "69b835b92866a5b488426bda",
@@ -6642,9 +6642,9 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3791,
     "lng": -122.1142,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "puddles-197bc946-a82",
@@ -6672,9 +6672,9 @@
     "verifiedDate": "2026-08-04",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false
   },
   {
     "id": "6a25aace2ea730c17ab50487",
