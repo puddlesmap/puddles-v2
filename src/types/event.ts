@@ -1,4 +1,4 @@
-export type EventStatus = 'Draft' | 'Published' | 'Hidden' | 'Expired'
+export type EventStatus = 'Draft' | 'Published' | 'Hidden' | 'Expired' | 'Cancelled'
 
 export type City = 'Palo Alto' | 'Los Altos' | 'Mountain View'
 export type CostLabel = 'Free' | 'Low-cost' | 'Paid' | (string & {})

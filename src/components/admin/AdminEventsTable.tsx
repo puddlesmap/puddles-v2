@@ -48,6 +48,7 @@ interface AdminEventsTableProps {
   onHide: (event: AdminEventRecord) => void
   /** Save edits and publish to the public catalog (~2–4 min). */
   onSaveAndPublish?: (event: AdminEventRecord, edits: AdminEventEditableFields) => void
+  onCancel?: (event: AdminEventRecord) => void
   /** Stamp Last Checked / Approved on = today (Sheet + local Admin). */
   onApproveVerified?: (event: AdminEventRecord) => void
   /** When set, render events grouped by duplicate cluster with keep/hide actions. */
@@ -69,6 +70,7 @@ export function AdminEventsTable({
   onBulkApproveVerified,
   onHide,
   onSaveAndPublish,
+  onCancel,
   onApproveVerified,
   duplicateClusters,
   busyClusterId = null,
@@ -199,6 +201,7 @@ export function AdminEventsTable({
                                       ? (edits) => onSaveAndPublish(event, edits)
                                       : undefined
                                   }
+                                  onCancel={onCancel ? () => onCancel(event) : undefined}
                                 />
                               </td>
                             </tr>
@@ -305,7 +308,8 @@ export function AdminEventsTable({
               const isExpanded = selectedId === event.id
               const isBusy = busyId === event.id
               const isChecked = checkedSet.has(event.id)
-              const canHide = event.status !== 'Hidden'
+              const canHide = event.status !== 'Hidden' && event.status !== 'Cancelled'
+              const canCancel = onCancel && event.status === 'Published' && !event.isPast
               const approvedLabel = formatVerifiedDate(event.verifiedDate)
 
               return (
@@ -386,6 +390,16 @@ export function AdminEventsTable({
                             {isBusy ? '…' : 'Approve'}
                           </button>
                         ) : null}
+                        {canCancel ? (
+                          <button
+                            type="button"
+                            className="admin-btn admin-btn-secondary"
+                            disabled={isBusy || bulkBusy}
+                            onClick={() => onCancel(event)}
+                          >
+                            {isBusy ? 'Cancelling…' : 'Cancel'}
+                          </button>
+                        ) : null}
                         {canHide ? (
                           <button
                             type="button"
@@ -395,6 +409,10 @@ export function AdminEventsTable({
                           >
                             {isBusy ? 'Hiding…' : 'Hide'}
                           </button>
+                        ) : event.status === 'Cancelled' ? (
+                          <span className="admin-badge admin-badge-status admin-badge-status-cancelled">
+                            Cancelled
+                          </span>
                         ) : (
                           <span className="admin-badge admin-badge-status admin-badge-status-hidden">
                             Hidden
@@ -412,6 +430,7 @@ export function AdminEventsTable({
                           onSaveAndPublish={
                             onSaveAndPublish ? (edits) => onSaveAndPublish(event, edits) : undefined
                           }
+                          onCancel={onCancel ? () => onCancel(event) : undefined}
                         />
                       </td>
                     </tr>

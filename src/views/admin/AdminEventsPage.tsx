@@ -25,7 +25,7 @@ import { EVENT_EXPORT_COLUMNS, exportFilename } from '../../utils/adminExport'
 import { enrichPublishingFields } from '../../utils/publishing'
 import { pacificTodayYmd } from '../../utils/discoveryReview'
 import { syncReadyDiscoveryIntoAdminCache } from '../../utils/discoveryApproveLocal'
-import { saveAndPublishEvent } from '../../utils/adminEventEdit'
+import { cancelAndPublishEvent, saveAndPublishEvent } from '../../utils/adminEventEdit'
 import type { AdminEventEditableFields } from '../../types/adminEventEdit'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
@@ -256,6 +256,31 @@ export function AdminEventsPage() {
     }
   }
 
+  async function handleCancel(event: Event) {
+    const ok = window.confirm(
+      `Cancel “${event.title}”?\n\n` +
+        'It will be removed from Browse and Map. Anyone with the event link will see a cancelled message.',
+    )
+    if (!ok) return
+
+    setBusyId(event.id)
+    setActionMessage(null)
+    try {
+      const { message, event: published } = await cancelAndPublishEvent(event)
+      setEvents((current) => {
+        const next = current.map((row) => (row.id === event.id ? published : row))
+        saveCachedAdminRefresh({ events: next, refreshedAt: new Date().toISOString() })
+        return next
+      })
+      setAdminRefreshedAt(new Date().toISOString())
+      setActionMessage(message)
+    } catch (error) {
+      setActionMessage(error instanceof Error ? error.message : 'Could not cancel event.')
+    } finally {
+      setBusyId(null)
+    }
+  }
+
   async function handleSaveAndPublish(event: Event, edits: AdminEventEditableFields) {
     const ok = window.confirm(
       `Save & publish “${event.title}”?\n\nThis updates the public catalog in ~2–4 minutes.`,
@@ -379,7 +404,8 @@ export function AdminEventsPage() {
 
   async function handleHide(event: Event, flagId?: string) {
     const confirmed = window.confirm(
-      `Hide “${event.title}” from the public site?\n\nThis sets Status to Hidden in the Events tab. You can restore it from the sheet later.`,
+      `Hide “${event.title}” from the public site?\n\n` +
+        'The event link will show a generic unavailable message. Use Cancel instead for a cancelled notice.',
     )
     if (!confirmed) return
 
@@ -604,6 +630,7 @@ export function AdminEventsPage() {
             onBulkApproveVerified={(rows) => void handleBulkApproveVerified(rows)}
             onHide={(event) => void handleHide(event)}
             onSaveAndPublish={(event, edits) => void handleSaveAndPublish(event, edits)}
+            onCancel={(event) => void handleCancel(event)}
             onApproveVerified={(event) => void handleApproveVerified(event)}
             duplicateClusters={undefined}
             busyClusterId={busyClusterId}

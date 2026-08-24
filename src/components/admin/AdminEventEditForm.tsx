@@ -12,7 +12,7 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
   )
 }
 
-const STATUS_OPTIONS: EventStatus[] = ['Published', 'Hidden', 'Draft']
+const STATUS_OPTIONS: EventStatus[] = ['Published', 'Cancelled', 'Hidden', 'Draft']
 
 interface AdminEventEditFormProps {
   draft: AdminEventEditableFields

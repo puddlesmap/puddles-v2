@@ -4244,6 +4244,11 @@ select.input-field,
   color: #9a6700;
 }
 
+.admin-badge-status-cancelled {
+  background: #fdecec;
+  color: #b42318;
+}
+
 .admin-badge-status-expired {
   background: #fdecec;
   color: #b42318;

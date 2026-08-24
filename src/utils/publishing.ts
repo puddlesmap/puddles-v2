@@ -8,7 +8,7 @@ import {
   startOfDay,
 } from './dates'
 
-export const EVENT_STATUSES: EventStatus[] = ['Draft', 'Published', 'Hidden', 'Expired']
+export const EVENT_STATUSES: EventStatus[] = ['Draft', 'Published', 'Hidden', 'Expired', 'Cancelled']
 
 export function normalizeEventStatus(value: unknown): EventStatus | null {
   if (value == null || value === '') return null

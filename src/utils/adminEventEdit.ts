@@ -94,3 +94,15 @@ export async function saveAndPublishEvent(
   const message = await publishEventsToSite([prepared])
   return { message, event: prepared }
 }
+
+/** Mark an event cancelled and publish — keeps the detail URL with a cancelled banner. */
+export async function cancelAndPublishEvent(
+  event: Event,
+): Promise<{ message: string; event: Event }> {
+  const edits = editableFieldsFromEvent(event)
+  edits.status = 'Cancelled'
+  if (!edits.tips.trim()) {
+    edits.tips = 'This activity was cancelled.'
+  }
+  return saveAndPublishEvent(event, edits)
+}

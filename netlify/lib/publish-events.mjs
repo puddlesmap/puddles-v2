@@ -60,7 +60,11 @@ function computeIsPast(date, startTime, endTime) {
 function enrichForPublic(event) {
   const rawStatus = String(event.status || '').trim()
   const status =
-    rawStatus === 'Hidden' || rawStatus === 'Draft' || rawStatus === 'Published' || rawStatus === 'Expired'
+    rawStatus === 'Hidden' ||
+    rawStatus === 'Draft' ||
+    rawStatus === 'Published' ||
+    rawStatus === 'Expired' ||
+    rawStatus === 'Cancelled'
       ? rawStatus
       : 'Published'
   const isPast = computeIsPast(event.date, event.startTime, event.endTime)

@@ -85,6 +85,7 @@ export function summarizePublishingCounts(events: AdminEventRecord[]) {
     published: countAdminEvents(events, { status: 'Published' }),
     draft: countAdminEvents(events, { status: 'Draft' }),
     hidden: countAdminEvents(events, { status: 'Hidden' }),
+    cancelled: countAdminEvents(events, { status: 'Cancelled' }),
     expired: countAdminEvents(events, { status: 'Expired' }),
     live: countAdminEvents(events, { isLive: true }),
     past: countAdminEvents(events, { isPast: true }),

@@ -10,12 +10,14 @@ interface AdminEventDetailPanelProps {
   event: AdminEventRecord
   busy?: boolean
   onSaveAndPublish?: (edits: AdminEventEditableFields) => void
+  onCancel?: () => void
 }
 
 export function AdminEventDetailPanel({
   event,
   busy = false,
   onSaveAndPublish,
+  onCancel,
 }: AdminEventDetailPanelProps) {
   const [draft, setDraft] = useState<AdminEventEditableFields>(() => editableFieldsFromEvent(event))
 
@@ -25,6 +27,9 @@ export function AdminEventDetailPanel({
 
   const saveDisabled =
     busy || !onSaveAndPublish || !draft.title.trim() || !draft.date.trim() || !draft.venue.trim()
+
+  const canCancel =
+    onCancel && event.status === 'Published' && !event.isPast
 
   return (
     <div className="admin-table-expand-panel" aria-label="Event details">
@@ -48,16 +53,28 @@ export function AdminEventDetailPanel({
         </p>
       </DetailSection>
 
-      {onSaveAndPublish ? (
+      {(onSaveAndPublish || onCancel) ? (
         <div className="admin-discovery-actions">
-          <button
-            type="button"
-            className="admin-btn admin-btn-primary"
-            disabled={saveDisabled}
-            onClick={() => onSaveAndPublish(draft)}
-          >
-            {busy ? 'Publishing…' : 'Save & publish'}
-          </button>
+          {onSaveAndPublish ? (
+            <button
+              type="button"
+              className="admin-btn admin-btn-primary"
+              disabled={saveDisabled}
+              onClick={() => onSaveAndPublish(draft)}
+            >
+              {busy ? 'Publishing…' : 'Save & publish'}
+            </button>
+          ) : null}
+          {canCancel ? (
+            <button
+              type="button"
+              className="admin-btn admin-btn-secondary"
+              disabled={busy}
+              onClick={onCancel}
+            >
+              {busy ? 'Cancelling…' : 'Cancel activity'}
+            </button>
+          ) : null}
           {event.eventUrl && event.eventUrl !== '#' ? (
             <a
               href={event.eventUrl}

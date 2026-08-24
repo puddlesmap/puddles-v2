@@ -31,7 +31,7 @@ export function getEventArchiveTime(
 
 /** Derived lifecycle — never persisted. */
 export function getEventLifecycleStatus(event: Event, now: Date = new Date()): EventLifecycleStatus {
-  if (isEventCancelledForLifecycle(event)) return 'cancelled'
+  if (event.status === 'Cancelled' || isEventCancelledForLifecycle(event)) return 'cancelled'
 
   const effectiveEnd = getEventEffectiveEndTime(event)
   if (!effectiveEnd) return 'upcoming'
@@ -50,8 +50,7 @@ export function isDiscoverableLifecycleEvent(event: Event, now: Date = new Date(
 }
 
 export function isLifecycleDetailAccessible(event: Event): boolean {
-  // Draft = never public; Hidden = intentionally removed. Both stay "unavailable".
-  // Published (upcoming) and Expired (past) detail URLs remain reachable.
+  // Draft / Hidden = unavailable. Cancelled keeps the detail URL with a cancelled banner.
   return event.status !== 'Draft' && event.status !== 'Hidden'
 }
 

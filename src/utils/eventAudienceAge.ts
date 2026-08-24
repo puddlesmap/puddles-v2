@@ -145,7 +145,7 @@ export interface OutOfAgeAudienceMatch {
 }
 
 export function findOutOfAgeAudienceMatch(event: Event): OutOfAgeAudienceMatch | null {
-  if (event.status === 'Hidden' || event.status === 'Expired') return null
+  if (event.status === 'Hidden' || event.status === 'Expired' || event.status === 'Cancelled') return null
 
   const scope = findOutsidePuddlesAgeScope(event)
   if (!scope) return null
