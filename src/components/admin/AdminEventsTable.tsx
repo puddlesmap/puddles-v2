@@ -6,6 +6,8 @@ import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
 import { isVerificationStale } from '../../utils/adminEvents'
 import type { DuplicateCluster } from '../../utils/eventDuplicates'
 import { eventDetailScore } from '../../utils/eventDuplicates'
+import type { AdminReviewFlag } from '../../utils/adminReviewFlags'
+import { ADMIN_REVIEW_FLAG_LABELS } from '../../utils/adminReviewFlags'
 import { AdminEventDetailPanel } from './AdminEventDetail'
 
 function StatusBadge({ status }: { status: EventStatus }) {
@@ -16,12 +18,14 @@ function StatusBadge({ status }: { status: EventStatus }) {
   )
 }
 
-function BoolBadge({ value, trueLabel, falseLabel }: { value: boolean; trueLabel: string; falseLabel: string }) {
-  return (
-    <span className={`admin-badge ${value ? 'admin-badge-yes' : 'admin-badge-no'}`}>
-      {value ? trueLabel : falseLabel}
-    </span>
-  )
+function LivePastBadge({ isLive, isPast }: { isLive: boolean; isPast: boolean }) {
+  if (isLive) {
+    return <span className="admin-badge admin-badge-yes">Live</span>
+  }
+  if (isPast) {
+    return <span className="admin-badge admin-badge-past">Past</span>
+  }
+  return <span className="admin-badge admin-badge-no">Not live</span>
 }
 
 function formatVerifiedDate(dateStr: string): string {
@@ -31,7 +35,7 @@ function formatVerifiedDate(dateStr: string): string {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 }
 
-const COLUMN_COUNT = 9
+const COLUMN_COUNT = 8
 
 interface AdminEventsTableProps {
   events: AdminEventRecord[]
@@ -55,6 +59,8 @@ interface AdminEventsTableProps {
   duplicateClusters?: DuplicateCluster[]
   busyClusterId?: string | null
   onKeepWinner?: (cluster: DuplicateCluster) => void
+  reviewFlagsByEventId?: Map<string, AdminReviewFlag[]>
+  onDismissFlag?: (flagId: string) => void
 }
 
 export function AdminEventsTable({
@@ -75,6 +81,8 @@ export function AdminEventsTable({
   duplicateClusters,
   busyClusterId = null,
   onKeepWinner,
+  reviewFlagsByEventId,
+  onDismissFlag,
 }: AdminEventsTableProps) {
   const checkedSet = useMemo(() => new Set(checkedIds), [checkedIds])
   const allVisibleChecked = events.length > 0 && events.every((event) => checkedSet.has(event.id))
@@ -133,7 +141,7 @@ export function AdminEventsTable({
                       <th>City</th>
                       <th>When</th>
                       <th>Status</th>
-                      <th>Live</th>
+                      <th>Site</th>
                       <th>Score</th>
                       <th>Approved on</th>
                       <th>Role</th>
@@ -174,7 +182,7 @@ export function AdminEventsTable({
                               <StatusBadge status={event.status} />
                             </td>
                             <td>
-                              <BoolBadge value={event.isLive} trueLabel="Live" falseLabel="Not live" />
+                              <LivePastBadge isLive={event.isLive} isPast={event.isPast} />
                             </td>
                             <td>{score}</td>
                             <td className="whitespace-nowrap">
@@ -271,8 +279,7 @@ export function AdminEventsTable({
             <col className="admin-col-city" />
             <col className="admin-col-when" />
             <col className="admin-col-status" />
-            <col className="admin-col-live" />
-            <col className="admin-col-past" />
+            <col className="admin-col-site" />
             <col className="admin-col-approved" />
             <col className="admin-col-actions" />
           </colgroup>
@@ -296,8 +303,7 @@ export function AdminEventsTable({
               <th className="admin-col-city">City</th>
               <th className="admin-col-when">When</th>
               <th className="admin-col-status">Status</th>
-              <th className="admin-col-live">Live</th>
-              <th className="admin-col-past">Past</th>
+              <th className="admin-col-site">Site</th>
               <th className="admin-col-approved" title="Same as Sheet Last Checked Date / Verified on Puddles">
                 Approved on
               </th>
@@ -313,6 +319,7 @@ export function AdminEventsTable({
               const canHide = event.status !== 'Hidden' && event.status !== 'Cancelled'
               const canCancel = onCancel && event.status === 'Published' && !event.isPast
               const approvedLabel = formatVerifiedDate(event.verifiedDate)
+              const reviewFlags = reviewFlagsByEventId?.get(event.id) ?? []
 
               return (
                 <Fragment key={event.id}>
@@ -353,8 +360,25 @@ export function AdminEventsTable({
                       </label>
                     </td>
                     <td className="admin-col-event">
-                      <div className="admin-event-title">{event.title}</div>
-                      <div className="admin-event-meta">{event.venue}</div>
+                      <div className="admin-event-title" title={event.title}>
+                        {event.title}
+                      </div>
+                      <div className="admin-event-meta" title={event.venue}>
+                        {event.venue}
+                      </div>
+                      {reviewFlags.length > 0 ? (
+                        <div className="admin-event-flag-tags">
+                          {reviewFlags.map((flag) => (
+                            <span
+                              key={flag.id}
+                              className={`admin-badge admin-review-flag-badge admin-review-flag-badge--${flag.type}`}
+                              title={flag.note}
+                            >
+                              {ADMIN_REVIEW_FLAG_LABELS[flag.type]}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
                     </td>
                     <td className="admin-col-city">{event.city}</td>
                     <td className="admin-col-when">
@@ -366,11 +390,8 @@ export function AdminEventsTable({
                     <td className="admin-col-status">
                       <StatusBadge status={event.status} />
                     </td>
-                    <td className="admin-col-live">
-                      <BoolBadge value={event.isLive} trueLabel="Live" falseLabel="Not live" />
-                    </td>
-                    <td className="admin-col-past">
-                      <BoolBadge value={event.isPast} trueLabel="Past" falseLabel="Upcoming" />
+                    <td className="admin-col-site">
+                      <LivePastBadge isLive={event.isLive} isPast={event.isPast} />
                     </td>
                     <td className="admin-table-last-checked admin-col-approved">
                       <div className="admin-last-checked">
@@ -429,6 +450,8 @@ export function AdminEventsTable({
                         <AdminEventDetailPanel
                           event={event}
                           busy={busyId === event.id}
+                          reviewFlags={reviewFlags.length > 0 ? reviewFlags : undefined}
+                          onDismissFlag={onDismissFlag}
                           onSaveAndPublish={
                             onSaveAndPublish ? (edits) => onSaveAndPublish(event, edits) : undefined
                           }

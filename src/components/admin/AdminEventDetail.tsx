@@ -3,21 +3,27 @@ import type { AdminEventRecord } from '../../types/admin'
 import type { AdminEventEditableFields } from '../../types/adminEventEdit'
 import { editableFieldsFromEvent } from '../../utils/adminEventEdit'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
+import type { AdminReviewFlag } from '../../utils/adminReviewFlags'
+import { ADMIN_REVIEW_FLAG_LABELS } from '../../utils/adminReviewFlags'
 import { DetailSection } from './AdminDetailGrid'
 import { AdminEventEditForm } from './AdminEventEditForm'
 
 interface AdminEventDetailPanelProps {
   event: AdminEventRecord
   busy?: boolean
+  reviewFlags?: AdminReviewFlag[]
   onSaveAndPublish?: (edits: AdminEventEditableFields) => void
   onCancel?: () => void
+  onDismissFlag?: (flagId: string) => void
 }
 
 export function AdminEventDetailPanel({
   event,
   busy = false,
+  reviewFlags,
   onSaveAndPublish,
   onCancel,
+  onDismissFlag,
 }: AdminEventDetailPanelProps) {
   const [draft, setDraft] = useState<AdminEventEditableFields>(() => editableFieldsFromEvent(event))
 
@@ -39,11 +45,47 @@ export function AdminEventDetailPanel({
         </span>
         {event.isLive ? (
           <span className="admin-badge admin-badge-yes">Live on site</span>
+        ) : event.isPast ? (
+          <span className="admin-badge admin-badge-past">Past</span>
         ) : (
           <span className="admin-badge admin-badge-no">Not live</span>
         )}
         <span className="text-sm text-muted">ID: {event.id}</span>
       </div>
+
+      {reviewFlags && reviewFlags.length > 0 ? (
+        <DetailSection title="Needs attention">
+          <ul className="admin-review-flag-detail-list">
+            {reviewFlags.map((flag) => (
+              <li key={flag.id} className="admin-review-flag-detail">
+                <div className="admin-review-flag__header">
+                  <span
+                    className={`admin-badge admin-review-flag-badge admin-review-flag-badge--${flag.type}`}
+                  >
+                    {ADMIN_REVIEW_FLAG_LABELS[flag.type]}
+                  </span>
+                  <span
+                    className={`admin-badge ${flag.severity === 'high' ? 'admin-badge-no' : 'admin-badge-status-draft'}`}
+                  >
+                    {flag.severity}
+                  </span>
+                </div>
+                <p className="admin-review-flag__note">{flag.note}</p>
+                <p className="admin-review-flag__evidence">{flag.evidence}</p>
+                {onDismissFlag ? (
+                  <button
+                    type="button"
+                    className="admin-btn admin-btn-secondary admin-review-flag-detail__dismiss"
+                    onClick={() => onDismissFlag(flag.id)}
+                  >
+                    Dismiss for now
+                  </button>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </DetailSection>
+      ) : null}
 
       <DetailSection title="Edit event">
         <AdminEventEditForm draft={draft} onChange={setDraft} busy={busy} />

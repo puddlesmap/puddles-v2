@@ -72,7 +72,8 @@
   --radius-pill: var(--radius-full);
   --layout-min: 320px;
   --layout-max: 1120px;
-  --layout-max-admin: 1520px;
+  /* Admin ops dashboard — a bit wider than the public site for dense tables */
+  --layout-max-admin: calc(var(--layout-max) + 10rem);
   --layout-padding-mobile: 16px;
   --layout-padding-tablet: 24px;
   --layout-padding-tablet-wide: 32px;
@@ -3247,24 +3248,18 @@ select.input-field,
   min-height: 100dvh;
   background: var(--color-surface-warm);
   color: var(--color-charcoal);
+  --admin-layout-gutter: max(
+    var(--layout-padding-mobile),
+    calc((100vw - min(var(--layout-max-admin), 100vw - 2 * var(--layout-padding-mobile))) / 2)
+  );
 }
 
 .admin-shell .layout-shell-wide {
-  width: 100%;
-  max-width: min(var(--layout-max-admin), calc(100vw - 1.5rem));
-  margin-inline: auto;
-}
-
-@media (min-width: 1024px) {
-  .admin-shell .layout-shell-wide {
-    max-width: min(var(--layout-max-admin), calc(100vw - 2rem));
-  }
-}
-
-@media (min-width: 1280px) {
-  .admin-shell .layout-shell-wide {
-    max-width: calc(100vw - 2.5rem);
-  }
+  box-sizing: border-box;
+  width: min(var(--layout-max-admin), calc(100vw - 2 * var(--admin-layout-gutter)));
+  max-width: none;
+  margin-inline: var(--admin-layout-gutter);
+  padding-bottom: 2rem;
 }
 
 .admin-section-nav {
@@ -3445,6 +3440,32 @@ select.input-field,
   margin: 0.35rem 0 0;
   font-size: 0.75rem;
   color: var(--color-muted);
+}
+
+.admin-event-flag-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+}
+
+.admin-review-flag-detail-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-review-flag-detail {
+  border: 1px solid #f3d5b3;
+  border-radius: var(--radius-card);
+  padding: 0.75rem 0.875rem;
+  background: #fffaf3;
+}
+
+.admin-review-flag-detail__dismiss {
+  margin-top: 0.5rem;
 }
 
 .admin-review-flag__actions {
@@ -4067,84 +4088,105 @@ select.input-field,
   gap: 0.25rem;
 }
 
-.admin-table:not(.admin-table-submissions) th:nth-child(1),
-.admin-table:not(.admin-table-submissions) td:nth-child(1) {
+.admin-table:not(.admin-table-submissions):not(.admin-table-events) th:nth-child(1),
+.admin-table:not(.admin-table-submissions):not(.admin-table-events) td:nth-child(1) {
   width: 22%;
 }
 
-.admin-table:not(.admin-table-submissions) th:nth-child(4),
-.admin-table:not(.admin-table-submissions) td:nth-child(4) {
+.admin-table:not(.admin-table-submissions):not(.admin-table-events) th:nth-child(4),
+.admin-table:not(.admin-table-submissions):not(.admin-table-events) td:nth-child(4) {
   width: 18%;
 }
 
-.admin-table:not(.admin-table-submissions) th:nth-child(7),
-.admin-table:not(.admin-table-submissions) td:nth-child(7) {
+.admin-table:not(.admin-table-submissions):not(.admin-table-events) th:nth-child(7),
+.admin-table:not(.admin-table-submissions):not(.admin-table-events) td:nth-child(7) {
   width: 15%;
   min-width: 7.5rem;
 }
 
-.admin-table:not(.admin-table-submissions) th:nth-child(8),
-.admin-table:not(.admin-table-submissions) td:nth-child(8) {
+.admin-table:not(.admin-table-submissions):not(.admin-table-events) th:nth-child(8),
+.admin-table:not(.admin-table-submissions):not(.admin-table-events) td:nth-child(8) {
   width: 8%;
   min-width: 4.5rem;
 }
 
-/* Events table — compact metadata columns, event title takes remaining space */
+/* Events table — spread columns across full width; event absorbs slack */
 .admin-table-events col.admin-col-event {
   width: auto;
 }
 
 .admin-table-events col.admin-col-city {
-  width: 5.25rem;
+  width: 10%;
 }
 
 .admin-table-events col.admin-col-when {
-  width: 7rem;
+  width: 13%;
 }
 
 .admin-table-events col.admin-col-status {
-  width: 5.25rem;
+  width: 8%;
 }
 
-.admin-table-events col.admin-col-live {
-  width: 4.25rem;
-}
-
-.admin-table-events col.admin-col-past {
-  width: 5rem;
+.admin-table-events col.admin-col-site {
+  width: 7%;
 }
 
 .admin-table-events col.admin-col-approved {
-  width: 8.5rem;
+  width: 15%;
 }
 
 .admin-table-events col.admin-col-actions {
-  width: 13.5rem;
+  width: 12.5rem;
 }
 
-.admin-table-events .admin-col-city,
-.admin-table-events .admin-col-when,
-.admin-table-events .admin-col-status,
-.admin-table-events .admin-col-live,
-.admin-table-events .admin-col-past {
-  padding-inline: 0.4rem;
-  white-space: nowrap;
+.admin-table-events th.admin-col-event,
+.admin-table-events td.admin-col-event {
+  overflow: hidden;
+}
+
+.admin-table-events .admin-event-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 1.35;
 }
 
 .admin-table-events .admin-col-city {
+  min-width: 6.75rem;
+  padding-inline: 0.55rem 0.85rem;
+  white-space: nowrap;
   font-size: 13px;
 }
 
 .admin-table-events .admin-col-when {
+  min-width: 8.75rem;
+  padding-inline: 0.65rem 0.55rem;
+  white-space: nowrap;
   font-size: 13px;
   line-height: 1.3;
 }
 
+.admin-table-events .admin-col-status,
+.admin-table-events .admin-col-site {
+  padding-inline: 0.55rem;
+  white-space: nowrap;
+}
+
+.admin-table-events .admin-col-approved {
+  padding-inline: 0.55rem;
+}
+
 .admin-table-events .admin-col-status .admin-badge,
-.admin-table-events .admin-col-live .admin-badge,
-.admin-table-events .admin-col-past .admin-badge {
+.admin-table-events .admin-col-site .admin-badge {
   font-size: 12px;
   padding: 0.15rem 0.45rem;
+}
+
+.admin-table-events .admin-table-actions-col {
+  width: 12.5rem;
+  max-width: 12.5rem;
+  padding-inline: 0.55rem 0.75rem;
 }
 
 .admin-table-last-checked {
@@ -4159,8 +4201,8 @@ select.input-field,
   max-width: 100%;
 }
 
-.admin-table:not(.admin-table-submissions) th:last-child,
-.admin-table:not(.admin-table-submissions) td:last-child {
+.admin-table:not(.admin-table-submissions):not(.admin-table-events) th:last-child,
+.admin-table:not(.admin-table-submissions):not(.admin-table-events) td:last-child {
   width: auto;
   min-width: 13.5rem;
 }
@@ -4346,6 +4388,11 @@ select.input-field,
 .admin-badge-no {
   background: #f3f4f6;
   color: #6b7280;
+}
+
+.admin-badge-past {
+  background: #e5e7eb;
+  color: #374151;
 }
 
 .admin-verified-stale {

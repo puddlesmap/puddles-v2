@@ -2,8 +2,6 @@ import type { AdminReviewFlag, AdminReviewFlagType } from '../../utils/adminRevi
 import {
   ADMIN_REVIEW_FLAG_LABELS,
 } from '../../utils/adminReviewFlags'
-import type { DuplicateCluster } from '../../utils/eventDuplicates'
-import type { Event } from '../../types/event'
 
 const TYPE_FILTERS: Array<{ key: 'all' | AdminReviewFlagType; label: string }> = [
   { key: 'all', label: 'All' },
@@ -13,18 +11,55 @@ const TYPE_FILTERS: Array<{ key: 'all' | AdminReviewFlagType; label: string }> =
   { key: 'field_mismatch', label: 'Mismatch' },
 ]
 
+interface AdminNeedsAttentionFiltersProps {
+  flags: AdminReviewFlag[]
+  typeFilter: 'all' | AdminReviewFlagType
+  onTypeFilterChange: (filter: 'all' | AdminReviewFlagType) => void
+}
+
+export function AdminNeedsAttentionFilters({
+  flags,
+  typeFilter,
+  onTypeFilterChange,
+}: AdminNeedsAttentionFiltersProps) {
+  return (
+    <div className="admin-needs-attention__filters" role="tablist" aria-label="Flag types">
+      {TYPE_FILTERS.map((filter) => {
+        const count =
+          filter.key === 'all'
+            ? flags.length
+            : flags.filter((flag) => flag.type === filter.key).length
+        return (
+          <button
+            key={filter.key}
+            type="button"
+            role="tab"
+            aria-selected={typeFilter === filter.key}
+            className={`admin-btn ${typeFilter === filter.key ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
+            onClick={() => onTypeFilterChange(filter.key)}
+          >
+            {filter.label}
+            {count > 0 ? ` (${count})` : ''}
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
 interface AdminNeedsAttentionInboxProps {
   flags: AdminReviewFlag[]
-  eventsById: Map<string, Event>
+  eventsById: Map<string, import('../../types/event').Event>
   typeFilter: 'all' | AdminReviewFlagType
   onTypeFilterChange: (filter: 'all' | AdminReviewFlagType) => void
   busyFlagId: string | null
-  onHideEvent: (event: Event, flagId: string) => void
-  onKeepWinner: (cluster: DuplicateCluster) => void
+  onHideEvent: (event: import('../../types/event').Event, flagId: string) => void
+  onKeepWinner: (cluster: import('../../utils/eventDuplicates').DuplicateCluster) => void
   onDismiss: (flagId: string) => void
-  resolveCluster: (flag: AdminReviewFlag) => DuplicateCluster | undefined
+  resolveCluster: (flag: AdminReviewFlag) => import('../../utils/eventDuplicates').DuplicateCluster | undefined
 }
 
+/** @deprecated Card inbox — Needs attention now uses AdminEventsTable. Kept for reference/tests. */
 export function AdminNeedsAttentionInbox({
   flags,
   eventsById,
@@ -40,27 +75,11 @@ export function AdminNeedsAttentionInbox({
 
   return (
     <div className="admin-needs-attention">
-      <div className="admin-needs-attention__filters" role="tablist" aria-label="Flag types">
-        {TYPE_FILTERS.map((filter) => {
-          const count =
-            filter.key === 'all'
-              ? flags.length
-              : flags.filter((flag) => flag.type === filter.key).length
-          return (
-            <button
-              key={filter.key}
-              type="button"
-              role="tab"
-              aria-selected={typeFilter === filter.key}
-              className={`admin-btn ${typeFilter === filter.key ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
-              onClick={() => onTypeFilterChange(filter.key)}
-            >
-              {filter.label}
-              {count > 0 ? ` (${count})` : ''}
-            </button>
-          )
-        })}
-      </div>
+      <AdminNeedsAttentionFilters
+        flags={flags}
+        typeFilter={typeFilter}
+        onTypeFilterChange={onTypeFilterChange}
+      />
 
       {visible.length === 0 ? (
         <div className="admin-empty">

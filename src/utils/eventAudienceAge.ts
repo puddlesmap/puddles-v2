@@ -15,8 +15,17 @@ const AGE_RANGE_PATTERNS: RegExp[] = [
 
 const AGE_PLUS_PATTERNS: RegExp[] = [
   /\bages?\s+(\d{1,2})\s*\+\b/gi,
-  /\b(\d{1,2})\s*\+\s*(?:year[\s-]*olds?|yo|yrs?|only)?\b/gi,
+  /\b(\d{1,2})\s*\+\s*(?:year[\s-]*olds?|yo|yrs?|only)\b/gi,
 ]
+
+/** "+days", "+hours", etc. — not an age band (common in SCCLD accessibility boilerplate). */
+const DURATION_AFTER_PLUS_RE =
+  /^\s*(?:days?|hours?|hrs?|weeks?|months?|minutes?|mins?|business\s+days?)\b/i
+
+function isLikelyAgePlusMention(text: string, match: RegExpExecArray): boolean {
+  const after = text.slice(match.index + match[0].length)
+  return !DURATION_AFTER_PLUS_RE.test(after)
+}
 
 function overlapsZeroToFive(min: number, max: number): boolean {
   return min <= 5 && max >= 0
@@ -57,6 +66,7 @@ export function extractAgeMentions(text: string): ParsedAgeMention[] {
     pattern.lastIndex = 0
     let match: RegExpExecArray | null
     while ((match = pattern.exec(text)) !== null) {
+      if (!isLikelyAgePlusMention(text, match)) continue
       const min = Number(match[1])
       if (!Number.isFinite(min) || min > 21) continue
       const phrase = match[0].trim()
