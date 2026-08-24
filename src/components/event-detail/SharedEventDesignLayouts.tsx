@@ -30,6 +30,7 @@ import {
 import { eventDetailUrl, isOfficialEventUrl } from '../../utils/eventPages'
 import { getEventCategoryTags } from '../../utils/eventImages'
 import { getEventModalAgeLabel } from '../../utils/ageRange'
+import { getEventAgeRecommendation } from '../../utils/eventAgeRecommendation'
 import { parseEventTips } from '../../utils/eventTips'
 import {
   getEventAddressLine,
@@ -175,9 +176,11 @@ function AirbnbV1CtaRail({
   presentation: ReturnType<typeof getEventPresentation>
 }) {
   const p = presentation
+  const ageLabel = getEventAgeRecommendation(event).label
   return (
     <aside className="sedl-airbnb-rail" aria-label="Save this activity">
       <p className="sedl-airbnb-rail__cost">{event.cost}</p>
+      {ageLabel ? <p className="sedl-airbnb-rail__age">{ageLabel}</p> : null}
       <p className="sedl-airbnb-rail__when">
         <RelativeDateLabel label={p.dateLabel} />
         {p.timeLabel ? (
@@ -646,6 +649,7 @@ function AirbnbV2Layout({
 }: Omit<SharedEventDesignLayoutProps, 'layout'>) {
   const p = getEventPresentation(event)
   const tipItems = parseEventTips(event.tips)
+  const ageLabel = getEventAgeRecommendation(event).label
 
   return (
     <div className="sedl sedl--airbnb-v2">
@@ -789,6 +793,7 @@ function AirbnbV2Layout({
           </p>
           <p className="sedl-v2-rail__venue">{event.venue || p.city}</p>
           <p className="sedl-v2-rail__cost">{event.cost}</p>
+          {ageLabel ? <p className="sedl-v2-rail__age">{ageLabel}</p> : null}
 
           <div className="sedl-v2-rail__actions event-modal-actions__ctas">
             <button

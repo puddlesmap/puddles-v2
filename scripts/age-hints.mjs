@@ -107,9 +107,31 @@ export function inferAgeRangeFromText(text) {
     }
   }
 
+  // “grades 3–7” / “grade 3 to 7” → ages ≈ grade + 5 (grade 3 ≈ age 8)
+  const grades = hay.match(/\bgrades?\s+(\d{1,2})\s*(?:[-–]|to)\s*(\d{1,2})\b/)
+  if (grades) {
+    const g1 = Number.parseInt(grades[1], 10)
+    const g2 = Number.parseInt(grades[2], 10)
+    if (Number.isFinite(g1) && Number.isFinite(g2) && g1 >= 0 && g2 >= 0 && g1 <= 12 && g2 <= 12) {
+      return bandsFromInclusive(Math.min(g1, g2) + 5, Math.max(g1, g2) + 5)
+    }
+  }
+
+  // “target age: 8–12” / “target ages 8 to 12 years”
+  const targetAge = hay.match(
+    /\btarget\s+ages?\s*:?\s*(\d{1,2})\s*(?:[-–]|to)\s*(\d{1,2})(?:\s*(?:years?|yrs?))?\b/,
+  )
+  if (targetAge) {
+    const a = Number.parseInt(targetAge[1], 10)
+    const b = Number.parseInt(targetAge[2], 10)
+    if (Number.isFinite(a) && Number.isFinite(b)) {
+      return bandsFromInclusive(Math.min(a, b), Math.max(a, b))
+    }
+  }
+
   // “recommended age is 2-8” / “ages 2–5” / “ages 0-12 months” / “for ages 0 to 5”
   const range = hay.match(
-    /\b(?:recommended\s+age(?:\s+is)?|best\s+for\s+ages?|for\s+ages?|ages?)\s*(?:is\s+)?(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s*(?:[-–]|to)\s*(\d+|one|two|three|four|five|six|seven|eight|nine|ten)(?:\s*(months?|mos?|years?|yrs?))?\b/,
+    /\b(?:recommended\s+age(?:\s+is)?|best\s+for\s+ages?|for\s+ages?|ages?)\s*(?:is\s+)?(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s*(?:[-–]|to)\s*(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)(?:\s*(months?|mos?|years?|yrs?))?\b/,
   )
   if (range) {
     let a = parseAgeToken(range[1])
@@ -172,6 +194,8 @@ export function isAgeTargetingSentence(sentence) {
   if (/\bearly\s+walkers?\b/.test(hay) && /\b\d+s\b/.test(hay)) return true
   if (/\b\d+s(?:\s*,\s*|\s+and\s+)\d+s\b/.test(hay)) return true
   if (/\brecommended\s+age\b/.test(hay)) return true
+  if (/\btarget\s+ages?\b/.test(hay) && /\d/.test(hay)) return true
+  if (/\bgrades?\s+\d/.test(hay)) return true
   if (/\bsuitable\s+for\s+children\b/.test(hay) && /\d/.test(hay)) return true
   if (/\b(?:for\s+)?ages?\s*\d+\s*\+/.test(hay)) return true
   if (/\btargeted\s+to\s+children\b/.test(hay) && /\bage\b/.test(hay)) return true
@@ -184,4 +208,70 @@ export function isAgeTargetingSentence(sentence) {
  */
 export function resolveAgeFromSheetAndText(description, tips = '') {
   return inferAgeRangeFromText([description, tips].filter(Boolean).join('\n'))
+}
+
+function isPublicAgeEligible(ageRange) {
+  const text = String(ageRange || '').trim()
+  if (!text) return true
+  if (/all\s*ages?/i.test(text)) return true
+  const buckets = new Set()
+  for (const part of text.split(/[,;]/)) {
+    const normalized = part.trim().toLowerCase().replace(/\s+/g, '')
+    if (normalized === '0-2' || normalized === '0–2') buckets.add('0-2')
+    if (normalized === '2-5' || normalized === '2–5') buckets.add('2-5')
+    if (normalized === '5+') buckets.add('5+')
+  }
+  if (buckets.size === 0) return true
+  if (buckets.has('0-2') && buckets.has('2-5') && buckets.has('5+')) return true
+  return buckets.has('0-2') || buckets.has('2-5')
+}
+
+function isOutOfZeroToFiveRange(min, max) {
+  if (!Number.isFinite(min) || !Number.isFinite(max)) return false
+  const low = Math.min(min, max)
+  const high = Math.max(min, max)
+  return !(low <= 5 && high >= 0)
+}
+
+/**
+ * Exclusive 5+ tags, older-only min/max, or copy naming ages outside 0–5.
+ * Used by discovery scrapers to skip non-curatable candidates.
+ */
+export function isOutsidePuddlesAgeScope(fields = {}) {
+  const ageRange = String(fields.ageRange ?? '').trim()
+  if (ageRange && !isPublicAgeEligible(ageRange)) return true
+
+  const min = fields.ageMin
+  const max = fields.ageMax
+  if (
+    typeof min === 'number' &&
+    typeof max === 'number' &&
+    Number.isFinite(min) &&
+    Number.isFinite(max) &&
+    isOutOfZeroToFiveRange(min, max)
+  ) {
+    return true
+  }
+
+  const text = [fields.title, fields.description, fields.tips].filter(Boolean).join('\n')
+  const hay = String(text || '')
+  const rangeMentions = [
+    ...hay.matchAll(/\bages?\s+(\d{1,2})\s*[-–—]\s*(\d{1,2})\b/gi),
+    ...hay.matchAll(/\b(\d{1,2})\s*[-–—]\s*(\d{1,2})\s*(?:year[\s-]*olds?|yo|yrs?)\b/gi),
+  ]
+  for (const match of rangeMentions) {
+    const a = Number(match[1])
+    const b = Number(match[2])
+    if (!Number.isFinite(a) || !Number.isFinite(b) || a > 21 || b > 21) continue
+    if (isOutOfZeroToFiveRange(Math.min(a, b), Math.max(a, b))) return true
+  }
+  const plusMentions = [
+    ...hay.matchAll(/\bages?\s+(\d{1,2})\s*\+/gi),
+    ...hay.matchAll(/\b(\d{1,2})\s*\+\s*(?:year[\s-]*olds?|yo|yrs?|only)?\b/gi),
+  ]
+  for (const match of plusMentions) {
+    const n = Number(match[1])
+    if (Number.isFinite(n) && n > 5 && n <= 21) return true
+  }
+  return false
 }

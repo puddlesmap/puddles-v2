@@ -115,9 +115,35 @@ export function inferAgeRangeFromText(text: string): InferredAge | null {
     }
   }
 
+  // “grades 3–7” / “grade 3 to 7” → ages ≈ grade + 5 (grade 3 ≈ age 8)
+  const grades = hay.match(
+    /\bgrades?\s+(\d{1,2})\s*(?:[-–]|to)\s*(\d{1,2})\b/,
+  )
+  if (grades) {
+    const g1 = Number.parseInt(grades[1], 10)
+    const g2 = Number.parseInt(grades[2], 10)
+    if (Number.isFinite(g1) && Number.isFinite(g2) && g1 >= 0 && g2 >= 0 && g1 <= 12 && g2 <= 12) {
+      const ageMin = Math.min(g1, g2) + 5
+      const ageMax = Math.max(g1, g2) + 5
+      return bandsFromInclusive(ageMin, ageMax)
+    }
+  }
+
+  // “target age: 8–12” / “target ages 8 to 12 years”
+  const targetAge = hay.match(
+    /\btarget\s+ages?\s*:?\s*(\d{1,2})\s*(?:[-–]|to)\s*(\d{1,2})(?:\s*(?:years?|yrs?))?\b/,
+  )
+  if (targetAge) {
+    const a = Number.parseInt(targetAge[1], 10)
+    const b = Number.parseInt(targetAge[2], 10)
+    if (Number.isFinite(a) && Number.isFinite(b)) {
+      return bandsFromInclusive(Math.min(a, b), Math.max(a, b))
+    }
+  }
+
   // “recommended age is 2-8” / “ages 2–5” / “ages 0-12 months” / “for ages 0 to 5”
   const range = hay.match(
-    /\b(?:recommended\s+age(?:\s+is)?|best\s+for\s+ages?|for\s+ages?|ages?)\s*(?:is\s+)?(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s*(?:[-–]|to)\s*(\d+|one|two|three|four|five|six|seven|eight|nine|ten)(?:\s*(months?|mos?|years?|yrs?))?\b/,
+    /\b(?:recommended\s+age(?:\s+is)?|best\s+for\s+ages?|for\s+ages?|ages?)\s*(?:is\s+)?(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s*(?:[-–]|to)\s*(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)(?:\s*(months?|mos?|years?|yrs?))?\b/,
   )
   if (range) {
     let a = parseAgeToken(range[1])
@@ -181,6 +207,8 @@ export function isAgeTargetingSentence(sentence: string): boolean {
   if (/\bearly\s+walkers?\b/.test(hay) && /\b\d+s\b/.test(hay)) return true
   if (/\b\d+s(?:\s*,\s*|\s+and\s+)\d+s\b/.test(hay)) return true
   if (/\brecommended\s+age\b/.test(hay)) return true
+  if (/\btarget\s+ages?\b/.test(hay) && /\d/.test(hay)) return true
+  if (/\bgrades?\s+\d/.test(hay)) return true
   if (/\bsuitable\s+for\s+children\b/.test(hay) && /\d/.test(hay)) return true
   if (/\b(?:for\s+)?ages?\s*\d+\s*\+/.test(hay)) return true
   if (/\btargeted\s+to\s+children\b/.test(hay) && /\bage\b/.test(hay)) return true

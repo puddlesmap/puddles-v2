@@ -59,6 +59,14 @@
   min-height: 5.75rem;
 }
 
+.browse-page-shell--experiment .discovery-event-meta,
+.home-experiment-page--refined .discovery-event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
 .browse-page-shell--experiment .discovery-event-datetime,
 .home-experiment-page--refined .discovery-event-datetime {
   margin: 0;
@@ -71,6 +79,19 @@
   color: #686868;
   min-height: 1.25em;
   max-height: 1.25em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.browse-page-shell--experiment .discovery-event-age,
+.home-experiment-page--refined .discovery-event-age {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #686868;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

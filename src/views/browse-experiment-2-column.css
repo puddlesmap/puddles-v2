@@ -91,6 +91,13 @@
   background: #ffffff;
 }
 
+.browse-page-shell--experiment-2-column .discovery-event-card--compact-grid .discovery-event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
 .browse-page-shell--experiment-2-column .discovery-event-card--compact-grid .discovery-event-datetime {
   margin: 0;
   font-size: 11px;
@@ -98,6 +105,17 @@
   line-height: 1.2;
   letter-spacing: 0.01em;
   text-transform: uppercase;
+  color: #686868;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.browse-page-shell--experiment-2-column .discovery-event-card--compact-grid .discovery-event-age {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
   color: #686868;
   white-space: nowrap;
   overflow: hidden;

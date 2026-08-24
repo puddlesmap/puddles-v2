@@ -5,6 +5,7 @@ import type {
   DiscoveryViewFilter,
 } from '../types/discovery'
 import { inferAgeRangeFromText, isAgeTargetingSentence } from '../utils/discoveryAgeHints'
+import { isOutsidePuddlesAgeScope } from '../utils/eventAudienceAge'
 import { pacificTodayYmd } from '../utils/discoveryReview'
 import { computeIsPast } from '../utils/publishing'
 
@@ -52,10 +53,18 @@ function withInferredAges(candidate: DiscoveryCandidate): DiscoveryCandidate {
   }
 }
 
+/** Pending candidates outside ages 0–5 are auto-dismissed so they are not approveable. */
+function withAgeScopeGate(candidate: DiscoveryCandidate): DiscoveryCandidate {
+  const withAges = withInferredAges(candidate)
+  if (withAges.reviewStatus !== 'pending') return withAges
+  if (!isOutsidePuddlesAgeScope(withAges)) return withAges
+  return { ...withAges, reviewStatus: 'dismissed' }
+}
+
 /** Upcoming discovery queue only — past sessions are dropped automatically. */
 export const ALL_DISCOVERY_CANDIDATES: DiscoveryCandidate[] = DISCOVERY_CATALOG.candidates
   .map((candidate) =>
-    withInferredAges({
+    withAgeScopeGate({
       ...candidate,
       types: Array.isArray(candidate.types) ? candidate.types : [],
       categoryTags: Array.isArray(candidate.categoryTags) ? candidate.categoryTags : [],

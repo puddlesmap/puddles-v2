@@ -197,7 +197,7 @@ for (const line of dataLines) {
 
   raw.push({
     title,
-    description: description.slice(0, 300),
+    description,
     venue,
     address: geo.address,
     city: geo.city,

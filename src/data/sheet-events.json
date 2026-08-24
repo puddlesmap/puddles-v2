@@ -2764,7 +2764,7 @@
   {
     "id": "magical-bridge-storytime-magical-bridge-playground-at-rengstorff-park-2026-07-23-10-00",
     "title": "Magical Bridge Storytime",
-    "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Rengstorff Park! Enjoy a fun-filled storytime at the Magical Bridge Playground, and take advantage of full library services...",
+    "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Rengstorff Park! Enjoy a fun-filled storytime at the Magical Bridge Playground, and take advantage of full library services available from 10:00–11:00 a.m.\n\nEvents are weather permitting.\nFind us at 201 S. Rengstorff Ave, Mountain View, CA 94040.",
     "venue": "Magical Bridge Playground at Rengstorff Park",
     "address": "201 S. Rengstorff Ave, Mountain View, CA 94040",
     "city": "Mountain View",
@@ -5902,7 +5902,7 @@
   {
     "id": "magical-bridge-storytime-magical-bridge-playground-at-rengstorff-park-2026-08-13-10-00",
     "title": "Magical Bridge Storytime",
-    "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Rengstorff Park! Enjoy a fun-filled storytime at the Magical Bridge Playground, and take advantage of full library services...",
+    "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Rengstorff Park! Enjoy a fun-filled storytime at the Magical Bridge Playground, and take advantage of full library services available from 10:00–11:00 a.m.\n\nEvents are weather permitting.\nFind us at 201 S. Rengstorff Ave, Mountain View, CA 94040.",
     "venue": "Magical Bridge Playground at Rengstorff Park",
     "address": "201 S. Rengstorff Ave, Mountain View, CA 94040",
     "city": "Mountain View",
@@ -7124,7 +7124,7 @@
   {
     "id": "magical-bridge-storytime-magical-bridge-playground-at-rengstorff-park-2026-08-27-10-00",
     "title": "Magical Bridge Storytime",
-    "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Rengstorff Park! Enjoy a fun-filled storytime at the Magical Bridge Playground, and take advantage of full library services...",
+    "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Rengstorff Park! Enjoy a fun-filled storytime at the Magical Bridge Playground, and take advantage of full library services available from 10:00–11:00 a.m.\n\nEvents are weather permitting.\nFind us at 201 S. Rengstorff Ave, Mountain View, CA 94040.",
     "venue": "Magical Bridge Playground at Rengstorff Park",
     "address": "201 S. Rengstorff Ave, Mountain View, CA 94040",
     "city": "Mountain View",
@@ -8733,24 +8733,25 @@
     "date": "2026-09-13",
     "startTime": "16:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "5+",
+    "ageMin": 8,
+    "ageMax": 12,
     "types": [
       "Other"
     ],
     "categoryTags": [
       "Other"
     ],
-    "cost": "Free",
+    "cost": "$27",
     "imageUrl": "https://cdn.shoplightspeed.com/shops/611345/files/76427608/raina-telgemeier-gale-galligan-sunday-september-13.jpg",
     "eventUrl": "https://www.lindentreebooks.com/bsc",
     "verifiedDate": "2026-07-02",
     "lat": 37.4013,
     "lng": -122.1327,
-    "status": "Published",
+    "status": "Hidden",
     "isPast": false,
-    "isLive": true
+    "isLive": false,
+    "tips": "Tickets required. Best for ages 8–12 (grades 3–7). Outside Puddles ages 0–5 — keep Status Hidden in the Sheet."
   },
   {
     "id": "699f624cb0595799c09f604d",
@@ -9523,8 +9524,8 @@
   {
     "id": "disc-author-event-celebrate-the-mooncake-fest-2026-09-23-6a6cdceee30fe4845965ed72",
     "title": "Author Event: Celebrate the Mooncake Festival with Jasmine Fang",
-    "description": "Join us for a special event featuring children's author Jasmine Fang! Jasmine will read her debut picture book, Beneath the Same Round Moon, then lead participants through a craft activity in celebration of the Autumn Moon Festival. Participants will have the chance to win a copy of Beneath the Same Round Moon (must be present to win!) . There will be an author signing at the conclusion of the program. Linden Tree Books will be providing copies of Jasmine's book to purchase. Jasmine Fang is the ",
-    "tips": "Space is limited (50 seats) — check the official page for registration.",
+    "description": "Join us for a special event featuring children's author Jasmine Fang! Jasmine will read her debut picture book, Beneath the Same Round Moon, then lead participants through a craft activity in celebration of the Autumn Moon Festival. Participants will have the chance to win a copy of Beneath the Same Round Moon (must be present to win!).\n\nThere will be an author signing at the conclusion of the program. Linden Tree Books will be providing copies of Jasmine's book to purchase.\n\nJasmine Fang is the author of Beneath the Same Round Moon (Beaming Books, September 2026) and the forthcoming Our Chinatown Market (Penguin Viking, Spring 2028). A former government and higher education professional turned author, she draws on a decade of work and travel across 30+ countries, and a lifelong love of story, to write books rooted in heart and wonder. Jasmine now lives in the San Francisco Bay Area with her husband and children. Find her online at jasmineifang.com or on Instagram @jasmineifang.",
+    "tips": "Ages 3+. Space is limited (50 seats) — check the official page for registration.",
     "venue": "Children's Library",
     "room": "Secret Garden",
     "address": "1276  Harriet Street, Palo Alto, CA 94301",
@@ -9533,8 +9534,8 @@
     "startTime": "14:00",
     "endTime": "15:00",
     "ageRange": "2–5, 5+",
-    "ageMin": 2,
-    "ageMax": 5,
+    "ageMin": 3,
+    "ageMax": 12,
     "types": [
       "Social & Play"
     ],
