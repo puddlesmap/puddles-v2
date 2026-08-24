@@ -264,17 +264,17 @@ export function AdminEventsTable({
       )}
 
       <div className="admin-table-wrap">
-        <table className="admin-table">
+        <table className="admin-table admin-table-events">
           <colgroup>
             <col className="admin-col-check-col" />
-            <col />
-            <col />
-            <col />
-            <col />
-            <col />
-            <col />
-            <col />
-            <col />
+            <col className="admin-col-event" />
+            <col className="admin-col-city" />
+            <col className="admin-col-when" />
+            <col className="admin-col-status" />
+            <col className="admin-col-live" />
+            <col className="admin-col-past" />
+            <col className="admin-col-approved" />
+            <col className="admin-col-actions" />
           </colgroup>
           <thead>
             <tr>
@@ -292,14 +292,16 @@ export function AdminEventsTable({
                   />
                 </label>
               </th>
-              <th>Event</th>
-              <th>City</th>
-              <th>When</th>
-              <th>Status</th>
-              <th>Live</th>
-              <th>Past</th>
-              <th title="Same as Sheet Last Checked Date / Verified on Puddles">Approved on</th>
-              <th className="admin-table-actions-col">Actions</th>
+              <th className="admin-col-event">Event</th>
+              <th className="admin-col-city">City</th>
+              <th className="admin-col-when">When</th>
+              <th className="admin-col-status">Status</th>
+              <th className="admin-col-live">Live</th>
+              <th className="admin-col-past">Past</th>
+              <th className="admin-col-approved" title="Same as Sheet Last Checked Date / Verified on Puddles">
+                Approved on
+              </th>
+              <th className="admin-table-actions-col admin-col-actions">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -350,27 +352,27 @@ export function AdminEventsTable({
                         />
                       </label>
                     </td>
-                    <td>
+                    <td className="admin-col-event">
                       <div className="admin-event-title">{event.title}</div>
                       <div className="admin-event-meta">{event.venue}</div>
                     </td>
-                    <td>{event.city}</td>
-                    <td>
+                    <td className="admin-col-city">{event.city}</td>
+                    <td className="admin-col-when">
                       <div className="whitespace-nowrap">{formatEventDate(event.date)}</div>
                       <div className="admin-event-meta whitespace-nowrap">
                         {formatEventTimeRange(event.startTime, event.endTime)}
                       </div>
                     </td>
-                    <td>
+                    <td className="admin-col-status">
                       <StatusBadge status={event.status} />
                     </td>
-                    <td>
+                    <td className="admin-col-live">
                       <BoolBadge value={event.isLive} trueLabel="Live" falseLabel="Not live" />
                     </td>
-                    <td>
+                    <td className="admin-col-past">
                       <BoolBadge value={event.isPast} trueLabel="Past" falseLabel="Upcoming" />
                     </td>
-                    <td className="admin-table-last-checked">
+                    <td className="admin-table-last-checked admin-col-approved">
                       <div className="admin-last-checked">
                         <span className={stale ? 'admin-verified-stale' : ''}>
                           {approvedLabel === '—' ? '—' : `Approved on ${approvedLabel}`}

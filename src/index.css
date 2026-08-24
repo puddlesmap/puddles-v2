@@ -4089,6 +4089,64 @@ select.input-field,
   min-width: 4.5rem;
 }
 
+/* Events table — compact metadata columns, event title takes remaining space */
+.admin-table-events col.admin-col-event {
+  width: auto;
+}
+
+.admin-table-events col.admin-col-city {
+  width: 5.25rem;
+}
+
+.admin-table-events col.admin-col-when {
+  width: 7rem;
+}
+
+.admin-table-events col.admin-col-status {
+  width: 5.25rem;
+}
+
+.admin-table-events col.admin-col-live {
+  width: 4.25rem;
+}
+
+.admin-table-events col.admin-col-past {
+  width: 5rem;
+}
+
+.admin-table-events col.admin-col-approved {
+  width: 8.5rem;
+}
+
+.admin-table-events col.admin-col-actions {
+  width: 13.5rem;
+}
+
+.admin-table-events .admin-col-city,
+.admin-table-events .admin-col-when,
+.admin-table-events .admin-col-status,
+.admin-table-events .admin-col-live,
+.admin-table-events .admin-col-past {
+  padding-inline: 0.4rem;
+  white-space: nowrap;
+}
+
+.admin-table-events .admin-col-city {
+  font-size: 13px;
+}
+
+.admin-table-events .admin-col-when {
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.admin-table-events .admin-col-status .admin-badge,
+.admin-table-events .admin-col-live .admin-badge,
+.admin-table-events .admin-col-past .admin-badge {
+  font-size: 12px;
+  padding: 0.15rem 0.45rem;
+}
+
 .admin-table-last-checked {
   overflow: hidden;
 }
