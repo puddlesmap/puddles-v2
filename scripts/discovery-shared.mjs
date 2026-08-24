@@ -315,6 +315,83 @@ export function sortCandidates(candidates) {
   return candidates
 }
 
+export const DISCOVERY_ADMIN_PATH = join(rootDir, 'src/data/discovery-candidates.json')
+
+export function normalizeDiscoveryEventUrl(url) {
+  return String(url || '').trim().replace(/\/$/, '')
+}
+
+export function indexDiscoveryCandidatesByIdentity(candidates) {
+  const byId = new Map()
+  const byUrl = new Map()
+  for (const candidate of candidates) {
+    if (candidate?.id) byId.set(candidate.id, candidate)
+    const normalizedUrl = normalizeDiscoveryEventUrl(candidate?.eventUrl)
+    if (normalizedUrl) byUrl.set(normalizedUrl, candidate)
+  }
+  return { byId, byUrl }
+}
+
+export function findPreviousDiscoveryCandidate(candidate, index) {
+  if (!candidate) return null
+  return (
+    index.byId.get(candidate.id) ||
+    index.byUrl.get(normalizeDiscoveryEventUrl(candidate.eventUrl)) ||
+    null
+  )
+}
+
+/** Keep Admin review fields when re-scraping the same library event. */
+export function mergeDiscoveryCandidateReviewFields(fresh, previous) {
+  if (!previous) {
+    return {
+      ...fresh,
+      reviewStatus: fresh.reviewStatus ?? 'pending',
+      convertedEventId: fresh.convertedEventId ?? '',
+      lastChecked: fresh.lastChecked ?? '',
+    }
+  }
+  return {
+    ...fresh,
+    reviewStatus: previous.reviewStatus ?? fresh.reviewStatus ?? 'pending',
+    convertedEventId: previous.convertedEventId ?? fresh.convertedEventId ?? '',
+    lastChecked: previous.lastChecked ?? fresh.lastChecked ?? '',
+  }
+}
+
+export function mergeDiscoveryCandidatesPreservingReview(freshCandidates, existingCandidates = []) {
+  const index = indexDiscoveryCandidatesByIdentity(existingCandidates)
+  return freshCandidates.map((candidate) =>
+    mergeDiscoveryCandidateReviewFields(
+      candidate,
+      findPreviousDiscoveryCandidate(candidate, index),
+    ),
+  )
+}
+
+export function loadExistingDiscoveryCandidates(adminPath = DISCOVERY_ADMIN_PATH) {
+  try {
+    const prev = JSON.parse(readFileSync(adminPath, 'utf8'))
+    return Array.isArray(prev.candidates) ? prev.candidates : []
+  } catch {
+    return []
+  }
+}
+
+export function summarizeDiscoveryCandidateStats(candidates) {
+  return {
+    candidates: candidates.length,
+    alreadyOnPuddles: candidates.filter((c) => c.alreadyOnPuddles).length,
+    newForReview: candidates.filter((c) => !c.alreadyOnPuddles).length,
+    bySource: Object.fromEntries(
+      [...new Set(candidates.map((c) => c.source))].map((source) => [
+        source,
+        candidates.filter((c) => c.source === source).length,
+      ]),
+    ),
+  }
+}
+
 /**
  * Write dated review files under data/discovery/ and optionally merge into
  * src/data/discovery-candidates.json (replacing candidates with the same source).
@@ -365,14 +442,10 @@ export function writeDiscoveryOutputs({
     const kept = existing
       .filter((c) => !replaceSet.has(c.source))
       .filter((c) => !isOutsidePuddlesAgeScope(c))
+    const previousForSource = existing.filter((c) => replaceSet.has(c.source))
     const mergedCandidates = [
       ...kept,
-      ...candidates.map((c) => ({
-        ...c,
-        reviewStatus: c.reviewStatus ?? 'pending',
-        convertedEventId: c.convertedEventId ?? '',
-        lastChecked: c.lastChecked ?? '',
-      })),
+      ...mergeDiscoveryCandidatesPreservingReview(candidates, previousForSource),
     ]
     mergedCandidates.sort(
       (a, b) =>

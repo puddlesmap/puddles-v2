@@ -43,6 +43,24 @@ npm run discover:mountain-view -- --days=30
 
 Writes dated CSV/JSON under `data/discovery/` **and** the Admin queue at `src/data/discovery-candidates.json`.
 
+### Scheduled refresh (GitHub Actions)
+
+Workflow: [`.github/workflows/discover-bay-area.yml`](../.github/workflows/discover-bay-area.yml)
+
+| Trigger | When |
+|---|---|
+| **Manual** | GitHub → Actions → “Discover bay area libraries” → Run workflow |
+| ~~Cron~~ | Not enabled yet — add `schedule` after manual runs look good in Admin |
+
+Each run:
+
+1. `npm run discover:bay-area -- --days=60` (default in CI)
+2. Merges into `discovery-candidates.json` and **preserves** `reviewStatus` / `convertedEventId` / `lastChecked` for matching events
+3. `npm run build` — fail early if data breaks the app
+4. Commit + push → Netlify deploy (~2–4 min) → review in **Admin → Discovery**
+
+To enable weekly auto-refresh later, uncomment a Sunday cron in that workflow (Phase 1 roadmap).
+
 | Script | Source |
 |--------|--------|
 | `discover:palo-alto` | Palo Alto Library · BiblioCommons |

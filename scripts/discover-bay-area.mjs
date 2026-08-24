@@ -12,10 +12,14 @@ import { fileURLToPath } from 'node:url'
 import { discoverLosAltos } from './discover-los-altos.mjs'
 import { discoverMountainView } from './discover-mountain-view.mjs'
 import {
+  loadExistingDiscoveryCandidates,
+  mergeDiscoveryCandidatesPreservingReview,
   parseArgs,
   pacificTodayYmd,
   rootDir,
   sortCandidates,
+  summarizeDiscoveryCandidateStats,
+  DISCOVERY_ADMIN_PATH,
 } from './discovery-shared.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -58,19 +62,25 @@ async function main() {
   const mv = await discoverMountainView({ days, writeAdmin: false })
   const pa = loadCityPayload('palo-alto', startYmd)
 
-  const candidates = sortCandidates([
+  const scraped = sortCandidates([
     ...(pa.candidates || []),
     ...(la.candidates || []),
     ...(mv.candidates || []),
-  ]).map((c) => ({
-    ...c,
-    reviewStatus: 'pending',
-    convertedEventId: '',
-    lastChecked: '',
-  }))
+  ])
+
+  const existing = loadExistingDiscoveryCandidates()
+  const candidates = mergeDiscoveryCandidatesPreservingReview(scraped, existing)
 
   const already = candidates.filter((c) => c.alreadyOnPuddles)
   const newOnly = candidates.filter((c) => !c.alreadyOnPuddles)
+  const preservedReview = candidates.filter((scrapedRow) => {
+    const prev = existing.find(
+      (row) =>
+        row.id === scrapedRow.id ||
+        row.eventUrl?.replace(/\/$/, '') === scrapedRow.eventUrl?.replace(/\/$/, ''),
+    )
+    return prev && prev.reviewStatus !== 'pending' && prev.reviewStatus === scrapedRow.reviewStatus
+  }).length
 
   const adminPayload = {
     generatedAt: new Date().toISOString(),
@@ -78,9 +88,8 @@ async function main() {
     sources: SOURCES,
     window: { start: startYmd, end: pa.window?.end || la.window?.end, days },
     stats: {
-      candidates: candidates.length,
-      alreadyOnPuddles: already.length,
-      newForReview: newOnly.length,
+      ...summarizeDiscoveryCandidateStats(candidates),
+      preservedReview,
       bySource: Object.fromEntries(
         SOURCES.map((source) => [source, candidates.filter((c) => c.source === source).length]),
       ),
@@ -93,7 +102,7 @@ async function main() {
     candidates,
   }
 
-  const adminPath = join(rootDir, 'src/data/discovery-candidates.json')
+  const adminPath = DISCOVERY_ADMIN_PATH
   writeFileSync(adminPath, `${JSON.stringify(adminPayload, null, 2)}\n`)
 
   const combinedPath = join(rootDir, 'data/discovery', `bay-area-${startYmd}.json`)
@@ -104,6 +113,9 @@ async function main() {
   console.log(`  Candidates:          ${candidates.length}`)
   console.log(`  Already on Puddles:  ${already.length}`)
   console.log(`  New for review:      ${newOnly.length}`)
+  if (preservedReview > 0) {
+    console.log(`  Preserved review:    ${preservedReview} (approved/dismissed/live)`)
+  }
   for (const source of SOURCES) {
     const rows = candidates.filter((c) => c.source === source)
     const neu = rows.filter((c) => !c.alreadyOnPuddles).length
