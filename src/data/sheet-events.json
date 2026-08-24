@@ -7176,10 +7176,11 @@
     "verifiedDate": "2026-06-30",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Stories"
+    "status": "Cancelled",
+    "isPast": true,
+    "isLive": false,
+    "sheetTypesRaw": "Stories",
+    "tips": "This activity was cancelled."
   },
   {
     "id": "69b835d42866a5b488426c02",
