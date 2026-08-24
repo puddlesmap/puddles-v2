@@ -268,6 +268,13 @@
   min-height: 0;
 }
 
+.browse-content .discovery-event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
 .browse-content .discovery-event-datetime {
   margin: 0;
   font-family: var(--font-sans);
@@ -279,6 +286,19 @@
   color: #686868;
   min-height: 1.25em;
   max-height: 1.25em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.browse-content .discovery-event-age {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: #686868;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -629,6 +649,18 @@
   line-height: 1.25;
   letter-spacing: 0;
   text-transform: none;
+  color: #5a5a5a;
+}
+
+.browse-page-shell .card-listing--map-grid .card-listing-age,
+.browse-page-shell .card-listing--map-grid .discovery-event-age,
+.browse-page-shell .card-listing--map-preview-sheet .card-listing-age,
+.browse-page-shell .card-listing--map-preview-sheet .discovery-event-age {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
   color: #5a5a5a;
 }
 

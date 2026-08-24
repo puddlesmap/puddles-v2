@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 import {
   inferAgeRangeFromText,
   isAgeTargetingSentence,
+  isOutsidePuddlesAgeScope,
 } from './age-hints.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -147,7 +148,7 @@ export function extractTipsFromText(plainDescription, registrationTips = []) {
 }
 
 export function descriptionWithoutTips(plainDescription, tipsText) {
-  if (!tipsText) return plainDescription.slice(0, 500)
+  if (!tipsText) return plainDescription
   const tipKeys = tipsText
     .split('\n')
     .map((t) => t.toLowerCase().replace(/\.$/, '').slice(0, 40))
@@ -155,7 +156,7 @@ export function descriptionWithoutTips(plainDescription, tipsText) {
     const key = sentence.toLowerCase().slice(0, 40)
     return !tipKeys.some((tip) => key.includes(tip.slice(0, 30)) || tip.includes(key.slice(0, 30)))
   })
-  return (kept.length ? kept.join(' ') : plainDescription).slice(0, 500)
+  return kept.length ? kept.join(' ') : plainDescription
 }
 
 /**
@@ -330,17 +331,30 @@ export function writeDiscoveryOutputs({
   const jsonPath = join(outDir, `${fileStem}-${stamp}.json`)
   const csvPath = join(outDir, `${fileStem}-${stamp}.csv`)
   const newCsvPath = join(outDir, `${fileStem}-${stamp}-new-only.csv`)
-  const candidates = payload.candidates || []
+  const rawCandidates = payload.candidates || []
+  const skippedOutOfAge = rawCandidates.filter((c) => isOutsidePuddlesAgeScope(c))
+  const candidates = rawCandidates.filter((c) => !isOutsidePuddlesAgeScope(c))
+  if (skippedOutOfAge.length > 0) {
+    console.log(
+      `  Skipped ${skippedOutOfAge.length} candidate(s) outside Puddles ages 0–5`,
+    )
+  }
   const newOnly = candidates.filter((c) => !c.alreadyOnPuddles)
 
-  writeFileSync(jsonPath, JSON.stringify(payload, null, 2))
+  const filteredPayload = { ...payload, candidates }
+
+  writeFileSync(jsonPath, JSON.stringify(filteredPayload, null, 2))
   writeFileSync(csvPath, toCsv(candidates))
   writeFileSync(newCsvPath, toCsv(newOnly))
 
   let adminPath = ''
   if (writeAdmin) {
     adminPath = join(rootDir, 'src/data/discovery-candidates.json')
-    const replaceSet = new Set(sourcesToReplace.length ? sourcesToReplace : [...new Set(candidates.map((c) => c.source))])
+    const replaceSet = new Set(
+      sourcesToReplace.length
+        ? sourcesToReplace
+        : [...new Set(rawCandidates.map((c) => c.source))],
+    )
     let existing = []
     try {
       const prev = JSON.parse(readFileSync(adminPath, 'utf8'))
@@ -348,7 +362,9 @@ export function writeDiscoveryOutputs({
     } catch {
       existing = []
     }
-    const kept = existing.filter((c) => !replaceSet.has(c.source))
+    const kept = existing
+      .filter((c) => !replaceSet.has(c.source))
+      .filter((c) => !isOutsidePuddlesAgeScope(c))
     const mergedCandidates = [
       ...kept,
       ...candidates.map((c) => ({

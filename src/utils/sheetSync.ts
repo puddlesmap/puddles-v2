@@ -400,7 +400,7 @@ function mapRecord(record: Record<string, string>): Event | null {
   return enrichPublishingFields({
     id: deriveEventId(record),
     title,
-    description: descriptionFull.slice(0, 500),
+    description: descriptionFull,
     ...(tips ? { tips } : {}),
     venue,
     ...(room ? { room } : {}),

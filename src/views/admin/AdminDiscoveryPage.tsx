@@ -10,6 +10,7 @@ import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryViewFilter }
 import { findMatchingEventIdsForCandidate, enrichCandidatesWithSiteVerifiedDates } from '../../utils/discoveryMatchEvents'
 import {
   approveDiscoveryLocally,
+  assertDiscoveryAgeInScope,
   ensureAdminEventsCacheSeeded,
   loadWriteSheetPreference,
   prepareGoLiveEvents,
@@ -205,6 +206,14 @@ export function AdminDiscoveryPage() {
     const lastChecked = pacificTodayYmd()
     const payloadEdits = { ...edits, lastChecked }
     const isExisting = candidate.alreadyOnPuddles
+
+    try {
+      assertDiscoveryAgeInScope(candidate, payloadEdits)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Outside Puddles ages 0–5.'
+      setActionMessage({ type: 'error', text: message })
+      return
+    }
 
     if (isExisting) {
       const ok = window.confirm(

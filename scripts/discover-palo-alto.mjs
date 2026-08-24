@@ -268,7 +268,7 @@ function extractTips(def, plainDescription) {
 
 /** Keep description as the activity pitch; drop sentences already used as tips. */
 function descriptionWithoutTips(plainDescription, tipsText) {
-  if (!tipsText) return plainDescription.slice(0, 500)
+  if (!tipsText) return plainDescription
   const tipKeys = tipsText
     .split('\n')
     .map((t) => t.toLowerCase().replace(/\.$/, '').slice(0, 40))
@@ -276,8 +276,7 @@ function descriptionWithoutTips(plainDescription, tipsText) {
     const key = sentence.toLowerCase().slice(0, 40)
     return !tipKeys.some((tip) => key.includes(tip.slice(0, 30)) || tip.includes(key.slice(0, 30)))
   })
-  const text = (kept.length ? kept.join(' ') : plainDescription).slice(0, 500)
-  return text
+  return kept.length ? kept.join(' ') : plainDescription
 }
 
 function resolveImageUrl(def, entities) {

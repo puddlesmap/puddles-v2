@@ -102,7 +102,7 @@ function mapRecord(record) {
   return {
     id: deriveEventId(record),
     title,
-    description: descriptionFull.slice(0, 500),
+    description: descriptionFull,
     ...(tips ? { tips } : {}),
     venue,
     ...(room ? { room } : {}),

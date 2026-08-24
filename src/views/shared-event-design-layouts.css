@@ -266,6 +266,13 @@
   font-weight: 700;
 }
 
+.sedl-airbnb-rail__age {
+  margin: -0.45rem 0 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: #3d4549;
+}
+
 .sedl-airbnb-rail__when,
 .sedl-airbnb-rail__where {
   margin: 0 0 0.5rem;
@@ -696,6 +703,13 @@
   margin: 0 0 1rem;
   font-size: var(--type-meta, 13px);
   color: #717171;
+}
+
+.sedl-v2-rail__age {
+  margin: -0.65rem 0 1rem;
+  font-size: var(--type-meta, 13px);
+  line-height: 1.35;
+  color: #3d4549;
 }
 
 .sedl-v2-rail__actions {

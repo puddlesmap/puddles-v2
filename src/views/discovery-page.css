@@ -353,6 +353,13 @@
   min-height: 0;
 }
 
+.discovery-page-shell .discovery-page .discovery-event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
 .discovery-page-shell .discovery-page .discovery-event-datetime {
   margin: 0;
   font-family: var(--font-sans);
@@ -361,6 +368,15 @@
   line-height: normal;
   letter-spacing: 0;
   text-transform: uppercase;
+  color: #686868;
+}
+
+.discovery-page-shell .discovery-page .discovery-event-age {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
   color: #686868;
 }
 

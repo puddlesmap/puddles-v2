@@ -53,7 +53,7 @@ function buildPromotedDescription(submission: SheetSubmission): string {
   if (submission.parentTips) parts.push(`Parent tips: ${submission.parentTips}`)
   const signup = [submission.signupRequirement, submission.signupLinkInfo].filter(Boolean).join(' — ')
   if (signup) parts.push(`Sign-up: ${signup}`)
-  return parts.join('\n\n').slice(0, 500)
+  return parts.join('\n\n')
 }
 
 function currentAdminEvents(): Event[] {

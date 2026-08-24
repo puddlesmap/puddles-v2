@@ -73,7 +73,7 @@ function collectOutOfAgeFlags(events: Event[]): AdminReviewFlag[] {
       severity: 'high',
       title: event.title,
       note: match.note,
-      evidence: `Matched “${match.mention.phrase}” · Age Tags: ${event.ageRange || '—'}`,
+      evidence: `Matched “${match.mention.phrase}” · Age Tags: ${event.ageRange || '—'} · ages ${event.ageMin}–${event.ageMax}`,
       eventIds: [event.id],
     })
   }
