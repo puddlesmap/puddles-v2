@@ -299,7 +299,7 @@ export function AdminEventsTable({
               <th>Live</th>
               <th>Past</th>
               <th title="Same as Sheet Last Checked Date / Verified on Puddles">Approved on</th>
-              <th>Actions</th>
+              <th className="admin-table-actions-col">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -378,7 +378,7 @@ export function AdminEventsTable({
                         {stale ? <span className="admin-stale-tag">Needs check</span> : null}
                       </div>
                     </td>
-                    <td className="admin-table-actions-cell" onClick={(e) => e.stopPropagation()}>
+                    <td className="admin-table-actions-cell admin-table-actions-col" onClick={(e) => e.stopPropagation()}>
                       <div className="admin-table-actions">
                         {onApproveVerified ? (
                           <button

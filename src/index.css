@@ -72,7 +72,7 @@
   --radius-pill: var(--radius-full);
   --layout-min: 320px;
   --layout-max: 1120px;
-  --layout-max-admin: 1360px;
+  --layout-max-admin: 1520px;
   --layout-padding-mobile: 16px;
   --layout-padding-tablet: 24px;
   --layout-padding-tablet-wide: 32px;
@@ -3251,13 +3251,19 @@ select.input-field,
 
 .admin-shell .layout-shell-wide {
   width: 100%;
-  max-width: min(var(--layout-max-admin), calc(100vw - 2rem));
+  max-width: min(var(--layout-max-admin), calc(100vw - 1.5rem));
   margin-inline: auto;
 }
 
 @media (min-width: 1024px) {
   .admin-shell .layout-shell-wide {
-    max-width: min(var(--layout-max-admin), calc(100vw - 3rem));
+    max-width: min(var(--layout-max-admin), calc(100vw - 2rem));
+  }
+}
+
+@media (min-width: 1280px) {
+  .admin-shell .layout-shell-wide {
+    max-width: calc(100vw - 2.5rem);
   }
 }
 
@@ -4047,9 +4053,11 @@ select.input-field,
 
 .admin-table-actions {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.125rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.35rem;
 }
 
 .admin-table-action-stack {
@@ -4093,9 +4101,27 @@ select.input-field,
   max-width: 100%;
 }
 
+.admin-table:not(.admin-table-submissions) th:last-child,
+.admin-table:not(.admin-table-submissions) td:last-child {
+  width: auto;
+  min-width: 13.5rem;
+}
+
 .admin-table-actions-cell {
   white-space: nowrap;
-  overflow: hidden;
+  overflow: visible;
+  vertical-align: middle;
+}
+
+.admin-table-actions .admin-btn {
+  min-height: 1.875rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 13px;
+}
+
+.admin-table-actions .admin-btn-text {
+  min-height: 1.875rem;
+  padding: 0.35rem 0.5rem;
 }
 
 .admin-table-submissions th:nth-child(1),
