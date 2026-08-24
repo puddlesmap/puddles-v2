@@ -2,7 +2,8 @@
   "venueAliases": {
     "Mountain View Public Library": "Mountain View Library",
     "Los Altos Public Library": "Los Altos Library",
-    "Downtown Mountain View": "Downtown Castro Street"
+    "Downtown Mountain View": "Downtown Castro Street",
+    "Spangenberg Theater in Palo Alto": "Henry M. Gunn High School — Spangenberg Theatre"
   },
   "venueGeo": {
     "Downtown Library": { "city": "Palo Alto", "lat": 37.4443, "lng": -122.1598 },
@@ -41,6 +42,7 @@
     "Mitchell Park Community Center": { "city": "Palo Alto", "lat": 37.4181, "lng": -122.108 },
     "State Street Market": { "city": "Los Altos", "lat": 37.3784, "lng": -122.1146 },
     "Spangenberg Theater in Palo Alto": { "city": "Palo Alto", "lat": 37.4013, "lng": -122.1327 },
+    "Henry M. Gunn High School — Spangenberg Theatre": { "city": "Palo Alto", "lat": 37.4013, "lng": -122.1327 },
     "Google Visitor Experience": { "city": "Mountain View", "lat": 37.4227, "lng": -122.0844 },
     "Home Depot": { "city": "Palo Alto", "lat": 37.4664, "lng": -122.1404 }
   },
@@ -77,6 +79,7 @@
     "Mitchell Park Community Center": "3700 Middlefield Rd, Palo Alto, CA 94303",
     "State Street Market": "170 State St, Los Altos, CA 94022",
     "Spangenberg Theater in Palo Alto": "780 Arastradero Rd, Palo Alto, CA 94306",
+    "Henry M. Gunn High School — Spangenberg Theatre": "780 Arastradero Rd, Palo Alto, CA 94306",
     "Google Visitor Experience": "2000 N Shoreline Blvd, Mountain View, CA 94043",
     "Home Depot": "1781 E Bayshore Rd, East Palo Alto, CA 94303"
   },

@@ -6,6 +6,7 @@ import {
   getVenueGeoForEvent,
 } from './venue-geo.mjs'
 import { resolveAgeFromSheetAndText } from './age-hints.mjs'
+import { resolveActivityTypes } from './event-enrichment.mjs'
 
 const ACTIVITY_TYPES = [
   'Stories',
@@ -161,31 +162,8 @@ export function parseSheetDateTime(value) {
   return { date, time: `${hour.toString().padStart(2, '0')}:${min}` }
 }
 
-export function parseActivityTypes(raw) {
-  const parts = String(raw)
-    .split(/[,|/]/)
-    .map((part) => part.trim())
-    .filter(Boolean)
-
-  const matched = []
-  for (const part of parts) {
-    const found = ACTIVITY_TYPES.find((type) => type.toLowerCase() === part.toLowerCase())
-    if (found && !matched.includes(found)) matched.push(found)
-  }
-
-  if (matched.length === 0) {
-    const lower = raw.toLowerCase()
-    if (lower.includes('story')) matched.push('Stories')
-    if (lower.includes('music') || lower.includes('movement')) matched.push('Music & Movement')
-    if (lower.includes('art') || lower.includes('craft')) matched.push('Arts & Crafts')
-    if (lower.includes('outdoor') || lower.includes('park')) matched.push('Outdoor')
-    if (lower.includes('lego') || lower.includes('steam') || lower.includes('build'))
-      matched.push('Build & Explore')
-    if (lower.includes('play') || lower.includes('social')) matched.push('Social & Play')
-    if (lower.includes('class')) matched.push('Classes')
-  }
-
-  return matched.length > 0 ? matched : ['Other']
+export function parseActivityTypes(raw, title = '', description = '', categoryTags = '') {
+  return resolveActivityTypes(raw, title, description, categoryTags)
 }
 
 function formatAgeRangeLabel(buckets, text) {

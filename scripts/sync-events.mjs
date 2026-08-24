@@ -16,6 +16,7 @@ import {
   sanitizeRoom,
 } from './sheet-map.mjs'
 import { resolvePublishingFields, computeIsPast } from './publishing.mjs'
+import { applyEventCopyEnrichment } from './event-enrichment.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = join(__dirname, '..')
@@ -85,10 +86,40 @@ function mapRecord(record) {
   )
   const verifiedDateRaw = pickField(record, 'verifiedDate')
   const verifiedDate = parseSheetDate(verifiedDateRaw) ?? '2026-06-05'
-  const tips = pickField(record, 'tips')
-  // Infer ages from full description before truncating for storage.
+  const tipsRaw = pickField(record, 'tips')
   const descriptionFull = pickField(record, 'description')
-  const age = resolveEventAge(pickField(record, 'ageRange'), descriptionFull, tips)
+  const categoryTags = parseCategoryTags(pickField(record, 'categoryTags'))
+  const sheetTypesRaw = pickField(record, 'types')
+  const eventId = deriveEventId(record)
+  const eventUrl = pickField(record, 'eventUrl') || '#'
+
+  const enriched = applyEventCopyEnrichment({
+    id: eventId,
+    title,
+    description: descriptionFull,
+    ...(tipsRaw ? { tips: tipsRaw } : {}),
+    venue,
+    address: geo.address,
+    date,
+    eventUrl,
+    types: ['Other'],
+    categoryTags,
+    sheetTypesRaw,
+  })
+
+  const enrichedGeo =
+    enriched.venue !== venue || enriched.address !== geo.address
+      ? resolveGeo(
+          enriched.venue,
+          enriched.address,
+          city,
+          pickField(record, 'lat'),
+          pickField(record, 'lng'),
+          room,
+        )
+      : geo
+
+  const age = resolveEventAge(pickField(record, 'ageRange'), enriched.description, enriched.tips ?? '')
   const publishing = resolvePublishingFields({
     statusRaw: pickField(record, 'status'),
     approvedRaw: pickField(record, 'approved'),
@@ -100,28 +131,28 @@ function mapRecord(record) {
   })
 
   return {
-    id: deriveEventId(record),
+    id: eventId,
     title,
-    description: descriptionFull,
-    ...(tips ? { tips } : {}),
-    venue,
+    description: enriched.description,
+    ...(enriched.tips ? { tips: enriched.tips } : {}),
+    venue: enriched.venue,
     ...(room ? { room } : {}),
-    address: geo.address,
-    city: geo.city,
+    address: enrichedGeo.address,
+    city: enrichedGeo.city,
     date,
     startTime,
     endTime,
     ageRange: age.label,
     ageMin: age.min,
     ageMax: age.max,
-    types: parseActivityTypes(pickField(record, 'types')),
-    categoryTags: parseCategoryTags(pickField(record, 'categoryTags')),
-    cost: resolveEventCost(pickField(record, 'cost'), descriptionFull, tips),
+    types: enriched.types,
+    categoryTags,
+    cost: resolveEventCost(pickField(record, 'cost'), enriched.description, enriched.tips ?? ''),
     imageUrl: pickField(record, 'imageUrl') || '',
-    eventUrl: pickField(record, 'eventUrl') || '#',
+    eventUrl,
     verifiedDate,
-    lat: geo.lat,
-    lng: geo.lng,
+    lat: enrichedGeo.lat,
+    lng: enrichedGeo.lng,
     status: publishing.status,
     isPast: publishing.isPast,
     isLive: publishing.isLive,

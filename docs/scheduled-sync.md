@@ -1,14 +1,26 @@
 # Scheduled refresh (Sheet → website)
 
-Google Sheet stays the source of truth. The public site and admin dashboard read **synced JSON**, not the sheet directly.
+**Phase A (Admin-first):** automatic Sheet sync is **off**. The public catalog is updated by **Admin → Go live** (Discovery or Submissions), which commits `sheet-events.json` to GitHub.
 
-## Data flow
+Google Sheet is **legacy / optional** — use manual import only when you need to pull old rows.
+
+## Data flow (normal)
+
+```text
+Discovery / Submissions → Admin Go live
+        ↓  publish-events API
+src/data/sheet-events.json  +  sync-meta.json
+        ↓  Netlify deploy (~2–4 min)
+Public website
+```
+
+## Legacy data flow (manual import)
 
 ```text
 Google Sheet (Events tab)
         ↓  CSV export (sync-events.mjs)
 src/data/sheet-events.json  +  data/sync-meta.json
-        ↓  Vite build
+        ↓  build + deploy
 Public website + Admin dashboard
 ```
 
@@ -27,57 +39,43 @@ Writes:
 | `data/events-export.csv` | Cached CSV from sheet |
 | `data/sync-meta.json` | `syncedAt`, event counts |
 
-## Scheduled sync (GitHub Actions)
+## GitHub Actions (manual only)
 
 Workflow: `.github/workflows/sync-events.yml`
 
 | Trigger | When |
 |---|---|
-| **Cron** | Every 2 days at 2:00 PM UTC — edit `src/data/sync-config.json` + workflow to change |
 | **Manual** | GitHub → Actions → “Sync events from Google Sheet” → Run workflow |
+| ~~Cron~~ | **Disabled** — was every 2 days; retired in Phase A |
 
 On each run:
 
 1. `npm run sync-events` — fetch Events tab CSV
 2. `npm run build` — fail early if data breaks the app
 3. Commit JSON/CSV if changed and push to `main`
-4. Your host (Netlify/Vercel/GitHub Pages) redeploys on push
+4. Netlify redeploys on push
 
-### Setup checklist
+### Setup checklist (legacy import)
 
 1. Push this repo to GitHub.
 2. **Share the Google Sheet** so CSV export works without login:
    - File → Share → General access → **Anyone with the link** → Viewer
 3. Enable GitHub Actions on the repo.
-4. Connect your static host to `main` (auto-deploy on push).
 
-### Recommended schedule (V1)
+## Admin “Legacy: import Sheet → site” button
 
-| Frequency | Cron | Use when |
-|---|---|---|
-| **Every 2 days (default)** | `0 14 */2 * *` | 2:00 PM UTC every 2 days — see `src/data/sync-config.json` |
-| Every 6 hours | `0 */6 * * *` | More frequent updates |
-| Once daily | `0 14 * * *` | Minimal churn |
+On **Admin → Events**, this triggers the same GitHub Action as the manual workflow run. A confirmation dialog warns that Sheet import can overwrite Admin edits.
 
-Avoid syncing every few minutes — unnecessary deploys and Google export limits.
+**Prefer:** Discovery or Submissions → **Go live**.
 
-## Admin “Publish to site” button
-
-On **Admin → Events**, **Publish to site** triggers the same GitHub Action as the manual workflow run:
-
-1. Sync Events + Submissions tabs from Google Sheet
-2. Commit JSON if changed
-3. Push to `main` → Netlify redeploys
-
-Requires Netlify env var **`GITHUB_DEPLOY_TOKEN`** (fine-grained PAT with **Actions: Read and write** on `puddlesmap/puddles-v2`). Admin sign-in (`ADMIN_PASSWORD`) is also required.
-
-**Refresh from Sheet** only updates the admin dashboard in your browser — it does not deploy.
+**Legacy: preview Sheet in browser** only updates the admin dashboard in your browser — it does not deploy.
 
 ## Troubleshooting
 
 | Problem | Fix |
 |---|---|
 | Sync fails in CI with 403/404 on CSV | Sheet not shared for anonymous CSV export |
-| Site still stale after sync | Host didn’t redeploy — check deploy logs |
-| `isPast` wrong after sync | Sync now uses **today’s date** for publishing (not a fixed demo date) |
+| Site still stale after Go live | Wait ~2–4 min for Netlify deploy |
+| Sheet import overwrote Admin edits | Avoid legacy import; use Go live. Re-run Go live or edit in Admin (Phase B) |
+| `isPast` wrong after sync | Sync uses **today’s date** for publishing |
 | No commit after workflow | Sheet unchanged since last sync — expected |

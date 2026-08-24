@@ -117,9 +117,10 @@ export function AdminLayout() {
                 href={SHEET_SOURCE.spreadsheetUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="admin-btn admin-btn-secondary"
+                className="admin-btn admin-btn-secondary admin-btn-legacy"
+                title="Legacy archive — Admin is the editorial source of truth"
               >
-                Open Google Sheet ↗
+                Sheet archive ↗
               </a>
               <AdminMarkInternalAnalytics />
               {authRequired ? (

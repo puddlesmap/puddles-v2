@@ -1,14 +1,15 @@
-# Pull Events tab from Google Sheet → sheet-events.json → commit → deploy (via your host).
+# Pull Events tab from Google Sheet → sheet-events.json → commit → deploy.
 #
-# Requires: Sheet CSV export is reachable (share sheet: Anyone with the link → Viewer).
-# If you use Netlify/Vercel connected to this repo, a push to main redeploys the site.
+# Phase A (Admin-first): scheduled sync disabled — run manually only when importing
+# legacy Sheet data. Normal publish path: Admin Discovery/Submissions → Go live.
 
 name: Sync events from Google Sheet
 
 on:
-  schedule:
-    # Every 2 days at 2:00 PM UTC — keep in sync with src/data/sync-config.json
-    - cron: '0 14 */2 * *'
+  # Automatic sync retired — Admin Go live is the publish path.
+  # Re-enable only if you need periodic Sheet imports:
+  # schedule:
+  #   - cron: '0 14 */2 * *'
   workflow_dispatch:
 
 permissions:

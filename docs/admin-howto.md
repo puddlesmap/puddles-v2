@@ -36,7 +36,7 @@ Monitor only:
 | **Needs attention** | Live items with review flags |
 | **Past** | Schedule has passed |
 
-Sheet refresh / Sync Sheet are advanced/legacy.
+Sheet refresh / Legacy import are advanced only — they can overwrite Admin edits.
 
 ## Related docs
 

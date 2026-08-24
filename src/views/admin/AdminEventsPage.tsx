@@ -229,6 +229,13 @@ export function AdminEventsPage() {
   }
 
   async function handlePublish() {
+    const ok = window.confirm(
+      'Legacy import: this re-syncs the entire Google Sheet and deploys.\n\n' +
+        'It can overwrite Admin Go live edits (descriptions, types, tips).\n\n' +
+        'Use Discovery or Submissions → Go live for normal publishing.\n\nContinue?',
+    )
+    if (!ok) return
+
     setIsPublishing(true)
     setPublishError(null)
     setPublishMessage(null)

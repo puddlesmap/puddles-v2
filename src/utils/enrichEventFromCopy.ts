@@ -1,35 +1,41 @@
 import type { Event } from '../types/event'
+import { applyEventCopyEnrichment, resolveEventTypesFromCopy } from './applyEventCopyEnrichment'
 import { resolveAgeFromSheetAndText } from './discoveryAgeHints'
 import { resolveEventCost } from './eventCost'
 
 /**
  * Re-apply description/tips hints at catalog load so tags stay correct even if
- * a sheet sync wrote broad Age Tags or Low-cost before inference ran.
+ * a sheet sync wrote broad Age Tags, Other-only types, or truncated copy.
  */
 export function enrichEventFromCopy(event: Event): Event {
-  const tips = event.tips ?? ''
-  const inferredAge = resolveAgeFromSheetAndText(event.description, tips)
-  const cost = resolveEventCost(event.cost, event.description, tips)
+  const enriched = applyEventCopyEnrichment(event)
+
+  const tips = enriched.tips ?? ''
+  const inferredAge = resolveAgeFromSheetAndText(enriched.description, tips)
+  const cost = resolveEventCost(enriched.cost, enriched.description, tips)
+  const types = resolveEventTypesFromCopy(enriched)
 
   const ageChanged =
     inferredAge &&
-    (event.ageRange !== inferredAge.ageRange ||
-      event.ageMin !== inferredAge.ageMin ||
-      event.ageMax !== inferredAge.ageMax)
-  const costChanged = cost !== event.cost
+    (enriched.ageRange !== inferredAge.ageRange ||
+      enriched.ageMin !== inferredAge.ageMin ||
+      enriched.ageMax !== inferredAge.ageMax)
+  const costChanged = cost !== enriched.cost
+  const typesChanged = types.join('|') !== enriched.types.join('|')
 
-  if (!ageChanged && !costChanged) return event
+  if (!ageChanged && !costChanged && !typesChanged && enriched === event) return event
 
   return {
-    ...event,
-    ...(inferredAge
+    ...enriched,
+    types,
+    ...(inferredAge && ageChanged
       ? {
           ageRange: inferredAge.ageRange,
           ageMin: inferredAge.ageMin,
           ageMax: inferredAge.ageMax,
         }
       : {}),
-    cost,
+    ...(costChanged ? { cost } : {}),
   }
 }
 

@@ -1,4 +1,4 @@
-import type { ActivityType, City, Event } from '../types/event'
+import type { City, Event } from '../types/event'
 import { SHEET_CSV_PROXY_PATH } from '../data/sheet-source'
 import {
   VENUE_ADDRESSES,
@@ -9,20 +9,9 @@ import {
 import { formatPublicAgeRangeLabel } from './ageRange'
 import { resolveAgeFromSheetAndText } from './discoveryAgeHints'
 import { resolveEventCost } from './eventCost'
-import { inferActivityTypesFromText } from './eventImages'
+import { applyEventCopyEnrichment } from './applyEventCopyEnrichment'
 import { enrichPublishingFields, resolvePublishingFields } from './publishing'
 import { parseCsv, rowsToObjects } from './csv'
-
-const ACTIVITY_TYPES: ActivityType[] = [
-  'Stories',
-  'Music & Movement',
-  'Arts & Crafts',
-  'Build & Explore',
-  'Outdoor',
-  'Social & Play',
-  'Classes',
-  'Other',
-]
 
 function isDateLikeValue(value: string): boolean {
   if (!value) return false
@@ -165,27 +154,6 @@ function parseSheetDateTime(value: string): { date: string; time: string } | nul
     date: `${year}-${m[1].padStart(2, '0')}-${m[2].padStart(2, '0')}`,
     time: `${hour.toString().padStart(2, '0')}:${min}`,
   }
-}
-
-function parseActivityTypes(raw: string, title = '', description = ''): ActivityType[] {
-  const parts = raw
-    .split(/[,|/]/)
-    .map((part) => part.trim())
-    .filter(Boolean)
-
-  const matched: ActivityType[] = []
-  for (const part of parts) {
-    const found = ACTIVITY_TYPES.find((type) => type.toLowerCase() === part.toLowerCase())
-    if (found && !matched.includes(found)) matched.push(found)
-  }
-
-  const onlyOther = matched.length === 1 && matched[0] === 'Other'
-  if (matched.length === 0 || onlyOther) {
-    const inferred = inferActivityTypesFromText(raw, title, description)
-    if (inferred.length > 0) return inferred
-  }
-
-  return matched.length > 0 ? matched : ['Other']
 }
 
 function parseAgeRange(raw: string) {
@@ -377,11 +345,41 @@ function mapRecord(record: Record<string, string>): Event | null {
     pickField(record, 'lng'),
     room,
   )
-  const tips = pickField(record, 'tips')
-  // Infer ages from full description before truncating for storage.
+  const tipsRaw = pickField(record, 'tips')
   const descriptionFull = pickField(record, 'description')
+  const categoryTags = parseCategoryTags(pickField(record, 'categoryTags'))
+  const sheetTypesRaw = pickField(record, 'types')
+  const eventId = deriveEventId(record)
+  const eventUrl = pickField(record, 'eventUrl') || '#'
+
+  const enriched = applyEventCopyEnrichment({
+    id: eventId,
+    title,
+    description: descriptionFull,
+    ...(tipsRaw ? { tips: tipsRaw } : {}),
+    venue,
+    address: geo.address,
+    date,
+    eventUrl,
+    types: ['Other'],
+    categoryTags,
+    sheetTypesRaw,
+  })
+
+  const enrichedGeo =
+    enriched.venue !== venue || enriched.address !== geo.address
+      ? resolveGeo(
+          enriched.venue,
+          enriched.address,
+          city,
+          pickField(record, 'lat'),
+          pickField(record, 'lng'),
+          room,
+        )
+      : geo
+
   const sheetAge = parseAgeRange(pickField(record, 'ageRange'))
-  const fromText = resolveAgeFromSheetAndText(descriptionFull, tips)
+  const fromText = resolveAgeFromSheetAndText(enriched.description, enriched.tips ?? '')
   const age = fromText
     ? { min: fromText.ageMin, max: fromText.ageMax, label: fromText.ageRange }
     : sheetAge
@@ -398,28 +396,28 @@ function mapRecord(record: Record<string, string>): Event | null {
   const verifiedDate = parseSheetDate(pickField(record, 'verifiedDate')) ?? '2026-06-05'
 
   return enrichPublishingFields({
-    id: deriveEventId(record),
+    id: eventId,
     title,
-    description: descriptionFull,
-    ...(tips ? { tips } : {}),
-    venue,
+    description: enriched.description,
+    ...(enriched.tips ? { tips: enriched.tips } : {}),
+    venue: enriched.venue,
     ...(room ? { room } : {}),
-    address: geo.address,
-    city: geo.city,
+    address: enrichedGeo.address,
+    city: enrichedGeo.city,
     date,
     startTime,
     endTime,
     ageRange: age.label,
     ageMin: age.min,
     ageMax: age.max,
-    types: parseActivityTypes(pickField(record, 'types'), title, descriptionFull),
-    categoryTags: parseCategoryTags(pickField(record, 'categoryTags')),
-    cost: resolveEventCost(pickField(record, 'cost'), descriptionFull, tips),
+    types: enriched.types,
+    categoryTags,
+    cost: resolveEventCost(pickField(record, 'cost'), enriched.description, enriched.tips ?? ''),
     imageUrl: pickField(record, 'imageUrl') || '',
-    eventUrl: pickField(record, 'eventUrl') || '#',
+    eventUrl,
     verifiedDate,
-    lat: geo.lat,
-    lng: geo.lng,
+    lat: enrichedGeo.lat,
+    lng: enrichedGeo.lng,
     status: publishing.status,
     isPast: publishing.isPast,
     isLive: publishing.isLive,

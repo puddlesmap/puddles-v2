@@ -13,7 +13,7 @@ export interface SyncMeta {
 
 export interface SyncConfig {
   scheduleLabel: string
-  scheduleCron: string
+  scheduleCron: string | null
   scheduleDescription: string
 }
 

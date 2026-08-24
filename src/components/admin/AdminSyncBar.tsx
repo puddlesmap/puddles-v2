@@ -19,9 +19,9 @@ export function AdminSyncBar({
   isRefreshing,
   refreshError,
   onRefresh,
-  refreshLabel = 'Refresh from Sheet',
-  adminHint = 'Optional pull from Google Sheet into this browser',
-  footerNote = 'Prefer Discovery → Go live to update the public site. Sheet tools above are for legacy sync only.',
+  refreshLabel = 'Legacy: preview Sheet in browser',
+  adminHint = 'Optional — does not update the public site',
+  footerNote = 'Public site updates via Discovery or Submissions → Go live (~2–4 min). Sheet import is legacy only.',
   isPublishing = false,
   publishError = null,
   publishMessage = null,
@@ -41,8 +41,7 @@ export function AdminSyncBar({
           <div className="admin-sync-label">Public catalog</div>
           <div className="admin-sync-value">{deployedLabel}</div>
           <div className="admin-sync-hint">
-            {SYNC_META.eventCount} events · {SYNC_META.liveCount} live · scheduled{' '}
-            {SYNC_CONFIG.scheduleLabel}
+            {SYNC_META.eventCount} events · {SYNC_META.liveCount} live · {SYNC_CONFIG.scheduleLabel}
           </div>
         </div>
 
@@ -68,9 +67,9 @@ export function AdminSyncBar({
             className="admin-btn admin-btn-secondary"
             onClick={onPublish}
             disabled={isRefreshing || isPublishing}
-            title="Advanced: re-sync the Google Sheet and deploy"
+            title="Legacy: re-import Google Sheet and deploy — can overwrite Admin edits"
           >
-            {isPublishing ? 'Publishing…' : 'Sync Sheet to site'}
+            {isPublishing ? 'Importing…' : 'Legacy: import Sheet → site'}
           </button>
         ) : null}
         {(refreshError || publishError) && (
