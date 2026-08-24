@@ -58,7 +58,11 @@ function computeIsPast(date, startTime, endTime) {
 }
 
 function enrichForPublic(event) {
-  const status = event.status === 'Published' ? 'Published' : event.status || 'Published'
+  const rawStatus = String(event.status || '').trim()
+  const status =
+    rawStatus === 'Hidden' || rawStatus === 'Draft' || rawStatus === 'Published' || rawStatus === 'Expired'
+      ? rawStatus
+      : 'Published'
   const isPast = computeIsPast(event.date, event.startTime, event.endTime)
   const isLive = status === 'Published' && !isPast
   return {
@@ -137,7 +141,7 @@ export async function publishEventsToGithub({ events, env = process.env }) {
 
   const incoming = events
     .filter((event) => event && typeof event === 'object' && event.id)
-    .map((event) => enrichForPublic({ ...event, status: 'Published' }))
+    .map((event) => enrichForPublic({ ...event }))
 
   if (incoming.length === 0) {
     return { ok: false, status: 400, error: 'Events must include an id.' }
@@ -156,7 +160,7 @@ export async function publishEventsToGithub({ events, env = process.env }) {
     for (const event of incoming) {
       const index = findExistingIndex(catalog, event)
       if (index >= 0) {
-        catalog[index] = enrichForPublic({ ...catalog[index], ...event, status: 'Published' })
+        catalog[index] = enrichForPublic({ ...catalog[index], ...event })
         upserted += 1
       } else {
         catalog.push(event)
@@ -180,7 +184,7 @@ export async function publishEventsToGithub({ events, env = process.env }) {
     }
 
     const countLabel = incoming.length === 1 ? '1 activity' : `${incoming.length} activities`
-    const message = `chore: go live ${countLabel} from Admin Discovery`
+    const message = `chore: update ${countLabel} from Admin`
 
     await githubPutFile({
       token,
@@ -207,7 +211,7 @@ export async function publishEventsToGithub({ events, env = process.env }) {
     return {
       ok: true,
       status: 200,
-      message: `Went live with ${incoming.length} activit${incoming.length === 1 ? 'y' : 'ies'} (${inserted} new, ${upserted} updated). Public site usually updates in 2–4 minutes.`,
+      message: `Updated ${incoming.length} activit${incoming.length === 1 ? 'y' : 'ies'} (${inserted} new, ${upserted} updated). Public site usually updates in 2–4 minutes.`,
       upserted,
       inserted,
       eventCount: catalog.length,

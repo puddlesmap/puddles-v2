@@ -1,5 +1,6 @@
 import { Fragment, useMemo } from 'react'
 import type { AdminEventRecord } from '../../types/admin'
+import type { AdminEventEditableFields } from '../../types/adminEventEdit'
 import type { EventStatus } from '../../types/event'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
 import { isVerificationStale } from '../../utils/adminEvents'
@@ -45,6 +46,8 @@ interface AdminEventsTableProps {
   onClearChecked: () => void
   onBulkApproveVerified?: (events: AdminEventRecord[]) => void
   onHide: (event: AdminEventRecord) => void
+  /** Save edits and publish to the public catalog (~2–4 min). */
+  onSaveAndPublish?: (event: AdminEventRecord, edits: AdminEventEditableFields) => void
   /** Stamp Last Checked / Approved on = today (Sheet + local Admin). */
   onApproveVerified?: (event: AdminEventRecord) => void
   /** When set, render events grouped by duplicate cluster with keep/hide actions. */
@@ -65,6 +68,7 @@ export function AdminEventsTable({
   onClearChecked,
   onBulkApproveVerified,
   onHide,
+  onSaveAndPublish,
   onApproveVerified,
   duplicateClusters,
   busyClusterId = null,
@@ -187,7 +191,15 @@ export function AdminEventsTable({
                           {isExpanded && (
                             <tr className="admin-table-expand-row">
                               <td colSpan={8}>
-                                <AdminEventDetailPanel event={event} />
+                                <AdminEventDetailPanel
+                                  event={event}
+                                  busy={busyId === event.id}
+                                  onSaveAndPublish={
+                                    onSaveAndPublish
+                                      ? (edits) => onSaveAndPublish(event, edits)
+                                      : undefined
+                                  }
+                                />
                               </td>
                             </tr>
                           )}
@@ -394,7 +406,13 @@ export function AdminEventsTable({
                   {isExpanded && (
                     <tr className="admin-table-expand-row">
                       <td colSpan={COLUMN_COUNT}>
-                        <AdminEventDetailPanel event={event} />
+                        <AdminEventDetailPanel
+                          event={event}
+                          busy={busyId === event.id}
+                          onSaveAndPublish={
+                            onSaveAndPublish ? (edits) => onSaveAndPublish(event, edits) : undefined
+                          }
+                        />
                       </td>
                     </tr>
                   )}

@@ -25,6 +25,8 @@ import { EVENT_EXPORT_COLUMNS, exportFilename } from '../../utils/adminExport'
 import { enrichPublishingFields } from '../../utils/publishing'
 import { pacificTodayYmd } from '../../utils/discoveryReview'
 import { syncReadyDiscoveryIntoAdminCache } from '../../utils/discoveryApproveLocal'
+import { saveAndPublishEvent } from '../../utils/adminEventEdit'
+import type { AdminEventEditableFields } from '../../types/adminEventEdit'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
   refreshEventsFromSheet,
@@ -251,6 +253,30 @@ export function AdminEventsPage() {
       )
     } finally {
       setIsPublishing(false)
+    }
+  }
+
+  async function handleSaveAndPublish(event: Event, edits: AdminEventEditableFields) {
+    const ok = window.confirm(
+      `Save & publish “${event.title}”?\n\nThis updates the public catalog in ~2–4 minutes.`,
+    )
+    if (!ok) return
+
+    setBusyId(event.id)
+    setActionMessage(null)
+    try {
+      const { message, event: published } = await saveAndPublishEvent(event, edits)
+      setEvents((current) => {
+        const next = current.map((row) => (row.id === event.id ? published : row))
+        saveCachedAdminRefresh({ events: next, refreshedAt: new Date().toISOString() })
+        return next
+      })
+      setAdminRefreshedAt(new Date().toISOString())
+      setActionMessage(message)
+    } catch (error) {
+      setActionMessage(error instanceof Error ? error.message : 'Could not save and publish.')
+    } finally {
+      setBusyId(null)
     }
   }
 
@@ -577,6 +603,7 @@ export function AdminEventsPage() {
             onClearChecked={() => setCheckedIds([])}
             onBulkApproveVerified={(rows) => void handleBulkApproveVerified(rows)}
             onHide={(event) => void handleHide(event)}
+            onSaveAndPublish={(event, edits) => void handleSaveAndPublish(event, edits)}
             onApproveVerified={(event) => void handleApproveVerified(event)}
             duplicateClusters={undefined}
             busyClusterId={busyClusterId}

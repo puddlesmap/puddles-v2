@@ -156,7 +156,8 @@ export function AdminLayout() {
                 </li>
                 <li>
                   <strong>Events</strong> — Monitor <strong>Live</strong>,{' '}
-                  <strong>Needs attention</strong>, and <strong>Past</strong>.
+                  <strong>Needs attention</strong>, and <strong>Past</strong>. Expand a row to{' '}
+                  <strong>edit &amp; publish</strong>.
                 </li>
               </ol>
               <p className="admin-howto-panel__note">

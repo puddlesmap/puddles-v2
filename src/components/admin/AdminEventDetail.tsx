@@ -1,51 +1,80 @@
+import { useEffect, useState } from 'react'
 import type { AdminEventRecord } from '../../types/admin'
-import { formatEventDate } from '../../utils/dates'
-import { DetailDescription, DetailRow, DetailSection } from './AdminDetailGrid'
+import type { AdminEventEditableFields } from '../../types/adminEventEdit'
+import { editableFieldsFromEvent } from '../../utils/adminEventEdit'
+import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
+import { DetailSection } from './AdminDetailGrid'
+import { AdminEventEditForm } from './AdminEventEditForm'
 
-function formatTimeRange(startTime: string, endTime: string): string | null {
-  if (!startTime && !endTime) return null
-  if (startTime && endTime) return `${startTime} – ${endTime}`
-  return startTime || endTime || null
+interface AdminEventDetailPanelProps {
+  event: AdminEventRecord
+  busy?: boolean
+  onSaveAndPublish?: (edits: AdminEventEditableFields) => void
 }
 
-function formatVerifiedDate(dateStr: string): string {
-  if (!dateStr?.trim()) return '—'
-  const d = new Date(`${dateStr}T12:00:00`)
-  if (Number.isNaN(d.getTime())) return dateStr
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-}
+export function AdminEventDetailPanel({
+  event,
+  busy = false,
+  onSaveAndPublish,
+}: AdminEventDetailPanelProps) {
+  const [draft, setDraft] = useState<AdminEventEditableFields>(() => editableFieldsFromEvent(event))
 
-export function AdminEventDetailPanel({ event }: { event: AdminEventRecord }) {
+  useEffect(() => {
+    setDraft(editableFieldsFromEvent(event))
+  }, [event])
+
+  const saveDisabled =
+    busy || !onSaveAndPublish || !draft.title.trim() || !draft.date.trim() || !draft.venue.trim()
+
   return (
     <div className="admin-table-expand-panel" aria-label="Event details">
-      <DetailSection title="Schedule & location">
-        <DetailRow label="Date" value={formatEventDate(event.date)} />
-        <DetailRow label="Time" value={formatTimeRange(event.startTime, event.endTime)} />
-        <DetailRow label="Venue" value={event.venue} />
-        <DetailRow label="Address" value={event.address} />
-        <DetailRow label="City" value={event.city} />
+      <div className="admin-discovery-meta">
+        <span className={`admin-badge admin-badge-status admin-badge-status-${event.status.toLowerCase()}`}>
+          {event.status}
+        </span>
+        {event.isLive ? (
+          <span className="admin-badge admin-badge-yes">Live on site</span>
+        ) : (
+          <span className="admin-badge admin-badge-no">Not live</span>
+        )}
+        <span className="text-sm text-muted">ID: {event.id}</span>
+      </div>
+
+      <DetailSection title="Edit event">
+        <AdminEventEditForm draft={draft} onChange={setDraft} busy={busy} />
+        <p className="text-sm text-muted">
+          Preview: {formatEventDate(draft.date)} · {formatEventTimeRange(draft.startTime, draft.endTime)}{' '}
+          · {draft.venue || '—'}
+        </p>
       </DetailSection>
 
-      <DetailSection title="Details">
-        <DetailRow label="Ages" value={event.ageRange} />
-        <DetailRow label="Cost" value={event.cost} />
-        <DetailRow
-          label="Types"
-          value={event.types.length > 0 ? event.types.join(', ') : undefined}
-        />
-        <DetailRow
-          label="Approved on"
-          value={
-            event.verifiedDate?.trim()
-              ? `Approved on ${formatVerifiedDate(event.verifiedDate)}`
-              : '—'
-          }
-        />
-        <DetailRow label="Event URL" value={event.eventUrl !== '#' ? event.eventUrl : undefined} />
-        <DetailRow label="Event ID" value={event.id} />
-      </DetailSection>
+      {onSaveAndPublish ? (
+        <div className="admin-discovery-actions">
+          <button
+            type="button"
+            className="admin-btn admin-btn-primary"
+            disabled={saveDisabled}
+            onClick={() => onSaveAndPublish(draft)}
+          >
+            {busy ? 'Publishing…' : 'Save & publish'}
+          </button>
+          {event.eventUrl && event.eventUrl !== '#' ? (
+            <a
+              href={event.eventUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="admin-btn admin-btn-text"
+            >
+              Official page ↗
+            </a>
+          ) : null}
+        </div>
+      ) : null}
 
-      <DetailDescription label="Description" value={event.description} />
+      <p className="mt-2 text-xs text-muted">
+        Saves to the public catalog via GitHub (~2–4 min). Enrichment runs automatically (types, tips,
+        truncated descriptions).
+      </p>
     </div>
   )
 }

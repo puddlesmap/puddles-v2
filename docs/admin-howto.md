@@ -28,7 +28,7 @@ Prefer Admin Refresh over Sheet CSV — Sheet fallback can overwrite local revie
 
 ## Events
 
-Monitor only:
+Monitor and **edit live events** (expand a row → edit → **Save & publish**):
 
 | View | Meaning |
 |------|---------|
