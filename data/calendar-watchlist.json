@@ -1,7 +1,7 @@
 {
   "name": "Calendar Watchlist",
   "description": "Human-curated calendars and recurring feeds Puddles checks for ages 0–5 activities. Distinct from Discovery library scrapers (BiblioCommons / LibCal) and from the live Events catalog.",
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-08-24",
   "sources": [
     {
       "id": "mv-special-events",
@@ -74,11 +74,11 @@
       "name": "Oshman Family JCC · Jeff Center for Families",
       "org": "Palo Alto JCC",
       "city": "Palo Alto",
-      "url": "https://paloaltojcc.org/event-detail/es_1830684/",
+      "url": "https://paloaltojcc.org/the-jeff-center-for-families/",
       "fitFor0to5": "strong",
-      "notes": "Doodle and Discover Wednesdays — free drop-in crafts for ages 2–6. Sep 2 in Discovery.",
+      "notes": "Free Family Play weekdays (Mon/Wed/Fri 9:30–5:30; Tue/Thu 1–5:30; check holiday/special hours). Doodle & Discover Wednesdays (free crafts ages 2–6). Skip Blossom paid prenatal/CPR for Browse.",
       "alreadyOnPuddles": true,
-      "checkCadence": "monthly"
+      "checkCadence": "weekly"
     },
     {
       "id": "pyt-stories-on-stage",

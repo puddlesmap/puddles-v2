@@ -23,7 +23,7 @@ The saved list of **non-library calendars** Puddles checks for ages 0–5 activi
 | [CSMA Concerts](https://arts4all.org/concerts/) | Weak | No (concerts) | Evening adult series; watch for family days instead |
 | [Linden Tree](https://www.lindentreebooks.com/events-calendar/) | Strong | Partial | Sundays Outdoor Storytime live; **missing author storytimes** Aug–Sep |
 | [Home Depot Kids Workshop](https://www.homedepot.com/c/kids-workshop) | Partial (2–5) | Yes — Sep 5, Oct 3 | Monthly builds |
-| [OFJCC Doodle & Discover](https://paloaltojcc.org/event-detail/es_1830684/) | Strong (2–6) | Yes — Aug 5; next Sep 2 | Drop-in crafts |
+| [OFJCC Jeff Center](https://paloaltojcc.org/the-jeff-center-for-families/) | Strong | Yes — Free Family Play weekdays + Doodle & Discover | Free drop-in play 0–5; Doodle crafts ~2–6 on select Wednesdays |
 
 ## Gaps to add next (0–5)
 
