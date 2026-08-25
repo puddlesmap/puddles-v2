@@ -30,7 +30,7 @@ import { ANALYTICS_EVENTS, trackActivityEngagement, trackActivityOpened } from '
 import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
 import { getEventCategoryTags } from '../utils/eventImages'
 import { getEventModalAgeLabel } from '../utils/ageRange'
-import { parseEventTips } from '../utils/eventTips'
+import { parseEventTips, stripLogisticsFromDescription } from '../utils/eventTips'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
@@ -404,7 +404,7 @@ export function EventDetailView({
     ) || null
   const roomLine = getEventRoomLine(event)
   const description = event.description
-    ? capitalizeCitiesInText(event.description, event.city)
+    ? capitalizeCitiesInText(stripLogisticsFromDescription(event.description), event.city)
     : ''
   const canAddToCalendar = canAddEventToCalendar(event)
   const hasOfficialPage = isOfficialEventUrl(event.eventUrl)

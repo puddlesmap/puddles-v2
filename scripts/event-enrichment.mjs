@@ -113,6 +113,35 @@ export function descriptionWithoutTips(plainDescription, tipsText) {
   return kept.length ? kept.join(' ') : plainDescription
 }
 
+/** Library ops / accessibility form boilerplate — discard, do not move to tips. */
+export const LOGISTICS_SENTENCE_RE =
+  /\b(accessibility accommodations|sccld\.org\/accessibility|ask@lib\.sccgov\.org|need assistance with the form|speak with a staff member at your local library)\b/i
+
+const TRAILING_ACCESSIBILITY_BLOCK_RE =
+  /\s*For accessibility accommodations[\s\S]*$/i
+
+export function stripLogisticsFromDescription(text) {
+  const plain = String(text ?? '')
+  if (!plain.trim()) return plain
+
+  const withoutTrailing = plain.replace(TRAILING_ACCESSIBILITY_BLOCK_RE, '').trim()
+  const source = withoutTrailing || plain
+  const kept = splitSentences(source).filter((sentence) => !LOGISTICS_SENTENCE_RE.test(sentence))
+
+  if (kept.length === 0) {
+    if (LOGISTICS_SENTENCE_RE.test(plain) || TRAILING_ACCESSIBILITY_BLOCK_RE.test(plain)) {
+      return withoutTrailing
+    }
+    return plain
+  }
+
+  return kept
+    .join(' ')
+    .replace(TRAILING_ACCESSIBILITY_BLOCK_RE, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 export function isTruncatedDescription(description) {
   return /\.\.\.\s*$/.test(String(description ?? '').trim())
 }
@@ -254,6 +283,7 @@ export function applyEventCopyEnrichment(event) {
   let address = event.address ?? ''
 
   description = restoreDescriptionFromDiscovery(event, description)
+  description = stripLogisticsFromDescription(description)
 
   const venueNorm = normalizeVenueFromCopy(venue, description)
   if (venueNorm.venue) venue = venueNorm.venue

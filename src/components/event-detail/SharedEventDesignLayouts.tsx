@@ -31,7 +31,7 @@ import { eventDetailUrl, isOfficialEventUrl } from '../../utils/eventPages'
 import { getEventCategoryTags } from '../../utils/eventImages'
 import { getEventModalAgeLabel } from '../../utils/ageRange'
 import { getEventAgeRecommendation } from '../../utils/eventAgeRecommendation'
-import { parseEventTips } from '../../utils/eventTips'
+import { parseEventTips, stripLogisticsFromDescription } from '../../utils/eventTips'
 import {
   getEventAddressLine,
   getEventDirectionsLabel,
@@ -866,6 +866,9 @@ export function AirbnbV3DesktopContent({
   }
   const isModal = chrome === 'modal'
   const isEnded = isEndedLifecycleStatus(lifecycleStatus)
+  const displayDescription = event.description
+    ? stripLogisticsFromDescription(event.description)
+    : ''
 
   return (
     <div
@@ -942,8 +945,8 @@ export function AirbnbV3DesktopContent({
             ) : null}
           </div>
 
-          {event.description ? (
-            <p className="sedl-body sedl-v3-desktop-desc">{event.description}</p>
+          {displayDescription ? (
+            <p className="sedl-body sedl-v3-desktop-desc">{displayDescription}</p>
           ) : null}
 
           {event.tips ? (
@@ -1002,6 +1005,10 @@ function AirbnbV3Layout({
 }: Omit<SharedEventDesignLayoutProps, 'layout'>) {
   const p = getEventPresentation(event)
   const tipItems = parseEventTips(event.tips)
+  const ageRec = getEventAgeRecommendation(event).label
+  const displayDescription = event.description
+    ? stripLogisticsFromDescription(event.description)
+    : ''
   const isDesktop = useMediaQuery('(min-width: 768px)')
   const isEnded = isEndedLifecycleStatus(lifecycleStatus)
   const v3 = {
@@ -1097,6 +1104,7 @@ function AirbnbV3Layout({
                 <div className="event-detail-row-content">
                   <div className="event-detail-field-label">Ages</div>
                   <p className="event-detail-field-value">{getEventModalAgeLabel(event.ageRange)}</p>
+                  {ageRec ? <p className="event-detail-age-rec">{ageRec}</p> : null}
                 </div>
               </div>
 
@@ -1125,8 +1133,8 @@ function AirbnbV3Layout({
               </div>
             </div>
 
-            {event.description ? (
-              <p className="event-detail-body sedl-v2-body">{event.description}</p>
+            {displayDescription ? (
+              <p className="event-detail-body sedl-v2-body">{displayDescription}</p>
             ) : null}
 
             {tipItems.length > 0 ? (

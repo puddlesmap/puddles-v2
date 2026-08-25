@@ -653,6 +653,15 @@ textarea {
   margin-top: 0.25rem;
 }
 
+.event-detail-age-rec {
+  margin-top: 0.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--type-supporting-color);
+}
+
 .btn-modal-secondary {
   box-sizing: border-box;
   display: inline-flex;

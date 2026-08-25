@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 import type { Event } from '../types/event'
 import { isFreeCost } from '../types/event'
 import { getEventCardAgeLabel } from '../utils/ageRange'
-import { getEventAgeRecommendation } from '../utils/eventAgeRecommendation'
 import { getEventDisplayCategory } from '../utils/eventImages'
 import { formatCardDateTime } from '../utils/dates'
 import { formatEventCardLocation } from '../utils/maps'
@@ -22,11 +21,9 @@ interface EventCardProps {
 function EventCardPills({
   event,
   mode = 'full',
-  hideAge = false,
 }: {
   event: Event
   mode?: 'full' | 'free-only' | 'compact-key'
-  hideAge?: boolean
 }) {
   if (mode === 'free-only') {
     if (!isFreeCost(event.cost)) return null
@@ -40,10 +37,8 @@ function EventCardPills({
 
   if (mode === 'compact-key') {
     const pills: Array<{ key: string; label: string; tone?: 'free' }> = []
-    if (!hideAge) {
-      const ageLabel = getEventCardAgeLabel(event.ageRange)
-      if (ageLabel) pills.push({ key: 'age', label: ageLabel })
-    }
+    const ageLabel = getEventCardAgeLabel(event.ageRange)
+    if (ageLabel) pills.push({ key: 'age', label: ageLabel })
     if (isFreeCost(event.cost)) {
       pills.push({ key: 'cost', label: 'Free', tone: 'free' })
     } else {
@@ -74,9 +69,7 @@ function EventCardPills({
 
   const category = getEventDisplayCategory(event)
   if (category) pills.push({ key: 'category', label: category, tone: 'category' })
-  if (!hideAge) {
-    pills.push({ key: 'age', label: getEventCardAgeLabel(event.ageRange) })
-  }
+  pills.push({ key: 'age', label: getEventCardAgeLabel(event.ageRange) })
 
   // Always show Free or a sticker price ($10); keep Low-cost/Paid when no dollar amount.
   if (isFreeCost(event.cost)) {
@@ -127,19 +120,14 @@ function EventCardLocation({ event, discovery = false }: { event: Event; discove
 
 function EventCardDateTime({
   dateTime,
-  ageLabel,
   discovery = false,
 }: {
   dateTime: string
-  ageLabel: string | null
   discovery?: boolean
 }) {
   return (
     <div className={discovery ? 'discovery-event-meta' : 'card-listing-meta'}>
       <p className={discovery ? 'discovery-event-datetime' : 'card-listing-datetime'}>{dateTime}</p>
-      {ageLabel ? (
-        <p className={discovery ? 'discovery-event-age' : 'card-listing-age'}>{ageLabel}</p>
-      ) : null}
     </div>
   )
 }
@@ -190,9 +178,6 @@ export function EventCard({
   discovery = false,
 }: EventCardProps) {
   const dateTime = formatCardDateTime(event.date, event.startTime)
-  const ageRecommendation = getEventAgeRecommendation(event)
-  const ageLabel = ageRecommendation.label
-  const hideAgePill = ageRecommendation.hideBroadAgePill
 
   if (variant === 'map-preview-sheet') {
     return (
@@ -216,7 +201,7 @@ export function EventCard({
               : 'card-listing-body card-listing-body--map-preview-sheet'
           }
         >
-          <EventCardDateTime dateTime={dateTime} ageLabel={ageLabel} discovery={discovery} />
+          <EventCardDateTime dateTime={dateTime} discovery={discovery} />
           <h3 className={discovery ? 'discovery-event-title' : 'card-listing-title'}>{event.title}</h3>
           <EventCardLocation event={event} discovery={discovery} />
         </div>
@@ -237,10 +222,10 @@ export function EventCard({
       >
         <div className="card-listing-media relative aspect-square">
           <EventImage event={event} className="card-listing-image" />
-          <EventCardPills event={event} hideAge={hideAgePill} />
+          <EventCardPills event={event} />
         </div>
         <div className={discovery ? 'discovery-event-card-body' : 'card-listing-body'}>
-          <EventCardDateTime dateTime={dateTime} ageLabel={ageLabel} discovery={discovery} />
+          <EventCardDateTime dateTime={dateTime} discovery={discovery} />
           <h3 className={discovery ? 'discovery-event-title' : 'card-listing-title'}>{event.title}</h3>
           <EventCardLocation event={event} discovery={discovery} />
         </div>
@@ -261,10 +246,10 @@ export function EventCard({
       >
         <div className="card-listing-media relative aspect-[5/4]">
           <EventImage event={event} className="card-listing-image" />
-          <EventCardPills event={event} mode="compact-key" hideAge={hideAgePill} />
+          <EventCardPills event={event} mode="compact-key" />
         </div>
         <div className="discovery-event-card-body discovery-event-card-body--compact-grid">
-          <EventCardDateTime dateTime={dateTime} ageLabel={ageLabel} discovery />
+          <EventCardDateTime dateTime={dateTime} discovery />
           <h3 className="discovery-event-title">{event.title}</h3>
           <EventCardLocation event={event} discovery />
         </div>
@@ -281,10 +266,10 @@ export function EventCard({
       >
         <div className="card-listing-media relative aspect-square">
           <EventImage event={event} className="card-listing-image" />
-          <EventCardPills event={event} hideAge={hideAgePill} />
+          <EventCardPills event={event} />
         </div>
         <div className={discovery ? 'discovery-event-card-body' : 'card-listing-body'}>
-          <EventCardDateTime dateTime={dateTime} ageLabel={ageLabel} discovery={discovery} />
+          <EventCardDateTime dateTime={dateTime} discovery={discovery} />
           <h3 className={discovery ? 'discovery-event-title' : 'card-listing-title'}>
             {event.title}
           </h3>
@@ -298,10 +283,10 @@ export function EventCard({
     <EventCardLink event={event} onClick={onClick} className={cardClass(selected, hovered)}>
       <div className="card-listing-media relative aspect-[20/19]">
         <EventImage event={event} className="card-listing-image" />
-        <EventCardPills event={event} hideAge={hideAgePill} />
+        <EventCardPills event={event} />
       </div>
       <div className="card-listing-body card-listing-body--list">
-        <EventCardDateTime dateTime={dateTime} ageLabel={ageLabel} />
+        <EventCardDateTime dateTime={dateTime} />
         <h3 className="card-listing-title card-listing-title--list">{event.title}</h3>
         <EventCardLocation event={event} />
       </div>

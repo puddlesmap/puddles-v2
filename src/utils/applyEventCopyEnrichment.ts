@@ -2,7 +2,11 @@ import type { ActivityType, Event } from '../types/event'
 import { normalizeVenueFromCopy } from './normalizeVenueFromCopy'
 import { restoreDescriptionFromDiscovery } from './restoreDescriptionFromDiscovery'
 import { resolveActivityTypes } from './resolveActivityTypes'
-import { descriptionWithoutTips, extractTipsFromText } from './eventTips'
+import {
+  descriptionWithoutTips,
+  extractTipsFromText,
+  stripLogisticsFromDescription,
+} from './eventTips'
 
 type EnrichmentInput = Pick<
   Event,
@@ -19,6 +23,7 @@ export function applyEventCopyEnrichment<T extends EnrichmentInput>(event: T): T
   let address = event.address ?? ''
 
   description = restoreDescriptionFromDiscovery(event, description)
+  description = stripLogisticsFromDescription(description)
 
   const venueNorm = normalizeVenueFromCopy(venue, description)
   if (venueNorm.venue) venue = venueNorm.venue
