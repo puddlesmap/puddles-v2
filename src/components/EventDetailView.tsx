@@ -30,6 +30,7 @@ import { ANALYTICS_EVENTS, trackActivityEngagement, trackActivityOpened } from '
 import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
 import { getEventCategoryTags } from '../utils/eventImages'
 import { getEventModalAgeLabel } from '../utils/ageRange'
+import { getEventAgeRecommendation } from '../utils/eventAgeRecommendation'
 import { parseEventTips, stripLogisticsFromDescription } from '../utils/eventTips'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
@@ -141,6 +142,8 @@ function EventDetailMetadata({
   EventDetailContentProps,
   'event' | 'directionsUrl' | 'addressLine' | 'roomLine' | 'categoryTags'
 >) {
+  const ageRec = getEventAgeRecommendation(event).label
+
   return (
     <>
       <div className="event-detail-row">
@@ -186,6 +189,7 @@ function EventDetailMetadata({
           <div className="event-detail-row-content">
             <div className="event-detail-field-label">Ages</div>
             <p className="event-detail-field-value">{getEventModalAgeLabel(event.ageRange)}</p>
+            {ageRec ? <p className="event-detail-age-rec">{ageRec}</p> : null}
           </div>
         </div>
         {categoryTags.length > 0 ? (
