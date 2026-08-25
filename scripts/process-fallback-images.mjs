@@ -51,12 +51,23 @@ if max(w, h) > max_dim:
     ratio = max_dim / max(w, h)
     img = img.resize((int(w * ratio), int(h * ratio)), Image.Resampling.LANCZOS)
 
-# Knock out connected near-white outer background (preserve interior whites like book pages)
+# Knock out connected near-white outer background (preserve interior whites like book pages —
+# they are not edge-connected, so flood-fill from the border won't reach them).
 img = img.convert('RGBA')
 px = img.load()
 w, h = img.size
 
 from collections import deque
+
+def is_studio_bg(r, g, b, a):
+    """Near-white / pure-white studio backdrop, including slightly warm greys."""
+    if a == 0:
+        return True
+    mx = max(r, g, b)
+    mn = min(r, g, b)
+    if mx - mn > 18:
+        return False
+    return mx >= 245
 
 def flood_transparent(predicate):
     visited = set()
@@ -77,63 +88,11 @@ def flood_transparent(predicate):
         if not predicate(*px[x, y]):
             continue
         visited.add((x, y))
-        px[x, y] = (px[x, y][0], px[x, y][1], px[x, y][2], 0)
-        q.extend([(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)])
-
-if dst.endswith('music.png'):
-    def is_music_studio(r, g, b, a):
-        if a == 0:
-            return True
-        mx = max(r, g, b)
-        mn = min(r, g, b)
-        if mx - mn > 14:
-            return False
-        return mx >= 247
-
-    flood_transparent(is_music_studio)
-else:
-    def is_warm_bg(r, g, b, a):
-        if a == 0:
-            return True
-        mx = max(r, g, b)
-        mn = min(r, g, b)
-        if mx < 228 or (mx - mn) > 22:
-            return False
-        avg = (r + g + b) / 3
-        if avg >= 252:
-            return False
-        return r >= g and g >= b - 3
-
-    def blocks_flood(r, g, b, a):
-        if a == 0:
-            return True
-        mx = max(r, g, b)
-        mn = min(r, g, b)
-        return (mx - mn) > 24
-
-    visited = set()
-    q = deque()
-    for x in range(w):
-        for y in (0, h - 1):
-            if is_warm_bg(*px[x, y]):
-                q.append((x, y))
-    for y in range(h):
-        for x in (0, w - 1):
-            if is_warm_bg(*px[x, y]):
-                q.append((x, y))
-
-    while q:
-        x, y = q.popleft()
-        if x < 0 or y < 0 or x >= w or y >= h or (x, y) in visited:
-            continue
-        r, g, b, a = px[x, y]
-        if blocks_flood(r, g, b, a):
-            continue
-        if not is_warm_bg(r, g, b, a):
-            continue
-        visited.add((x, y))
+        r, g, b, _a = px[x, y]
         px[x, y] = (r, g, b, 0)
         q.extend([(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)])
+
+flood_transparent(is_studio_bg)
 
 # Erase watermark cover patches (painted pure white, not caught by warm-bg flood fill)
 def erase_near_white(x0, y0, x1, y1):

@@ -211,6 +211,24 @@
   object-fit: cover;
 }
 
+.sedl-airbnb-hero__img.event-image--fallback {
+  width: auto;
+  height: auto;
+  max-width: min(72%, 22rem);
+  max-height: 88%;
+  margin: auto;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+}
+
+.sedl-airbnb-hero:has(.event-image--fallback) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2f4;
+}
+
 .sedl-airbnb-share {
   position: absolute;
   top: 1rem;
