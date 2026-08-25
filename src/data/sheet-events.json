@@ -11777,7 +11777,7 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Arts & Crafts",
+      "Social & Play",
       "Outdoor"
     ],
     "categoryTags": [
@@ -11792,7 +11792,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "sheetTypesRaw": "Arts & Crafts, Outdoor"
+    "sheetTypesRaw": "Social & Play, Outdoor"
   },
   {
     "id": "jeff-center-free-family-play-2026-10-05",

@@ -43,12 +43,19 @@ export function inferActivityTypesFromText(...parts: string[]): ActivityType[] {
   ) {
     matched.push('Music & Movement')
   }
-  if (lower.includes('art') || lower.includes('craft')) matched.push('Arts & Crafts')
+  if (/\b(art|arts|craft|crafts)\b/.test(lower)) matched.push('Arts & Crafts')
   if (lower.includes('outdoor') || lower.includes('park')) matched.push('Outdoor')
   if (lower.includes('lego') || lower.includes('steam') || lower.includes('build')) {
     matched.push('Build & Explore')
   }
   if (lower.includes('play') || lower.includes('social')) matched.push('Social & Play')
+  if (
+    /\b(farm|barn|livestock|ponies?|horses?|petting\s+zoo)\b/.test(lower) &&
+    /\b(festival|celebrate|celebration|annual|invite you and your family)\b/.test(lower)
+  ) {
+    if (!matched.includes('Social & Play')) matched.push('Social & Play')
+    if (!matched.includes('Outdoor')) matched.push('Outdoor')
+  }
   if (lower.includes('class')) matched.push('Classes')
 
   return matched

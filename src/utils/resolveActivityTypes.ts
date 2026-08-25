@@ -24,20 +24,26 @@ function normalizeCategoryTags(categoryTags: string[] | string): string[] {
     .filter(Boolean)
 }
 
-function isSeasonalFarmFestival(
+/** Farm, barn, or pony/animal community gatherings → Social & Play + Outdoor. */
+function isAnimalCommunityGathering(
   title: string,
   description: string,
   categoryTags: string[],
 ): boolean {
   const text = `${title} ${description}`.toLowerCase()
   const seasonal = categoryTags.some((tag) => /^seasonal$/i.test(tag))
-  const farmHalloween =
-    /\b(farm|barn|livestock|sheep|goats?|chickens?|rabbits?|pigs?|cows?|halloween|spooky|haunted)\b/.test(
+  const animalOrFarm =
+    /\b(farm|barn|livestock|sheep|goats?|chickens?|rabbits?|pigs?|cows?|ponies?|horses?|petting\s+zoo)\b/.test(
       text,
     )
+  const halloween = /\b(halloween|spooky|haunted)\b/.test(text)
   const gathering =
-    /\b(festival|celebrate|celebration|invite you and your family)\b/.test(text)
-  return (seasonal && farmHalloween) || (farmHalloween && gathering)
+    /\b(festival|celebrate|celebration|invite you and your family|annual)\b/.test(text)
+  return (
+    (seasonal && (animalOrFarm || halloween)) ||
+    (animalOrFarm && gathering) ||
+    (animalOrFarm && halloween && gathering)
+  )
 }
 
 /** Merge sheet tags with title/description inference for parent-facing activity types. */
@@ -51,7 +57,7 @@ export function resolveActivityTypes(
   const sheetTypes = parseSheetActivityTypes(sheetTypesRaw)
   const combinedRaw = [sheetTypesRaw, ...tags].filter(Boolean).join(', ')
 
-  if (isSeasonalFarmFestival(title, description, tags)) {
+  if (isAnimalCommunityGathering(title, description, tags)) {
     return ['Social & Play', 'Outdoor']
   }
 
