@@ -86,15 +86,61 @@ export function csvEscape(value) {
   return text
 }
 
+/**
+ * Mountain View special-events marketing pages ↔ CivicPlus calendar event IDs.
+ * Akamai blocks scraping the hub; these aliases keep alreadyOnPuddles accurate.
+ */
+export const MOUNTAIN_VIEW_SPECIAL_EVENT_ALIASES = {
+  'harvest-history-festival': '3482',
+}
+
+/** Canonical keys for catalog / discovery URL dedupe (not always the raw href). */
+export function catalogUrlKeys(url) {
+  const raw = String(url || '').trim()
+  if (!raw) return []
+  const keys = new Set()
+  const stripped = raw.replace(/\/$/, '')
+  keys.add(stripped)
+
+  try {
+    const parsed = new URL(raw)
+    parsed.hash = ''
+    const originPath = `${parsed.origin}${parsed.pathname}`.replace(/\/$/, '')
+    keys.add(originPath)
+
+    const host = parsed.hostname.replace(/^www\./, '').toLowerCase()
+    if (host === 'mountainview.gov') {
+      const cal = parsed.pathname.match(/\/Home\/Components\/Calendar\/Event\/(\d+)/i)
+      if (cal) keys.add(`mountainview.gov/calendar-event/${cal[1]}`)
+
+      const special = parsed.pathname.match(/\/special-events\/([^/]+)/i)
+      if (special) {
+        const slug = special[1].toLowerCase()
+        keys.add(`mountainview.gov/special-events/${slug}`)
+        const eventId = MOUNTAIN_VIEW_SPECIAL_EVENT_ALIASES[slug]
+        if (eventId) keys.add(`mountainview.gov/calendar-event/${eventId}`)
+      }
+    }
+  } catch {
+    // keep stripped only
+  }
+
+  return [...keys]
+}
+
 export function loadCatalogUrls() {
   const path = join(rootDir, 'src/data/sheet-events.json')
   const events = JSON.parse(readFileSync(path, 'utf8'))
   const urls = new Set()
   for (const event of events) {
-    const url = event.eventUrl?.trim()
-    if (url) urls.add(url.replace(/\/$/, ''))
+    for (const key of catalogUrlKeys(event.eventUrl)) urls.add(key)
   }
   return urls
+}
+
+/** True when candidate URL matches a live catalog event URL (incl. MV aliases). */
+export function isUrlAlreadyOnPuddles(eventUrl, catalogUrls) {
+  return catalogUrlKeys(eventUrl).some((key) => catalogUrls.has(key))
 }
 
 export function loadVenueGeo() {
@@ -318,7 +364,7 @@ export function sortCandidates(candidates) {
 export const DISCOVERY_ADMIN_PATH = join(rootDir, 'src/data/discovery-candidates.json')
 
 export function normalizeDiscoveryEventUrl(url) {
-  return String(url || '').trim().replace(/\/$/, '')
+  return catalogUrlKeys(url)[0] || String(url || '').trim().replace(/\/$/, '')
 }
 
 export function indexDiscoveryCandidatesByIdentity(candidates) {
@@ -326,19 +372,21 @@ export function indexDiscoveryCandidatesByIdentity(candidates) {
   const byUrl = new Map()
   for (const candidate of candidates) {
     if (candidate?.id) byId.set(candidate.id, candidate)
-    const normalizedUrl = normalizeDiscoveryEventUrl(candidate?.eventUrl)
-    if (normalizedUrl) byUrl.set(normalizedUrl, candidate)
+    for (const key of catalogUrlKeys(candidate?.eventUrl)) {
+      if (!byUrl.has(key)) byUrl.set(key, candidate)
+    }
   }
   return { byId, byUrl }
 }
 
 export function findPreviousDiscoveryCandidate(candidate, index) {
   if (!candidate) return null
-  return (
-    index.byId.get(candidate.id) ||
-    index.byUrl.get(normalizeDiscoveryEventUrl(candidate.eventUrl)) ||
-    null
-  )
+  if (candidate.id && index.byId.get(candidate.id)) return index.byId.get(candidate.id)
+  for (const key of catalogUrlKeys(candidate.eventUrl)) {
+    const prev = index.byUrl.get(key)
+    if (prev) return prev
+  }
+  return null
 }
 
 /** Keep Admin review fields when re-scraping the same library event. */

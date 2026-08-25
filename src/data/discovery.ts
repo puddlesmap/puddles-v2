@@ -89,11 +89,29 @@ export function summarizeDiscoveryCounts(candidates: DiscoveryCandidate[]) {
   }
 }
 
+export function normalizeDiscoverySearchText(value: string): string {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[–—]/g, '-')
+    .replace(/\bhistoric\b/g, 'history')
+    .replace(/\bfestivals?\b/g, 'festival')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+export function discoverySearchMatches(haystack: string, query: string): boolean {
+  const q = normalizeDiscoverySearchText(query)
+  if (!q) return true
+  const hay = normalizeDiscoverySearchText(haystack)
+  const tokens = q.split(' ').filter(Boolean)
+  return tokens.every((token) => hay.includes(token))
+}
+
 export function filterDiscoveryCandidates(
   candidates: DiscoveryCandidate[],
   opts: { view: DiscoveryViewFilter; search: string },
 ): DiscoveryCandidate[] {
-  const q = opts.search.trim().toLowerCase()
   return candidates.filter((candidate) => {
     if (isDiscoveryCandidateExpired(candidate)) return false
 
@@ -111,7 +129,7 @@ export function filterDiscoveryCandidates(
     if (opts.view === 'live' && candidate.reviewStatus !== 'live') return false
     if (opts.view === 'dismissed' && candidate.reviewStatus !== 'dismissed') return false
 
-    if (!q) return true
+    if (!opts.search.trim()) return true
     const haystack = [
       candidate.title,
       candidate.venue,
@@ -121,10 +139,9 @@ export function filterDiscoveryCandidates(
       candidate.tips,
       candidate.description,
       candidate.eventUrl,
+      candidate.source,
       ...(candidate.types || []),
-    ]
-      .join(' ')
-      .toLowerCase()
-    return haystack.includes(q)
+    ].join(' ')
+    return discoverySearchMatches(haystack, opts.search)
   })
 }

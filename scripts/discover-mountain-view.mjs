@@ -10,6 +10,7 @@ import {
   descriptionWithoutTips,
   extractTipsFromText,
   finalizeTips,
+  isUrlAlreadyOnPuddles,
   loadCatalogUrls,
   loadVenueGeo,
   parseArgs,
@@ -225,7 +226,7 @@ export async function discoverMountainView({ days = 30, writeAdmin = true } = {}
 
   const candidates = sortCandidates([...byUrl.values()])
   for (const candidate of candidates) {
-    candidate.alreadyOnPuddles = catalogUrls.has(candidate.eventUrl.replace(/\/$/, ''))
+    candidate.alreadyOnPuddles = isUrlAlreadyOnPuddles(candidate.eventUrl, catalogUrls)
   }
 
   const newOnly = candidates.filter((c) => !c.alreadyOnPuddles)

@@ -69,11 +69,17 @@ async function main() {
   ])
 
   const existing = loadExistingDiscoveryCandidates()
-  const candidates = mergeDiscoveryCandidatesPreservingReview(scraped, existing)
+  const librarySources = new Set(SOURCES)
+  const scrapedMerged = mergeDiscoveryCandidatesPreservingReview(
+    scraped,
+    existing.filter((row) => librarySources.has(row.source)),
+  )
+  const preservedOther = existing.filter((row) => !librarySources.has(row.source))
+  const candidates = sortCandidates([...scrapedMerged, ...preservedOther])
 
   const already = candidates.filter((c) => c.alreadyOnPuddles)
   const newOnly = candidates.filter((c) => !c.alreadyOnPuddles)
-  const preservedReview = candidates.filter((scrapedRow) => {
+  const preservedReview = scrapedMerged.filter((scrapedRow) => {
     const prev = existing.find(
       (row) =>
         row.id === scrapedRow.id ||
@@ -81,17 +87,22 @@ async function main() {
     )
     return prev && prev.reviewStatus !== 'pending' && prev.reviewStatus === scrapedRow.reviewStatus
   }).length
+  const preservedNonLibrary = preservedOther.length
 
   const adminPayload = {
     generatedAt: new Date().toISOString(),
     libraries: ['paloalto', 'sccl', 'mountainview-libcal'],
-    sources: SOURCES,
+    sources: [...SOURCES, ...[...new Set(preservedOther.map((c) => c.source))].sort()],
     window: { start: startYmd, end: pa.window?.end || la.window?.end, days },
     stats: {
       ...summarizeDiscoveryCandidateStats(candidates),
       preservedReview,
+      preservedNonLibrary,
       bySource: Object.fromEntries(
-        SOURCES.map((source) => [source, candidates.filter((c) => c.source === source).length]),
+        [...new Set(candidates.map((c) => c.source))].map((source) => [
+          source,
+          candidates.filter((c) => c.source === source).length,
+        ]),
       ),
       cities: {
         paloAlto: pa.stats || {},
@@ -116,7 +127,10 @@ async function main() {
   if (preservedReview > 0) {
     console.log(`  Preserved review:    ${preservedReview} (approved/dismissed/live)`)
   }
-  for (const source of SOURCES) {
+  if (preservedNonLibrary > 0) {
+    console.log(`  Preserved watchlist: ${preservedNonLibrary} (Calendar Watchlist / other)`)
+  }
+  for (const source of [...new Set(candidates.map((c) => c.source))]) {
     const rows = candidates.filter((c) => c.source === source)
     const neu = rows.filter((c) => !c.alreadyOnPuddles).length
     console.log(`  · ${source}: ${rows.length} (${neu} new)`)

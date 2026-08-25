@@ -1,7 +1,7 @@
 {
   "name": "Calendar Watchlist",
   "description": "Human-curated calendars and recurring feeds Puddles checks for ages 0–5 activities. Distinct from Discovery library scrapers (BiblioCommons / LibCal) and from the live Events catalog.",
-  "updatedAt": "2026-08-24",
+  "updatedAt": "2026-08-25",
   "sources": [
     {
       "id": "mv-special-events",
@@ -10,7 +10,17 @@
       "city": "Mountain View",
       "url": "https://www.mountainview.gov/our-city/departments/community-services/special-events",
       "fitFor0to5": "partial",
-      "notes": "Summer Music on Castro, Concerts on the Plaza, outdoor movies, festivals. Family-friendly all-ages; not toddler-specific. Site often blocks automated fetch (Akamai).",
+      "notes": "Summer Music on Castro, Concerts on the Plaza, outdoor movies, festivals. Family-friendly all-ages; not toddler-specific. Site often blocks automated fetch (Akamai) — keep manual. Known child pages: harvest-history-festival (on Puddles as Harvest History Festival, Sep 26 2026, calendar Event/3482).",
+      "knownEventPages": [
+        {
+          "slug": "harvest-history-festival",
+          "title": "Harvest History Festival",
+          "url": "https://www.mountainview.gov/our-city/departments/community-services/special-events/harvest-history-festival",
+          "catalogEventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3482/656",
+          "date": "2026-09-26",
+          "alreadyOnPuddles": true
+        }
+      ],
       "alreadyOnPuddles": true,
       "checkCadence": "weekly in season"
     },

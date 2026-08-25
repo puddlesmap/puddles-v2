@@ -55,11 +55,12 @@ Workflow: [`.github/workflows/discover-bay-area.yml`](../.github/workflows/disco
 Each run:
 
 1. `npm run discover:bay-area -- --days=60` (default in CI)
-2. Merges into `discovery-candidates.json` and **preserves** `reviewStatus` / `convertedEventId` / `lastChecked` for matching events
-3. `npm run build` — fail early if data breaks the app
-4. Commit + push → Netlify deploy (~2–4 min) → review in **Admin → Discovery**
+2. Merges into `discovery-candidates.json` and **preserves** `reviewStatus` / `convertedEventId` / `lastChecked` for matching library events
+3. **Keeps** non-library rows (Calendar Watchlist · …) that were already in the Admin queue
+4. `npm run build` — fail early if data breaks the app
+5. Commit + push → Netlify deploy (~2–4 min) → review in **Admin → Discovery**
 
-To enable weekly auto-refresh later, uncomment a Sunday cron in that workflow (Phase 1 roadmap).
+Mountain View **city** special events (festivals, movies on Castro, etc.) are **not** on LibCal — they stay on the [Calendar Watchlist](./calendar-watchlist.md) (Akamai blocks automated fetch of mountainview.gov). Marketing page URLs like `/special-events/harvest-history-festival` are aliased to CivicPlus calendar event IDs when marking already-on-Puddles.
 
 | Script | Source |
 |--------|--------|

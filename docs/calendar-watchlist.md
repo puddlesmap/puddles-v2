@@ -17,7 +17,7 @@ The saved list of **non-library calendars** Puddles checks for ages 0–5 activi
 
 | Source | 0–5 fit | On Puddles? | Notes |
 |--------|---------|-------------|--------|
-| [MV Special Events](https://www.mountainview.gov/our-city/departments/community-services/special-events) | Partial (all-ages family) | Yes — concerts/movies/festivals | Site blocks scrapers; keep manual |
+| [MV Special Events](https://www.mountainview.gov/our-city/departments/community-services/special-events) | Partial (all-ages family) | Yes — concerts/movies/festivals | Site blocks scrapers; keep manual. **Harvest History Festival** (Sep 26, Heritage Park) is live — marketing page `/harvest-history-festival` aliases to calendar Event/3482 in discovery dedupe. |
 | [Los Altos Family Fun Days](https://www.losaltosca.gov/329/Family-Fun-Days) | Strong | Yes — Aug 8, Oct 24, Dec 12 | Free 10am–1pm Community Center |
 | [Downtown Los Altos](https://downtownlosaltos.org/events/) | Sparse | No | Skip wine/whiskey; add Halloween Trick-or-Treat Oct 30 |
 | [CSMA Concerts](https://arts4all.org/concerts/) | Weak | No (concerts) | Evening adult series; watch for family days instead |

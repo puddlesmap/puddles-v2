@@ -11,7 +11,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { inferAgeRangeFromText } from './age-hints.mjs'
-import { finalizeTips } from './discovery-shared.mjs'
+import { finalizeTips, isUrlAlreadyOnPuddles, loadCatalogUrls } from './discovery-shared.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = join(__dirname, '..')
@@ -134,17 +134,6 @@ async function fetchAllEvents() {
   }
 
   return { items, entities, totalListed: first.events?.pagination?.count ?? items.length }
-}
-
-function loadCatalogUrls() {
-  const path = join(rootDir, 'src/data/sheet-events.json')
-  const events = JSON.parse(readFileSync(path, 'utf8'))
-  const urls = new Set()
-  for (const event of events) {
-    const url = event.eventUrl?.trim()
-    if (url) urls.add(url.replace(/\/$/, ''))
-  }
-  return urls
 }
 
 function isYoungAudience(audienceIds) {
@@ -403,7 +392,7 @@ async function main() {
     young++
 
     const candidate = normalizeCandidate(event, entities)
-    candidate.alreadyOnPuddles = catalogUrls.has(candidate.eventUrl)
+    candidate.alreadyOnPuddles = isUrlAlreadyOnPuddles(candidate.eventUrl, catalogUrls)
     candidates.push(candidate)
   }
 

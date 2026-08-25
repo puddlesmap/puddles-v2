@@ -11,6 +11,7 @@ import {
   descriptionWithoutTips,
   extractTipsFromText,
   finalizeTips,
+  isUrlAlreadyOnPuddles,
   loadCatalogUrls,
   parseArgs,
   pacificTodayYmd,
@@ -273,7 +274,7 @@ export async function discoverLosAltos({ days = 30, writeAdmin = true } = {}) {
     young++
 
     const candidate = normalizeCandidate(event, entities)
-    candidate.alreadyOnPuddles = catalogUrls.has(candidate.eventUrl.replace(/\/$/, ''))
+    candidate.alreadyOnPuddles = isUrlAlreadyOnPuddles(candidate.eventUrl, catalogUrls)
     candidates.push(candidate)
   }
 
