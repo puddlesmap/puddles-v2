@@ -10964,8 +10964,8 @@
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Stories",
-      "Music & Movement"
+      "Social & Play",
+      "Outdoor"
     ],
     "categoryTags": [
       "Other"
@@ -10979,7 +10979,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "sheetTypesRaw": "Stories, Music & Movement"
+    "sheetTypesRaw": "Social & Play, Outdoor"
   },
   {
     "id": "698e125a2a787a47a5e73be3",
