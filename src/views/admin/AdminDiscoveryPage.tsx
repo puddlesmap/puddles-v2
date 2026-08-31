@@ -25,10 +25,12 @@ import {
   pacificTodayYmd,
   saveDiscoveryReviewRecord,
 } from '../../utils/discoveryReview'
+import { summarizeDiscoveryThisWeek } from '../../utils/discoveryThisWeek'
 
 type ActionMessage = { type: 'success' | 'error'; text: string }
 
 const VIEW_OPTIONS: { id: DiscoveryViewFilter; label: string }[] = [
+  { id: 'thisWeek', label: 'This week' },
   { id: 'pending', label: 'Pending' },
   { id: 'new', label: 'New only' },
   { id: 'already', label: 'Already on site' },
@@ -148,7 +150,7 @@ export function AdminDiscoveryPage() {
       applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, loadDiscoveryReviewStore()),
     ),
   )
-  const [view, setView] = useState<DiscoveryViewFilter>('pending')
+  const [view, setView] = useState<DiscoveryViewFilter>('thisWeek')
   const [search, setSearch] = useState('')
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
@@ -159,8 +161,18 @@ export function AdminDiscoveryPage() {
 
   const counts = useMemo(() => summarizeDiscoveryCounts(candidates), [candidates])
 
+  const thisWeekSummary = useMemo(
+    () => summarizeDiscoveryThisWeek(candidates, undefined, DISCOVERY_CATALOG.generatedAt),
+    [candidates],
+  )
+
   const filtered = useMemo(
-    () => filterDiscoveryCandidates(candidates, { view, search }),
+    () =>
+      filterDiscoveryCandidates(candidates, {
+        view,
+        search,
+        catalogGeneratedAt: DISCOVERY_CATALOG.generatedAt,
+      }),
     [candidates, view, search],
   )
 
@@ -590,6 +602,77 @@ export function AdminDiscoveryPage() {
           . Refresh with <code>npm run discover:palo-alto</code>. Review status is saved in this
           browser.
         </p>
+        {view === 'thisWeek' ? (
+          <div className="admin-discovery-this-week">
+            <div className="admin-discovery-this-week__head">
+              <h2 className="admin-discovery-this-week__title">New to Puddles this week</h2>
+              <p className="admin-discovery-this-week__lede">
+                {thisWeekSummary.weekStart} → {thisWeekSummary.weekEnd} Pacific ·{' '}
+                {thisWeekSummary.total} pending review · queue refreshed{' '}
+                {DISCOVERY_CATALOG.generatedAt
+                  ? new Date(DISCOVERY_CATALOG.generatedAt).toLocaleString('en-US', {
+                      timeZone: 'America/Los_Angeles',
+                    })
+                  : '—'}
+              </p>
+            </div>
+            {thisWeekSummary.highlights.length > 0 ? (
+              <ul className="admin-discovery-this-week__highlights">
+                {thisWeekSummary.highlights.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+            ) : null}
+            <div className="admin-discovery-this-week__grid">
+              <div className="admin-discovery-this-week__panel">
+                <h3 className="admin-discovery-this-week__label">New cities</h3>
+                <ul className="admin-discovery-this-week__list">
+                  {thisWeekSummary.launchCities.map((entry) => (
+                    <li key={entry.city}>
+                      <strong>{entry.city}</strong> · {entry.count} this week
+                      <span className="admin-discovery-this-week__meta">
+                        NEW filter until {entry.newUntil}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="admin-discovery-this-week__panel">
+                <h3 className="admin-discovery-this-week__label">New activity types</h3>
+                <ul className="admin-discovery-this-week__list">
+                  {thisWeekSummary.launchActivityTypes.map((entry) => (
+                    <li key={entry.type}>
+                      <strong>{entry.type}</strong> · {entry.count} this week
+                      <span className="admin-discovery-this-week__meta">
+                        NEW filter until {entry.newUntil}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="admin-discovery-this-week__panel">
+                <h3 className="admin-discovery-this-week__label">By source</h3>
+                <ul className="admin-discovery-this-week__list">
+                  {thisWeekSummary.bySource.slice(0, 8).map((entry) => (
+                    <li key={entry.source}>
+                      {entry.source} · {entry.count}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="admin-discovery-this-week__panel">
+                <h3 className="admin-discovery-this-week__label">By city</h3>
+                <ul className="admin-discovery-this-week__list">
+                  {thisWeekSummary.byCity.slice(0, 8).map((entry) => (
+                    <li key={entry.city}>
+                      {entry.city} · {entry.count}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ) : null}
         {actionMessage ? (
           <p
             className={`admin-action-alert admin-action-alert--${actionMessage.type}`}
@@ -625,19 +708,21 @@ export function AdminDiscoveryPage() {
         <div className="admin-view-tabs" role="tablist" aria-label="Discovery views">
           {VIEW_OPTIONS.map((option) => {
             const count =
-              option.id === 'pending'
-                ? counts.pending
-                : option.id === 'new'
-                  ? counts.newPending
-                  : option.id === 'already'
-                    ? counts.alreadyPending
-                    : option.id === 'approved'
-                      ? counts.approved
-                      : option.id === 'live'
-                        ? counts.live
-                        : option.id === 'dismissed'
-                          ? counts.dismissed
-                          : counts.total
+              option.id === 'thisWeek'
+                ? thisWeekSummary.total
+                : option.id === 'pending'
+                  ? counts.pending
+                  : option.id === 'new'
+                    ? counts.newPending
+                    : option.id === 'already'
+                      ? counts.alreadyPending
+                      : option.id === 'approved'
+                        ? counts.approved
+                        : option.id === 'live'
+                          ? counts.live
+                          : option.id === 'dismissed'
+                            ? counts.dismissed
+                            : counts.total
             return (
               <button
                 key={option.id}

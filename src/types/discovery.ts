@@ -67,6 +67,7 @@ export type DiscoveryEditableFields = Pick<
 export type DiscoveryViewFilter =
   | 'pending'
   | 'new'
+  | 'thisWeek'
   | 'already'
   | 'approved'
   | 'live'

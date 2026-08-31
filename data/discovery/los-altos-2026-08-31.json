@@ -1,0 +1,247 @@
+{
+  "generatedAt": "2026-08-31T22:37:58.239Z",
+  "library": "sccl",
+  "source": "SCCL · Los Altos",
+  "window": {
+    "start": "2026-08-31",
+    "end": "2026-10-30",
+    "days": 60
+  },
+  "stats": {
+    "apiListed": 2241,
+    "fetchedIds": 2241,
+    "inWindow": 1092,
+    "losAltosBranchesInWindow": 167,
+    "youngAudienceInWindow": 63,
+    "cancelledSkipped": 14,
+    "candidates": 63,
+    "alreadyOnPuddles": 39,
+    "newForReview": 24
+  },
+  "candidates": [
+    {
+      "id": "68fc04f0831f063d005395b5",
+      "title": "Los Altos Library Closed for Labor Day",
+      "date": "2026-09-07",
+      "startTime": "",
+      "endTime": "",
+      "venue": "Los Altos Library",
+      "room": "",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Scheduled Closure/Holiday"
+      ],
+      "cost": "Free",
+      "description": "All SCCLD locations will be CLOSED Monday, September 7 for Labor Day. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/68fc04f0831f063d005395b5",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false
+    },
+    {
+      "id": "68fc11d1831f063d005398b3",
+      "title": "Woodland Branch Library Closed for Labor Day",
+      "date": "2026-09-07",
+      "startTime": "",
+      "endTime": "",
+      "venue": "Woodland Branch Library",
+      "room": "",
+      "address": "1975 Grant Road, Los Altos, CA 94024",
+      "city": "Los Altos",
+      "lat": 37.3442675,
+      "lng": -122.07544430000002,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Scheduled Closure/Holiday"
+      ],
+      "cost": "Free",
+      "description": "All SCCLD locations will be CLOSED Monday, September 7 for Labor Day. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/68fc11d1831f063d005398b3",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false
+    },
+    {
+      "id": "6970253094297d3600a66ca1",
+      "title": "Board Game Sunday!",
+      "date": "2026-09-13",
+      "startTime": "14:00",
+      "endTime": "15:30",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation"
+      ],
+      "cost": "Free",
+      "description": "Everyone is invited to play board games!\n\n Join us on the second Sunday of the month from 2:00 PM to 3:30 PM.\n\n We have board games for all ages: adults, teens, and children.\n\n Come with friends & family!\n\n (The room closes at 3:30 PM, so come early enough to have time to finish your game.)",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/f00ce3e9afd5f0b0c0a1198e0b2103aa/kssboardgame;Header(1).png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6970253094297d3600a66ca1",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": true
+    },
+    {
+      "id": "6a91c6a8660e510bf44050c0",
+      "title": "Happy Birds Presented by the Los Altos Library Commission",
+      "date": "2026-09-20",
+      "startTime": "10:30",
+      "endTime": "12:30",
+      "venue": "Los Altos Library",
+      "room": "Los Altos Community Center\nGrand Oak Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation"
+      ],
+      "cost": "Free",
+      "description": "NOTE: THIS EVENT WILL TAKE PLACE AT THE LOS ALTOS COMMUNITY CENTER GRAND OAK ROOM\n\n Join us for this special Happy Birds program presented by the Los Altos Library Commission.\n\n The Happy Birds Show includes over 25 amazing tricks performed by the show's famous talking and singing parrots! It is fast-paced and interactive fun for the whole family.\n\n Arrive at 10:30 to decorate a book bag or bucket hat. Happy Birds will begin at 11am.",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/4b7ff6df09ad107d8567268a5e6c3e87/Entertainment & Recreation.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a91c6a8660e510bf44050c0",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false
+    },
+    {
+      "id": "6970253094297d3600a66ca2",
+      "title": "Board Game Sunday!",
+      "date": "2026-10-11",
+      "startTime": "14:00",
+      "endTime": "15:30",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation"
+      ],
+      "cost": "Free",
+      "description": "Everyone is invited to play board games!\n\n Join us on the second Sunday of the month from 2:00 PM to 3:30 PM.\n\n We have board games for all ages: adults, teens, and children.\n\n Come with friends & family!\n\n (The room closes at 3:30 PM, so come early enough to have time to finish your game.)",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/f00ce3e9afd5f0b0c0a1198e0b2103aa/kssboardgame;Header(1).png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6970253094297d3600a66ca2",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": true
+    },
+    {
+      "id": "68fc04f0831f063d005395b6",
+      "title": "Los Altos Library Closed for Indigenous Peoples' Day",
+      "date": "2026-10-12",
+      "startTime": "",
+      "endTime": "",
+      "venue": "Los Altos Library",
+      "room": "",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Scheduled Closure/Holiday"
+      ],
+      "cost": "Free",
+      "description": "All SCCLD locations will be CLOSED Monday, October 12 for Indigenous Peoples' Day.. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/68fc04f0831f063d005395b6",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false
+    },
+    {
+      "id": "68fc11d1831f063d005398b4",
+      "title": "Woodland Branch Library Closed for Indigenous Peoples' Day",
+      "date": "2026-10-12",
+      "startTime": "",
+      "endTime": "",
+      "venue": "Woodland Branch Library",
+      "room": "",
+      "address": "1975 Grant Road, Los Altos, CA 94024",
+      "city": "Los Altos",
+      "lat": 37.3442675,
+      "lng": -122.07544430000002,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Scheduled Closure/Holiday"
+      ],
+      "cost": "Free",
+      "description": "All SCCLD locations will be CLOSED Monday, October 12 for Indigenous Peoples' Day. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/68fc11d1831f063d005398b4",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false
+    }
+  ]
+}

@@ -8,6 +8,7 @@ import { inferAgeRangeFromText, isAgeTargetingSentence } from '../utils/discover
 import { isOutsidePuddlesAgeScope } from '../utils/eventAudienceAge'
 import { pacificTodayYmd } from '../utils/discoveryReview'
 import { computeIsPast } from '../utils/publishing'
+import { getDiscoveryWeekStart, isDiscoveryNewThisWeek } from '../utils/discoveryThisWeek'
 
 export const DISCOVERY_CATALOG = catalog as DiscoveryCatalog
 
@@ -110,13 +111,21 @@ export function discoverySearchMatches(haystack: string, query: string): boolean
 
 export function filterDiscoveryCandidates(
   candidates: DiscoveryCandidate[],
-  opts: { view: DiscoveryViewFilter; search: string },
+  opts: { view: DiscoveryViewFilter; search: string; catalogGeneratedAt?: string },
 ): DiscoveryCandidate[] {
+  const weekStart = getDiscoveryWeekStart()
+
   return candidates.filter((candidate) => {
     if (isDiscoveryCandidateExpired(candidate)) return false
 
     if (opts.view === 'pending' && candidate.reviewStatus !== 'pending') return false
     if (opts.view === 'new' && !(candidate.reviewStatus === 'pending' && !candidate.alreadyOnPuddles)) {
+      return false
+    }
+    if (
+      opts.view === 'thisWeek' &&
+      !isDiscoveryNewThisWeek(candidate, weekStart, opts.catalogGeneratedAt)
+    ) {
       return false
     }
     if (
