@@ -8061,6 +8061,38 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "id": "disc-mariela-s-music-time-2026-09-01-6a80aa71b20478002993137e",
+    "title": "Mariela's Music Time",
+    "description": "Come for an educational, energetic, and interactive Spanish-English bilingual performance for infants, toddlers, and preschoolers and their families with Mariela of Mariela's Music Time. Enjoy the rhythms and multicultural sounds, along with the rich traditions of the Bay Area. We look forward to seeing you there! For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@sccl.org.",
+    "tips": "Space is limited — free tickets are handed out starting at 10 a.m.",
+    "venue": "Los Altos Library",
+    "room": "Orchard Room",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-09-01",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Arts & Culture",
+      "Early Learning & Storytimes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+    "eventUrl": "https://sccl.bibliocommons.com/events/6a80aa71b20478002993137e",
+    "verifiedDate": "2026-08-31",
+    "lat": 37.3808782,
+    "lng": -122.11330029999999,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "puddles-d974e696-a67",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
@@ -8247,6 +8279,38 @@
     "tips": "This program is targeted to children under the age of two and their caregivers."
   },
   {
+    "id": "disc-toddler-storytime-2026-09-02-6a7e39424cb69d003e20ac58",
+    "title": "Toddler Storytime",
+    "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities! We look forward to seeing you there! For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@sccl.org.",
+    "tips": "Space is limited — free tickets are handed out starting at 10 a.m.",
+    "venue": "Los Altos Library",
+    "room": "Orchard Room",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-09-02",
+    "startTime": "10:30",
+    "endTime": "11:00",
+    "ageRange": "0–2",
+    "ageMin": 1,
+    "ageMax": 2,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Entertainment & Recreation",
+      "Early Learning & Storytimes"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+    "eventUrl": "https://sccl.bibliocommons.com/events/6a7e39424cb69d003e20ac58",
+    "verifiedDate": "2026-08-31",
+    "lat": 37.3808782,
+    "lng": -122.11330029999999,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "69b835bdb48451fc3c09441b",
     "title": "Baby Storytime & Stay and Play",
     "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library! Catchy Songs & Silly Rhymes Gentle Movement & Baby Sign Language Short Books perfect for little eyes",
@@ -8368,6 +8432,34 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Music & Movement"
+  },
+  {
+    "id": "disc-cuesta-park-storytime-2026-09-03-17295774",
+    "title": "Cuesta Park Storytime",
+    "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Cuesta Park! Enjoy a fun-filled storytime at the playground, and take advantage of full library services available from 10:00–11:00 a.m. Find us at 615 Cuesta Drive, Mountain View, CA 94040",
+    "tips": "Events are weather permitting.",
+    "venue": "Mountain View Library",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-09-03",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_30_09_25_30.jpeg",
+    "eventUrl": "https://mountainview.libcal.com/event/17295774",
+    "verifiedDate": "2026-08-31",
+    "lat": 37.3895,
+    "lng": -122.0818,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
   },
   {
     "id": "69276b597eb3e430002638af",
@@ -8774,6 +8866,38 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
+  },
+  {
+    "id": "disc-parent-baby-yoga-with-marti-foster-2026-09-05-watchlist-marti-parent-baby-2026-09-05",
+    "title": "Parent & Baby Yoga with Marti Foster",
+    "description": "Outdoor Parent & Baby yoga — caregiver practices while baby comes along. Feeding, diapering, and baby needs are welcome in class. Weekly, weather permitting. Strong Parent & Me test case (grown-up participates; baby is part of the session). Separate Sat 10–11am prenatal class is not Parent & Me.",
+    "tips": "Weather permitting — check with Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.\nRegister at martifosteryoga.com.",
+    "venue": "Pioneer Memorial Park",
+    "address": "1146 Church St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-09-05",
+    "startTime": "11:15",
+    "endTime": "12:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Parent & Me",
+      "Priority: strong test"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
+    "verifiedDate": "2026-08-31",
+    "lat": 37.3896,
+    "lng": -122.0832,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
   },
   {
     "id": "outdoor-storytime-linden-tree-books-2026-09-06-10-30",
