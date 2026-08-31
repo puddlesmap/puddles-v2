@@ -1,6 +1,15 @@
 export type EventStatus = 'Draft' | 'Published' | 'Hidden' | 'Expired' | 'Cancelled'
 
-export type City = 'Palo Alto' | 'Los Altos' | 'Mountain View'
+export type City =
+  | 'Palo Alto'
+  | 'Los Altos'
+  | 'Mountain View'
+  | 'Cupertino'
+  | 'Redwood City'
+  | 'Menlo Park'
+  | 'Sunnyvale'
+  | 'San Jose'
+  | 'Fremont'
 export type CostLabel = 'Free' | 'Low-cost' | 'Paid' | (string & {})
 
 /** True when the activity is free to attend (not a dollar amount / paid tag). */
@@ -18,6 +27,8 @@ export type ActivityType =
   | 'Outdoor'
   | 'Social & Play'
   | 'Classes'
+  | 'Festivals & Community'
+  | 'Parent & Me'
   | 'Other'
 
 export const ACTIVITY_TYPES: ActivityType[] = [
@@ -28,6 +39,8 @@ export const ACTIVITY_TYPES: ActivityType[] = [
   'Outdoor',
   'Social & Play',
   'Classes',
+  'Festivals & Community',
+  'Parent & Me',
   'Other',
 ]
 
