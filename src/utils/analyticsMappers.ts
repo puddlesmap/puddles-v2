@@ -4,7 +4,7 @@ import type { EventOpenSource } from '../types/analytics'
 import type { Event } from '../types/event'
 import type { TemporalTab } from './dates'
 
-const IN_MARKET_CITIES = new Set(['palo alto', 'los altos', 'mountain view'])
+const IN_MARKET_CITIES = new Set(['palo alto', 'los altos', 'mountain view', 'sunnyvale'])
 
 const ACTIVITY_TYPE_SLUGS: Record<ActivityType, string> = {
   Stories: 'stories',
@@ -14,6 +14,8 @@ const ACTIVITY_TYPE_SLUGS: Record<ActivityType, string> = {
   Outdoor: 'outdoor',
   'Social & Play': 'social_play',
   Classes: 'classes',
+  'Festivals & Community': 'festivals_community',
+  'Parent & Me': 'parent_me',
   Other: 'other',
 }
 
@@ -45,6 +47,7 @@ export function citySlug(city: string): string {
   if (normalized === 'palo alto') return 'palo_alto'
   if (normalized === 'los altos') return 'los_altos'
   if (normalized === 'mountain view') return 'mountain_view'
+  if (normalized === 'sunnyvale') return 'sunnyvale'
   return normalized.replace(/\s+/g, '_')
 }
 

@@ -12,6 +12,8 @@ export const EVENT_FALLBACK_IMAGES: Record<ActivityType, string> = {
   Outdoor: '/event-fallbacks/outdoor.png',
   'Social & Play': '/event-fallbacks/play.png',
   Classes: '/event-fallbacks/classes.png',
+  'Festivals & Community': '/event-fallbacks/festivals.png',
+  'Parent & Me': '/event-fallbacks/parent-me.png',
   Other: '/event-fallbacks/other.png',
 }
 
