@@ -1,42 +1,45 @@
 {
-  "generatedAt": "2026-08-31T22:38:05.738Z",
+  "generatedAt": "2026-09-01T21:14:08.436Z",
   "libraries": [
     "paloalto",
     "sccl",
     "mountainview-libcal"
   ],
   "sources": [
-    "Palo Alto Library · BiblioCommons",
-    "SCCL · Los Altos",
-    "Mountain View Library · LibCal",
+    "Calendar Watchlist · City of Sunnyvale · Special Events",
     "Calendar Watchlist · Downtown Los Altos",
+    "Calendar Watchlist · Downtown Sunnyvale · Cityline & Murphy Ave",
     "Calendar Watchlist · FIT4MOM Silicon Valley Central",
     "Calendar Watchlist · Gamble Garden",
+    "Calendar Watchlist · Google Visitor Experience",
     "Calendar Watchlist · Linden Tree Books",
     "Calendar Watchlist · Los Altos History Museum",
     "Calendar Watchlist · Marti Foster Yoga",
     "Calendar Watchlist · Mini Yoga Club",
     "Calendar Watchlist · Music Together MP/PA",
     "Calendar Watchlist · Oshman Family JCC",
-    "Calendar Watchlist · Peninsula Youth Theatre"
+    "Calendar Watchlist · Peninsula Youth Theatre",
+    "Mountain View Library · LibCal",
+    "Palo Alto Library · BiblioCommons",
+    "SCCL · Los Altos"
   ],
   "window": {
-    "start": "2026-08-31",
-    "end": "2026-10-30",
-    "days": 60
+    "start": "2026-09-01",
+    "end": "2026-11-30",
+    "days": 90
   },
   "stats": {
-    "candidates": 209,
-    "alreadyOnPuddles": 144,
-    "newForReview": 65,
+    "candidates": 263,
+    "alreadyOnPuddles": 141,
+    "newForReview": 122,
     "bySource": {
       "Calendar Watchlist · Linden Tree Books": 5,
       "Calendar Watchlist · Marti Foster Yoga": 5,
       "Calendar Watchlist · Los Altos History Museum": 1,
       "Calendar Watchlist · FIT4MOM Silicon Valley Central": 8,
-      "Mountain View Library · LibCal": 40,
-      "Palo Alto Library · BiblioCommons": 80,
-      "SCCL · Los Altos": 63,
+      "Mountain View Library · LibCal": 46,
+      "Palo Alto Library · BiblioCommons": 112,
+      "SCCL · Los Altos": 79,
       "Calendar Watchlist · Oshman Family JCC": 1,
       "Calendar Watchlist · Music Together MP/PA": 1,
       "Calendar Watchlist · Gamble Garden": 1,
@@ -48,32 +51,32 @@
     "preservedNonLibrary": 26,
     "cities": {
       "paloAlto": {
-        "apiListed": 521,
-        "fetchedIds": 521,
-        "inWindow": 227,
-        "youngAudienceInWindow": 80,
+        "apiListed": 518,
+        "fetchedIds": 518,
+        "inWindow": 318,
+        "youngAudienceInWindow": 112,
         "cancelledSkipped": 7,
-        "candidates": 80,
-        "alreadyOnPuddles": 72,
-        "newForReview": 8
+        "candidates": 112,
+        "alreadyOnPuddles": 71,
+        "newForReview": 41
       },
       "losAltos": {
-        "apiListed": 2241,
-        "fetchedIds": 2241,
-        "inWindow": 1092,
-        "losAltosBranchesInWindow": 167,
-        "youngAudienceInWindow": 63,
-        "cancelledSkipped": 14,
-        "candidates": 63,
-        "alreadyOnPuddles": 39,
-        "newForReview": 24
+        "apiListed": 2230,
+        "fetchedIds": 2230,
+        "inWindow": 1476,
+        "losAltosBranchesInWindow": 218,
+        "youngAudienceInWindow": 79,
+        "cancelledSkipped": 13,
+        "candidates": 79,
+        "alreadyOnPuddles": 38,
+        "newForReview": 41
       },
       "mountainView": {
-        "daysFetched": 61,
-        "apiResults": 40,
-        "candidates": 40,
-        "alreadyOnPuddles": 32,
-        "newForReview": 8
+        "daysFetched": 91,
+        "apiResults": 46,
+        "candidates": 46,
+        "alreadyOnPuddles": 31,
+        "newForReview": 15
       }
     }
   },
@@ -88,7 +91,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "",
       "id": "watchlist-linden-2026-08-09",
@@ -121,7 +124,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "",
       "id": "watchlist-linden-2026-08-16",
@@ -154,7 +157,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "",
       "id": "watchlist-linden-2026-08-23",
@@ -187,7 +190,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "ageMin": 0,
@@ -209,7 +212,7 @@
       ],
       "cost": "Paid",
       "description": "Outdoor Parent & Baby yoga — caregiver practices while baby comes along. Feeding, diapering, and baby needs are welcome in class. Weekly, weather permitting. Strong Parent & Me test case (grown-up participates; baby is part of the session). Separate Sat 10–11am prenatal class is not Parent & Me.",
-      "tips": "Weather permitting — check with Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.\nRegister at martifosteryoga.com.",
+      "tips": "Weekly classes — check martifosteryoga.com for current times.\nRainy day: Outdoor class — contact Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.",
       "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
       "source": "Calendar Watchlist · Marti Foster Yoga",
       "isRecurring": true
@@ -224,7 +227,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "",
       "id": "watchlist-linden-2026-08-30",
@@ -259,7 +262,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "train-day-los-altos-history-museum-2026-08-30-11-00",
       "lastChecked": "2026-08-27",
       "id": "watchlist-lahm-train-day-2026-08-30",
@@ -292,7 +295,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "isRecurring": true,
@@ -317,73 +320,7 @@
         "Outdoor"
       ],
       "description": "60-minute Stroller Strides: cardio, strength, and core for caregivers with babies/toddlers in a stroller (or worn). Grown-up works out; little one comes along — strong Parent & Me fit.",
-      "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nMeet in grassy area between tennis-court parking and playground (Sat uses playgroup gazebo).\nRain: St. Timothy’s overhang, 2094 Grant Rd.\nPre-enroll for weather emails. First class often free."
-    },
-    {
-      "id": "17225192",
-      "title": "Bob Baker Marionette Theater Variety Show",
-      "date": "2026-08-31",
-      "startTime": "16:00",
-      "endTime": "16:45",
-      "venue": "Pioneer Park",
-      "room": "",
-      "address": "1146 Church St, Mountain View, CA 94041",
-      "city": "Mountain View",
-      "lat": 37.3896,
-      "lng": -122.0832,
-      "ageRange": "0–2, 2–5",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Adults; Teens; Seniors; Babies; Preschoolers; All Ages; Tweens; Children; Families; Toddlers",
-      "types": [
-        "Music & Movement"
-      ],
-      "categoryTags": [],
-      "cost": "Free",
-      "description": "Bob Baker Marionette Theater is bringing the puppet magic to the Mountain View Public Library. This variety show will be roughly 30 minutes long and feature between 12 and 25 puppets from their iconic collection! After the show, there will be a quick 15 minute Q&A. This magical show will take place in Pioneer Park. Feel free to bring a fold-out chair, towel, or blanket for your comfort out in the park. This type of fun has no age limit! This event is generously sponsored by the Friends of the Mountain View Library.",
-      "tips": "Registration is recommended.\nWalk-ins are also welcome.",
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_23_17_13_44.png",
-      "eventUrl": "https://mountainview.libcal.com/event/17225192",
-      "source": "Mountain View Library · LibCal",
-      "isCancelled": false,
-      "isRecurring": false,
-      "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
-    },
-    {
-      "id": "16916947",
-      "title": "Smart Start Babytime",
-      "date": "2026-08-31",
-      "startTime": "18:00",
-      "endTime": "19:00",
-      "venue": "Mountain View Library",
-      "room": "1st Floor Program Room",
-      "address": "585 Franklin St, Mountain View, CA 94041",
-      "city": "Mountain View",
-      "lat": 37.3895,
-      "lng": -122.0818,
-      "ageRange": "0–2",
-      "ageMin": 0,
-      "ageMax": 2,
-      "audiences": "Preschoolers; Parents; Families; Toddlers",
-      "types": [
-        "Stories"
-      ],
-      "categoryTags": [],
-      "cost": "Free",
-      "description": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School. Caregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
-      "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School.\nCaregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
-      "eventUrl": "https://mountainview.libcal.com/event/16916947",
-      "source": "Mountain View Library · LibCal",
-      "isCancelled": false,
-      "isRecurring": false,
-      "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
+      "tips": "Weekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang at St. Timothy's, 2094 Grant Rd.\nMeet in the grassy area between the tennis-court parking and playground."
     },
     {
       "room": "",
@@ -394,7 +331,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "isRecurring": true,
@@ -419,79 +356,7 @@
         "Outdoor"
       ],
       "description": "Stroller Strides at Las Palmas Park (Sunnyvale). Caregiver workout with child in stroller — Parent & Me. Sunnyvale launch-city session.",
-      "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts. Pre-enroll for weather updates."
-    },
-    {
-      "id": "699f624cb0595799c09f604b",
-      "title": "Family Storytime",
-      "date": "2026-09-01",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "venue": "Children's Library",
-      "room": "Secret Garden",
-      "address": "1276  Harriet Street, Palo Alto, CA 94301",
-      "city": "Palo Alto",
-      "lat": 37.4447829,
-      "lng": -122.14501310000003,
-      "ageRange": "2–5",
-      "ageMin": 2,
-      "ageMax": 5,
-      "audiences": "Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
-      "types": [
-        "Stories"
-      ],
-      "categoryTags": [
-        "Storytimes",
-        "Kids Storytimes"
-      ],
-      "cost": "Free",
-      "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Storytime will be held inside when the garden is unavailable. Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "Please note that this storytime is an indoor/outdoor program.\nAccess to the Secret Garden outside is weather dependent.",
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f604b",
-      "source": "Palo Alto Library · BiblioCommons",
-      "isCancelled": false,
-      "isRecurring": true,
-      "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
-    },
-    {
-      "id": "6a80aa71b20478002993137e",
-      "title": "Mariela's Music Time",
-      "date": "2026-09-01",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "venue": "Los Altos Library",
-      "room": "Orchard Room",
-      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
-      "city": "Los Altos",
-      "lat": 37.3808782,
-      "lng": -122.11330029999999,
-      "ageRange": "0–2, 2–5",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Kids: Babies; Kids: Family Events; Kids: Preschoolers; Kids: Toddlers",
-      "types": [
-        "Stories"
-      ],
-      "categoryTags": [
-        "Arts & Culture",
-        "Early Learning & Storytimes"
-      ],
-      "cost": "Free",
-      "description": "Come for an educational, energetic, and interactive Spanish-English bilingual performance for infants, toddlers, and preschoolers and their families with Mariela of Mariela's Music Time. Enjoy the rhythms and multicultural sounds, along with the rich traditions of the Bay Area. We look forward to seeing you there! For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@sccl.org.",
-      "tips": "Space is limited — free tickets are handed out starting at 10 a.m.",
-      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
-      "eventUrl": "https://sccl.bibliocommons.com/events/6a80aa71b20478002993137e",
-      "source": "SCCL · Los Altos",
-      "isCancelled": false,
-      "isRecurring": false,
-      "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
+      "tips": "Weekly classes — check the official schedule for current times.\nRainy day: Pre-enroll on sunnyvale.fit4mom.com for weather emails with the alternate meet-up spot."
     },
     {
       "id": "17142481",
@@ -522,9 +387,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -535,7 +400,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "isRecurring": true,
@@ -560,43 +425,7 @@
         "Outdoor"
       ],
       "description": "Mommy & Baby Yoga outdoors — caregiver and baby practice together. Clear Parent & Me fit.",
-      "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nBring a yoga mat / blanket."
-    },
-    {
-      "id": "6a56d18488e9bf280030f047",
-      "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
-      "date": "2026-09-01",
-      "startTime": "13:00",
-      "endTime": "13:30",
-      "venue": "Los Altos Library",
-      "room": "Orchard Room",
-      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
-      "city": "Los Altos",
-      "lat": 37.3808782,
-      "lng": -122.11330029999999,
-      "ageRange": "0–2, 2–5",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Kids: Babies; Kids: Family Events; Kids: Preschoolers; Kids: Toddlers",
-      "types": [
-        "Stories"
-      ],
-      "categoryTags": [
-        "Subject Varies: Other Great Events",
-        "Early Learning & Storytimes"
-      ],
-      "cost": "Free",
-      "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。\n\nFor accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@lib.sccgov.org.",
-      "tips": "",
-      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
-      "eventUrl": "https://sccl.bibliocommons.com/events/6a56d18488e9bf280030f047",
-      "source": "SCCL · Los Altos",
-      "isCancelled": false,
-      "isRecurring": true,
-      "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
+      "tips": "Weekly classes — check the official schedule for current times.\nRainy day: Pre-enroll on sunnyvale.fit4mom.com for weather emails with the alternate meet-up spot.\nBring a yoga mat or blanket."
     },
     {
       "id": "68afa7b0022de53d00d27176",
@@ -630,9 +459,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -643,7 +472,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "isRecurring": true,
@@ -668,7 +497,7 @@
         "Outdoor"
       ],
       "description": "Stroller Barre at Cuesta Park — barre-style workout with little ones in strollers. Parent & Me.",
-      "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nRain: St. Timothy’s overhang, 2094 Grant Rd."
+      "tips": "Weekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang at St. Timothy's, 2094 Grant Rd."
     },
     {
       "id": "17170809",
@@ -699,9 +528,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946001eea69de6e001069ad",
@@ -735,9 +564,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7e39424cb69d003e20ac58",
@@ -771,7 +600,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -784,7 +613,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "isRecurring": true,
@@ -809,7 +638,7 @@
         "Outdoor"
       ],
       "description": "Fourth Trimester+ postpartum class with babies welcome — caregiver movement with baby present. Parent & Me.",
-      "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nConfirm format on-site if unsure whether babies participate vs watch."
+      "tips": "Weekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang at St. Timothy's, 2094 Grant Rd."
     },
     {
       "id": "69b835bdb48451fc3c09441b",
@@ -843,7 +672,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -857,9 +686,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": "",
+      "lastChecked": "2026-09-01",
       "id": "watchlist-ofjcc-2026-09-02",
       "title": "Doodle and Discover Wednesdays",
       "date": "2026-09-02",
@@ -912,9 +741,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17295774",
@@ -945,9 +774,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -958,7 +787,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "isRecurring": true,
@@ -983,7 +812,7 @@
         "Outdoor"
       ],
       "description": "Stroller Barre at Mitchell Park multipurpose bowl — caregiver workout with child in stroller. Core-city Parent & Me.",
-      "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nMeet at multi-purpose area/bowl.\nRain: overhang by Mitchell Park Library / Ada’s Cafe."
+      "tips": "Weekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang by Mitchell Park Library / Ada's Cafe.\nMeet at the multipurpose bowl."
     },
     {
       "id": "69276b597eb3e430002638af",
@@ -1017,9 +846,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a68e7740d65ac360042cabb",
@@ -1053,7 +882,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -1089,7 +918,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -1102,7 +931,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "isRecurring": true,
@@ -1127,7 +956,7 @@
         "Outdoor"
       ],
       "description": "Friday Stroller Strides at Cuesta Park. Parent & Me stroller workout.",
-      "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nRain: St. Timothy’s overhang, 2094 Grant Rd."
+      "tips": "Weekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang at St. Timothy's, 2094 Grant Rd.\nMeet in the grassy area between the tennis-court parking and playground."
     },
     {
       "id": "17170825",
@@ -1158,9 +987,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946005fea69de6e001069c1",
@@ -1194,9 +1023,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a25aace2ea730c17ab50489",
@@ -1230,9 +1059,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -1243,7 +1072,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "isRecurring": true,
@@ -1268,7 +1097,7 @@
         "Outdoor"
       ],
       "description": "Saturday Family Strides 360 — family stroller fitness at Cuesta Park. Parent & Me.",
-      "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nSat meet near playgroup gazebo/stairs; park on Cuesta Dr near playground."
+      "tips": "Weekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang at St. Timothy's, 2094 Grant Rd.\nSaturdays: meet near the playgroup gazebo."
     },
     {
       "id": "696191ef992fc18a86dc9a3d",
@@ -1302,7 +1131,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -1338,9 +1167,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -1352,7 +1181,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "ageMin": 0,
@@ -1374,115 +1203,10 @@
       ],
       "cost": "Paid",
       "description": "Outdoor Parent & Baby yoga — caregiver practices while baby comes along. Feeding, diapering, and baby needs are welcome in class. Weekly, weather permitting. Strong Parent & Me test case (grown-up participates; baby is part of the session). Separate Sat 10–11am prenatal class is not Parent & Me.",
-      "tips": "Weather permitting — check with Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.\nRegister at martifosteryoga.com.",
+      "tips": "Weekly classes — check martifosteryoga.com for current times.\nRainy day: Outdoor class — contact Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.",
       "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
       "source": "Calendar Watchlist · Marti Foster Yoga",
       "isRecurring": true
-    },
-    {
-      "id": "68cc73ae6df9ca153ebb5f41",
-      "title": "CLOSED: Labor Day",
-      "date": "2026-09-07",
-      "startTime": "",
-      "endTime": "",
-      "venue": "",
-      "room": "",
-      "address": "",
-      "city": "Palo Alto",
-      "lat": null,
-      "lng": null,
-      "ageRange": "0–2, 2–5, 5+",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Adults; Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Seniors; Teens (14-18); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
-      "types": [
-        "Other"
-      ],
-      "categoryTags": [
-        "Library Closures"
-      ],
-      "cost": "Free",
-      "description": "All Palo Alto City libraries will be closed on Monday, September 7 for Labor Day.\n\n Our eLibrary is open 24/7!",
-      "tips": "",
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/092f9b2b2880af3a7d78d0f4dcbb9725/library-closures.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/68cc73ae6df9ca153ebb5f41",
-      "source": "Palo Alto Library · BiblioCommons",
-      "isCancelled": false,
-      "isRecurring": false,
-      "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
-    },
-    {
-      "id": "68fc04f0831f063d005395b5",
-      "title": "Los Altos Library Closed for Labor Day",
-      "date": "2026-09-07",
-      "startTime": "",
-      "endTime": "",
-      "venue": "Los Altos Library",
-      "room": "",
-      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
-      "city": "Los Altos",
-      "lat": 37.3808782,
-      "lng": -122.11330029999999,
-      "ageRange": "0–2, 2–5, 5+",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
-      "types": [
-        "Other"
-      ],
-      "categoryTags": [
-        "Scheduled Closure/Holiday"
-      ],
-      "cost": "Free",
-      "description": "All SCCLD locations will be CLOSED Monday, September 7 for Labor Day. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
-      "tips": "",
-      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
-      "eventUrl": "https://sccl.bibliocommons.com/events/68fc04f0831f063d005395b5",
-      "source": "SCCL · Los Altos",
-      "isCancelled": false,
-      "isRecurring": true,
-      "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
-    },
-    {
-      "id": "68fc11d1831f063d005398b3",
-      "title": "Woodland Branch Library Closed for Labor Day",
-      "date": "2026-09-07",
-      "startTime": "",
-      "endTime": "",
-      "venue": "Woodland Branch Library",
-      "room": "",
-      "address": "1975 Grant Road, Los Altos, CA 94024",
-      "city": "Los Altos",
-      "lat": 37.3442675,
-      "lng": -122.07544430000002,
-      "ageRange": "0–2, 2–5, 5+",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
-      "types": [
-        "Other"
-      ],
-      "categoryTags": [
-        "Scheduled Closure/Holiday"
-      ],
-      "cost": "Free",
-      "description": "All SCCLD locations will be CLOSED Monday, September 7 for Labor Day. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
-      "tips": "",
-      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
-      "eventUrl": "https://sccl.bibliocommons.com/events/68fc11d1831f063d005398b3",
-      "source": "SCCL · Los Altos",
-      "isCancelled": false,
-      "isRecurring": true,
-      "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
     },
     {
       "id": "699f624cb0595799c09f604c",
@@ -1516,9 +1240,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17142482",
@@ -1549,9 +1273,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a56d18488e9bf280030f048",
@@ -1585,7 +1309,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -1621,9 +1345,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -1636,9 +1360,9 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": "2026-08-27",
+      "lastChecked": "2026-09-01",
       "ageMin": 0,
       "ageMax": 5,
       "id": "watchlist-mt-pa-fall-mixed-ages-2026",
@@ -1657,8 +1381,8 @@
         "Music & Movement"
       ],
       "cost": "Paid",
-      "description": "10-week Fall 2026 caregiver + child music series (babies–preschool + grown-up). Series starts Sep 9 (Wed) and Sep 14 (Mon) depending on section; semester runs through Nov 18. Multiple time slots at Unity Church; several currently open for registration. Represented as one series — not separate weekly events.",
-      "tips": "Weekly · registration required (semester package, not drop-in).\nStarts Sep 9 / Sep 14 · 10-week series.\nOpen seats as of Aug 27: Mon 9:30, 10:30, 11:30; Wed 9:30, 10:30; Fri 11:30. Fri 9:30 & 10:30 waitlist.\nFree demo visit available before enrolling.\nRegister at mt-mp.com.",
+      "description": "10-week caregiver + child music series for babies through preschoolers and their grown-ups. Fall classes begin Sep 9 or Sep 14, depending on section, and run through Nov 18 at Unity Church. Multiple class times are offered each week.",
+      "tips": "Weekly · registration required · semester package, not drop-in.\nMultiple Mon, Wed & Fri class times available.\nSome sections may fill or move to waitlist — check the official registration page for current availability.\nFree demo class available before enrolling.",
       "eventUrl": "https://www.mt-mp.com/vlt198021.htm",
       "source": "Calendar Watchlist · Music Together MP/PA",
       "isRecurring": true
@@ -1692,9 +1416,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946001eea69de6e001069ae",
@@ -1728,9 +1452,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7e39424cb69d003e20ac59",
@@ -1764,7 +1488,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -1800,7 +1524,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -1833,9 +1557,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a3dbc0bfddb082f00fe149b",
@@ -1869,9 +1593,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17290230",
@@ -1902,9 +1626,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "69276b597eb3e430002638b0",
@@ -1938,9 +1662,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a68e7740d65ac360042cabc",
@@ -1974,7 +1698,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -2010,7 +1734,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -2043,9 +1767,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946005fea69de6e001069c2",
@@ -2079,9 +1803,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a25aace2ea730c17ab5048a",
@@ -2115,9 +1839,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "698e125a2a787a47a5e73be1",
@@ -2151,9 +1875,47 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "room": "",
+      "audiences": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01",
+      "tips": "Register for a reminder on the official page. Arrive early for parking; plaza is outdoors.",
+      "imageUrl": "https://services.google.com/fh/files/misc/mini-yoga-club-flipped.png",
+      "id": "watchlist-google-endless-summer-festival-2026-09-12",
+      "title": "Endless Summer Festival",
+      "date": "2026-09-12",
+      "startTime": "11:00",
+      "endTime": "16:00",
+      "venue": "Google Visitor Experience",
+      "address": "2000 N Shoreline Blvd, Mountain View, CA 94043",
+      "city": "Mountain View",
+      "lat": 37.4227,
+      "lng": -122.0844,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Seasonal",
+        "Community"
+      ],
+      "cost": "Free",
+      "description": "Free all-ages plaza festival — magic shows, family DJs, slime truck, 3D chalk art, crafts with local nonprofits, and a kids sports zone (pickleball, basketball).",
+      "eventUrl": "https://rsvp.withgoogle.com/events/endless-summer-festival-2026",
+      "source": "Calendar Watchlist · Google Visitor Experience",
+      "watchlistSourceId": "google-visitor-experience"
     },
     {
       "id": "16188977",
@@ -2184,9 +1946,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -2198,7 +1960,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "ageMin": 0,
@@ -2220,7 +1982,7 @@
       ],
       "cost": "Paid",
       "description": "Outdoor Parent & Baby yoga — caregiver practices while baby comes along. Feeding, diapering, and baby needs are welcome in class. Weekly, weather permitting. Strong Parent & Me test case (grown-up participates; baby is part of the session). Separate Sat 10–11am prenatal class is not Parent & Me.",
-      "tips": "Weather permitting — check with Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.\nRegister at martifosteryoga.com.",
+      "tips": "Weekly classes — check martifosteryoga.com for current times.\nRainy day: Outdoor class — contact Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.",
       "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
       "source": "Calendar Watchlist · Marti Foster Yoga",
       "isRecurring": true
@@ -2235,9 +1997,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": "",
+      "lastChecked": "2026-09-01",
       "id": "watchlist-linden-2026-09-13",
       "title": "Storytime with Jasmine Fang, Beneath the Same Round Moon",
       "date": "2026-09-13",
@@ -2290,7 +2052,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -2325,9 +2087,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7bb022a821f90037ed3e17",
@@ -2361,7 +2123,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -2397,9 +2159,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17142483",
@@ -2430,9 +2192,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7fa765d4b10d003006934d",
@@ -2466,7 +2228,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -2502,9 +2264,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17170811",
@@ -2535,9 +2297,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7e39424cb69d003e20ac5a",
@@ -2571,7 +2333,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -2607,7 +2369,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -2643,9 +2405,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a68e7740d65ac360042cabd",
@@ -2679,7 +2441,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -2715,7 +2477,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -2748,9 +2510,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946005fea69de6e001069c3",
@@ -2784,9 +2546,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a25aace2ea730c17ab5048b",
@@ -2820,9 +2582,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -2836,7 +2598,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "ageMin": 4,
@@ -2895,9 +2657,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -2909,7 +2671,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "ageMin": 0,
@@ -2931,7 +2693,7 @@
       ],
       "cost": "Paid",
       "description": "Outdoor Parent & Baby yoga — caregiver practices while baby comes along. Feeding, diapering, and baby needs are welcome in class. Weekly, weather permitting. Strong Parent & Me test case (grown-up participates; baby is part of the session). Separate Sat 10–11am prenatal class is not Parent & Me.",
-      "tips": "Weather permitting — check with Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.\nRegister at martifosteryoga.com.",
+      "tips": "Weekly classes — check martifosteryoga.com for current times.\nRainy day: Outdoor class — contact Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.",
       "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
       "source": "Calendar Watchlist · Marti Foster Yoga",
       "isRecurring": true
@@ -2967,9 +2729,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17231477",
@@ -3000,7 +2762,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -3036,9 +2798,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a736d8f3f18b57d52339583",
@@ -3072,7 +2834,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -3105,9 +2867,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a56d18488e9bf280030f04a",
@@ -3141,7 +2903,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -3177,9 +2939,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17170812",
@@ -3210,9 +2972,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946001eea69de6e001069b0",
@@ -3246,9 +3008,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7e39424cb69d003e20ac5b",
@@ -3282,7 +3044,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -3318,7 +3080,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -3356,9 +3118,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7fa752d4b10d003006934b",
@@ -3392,7 +3154,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -3428,9 +3190,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "69276b597eb3e430002638b2",
@@ -3464,9 +3226,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a68e7740d65ac360042cabe",
@@ -3500,7 +3262,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -3536,7 +3298,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -3569,9 +3331,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946005fea69de6e001069c4",
@@ -3605,9 +3367,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a25aace2ea730c17ab5048c",
@@ -3641,9 +3403,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "698e125a2a787a47a5e73be3",
@@ -3677,9 +3439,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -3691,9 +3453,9 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": "2026-08-27",
+      "lastChecked": "2026-09-01",
       "ageMin": 2,
       "ageMax": 5,
       "id": "watchlist-mini-yoga-treehouse-2026-09-26",
@@ -3728,7 +3490,7 @@
       "imageUrl": "",
       "isCancelled": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": "2026-08-27",
       "ageMin": 0,
@@ -3750,7 +3512,7 @@
       ],
       "cost": "Paid",
       "description": "Outdoor Parent & Baby yoga — caregiver practices while baby comes along. Feeding, diapering, and baby needs are welcome in class. Weekly, weather permitting. Strong Parent & Me test case (grown-up participates; baby is part of the session). Separate Sat 10–11am prenatal class is not Parent & Me.",
-      "tips": "Weather permitting — check with Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.\nRegister at martifosteryoga.com.",
+      "tips": "Weekly classes — check martifosteryoga.com for current times.\nRainy day: Outdoor class — contact Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.",
       "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
       "source": "Calendar Watchlist · Marti Foster Yoga",
       "isRecurring": true
@@ -3784,9 +3546,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "699f624cb0595799c09f604f",
@@ -3820,9 +3582,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17142485",
@@ -3853,9 +3615,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a56d18488e9bf280030f04b",
@@ -3889,7 +3651,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -3925,9 +3687,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17170813",
@@ -3958,9 +3720,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946001eea69de6e001069b1",
@@ -3994,9 +3756,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7e39424cb69d003e20ac5c",
@@ -4030,7 +3792,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4066,7 +3828,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4099,9 +3861,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a3dbc0bfddb082f00fe149e",
@@ -4135,9 +3897,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "69276b597eb3e430002638b3",
@@ -4171,9 +3933,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a68e7740d65ac360042cabf",
@@ -4207,7 +3969,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4243,7 +4005,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4279,9 +4041,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a25aace2ea730c17ab5048d",
@@ -4315,9 +4077,47 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "room": "",
+      "audiences": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01",
+      "tips": "Free admission; food and crafts are pay-as-you-go. Runs Oct 3–4 — this row is the Saturday kickoff.",
+      "imageUrl": "",
+      "id": "watchlist-sunnyvale-mid-autumn-festival-2026-10-03",
+      "title": "Sunnyvale Mid-Autumn Festival",
+      "date": "2026-10-03",
+      "startTime": "10:00",
+      "endTime": "17:00",
+      "venue": "Cityline Sunnyvale",
+      "address": "345 W McKinley Ave, Sunnyvale, CA 94086",
+      "city": "Sunnyvale",
+      "lat": 37.3789,
+      "lng": -122.0302,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "types": [
+        "Festivals & Community",
+        "Music & Movement"
+      ],
+      "categoryTags": [
+        "Seasonal",
+        "Sunnyvale"
+      ],
+      "cost": "Free",
+      "description": "Downtown Mid-Autumn celebration — pan-Asian food, dance and music stages, and family-friendly cultural activities on Murphy Avenue.",
+      "eventUrl": "https://www.sunnyvaledowntown.org/",
+      "source": "Calendar Watchlist · Downtown Sunnyvale · Cityline & Murphy Ave",
+      "watchlistSourceId": "sunnyvale-downtown"
     },
     {
       "id": "696191ef992fc18a86dc9a3e",
@@ -4351,7 +4151,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4387,9 +4187,47 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "room": "",
+      "audiences": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01",
+      "tips": "Free entry; food and henna are pay-as-you-go. Same weekend as Mid-Autumn Festival downtown — plan for crowds.",
+      "imageUrl": "",
+      "id": "watchlist-sunnyvale-diwali-sacas-2026-10-03",
+      "title": "Sunnyvale Diwali Festival",
+      "date": "2026-10-03",
+      "startTime": "11:30",
+      "endTime": "19:30",
+      "venue": "Downtown Sunnyvale",
+      "address": "230 S Murphy Ave, Sunnyvale, CA 94086",
+      "city": "Sunnyvale",
+      "lat": 37.3789,
+      "lng": -122.0302,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "types": [
+        "Festivals & Community",
+        "Arts & Crafts"
+      ],
+      "categoryTags": [
+        "Seasonal",
+        "Sunnyvale"
+      ],
+      "cost": "Free",
+      "description": "Free downtown Diwali mela — Kids Zone with diya painting, face painting, bookmark workshop & balloon activities, plus dance performances and food vendors.",
+      "eventUrl": "https://www.sacas.org/",
+      "source": "Calendar Watchlist · Downtown Sunnyvale · Cityline & Murphy Ave",
+      "watchlistSourceId": "sunnyvale-downtown"
     },
     {
       "id": "6a88c7d8392e9c02993c176d",
@@ -4423,7 +4261,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4459,9 +4297,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17142486",
@@ -4492,9 +4330,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a56d18488e9bf280030f04c",
@@ -4528,7 +4366,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4564,9 +4402,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17170814",
@@ -4597,9 +4435,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946001eea69de6e001069b2",
@@ -4633,9 +4471,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7e39424cb69d003e20ac5d",
@@ -4669,7 +4507,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4705,7 +4543,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4741,9 +4579,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17290231",
@@ -4774,9 +4612,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "69276b597eb3e430002638b4",
@@ -4810,9 +4648,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a68e7740d65ac360042cac0",
@@ -4846,7 +4684,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4882,7 +4720,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -4915,9 +4753,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946005fea69de6e001069c6",
@@ -4951,9 +4789,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a25aace2ea730c17ab5048e",
@@ -4987,9 +4825,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "698e125a2a787a47a5e73be5",
@@ -5023,9 +4861,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "SecondStage",
@@ -5056,9 +4894,9 @@
       "description": "Funny, slightly spooky stage adaptation of the beloved picture book by Aaron Reynolds — a fall treat for the youngest community members and their families. About 1 hour including talk-back. Appropriate for all ages.",
       "eventUrl": "https://pytnet.org/boxoffice/creepy-carrots/",
       "source": "Calendar Watchlist · Peninsula Youth Theatre",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "SecondStage",
@@ -5089,7 +4927,7 @@
       "description": "Funny, slightly spooky stage adaptation of the beloved picture book by Aaron Reynolds — a fall treat for the youngest community members and their families. About 1 hour including talk-back. Appropriate for all ages.",
       "eventUrl": "https://pytnet.org/boxoffice/creepy-carrots/",
       "source": "Calendar Watchlist · Peninsula Youth Theatre",
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -5124,114 +4962,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
-    },
-    {
-      "id": "68cc73dc62a8786065c33fab",
-      "title": "CLOSED: Indigenous Peoples' Day",
-      "date": "2026-10-12",
-      "startTime": "",
-      "endTime": "",
-      "venue": "",
-      "room": "",
-      "address": "",
-      "city": "Palo Alto",
-      "lat": null,
-      "lng": null,
-      "ageRange": "0–2, 2–5, 5+",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Adults; Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Seniors; Teens (14-18); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
-      "types": [
-        "Other"
-      ],
-      "categoryTags": [
-        "Library Closures"
-      ],
-      "cost": "Free",
-      "description": "All Palo Alto City libraries will be closed on Monday, October 12 for Indigenous Peoples' Day.\n\n Our eLibrary is open 24/7!",
-      "tips": "",
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/092f9b2b2880af3a7d78d0f4dcbb9725/library-closures.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/68cc73dc62a8786065c33fab",
-      "source": "Palo Alto Library · BiblioCommons",
-      "isCancelled": false,
-      "isRecurring": false,
-      "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
-    },
-    {
-      "id": "68fc04f0831f063d005395b6",
-      "title": "Los Altos Library Closed for Indigenous Peoples' Day",
-      "date": "2026-10-12",
-      "startTime": "",
-      "endTime": "",
-      "venue": "Los Altos Library",
-      "room": "",
-      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
-      "city": "Los Altos",
-      "lat": 37.3808782,
-      "lng": -122.11330029999999,
-      "ageRange": "0–2, 2–5, 5+",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
-      "types": [
-        "Other"
-      ],
-      "categoryTags": [
-        "Scheduled Closure/Holiday"
-      ],
-      "cost": "Free",
-      "description": "All SCCLD locations will be CLOSED Monday, October 12 for Indigenous Peoples' Day.. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
-      "tips": "",
-      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
-      "eventUrl": "https://sccl.bibliocommons.com/events/68fc04f0831f063d005395b6",
-      "source": "SCCL · Los Altos",
-      "isCancelled": false,
-      "isRecurring": true,
-      "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
-    },
-    {
-      "id": "68fc11d1831f063d005398b4",
-      "title": "Woodland Branch Library Closed for Indigenous Peoples' Day",
-      "date": "2026-10-12",
-      "startTime": "",
-      "endTime": "",
-      "venue": "Woodland Branch Library",
-      "room": "",
-      "address": "1975 Grant Road, Los Altos, CA 94024",
-      "city": "Los Altos",
-      "lat": 37.3442675,
-      "lng": -122.07544430000002,
-      "ageRange": "0–2, 2–5, 5+",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
-      "types": [
-        "Other"
-      ],
-      "categoryTags": [
-        "Scheduled Closure/Holiday"
-      ],
-      "cost": "Free",
-      "description": "All SCCLD locations will be CLOSED Monday, October 12 for Indigenous Peoples' Day. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
-      "tips": "",
-      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
-      "eventUrl": "https://sccl.bibliocommons.com/events/68fc11d1831f063d005398b4",
-      "source": "SCCL · Los Altos",
-      "isCancelled": false,
-      "isRecurring": true,
-      "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
-      "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a88c7d8392e9c02993c176e",
@@ -5265,7 +4998,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -5301,9 +5034,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17142487",
@@ -5334,9 +5067,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a56d18488e9bf280030f04d",
@@ -5370,7 +5103,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -5406,9 +5139,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17170815",
@@ -5439,9 +5172,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946001eea69de6e001069b3",
@@ -5475,9 +5208,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7e39424cb69d003e20ac5e",
@@ -5511,7 +5244,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -5547,7 +5280,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -5580,9 +5313,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a3dbc0bfddb082f00fe14a0",
@@ -5616,9 +5349,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17295775",
@@ -5649,9 +5382,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "69276b597eb3e430002638b5",
@@ -5685,9 +5418,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a68e7740d65ac360042cac1",
@@ -5721,7 +5454,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -5757,7 +5490,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -5790,9 +5523,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946005fea69de6e001069c7",
@@ -5826,9 +5559,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a25aace2ea730c17ab5048f",
@@ -5862,9 +5595,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a57fc45cca66c2f00a3ae1f",
@@ -5899,7 +5632,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -5936,7 +5669,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -5973,7 +5706,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -6010,7 +5743,7 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -6047,9 +5780,47 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
+    },
+    {
+      "room": "",
+      "audiences": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01",
+      "tips": "Free wristband at check-in unlocks all workshops (booths tailored ~ages 3–15; best for preschool+). Limited parking; bike valet often available.",
+      "imageUrl": "",
+      "id": "watchlist-sunnyvale-hands-on-the-arts-2026-10-17",
+      "title": "Hands on the Arts",
+      "date": "2026-10-17",
+      "startTime": "10:00",
+      "endTime": "15:00",
+      "venue": "Sunnyvale Community Center",
+      "address": "550 E Remington Dr, Sunnyvale, CA 94087",
+      "city": "Sunnyvale",
+      "lat": 37.3782,
+      "lng": -122.0265,
+      "ageRange": "2–5, 5+",
+      "ageMin": 2,
+      "ageMax": 5,
+      "types": [
+        "Arts & Crafts",
+        "Festivals & Community"
+      ],
+      "categoryTags": [
+        "Seasonal",
+        "Sunnyvale"
+      ],
+      "cost": "Free",
+      "description": "20+ hands-on art booths, roving performers, and food vendors — Sunnyvale’s long-running children’s arts festival celebrating cultures from around the world.",
+      "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
+      "source": "Calendar Watchlist · City of Sunnyvale · Special Events",
+      "watchlistSourceId": "sunnyvale-special-events"
     },
     {
       "id": "698e125a2a787a47a5e73be6",
@@ -6083,9 +5854,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a3032c18ea300e2631dc5f1",
@@ -6118,9 +5889,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a88c7d8392e9c02993c176f",
@@ -6154,7 +5925,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -6190,9 +5961,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17142488",
@@ -6223,9 +5994,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a56d18488e9bf280030f04e",
@@ -6259,7 +6030,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -6295,9 +6066,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "68afa7b0022de53d00d2717d",
@@ -6331,9 +6102,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17170816",
@@ -6364,9 +6135,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946001eea69de6e001069b4",
@@ -6400,9 +6171,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7e39424cb69d003e20ac5f",
@@ -6436,7 +6207,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -6472,7 +6243,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -6508,9 +6279,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "69276b597eb3e430002638b6",
@@ -6544,9 +6315,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a68e7740d65ac360042cac2",
@@ -6580,7 +6351,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -6616,7 +6387,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -6649,9 +6420,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946005fea69de6e001069c8",
@@ -6685,9 +6456,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a25aace2ea730c17ab50490",
@@ -6721,9 +6492,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "698e125a2a787a47a5e73be7",
@@ -6757,9 +6528,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "16916949",
@@ -6790,9 +6561,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a88c7d8392e9c02993c1770",
@@ -6826,7 +6597,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -6862,9 +6633,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17142489",
@@ -6895,9 +6666,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a56d18488e9bf280030f04f",
@@ -6931,7 +6702,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -6967,9 +6738,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17170817",
@@ -7000,9 +6771,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946001eea69de6e001069b5",
@@ -7036,9 +6807,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a7e39424cb69d003e20ac60",
@@ -7072,7 +6843,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -7108,7 +6879,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -7144,9 +6915,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "17238200",
@@ -7177,9 +6948,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a3dbc0bfddb082f00fe14a2",
@@ -7213,9 +6984,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "69276b597eb3e430002638b7",
@@ -7249,9 +7020,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6a68e7740d65ac360042cac3",
@@ -7285,7 +7056,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -7321,7 +7092,7 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
     },
@@ -7354,9 +7125,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "id": "6946005fea69de6e001069c9",
@@ -7390,9 +7161,9 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": ""
+      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -7404,9 +7175,9 @@
       "isCancelled": false,
       "isRecurring": false,
       "alreadyOnPuddles": false,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "convertedEventId": "",
-      "lastChecked": "",
+      "lastChecked": "2026-09-01",
       "id": "watchlist-dtla-halloween-2026-10-30",
       "title": "A BOO-tiful Downtown Halloween",
       "date": "2026-10-30",
@@ -7460,9 +7231,1783 @@
       "isCancelled": false,
       "isRecurring": true,
       "alreadyOnPuddles": true,
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "698e125a2a787a47a5e73be8",
+      "title": "Family Storytime: Celebrate Halloween!",
+      "date": "2026-10-31",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Mitchell Park Library",
+      "room": "Midtown Room",
+      "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+      "city": "Palo Alto",
+      "lat": 37.4223141,
+      "lng": -122.11265209999999,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73be8",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "699f624cb0595799c09f6054",
+      "title": "Family Storytime",
+      "date": "2026-11-03",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Children's Library",
+      "room": "Treetop Room",
+      "address": "1276  Harriet Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4447829,
+      "lng": -122.14501310000003,
+      "ageRange": "2–5",
+      "ageMin": 2,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n\nMake sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6054",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "17142490",
+      "title": "Outdoor Storytime",
+      "date": "2026-11-03",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Pioneer Park",
+      "room": "",
+      "address": "1146 Church St, Mountain View, CA 94041",
+      "city": "Mountain View",
+      "lat": 37.3896,
+      "lng": -122.0832,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies; Preschoolers; Children; Families",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [],
+      "cost": "Free",
+      "description": "Tuesdays at 10:30 a.m.",
+      "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_21_15_59_33.png",
+      "eventUrl": "https://mountainview.libcal.com/event/17142490",
+      "source": "Mountain View Library · LibCal",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a56d18488e9bf280030f050",
+      "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
+      "date": "2026-11-03",
+      "startTime": "13:00",
+      "endTime": "13:30",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Preschoolers; Kids: Toddlers",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Subject Varies: Other Great Events",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。\n\nFor accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@lib.sccgov.org.",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a56d18488e9bf280030f050",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
+    },
+    {
+      "id": "6a89d81336204e08fbb653fa",
+      "title": "Animal Friends: Reptile Rescuer John Hale",
+      "date": "2026-11-03",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "Children's Library",
+      "room": "Treetop Room",
+      "address": "1276  Harriet Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4447829,
+      "lng": -122.14501310000003,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Author Events",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join PACL and Project HumaneKind as we host reptile rescuer John Hale at the Children's Library! John will introduce several wonderous creatures we share the Earth with. You might meet: Bernie the Chameleon, Ginger the Bearded Dragon, Vince the Red-Footed Tortoise, or Cupcake the Rabbit. Surprises abound! Please arrive on time. Project HumaneKind teaches compassion and respect for living beings. Through humane education, they combat cruelty and indifference and bring awareness to the intelligent, social, and emotional depths of our fellow animals. Visit them online at www.projecthumanekind.org .",
+      "tips": "Please note: registrations will be released for standby attendees at the start of the program.\nA waitlist may be available.\nSpace is limited (35 seats) — check the official page for registration.\nRegistration required.",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/e5ac6611d78f15d5e751f401c86c42c4/ProjectHumaneKindphotocollage.jpg",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a89d81336204e08fbb653fa",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "68afa7b0022de53d00d2717f",
+      "title": "LEGO Tuesdays!",
+      "date": "2026-11-03",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "Downtown Library",
+      "room": "El Camino Room",
+      "address": "270 Forest Ave., Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.44387529999999,
+      "lng": -122.15917860000002,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Games & Gaming",
+        "STEAM"
+      ],
+      "cost": "Free",
+      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
+      "tips": "LEGOs stay at the library — snap a pic of creations!",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2717f",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6946001eea69de6e001069b6",
+      "title": "Little Ones Storytime",
+      "date": "2026-11-04",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Children's Library",
+      "room": "Treetop Room",
+      "address": "1276  Harriet Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4447829,
+      "lng": -122.14501310000003,
+      "ageRange": "0–2",
+      "ageMin": 0,
+      "ageMax": 2,
+      "audiences": "Babies (under 2); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library. Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages.",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069b6",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a7e39424cb69d003e20ac61",
+      "title": "Toddler Storytime",
+      "date": "2026-11-04",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2",
+      "ageMin": 1,
+      "ageMax": 2,
+      "audiences": "Kids: Family Events; Kids: Toddlers",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities! We look forward to seeing you there! For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@sccl.org.",
+      "tips": "Space is limited — free tickets are handed out starting at 10 a.m.",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a7e39424cb69d003e20ac61",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": ""
+    },
+    {
+      "id": "6a68e77fcca66c2f00a69562",
+      "title": "Baby Storytime & Stay and Play",
+      "date": "2026-11-04",
+      "startTime": "13:00",
+      "endTime": "14:00",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room ",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2",
+      "ageMin": 0,
+      "ageMax": 1,
+      "audiences": "Kids: Babies",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Subject Varies: Other Great Events",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library! Catchy Songs & Silly Rhymes Gentle Movement & Baby Sign Language Short Books perfect for little eyes It’s the perfect weekly activity to boost early literacy, build community, and make some wonderful memories. When: Wednesdays, 1:00 PM – 2:00 PM Where: Los Altos Library, Orchard Room For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@sccl.org.",
+      "tips": "For non-walking babies (ages 0-1) and caregivers — about 20 minutes.\nStay & Play follows afterward.\nBring a small blanket for comfort!",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a68e77fcca66c2f00a69562",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": ""
+    },
+    {
+      "id": "6a3dbc0bfddb082f00fe14a3",
+      "title": "Music & Movement",
+      "date": "2026-11-04",
+      "startTime": "18:30",
+      "endTime": "19:15",
+      "venue": "Mitchell Park Library",
+      "room": "",
+      "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+      "city": "Palo Alto",
+      "lat": 37.4223141,
+      "lng": -122.11265209999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "DEI"
+      ],
+      "cost": "Free",
+      "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance.\n\n Instruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.\n\n This program is meant for families with children and no previous experience is needed!\n This week, we'll be celebrating Diwali with music in Hindi!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a3dbc0bfddb082f00fe14a3",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "17290232",
+      "title": "Magical Bridge Storytime",
+      "date": "2026-11-05",
+      "startTime": "10:00",
+      "endTime": "10:30",
+      "venue": "Magical Bridge Playground at Rengstorff Park",
+      "room": "",
+      "address": "201 S. Rengstorff Ave, Mountain View, CA 94040",
+      "city": "Mountain View",
+      "lat": 37.4001,
+      "lng": -122.0986,
+      "ageRange": "2–5",
+      "ageMin": 2,
+      "ageMax": 5,
+      "audiences": "Preschoolers; Children; Families",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [],
+      "cost": "Free",
+      "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Rengstorff Park! Enjoy a fun-filled storytime at the Magical Bridge Playground, and take advantage of full library services available from 10:00–11:00 a.m. Find us at 201 S. Rengstorff Ave, Mountain View, CA 94040.",
+      "tips": "Events are weather permitting.",
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_04_10_12_23_00.jpg",
+      "eventUrl": "https://mountainview.libcal.com/event/17290232",
+      "source": "Mountain View Library · LibCal",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "69276b597eb3e430002638b8",
+      "title": "Bilingual Family Storytime",
+      "date": "2026-11-05",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "College Terrace Library",
+      "room": "",
+      "address": "2300  Wellesley St., Palo Alto, CA 94306",
+      "city": "Palo Alto",
+      "lat": 37.42337482539388,
+      "lng": -122.14864582698362,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
+      "tips": "Storytime may be held indoors or outdoors depending on the weather.",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638b8",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6946005fea69de6e001069ca",
+      "title": "Family Storytime",
+      "date": "2026-11-06",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Downtown Library",
+      "room": "El Camino Room",
+      "address": "270 Forest Ave., Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.44387529999999,
+      "lng": -122.15917860000002,
+      "ageRange": "2–5",
+      "ageMin": 2,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Kids (6-11); Pre-schoolers (3-5)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069ca",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a25aace2ea730c17ab50492",
+      "title": "LEGO Fridays!",
+      "date": "2026-11-06",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "College Terrace Library",
+      "room": "",
+      "address": "2300  Wellesley St., Palo Alto, CA 94306",
+      "city": "Palo Alto",
+      "lat": 37.42337482539388,
+      "lng": -122.14864582698362,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Games & Gaming",
+        "STEAM"
+      ],
+      "cost": "Free",
+      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
+      "tips": "LEGOs stay at the library — snap a pic of creations!",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50492",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "696191ef992fc18a86dc9a3f",
+      "title": "Baby Sign and Stay and Play",
+      "date": "2026-11-07",
+      "startTime": "10:30",
+      "endTime": "12:00",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2",
+      "ageMin": 0,
+      "ageMax": 1,
+      "audiences": "Kids: Babies",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Calling all non-walking babies ages 0-12 months for a special storytime featuring American Sign Language along with songs and stories and fun! After storytime please stay or join us to play with age-appropriate toys! Enjoy this socialization for babies and their grownups. 10:30-11:00am Storytime 11:00-12:00pm Stay & Play Thank you to the Los Altos Friends of the Library for making this program possible. For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@lib.sccgov.org.",
+      "tips": "Please bring a blanket for your baby.",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/696191ef992fc18a86dc9a3f",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": ""
+    },
+    {
+      "id": "698e125a2a787a47a5e73be9",
+      "title": "Family Storytime",
+      "date": "2026-11-07",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Mitchell Park Library",
+      "room": "Midtown Room",
+      "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+      "city": "Palo Alto",
+      "lat": 37.4223141,
+      "lng": -122.11265209999999,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73be9",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6970253094297d3600a66ca3",
+      "title": "Board Game Sunday!",
+      "date": "2026-11-08",
+      "startTime": "14:00",
+      "endTime": "15:30",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation"
+      ],
+      "cost": "Free",
+      "description": "Everyone is invited to play board games!\n\n Join us on the second Sunday of the month from 2:00 PM to 3:30 PM.\n\n We have board games for all ages: adults, teens, and children.\n\n Come with friends & family!\n\n (The room closes at 3:30 PM, so come early enough to have time to finish your game.)",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/f00ce3e9afd5f0b0c0a1198e0b2103aa/kssboardgame;Header(1).png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6970253094297d3600a66ca3",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "699f624cb0595799c09f6055",
+      "title": "Family Storytime",
+      "date": "2026-11-10",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Children's Library",
+      "room": "Treetop Room",
+      "address": "1276  Harriet Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4447829,
+      "lng": -122.14501310000003,
+      "ageRange": "2–5",
+      "ageMin": 2,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n\nMake sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6055",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "17142491",
+      "title": "Outdoor Storytime",
+      "date": "2026-11-10",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Pioneer Park",
+      "room": "",
+      "address": "1146 Church St, Mountain View, CA 94041",
+      "city": "Mountain View",
+      "lat": 37.3896,
+      "lng": -122.0832,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies; Preschoolers; Children; Families",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [],
+      "cost": "Free",
+      "description": "Tuesdays at 10:30 a.m.",
+      "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_21_15_59_33.png",
+      "eventUrl": "https://mountainview.libcal.com/event/17142491",
+      "source": "Mountain View Library · LibCal",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a56d18488e9bf280030f051",
+      "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
+      "date": "2026-11-10",
+      "startTime": "13:00",
+      "endTime": "13:30",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Preschoolers; Kids: Toddlers",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Subject Varies: Other Great Events",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。\n\nFor accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@lib.sccgov.org.",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a56d18488e9bf280030f051",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": ""
+    },
+    {
+      "id": "68afa7b0022de53d00d27180",
+      "title": "LEGO Tuesdays!",
+      "date": "2026-11-10",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "Downtown Library",
+      "room": "El Camino Room",
+      "address": "270 Forest Ave., Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.44387529999999,
+      "lng": -122.15917860000002,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Games & Gaming",
+        "STEAM"
+      ],
+      "cost": "Free",
+      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
+      "tips": "LEGOs stay at the library — snap a pic of creations!",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27180",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "17295776",
+      "title": "Cuesta Park Storytime",
+      "date": "2026-11-12",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "venue": "Mountain View Library",
+      "room": "",
+      "address": "585 Franklin St, Mountain View, CA 94041",
+      "city": "Mountain View",
+      "lat": 37.3895,
+      "lng": -122.0818,
+      "ageRange": "2–5",
+      "ageMin": 2,
+      "ageMax": 5,
+      "audiences": "Preschoolers; Children; Families",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [],
+      "cost": "Free",
+      "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Cuesta Park! Enjoy a fun-filled storytime at the playground, and take advantage of full library services available from 10:00–11:00 a.m. Find us at 615 Cuesta Drive, Mountain View, CA 94040",
+      "tips": "Events are weather permitting.",
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_30_09_25_30.jpeg",
+      "eventUrl": "https://mountainview.libcal.com/event/17295776",
+      "source": "Mountain View Library · LibCal",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "69276b597eb3e430002638b9",
+      "title": "Bilingual Family Storytime",
+      "date": "2026-11-12",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "College Terrace Library",
+      "room": "",
+      "address": "2300  Wellesley St., Palo Alto, CA 94306",
+      "city": "Palo Alto",
+      "lat": 37.42337482539388,
+      "lng": -122.14864582698362,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
+      "tips": "Storytime may be held indoors or outdoors depending on the weather.",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638b9",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6946005fea69de6e001069cb",
+      "title": "Family Storytime",
+      "date": "2026-11-13",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Downtown Library",
+      "room": "El Camino Room",
+      "address": "270 Forest Ave., Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.44387529999999,
+      "lng": -122.15917860000002,
+      "ageRange": "2–5",
+      "ageMin": 2,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Kids (6-11); Pre-schoolers (3-5)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069cb",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a25aace2ea730c17ab50493",
+      "title": "LEGO Fridays!",
+      "date": "2026-11-13",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "College Terrace Library",
+      "room": "",
+      "address": "2300  Wellesley St., Palo Alto, CA 94306",
+      "city": "Palo Alto",
+      "lat": 37.42337482539388,
+      "lng": -122.14864582698362,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Games & Gaming",
+        "STEAM"
+      ],
+      "cost": "Free",
+      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
+      "tips": "LEGOs stay at the library — snap a pic of creations!",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50493",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "698e125a2a787a47a5e73bea",
+      "title": "Family Storytime",
+      "date": "2026-11-14",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Mitchell Park Library",
+      "room": "Midtown Room",
+      "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+      "city": "Palo Alto",
+      "lat": 37.4223141,
+      "lng": -122.11265209999999,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bea",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "699f624cb0595799c09f6056",
+      "title": "Family Storytime",
+      "date": "2026-11-17",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Children's Library",
+      "room": "Treetop Room",
+      "address": "1276  Harriet Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4447829,
+      "lng": -122.14501310000003,
+      "ageRange": "2–5",
+      "ageMin": 2,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n\nMake sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6056",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "17142492",
+      "title": "Outdoor Storytime",
+      "date": "2026-11-17",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Pioneer Park",
+      "room": "",
+      "address": "1146 Church St, Mountain View, CA 94041",
+      "city": "Mountain View",
+      "lat": 37.3896,
+      "lng": -122.0832,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies; Preschoolers; Children; Families",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [],
+      "cost": "Free",
+      "description": "Tuesdays at 10:30 a.m.",
+      "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_21_15_59_33.png",
+      "eventUrl": "https://mountainview.libcal.com/event/17142492",
+      "source": "Mountain View Library · LibCal",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a56d18488e9bf280030f052",
+      "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
+      "date": "2026-11-17",
+      "startTime": "13:00",
+      "endTime": "13:30",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Preschoolers; Kids: Toddlers",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Subject Varies: Other Great Events",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。\n\nFor accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@lib.sccgov.org.",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a56d18488e9bf280030f052",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": ""
+    },
+    {
+      "id": "68afa7b0022de53d00d27181",
+      "title": "LEGO Tuesdays!",
+      "date": "2026-11-17",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "Downtown Library",
+      "room": "El Camino Room",
+      "address": "270 Forest Ave., Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.44387529999999,
+      "lng": -122.15917860000002,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Games & Gaming",
+        "STEAM"
+      ],
+      "cost": "Free",
+      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
+      "tips": "LEGOs stay at the library — snap a pic of creations!",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27181",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6946001eea69de6e001069b8",
+      "title": "Little Ones Storytime",
+      "date": "2026-11-18",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Children's Library",
+      "room": "Treetop Room",
+      "address": "1276  Harriet Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4447829,
+      "lng": -122.14501310000003,
+      "ageRange": "0–2",
+      "ageMin": 0,
+      "ageMax": 2,
+      "audiences": "Babies (under 2); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library. Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages.",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069b8",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a7e39424cb69d003e20ac62",
+      "title": "Toddler Storytime",
+      "date": "2026-11-18",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2",
+      "ageMin": 1,
+      "ageMax": 2,
+      "audiences": "Kids: Family Events; Kids: Toddlers",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities! We look forward to seeing you there! For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@sccl.org.",
+      "tips": "Space is limited — free tickets are handed out starting at 10 a.m.",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a7e39424cb69d003e20ac62",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": ""
+    },
+    {
+      "id": "6a68e77fcca66c2f00a69563",
+      "title": "Baby Storytime & Stay and Play",
+      "date": "2026-11-18",
+      "startTime": "13:00",
+      "endTime": "14:00",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room ",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2",
+      "ageMin": 0,
+      "ageMax": 1,
+      "audiences": "Kids: Babies",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Subject Varies: Other Great Events",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library! Catchy Songs & Silly Rhymes Gentle Movement & Baby Sign Language Short Books perfect for little eyes It’s the perfect weekly activity to boost early literacy, build community, and make some wonderful memories. When: Wednesdays, 1:00 PM – 2:00 PM Where: Los Altos Library, Orchard Room For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@sccl.org.",
+      "tips": "For non-walking babies (ages 0-1) and caregivers — about 20 minutes.\nStay & Play follows afterward.\nBring a small blanket for comfort!",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a68e77fcca66c2f00a69563",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": ""
+    },
+    {
+      "id": "17329164",
+      "title": "Bilingual Storytime: Mandarin/English",
+      "date": "2026-11-18",
+      "startTime": "18:30",
+      "endTime": "19:00",
+      "venue": "Mountain View Library",
+      "room": "Children's Room",
+      "address": "585 Franklin St, Mountain View, CA 94041",
+      "city": "Mountain View",
+      "lat": 37.3895,
+      "lng": -122.0818,
+      "ageRange": "2–5",
+      "ageMin": 2,
+      "ageMax": 5,
+      "audiences": "Preschoolers; Children",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [],
+      "cost": "Free",
+      "description": "Stories, rhymes and songs in Mandarin and English with Miss Renee in the Children's Room Octagon.",
+      "tips": "For ages 2-5, no registration required.",
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_11_11_10_43.png",
+      "eventUrl": "https://mountainview.libcal.com/event/17329164",
+      "source": "Mountain View Library · LibCal",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a3dbc0bfddb082f00fe14a4",
+      "title": "Music & Movement",
+      "date": "2026-11-18",
+      "startTime": "18:30",
+      "endTime": "19:15",
+      "venue": "Mitchell Park Library",
+      "room": "",
+      "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+      "city": "Palo Alto",
+      "lat": 37.4223141,
+      "lng": -122.11265209999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "DEI"
+      ],
+      "cost": "Free",
+      "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance. This week, we'll be celebrating Native American Heritage Month.\n\n Instruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music.\n\n This program is meant for families with children and no previous experience is needed!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a3dbc0bfddb082f00fe14a4",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "69276b597eb3e430002638ba",
+      "title": "Bilingual Family Storytime",
+      "date": "2026-11-19",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "College Terrace Library",
+      "room": "",
+      "address": "2300  Wellesley St., Palo Alto, CA 94306",
+      "city": "Palo Alto",
+      "lat": 37.42337482539388,
+      "lng": -122.14864582698362,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
+      "tips": "Storytime may be held indoors or outdoors depending on the weather.",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638ba",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6946005fea69de6e001069cc",
+      "title": "Family Storytime",
+      "date": "2026-11-20",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Downtown Library",
+      "room": "El Camino Room",
+      "address": "270 Forest Ave., Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.44387529999999,
+      "lng": -122.15917860000002,
+      "ageRange": "2–5",
+      "ageMin": 2,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Kids (6-11); Pre-schoolers (3-5)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069cc",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "698e125a2a787a47a5e73beb",
+      "title": "Family Storytime",
+      "date": "2026-11-21",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Mitchell Park Library",
+      "room": "Midtown Room",
+      "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+      "city": "Palo Alto",
+      "lat": 37.4223141,
+      "lng": -122.11265209999999,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73beb",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a6cf81ad23de82955c9bccc",
+      "title": "Concert: Palo Alto School of Chamber Music",
+      "date": "2026-11-21",
+      "startTime": "15:00",
+      "endTime": "16:00",
+      "venue": "Rinconada Library",
+      "room": "Embarcadero Room",
+      "address": "1213 Newell Rd., Palo Alto, CA 94303",
+      "city": "Palo Alto",
+      "lat": 37.4449696,
+      "lng": -122.13916010000003,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Adults; Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Seniors; Teens (14-18); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
+      "types": [
+        "Music & Movement"
+      ],
+      "categoryTags": [
+        "Movies & Music"
+      ],
+      "cost": "Free",
+      "description": "Please join us to hear student musicians from the Palo Alto School of Chamber Music. Read more about Palo Alto School of Chamber Music on their website .",
+      "tips": "A waitlist may be available.\nSpace is limited (100 seats) — check the official page for registration.\nRegistration is not required but you will receive a reminder email the day before.",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/04ac8e7e4a5dc30d19b7f8b48d519622/PAchamber.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a6cf81ad23de82955c9bccc",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a8f395260ccaf01c0213e7c",
+      "title": "Festival of Lights: A Diwali Celebration",
+      "date": "2026-11-22",
+      "startTime": "13:00",
+      "endTime": "17:00",
+      "venue": "",
+      "room": "",
+      "address": "",
+      "city": "Palo Alto",
+      "lat": null,
+      "lng": null,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Adults; Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Seniors; Teens (14-18); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
+      "types": [
+        "Festivals & Community"
+      ],
+      "categoryTags": [
+        "Celebrations",
+        "Celebrating Cultures"
+      ],
+      "cost": "Free",
+      "description": "Join us at the Mitchell Park Community Center, as we celebrate Diwali! Enjoy fun activities for all ages. Exact time for this two-hour event and all activities are TBD. Stay tuned!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/dae961dc5715a720c7c945abb0f385cb/diwali2023_890x445.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a8f395260ccaf01c0213e7c",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "16916950",
+      "title": "Smart Start Babytime",
+      "date": "2026-11-23",
+      "startTime": "18:00",
+      "endTime": "19:00",
+      "venue": "Mountain View Library",
+      "room": "1st Floor Program Room",
+      "address": "585 Franklin St, Mountain View, CA 94041",
+      "city": "Mountain View",
+      "lat": 37.3895,
+      "lng": -122.0818,
+      "ageRange": "0–2",
+      "ageMin": 0,
+      "ageMax": 2,
+      "audiences": "Preschoolers; Parents; Families; Toddlers",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [],
+      "cost": "Free",
+      "description": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School. Caregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
+      "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School.\nCaregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
+      "eventUrl": "https://mountainview.libcal.com/event/16916950",
+      "source": "Mountain View Library · LibCal",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": true,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "699f624cb0595799c09f6057",
+      "title": "Family Storytime",
+      "date": "2026-11-24",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Children's Library",
+      "room": "Treetop Room",
+      "address": "1276  Harriet Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4447829,
+      "lng": -122.14501310000003,
+      "ageRange": "2–5",
+      "ageMin": 2,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n\nMake sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/2ac0887856e00e5bd4e64b48d911a089/storytime.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6057",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "17142493",
+      "title": "Outdoor Storytime",
+      "date": "2026-11-24",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Pioneer Park",
+      "room": "",
+      "address": "1146 Church St, Mountain View, CA 94041",
+      "city": "Mountain View",
+      "lat": 37.3896,
+      "lng": -122.0832,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies; Preschoolers; Children; Families",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [],
+      "cost": "Free",
+      "description": "Tuesdays at 10:30 a.m.",
+      "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_21_15_59_33.png",
+      "eventUrl": "https://mountainview.libcal.com/event/17142493",
+      "source": "Mountain View Library · LibCal",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a56d18488e9bf280030f053",
+      "title": "Bilingual Mandarin Family Storytime / 中英雙語故事時間",
+      "date": "2026-11-24",
+      "startTime": "13:00",
+      "endTime": "13:30",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Preschoolers; Kids: Toddlers",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Subject Varies: Other Great Events",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join us for a fun-filled storytime featuring movement, singing, and action! These 30-minute sessions focus on early literacy by sharing stories and songs in both English and Mandarin Chinese.\n\n歡迎小朋友來到故事時間，這是以半小時的雙中英語故事書, 兒歌, 手指謠, 玩遊戲為特色的内容。歡迎兒童們與家長褓母一同前來參加。\n\nFor accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@lib.sccgov.org.",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a56d18488e9bf280030f053",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": ""
+    },
+    {
+      "id": "68afa7b0022de53d00d27182",
+      "title": "LEGO Tuesdays!",
+      "date": "2026-11-24",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "Downtown Library",
+      "room": "El Camino Room",
+      "address": "270 Forest Ave., Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.44387529999999,
+      "lng": -122.15917860000002,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Games & Gaming",
+        "STEAM"
+      ],
+      "cost": "Free",
+      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
+      "tips": "LEGOs stay at the library — snap a pic of creations!",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27182",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6946001eea69de6e001069b9",
+      "title": "Little Ones Storytime",
+      "date": "2026-11-25",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Children's Library",
+      "room": "Treetop Room",
+      "address": "1276  Harriet Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4447829,
+      "lng": -122.14501310000003,
+      "ageRange": "0–2",
+      "ageMin": 0,
+      "ageMax": 2,
+      "audiences": "Babies (under 2); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library. Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages.",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/ce0fac3af4e0e23edef62841315af0a3/storytime_890x445-670x335.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069b9",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "6a7e39424cb69d003e20ac63",
+      "title": "Toddler Storytime",
+      "date": "2026-11-25",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2",
+      "ageMin": 1,
+      "ageMax": 2,
+      "audiences": "Kids: Family Events; Kids: Toddlers",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join the Children's Librarians for a fun, interactive 25-minute toddler storytime for early walkers, 1s, and 2s in the Orchard Room on Wednesday and Thursday mornings. Storytimes will be filled with stories, music, and fun activities! We look forward to seeing you there! For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@sccl.org.",
+      "tips": "Space is limited — free tickets are handed out starting at 10 a.m.",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a7e39424cb69d003e20ac63",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": ""
+    },
+    {
+      "id": "6a68e77fcca66c2f00a69564",
+      "title": "Baby Storytime & Stay and Play",
+      "date": "2026-11-25",
+      "startTime": "13:00",
+      "endTime": "14:00",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room ",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2",
+      "ageMin": 0,
+      "ageMax": 1,
+      "audiences": "Kids: Babies",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Subject Varies: Other Great Events",
+        "Early Learning & Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library! Catchy Songs & Silly Rhymes Gentle Movement & Baby Sign Language Short Books perfect for little eyes It’s the perfect weekly activity to boost early literacy, build community, and make some wonderful memories. When: Wednesdays, 1:00 PM – 2:00 PM Where: Los Altos Library, Orchard Room For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to the event. If you need assistance with the form, speak with a staff member at your local library, call (408) 540-3945, or email us at ask@sccl.org.",
+      "tips": "For non-walking babies (ages 0-1) and caregivers — about 20 minutes.\nStay & Play follows afterward.\nBring a small blanket for comfort!",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early Learning & Storytime.jpg",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6a68e77fcca66c2f00a69564",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "dismissed",
+      "convertedEventId": "",
+      "lastChecked": ""
+    },
+    {
+      "id": "6a25aace2ea730c17ab50494",
+      "title": "LEGO Fridays!",
+      "date": "2026-11-27",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "College Terrace Library",
+      "room": "",
+      "address": "2300  Wellesley St., Palo Alto, CA 94306",
+      "city": "Palo Alto",
+      "lat": 37.42337482539388,
+      "lng": -122.14864582698362,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Games & Gaming",
+        "STEAM"
+      ],
+      "cost": "Free",
+      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
+      "tips": "LEGOs stay at the library — snap a pic of creations!",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50494",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "698e125a2a787a47a5e73bec",
+      "title": "Family Storytime",
+      "date": "2026-11-28",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "venue": "Mitchell Park Library",
+      "room": "Midtown Room",
+      "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+      "city": "Palo Alto",
+      "lat": 37.4223141,
+      "lng": -122.11265209999999,
+      "ageRange": "0–2, 2–5",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Babies (under 2); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Storytimes",
+        "Kids Storytimes"
+      ],
+      "cost": "Free",
+      "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6651c0e2572ecc9e52cf43d7ad6507b4/MicrosoftTeams-image.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bec",
+      "source": "Palo Alto Library · BiblioCommons",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "approved",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-01"
     }
   ]
 }
