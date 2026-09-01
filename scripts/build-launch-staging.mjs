@@ -10,10 +10,9 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { resolvePublishingFields } from './publishing.mjs'
 import {
-  buildFit4momSeriesGoodToKnow,
   buildMartiGoodToKnow,
   buildSunnyvaleLibrarySeriesGoodToKnow,
-  FIT4MOM_LAS_PALMAS_MOMMY_BABY_YOGA,
+  FIT4MOM_SERIES_COPY,
 } from './fit4mom-tips.mjs'
 import { MUSIC_TOGETHER_FALL_2026 } from './series-enrollment-tips.mjs'
 
@@ -37,52 +36,32 @@ const FIT4MOM_SERIES = [
   {
     sampleId: 'watchlist-fit4mom-stroller-strides-laspalmas-2026-09-01',
     seriesId: 'watchlist-fit4mom-stroller-strides-laspalmas-series',
-    dayLabel: 'Tuesdays',
-    description:
-      'Stroller workout at Las Palmas Park — cardio & strength for grown-ups with baby in tow.',
     requireCity: 'Sunnyvale',
   },
   {
     sampleId: 'watchlist-fit4mom-mommy-baby-yoga-laspalmas-2026-09-01',
     seriesId: 'watchlist-fit4mom-mommy-baby-yoga-laspalmas-series',
-    dayLabel: 'Tuesdays',
-    description: FIT4MOM_LAS_PALMAS_MOMMY_BABY_YOGA.description,
-    tips: FIT4MOM_LAS_PALMAS_MOMMY_BABY_YOGA.tips,
     requireCity: 'Sunnyvale',
   },
   {
     sampleId: 'watchlist-fit4mom-stroller-strides-cuesta-2026-09-04',
     seriesId: 'watchlist-fit4mom-stroller-strides-cuesta-series',
-    dayLabel: 'Mondays & Fridays',
-    description:
-      'Stroller Strides at Cuesta Park — cardio & strength for grown-ups with baby in tow.',
   },
   {
     sampleId: 'watchlist-fit4mom-stroller-barre-cuesta-2026-09-02',
     seriesId: 'watchlist-fit4mom-stroller-barre-cuesta-series',
-    dayLabel: 'Wednesdays',
-    description:
-      'Stroller Barre at Cuesta Park — barre-style workout with little ones in strollers.',
   },
   {
     sampleId: 'watchlist-fit4mom-fourth-trimester-cuesta-2026-09-02',
     seriesId: 'watchlist-fit4mom-fourth-trimester-cuesta-series',
-    dayLabel: 'Wednesdays',
-    description:
-      'Fourth Trimester+ postpartum class — caregiver movement with baby welcome.',
   },
   {
     sampleId: 'watchlist-fit4mom-family-strides-cuesta-2026-09-05',
     seriesId: 'watchlist-fit4mom-family-strides-cuesta-series',
-    dayLabel: 'Saturdays',
-    description: 'Family Strides 360 — stroller fitness for the whole family at Cuesta Park.',
   },
   {
     sampleId: 'watchlist-fit4mom-stroller-barre-mitchell-2026-09-03',
     seriesId: 'watchlist-fit4mom-stroller-barre-mitchell-series',
-    dayLabel: 'Thursdays',
-    description:
-      'Stroller Barre at Mitchell Park — caregiver workout with child in stroller.',
   },
 ]
 
@@ -305,19 +284,15 @@ function buildMartiSeries(candidates) {
 }
 
 function buildFit4MomSeries(candidate, config) {
-  const venue = candidate.venue || 'Las Palmas Park'
-  const tips =
-    config.tips ??
-    buildFit4momSeriesGoodToKnow({
-      title: candidate.title,
-      venue,
-      dayLabel: config.dayLabel,
-    })
+  const copy = FIT4MOM_SERIES_COPY[config.seriesId]
+  if (!copy) {
+    throw new Error(`Missing FIT4MOM_SERIES_COPY for ${config.seriesId}`)
+  }
   const event = candidateToEvent(candidate, { seriesId: config.seriesId, seriesNote: null })
   event.id = config.seriesId
   event.title = candidate.title
-  event.description = config.description
-  event.tips = tips
+  event.description = copy.description
+  event.tips = copy.tips
   event.categoryTags = ['Parent & Me', 'Series · do not explode weekly']
   if (IMAGE_OVERRIDES[event.id]) {
     event.imageUrl = IMAGE_OVERRIDES[event.id]
