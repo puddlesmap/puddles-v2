@@ -4,6 +4,7 @@ interface AdminOverviewProps {
   counts: {
     live: number
     past: number
+    draft: number
     needsAttention: number
   }
   activeView: AdminEventViewId | 'all'
@@ -17,6 +18,12 @@ const CARDS: {
   hint: string
 }[] = [
   { key: 'live', label: 'Live', countKey: 'live', hint: 'On the public website' },
+  {
+    key: 'draft',
+    label: 'Drafts',
+    countKey: 'draft',
+    hint: 'Ready to review before publishing',
+  },
   {
     key: 'needs-attention',
     label: 'Needs attention',

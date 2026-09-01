@@ -34,11 +34,14 @@ import {
 } from '../../utils/sheetSync'
 import { triggerPublishToSite } from '../../utils/triggerPublish'
 
-const CITIES = ['All cities', 'Palo Alto', 'Los Altos', 'Mountain View'] as const
+const CITIES = ['All cities', 'Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale'] as const
 const REVIEW_EMAIL_NOTICE_KEY = 'puddles-admin-review-email-fingerprint'
 const DISMISSED_FLAGS_KEY = 'puddles-admin-dismissed-review-flags'
 const EVENTS_MONITOR_VIEWS = ADMIN_EVENT_VIEWS.filter((view) =>
-  view.id === 'live' || view.id === 'needs-attention' || view.id === 'past',
+  view.id === 'live' ||
+  view.id === 'draft' ||
+  view.id === 'needs-attention' ||
+  view.id === 'past',
 )
 
 function getInitialAdminState(): {
@@ -195,10 +198,11 @@ export function AdminEventsPage() {
   const overviewCounts = useMemo(
     () => ({
       live: counts.live,
+      draft: counts.draft,
       past: counts.past,
       needsAttention: openNeedsAttentionCount,
     }),
-    [counts.live, counts.past, openNeedsAttentionCount],
+    [counts.live, counts.draft, counts.past, openNeedsAttentionCount],
   )
 
   async function maybeNotifyNeedsAttention(nextEvents: Event[]) {
@@ -536,6 +540,20 @@ export function AdminEventsPage() {
 
       <AdminOverview counts={overviewCounts} activeView={activeView} onSelectView={setActiveView} />
 
+      {counts.draft > 0 && activeView !== 'draft' ? (
+        <p className="admin-needs-attention-banner">
+          {counts.draft} draft{counts.draft === 1 ? '' : 's'} waiting for review (launch staging, Discovery
+          go-live).{' '}
+          <button
+            type="button"
+            className="admin-btn admin-btn-text"
+            onClick={() => setActiveView('draft')}
+          >
+            Review drafts
+          </button>
+        </p>
+      ) : null}
+
       {openNeedsAttentionCount > 0 && activeView !== 'needs-attention' ? (
         <p className="admin-needs-attention-banner">
           {openNeedsAttentionCount} live item{openNeedsAttentionCount === 1 ? '' : 's'} need attention.{' '}
@@ -625,6 +643,7 @@ export function AdminEventsPage() {
                 ? ` (${openNeedsAttentionCount})`
                 : ''}
               {view.id === 'live' ? ` (${counts.live})` : ''}
+              {view.id === 'draft' ? ` (${counts.draft})` : ''}
               {view.id === 'past' ? ` (${counts.past})` : ''}
             </button>
           ))}
