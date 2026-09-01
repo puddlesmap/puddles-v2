@@ -3,6 +3,16 @@
 export const FIT4MOM_WEEKLY_SCHEDULE_LINE =
   'Weekly classes — check the official schedule for current times.'
 
+export const FIT4MOM_LAS_PALMAS_MOMMY_BABY_YOGA = {
+  description:
+    'Outdoor caregiver & baby yoga at Las Palmas Park, with gentle poses for grown-ups and little ones together. Check the official schedule for current class times.',
+  tips: [
+    'Weekly · Tuesdays at Las Palmas Park.',
+    'Pre-enroll for schedule updates and rainy-day location changes.',
+    'Bring a yoga mat or blanket.',
+  ].join('\n'),
+}
+
 const RAIN_BY_VENUE = {
   'Cuesta Park': "Rainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
   'Mitchell Park':

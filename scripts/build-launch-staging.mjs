@@ -13,6 +13,7 @@ import {
   buildFit4momSeriesGoodToKnow,
   buildMartiGoodToKnow,
   buildSunnyvaleLibrarySeriesGoodToKnow,
+  FIT4MOM_LAS_PALMAS_MOMMY_BABY_YOGA,
 } from './fit4mom-tips.mjs'
 import { MUSIC_TOGETHER_FALL_2026 } from './series-enrollment-tips.mjs'
 
@@ -45,8 +46,8 @@ const FIT4MOM_SERIES = [
     sampleId: 'watchlist-fit4mom-mommy-baby-yoga-laspalmas-2026-09-01',
     seriesId: 'watchlist-fit4mom-mommy-baby-yoga-laspalmas-series',
     dayLabel: 'Tuesdays',
-    description:
-      'Caregiver & baby yoga outdoors at Las Palmas — mats, blankets & gentle poses together.',
+    description: FIT4MOM_LAS_PALMAS_MOMMY_BABY_YOGA.description,
+    tips: FIT4MOM_LAS_PALMAS_MOMMY_BABY_YOGA.tips,
     requireCity: 'Sunnyvale',
   },
   {
@@ -305,11 +306,13 @@ function buildMartiSeries(candidates) {
 
 function buildFit4MomSeries(candidate, config) {
   const venue = candidate.venue || 'Las Palmas Park'
-  const tips = buildFit4momSeriesGoodToKnow({
-    title: candidate.title,
-    venue,
-    dayLabel: config.dayLabel,
-  })
+  const tips =
+    config.tips ??
+    buildFit4momSeriesGoodToKnow({
+      title: candidate.title,
+      venue,
+      dayLabel: config.dayLabel,
+    })
   const event = candidateToEvent(candidate, { seriesId: config.seriesId, seriesNote: null })
   event.id = config.seriesId
   event.title = candidate.title
