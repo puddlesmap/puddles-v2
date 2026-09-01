@@ -8031,6 +8031,38 @@
     "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School.\nCaregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning."
   },
   {
+    "categoryTags": [
+      "Parent & Me"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/fc7241510ec245c5b42e95561258cdcc/i/b741a4bd9ece4c65b1ac9ec9d2124a48/1/GCuCv726gZycFxatXh9yJ4/Moms%20giving%20high%20fives%20while%20pushing%20strollers%20in%20the%20park%20at%20a%20fit%20for%20mom%20stroller%20strides%20class.png",
+    "room": "",
+    "id": "watchlist-fit4mom-stroller-strides-laspalmas-series",
+    "title": "FIT4MOM Stroller Strides · Las Palmas Park",
+    "description": "Stroller workout at Las Palmas Park — cardio & strength for grown-ups with baby in tow.",
+    "tips": "Weekly · Tuesdays at Las Palmas Park. One series row — not separate weekly events.\nWeekly classes — check the official schedule for current times.\nRainy day: Pre-enroll on sunnyvale.fit4mom.com for weather emails with the alternate meet-up spot.",
+    "venue": "Las Palmas Park",
+    "address": "850 Russet Dr, Sunnyvale, CA 94087",
+    "city": "Sunnyvale",
+    "date": "2026-09-01",
+    "startTime": "09:30",
+    "endTime": "10:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3515,
+    "lng": -122.0255,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
+  },
+  {
     "id": "699f624cb0595799c09f604b",
     "title": "Family Storytime",
     "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Storytime will be held inside when the garden is unavailable. Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
@@ -8090,6 +8122,38 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "watchlist-fit4mom-mommy-baby-yoga-laspalmas-series",
+    "title": "FIT4MOM Mommy & Baby Yoga · Las Palmas Park",
+    "description": "Caregiver & baby yoga outdoors at Las Palmas — mats, blankets & gentle poses together.",
+    "tips": "Weekly · Tuesdays at Las Palmas Park. One series row — not separate weekly events.\nWeekly classes — check the official schedule for current times.\nRainy day: Pre-enroll on sunnyvale.fit4mom.com for weather emails with the alternate meet-up spot.\nBring a yoga mat or blanket.",
+    "venue": "Las Palmas Park",
+    "address": "850 Russet Dr, Sunnyvale, CA 94087",
+    "city": "Sunnyvale",
+    "date": "2026-09-01",
+    "startTime": "11:15",
+    "endTime": "12:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3515,
+    "lng": -122.0255,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "id": "puddles-5c8482a1-baa",
@@ -8245,6 +8309,38 @@
     "isLive": true,
     "sheetTypesRaw": "Stories",
     "tips": "This program is targeted to children under the age of two and their caregivers."
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-toddler-storytime-series",
+    "title": "Toddler Storytime",
+    "description": "Short stories, songs & movement for wiggly toddlers and their grown-ups.",
+    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets tuesdays.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-02",
+    "startTime": "11:00",
+    "endTime": "11:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 1,
+    "ageMax": 3,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "id": "69b835bdb48451fc3c09441b",
@@ -8435,6 +8531,38 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-preschool-storytime-series",
+    "title": "Preschool Storytime",
+    "description": "Picture books, songs & early-literacy play for preschoolers ready to sit & listen.",
+    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets wednesdays.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-03",
+    "startTime": "11:00",
+    "endTime": "11:30",
+    "ageRange": "2–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
+  },
+  {
     "id": "jeff-center-free-family-play-2026-09-03",
     "title": "Jeff Center Free Family Play",
     "description": "Families with young children are welcome at the Jeff Center for Families for free drop-in play. Enjoy toys, books, games, and arts and crafts in a cozy, climate-controlled space — a creation of the Oshman Family JCC and Blossom Birth & Family. Caregivers can socialize, nurse, and meet other local families while little ones explore.",
@@ -8528,6 +8656,38 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Social & Play"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-baby-lapsit-series",
+    "title": "Baby Lapsit & Playtime",
+    "description": "Rhymes, songs & lap bounces for babies — then stay & play with other families.",
+    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets thursdays.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-04",
+    "startTime": "10:30",
+    "endTime": "11:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "id": "disc-baby-storytime-rerun-2026-09-04-17170825",
@@ -8681,6 +8841,38 @@
     "sheetTypesRaw": "Music & Movement"
   },
   {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-night-owl-storytime-series",
+    "title": "Night Owl Storytime",
+    "description": "Pajama-friendly stories & songs before bed — a calm evening outing with little ones.",
+    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets thursdays.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-04",
+    "startTime": "19:00",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
+  },
+  {
     "id": "free-in-store-kids-workshops-school-bus-organizer-home-depot-2026-09-05-09-00",
     "title": "Free In-Store Kids Workshops: School Bus Organizer",
     "description": "Join Us at 9 a.m. the First Saturday of Every Month. While Supplies Last.",
@@ -8776,6 +8968,39 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-magical-bridge-storytime-series",
+    "title": "Storytime at Magical Bridge Playground",
+    "description": "Outdoor stories at Fair Oaks Park’s inclusive playground — sing, rhyme & explore.",
+    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets first fridays.",
+    "venue": "Magical Bridge Playground · Fair Oaks Park",
+    "address": "540 N Fair Oaks Ave, Sunnyvale, CA 94085",
+    "city": "Sunnyvale",
+    "date": "2026-09-05",
+    "startTime": "11:00",
+    "endTime": "11:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3902,
+    "lng": -122.0085,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
+  },
+  {
     "id": "outdoor-storytime-linden-tree-books-2026-09-06-10-30",
     "title": "Outdoor Storytime",
     "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
@@ -8806,6 +9031,71 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories, Outdoor"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-family-storytime-series",
+    "title": "Family Storytime",
+    "description": "Stories & songs for the whole family — siblings welcome on Saturday mornings.",
+    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets saturdays.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-06",
+    "startTime": "11:00",
+    "endTime": "11:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "disc-marti-parent-baby-yoga-series-2026",
+    "title": "Parent & Baby Yoga with Marti Foster",
+    "description": "Outdoor yoga at Pioneer Park — grown-up and baby practice together, with feeding & diaper breaks welcome.",
+    "tips": "Weekly classes — check martifosteryoga.com for current times.\nRainy day: Outdoor class — contact Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.",
+    "venue": "Pioneer Memorial Park",
+    "address": "1146 Church St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-09-06",
+    "startTime": "11:15",
+    "endTime": "12:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
+    "lat": 37.3896,
+    "lng": -122.0832,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "id": "699f624cb0595799c09f604c",
@@ -8991,6 +9281,40 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Social & Play"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly",
+      "Priority: definitely add"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "watchlist-mt-pa-fall-mixed-ages-2026",
+    "title": "Music Together — Fall Mixed Ages",
+    "description": "10-week caregiver + child music series for babies through preschoolers and their grown-ups. Fall classes begin Sep 9 or Sep 14, depending on section, and run through Nov 18 at Unity Church. Multiple class times are offered each week.",
+    "tips": "10-week fall semester · one series row (not weekly duplicates).\nWeekly · registration required · semester package, not drop-in.\nMultiple Mon, Wed & Fri class times available.\nSome sections may fill or move to waitlist — check the official registration page for current availability.\nFree demo class available before enrolling.",
+    "venue": "Unity Church · Music Together Palo Alto",
+    "address": "3391 Middlefield Rd, Palo Alto, CA 94306",
+    "city": "Palo Alto",
+    "date": "2026-09-09",
+    "startTime": "09:30",
+    "endTime": "",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Music & Movement"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://www.mt-mp.com/vlt198021.htm",
+    "lat": 37.4275,
+    "lng": -122.1289,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "id": "disc-baby-storytime-2026-09-09-17170810",
@@ -9459,6 +9783,35 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "categoryTags": [],
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_08_13_14_38_29.jpg",
+    "room": "1st Floor Program Room",
+    "id": "16188977",
+    "title": "Mid-Autumn Festival Story Celebration",
+    "description": "Mandarin stories, picture books & hands-on Mid-Autumn crafts with PiggySprout.",
+    "tips": "",
+    "venue": "Mountain View Library",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-09-12",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://mountainview.libcal.com/event/16188977",
+    "lat": 37.3895,
+    "lng": -122.0818,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
+  },
+  {
     "id": "outdoor-storytime-linden-tree-books-2026-09-13-10-30",
     "title": "Outdoor Storytime",
     "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
@@ -9611,6 +9964,38 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Social & Play"
+  },
+  {
+    "categoryTags": [
+      "Arts & Culture",
+      "Early Learning & Storytimes"
+    ],
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/6de9e19a81eb5ac04004e0ca63d67a82/4.png",
+    "room": "Orchard Room",
+    "id": "6a7bb022a821f90037ed3e17",
+    "title": "Malinky Music",
+    "description": "Bilingual songs, instruments & dancing for tiny humans and their grown-ups — Hispanic Heritage Month.",
+    "tips": "Space is limited — free tickets are handed out at 3:30 p.m.",
+    "venue": "Los Altos Library",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-09-14",
+    "startTime": "16:00",
+    "endTime": "16:45",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://sccl.bibliocommons.com/events/6a7bb022a821f90037ed3e17",
+    "lat": 37.3808782,
+    "lng": -122.11330029999999,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "id": "699f624cb0595799c09f604d",
@@ -11010,6 +11395,39 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Priority: add"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "watchlist-mini-yoga-treehouse-2026-09-26",
+    "title": "Family Yoga with Mini Yoga Club at Treehouse",
+    "description": "Movement, music & mindfulness on the lawn — grown-ups and little ones practice yoga together.",
+    "tips": "Buy one ticket per participating child ($15). Adults free.\nBring a yoga mat.\nOfficial ticketed session 11:00–11:30am (Sep 26).",
+    "venue": "Treehouse Hotel Silicon Valley",
+    "address": "1100 North Mathilda Avenue, Sunnyvale, CA 94089",
+    "city": "Sunnyvale",
+    "date": "2026-09-26",
+    "startTime": "11:00",
+    "endTime": "11:30",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Low-cost",
+    "eventUrl": "https://miniyogaclub.com/products/mini-yoga-club-x-treehouse-silicon-valley-copy",
+    "lat": 37.4115,
+    "lng": -122.0258,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "id": "jeff-center-free-family-play-2026-09-28",
