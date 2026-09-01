@@ -8032,7 +8032,8 @@
   },
   {
     "categoryTags": [
-      "Parent & Me"
+      "Parent & Me",
+      "Series · do not explode weekly"
     ],
     "imageUrl": "https://static.spacecrafted.com/fc7241510ec245c5b42e95561258cdcc/i/b741a4bd9ece4c65b1ac9ec9d2124a48/1/GCuCv726gZycFxatXh9yJ4/Moms%20giving%20high%20fives%20while%20pushing%20strollers%20in%20the%20park%20at%20a%20fit%20for%20mom%20stroller%20strides%20class.png",
     "room": "",
@@ -8125,7 +8126,8 @@
   },
   {
     "categoryTags": [
-      "Parent & Me"
+      "Parent & Me",
+      "Series · do not explode weekly"
     ],
     "imageUrl": "",
     "room": "",
@@ -8249,6 +8251,39 @@
     "sheetTypesRaw": "Build & Explore"
   },
   {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "watchlist-fit4mom-stroller-barre-cuesta-series",
+    "title": "FIT4MOM Stroller Barre · Cuesta Park",
+    "description": "Stroller Barre at Cuesta Park — barre-style workout with little ones in strollers.",
+    "tips": "Weekly · Wednesdays at Cuesta Park. One series row — not separate weekly events.\nWeekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
+    "venue": "Cuesta Park",
+    "address": "615 Cuesta Drive, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-09-02",
+    "startTime": "09:30",
+    "endTime": "10:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3745,
+    "lng": -122.0785,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
+  },
+  {
     "id": "puddles-fdb02a69-ad5",
     "title": "Baby Storytime",
     "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months.\n\n Assisted Listening Devices available upon request.",
@@ -8309,6 +8344,39 @@
     "isLive": true,
     "sheetTypesRaw": "Stories",
     "tips": "This program is targeted to children under the age of two and their caregivers."
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "watchlist-fit4mom-fourth-trimester-cuesta-series",
+    "title": "FIT4MOM Fourth Trimester+ · Cuesta Park",
+    "description": "Fourth Trimester+ postpartum class — caregiver movement with baby welcome.",
+    "tips": "Weekly · Wednesdays at Cuesta Park. One series row — not separate weekly events.\nWeekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
+    "venue": "Cuesta Park",
+    "address": "615 Cuesta Drive, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-09-02",
+    "startTime": "10:45",
+    "endTime": "11:45",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3745,
+    "lng": -122.0785,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "categoryTags": [
@@ -8464,6 +8532,39 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Music & Movement"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "watchlist-fit4mom-stroller-barre-mitchell-series",
+    "title": "FIT4MOM Stroller Barre · Mitchell Park",
+    "description": "Stroller Barre at Mitchell Park — caregiver workout with child in stroller.",
+    "tips": "Weekly · Thursdays at Mitchell Park. One series row — not separate weekly events.\nWeekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang by Mitchell Park Library / Ada's Cafe.\nMeet at the multipurpose bowl.",
+    "venue": "Mitchell Park",
+    "address": "600 E Meadow Dr, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-09-03",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.419,
+    "lng": -122.1095,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "id": "69276b597eb3e430002638af",
@@ -8624,6 +8725,39 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/fc7241510ec245c5b42e95561258cdcc/i/b741a4bd9ece4c65b1ac9ec9d2124a48/1/GCuCv726gZycFxatXh9yJ4/Moms%20giving%20high%20fives%20while%20pushing%20strollers%20in%20the%20park%20at%20a%20fit%20for%20mom%20stroller%20strides%20class.png",
+    "room": "",
+    "id": "watchlist-fit4mom-stroller-strides-cuesta-series",
+    "title": "FIT4MOM Stroller Strides · Cuesta Park",
+    "description": "Stroller Strides at Cuesta Park — cardio & strength for grown-ups with baby in tow.",
+    "tips": "Weekly · Mondays & Fridays at Cuesta Park. One series row — not separate weekly events.\nWeekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
+    "venue": "Cuesta Park",
+    "address": "615 Cuesta Drive, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-09-04",
+    "startTime": "09:30",
+    "endTime": "10:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3745,
+    "lng": -122.0785,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "id": "jeff-center-free-family-play-2026-09-04",
@@ -8901,6 +9035,39 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Classes"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "watchlist-fit4mom-family-strides-cuesta-series",
+    "title": "FIT4MOM Family Strides 360 · Cuesta Park",
+    "description": "Family Strides 360 — stroller fitness for the whole family at Cuesta Park.",
+    "tips": "Weekly · Saturdays at Cuesta Park. One series row — not separate weekly events.\nWeekly classes — check the official schedule for current times.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.\nSaturdays: meet near the playgroup gazebo.",
+    "venue": "Cuesta Park",
+    "address": "615 Cuesta Drive, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-09-05",
+    "startTime": "09:30",
+    "endTime": "10:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3745,
+    "lng": -122.0785,
+    "status": "Draft",
+    "isPast": false,
+    "isLive": false,
+    "verifiedDate": "2026-09-01"
   },
   {
     "id": "696191ef992fc18a86dc9a3d",
