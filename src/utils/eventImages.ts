@@ -1,3 +1,4 @@
+import { getEventHostImageUrl } from '../data/eventHostImages'
 import type { ActivityType, Event } from '../types/event'
 import { ACTIVITY_TYPES } from '../types/event'
 
@@ -126,6 +127,8 @@ export function getEventFallbackImageUrl(event: Event): string {
 
 export function getEventImageUrl(event: Event): string {
   if (!isMissingEventImage(event.imageUrl)) return event.imageUrl.trim()
+  const hostImage = getEventHostImageUrl(event.venue)
+  if (hostImage) return hostImage
   return getEventFallbackImageUrl(event)
 }
 

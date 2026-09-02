@@ -2,12 +2,14 @@ import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react
 import { Link } from 'react-router-dom'
 import { CommunityCtaCard } from '../components/brand/CommunityCtaCard'
 import { getPublicEventsFromCatalog } from '../data/events'
-import { EventCard } from '../components/EventCard'
+import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
+import { BrowseEventCard } from '../components/BrowseEventCard'
 import { DiscoveryEmptyState } from '../components/empty-states/DiscoveryEmptyState'
 import {
   DiscoveryFilterChip,
   NearbyPinIcon,
 } from '../components/filters/DiscoveryFilterChip'
+import { isNewCityFilter } from '../config/cityLaunch'
 import { PageContainer } from '../components/layout/PageContainer'
 import { Footer } from '../components/layout/Footer'
 import { AppHeader } from '../components/layout/AppHeader'
@@ -41,7 +43,7 @@ import {
 import { homeFiltersToBrowseFilters, getHomeResultsSummaryRefined } from '../utils/homeMapPreview'
 import { getHomeFilterResultsSummary } from '../utils/browseResultsCopy'
 
-type CityValue = 'all' | 'Palo Alto' | 'Los Altos' | 'Mountain View'
+type CityValue = 'all' | 'Palo Alto' | 'Los Altos' | 'Mountain View' | 'Sunnyvale'
 
 type WhereMode =
   | { kind: 'nearby' }
@@ -51,6 +53,7 @@ const CITY_CHIPS: Array<{ value: CityValue; label: string }> = [
   { value: 'Palo Alto', label: 'Palo Alto' },
   { value: 'Los Altos', label: 'Los Altos' },
   { value: 'Mountain View', label: 'Mountain View' },
+  { value: 'Sunnyvale', label: 'Sunnyvale' },
   { value: 'all', label: 'All Cities' },
 ]
 
@@ -100,10 +103,24 @@ interface HomeExperimentPageProps {
   heroVariant?: HomeHeroVariant
   layout?: HomeLayoutVariant
   trailing?: ReactNode
+  /** Renders after the main results feed, before share CTA. */
+  afterResults?: ReactNode
+  /** Renders above Where/When filters, before map + results. */
+  beforeFilters?: ReactNode
+  /** Renders at the top of page content, below header. */
+  leading?: ReactNode
+  /** Renders flush under the nav inside the sticky header (e.g. promo bar). */
+  headerBelow?: ReactNode
+  /** Full-bleed band between header and page content (e.g. seasonal hero). */
+  topBand?: ReactNode
+  /** Refined layout — place “All cities · N activities” with results (default) or under hero (`after-hero`). */
+  refinedSummaryPlacement?: 'with-results' | 'after-hero'
   logoOnly?: boolean
   logoSrc?: string
   logoSrc2x?: string
   showBrandName?: boolean
+  /** Override catalog source (defaults to launch staging context when active). */
+  getEventsCatalog?: () => ReturnType<typeof getPublicEventsFromCatalog>
 }
 
 function HomeExperimentHero({ variant }: { variant: HomeHeroVariant }) {
@@ -141,11 +158,23 @@ export function HomeExperimentPage({
   heroVariant = 'default',
   layout = 'default',
   trailing,
+  afterResults,
+  beforeFilters,
+  leading,
+  headerBelow,
+  topBand,
+  refinedSummaryPlacement = 'with-results',
   logoOnly = false,
   logoSrc = PUDDLES_WORDMARK_LOGO_SRC,
   logoSrc2x = PUDDLES_WORDMARK_LOGO_SRC_2X,
   showBrandName = false,
+  getEventsCatalog,
 }: HomeExperimentPageProps = {}) {
+  const { getCatalog: getLaunchCatalog } = useLaunchStagingCatalog()
+  const resolveCatalog = useCallback(
+    () => (getEventsCatalog ? getEventsCatalog() : getLaunchCatalog()),
+    [getEventsCatalog, getLaunchCatalog],
+  )
   const { browseFilters, setBrowseFilters } = useApp()
   const openEvent = useEventNavigation()
   const [whereMode, setWhereMode] = useState<WhereMode>({ kind: 'city', value: 'all' })
@@ -157,12 +186,12 @@ export function HomeExperimentPage({
   const cityFilter = whereMode.kind === 'city' ? whereMode.value : 'all'
 
   useEffect(() => {
-    const pool = filterEvents(getPublicEventsFromCatalog(), { city: cityFilter === 'all' ? 'all' : cityFilter })
+    const pool = filterEvents(resolveCatalog(), { city: cityFilter === 'all' ? 'all' : cityFilter })
     setLocalTemporalTab(getFirstTemporalTabWithEvents(pool))
-  }, [cityFilter])
+  }, [cityFilter, resolveCatalog])
 
   const events = useMemo(() => {
-    const base = filterEvents(getPublicEventsFromCatalog(), {
+    const base = filterEvents(resolveCatalog(), {
       city: whereMode.kind === 'city' && whereMode.value !== 'all' ? whereMode.value : 'all',
       temporalTab,
     })
@@ -175,10 +204,11 @@ export function HomeExperimentPage({
     }
 
     return base
-  }, [whereMode, temporalTab, coords])
+  }, [whereMode, temporalTab, coords, resolveCatalog])
 
   const feedKey = useMemo(
-    () => `${whereMode.kind}|${whereMode.kind === 'city' ? whereMode.value : 'nearby'}|${temporalTab}|${coords?.lat ?? ''}|${coords?.lng ?? ''}`,
+    () =>
+      `${whereMode.kind}|${whereMode.kind === 'city' ? whereMode.value : 'nearby'}|${temporalTab}|${coords?.lat ?? ''}|${coords?.lng ?? ''}`,
     [whereMode, temporalTab, coords],
   )
 
@@ -285,6 +315,7 @@ export function HomeExperimentPage({
             <DiscoveryFilterChip
               key={chip.value}
               label={chip.label}
+              badge={isNewCityFilter(chip.value) ? 'NEW' : undefined}
               active={whereMode.kind === 'city' && whereMode.value === chip.value}
               onClick={() => handleCitySelect(chip.value)}
             />
@@ -314,6 +345,24 @@ export function HomeExperimentPage({
     </div>
   )
 
+  const showResultsSummaryWithResults =
+    isRefinedLayout && refinedSummaryPlacement === 'with-results'
+  const showResultsSummaryAfterHero =
+    isRefinedLayout && refinedSummaryPlacement === 'after-hero' && resultsSummary
+
+  const resultsSummaryLine = resultsSummary ? (
+    <p
+      className={[
+        isRefinedLayout ? 'home-experiment-refined-results-summary' : 'browse-results-count',
+        showResultsSummaryAfterHero ? 'home-experiment-refined-results-summary--after-hero' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {resultsSummary}
+    </p>
+  ) : null
+
   const resultsSection = (
     <section
       className={[
@@ -326,15 +375,7 @@ export function HomeExperimentPage({
     >
       {!isRequesting ? (
         <div className="home-experiment-results-feed browse-content">
-          {resultsSummary ? (
-            <p
-              className={
-                isRefinedLayout ? 'home-experiment-refined-results-summary' : 'browse-results-count'
-              }
-            >
-              {resultsSummary}
-            </p>
-          ) : null}
+          {showResultsSummaryWithResults ? resultsSummaryLine : null}
 
           {showEmpty ? (
             <DiscoveryEmptyState
@@ -344,11 +385,9 @@ export function HomeExperimentPage({
           ) : events.length > 0 ? (
             <div key={feedKey} className="browse-event-grid motion-feed-in">
               {events.map((event) => (
-                <EventCard
+                <BrowseEventCard
                   key={event.id}
                   event={event}
-                  variant="grid"
-                  discovery
                   onClick={() => openEvent(event, 'home', { viewMode: 'list' })}
                 />
               ))}
@@ -382,7 +421,10 @@ export function HomeExperimentPage({
         logoSrc={logoSrc}
         logoSrc2x={logoSrc2x}
         showBrandName={showBrandName}
+        below={headerBelow}
       />
+
+      {topBand}
 
       <PageContainer
         className={[
@@ -393,10 +435,13 @@ export function HomeExperimentPage({
           .filter(Boolean)
           .join(' ')}
       >
+        {leading}
         {isRefinedLayout ? (
           <div className="home-experiment-refined-layout">
             <section className="home-experiment-control w-full" aria-label="Find activities">
               <HomeExperimentHero variant={heroVariant} />
+              {beforeFilters}
+              {showResultsSummaryAfterHero ? resultsSummaryLine : null}
               {filterSection}
               <div className="home-experiment-refined-map home-experiment-refined-map--mobile home-experiment-refined-panel">
                 {renderMapPreview()}
@@ -407,6 +452,7 @@ export function HomeExperimentPage({
             <div className="home-experiment-refined-sticky-track">
               <div className="home-experiment-refined-main">
                 {resultsSection}
+                {afterResults}
                 <div className="home-experiment-refined-cta home-experiment-refined-cta--inline home-experiment-refined-panel">
                   {shareCta}
                 </div>
@@ -426,9 +472,11 @@ export function HomeExperimentPage({
           <>
             <section className="home-experiment-control w-full" aria-label="Find activities">
               <HomeExperimentHero variant={heroVariant} />
+              {beforeFilters}
               {filterSection}
             </section>
             {resultsSection}
+            {afterResults}
             {shareCta}
           </>
         )}

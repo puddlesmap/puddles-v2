@@ -1,0 +1,245 @@
+/* Production browse — Discovery v3 · Option 2 (city-soft) */
+
+.browse-content,
+.discovery-page-shell .discovery-page,
+.seasonal-discovery-module {
+  --discovery-copy-label-gap: 0.25rem;
+  --discovery-copy-support-gap: 0.3125rem;
+  --discovery-v3-body-height: 7.625rem;
+  --discovery-v3-pillars-height: 1.625rem;
+}
+
+.browse-content .discovery-v3-event-card,
+.discovery-page .discovery-v3-event-card,
+.seasonal-discovery-module__card .discovery-v3-event-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.browse-content .discovery-v3-event-card .card-listing-media,
+.discovery-page .discovery-v3-event-card .card-listing-media,
+.seasonal-discovery-module__card .discovery-v3-event-card .card-listing-media {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.browse-content .discovery-v3-event-card .card-listing-media .lem-disc-badge,
+.discovery-page .discovery-v3-event-card .card-listing-media .lem-disc-badge,
+.seasonal-discovery-module__card .discovery-v3-event-card .card-listing-media .lem-disc-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  left: auto;
+  z-index: 2;
+}
+
+.browse-content .discovery-event-card.discovery-v3-event-card .discovery-v3-event-card__body,
+.discovery-page .discovery-event-card.discovery-v3-event-card .discovery-v3-event-card__body,
+.seasonal-discovery-module__card
+  .discovery-event-card.discovery-v3-event-card
+  .discovery-v3-event-card__body {
+  box-sizing: border-box;
+  flex: 0 0 var(--discovery-v3-body-height);
+  height: var(--discovery-v3-body-height);
+  min-height: var(--discovery-v3-body-height);
+  max-height: var(--discovery-v3-body-height);
+  padding: 0.75rem 1rem 0.875rem;
+  overflow: hidden;
+}
+
+.browse-content .discovery-v3-event-card .discovery-event-datetime,
+.discovery-page .discovery-v3-event-card .discovery-event-datetime,
+.seasonal-discovery-module__card .discovery-v3-event-card .discovery-event-datetime {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  color: #717171;
+  min-height: calc(1 * 1.3em);
+  max-height: calc(1 * 1.3em);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.browse-content .discovery-v3-event-card h3.discovery-event-title,
+.discovery-page .discovery-v3-event-card h3.discovery-event-title,
+.seasonal-discovery-module__card .discovery-v3-event-card h3.discovery-event-title {
+  margin-top: var(--discovery-copy-label-gap);
+  min-height: calc(2 * 1.35em);
+  max-height: calc(2 * 1.35em);
+  font-size: 15px;
+  line-height: 1.35;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.browse-content .discovery-v3-event-card .lem-disc-meta-pillars,
+.browse-content .discovery-v3-event-card .lem-disc-meta-pillars--compact,
+.discovery-page .discovery-v3-event-card .lem-disc-meta-pillars,
+.discovery-page .discovery-v3-event-card .lem-disc-meta-pillars--compact,
+.seasonal-discovery-module__card .discovery-v3-event-card .lem-disc-meta-pillars,
+.seasonal-discovery-module__card .discovery-v3-event-card .lem-disc-meta-pillars--compact {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--discovery-copy-support-gap);
+  min-height: var(--discovery-v3-pillars-height);
+  max-height: var(--discovery-v3-pillars-height);
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.browse-content .discovery-v3-event-card .lem-disc-meta-pillars::-webkit-scrollbar,
+.browse-content .discovery-v3-event-card .lem-disc-meta-pillars--compact::-webkit-scrollbar,
+.discovery-page .discovery-v3-event-card .lem-disc-meta-pillars::-webkit-scrollbar,
+.discovery-page .discovery-v3-event-card .lem-disc-meta-pillars--compact::-webkit-scrollbar,
+.seasonal-discovery-module__card .discovery-v3-event-card .lem-disc-meta-pillars::-webkit-scrollbar,
+.seasonal-discovery-module__card .discovery-v3-event-card .lem-disc-meta-pillars--compact::-webkit-scrollbar {
+  display: none;
+}
+
+.browse-content .discovery-v3-event-card .lem-disc-meta-pill,
+.discovery-page .discovery-v3-event-card .lem-disc-meta-pill,
+.seasonal-discovery-module__card .discovery-v3-event-card .lem-disc-meta-pill {
+  flex: 0 0 auto;
+  min-width: 0;
+  max-width: none;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  padding: 4px 7px;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.browse-content .discovery-v3-event-card .lem-disc-meta-pill--type,
+.discovery-page .discovery-v3-event-card .lem-disc-meta-pill--type,
+.seasonal-discovery-module__card .discovery-v3-event-card .lem-disc-meta-pill--type {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+}
+
+.browse-content .browse-event-grid .discovery-v3-event-card:not(.card-listing--map-grid):not(
+    .card-listing--map-preview-sheet
+  )
+  .discovery-v3-event-card__body {
+  flex: 1 1 auto;
+}
+
+.seasonal-discovery-module__card .discovery-v3-event-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.seasonal-discovery-module__card .discovery-v3-event-card__body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Metadata pillars */
+.lem-disc-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 5px 8px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  box-shadow: none;
+}
+
+.lem-disc-meta-pill--age {
+  background: #f0f0f0;
+  color: #484848;
+  font-weight: 500;
+}
+
+.lem-disc-meta-pill--city-soft {
+  gap: 4px;
+  background: #f7f8f9;
+  box-shadow: none;
+  color: #484848;
+  font-weight: 700;
+}
+
+.lem-disc-meta-pill--city-soft .lem-disc-meta-pill__pin {
+  color: #5a6168;
+}
+
+.lem-disc-meta-pill__pin {
+  flex-shrink: 0;
+  color: #8b9399;
+}
+
+.lem-disc-meta-pill--price-free {
+  background: #eef8f0;
+  color: #1e5c3a;
+  font-weight: 600;
+}
+
+.lem-disc-meta-pill--price-paid {
+  background: #eef2f6;
+  color: #3d4f5f;
+  font-weight: 600;
+}
+
+.lem-disc-meta-pill--price-low {
+  background: #fff6e6;
+  color: #7a5c00;
+  font-weight: 600;
+}
+
+.lem-disc-meta-pill--type {
+  background: #f3f0fa;
+  color: #52456a;
+  font-weight: 500;
+}
+
+/* Seasonal editorial badge on image */
+.lem-disc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-width: calc(100% - 24px);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.lem-disc-badge--v3.lem-disc-badge--seasonal {
+  border: 1px solid rgb(0 0 0 / 0.12);
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.12);
+  padding: 7px 12px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #222;
+}
+
+.seasonal-badge__icon {
+  flex-shrink: 0;
+}
+
+.seasonal-badge__emoji {
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 13px;
+  line-height: 1;
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+}

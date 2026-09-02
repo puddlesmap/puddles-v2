@@ -67,15 +67,57 @@ const FIT4MOM_SERIES = [
 
 const MARTI_SERIES_ID = 'disc-marti-parent-baby-yoga-series-2026'
 
+const TRAIN_DAY_CANDIDATE_ID = 'watchlist-lahm-train-day-2026-08-30'
+
+/** Hello Fall home carousel — featured IDs not yet on the live sheet. */
+const HELLO_FALL_FEATURED_SEEDS = [
+  {
+    id: 'art-studios-open-house-palo-alto-art-center-2026-09-02-16-00',
+    title: 'Art Studios Open House',
+    description: 'Explore the studios, meet artists & see how art gets made.',
+    venue: 'Palo Alto Art Center',
+    address: '1313 Newell Road, Palo Alto, CA 94303',
+    city: 'Palo Alto',
+    date: '2026-09-02',
+    startTime: '16:00',
+    endTime: '19:00',
+    ageRange: '0–2, 2–5, 5+',
+    ageMin: 0,
+    ageMax: 5,
+    types: ['Arts & Crafts'],
+    categoryTags: ['Arts & Crafts', 'Hello Fall featured seed'],
+    cost: 'Free',
+    imageUrl:
+      'https://www.paloalto.gov/files/content/public/v/2/departments/community-services/arts-sciences/palo-alto-art-center/art-center-main-page-rotating-banner/studios-image/ceramics-studio.jpg',
+    lat: 37.4441,
+    lng: -122.1392,
+  },
+]
+
 const TYPE_OVERRIDES = {
   '6a7bb022a821f90037ed3e17': ['Music & Movement'],
 }
 
+/** Official class photos from sunnyvale.fit4mom.com/our-workouts (and prenatal page). */
+const FIT4MOM_STROLLER_STRIDES =
+  'https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/b1d4bba1caf446edaff553933886ce3a/1/4SoifmQpDrHbZJ6VybMjS/FIT4MOM%20Stroller%20Strides%20stroller%20workout%20for%20moms.jpg'
+const FIT4MOM_STROLLER_BARRE =
+  'https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/dc6450fd530c46908f3e38abeba487e1/1/4SoifmQpDrHbZJ6VybMjS/strollerbarre.jpeg'
+const FIT4MOM_STRIDES_360 =
+  'https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/a253ff95ba7a49cd8adb94b7da4c66e5/1/4SoifmQpDrHbZJ6VybMjS/strides360.jpeg'
+const FIT4MOM_MOMMY_BABY =
+  'https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/ee462d0ca5bc4fe88d0d4863fceebe05/1/4SoifmQpDrHbZJ6W5XJrp/3V7A8901.jpg'
+const FIT4MOM_FOURTH_TRIMESTER =
+  'https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/e2defeaaf73f43e48de87d5adc0992f4/1/4SoifmQpDrHbZJ6W5XJrp/what-to-expect-in-class.jpg'
+
 const IMAGE_OVERRIDES = {
-  'watchlist-fit4mom-stroller-strides-laspalmas-series':
-    'https://static.spacecrafted.com/fc7241510ec245c5b42e95561258cdcc/i/b741a4bd9ece4c65b1ac9ec9d2124a48/1/GCuCv726gZycFxatXh9yJ4/Moms%20giving%20high%20fives%20while%20pushing%20strollers%20in%20the%20park%20at%20a%20fit%20for%20mom%20stroller%20strides%20class.png',
-  'watchlist-fit4mom-stroller-strides-cuesta-series':
-    'https://static.spacecrafted.com/fc7241510ec245c5b42e95561258cdcc/i/b741a4bd9ece4c65b1ac9ec9d2124a48/1/GCuCv726gZycFxatXh9yJ4/Moms%20giving%20high%20fives%20while%20pushing%20strollers%20in%20the%20park%20at%20a%20fit%20for%20mom%20stroller%20strides%20class.png',
+  'watchlist-fit4mom-stroller-strides-laspalmas-series': FIT4MOM_STROLLER_STRIDES,
+  'watchlist-fit4mom-stroller-strides-cuesta-series': FIT4MOM_STROLLER_STRIDES,
+  'watchlist-fit4mom-stroller-barre-cuesta-series': FIT4MOM_STROLLER_BARRE,
+  'watchlist-fit4mom-stroller-barre-mitchell-series': FIT4MOM_STROLLER_BARRE,
+  'watchlist-fit4mom-family-strides-cuesta-series': FIT4MOM_STRIDES_360,
+  'watchlist-fit4mom-mommy-baby-yoga-laspalmas-series': FIT4MOM_MOMMY_BABY,
+  'watchlist-fit4mom-fourth-trimester-cuesta-series': FIT4MOM_FOURTH_TRIMESTER,
 }
 
 const DESCRIPTION_OVERRIDES = {
@@ -181,6 +223,8 @@ const LIBRARY_MAIN = {
   lat: 37.3688,
   lng: -122.0363,
   eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
+  imageUrl:
+    'https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg',
 }
 
 function loadCandidates() {
@@ -320,11 +364,22 @@ function buildLibrarySeries(seed) {
     types: seed.types,
     categoryTags: ['Stories', 'Series · Sunnyvale library seed'],
     cost: 'Free',
-    imageUrl: '',
+    imageUrl: LIBRARY_MAIN.imageUrl,
     eventUrl: LIBRARY_MAIN.eventUrl,
     lat: seed.lat ?? LIBRARY_MAIN.lat,
     lng: seed.lng ?? LIBRARY_MAIN.lng,
   })
+}
+
+function buildTrainDayFeatured(candidates) {
+  const candidate = candidates.get(TRAIN_DAY_CANDIDATE_ID)
+  if (!candidate) return null
+
+  const event = candidateToEvent(candidate)
+  event.id =
+    candidate.convertedEventId || 'train-day-los-altos-history-museum-2026-08-30-11-00'
+  event.categoryTags = ['Festivals & Community', 'Hello Fall featured seed']
+  return event
 }
 
 function main() {
@@ -382,6 +437,14 @@ function main() {
   for (const seed of SUNNYVALE_LIBRARY_SERIES) {
     events.push(buildLibrarySeries(seed))
   }
+
+  for (const seed of HELLO_FALL_FEATURED_SEEDS) {
+    events.push(asPublishedEvent(seed))
+  }
+
+  const trainDay = buildTrainDayFeatured(candidates)
+  if (trainDay) events.push(trainDay)
+  else skipped.push({ id: TRAIN_DAY_CANDIDATE_ID, reason: 'Train Day candidate missing' })
 
   events.sort(
     (a, b) =>

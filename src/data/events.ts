@@ -1,8 +1,12 @@
 import type { Event } from '../types/event'
 import sheetEvents from './sheet-events.json'
+import launchStagingEvents from './launch-staging-events.json'
 import { getShowcaseEvents } from './showcase-events'
+import { HALLOWEEN_DRIVE_EVENTS } from './seasonalHalloweenDriveEvents'
+import { HELLO_FALL_DRIVE_EVENTS } from './seasonalHelloFallDriveEvents'
 import { isPublicAgeEligible } from '../utils/ageRange'
 import { enrichEventsFromCopy } from '../utils/enrichEventFromCopy'
+import { getUnaddedDiscoveryReviewEvents } from '../utils/launchReviewDiscovery'
 import { isOutOfAgeAudienceForPublic } from '../utils/eventAudienceAge'
 import { enrichPublishingFields, isPublicEvent } from '../utils/publishing'
 import { collapseSameSlotDuplicates } from '../utils/eventDuplicates'
@@ -22,8 +26,31 @@ export const ALL_SHOWCASE_EVENTS: Event[] = includeShowcaseEvents
   ? withPublishing(getShowcaseEvents())
   : []
 
-/** Full catalog including drafts, hidden, expired, and past rows. */
-export const ALL_EVENTS: Event[] = [...ALL_SHOWCASE_EVENTS, ...ALL_SHEET_EVENTS]
+/** Seasonal editorial picks outside the public catalog (e.g. “worth a drive” farms & haunts). */
+export const ALL_SEASONAL_DRIVE_EVENTS: Event[] = withPublishing([
+  ...HELLO_FALL_DRIVE_EVENTS,
+  ...HALLOWEEN_DRIVE_EVENTS,
+])
+
+/**
+ * Localhost launch staging — merge only via LaunchStagingContext / getLaunchReviewCatalog.
+ * Do not append here: staging JSON marks rows Published and would leak onto public `/`
+ * while sheet counterparts remain Draft.
+ */
+export const ALL_LAUNCH_STAGING_EVENTS: Event[] = withPublishing(launchStagingEvents as Event[])
+
+/** Pending discovery rows — Hidden; for /experiment/seasonal-launch-review preview only. */
+export const ALL_LAUNCH_REVIEW_DISCOVERY_EVENTS: Event[] = withPublishing(
+  getUnaddedDiscoveryReviewEvents(),
+)
+
+/** Full catalog including drafts, hidden, expired, and past rows (not launch-staging overlay). */
+export const ALL_EVENTS: Event[] = [
+  ...ALL_SHOWCASE_EVENTS,
+  ...ALL_SHEET_EVENTS,
+  ...ALL_SEASONAL_DRIVE_EVENTS,
+  ...ALL_LAUNCH_REVIEW_DISCOVERY_EVENTS,
+]
 
 /**
  * Public website events — Published, upcoming, and within the rolling display window.

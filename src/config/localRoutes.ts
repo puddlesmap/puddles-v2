@@ -1,12 +1,13 @@
 import type { City } from '../types/event'
 import { SITE } from './site'
 
-export type LocalCitySlug = 'palo-alto' | 'los-altos' | 'mountain-view'
+export type LocalCitySlug = 'palo-alto' | 'los-altos' | 'mountain-view' | 'sunnyvale'
 
 export const LOCAL_CITY_ROUTES: Record<LocalCitySlug, City> = {
   'palo-alto': 'Palo Alto',
   'los-altos': 'Los Altos',
   'mountain-view': 'Mountain View',
+  sunnyvale: 'Sunnyvale',
 }
 
 export const LOCAL_CITY_SLUGS = Object.keys(LOCAL_CITY_ROUTES) as LocalCitySlug[]

@@ -1,0 +1,112 @@
+---
+description: Seasonal Discovery litmus test, featured rotation, collection membership, theme transitions, drive picks, and badge scope
+globs: src/data/seasonalDiscovery.ts,src/data/seasonal*Events.ts,src/components/seasonal/**,src/views/ExperimentSeasonal*.tsx,src/views/HomePage.tsx,src/views/HomeLaunchPreviewPage.tsx,src/utils/seasonalEditorialBadges.ts
+alwaysApply: false
+---
+
+# Seasonal Discovery — featured picks & collections
+
+## Universal litmus test (every theme)
+
+Apply this before adding **any** seasonal pick (Hello Fall, Halloween, Holiday, rainy-day, etc.):
+
+> **If it isn’t special because of this season / this month, don’t make it a seasonal pick.**
+
+Ask: *Would I specially recommend this because it’s fall / Halloween / holidays — or would I recommend it any ordinary month?*
+
+| Answer | Action |
+|--------|--------|
+| Special **because of the season** | Eligible for seasonal collection / featured / seasonal badge |
+| Good anytime (recurring yoga, FIT4MOM, weekly storytime, music class, generic open house) | Keep in **regular browse** only (Parent & Me, Stories, Festivals, etc.) |
+
+Seasonal Discovery must read as **curated editorial**, not a month dump of every good activity.
+
+### Shared principles (all themes)
+
+- Prioritize events **genuinely good for ages 0–5**.
+- Keep each collection tight (**~6–8**); Home carousel roughly **3–6** active featured picks.
+- **Rotate** time-sensitive festivals into featured windows near their dates; drop when the window ends or the date passes.
+- Recurring / enrollment / year-round Parent & Me, Stories, Music → **never** seasonal editorial by default.
+- Community one-offs with a **weak seasonal tie** → regular Festivals / Browse, not seasonal picks.
+- Leaving featured does **not** remove an activity from the collection; only drop from `collectionEventIds` / `driveEventIds` when it no longer belongs in the theme.
+
+### Seasonal badge scope (all themes)
+
+- **Seasonal Discovery surfaces** (collection page + home seasonal band): **no** seasonal badge — the page/band already is the theme.
+- **Browse / home mixed feeds**: show the theme badge (🍂 Fall Pick, Halloween Pick, Holiday Pick) so curated seasonal events stand out among regular activities.
+
+---
+
+## Hello, Fall (theme-specific)
+
+> **Fall = what’s especially worth doing with little ones right now** — not “Fall = pumpkins.”
+
+### Litmus (Hello Fall)
+
+> If it isn’t special because it’s fall / September, don’t make it a Fall Pick.
+
+### Pillars
+
+| Pillar | Include |
+|--------|---------|
+| **Harvest & farms** | Pumpkin patches, apple picking, farm days |
+| **Outdoor fall outings** | Nature, outdoor events, fall family activities |
+| **Seasonal celebrations** | Mid-Autumn Festival, Diwali, community fall festivals |
+
+### Hello Fall examples
+
+| Keep | Move to regular browse |
+|------|------------------------|
+| Harvest History Festival, Mid-Autumn storytimes, pumpkin farms | Yoga / FIT4MOM / weekly storytime / Malinky Music |
+| Light September pick (e.g. back-to-school workshop) — optional | Art Studios Open House, Train Day (weak fall tie) |
+
+Feature Spina Farms (and similar late-open patches) near open date (~9/17), not in the early-September carousel.
+
+Hello Fall runs through **~Oct 5** (Diwali / Sunnyvale Mid-Autumn weekend); Halloween module starts **Oct 6**.
+
+---
+
+## Three layers (do not collapse)
+
+| Layer | Field | Purpose |
+|-------|--------|---------|
+| **Featured** | `featuredWindows` | Home carousel — **temporary** (~2–3 weeks per pick) |
+| **Collection** | `collectionEventIds` | Full “See all” close-to-home set — **season-long** while valid |
+| **Drive** | `driveEventIds` | “Worth a little drive” — **stable** anchors; rotate less often |
+
+## Featured rotation
+
+- Default featured duration: **~2–3 weeks** per pick.
+- Rotate **at least 1–2 cards every ~2 weeks** so the carousel stays fresh.
+- Keep **3–6 cards** active on any given day (overlap windows briefly during handoffs).
+- Mark **1–2 anchor slots** (`anchor: true`) — festival weekends, strong seasonal rows.
+- Use `note` on each window for launch-review context.
+- Resolve Home carousel with `resolveFeaturedSeasonalEvents()` / `getFeaturedEventIdsForDate()` — **never** a static ID list.
+
+## Theme transitions
+
+- **One seasonal theme module at a time** — `activeFrom` / `activeUntil` do not overlap.
+- **Transition week:** blend **1–2 picks from the next theme** into the current theme’s `featuredWindows` before the module title swaps.
+- Preview picks live on the **outgoing** theme until the swap; then move primary home to the **incoming** theme.
+
+## Drive picks
+
+- Special outings **outside core cities** — not every farm needs a drive slot.
+- Prefer **1–2 stable drive anchors** per theme.
+- Do not duplicate next-theme drive picks in the current collection long-term — preview in transition only.
+
+## Adding a new seasonal pick (checklist)
+
+1. Pass the **universal litmus test** for this theme.
+2. Ensure the event exists in catalog (sheet, staging, or `seasonal*DriveEvents.ts`).
+3. Add to **`collectionEventIds`** (close to home) or **`driveEventIds`** (worth a drive) — not both unless intentional.
+4. Add **`featuredWindows`** only when spotlighting on Home for a specific period.
+5. Update **`SEASONAL_THEME_SCHEDULE`** if theme dates or transition notes change.
+6. Verify on `/experiment/seasonal-launch-review`; confirm badges stay off on seasonal surfaces.
+
+## Code references
+
+- Config: `src/data/seasonalDiscovery.ts`
+- Editorial drive rows: `src/data/seasonalHelloFallDriveEvents.ts`, `src/data/seasonalHalloweenDriveEvents.ts`
+- Badge helpers: `src/utils/seasonalEditorialBadges.ts`
+- Resolver: `resolveFeaturedSeasonalEvents()`, `getFeaturedEventIdsForDate()`

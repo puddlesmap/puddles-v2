@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Puddles · Hallmark home mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Quicksand:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+      /* Hallmark · macrostructure: planetbox-band-editorial-split · theme: puddles-warm-editorial
+       * pre-emit critique: P5 H4 E5 S4 R5 V5
+       * iteration: align discovery band + v3 cards + prod filter chips
+       */
+
+      :root {
+        --font-sans: 'Nunito Sans', system-ui, -apple-system, sans-serif;
+        --font-brand-wordmark: 'Quicksand', system-ui, sans-serif;
+        --font-brand-subtitle: 'Comfortaa', system-ui, sans-serif;
+        --color-brand: #66c5f9;
+        --color-brand-dark: #4db8f2;
+        --color-brand-soft: #e5f6fd;
+        --color-charcoal: #273034;
+        --color-hero-title: #282e31;
+        --color-muted: #717171;
+        --color-cream: #fdfbf3;
+        --color-surface: #ffffff;
+        --color-border: #dddddd;
+        --color-border-light: #ebebeb;
+        --chip-bg: #ffffff;
+        --chip-bg-active: #eaf7fe;
+        --chip-border: 1px solid #dddddd;
+        --chip-border-active: 1px solid #66c5f9;
+        --radius-button: 23px;
+        --radius-md: 16px;
+        --radius-pill: 999px;
+        --layout-max: 1120px;
+        --layout-pad: 16px;
+        --seasonal-eyebrow: #b45309;
+        --seasonal-band-bg: #fff7ed;
+        --discovery-card-gap: 1rem;
+        --discovery-copy-label-gap: 0.25rem;
+        --discovery-copy-support-gap: 0.3125rem;
+        --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+        --type-hero-title-size: 1.75rem;
+        --type-hero-title-weight: 700;
+        --type-hero-title-line-height: 1.35;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        overflow-x: clip;
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 1.45;
+        color: var(--color-charcoal);
+        background: var(--color-surface);
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .layout-container {
+        width: 100%;
+        max-width: var(--layout-max);
+        margin: 0 auto;
+        padding-inline: var(--layout-pad);
+      }
+
+      /* —— Header —— */
+      .site-header {
+        border-bottom: 1px solid var(--color-border-light);
+        background: var(--color-surface);
+      }
+
+      .site-header__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.625rem var(--layout-pad);
+        max-width: var(--layout-max);
+        margin: 0 auto;
+      }
+
+      .brand-logo {
+        height: 2rem;
+        width: auto;
+      }
+
+      .site-header__badge {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        padding: 0.35rem 0.65rem;
+        border: 1px dashed var(--color-border);
+        border-radius: 12px;
+      }
+
+      .site-header__nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        font-size: 0.8125rem;
+        font-weight: 600;
+      }
+
+      .site-header__nav a {
+        color: var(--color-muted);
+        text-decoration: none;
+      }
+
+      .site-header__nav a:hover {
+        color: var(--color-charcoal);
+        text-decoration: underline;
+      }
+
+      .site-header__nav a[aria-current='page'] {
+        color: var(--color-charcoal);
+      }
+
+      /* —— Announcement (production) —— */
+      .announcement {
+        background: var(--color-brand);
+        color: #fff;
+        text-align: center;
+      }
+
+      .announcement__text {
+        margin: 0;
+        padding: 0.5625rem var(--layout-pad);
+        max-width: var(--layout-max);
+        margin-inline: auto;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        line-height: 1.35;
+      }
+
+      /* —— Discovery band —— */
+      .discovery-band {
+        background: var(--seasonal-band-bg);
+        padding: 0;
+      }
+
+      .discovery-band__shell {
+        padding: 1.25rem 0 1.375rem;
+      }
+
+      .discovery-band__header-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1.25rem;
+        margin-bottom: 1.75rem;
+        min-width: 0;
+      }
+
+      .discovery-band__copy-group {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        min-width: 0;
+        flex: 0 1 auto;
+        max-width: calc(100% - 5.5rem);
+      }
+
+      .discovery-band__text {
+        min-width: 0;
+        flex: 1 1 auto;
+      }
+
+      .discovery-band__eyebrow {
+        margin: 0 0 0.5rem;
+        font-size: 0.6875rem;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--seasonal-eyebrow);
+      }
+
+      .discovery-band__title {
+        margin: 0;
+        font-size: 1.375rem;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.028em;
+        color: var(--color-charcoal);
+        overflow-wrap: anywhere;
+        min-width: 0;
+      }
+
+      .discovery-band__tagline {
+        margin: 0.375rem 0 0;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.45;
+        color: var(--color-muted);
+        max-width: 34rem;
+      }
+
+      .discovery-band__illus {
+        flex-shrink: 0;
+        align-self: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 8px rgba(39, 48, 52, 0.1));
+      }
+
+      .discovery-band__cta {
+        flex-shrink: 0;
+        align-self: flex-start;
+        margin: 0;
+        padding-top: 0.125rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: var(--color-charcoal);
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .discovery-band__cta:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+
+      .discovery-carousel {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: var(--discovery-card-gap);
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .discovery-carousel::-webkit-scrollbar {
+        display: none;
+      }
+
+      .discovery-carousel::after {
+        content: '';
+        flex: 0 0 0.25rem;
+      }
+
+      .activity-card {
+        flex: 0 0 min(14.25rem, calc(100% - 2.5rem));
+        width: min(14.25rem, calc(100% - 2.5rem));
+        min-width: min(14.25rem, calc(100% - 2.5rem));
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        background: var(--color-surface);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-card);
+        text-decoration: none;
+        color: inherit;
+        height: 100%;
+      }
+
+      .activity-card__media {
+        position: relative;
+        flex-shrink: 0;
+        aspect-ratio: 4 / 3;
+        background: var(--color-border-light);
+        overflow: hidden;
+      }
+
+      .activity-card__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .activity-card__badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        padding: 0.25rem 0.5rem;
+        border-radius: var(--radius-pill);
+        background: rgba(255, 247, 237, 0.95);
+        border: 1px solid color-mix(in srgb, var(--seasonal-eyebrow) 35%, transparent);
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: var(--seasonal-eyebrow);
+      }
+
+      .activity-card__body {
+        box-sizing: border-box;
+        flex: 0 0 7.625rem;
+        height: 7.625rem;
+        padding: 0.75rem 1rem 0.875rem;
+        overflow: hidden;
+      }
+
+      .activity-card__when {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.3;
+        letter-spacing: 0.04em;
+        color: var(--color-muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .activity-card__title {
+        margin: var(--discovery-copy-label-gap) 0 0;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.35;
+        color: var(--color-charcoal);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        overflow: hidden;
+        min-height: calc(2 * 1.35em);
+        max-height: calc(2 * 1.35em);
+        overflow-wrap: anywhere;
+        min-width: 0;
+      }
+
+      .activity-card__pills {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 6px;
+        margin-top: var(--discovery-copy-support-gap);
+        min-height: 1.625rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .activity-card__pills::-webkit-scrollbar {
+        display: none;
+      }
+
+      .activity-card__pill {
+        flex: 0 0 auto;
+        padding: 4px 7px;
+        border-radius: 6px;
+        background: #f7f7f7;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--color-muted);
+        white-space: nowrap;
+      }
+
+      /* —— Home main —— */
+      .home-main {
+        padding: 1.375rem 0 2.5rem;
+      }
+
+      .home-split {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .home-hero__title {
+        margin: 0;
+        max-width: 18em;
+        font-size: var(--type-hero-title-size);
+        font-weight: var(--type-hero-title-weight);
+        line-height: var(--type-hero-title-line-height);
+        color: var(--color-hero-title);
+        overflow-wrap: anywhere;
+        min-width: 0;
+      }
+
+      .home-hero__support {
+        margin: 0.875rem 0 0;
+        max-width: 36rem;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.45;
+        color: var(--color-muted);
+      }
+
+      .results-summary {
+        margin: 1.25rem 0 0;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--color-muted);
+      }
+
+      .filter-stack {
+        margin-top: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .filter-group__label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+      }
+
+      .filter-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.5rem 0.875rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border-radius: var(--radius-button);
+        border: var(--chip-border);
+        background: var(--chip-bg);
+        color: var(--color-charcoal);
+        white-space: nowrap;
+        box-shadow: 0 1px 2px rgb(40 46 49 / 0.04);
+      }
+
+      .chip__icon {
+        flex-shrink: 0;
+        display: block;
+      }
+
+      .chip--active {
+        border: var(--chip-border-active);
+        background: var(--chip-bg-active);
+        font-weight: 700;
+        box-shadow: none;
+      }
+
+      .chip__badge {
+        flex-shrink: 0;
+        border-radius: var(--radius-pill);
+        background: rgb(77 184 242 / 0.14);
+        padding: 0.1rem 0.35rem;
+        font-size: 0.625rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        line-height: 1.2;
+        color: var(--color-brand-dark);
+      }
+
+      .home-map-preview-card {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--color-border-light);
+        background: var(--color-surface);
+        box-shadow: var(--shadow-card);
+        overflow: hidden;
+      }
+
+      .home-map-preview-card:hover .home-map-preview__cta {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .home-map-preview__canvas {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 21 / 9;
+        min-height: 7.5rem;
+        overflow: hidden;
+        background: #f7f7f7;
+      }
+
+      .home-map-preview__map-layer {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        overflow: hidden;
+        opacity: 0.92;
+      }
+
+      .home-map-preview__map-canvas,
+      .home-map-preview__map-layer .leaflet-container {
+        width: 100%;
+        height: 100%;
+        min-height: 7.5rem;
+        background: #f7f7f7;
+      }
+
+      .home-map-preview__pins {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .home-map-preview__marker-pin {
+        position: absolute;
+        width: 1.125rem;
+        height: auto;
+        transform: translate(-50%, -100%);
+        opacity: 0.88;
+        pointer-events: none;
+      }
+
+      .home-map-preview__marker-pin--main {
+        width: 1.5rem;
+        opacity: 0.95;
+      }
+
+      .home-map-preview__marker-pin--secondary {
+        width: 1rem;
+        opacity: 0.72;
+      }
+
+      .home-map-preview__footer {
+        position: absolute;
+        inset-inline: 0;
+        bottom: 0;
+        z-index: 3;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 1.75rem 1.25rem 0.75rem;
+        background: linear-gradient(
+          180deg,
+          rgb(255 255 255 / 0) 0%,
+          rgb(255 255 255 / 0.45) 42%,
+          rgb(255 255 255 / 0.9) 100%
+        );
+        pointer-events: none;
+      }
+
+      .home-map-preview__status {
+        margin: 0;
+        flex: 1;
+        min-width: 0;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.25;
+        color: #282e31;
+        text-shadow: 0 1px 8px rgb(255 255 255 / 0.85);
+      }
+
+      .home-map-preview__cta {
+        flex-shrink: 0;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.25;
+        color: #282e31;
+        text-shadow: 0 1px 8px rgb(255 255 255 / 0.85);
+      }
+
+      .mock-footer {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--color-border-light);
+        font-size: 0.75rem;
+        color: var(--color-muted);
+      }
+
+      .mock-footer a {
+        color: var(--color-charcoal);
+        font-weight: 600;
+      }
+
+      @media (min-width: 768px) {
+        :root {
+          --layout-pad: 24px;
+          --type-hero-title-size: 2rem;
+          --discovery-card-gap: 1.25rem;
+        }
+
+        .announcement__text {
+          padding-block: 0.625rem;
+          font-size: 0.875rem;
+        }
+
+        .discovery-band__shell {
+          padding: 1.5rem 0 1.625rem;
+        }
+
+        .discovery-band__title {
+          font-size: 1.75rem;
+        }
+
+        .discovery-band__illus {
+          width: 4.25rem;
+          height: 4.25rem;
+        }
+
+        .discovery-band__header-row {
+          gap: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .activity-card {
+          flex: 0 0 calc((100% - 3 * var(--discovery-card-gap)) / 4);
+          width: calc((100% - 3 * var(--discovery-card-gap)) / 4);
+          min-width: calc((100% - 3 * var(--discovery-card-gap)) / 4);
+        }
+
+        .home-main {
+          padding-top: 1.75rem;
+        }
+
+        .home-split {
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 2rem;
+        }
+
+        .home-split__primary {
+          flex: 1 1 0;
+          min-width: 0;
+        }
+
+        .home-split__aside {
+          flex: 0 0 42%;
+          max-width: 28rem;
+          min-width: 0;
+        }
+
+        .home-map-preview__canvas {
+          aspect-ratio: 21 / 9;
+          min-height: 10rem;
+          max-height: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a href="/" aria-label="Puddles home">
+          <img
+            class="brand-logo"
+            src="/about-experiment/puddles-wordmark.png"
+            srcset="/about-experiment/puddles-wordmark@2x.png 2x"
+            alt="Puddles"
+            width="120"
+            height="32"
+            decoding="async"
+          />
+        </a>
+        <nav class="site-header__nav" aria-label="Hallmark mockups">
+          <a href="/experiment/hallmark-home-preview.html" aria-current="page">Home mockup</a>
+          <a href="/experiment/hallmark-hello-fall-preview.html">Hello Fall</a>
+          <a href="/experiment/home-launch-preview">Production</a>
+        </nav>
+        <span class="site-header__badge">Hallmark mockup</span>
+      </div>
+    </header>
+
+    <div class="announcement" role="status">
+      <p class="announcement__text">
+        We just added Sunnyvale! 🎉 Plus two new ways to explore: Festivals and Parent &amp; Me
+        activities.
+      </p>
+    </div>
+
+    <section class="discovery-band" aria-labelledby="discovery-heading">
+      <div class="layout-container discovery-band__shell">
+        <div class="discovery-band__header-row">
+          <div class="discovery-band__copy-group">
+            <div class="discovery-band__text">
+              <p class="discovery-band__eyebrow">September</p>
+              <h2 id="discovery-heading" class="discovery-band__title">Fall with little ones</h2>
+              <p class="discovery-band__tagline">
+                Farms, outdoor days &amp; seasonal celebrations.
+              </p>
+            </div>
+            <img
+              class="discovery-band__illus"
+              src="/seasonal/hello-fall.png"
+              alt=""
+              width="68"
+              height="68"
+              decoding="async"
+            />
+          </div>
+          <a class="discovery-band__cta" href="/experiment/seasonal-discovery/hello-fall"
+            >See all <span aria-hidden="true">→</span></a
+          >
+        </div>
+
+        <div class="discovery-carousel" role="list">
+          <a class="activity-card" href="#" role="listitem">
+            <div class="activity-card__media">
+              <span class="activity-card__badge">Fall pick</span>
+              <img src="/event-fallbacks/festivals.png" alt="" width="228" height="171" />
+            </div>
+            <div class="activity-card__body">
+              <p class="activity-card__when">Sat, Sep 26 · 9am</p>
+              <h3 class="activity-card__title">Harvest History Festival</h3>
+              <div class="activity-card__pills">
+                <span class="activity-card__pill">Mountain View</span>
+                <span class="activity-card__pill">Festival</span>
+                <span class="activity-card__pill">0–5</span>
+                <span class="activity-card__pill">Free</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="activity-card" href="#" role="listitem">
+            <div class="activity-card__media">
+              <img src="/event-fallbacks/arts.png" alt="" width="228" height="171" />
+            </div>
+            <div class="activity-card__body">
+              <p class="activity-card__when">Tue, Sep 2 · 4pm</p>
+              <h3 class="activity-card__title">Art Studios Open House</h3>
+              <div class="activity-card__pills">
+                <span class="activity-card__pill">Palo Alto</span>
+                <span class="activity-card__pill">Arts</span>
+                <span class="activity-card__pill">0–5</span>
+                <span class="activity-card__pill">Free</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="activity-card" href="#" role="listitem">
+            <div class="activity-card__media">
+              <span class="activity-card__badge">Fall pick</span>
+              <img src="/event-fallbacks/stories.png" alt="" width="228" height="171" />
+            </div>
+            <div class="activity-card__body">
+              <p class="activity-card__when">Sun, Sep 13 · 10:30am</p>
+              <h3 class="activity-card__title">
+                Storytime with Jasmine Fang, Beneath the Same Round Moon
+              </h3>
+              <div class="activity-card__pills">
+                <span class="activity-card__pill">Los Altos</span>
+                <span class="activity-card__pill">Stories</span>
+                <span class="activity-card__pill">0–5</span>
+                <span class="activity-card__pill">Free</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="activity-card" href="#" role="listitem">
+            <div class="activity-card__media">
+              <img
+                src="https://www.losaltoshistory.org/wp-content/uploads/2026/08/Two-boys-and-train.jpg"
+                alt=""
+                width="228"
+                height="171"
+              />
+            </div>
+            <div class="activity-card__body">
+              <p class="activity-card__when">Sun, Aug 30 · 11am</p>
+              <h3 class="activity-card__title">Train Day</h3>
+              <div class="activity-card__pills">
+                <span class="activity-card__pill">Los Altos</span>
+                <span class="activity-card__pill">Festival</span>
+                <span class="activity-card__pill">0–5</span>
+                <span class="activity-card__pill">$10</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <main class="home-main">
+      <div class="layout-container">
+        <div class="home-split">
+          <div class="home-split__primary">
+            <header class="home-hero">
+              <h1 class="home-hero__title">
+                Find storytimes, music, drop-ins, and local moments for ages 0–5.
+              </h1>
+              <p class="home-hero__support">
+                Bay Area activities, from free library events to low-cost community programs.
+              </p>
+            </header>
+
+            <p class="results-summary">All cities · 12 activities</p>
+
+            <div class="filter-stack">
+              <div class="filter-group">
+                <span class="filter-group__label" id="where-label">Where</span>
+                <div class="filter-chips" role="group" aria-labelledby="where-label">
+                  <span class="chip">
+                    <svg
+                      class="chip__icon"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M8 9.35V13.6"
+                        stroke="#B9E6FC"
+                        stroke-width="1.15"
+                        stroke-linecap="round"
+                      />
+                      <circle cx="8" cy="5.85" r="3.35" fill="#66C5F9" />
+                      <ellipse cx="7.05" cy="4.95" rx="1.05" ry="0.8" fill="#ffffff" opacity="0.55" />
+                    </svg>
+                    Nearby
+                  </span>
+                  <span class="chip chip--active">All</span>
+                  <span class="chip">Palo Alto</span>
+                  <span class="chip">Los Altos</span>
+                  <span class="chip">Mountain View</span>
+                  <span class="chip">
+                    Sunnyvale
+                    <span class="chip__badge">NEW</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <span class="filter-group__label" id="when-label">When</span>
+                <div class="filter-chips" role="group" aria-labelledby="when-label">
+                  <span class="chip chip--active">Today</span>
+                  <span class="chip">Tomorrow</span>
+                  <span class="chip">This weekend</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="home-split__aside" aria-label="Map preview">
+            <a class="home-map-preview-card" href="/browse?view=map" aria-label="Explore nearby activities. View map">
+              <div class="home-map-preview__canvas">
+                <div class="home-map-preview__map-layer">
+                  <div id="hallmark-home-map" class="home-map-preview__map-canvas" aria-hidden="true"></div>
+                </div>
+                <div class="home-map-preview__pins" aria-hidden>
+                  <img
+                    class="home-map-preview__marker-pin home-map-preview__marker-pin--main"
+                    src="/home-experiment/spotlight-marker.png"
+                    alt=""
+                    width="28"
+                    height="28"
+                    decoding="async"
+                    style="top: 28.7%; left: 40.8%"
+                  />
+                  <img
+                    class="home-map-preview__marker-pin home-map-preview__marker-pin--secondary"
+                    src="/home-experiment/spotlight-marker.png"
+                    alt=""
+                    width="20"
+                    height="20"
+                    decoding="async"
+                    style="top: 57.5%; left: 45.8%"
+                  />
+                  <img
+                    class="home-map-preview__marker-pin home-map-preview__marker-pin--secondary"
+                    src="/home-experiment/spotlight-marker.png"
+                    alt=""
+                    width="20"
+                    height="20"
+                    decoding="async"
+                    style="top: 57.1%; left: 51.1%"
+                  />
+                  <img
+                    class="home-map-preview__marker-pin home-map-preview__marker-pin--secondary"
+                    src="/home-experiment/spotlight-marker.png"
+                    alt=""
+                    width="20"
+                    height="20"
+                    decoding="async"
+                    style="top: 65.9%; left: 59.3%"
+                  />
+                </div>
+                <div class="home-map-preview__footer">
+                  <p class="home-map-preview__status">Explore nearby activities</p>
+                  <span class="home-map-preview__cta">View map →</span>
+                </div>
+              </div>
+            </a>
+          </aside>
+        </div>
+
+        <p class="mock-footer">
+          Hallmark × Puddles static mockup —
+          <a href="/experiment/home-launch-preview">Compare launch preview</a>
+          ·
+          <a href="/experiment/hallmark-hello-fall-preview.html">Hello Fall collection</a>
+          ·
+          <a href="/experiment/hallmark-home-mockup">Host page</a>
+        </p>
+      </div>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      function initHallmarkHomeMap() {
+        var mapEl = document.getElementById('hallmark-home-map')
+        if (!mapEl || typeof L === 'undefined' || mapEl.dataset.mapReady === 'true') return
+
+        var map = L.map(mapEl, {
+          center: [37.4, -122.09],
+          zoom: 11,
+          zoomControl: false,
+          attributionControl: false,
+          dragging: false,
+          touchZoom: false,
+          doubleClickZoom: false,
+          scrollWheelZoom: false,
+          boxZoom: false,
+          keyboard: false,
+        })
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+          subdomains: 'abcd',
+          maxZoom: 20,
+        }).addTo(map)
+
+        mapEl.dataset.mapReady = 'true'
+
+        function refreshMapSize() {
+          map.invalidateSize({ animate: false })
+        }
+
+        requestAnimationFrame(refreshMapSize)
+        window.setTimeout(refreshMapSize, 120)
+        window.addEventListener('resize', refreshMapSize, { passive: true })
+      }
+
+      if (document.readyState === 'complete') {
+        initHallmarkHomeMap()
+      } else {
+        window.addEventListener('load', initHallmarkHomeMap)
+      }
+    </script>
+  </body>
+</html>

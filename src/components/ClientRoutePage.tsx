@@ -12,6 +12,9 @@ import { AdminAuthGate } from '@/components/admin/AdminAuthGate'
 import { AdminLayout } from '@/components/admin/AdminLayout'
 import { DiscoveryPage } from '@/views/DiscoveryPage'
 import { HomePage } from '@/views/HomePage'
+import { HomeLaunchPreviewPage } from '@/views/HomeLaunchPreviewPage'
+import { ExperimentHallmarkHelloFallMockupPage } from '@/views/ExperimentHallmarkHelloFallMockupPage'
+import { ExperimentHallmarkHomeMockupPage } from '@/views/ExperimentHallmarkHomeMockupPage'
 import { HomeV1Page } from '@/views/HomeV1Page'
 import { HomeExperiment1Page } from '@/views/HomeExperiment1Page'
 import { HomeExperiment2Page } from '@/views/HomeExperiment2Page'
@@ -47,10 +50,23 @@ import { ExperimentSharedEventLayout } from '@/views/ExperimentSharedEventLayout
 import { ExperimentSharedEventPage } from '@/views/ExperimentSharedEventPage'
 import { ExperimentSharedEventDetailPage } from '@/views/ExperimentSharedEventDetailPage'
 import { ExperimentWelcomePage } from '@/views/ExperimentWelcomePage'
+import { ExperimentSeasonalDiscoveryPage } from '@/views/ExperimentSeasonalDiscoveryPage'
+import { ExperimentSeasonalCollectionPage } from '@/views/ExperimentSeasonalCollectionPage'
+import { ExperimentSeasonalLaunchReviewPage } from '@/views/ExperimentSeasonalLaunchReviewPage'
+import { ExperimentCommunityEventsMockupPage } from '@/views/ExperimentCommunityEventsMockupPage'
+import { ExperimentLaunchExpandMockupPage } from '@/views/ExperimentLaunchExpandMockupPage'
+import { ExperimentBrowseV2MockupPage } from '@/views/ExperimentBrowseV2MockupPage'
+import { ExperimentBrowseV3MockupPage } from '@/views/ExperimentBrowseV3MockupPage'
+import { ExperimentBrowseCardLayoutMockupPage } from '@/views/ExperimentBrowseCardLayoutMockupPage'
+import { ExperimentBrowseCardDesignReferencePage } from '@/views/ExperimentBrowseCardDesignReferencePage'
+import { ExperimentBrowseLiveVsOption2Page } from '@/views/ExperimentBrowseLiveVsOption2Page'
+import { ExperimentSeasonalThemeCalendarPage } from '@/views/ExperimentSeasonalThemeCalendarPage'
+import { ExperimentSeasonalBackgroundDialPage } from '@/views/ExperimentSeasonalBackgroundDialPage'
 import { WelcomeOnboarding } from '@/components/welcome/WelcomeOnboarding'
 import { AdminEventsPage } from '@/views/admin/AdminEventsPage'
 import { AdminDiscoveryPage } from '@/views/admin/AdminDiscoveryPage'
 import { AdminSubmissionsPage } from '@/views/admin/AdminSubmissionsPage'
+import { AdminSeasonalCalendarPage } from '@/views/admin/AdminSeasonalCalendarPage'
 import { trackPageView } from '@/utils/analytics'
 import { applySiteMeta } from '@/utils/siteMeta'
 import { readEventDetailOverlayState } from '@/utils/nextEventDetailState'
@@ -78,6 +94,16 @@ function ClientRoutes() {
         <ErrorBoundary title="Puddles failed to load">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/experiment/home-launch-preview" element={<HomeLaunchPreviewPage />} />
+            <Route path="/experiment/seasonal-launch-review" element={<ExperimentSeasonalLaunchReviewPage />} />
+            <Route
+              path="/experiment/hallmark-home-mockup"
+              element={<ExperimentHallmarkHomeMockupPage />}
+            />
+            <Route
+              path="/experiment/hallmark-hello-fall-mockup"
+              element={<ExperimentHallmarkHelloFallMockupPage />}
+            />
             <Route path="/home-v1" element={<HomeV1Page />} />
             <Route path="/home-experiment" element={<Navigate to="/" replace />} />
             <Route path="/home-experiment-1" element={<HomeExperiment1Page />} />
@@ -93,6 +119,7 @@ function ClientRoutes() {
             <Route path="/palo-alto" element={<CityLandingPage citySlug="palo-alto" />} />
             <Route path="/los-altos" element={<CityLandingPage citySlug="los-altos" />} />
             <Route path="/mountain-view" element={<CityLandingPage citySlug="mountain-view" />} />
+            <Route path="/sunnyvale" element={<CityLandingPage citySlug="sunnyvale" />} />
             <Route path="/browse-v1" element={<BrowseV1Page />} />
             <Route path="/experiment-browse" element={<ExperimentBrowsePage />} />
             <Route path="/experiment-browse-map" element={<ExperimentBrowseMapPage />} />
@@ -101,6 +128,45 @@ function ClientRoutes() {
             <Route path="/experiment-event-modal" element={<ExperimentEventModalPage />} />
             <Route path="/experiment-event-modal-v3" element={<ExperimentEventModalV3Page />} />
             <Route path="/experiment-welcome" element={<ExperimentWelcomePage />} />
+            <Route path="/experiment/seasonal-discovery" element={<ExperimentSeasonalDiscoveryPage />} />
+            <Route
+              path="/experiment/seasonal-discovery/calendar"
+              element={<ExperimentSeasonalThemeCalendarPage />}
+            />
+            <Route path="/experiment/seasonal-bg-dial" element={<ExperimentSeasonalBackgroundDialPage />} />
+            <Route
+              path="/experiment/seasonal-discovery/background"
+              element={<Navigate to="/experiment/seasonal-bg-dial" replace />}
+            />
+            <Route path="/experiment/seasonal-discovery/:slug" element={<ExperimentSeasonalCollectionPage />} />
+            <Route
+              path="/experiment/community-events-mockup"
+              element={<ExperimentCommunityEventsMockupPage />}
+            />
+            <Route
+              path="/experiment/launch-expand-mockup"
+              element={<ExperimentLaunchExpandMockupPage />}
+            />
+            <Route
+              path="/experiment/browse-v2-mockup"
+              element={<ExperimentBrowseV2MockupPage />}
+            />
+            <Route
+              path="/experiment/browse-v3-mockup"
+              element={<ExperimentBrowseV3MockupPage />}
+            />
+            <Route
+              path="/experiment/browse-card-layout-mockup"
+              element={<ExperimentBrowseCardLayoutMockupPage />}
+            />
+            <Route
+              path="/experiment/browse-card-design-reference"
+              element={<ExperimentBrowseCardDesignReferencePage />}
+            />
+            <Route
+              path="/experiment/browse-live-vs-option2"
+              element={<ExperimentBrowseLiveVsOption2Page />}
+            />
             <Route path="/experiment-shared-event" element={<ExperimentSharedEventLayout />}>
               <Route index element={<ExperimentSharedEventPage />} />
               <Route path="event/:eventId" element={<ExperimentSharedEventDetailPage />} />
@@ -132,6 +198,7 @@ function ClientRoutes() {
                 <Route path="events" element={<AdminEventsPage />} />
                 <Route path="discovery" element={<AdminDiscoveryPage />} />
                 <Route path="submissions" element={<AdminSubmissionsPage />} />
+                <Route path="seasonal-calendar" element={<AdminSeasonalCalendarPage />} />
               </Route>
             </Route>
             <Route path="/Admin" element={<Navigate to="/admin/events" replace />} />

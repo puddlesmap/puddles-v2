@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Seasonal eyebrow colors · Puddles</title>
+    <style>
+      :root {
+        --font: 'Nunito Sans', system-ui, sans-serif;
+        --charcoal: #273034;
+        --muted: #717171;
+        --cream: #fdfbf3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 2rem 1.25rem 3rem;
+        font-family: var(--font);
+        color: var(--charcoal);
+        background: #ffffff;
+      }
+
+      .wrap {
+        max-width: 52rem;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 0.35rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .lede {
+        margin: 0 0 1.75rem;
+        color: var(--muted);
+        font-size: 0.9375rem;
+        line-height: 1.5;
+      }
+
+      code {
+        font-size: 0.85em;
+      }
+
+      .grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      @media (min-width: 720px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      .card {
+        border: 1px solid #ebebeb;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .card.live {
+        outline: 2px solid #66c5f9;
+        outline-offset: 2px;
+      }
+
+      .swatch {
+        height: 7.5rem;
+        display: grid;
+        place-items: center;
+        background: #111;
+      }
+
+      .swatch img {
+        width: 6rem;
+        height: 6rem;
+        object-fit: contain;
+      }
+
+      .body {
+        padding: 1rem 1.125rem 1.125rem;
+      }
+
+      .month {
+        margin: 0 0 0.35rem;
+        font-size: 0.8125rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .theme {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .meta {
+        margin: 0;
+        font-size: 0.8125rem;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .hex {
+        display: inline-block;
+        margin-top: 0.625rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 999px;
+        background: #f5f5f5;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.75rem;
+      }
+
+      .preview {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        border: 1px solid #ebebeb;
+        border-radius: 16px;
+        background: var(--cream);
+      }
+
+      .preview h2 {
+        margin: 0 0 1rem;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .preview-row {
+        display: grid;
+        gap: 1rem;
+      }
+
+      @media (min-width: 720px) {
+        .preview-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      .preview-sample {
+        padding: 1rem 1.125rem;
+        border-radius: 12px;
+        background: #fff;
+        border: 1px solid #ebebeb;
+      }
+
+      .preview-sample .h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .note {
+        margin: 1.25rem 0 0;
+        font-size: 0.8125rem;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Seasonal eyebrow colors</h1>
+      <p class="lede">
+        Reference board for collection month labels. Source of truth:
+        <code>src/data/seasonalDiscovery.ts</code> → <code>SEASONAL_EYEBROW_PALETTE</code>.
+        Blue outline = themes with live collections.
+      </p>
+
+      <div class="grid" id="grid"></div>
+
+      <section class="preview">
+        <h2>Type preview on cream (0.8125rem / weight 800)</h2>
+        <div class="preview-row" id="type-preview"></div>
+        <p class="note">
+          Keep muted/pastel so seasonal color doesn’t compete with Puddles brand blue.
+        </p>
+      </section>
+    </div>
+
+    <script>
+      // Keep in sync with SEASONAL_EYEBROW_PALETTE in src/data/seasonalDiscovery.ts
+      const palettes = [
+        {
+          timing: 'September',
+          theme: 'Hello, Fall',
+          hex: '#c47a3a',
+          note: 'Warm harvest amber',
+          illustrationSrc: '/seasonal/hello-fall.png',
+          live: true,
+          preview: true,
+        },
+        {
+          timing: 'October',
+          theme: 'Halloween with little ones',
+          hex: '#b45309',
+          note: 'Deeper pumpkin / terracotta',
+          illustrationSrc: '/seasonal/halloween-with-little-ones.png',
+          live: true,
+          preview: true,
+        },
+        {
+          timing: 'November',
+          theme: 'Fall gatherings',
+          hex: '#9a3412',
+          note: 'Maple rust / muted cranberry',
+          illustrationSrc: '/seasonal/thanksgiving-fall-outings.png',
+        },
+        {
+          timing: 'December',
+          theme: 'Holiday magic',
+          hex: '#5f7a4a',
+          note: 'Soft evergreen (alt gold: #b8953d)',
+          illustrationSrc: '/seasonal/holiday-magic.png',
+          preview: true,
+        },
+        {
+          timing: 'January',
+          theme: 'Rainy-day favorites',
+          hex: '#5b7c99',
+          note: 'Cool slate-blue near brand soft',
+          illustrationSrc: '/seasonal/rainy-day-favorites.png',
+        },
+        {
+          timing: 'February',
+          theme: "Valentine's / Lunar New Year",
+          hex: '#d97884',
+          note: 'Soft coral near --color-accent-coral',
+          illustrationSrc: '/seasonal/valentines-lunar-new-year.png',
+        },
+        {
+          timing: 'Spring',
+          theme: 'Flowers, farms & Easter',
+          hex: '#4f9d78',
+          note: 'Soft leaf near --color-accent-leaf',
+          illustrationSrc: '/seasonal/flowers-farms-easter.png',
+        },
+        {
+          timing: 'Summer',
+          theme: 'Summer favorites',
+          hex: '#d49a12',
+          note: 'Sunny gold near --color-accent-sunny',
+          illustrationSrc: '/seasonal/summer-favorites.png',
+          preview: true,
+        },
+      ]
+
+      const grid = document.getElementById('grid')
+      const typePreview = document.getElementById('type-preview')
+
+      for (const item of palettes) {
+        const card = document.createElement('article')
+        card.className = 'card' + (item.live ? ' live' : '')
+        card.innerHTML =
+          '<div class="swatch"><img src="' +
+          item.illustrationSrc +
+          '" alt="" /></div>' +
+          '<div class="body">' +
+          '<p class="month" style="color:' +
+          item.hex +
+          '">' +
+          item.timing +
+          '</p>' +
+          '<p class="theme">' +
+          item.theme +
+          '</p>' +
+          '<p class="meta">' +
+          item.note +
+          ' · <code>' +
+          item.illustrationSrc +
+          '</code></p>' +
+          '<span class="hex">' +
+          item.hex +
+          '</span>' +
+          '</div>'
+        grid.appendChild(card)
+
+        if (item.preview) {
+          const sample = document.createElement('div')
+          sample.className = 'preview-sample'
+          sample.innerHTML =
+            '<p class="month" style="color:' +
+            item.hex +
+            '">' +
+            item.timing +
+            '</p>' +
+            '<p class="h1">' +
+            item.theme +
+            '</p>'
+          typePreview.appendChild(sample)
+        }
+      }
+    </script>
+  </body>
+</html>

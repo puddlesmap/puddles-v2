@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Puddles · Hello Fall collection · Hallmark mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Quicksand:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/experiment/hallmark-puddles-shared.css" />
+    <style>
+      /* Hallmark · macrostructure: editorial-collection-split · theme: puddles-hello-fall
+       * pre-emit critique: P5 H4 E5 S4 R5 V5
+       * iteration: full Hello Fall collection in warm wash + v3 cards
+       */
+
+      body {
+        background: var(--seasonal-band-bg);
+      }
+
+      .collection-page {
+        padding-bottom: 2.5rem;
+      }
+
+      .collection-back {
+        display: inline-block;
+        margin: 1rem 0 1.25rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--color-muted);
+        text-decoration: none;
+      }
+
+      .collection-back:hover {
+        color: var(--color-charcoal);
+        text-decoration: underline;
+      }
+
+      .collection-hero {
+        max-width: 44rem;
+        margin-bottom: 1.75rem;
+      }
+
+      .collection-hero__split {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem 1.5rem;
+      }
+
+      .collection-hero__copy {
+        min-width: 0;
+        flex: 1 1 auto;
+      }
+
+      .collection-hero__eyebrow {
+        margin: 0 0 0.5rem;
+        font-size: 0.8125rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--seasonal-eyebrow);
+      }
+
+      .collection-hero__title {
+        margin: 0;
+        font-size: clamp(1.75rem, 4.5vw, 2.375rem);
+        font-weight: 700;
+        line-height: 1.12;
+        letter-spacing: -0.025em;
+        color: var(--color-charcoal);
+      }
+
+      .collection-hero__description {
+        margin: 0.5rem 0 0;
+        max-width: 36rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--color-muted);
+      }
+
+      .collection-hero__illustration {
+        flex-shrink: 0;
+        align-self: center;
+        width: 7rem;
+        height: 7rem;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 12px rgba(39, 48, 52, 0.12));
+      }
+
+      .collection-band__header {
+        margin-bottom: 1rem;
+      }
+
+      .collection-band__title {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+        color: var(--color-charcoal);
+      }
+
+      .collection-band__subtitle {
+        margin: 0.35rem 0 0;
+        font-size: 0.9375rem;
+        line-height: 1.4;
+        color: var(--color-muted);
+      }
+
+      .collection-band--secondary {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--color-border-light);
+      }
+
+      .collection-band--secondary .collection-band__title {
+        font-size: 1.125rem;
+        font-weight: 650;
+      }
+
+      .collection-band--secondary .collection-band__subtitle {
+        font-size: 0.875rem;
+      }
+
+      @media (min-width: 768px) {
+        .collection-hero__illustration {
+          width: 9rem;
+          height: 9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a href="/experiment/hallmark-home-preview.html" aria-label="Puddles home mockup">
+          <img
+            class="brand-logo"
+            src="/about-experiment/puddles-wordmark.png"
+            srcset="/about-experiment/puddles-wordmark@2x.png 2x"
+            alt="Puddles"
+            width="120"
+            height="32"
+          />
+        </a>
+        <nav class="site-header__nav" aria-label="Hallmark mockups">
+          <a href="/experiment/hallmark-home-preview.html">Home mockup</a>
+          <a href="/experiment/hallmark-hello-fall-preview.html" aria-current="page">Hello Fall</a>
+          <a href="/experiment/seasonal-discovery/hello-fall">Production</a>
+        </nav>
+        <span class="site-header__badge">Hallmark test</span>
+      </div>
+    </header>
+
+    <main class="collection-page">
+      <div class="layout-container">
+        <a class="collection-back" href="/experiment/seasonal-discovery">← Back to seasonal discovery</a>
+
+        <header class="collection-hero">
+          <div class="collection-hero__split">
+            <div class="collection-hero__copy">
+              <p class="collection-hero__eyebrow">September</p>
+              <h1 class="collection-hero__title">Hello, Fall</h1>
+              <p class="collection-hero__description">
+                Fall with little ones · Farms, outdoor days &amp; seasonal celebrations
+              </p>
+            </div>
+            <img
+              class="collection-hero__illustration"
+              src="/seasonal/hello-fall.png"
+              alt=""
+              width="112"
+              height="112"
+              decoding="async"
+            />
+          </div>
+        </header>
+
+        <section class="collection-band" aria-labelledby="close-to-home-heading">
+          <header class="collection-band__header">
+            <h2 id="close-to-home-heading" class="collection-band__title">Close to home</h2>
+            <p class="collection-band__subtitle">Palo Alto · Los Altos · Mountain View · Sunnyvale</p>
+          </header>
+
+          <div class="activity-grid" role="list" aria-label="Close to home activities">
+            <a class="activity-card" href="#" role="listitem">
+              <div class="activity-card__media">
+                <span class="activity-card__badge">Fall pick</span>
+                <img src="/event-fallbacks/festivals.png" alt="" width="228" height="171" />
+              </div>
+              <div class="activity-card__body">
+                <p class="activity-card__when">Sat, Sep 26 · 9am</p>
+                <h3 class="activity-card__title">Harvest History Festival</h3>
+                <div class="activity-card__pills">
+                  <span class="activity-card__pill">Mountain View</span>
+                  <span class="activity-card__pill">Festival</span>
+                  <span class="activity-card__pill">0–5</span>
+                  <span class="activity-card__pill">Free</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="activity-card" href="#" role="listitem">
+              <div class="activity-card__media">
+                <img src="/event-fallbacks/arts.png" alt="" width="228" height="171" />
+              </div>
+              <div class="activity-card__body">
+                <p class="activity-card__when">Tue, Sep 2 · 4pm</p>
+                <h3 class="activity-card__title">Art Studios Open House</h3>
+                <div class="activity-card__pills">
+                  <span class="activity-card__pill">Palo Alto</span>
+                  <span class="activity-card__pill">Arts</span>
+                  <span class="activity-card__pill">0–5</span>
+                  <span class="activity-card__pill">Free</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="activity-card" href="#" role="listitem">
+              <div class="activity-card__media">
+                <img src="/event-fallbacks/arts.png" alt="" width="228" height="171" />
+              </div>
+              <div class="activity-card__body">
+                <p class="activity-card__when">Tue, Sep 2 · 1pm</p>
+                <h3 class="activity-card__title">Doodle and Discover Wednesdays</h3>
+                <div class="activity-card__pills">
+                  <span class="activity-card__pill">Palo Alto</span>
+                  <span class="activity-card__pill">Arts</span>
+                  <span class="activity-card__pill">2–5</span>
+                  <span class="activity-card__pill">Free</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="activity-card" href="#" role="listitem">
+              <div class="activity-card__media">
+                <img
+                  src="https://dam.thdstatic.com/content/production/rgdkSn91AufHtfKhVwnqbA/0vexx6W5gyypRzu_PUWCzQ/Original%20file/2025_Kids_Workshops_hero_01032025_Ps.png"
+                  alt=""
+                  width="228"
+                  height="171"
+                />
+              </div>
+              <div class="activity-card__body">
+                <p class="activity-card__when">Sat, Sep 5 · 9am</p>
+                <h3 class="activity-card__title">Free In-Store Kids Workshops: School Bus Organizer</h3>
+                <div class="activity-card__pills">
+                  <span class="activity-card__pill">Palo Alto</span>
+                  <span class="activity-card__pill">Class</span>
+                  <span class="activity-card__pill">2–5</span>
+                  <span class="activity-card__pill">Free</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="activity-card" href="#" role="listitem">
+              <div class="activity-card__media">
+                <span class="activity-card__badge">Fall pick</span>
+                <img
+                  src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnRbTiclpkNiniKTvpauPtxpMcDhRTqjGgjxMCg3-8_Ce2veIaBEF46FD_vjAsR36N9qyAIXb6QGnhYQ1aiOFAvqMvtSj96osUP42JlEdv18eku7o0-c8LfIz65NvU0RnRvXrwuj9yUVD1w=s1600-k-no"
+                  alt=""
+                  width="228"
+                  height="171"
+                />
+              </div>
+              <div class="activity-card__body">
+                <p class="activity-card__when">Sun, Sep 13 · 10:30am</p>
+                <h3 class="activity-card__title">
+                  Storytime with Jasmine Fang, Beneath the Same Round Moon
+                </h3>
+                <div class="activity-card__pills">
+                  <span class="activity-card__pill">Los Altos</span>
+                  <span class="activity-card__pill">Stories</span>
+                  <span class="activity-card__pill">0–5</span>
+                  <span class="activity-card__pill">Free</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="activity-card" href="#" role="listitem">
+              <div class="activity-card__media">
+                <img
+                  src="https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png"
+                  alt=""
+                  width="228"
+                  height="171"
+                />
+              </div>
+              <div class="activity-card__body">
+                <p class="activity-card__when">Thu, Sep 17 · 10:30am</p>
+                <h3 class="activity-card__title">
+                  Bilingual Family Storytime: Celebrate Latine &amp; Hispanic Heritage Month!
+                </h3>
+                <div class="activity-card__pills">
+                  <span class="activity-card__pill">Palo Alto</span>
+                  <span class="activity-card__pill">Stories</span>
+                  <span class="activity-card__pill">0–5</span>
+                  <span class="activity-card__pill">Free</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="activity-card" href="#" role="listitem">
+              <div class="activity-card__media">
+                <img
+                  src="https://sccl.bibliocommons.com/events/uploads/images/full/e954fbc9cc6ec9f37195d54009d75fc7/kssCrafterNoon;Header(760x230px).png"
+                  alt=""
+                  width="228"
+                  height="171"
+                />
+              </div>
+              <div class="activity-card__body">
+                <p class="activity-card__when">Sun, Sep 20 · 2pm</p>
+                <h3 class="activity-card__title">Sunday CrafterNoon</h3>
+                <div class="activity-card__pills">
+                  <span class="activity-card__pill">Los Altos</span>
+                  <span class="activity-card__pill">Arts</span>
+                  <span class="activity-card__pill">0–5</span>
+                  <span class="activity-card__pill">Free</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="activity-card" href="#" role="listitem">
+              <div class="activity-card__media">
+                <span class="activity-card__badge">Fall pick</span>
+                <img
+                  src="https://paloalto.bibliocommons.com/events/uploads/images/full/df114ed9818627bc7c360daafac4e01f/Event Types - Author Event.jpg"
+                  alt=""
+                  width="228"
+                  height="171"
+                />
+              </div>
+              <div class="activity-card__body">
+                <p class="activity-card__when">Tue, Sep 23 · 2pm</p>
+                <h3 class="activity-card__title">
+                  Author Event: Celebrate the Mooncake Festival with Jasmine Fang
+                </h3>
+                <div class="activity-card__pills">
+                  <span class="activity-card__pill">Palo Alto</span>
+                  <span class="activity-card__pill">Author</span>
+                  <span class="activity-card__pill">3+</span>
+                  <span class="activity-card__pill">Free</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="activity-card" href="#" role="listitem">
+              <div class="activity-card__media">
+                <img
+                  src="https://www.losaltoshistory.org/wp-content/uploads/2026/08/Two-boys-and-train.jpg"
+                  alt=""
+                  width="228"
+                  height="171"
+                />
+              </div>
+              <div class="activity-card__body">
+                <p class="activity-card__when">Sun, Aug 30 · 11am</p>
+                <h3 class="activity-card__title">Train Day</h3>
+                <div class="activity-card__pills">
+                  <span class="activity-card__pill">Los Altos</span>
+                  <span class="activity-card__pill">Festival</span>
+                  <span class="activity-card__pill">0–5</span>
+                  <span class="activity-card__pill">$10</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section
+          class="collection-band collection-band--secondary"
+          aria-labelledby="worth-a-drive-heading"
+        >
+          <header class="collection-band__header">
+            <h2 id="worth-a-drive-heading" class="collection-band__title">Worth a little drive</h2>
+            <p class="collection-band__subtitle">A few extra-special fall picks nearby.</p>
+          </header>
+
+          <div class="activity-grid" role="list" aria-label="Worth a little drive activities">
+            <a class="activity-card" href="#" role="listitem">
+              <div class="activity-card__media">
+                <span class="activity-card__badge">Fall pick</span>
+                <img
+                  src="https://lahha.org/wp-content/uploads/2018/02/img_41661-e1519623640283.jpg"
+                  alt=""
+                  width="228"
+                  height="171"
+                />
+              </div>
+              <div class="activity-card__body">
+                <p class="activity-card__when">Sun, Oct 4 · 11am</p>
+                <h3 class="activity-card__title">The 3rd Annual “Pet a Pony” Day</h3>
+                <div class="activity-card__pills">
+                  <span class="activity-card__pill">Los Altos</span>
+                  <span class="activity-card__pill">Animals</span>
+                  <span class="activity-card__pill">0–5</span>
+                  <span class="activity-card__pill">Free</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <p class="mock-footer">
+          Hallmark × Puddles Hello Fall collection —
+          <a href="/experiment/seasonal-discovery/hello-fall">Compare production</a>
+          ·
+          <a href="/experiment/hallmark-home-preview.html">Home mockup</a>
+          ·
+          <a href="/experiment/hallmark-hello-fall-mockup">Host page</a>
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

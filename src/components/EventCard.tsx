@@ -3,10 +3,13 @@ import type { ReactNode } from 'react'
 import type { Event } from '../types/event'
 import { isFreeCost } from '../types/event'
 import { getEventCardAgeLabel } from '../utils/ageRange'
-import { getEventDisplayCategory } from '../utils/eventImages'
+import { formatActivityTypeMetaLabel } from '../utils/activityTypeMeta'
 import { formatCardDateTime } from '../utils/dates'
+import { getEventDisplayCategory } from '../utils/eventImages'
 import { formatEventCardLocation } from '../utils/maps'
 import { eventDetailPath } from '../utils/eventPages'
+import { getSeasonalEditorialBadgeForEvent } from '../utils/seasonalEditorialBadges'
+import { EventEditorialBadge, type EditorialBadgeDisplay } from './EventEditorialBadge'
 import { EventImage } from './EventImage'
 
 interface EventCardProps {
@@ -16,6 +19,12 @@ interface EventCardProps {
   selected?: boolean
   hovered?: boolean
   discovery?: boolean
+  /** Show Fall / Halloween / Holiday Pick on the image when the event qualifies. */
+  seasonalEditorial?: boolean
+  /** Override seasonal editorial badge on the image. */
+  editorialBadge?: EditorialBadgeDisplay | null
+  /** Activity type in the card body (not on the image). Defaults to true when discovery. */
+  showActivityTypeMeta?: boolean
 }
 
 function EventCardPills({
@@ -65,33 +74,23 @@ function EventCardPills({
     )
   }
 
-  const pills: Array<{ key: string; label: string; tone?: 'category' | 'free' }> = []
+  const pills: Array<{ key: string; label: string; tone?: 'free' }> = []
 
-  const category = getEventDisplayCategory(event)
-  if (category) pills.push({ key: 'category', label: category, tone: 'category' })
   pills.push({ key: 'age', label: getEventCardAgeLabel(event.ageRange) })
 
-  // Always show Free or a sticker price ($10); keep Low-cost/Paid when no dollar amount.
   if (isFreeCost(event.cost)) {
     pills.push({ key: 'cost', label: 'Free', tone: 'free' })
   } else {
     pills.push({ key: 'cost', label: event.cost })
   }
 
-  // Prefer age + cost when we overflow (drop category first).
-  const visible =
-    pills.length <= 3
-      ? pills
-      : pills.filter((pill) => pill.key !== 'category').slice(0, 3)
-
   return (
     <div className="event-card-pills" aria-hidden>
-      {visible.map((pill) => (
+      {pills.map((pill) => (
         <span
           key={pill.key}
           className={[
             'event-card-pill',
-            pill.tone === 'category' ? 'event-card-pill--category' : '',
             pill.tone === 'free' ? 'event-card-pill--free' : '',
           ]
             .filter(Boolean)
@@ -104,6 +103,42 @@ function EventCardPills({
   )
 }
 
+function EventCardActivityType({
+  event,
+  discovery = false,
+}: {
+  event: Event
+  discovery?: boolean
+}) {
+  const type = getEventDisplayCategory(event) ?? event.types[0]
+  if (!type) return null
+
+  return (
+    <p className={discovery ? 'discovery-event-type' : 'card-listing-type'}>
+      {formatActivityTypeMetaLabel(type)}
+    </p>
+  )
+}
+
+function EventCardMedia({
+  event,
+  pillMode = 'full',
+  editorialBadge,
+}: {
+  event: Event
+  pillMode?: 'full' | 'free-only' | 'compact-key'
+  editorialBadge?: EditorialBadgeDisplay | null
+}) {
+  return (
+    <>
+      <EventImage event={event} className="card-listing-image" />
+      {editorialBadge ? (
+        <EventEditorialBadge label={editorialBadge.label} icon={editorialBadge.icon} />
+      ) : null}
+      <EventCardPills event={event} mode={pillMode} />
+    </>
+  )
+}
 function EventCardLocation({ event, discovery = false }: { event: Event; discovery?: boolean }) {
   return (
     <p
@@ -176,8 +211,18 @@ export function EventCard({
   selected = false,
   hovered = false,
   discovery = false,
+  seasonalEditorial = false,
+  editorialBadge,
+  showActivityTypeMeta,
 }: EventCardProps) {
   const dateTime = formatCardDateTime(event.date, event.startTime)
+  const resolvedEditorialBadge =
+    editorialBadge !== undefined
+      ? editorialBadge
+      : seasonalEditorial
+        ? getSeasonalEditorialBadgeForEvent(event)
+        : null
+  const showTypeMeta = showActivityTypeMeta ?? discovery
 
   if (variant === 'map-preview-sheet') {
     return (
@@ -191,8 +236,11 @@ export function EventCard({
         )}
       >
         <div className="card-listing-media relative aspect-[16/10]">
-          <EventImage event={event} className="card-listing-image" />
-          <EventCardPills event={event} mode="free-only" />
+          <EventCardMedia
+            event={event}
+            pillMode="free-only"
+            editorialBadge={resolvedEditorialBadge}
+          />
         </div>
         <div
           className={
@@ -203,6 +251,7 @@ export function EventCard({
         >
           <EventCardDateTime dateTime={dateTime} discovery={discovery} />
           <h3 className={discovery ? 'discovery-event-title' : 'card-listing-title'}>{event.title}</h3>
+          {showTypeMeta ? <EventCardActivityType event={event} discovery={discovery} /> : null}
           <EventCardLocation event={event} discovery={discovery} />
         </div>
       </EventCardLink>
@@ -221,12 +270,12 @@ export function EventCard({
         )}
       >
         <div className="card-listing-media relative aspect-square">
-          <EventImage event={event} className="card-listing-image" />
-          <EventCardPills event={event} />
+          <EventCardMedia event={event} editorialBadge={resolvedEditorialBadge} />
         </div>
         <div className={discovery ? 'discovery-event-card-body' : 'card-listing-body'}>
           <EventCardDateTime dateTime={dateTime} discovery={discovery} />
           <h3 className={discovery ? 'discovery-event-title' : 'card-listing-title'}>{event.title}</h3>
+          {showTypeMeta ? <EventCardActivityType event={event} discovery={discovery} /> : null}
           <EventCardLocation event={event} discovery={discovery} />
         </div>
       </EventCardLink>
@@ -245,12 +294,16 @@ export function EventCard({
         )}
       >
         <div className="card-listing-media relative aspect-[5/4]">
-          <EventImage event={event} className="card-listing-image" />
-          <EventCardPills event={event} mode="compact-key" />
+          <EventCardMedia
+            event={event}
+            pillMode="compact-key"
+            editorialBadge={resolvedEditorialBadge}
+          />
         </div>
         <div className="discovery-event-card-body discovery-event-card-body--compact-grid">
           <EventCardDateTime dateTime={dateTime} discovery />
           <h3 className="discovery-event-title">{event.title}</h3>
+          {showTypeMeta ? <EventCardActivityType event={event} discovery /> : null}
           <EventCardLocation event={event} discovery />
         </div>
       </EventCardLink>
@@ -265,14 +318,14 @@ export function EventCard({
         className={cardClass(selected, hovered, discovery ? 'discovery-event-card' : '')}
       >
         <div className="card-listing-media relative aspect-square">
-          <EventImage event={event} className="card-listing-image" />
-          <EventCardPills event={event} />
+          <EventCardMedia event={event} editorialBadge={resolvedEditorialBadge} />
         </div>
         <div className={discovery ? 'discovery-event-card-body' : 'card-listing-body'}>
           <EventCardDateTime dateTime={dateTime} discovery={discovery} />
           <h3 className={discovery ? 'discovery-event-title' : 'card-listing-title'}>
             {event.title}
           </h3>
+          {showTypeMeta ? <EventCardActivityType event={event} discovery={discovery} /> : null}
           <EventCardLocation event={event} discovery={discovery} />
         </div>
       </EventCardLink>

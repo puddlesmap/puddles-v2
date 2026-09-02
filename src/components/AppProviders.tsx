@@ -2,6 +2,7 @@
 
 import { useEffect, type ReactNode } from 'react'
 import { AppProvider } from '@/context/AppContext'
+import { LaunchStagingProvider } from '@/context/LaunchStagingContext'
 import { initAnalytics } from '@/utils/analytics'
 
 export function AppProviders({ children }: { children: ReactNode }) {
@@ -9,5 +10,9 @@ export function AppProviders({ children }: { children: ReactNode }) {
     initAnalytics()
   }, [])
 
-  return <AppProvider>{children}</AppProvider>
+  return (
+    <AppProvider>
+      <LaunchStagingProvider>{children}</LaunchStagingProvider>
+    </AppProvider>
+  )
 }

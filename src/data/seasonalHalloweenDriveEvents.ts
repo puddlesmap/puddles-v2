@@ -1,0 +1,92 @@
+import type { Event } from '../types/event'
+
+/**
+ * Editorial Halloween picks outside core launch cities.
+ * Hidden from Browse/Home; available on the seasonal collection page + detail links.
+ */
+export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
+  {
+    id: 'seasonal-drive-grimm-manor-san-jose-2026-10-10',
+    title: 'Grimm Manor (family-friendly)',
+    description:
+      'A gentle Halloween manor walk for little ones — pumpkin patch, crafts, and a family-friendly haunt timed for younger kids. Later evening scare hours are separate and not aimed at tots.',
+    tips: 'Go for the early family-friendly manor window. Confirm ticket times on the event page before you leave.',
+    venue: 'Easterbrook Discovery School',
+    address: '4835 Doyle Rd, San Jose, CA 95129',
+    city: 'San Jose',
+    date: '2026-10-10',
+    startTime: '18:30',
+    endTime: '20:00',
+    ageRange: '0–2, 2–5, 5+',
+    ageMin: 0,
+    ageMax: 5,
+    types: ['Social & Play', 'Outdoor'],
+    categoryTags: ['Seasonal', 'Halloween'],
+    cost: 'Paid',
+    imageUrl:
+      'https://cdn.happeningnext.com/events7/banners/d87e2e88a5da9408cc8f9fab0c270382f18740d3da48bf1accb470e3cea4c004-rimg-w1200-h749-dc080808-gmir?v=1787506893',
+    eventUrl: 'https://happeningnext.com/event/grimms-hollow-presents-grimm-manor-a-family-friendly-experience-eid3a0e1b04f3',
+    verifiedDate: '2026-08-26',
+    lat: 37.3095,
+    lng: -121.9772,
+    status: 'Hidden',
+    isPast: false,
+    isLive: false,
+  },
+  {
+    id: 'seasonal-drive-spooktacular-lego-redwood-city-2026-10-12',
+    title: 'Spooktacular Halloween LEGO Workshop',
+    description:
+      'Build spooky (not scary) Halloween creations with LEGO materials — a hands-on workshop for curious little makers and their grown-ups in Redwood City.',
+    tips: 'Best for older toddlers and preschoolers who like to build. Check age guidance and registration before you go.',
+    venue: 'Sandpiper Community Center',
+    address: '797 Redwood Shores Parkway, Redwood City, CA 94065',
+    city: 'Redwood City',
+    date: '2026-10-12',
+    startTime: '09:00',
+    endTime: '12:00',
+    ageRange: '2–5, 5+',
+    ageMin: 2,
+    ageMax: 5,
+    types: ['Build & Explore', 'Arts & Crafts'],
+    categoryTags: ['Seasonal', 'Halloween'],
+    cost: 'Paid',
+    imageUrl:
+      'https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg',
+    eventUrl:
+      'https://www.activekids.com/redwood-city-ca/stem/classes/spooktacular-halloween-workshop-using-lego-materials-2026',
+    verifiedDate: '2026-08-26',
+    lat: 37.5316,
+    lng: -122.2486,
+    status: 'Hidden',
+    isPast: false,
+    isLive: false,
+  },
+  {
+    id: 'seasonal-drive-haunted-train-ardenwood-2026-10-18',
+    title: 'Haunted Train at Ardenwood',
+    description:
+      'A playful Halloween train ride through decorated woods — glowing pumpkins and friendly characters, not a fright night. A special outing a little farther afield.',
+    tips: 'Book ahead; evening rides fill up. Dress warmly for outdoor seats.',
+    venue: 'Ardenwood Historic Farm',
+    address: 'Ardenwood Blvd, Fremont, CA 94555',
+    city: 'Fremont',
+    date: '2026-10-18',
+    startTime: '19:00',
+    endTime: '21:00',
+    ageRange: '0–2, 2–5, 5+',
+    ageMin: 0,
+    ageMax: 5,
+    types: ['Outdoor', 'Social & Play'],
+    categoryTags: ['Seasonal', 'Halloween'],
+    cost: 'Paid',
+    imageUrl: 'https://www.spcrr.org/museum_media/media/photos/haunted-train-1763533859-qTip.webp',
+    eventUrl: 'https://sanjose.kidsoutandabout.com/content/2026-haunted-train-ardenwood-historic-farm',
+    verifiedDate: '2026-08-26',
+    lat: 37.5565,
+    lng: -122.049,
+    status: 'Hidden',
+    isPast: false,
+    isLive: false,
+  },
+]

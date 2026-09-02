@@ -458,6 +458,10 @@
     --type-hero-title-size: 1.5rem;
   }
 
+  .home-experiment-page--refined.home-experiment-page--launch-preview {
+    --type-hero-title-size: 1.75rem;
+  }
+
   .home-experiment-refined-title.home-experiment-title {
     max-width: none;
   }
@@ -698,5 +702,400 @@
 
   .home-experiment-refined-aside {
     max-width: 20rem;
+  }
+}
+
+/* —— PlanetBox-style home: promo bar + seasonal band attached to nav —— */
+
+.home-announcement-bar {
+  width: 100%;
+  padding: 0.5625rem 1rem;
+  background: #fff;
+  color: var(--color-brand, #66c5f9);
+  text-align: center;
+}
+
+.home-announcement-bar__text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: inherit;
+}
+
+@media (min-width: 768px) {
+  .home-announcement-bar {
+    padding-block: 0.625rem;
+    background: var(--color-brand, #66c5f9);
+    color: #fff;
+  }
+
+  .home-announcement-bar__text {
+    font-size: 0.875rem;
+  }
+}
+
+/* Launch preview — Hallmark home mockup hero rhythm, filters, discovery band */
+.home-experiment-page--launch-preview {
+  padding-top: 1.375rem;
+  --type-hero-title-size: 1.75rem;
+}
+
+.home-experiment-page--launch-preview .home-experiment-refined-title.home-experiment-title {
+  overflow-wrap: anywhere;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: normal;
+  color: var(--type-hero-title-color, #282e31);
+}
+
+.home-experiment-page--launch-preview .home-experiment-refined-supporting {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #717171;
+}
+
+.home-experiment-page--launch-preview .home-experiment-filters {
+  margin-top: 1.25rem;
+  gap: 1rem;
+}
+
+.home-experiment-page--launch-preview .home-experiment-filter-group {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.home-experiment-page--launch-preview .home-experiment-filter-group .discovery-filter-label {
+  flex: none;
+  min-width: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-experiment-shell--launch-preview
+  .seasonal-discovery-module--home-band
+  .seasonal-discovery-module__header-text
+  .seasonal-discovery-module__eyebrow {
+  margin: 0 0 var(--seasonal-copy-kicker-gap, 0.5rem);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .home-experiment-page--launch-preview {
+    padding-top: 1.75rem;
+  }
+
+  .home-experiment-page--launch-preview .home-experiment-refined-title.home-experiment-title {
+    font-size: 2rem;
+  }
+
+  .home-experiment-shell--launch-preview
+    .seasonal-discovery-module--home-band
+    .seasonal-discovery-module__header-text
+    .seasonal-discovery-module__eyebrow {
+    font-size: 0.6875rem;
+  }
+}
+
+.home-experiment-page--planetbox-band {
+  padding-top: 1.375rem;
+}
+
+@media (min-width: 768px) {
+  .home-experiment-page--planetbox-band {
+    padding-top: 1.75rem;
+  }
+}
+
+.home-seasonal-band {
+  width: 100%;
+}
+
+.seasonal-discovery-module--home-band {
+  --seasonal-card-gap: 0.75rem;
+  --seasonal-shell-pad-x: 0;
+  /* Copy rhythm: kicker → title → tagline → cards */
+  --seasonal-copy-kicker-gap: 0.5rem;
+  --seasonal-copy-subtitle-gap: 0.375rem;
+  --seasonal-copy-cards-gap: 1.75rem;
+  margin: 0;
+  background: var(--seasonal-accent-bg);
+}
+
+@media (min-width: 768px) {
+  .seasonal-discovery-module--home-band {
+    --seasonal-card-gap: 1rem;
+    --seasonal-copy-kicker-gap: 0.625rem;
+    --seasonal-copy-subtitle-gap: 0.4375rem;
+    --seasonal-copy-cards-gap: 2rem;
+  }
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__band-inner {
+  padding-block: 0;
+  width: 100%;
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__shell {
+  padding: 1.25rem 0 1.375rem;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__shell {
+    padding: 1.5rem 0 1.625rem;
+  }
+}
+
+.seasonal-discovery-module__header--home-band {
+  display: block;
+  margin-bottom: var(--seasonal-copy-cards-gap);
+  padding-inline: 0;
+  width: 100%;
+}
+
+/* One header block — copy group + illustration; CTA aligned with eyebrow */
+.seasonal-discovery-module__header-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  width: 100%;
+  min-width: 0;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .seasonal-discovery-module__header-content {
+    gap: 2rem;
+  }
+}
+
+.seasonal-discovery-module__header-copy-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  flex: 0 1 auto;
+  width: fit-content;
+  max-width: calc(100% - 5.5rem);
+}
+
+@media (min-width: 768px) {
+  .seasonal-discovery-module__header-copy-group {
+    gap: 0.875rem;
+    max-width: calc(100% - 6.5rem);
+  }
+}
+
+.seasonal-discovery-module__header-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__eyebrow {
+  margin: 0 0 var(--seasonal-copy-kicker-gap);
+  font-size: 0.75rem;
+  line-height: 1.25;
+  color: var(--seasonal-accent-eyebrow, #b45309);
+}
+
+@media (min-width: 768px) {
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__eyebrow {
+    font-size: 0.8125rem;
+  }
+}
+
+.seasonal-discovery-module__header-text .seasonal-discovery-module__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.028em;
+  color: var(--seasonal-accent-title, var(--color-charcoal, #273034));
+}
+
+@media (min-width: 768px) {
+  .seasonal-discovery-module__header-text .seasonal-discovery-module__title {
+    font-size: 1.75rem;
+    line-height: 1.12;
+  }
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__description {
+  margin: var(--seasonal-copy-subtitle-gap) 0 0;
+  max-width: 34rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(
+    --seasonal-accent-description,
+    color-mix(in srgb, var(--seasonal-accent-title, #7c2d12) 78%, #fff7ed)
+  );
+}
+
+/* Launch preview — charcoal copy; keep September (timing) eyebrow in fall terracotta */
+.seasonal-discovery-module--home-band.seasonal-discovery-module--neutral-home-copy
+  .seasonal-discovery-module__header-text
+  .seasonal-discovery-module__title {
+  color: var(--color-charcoal, #273034);
+}
+
+.seasonal-discovery-module--home-band.seasonal-discovery-module--neutral-home-copy
+  .seasonal-discovery-module__header-text
+  .seasonal-discovery-module__description {
+  color: var(--color-muted, #686868);
+}
+
+.seasonal-discovery-module--home-band.seasonal-discovery-module--neutral-home-copy
+  .seasonal-discovery-module__header-content
+  .seasonal-discovery-module__header-cta {
+  color: var(--color-charcoal, #273034);
+}
+
+.seasonal-discovery-module--home-band.seasonal-discovery-module--neutral-home-copy
+  .seasonal-discovery-module__header-content
+  .seasonal-discovery-module__header-cta:hover {
+  color: var(--color-charcoal, #273034);
+  text-decoration: underline;
+}
+
+.seasonal-discovery-module__header-copy-group .seasonal-discovery-module__illustration--header-copy {
+  flex-shrink: 0;
+  align-self: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(39, 48, 52, 0.1));
+}
+
+@media (min-width: 768px) {
+  .seasonal-discovery-module__header-copy-group .seasonal-discovery-module__illustration--header-copy {
+    width: 4.25rem;
+    height: 4.25rem;
+  }
+}
+
+.seasonal-discovery-module__header-content .seasonal-discovery-module__header-cta {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin: 0;
+  padding-top: 0.125rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--seasonal-accent-cta, var(--seasonal-accent-title, #7c2d12));
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.14s ease-out;
+}
+
+.seasonal-discovery-module__header-content .seasonal-discovery-module__header-cta:hover {
+  color: var(--seasonal-accent-eyebrow, #b45309);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Home band — full-width 4-across grid */
+.seasonal-discovery-module--home-band .seasonal-discovery-module__carousel-wrap--home {
+  margin-top: 0;
+  margin-inline: 0;
+  padding-inline: 0;
+  width: 100%;
+  --discovery-card-gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__carousel-wrap--home {
+    --discovery-card-gap: 1.25rem;
+  }
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--discovery-card-gap);
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding-inline: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__carousel::after {
+  content: '';
+  flex: 0 0 0.25rem;
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__card {
+  flex: 0 0 calc((100% - 3 * var(--discovery-card-gap)) / 4);
+  width: calc((100% - 3 * var(--discovery-card-gap)) / 4);
+  min-width: calc((100% - 3 * var(--discovery-card-gap)) / 4);
+  max-width: calc((100% - 3 * var(--discovery-card-gap)) / 4);
+  scroll-snap-align: start;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__card {
+    flex: 0 0 min(14.25rem, calc(100% - 2.5rem));
+    width: min(14.25rem, calc(100% - 2.5rem));
+    min-width: min(14.25rem, calc(100% - 2.5rem));
+    max-width: min(14.25rem, calc(100% - 2.5rem));
+  }
+}
+
+@media (min-width: 769px) {
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__carousel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__carousel::after {
+    display: none;
+  }
+
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__card {
+    flex: unset;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    scroll-snap-align: unset;
   }
 }

@@ -14,6 +14,7 @@ const NAV_ITEMS = [
   { to: '/admin/events', label: 'Events' },
   { to: '/admin/discovery', label: 'Discovery' },
   { to: '/admin/submissions', label: 'Submissions' },
+  { to: '/admin/seasonal-calendar', label: 'Seasonal' },
 ] as const
 
 const HOWTO_OPEN_KEY = 'puddles-admin-howto-open'
