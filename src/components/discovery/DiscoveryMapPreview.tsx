@@ -20,10 +20,11 @@ import {
   getEventsWithCoordinates,
   getMapViewportForBounds,
 } from '../../utils/mapBounds'
+import { getCartoVoyagerTileUrl } from '../../utils/cartoBasemap'
 import { buildDiscoveryStaticMapUrl, hasGoogleMapsApiKey } from '../../utils/googleMaps'
 import 'leaflet/dist/leaflet.css'
 
-const MAP_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+const MAP_TILE_URL = getCartoVoyagerTileUrl()
 
 function getBoundsCenter(bounds: MapBoundsBox): [number, number] {
   return [(bounds.north + bounds.south) / 2, (bounds.east + bounds.west) / 2]

@@ -1,4 +1,8 @@
-type PublicEnvName = 'ANCHOR_DATE' | 'GOOGLE_MAPS_API_KEY' | 'PUDDLES_API_KEY'
+type PublicEnvName =
+  | 'ANCHOR_DATE'
+  | 'GOOGLE_MAPS_API_KEY'
+  | 'CARTO_BASEMAP_API_KEY'
+  | 'PUDDLES_API_KEY'
 
 export function getPublicEnv(name: PublicEnvName): string {
   const viteKey = `VITE_${name}`

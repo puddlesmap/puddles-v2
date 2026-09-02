@@ -37,9 +37,10 @@ interface BrowseLeafletMapViewProps {
   detachedViewToggle?: ReactNode
 }
 
-const MAP_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
-const MAP_TILE_ATTRIBUTION =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+import { CARTO_BASEMAP_ATTRIBUTION, getCartoVoyagerTileUrl } from '../../utils/cartoBasemap'
+
+const MAP_TILE_URL = getCartoVoyagerTileUrl()
+const MAP_TILE_ATTRIBUTION = CARTO_BASEMAP_ATTRIBUTION
 
 const LOCAL_ZOOM = BROWSE_MAP_FOCUS_ZOOM
 

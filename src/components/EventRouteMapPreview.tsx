@@ -3,10 +3,11 @@ import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import { StaticMap } from '@vis.gl/react-google-maps'
 import 'leaflet/dist/leaflet.css'
 import type { Event } from '../types/event'
+import { getCartoVoyagerTileUrl } from '../utils/cartoBasemap'
 import { buildEventStaticMapUrl, hasGoogleMapsApiKey } from '../utils/googleMaps'
 import { getEventMapCoordinates, getEventMapMarkerAddress } from '../utils/maps'
 
-const MAP_TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+const MAP_TILE_URL = getCartoVoyagerTileUrl()
 
 function LeafletMapViewSync({ lat, lng, zoom }: { lat: number; lng: number; zoom: number }) {
   const map = useMap()
