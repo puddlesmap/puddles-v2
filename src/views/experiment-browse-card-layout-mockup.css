@@ -1,0 +1,137 @@
+@import './experiment-browse-mockup.css';
+
+.browse-card-layout-mockup-page .browse-card-layout-mockup-banner {
+  margin-bottom: 1.5rem;
+}
+
+.browse-card-layout-mockup-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.browse-card-layout-mockup-section {
+  padding: 1.125rem 1rem 1.25rem;
+  border: 1px solid rgb(39 48 52 / 0.08);
+  border-radius: calc(var(--radius-lg, 16px) + 2px);
+  background: #fff;
+  box-shadow: 0 10px 28px rgb(39 48 52 / 0.04);
+}
+
+.browse-card-layout-mockup-section--recommended {
+  border-color: rgb(77 184 242 / 0.28);
+  box-shadow:
+    0 10px 28px rgb(39 48 52 / 0.04),
+    inset 0 0 0 1px rgb(77 184 242 / 0.08);
+}
+
+.browse-card-layout-mockup-section__header {
+  margin-bottom: 1rem;
+}
+
+.browse-card-layout-mockup-section__rank {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #c47a3a;
+}
+
+.browse-card-layout-mockup-section--recommended .browse-card-layout-mockup-section__rank {
+  color: var(--color-brand-dark, #4db8f2);
+}
+
+.browse-card-layout-mockup-section__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal, #273034);
+}
+
+.browse-card-layout-mockup-section__lede {
+  margin: 0.45rem 0 0;
+  max-width: 42rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-muted, #686868);
+}
+
+.browse-card-layout-mockup-grid {
+  width: 100%;
+}
+
+/* Shorter fixed body when venue line is removed */
+.browse-content {
+  --discovery-v3-body-height-compact: 7.625rem;
+}
+
+.browse-content .discovery-v3-event-card.discovery-card-body-layout--city-pill,
+.browse-content .discovery-v3-event-card.discovery-card-body-layout--city-soft,
+.browse-content .discovery-v3-event-card.discovery-card-body-layout--city-plain,
+.browse-content .discovery-v3-event-card.discovery-card-body-layout--city-inline {
+  --discovery-v3-body-height: var(--discovery-v3-body-height-compact);
+}
+
+.browse-content .discovery-v3-event-card.discovery-card-body-layout--city-plain .lem-disc-meta-plain {
+  flex-wrap: nowrap;
+  gap: 0.3rem;
+  margin-top: var(--discovery-copy-support-gap);
+  min-height: var(--discovery-v3-pillars-height);
+  max-height: var(--discovery-v3-pillars-height);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.browse-content .discovery-v3-event-card.discovery-card-body-layout--city-plain .lem-disc-meta-plain__city,
+.browse-content .discovery-v3-event-card.discovery-card-body-layout--city-plain .lem-disc-meta-plain__item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.browse-content .discovery-v3-event-card.discovery-card-body-layout--city-plain .lem-disc-meta-plain__item:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.browse-content .discovery-event-datetime__city {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #484848;
+}
+
+.browse-content .discovery-card-body-layout--city-inline .discovery-event-datetime {
+  font-weight: 600;
+}
+
+.browse-content .discovery-card-body-layout--city-inline .discovery-event-datetime__city {
+  font-weight: 700;
+  color: #273034;
+}
+
+.browse-content .discovery-v2-event-card.discovery-card-body-layout--city-pill,
+.browse-content .discovery-v2-event-card.discovery-card-body-layout--city-soft,
+.browse-content .discovery-v2-event-card.discovery-card-body-layout--city-plain,
+.browse-content .discovery-v2-event-card.discovery-card-body-layout--city-inline {
+  --discovery-v2-body-height-compact: 5.5rem;
+}
+
+.browse-content .discovery-v2-event-card.discovery-card-body-layout--city-pill
+  .discovery-v2-event-card__body,
+.browse-content .discovery-v2-event-card.discovery-card-body-layout--city-soft
+  .discovery-v2-event-card__body,
+.browse-content .discovery-v2-event-card.discovery-card-body-layout--city-plain
+  .discovery-v2-event-card__body,
+.browse-content .discovery-v2-event-card.discovery-card-body-layout--city-inline
+  .discovery-v2-event-card__body {
+  height: var(--discovery-v2-body-height-compact);
+  min-height: var(--discovery-v2-body-height-compact);
+  max-height: var(--discovery-v2-body-height-compact);
+  padding: 0.75rem 1rem 0.875rem;
+  overflow: hidden;
+}
