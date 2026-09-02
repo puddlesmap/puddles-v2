@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import type { DayFilter, TimeFilter } from '../types/event'
 import { PUBLIC_AGE_FILTER_OPTIONS } from '../utils/ageRange'
-import { ACTIVITY_TYPES } from '../types/event'
 import { getTemporalTabs } from '../utils/dates'
 import type { BrowseFilters } from '../utils/filters'
 import { BrowseLocationOptions } from './filters/BrowseLocationOptions'
+import { ActivityTypeFilterPills } from './filters/ActivityTypeFilterPills'
 import { trackBrowseFiltersApplied, trackCitySelected } from '../utils/analytics'
 
 const TIME_OPTIONS: { key: TimeFilter; label: string; sub: string }[] = [
@@ -190,25 +190,11 @@ export function FilterPopover({
         {open === 'type' && (
           <>
             <h3 className="text-sm font-semibold text-charcoal">Type</h3>
-            <div className="pill-wrap mt-3">
-              {ACTIVITY_TYPES.map((type) => {
-                const selected = draft.types.includes(type)
-                return (
-                  <button
-                    key={type}
-                    type="button"
-                    onClick={() => {
-                      const types = selected
-                        ? draft.types.filter((t) => t !== type)
-                        : [...draft.types, type]
-                      apply({ ...draft, types })
-                    }}
-                    className={`pill-select ${selected ? 'pill-select-active' : ''}`}
-                  >
-                    {type}
-                  </button>
-                )
-              })}
+            <div className="mt-3">
+              <ActivityTypeFilterPills
+                selected={draft.types}
+                onChange={(types) => apply({ ...draft, types })}
+              />
             </div>
           </>
         )}

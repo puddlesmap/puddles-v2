@@ -243,3 +243,16 @@
   line-height: 1;
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
 }
+
+/* Home seasonal band sits outside .home-experiment-page--refined — keep a clear white card shell */
+.seasonal-discovery-module--home-band .discovery-v3-event-card {
+  overflow: hidden;
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+}
+
+.seasonal-discovery-module--home-band .discovery-v3-event-card .discovery-v3-event-card__body,
+.seasonal-discovery-module--home-band .discovery-v3-event-card .discovery-event-card-body {
+  background: #ffffff;
+}

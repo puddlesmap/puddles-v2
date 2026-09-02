@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
-import { getPublicEventsFromCatalog } from '../data/events'
+import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
 import { ACTIVITY_TYPES, type Event } from '../types/event'
 import { PUBLIC_AGE_FILTER_OPTIONS } from '../utils/ageRange'
-import { EventCard } from '../components/EventCard'
+import { BrowseEventCard } from '../components/BrowseEventCard'
 import { FilterChipButton } from '../components/FilterChipButton'
 import { FilterPopover, type FilterPopoverType } from '../components/FilterPopover'
 import { FilterSheet, type FilterSheetType } from '../components/FilterSheet'
@@ -135,6 +135,11 @@ export function BrowsePage({
   buildEventDetailPath,
 }: BrowsePageProps = {}) {
   const { browseFilters, setBrowseFilters } = useApp()
+  const { getCatalog: getLaunchCatalog } = useLaunchStagingCatalog()
+  const resolveCatalog = useCallback(
+    () => (getEventsCatalog ? getEventsCatalog() : getLaunchCatalog()),
+    [getEventsCatalog, getLaunchCatalog],
+  )
   const navigate = useNavigate()
   const openEvent = useEventNavigation()
   const location = useLocation()
@@ -263,7 +268,7 @@ export function BrowsePage({
   }, [browseFilters, coords, isRequesting, requestLocation, setBrowseFilters])
 
   const events = useMemo(() => {
-    const catalog = getEventsCatalog ? getEventsCatalog() : getPublicEventsFromCatalog()
+    const catalog = resolveCatalog()
     const base = filterEvents(catalog, { browse: browseFilters, discoveryGate })
 
     if (browseFilters.city === 'nearby' && coords) {
@@ -274,7 +279,7 @@ export function BrowsePage({
     }
 
     return base
-  }, [browseFilters, coords, discoveryGate, getEventsCatalog])
+  }, [browseFilters, coords, discoveryGate, resolveCatalog])
 
   const awaitingNearby = browseFilters.city === 'nearby' && !coords
   const showReset = !isBrowseFiltersDefault(browseFilters)
@@ -366,7 +371,7 @@ export function BrowsePage({
   )
 
   function countBrowseEvents(filters: BrowseFilters) {
-    const catalog = getEventsCatalog ? getEventsCatalog() : getPublicEventsFromCatalog()
+    const catalog = resolveCatalog()
     const base = filterEvents(catalog, { browse: filters, discoveryGate })
 
     if (filters.city === 'nearby' && coords) {
@@ -525,8 +530,6 @@ export function BrowsePage({
     listLayout === 'compact-two-column'
       ? 'browse-event-grid browse-event-grid--compact-two-column'
       : 'browse-event-grid'
-  const listCardVariant = listLayout === 'compact-two-column' ? 'compact-grid' : 'grid'
-
   return (
     <div
       className={[
@@ -621,11 +624,9 @@ export function BrowsePage({
               ) : (
                 <div className={listGridClassName}>
                   {events.map((event) => (
-                    <EventCard
+                    <BrowseEventCard
                       key={event.id}
                       event={event}
-                      variant={listCardVariant}
-                      discovery
                       onClick={() => handleOpenListEvent(event)}
                     />
                   ))}

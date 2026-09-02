@@ -278,3 +278,56 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* Home seasonal band — same contained card shell (lives outside .home-experiment-page--refined) */
+.seasonal-discovery-module--home-band .discovery-event-card {
+  overflow: hidden;
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  box-shadow: none;
+  transition:
+    border-color 0.16s ease-out,
+    box-shadow 0.16s ease-out,
+    transform 0.14s ease-out;
+}
+
+.seasonal-discovery-module--home-band
+  .discovery-event-card:has(.event-image--fallback)
+  .card-listing-media {
+  background: var(--color-surface-muted);
+  box-shadow: none;
+}
+
+.seasonal-discovery-module--home-band .discovery-event-card .card-listing-media {
+  border-radius: 0;
+  aspect-ratio: 5 / 4;
+  height: auto;
+  box-shadow: none;
+}
+
+.seasonal-discovery-module--home-band .discovery-event-card .card-listing-image {
+  border-radius: 0;
+  filter: saturate(0.88);
+}
+
+.seasonal-discovery-module--home-band .discovery-event-card .card-listing-image.event-image--fallback {
+  filter: none;
+}
+
+.seasonal-discovery-module--home-band .discovery-event-card-body,
+.seasonal-discovery-module--home-band .discovery-v3-event-card__body {
+  background: #ffffff;
+}
+
+.seasonal-discovery-module--home-band
+  .discovery-event-card:not(.card-listing--map-grid):not(.card-listing--map-preview-sheet):hover {
+  box-shadow: 0 2px 10px rgb(40 46 49 / 0.08);
+  transform: none;
+}
+
+.seasonal-discovery-module--home-band
+  .discovery-event-card:not(.card-listing--map-grid):not(.card-listing--map-preview-sheet):active {
+  transform: none;
+  box-shadow: none;
+}

@@ -24,7 +24,7 @@ function normalizeCategoryTags(categoryTags: string[] | string): string[] {
     .filter(Boolean)
 }
 
-/** Farm, barn, or pony/animal community gatherings → Social & Play + Outdoor. */
+/** Farm, barn, or pony/animal community gatherings → Festivals & Community. */
 function isAnimalCommunityGathering(
   title: string,
   description: string,
@@ -58,7 +58,7 @@ export function resolveActivityTypes(
   const combinedRaw = [sheetTypesRaw, ...tags].filter(Boolean).join(', ')
 
   if (isAnimalCommunityGathering(title, description, tags)) {
-    return ['Social & Play', 'Outdoor']
+    return ['Festivals & Community']
   }
 
   const onlyOther = sheetTypes.length === 1 && sheetTypes[0] === 'Other'

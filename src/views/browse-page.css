@@ -334,6 +334,18 @@
   text-overflow: ellipsis;
 }
 
+.browse-content p.discovery-event-type {
+  margin: 0.125rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #686868;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 /* —— Event grid (stable tracks, equal-height cards) —— */
 .browse-content .browse-event-grid {
   display: grid;
@@ -388,14 +400,16 @@
   max-width: var(--discovery-card-width);
 }
 
-.browse-content .discovery-event-card .card-listing-media {
+.browse-content .discovery-event-card .card-listing-media,
+.seasonal-discovery-module__card .discovery-event-card .card-listing-media {
   width: 100%;
   aspect-ratio: 1 / 1;
   height: auto;
   flex-shrink: 0;
 }
 
-.browse-content .discovery-event-card .card-listing-image {
+.browse-content .discovery-event-card .card-listing-image,
+.seasonal-discovery-module__card .discovery-event-card .card-listing-image {
   width: 100%;
   height: 100%;
   object-fit: cover;

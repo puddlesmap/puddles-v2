@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { CommunityCtaCard } from '../components/brand/CommunityCtaCard'
 import { DiscoveryMapPreview } from '../components/discovery/DiscoveryMapPreview'
 import { getPublicEventsFromCatalog } from '../data/events'
-import { EventCard } from '../components/EventCard'
+import { BrowseEventCard } from '../components/BrowseEventCard'
 import { DiscoveryEmptyState } from '../components/empty-states/DiscoveryEmptyState'
 import { DiscoveryFilterChip } from '../components/filters/DiscoveryFilterChip'
+import { isNewCityFilter } from '../config/cityLaunch'
 import { DiscoveryHeroSearch } from '../components/DiscoveryHeroSearch'
 import { PageContainer } from '../components/layout/PageContainer'
 import { Footer } from '../components/layout/Footer'
@@ -23,6 +24,7 @@ const CITY_CHIPS = [
   { value: 'Palo Alto', label: 'Palo Alto' },
   { value: 'Los Altos', label: 'Los Altos' },
   { value: 'Mountain View', label: 'Mountain View' },
+  { value: 'Sunnyvale', label: 'Sunnyvale' },
 ] as const
 
 const MOBILE_MAP_INSERT_AFTER_INDEX = 1
@@ -116,7 +118,7 @@ export function DiscoveryPage({
                 0–5.
               </p>
               <p className="discovery-hero-location-note">
-                Starting in Palo Alto, Los Altos, and Mountain View.
+                Starting in Palo Alto, Los Altos, Mountain View, and Sunnyvale.
               </p>
             </div>
 
@@ -133,6 +135,7 @@ export function DiscoveryPage({
                     <DiscoveryFilterChip
                       key={chip.value}
                       label={chip.label}
+                      badge={isNewCityFilter(chip.value) ? 'NEW' : undefined}
                       active={city === chip.value}
                       onClick={() => handleCityChange(chip.value)}
                     />
@@ -168,10 +171,8 @@ export function DiscoveryPage({
                 <div className="discovery-event-grid">
                   {events.map((event, index) => (
                     <Fragment key={event.id}>
-                      <EventCard
+                      <BrowseEventCard
                         event={event}
-                        variant="grid"
-                        discovery
                         onClick={() => openEvent(event, 'discovery')}
                       />
                       {index === mapInsertIndex && events.length > 0 && (

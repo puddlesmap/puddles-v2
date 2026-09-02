@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import type { DayFilter, TimeFilter } from '../types/event'
 import { PUBLIC_AGE_FILTER_OPTIONS } from '../utils/ageRange'
-import { ACTIVITY_TYPES } from '../types/event'
 import { getTemporalTabs } from '../utils/dates'
 import { getFilteredCount, type BrowseFilters } from '../utils/filters'
 import { BrowseLocationOptions } from './filters/BrowseLocationOptions'
+import { ActivityTypeFilterPills } from './filters/ActivityTypeFilterPills'
 import { trackBrowseFiltersApplied, trackCitySelected } from '../utils/analytics'
 
 const TIME_OPTIONS: { key: TimeFilter; label: string; sub: string }[] = [
@@ -224,28 +224,10 @@ export function FilterSheet({
           )}
 
           {open === 'type' && (
-            <div className="pill-wrap">
-              {ACTIVITY_TYPES.map((type) => {
-                const selected = draft.types.includes(type)
-                return (
-                  <button
-                    key={type}
-                    type="button"
-                    onClick={() =>
-                      setDraft({
-                        ...draft,
-                        types: selected
-                          ? draft.types.filter((t) => t !== type)
-                          : [...draft.types, type],
-                      })
-                    }
-                    className={`pill-select ${selected ? 'pill-select-active' : ''}`}
-                  >
-                    {type}
-                  </button>
-                )
-              })}
-            </div>
+            <ActivityTypeFilterPills
+              selected={draft.types}
+              onChange={(types) => setDraft({ ...draft, types })}
+            />
           )}
         </div>
 

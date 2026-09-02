@@ -1,4 +1,5 @@
 import type { BrowseFilters } from '../../utils/filters'
+import { isNewCityFilter } from '../../config/cityLaunch'
 import { NearbyPinIcon } from './DiscoveryFilterChip'
 import { BROWSE_LOCATION_OPTIONS } from '../layout/BrandLockup'
 
@@ -8,6 +9,24 @@ interface BrowseLocationOptionsProps {
   selectedCity: BrowseFilters['city']
   onSelect: (city: LocationKey) => void
   variant: 'sheet' | 'popover'
+}
+
+function LocationLabel({
+  cityKey,
+  label,
+}: {
+  cityKey: LocationKey
+  label: string
+}) {
+  const showNew = cityKey !== 'nearby' && cityKey !== 'all' && isNewCityFilter(cityKey)
+
+  return (
+    <span className="flex min-w-0 items-center gap-2">
+      {cityKey === 'nearby' ? <NearbyPinIcon tone="brand" /> : null}
+      <span className="text-[15px] font-medium text-charcoal">{label}</span>
+      {showNew ? <span className="discovery-filter-chip-badge">NEW</span> : null}
+    </span>
+  )
 }
 
 export function BrowseLocationOptions({
@@ -30,10 +49,7 @@ export function BrowseLocationOptions({
                 selected ? 'bg-surface-muted' : 'hover:bg-surface-muted/70'
               }`}
             >
-              <div className="flex min-w-0 items-center gap-2">
-                {city.key === 'nearby' ? <NearbyPinIcon tone="brand" /> : null}
-                <span className="text-[15px] font-medium text-charcoal">{city.label}</span>
-              </div>
+              <LocationLabel cityKey={city.key} label={city.label} />
               <span
                 className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${
                   selected ? 'border-charcoal bg-charcoal' : 'border-border'
@@ -55,14 +71,7 @@ export function BrowseLocationOptions({
               selected ? 'bg-surface-muted font-semibold' : ''
             }`}
           >
-            {city.key === 'nearby' ? (
-              <span className="flex items-center gap-2">
-                <NearbyPinIcon tone="brand" />
-                {city.label}
-              </span>
-            ) : (
-              city.label
-            )}
+            <LocationLabel cityKey={city.key} label={city.label} />
           </button>
         )
       })}

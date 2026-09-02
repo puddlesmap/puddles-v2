@@ -232,7 +232,7 @@ export function getSeasonalIllustrationSrc(timing: string): string | undefined {
  * “Fall = pumpkins.”
  */
 export const HELLO_FALL_CURATION = {
-  tagline: 'Farms, outdoor days & seasonal celebrations.',
+  tagline: 'Farms, outdoor days, festivals & community celebrations.',
   pillars: [
     {
       id: 'harvest-farms',
@@ -265,8 +265,8 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
     title: 'Fall with little ones',
     subtitle: 'Hello, Fall',
     timingLabel: 'September',
-    description: 'Fall with little ones · Farms, outdoor days & seasonal celebrations',
-    moduleTagline: 'Farms, outdoor days & seasonal celebrations.',
+    description: 'Fall with little ones · Farms, outdoor days, festivals & community celebrations',
+    moduleTagline: 'Farms, outdoor days, festivals & community celebrations.',
     ctaLabel: 'See all',
     decor: ['🍎', '🍂', '🌾'],
     illustrationSrc: '/seasonal/hello-fall.png',
