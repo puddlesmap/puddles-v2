@@ -18,7 +18,7 @@ import { projectLatLngToMapPercent } from './mapBounds'
 
 export type HomeWhereMode =
   | { kind: 'nearby' }
-  | { kind: 'city'; value: 'all' | 'Palo Alto' | 'Los Altos' | 'Mountain View' }
+  | { kind: 'city'; value: 'all' | 'Palo Alto' | 'Los Altos' | 'Mountain View' | 'Sunnyvale' }
 
 export interface HomeMapPreviewContext {
   whereMode: HomeWhereMode
@@ -72,7 +72,7 @@ export function getHomeMapPreviewStatus({
 /** Map preview footer label only — no result counts (experiment-home). */
 export function getHomeMapPreviewLabelRefined(whereMode: HomeWhereMode): string {
   if (whereMode.kind === 'nearby') return 'Near you'
-  if (whereMode.kind === 'city' && whereMode.value === 'all') return 'Nearby cities'
+  if (whereMode.kind === 'city' && whereMode.value === 'all') return 'Explore nearby activities'
   return whereMode.value
 }
 
@@ -160,12 +160,13 @@ export interface HomeMapPinPosition {
   isMain: boolean
 }
 
-const HOME_MAP_PREVIEW_MAX_PINS = 3
+const HOME_MAP_PREVIEW_MAX_PINS = 4
 
 const ALL_CITIES_PIN_ORDER: Array<keyof typeof HOME_MAP_CITY_CENTERS> = [
   'Palo Alto',
   'Los Altos',
   'Mountain View',
+  'Sunnyvale',
 ]
 
 function projectPointToPin(

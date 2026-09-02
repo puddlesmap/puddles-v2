@@ -27,10 +27,11 @@ export const HOME_MAP_PREVIEW_STATIC_BOUNDS_PADDING = 0.38
 
 /** Geographic bounds for home preview map framing by selected area. */
 export const HOME_MAP_AREA_BOUNDS = {
-  all: { north: 37.485, south: 37.345, west: -122.205, east: -122.025 },
+  all: { north: 37.485, south: 37.33, west: -122.205, east: -121.98 },
   'Palo Alto': { north: 37.478, south: 37.375, west: -122.202, east: -122.084 },
   'Los Altos': { north: 37.41, south: 37.35, west: -122.14, east: -122.07 },
   'Mountain View': { north: 37.42, south: 37.36, west: -122.12, east: -122.03 },
+  Sunnyvale: { north: 37.42, south: 37.33, west: -122.06, east: -121.98 },
 } as const
 
 /** Puddles service area — pins outside this box are hidden on the home preview map. */
@@ -38,7 +39,7 @@ export const HOME_MAP_SERVICE_BOUNDS = {
   north: 37.48,
   south: 37.32,
   west: -122.2,
-  east: -122.02,
+  east: -121.98,
 } as const
 
 /** City-center coordinates for decorative home preview pins. */
@@ -46,11 +47,12 @@ export const HOME_MAP_CITY_CENTERS = {
   'Palo Alto': { lat: 37.4419, lng: -122.143 },
   'Los Altos': { lat: 37.3852, lng: -122.1141 },
   'Mountain View': { lat: 37.3861, lng: -122.0839 },
+  Sunnyvale: { lat: 37.3688, lng: -122.0363 },
 } as const
 
-/** Fixed viewport for the compact "Nearby cities" home preview map. */
+/** Fixed viewport for the compact "Explore nearby activities" home preview map. */
 export const HOME_MAP_PREVIEW_VIEWPORT = {
-  center: { lat: 37.405, lng: -122.112 },
+  center: { lat: 37.4, lng: -122.09 },
   zoom: 11,
 } as const
 
@@ -71,7 +73,7 @@ export const HOME_MAP_CITY_VIEWPORT_ZOOM = 13
 
 export type HomeMapAreaKey = keyof typeof HOME_MAP_AREA_BOUNDS
 
-/** Leaflet/static-map padding when fitting all three cities. */
+/** Leaflet/static-map padding when fitting all launch cities. */
 export const HOME_MAP_ALL_CITIES_BOUNDS_PADDING = 0.04
 
 /** Leaflet/static-map padding when focusing a single city. */
