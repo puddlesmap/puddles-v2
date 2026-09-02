@@ -3,6 +3,10 @@
   publish = ".next"
   functions = "netlify/functions"
 
+[build.environment]
+  # SSG of ~500 event pages OOMs Netlify's default Node heap (SIGKILL mid generate).
+  NODE_OPTIONS = "--max-old-space-size=4096"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
