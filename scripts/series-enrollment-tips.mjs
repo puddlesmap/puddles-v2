@@ -7,7 +7,7 @@ export const MUSIC_TOGETHER_FALL_2026 = {
   description:
     '10-week caregiver + child music series for babies through preschoolers and their grown-ups. Fall classes begin Sep 9 or Sep 14, depending on section, and run through Nov 18 at Unity Church. Multiple class times are offered each week.',
   tips: [
-    'Best for babies through preschoolers with a grown-up (Puddles ages 0–5).',
+    'For babies through preschoolers with a grown-up.',
     'Weekly · registration required · semester package, not drop-in.',
     'Multiple Mon, Wed & Fri class times available.',
     SERIES_AVAILABILITY_LINE,

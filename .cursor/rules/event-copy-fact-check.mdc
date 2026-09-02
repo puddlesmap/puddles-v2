@@ -1,0 +1,19 @@
+---
+description: Prioritize official event info and fact-check copy before publishing
+alwaysApply: true
+---
+
+# Event copy: official source first
+
+When writing or editing **description**, **Good to know / tips**, ages, cost, schedule, or venue:
+
+1. **Prefer the official event / host page** (registration, schedule, FAQ, flyer) over guesswork, Puddles conventions, or prior chat copy.
+2. **Fact-check before ship** — if a line asserts ages, who can attend, stroller vs carrier, rain location, cost, or enrollment rules, verify it on the official source in that pass.
+3. **Do not invent provider claims** — e.g. do not put “(ages 0–5)” in tips unless the provider states that range. Puddles age tags (`ageRange` / filters) can still use our 0–5 buckets separately.
+4. **Prefer their wording** when close enough (“stroller-aged children”, “babies through preschoolers”) over marketing paraphrase that overclaims.
+5. If official info is missing or ambiguous, use **general language** and link out — do not fill gaps with assumptions.
+
+## Related
+
+- `class-series-availability.mdc` — availability stays on the provider page
+- `event-images.mdc` — prefer event/host images over stock

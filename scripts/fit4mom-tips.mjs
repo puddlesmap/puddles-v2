@@ -1,4 +1,6 @@
-/** Good-to-know copy for FIT4MOM weekly Parent & Me classes. */
+/** Good-to-know copy for FIT4MOM weekly Parent & Me classes.
+ * Source of truth: https://sunnyvale.fit4mom.com/our-workouts + /faqs
+ */
 
 const SCHEDULE_LINE = 'Check the official schedule for current class times.'
 
@@ -6,9 +8,13 @@ const CUESTA_RAIN = "Rainy day: Meet under the overhang at St. Timothy’s, 2094
 const MITCHELL_RAIN =
   "Rainy day: Meet under the overhang by Mitchell Park Library / Ada's Cafe."
 
+/** Stroller Strides / Barre / Family Strides — official: stroller-aged kids; carrier OK. */
+const STROLLER_CLASS_WHO =
+  'Stroller-aged little ones come along — in a stroller or baby carrier.'
+
 function weeklyGoodToKnow({ dayLabel, venue, rainyDayLine, extraLines = [] }) {
   return [
-    'Designed for caregivers with little ones along — babies & toddlers ride in the stroller (ages 0–5).',
+    STROLLER_CLASS_WHO,
     `Weekly · ${dayLabel} at ${venue}.`,
     SCHEDULE_LINE,
     rainyDayLine,
@@ -20,7 +26,6 @@ function weeklyGoodToKnow({ dayLabel, venue, rainyDayLine, extraLines = [] }) {
 
 function lasPalmasGoodToKnow({ dayLabel, extraLines = [] }) {
   return [
-    'Designed for caregivers with little ones along — babies & toddlers welcome (ages 0–5).',
     `Weekly · ${dayLabel} at Las Palmas Park.`,
     'Pre-enroll for schedule updates and rainy-day location changes.',
     ...extraLines,
@@ -45,7 +50,7 @@ export const FIT4MOM_SERIES_COPY = {
     description:
       'Stroller workout for caregivers with baby in tow — cardio & strength at Las Palmas Park.',
     tips: [
-      'Designed for caregivers with little ones along — babies & toddlers ride in the stroller (ages 0–5).',
+      STROLLER_CLASS_WHO,
       'Weekly · Tuesdays at Las Palmas Park.',
       SCHEDULE_LINE,
       'Pre-enroll for schedule updates and rainy-day location changes.',
@@ -73,7 +78,6 @@ export const FIT4MOM_SERIES_COPY = {
   'watchlist-fit4mom-fourth-trimester-cuesta-series': {
     description: 'Postpartum movement class for caregivers, with babies welcome.',
     tips: [
-      'Made for postpartum caregivers with babies welcome alongside (ages 0–2).',
       'Weekly · Wednesdays at Cuesta Park.',
       SCHEDULE_LINE,
       CUESTA_RAIN,
