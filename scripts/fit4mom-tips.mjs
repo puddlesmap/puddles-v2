@@ -8,6 +8,7 @@ const MITCHELL_RAIN =
 
 function weeklyGoodToKnow({ dayLabel, venue, rainyDayLine, extraLines = [] }) {
   return [
+    'Designed for caregivers with little ones along — babies & toddlers ride in the stroller (ages 0–5).',
     `Weekly · ${dayLabel} at ${venue}.`,
     SCHEDULE_LINE,
     rainyDayLine,
@@ -19,6 +20,7 @@ function weeklyGoodToKnow({ dayLabel, venue, rainyDayLine, extraLines = [] }) {
 
 function lasPalmasGoodToKnow({ dayLabel, extraLines = [] }) {
   return [
+    'Designed for caregivers with little ones along — babies & toddlers welcome (ages 0–5).',
     `Weekly · ${dayLabel} at Las Palmas Park.`,
     'Pre-enroll for schedule updates and rainy-day location changes.',
     ...extraLines,
@@ -43,6 +45,7 @@ export const FIT4MOM_SERIES_COPY = {
     description:
       'Stroller workout for caregivers with baby in tow — cardio & strength at Las Palmas Park.',
     tips: [
+      'Designed for caregivers with little ones along — babies & toddlers ride in the stroller (ages 0–5).',
       'Weekly · Tuesdays at Las Palmas Park.',
       SCHEDULE_LINE,
       'Pre-enroll for schedule updates and rainy-day location changes.',
@@ -69,11 +72,12 @@ export const FIT4MOM_SERIES_COPY = {
   },
   'watchlist-fit4mom-fourth-trimester-cuesta-series': {
     description: 'Postpartum movement class for caregivers, with babies welcome.',
-    tips: weeklyGoodToKnow({
-      dayLabel: 'Wednesdays',
-      venue: 'Cuesta Park',
-      rainyDayLine: CUESTA_RAIN,
-    }),
+    tips: [
+      'Made for postpartum caregivers with babies welcome alongside (ages 0–2).',
+      'Weekly · Wednesdays at Cuesta Park.',
+      SCHEDULE_LINE,
+      CUESTA_RAIN,
+    ].join('\n'),
   },
   'watchlist-fit4mom-family-strides-cuesta-series': {
     description:

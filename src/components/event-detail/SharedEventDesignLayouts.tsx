@@ -305,6 +305,7 @@ function AirbnbLayout({
   buildNearbyEventHref,
 }: Omit<SharedEventDesignLayoutProps, 'layout'>) {
   const p = getEventPresentation(event)
+  const tipItems = parseEventTips(event.tips)
 
   return (
     <div className="sedl sedl--airbnb">
@@ -361,10 +362,16 @@ function AirbnbLayout({
             </section>
           ) : null}
 
-          {event.tips ? (
+          {tipItems.length > 0 ? (
             <section className="sedl-section">
               <h2 className="sedl-section-title">Good to know</h2>
-              <p className="sedl-body">{event.tips}</p>
+              <ul className="event-detail-tips-list sedl-tips-list">
+                {tipItems.map((item, index) => (
+                  <li key={`${index}-${item}`} className="event-detail-tips-item">
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </section>
           ) : null}
 
@@ -570,12 +577,22 @@ function EventbriteLayout({
             </section>
           ) : null}
 
-          {event.tips ? (
-            <section className="sedl-eb-block">
-              <h2 className="sedl-section-title">Tips for families</h2>
-              <p className="sedl-body">{event.tips}</p>
-            </section>
-          ) : null}
+          {(() => {
+            const tipItems = parseEventTips(event.tips)
+            if (tipItems.length === 0) return null
+            return (
+              <section className="sedl-eb-block">
+                <h2 className="sedl-section-title">Tips for families</h2>
+                <ul className="event-detail-tips-list sedl-tips-list">
+                  {tipItems.map((item, index) => (
+                    <li key={`${index}-${item}`} className="event-detail-tips-item">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )
+          })()}
 
           <section className="sedl-eb-block">
             <h2 className="sedl-section-title">Organizer</h2>
@@ -859,6 +876,7 @@ export function AirbnbV3DesktopContent({
   lifecycleLinkTarget?: LifecycleLinkTarget
 }) {
   const p = getEventPresentation(event)
+  const tipItems = parseEventTips(event.tips)
   const v3 = {
     ...p,
     dateLabel: formatModalDate(event.date),
@@ -898,6 +916,10 @@ export function AirbnbV3DesktopContent({
         <div className="sedl-airbnb-main">
           <p className="sedl-kicker">{p.city}</p>
           <h1 className="sedl-airbnb-title">{event.title}</h1>
+
+          {displayDescription ? (
+            <p className="sedl-body sedl-v3-desktop-desc">{displayDescription}</p>
+          ) : null}
 
           {lifecycleStatus ? (
             <EventLifecycleBanner
@@ -945,14 +967,16 @@ export function AirbnbV3DesktopContent({
             ) : null}
           </div>
 
-          {displayDescription ? (
-            <p className="sedl-body sedl-v3-desktop-desc">{displayDescription}</p>
-          ) : null}
-
-          {event.tips ? (
+          {tipItems.length > 0 ? (
             <section className="sedl-section">
               <h2 className="sedl-section-title">Good to know</h2>
-              <p className="sedl-body">{event.tips}</p>
+              <ul className="event-detail-tips-list sedl-tips-list">
+                {tipItems.map((item, index) => (
+                  <li key={`${index}-${item}`} className="event-detail-tips-item">
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </section>
           ) : null}
 
@@ -1054,6 +1078,10 @@ function AirbnbV3Layout({
           <div className="sedl-v2-content">
             <h1 className="event-detail-title sedl-v2-title">{event.title}</h1>
 
+            {displayDescription ? (
+              <p className="event-detail-body sedl-v2-body">{displayDescription}</p>
+            ) : null}
+
             {lifecycleStatus ? (
               <EventLifecycleBanner
                 event={event}
@@ -1132,10 +1160,6 @@ function AirbnbV3Layout({
                 </div>
               </div>
             </div>
-
-            {displayDescription ? (
-              <p className="event-detail-body sedl-v2-body">{displayDescription}</p>
-            ) : null}
 
             {tipItems.length > 0 ? (
               <section className="event-detail-tips" aria-labelledby="sedl-v3-tips-heading">

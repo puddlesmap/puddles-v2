@@ -405,9 +405,8 @@ function main() {
     }
     if (id === 'watchlist-mt-pa-fall-mixed-ages-2026') {
       const event = candidateToEvent(candidate)
-      event.tips = [MUSIC_TOGETHER_FALL_2026.seriesNote, MUSIC_TOGETHER_FALL_2026.tips]
-        .filter(Boolean)
-        .join('\n')
+      event.description = MUSIC_TOGETHER_FALL_2026.description
+      event.tips = MUSIC_TOGETHER_FALL_2026.tips
       events.push(event)
       continue
     }

@@ -22,14 +22,13 @@ export interface AdminReviewFlag {
   clusterId?: string
 }
 
-export const LAUNCH_CITIES = ['Palo Alto', 'Los Altos', 'Mountain View'] as const
+export const LAUNCH_CITIES = ['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale'] as const
 
 const OUTSIDE_CITY_HINTS = [
   'san francisco',
   'san jose',
   'oakland',
   'berkeley',
-  'sunnyvale',
   'cupertino',
   'redwood city',
   'san mateo',

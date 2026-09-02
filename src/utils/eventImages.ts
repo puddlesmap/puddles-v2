@@ -113,9 +113,17 @@ export function getEventDisplayCategory(event: Event): ActivityType | null {
 
 /** Category tags for detail metadata — skips bare "Other" and infers from title when needed. */
 export function getEventCategoryTags(event: Event): string[] {
-  const raw = event.categoryTags.length > 0 ? event.categoryTags : event.types
-  const filtered = raw.filter((tag) => tag !== 'Other')
-  if (filtered.length > 0) return filtered
+  // Prefer activity types for parent-facing Type — categoryTags often hold internal notes
+  // (e.g. "Series · do not explode weekly").
+  const fromTypes = event.types.filter((tag) => tag !== 'Other')
+  if (fromTypes.length > 0) return fromTypes
+
+  const fromCategory = event.categoryTags.filter((tag) => {
+    if (tag === 'Other') return false
+    if (/do not explode/i.test(tag)) return false
+    return ACTIVITY_TYPE_SET.has(tag)
+  })
+  if (fromCategory.length > 0) return fromCategory
 
   const inferred = getEventDisplayCategory(event)
   return inferred ? [inferred] : []

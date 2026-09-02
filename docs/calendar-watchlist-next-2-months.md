@@ -1,69 +1,90 @@
-# Calendar Watchlist — next 2 months
+# Expansion discovery lookahead
 
-Window: **2026-08-03 → 2026-10-03** (with Oct follow-ups through 2026-10-31).
+Window: **2026-09-02 → 2026-12-01** (90 days)
 
-Generated 2026-08-03T21:39:12.234Z
+Generated 2026-09-02T18:26:34.842Z
 
-| Status | Count |
-|--------|-------|
-| Already on Puddles | 29 |
-| Added to Admin Discovery (review) | 7 |
-| Soon after window (already on Puddles) | 3 |
+## Launch expansion targets
 
-## Event list
+| Target | In window (discovery queue) | Pending review | On live catalog |
+|--------|----------------------------|----------------|-----------------|
+| **Sunnyvale** (new city) | 4 | 0 | 9 |
+| **Parent & Me** (new type) | 12 | 0 | 7 |
+| **Festivals & Community** (new type) | 11 | 0 | 5 |
 
-| Date | Time | Event | Place | Ages | Status |
-|------|------|-------|-------|------|--------|
-| 2026-08-04 | 17:30 | National Night Out | Civic Center Plaza, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-05 | 13:00 | Doodle and Discover Wednesdays | Oshman Family JCC - Jeff Center for Families, Palo Alto | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-05 | 17:00 | Music on Castro | Downtown Mountain View, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-07 | 18:00 | Concerts on the Plaza | Civic Center Plaza, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-07 | 20:30 | GOAT: Summer Outdoor Movie Night Series | Eagle Park, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-08 | 10:00 | Family Fun Days | Los Altos Community Center, Los Altos | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-09 | 10:30 | Outdoor Storytime | Linden Tree Books, Los Altos | 0–2, 2–5, 5+ | On Puddles — *same slot as Cheng; update title* |
-| 2026-08-09 | 10:30 | Storytime with Charlotte Cheng, Ama’s Purse | Linden Tree Books, Los Altos | 0–2, 2–5 | **Discovery — new** |
-| 2026-08-12 | 17:00 | Music on Castro | Downtown Mountain View, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-14 | 18:00 | Concerts on the Plaza | Civic Center Plaza, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-14 | 20:30 | Lilo & Stitch (Live Action): Summer Outdoor Movie Night Series | Rengstorff Park, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-16 | 10:30 | Outdoor Storytime | Linden Tree Books, Los Altos | 0–2, 2–5, 5+ | On Puddles — *same slot as Bobrow; update title* |
-| 2026-08-16 | 10:30 | Storytime with Claire Wrenn Bobrow, Cowboys at the Ballet | Linden Tree Books, Los Altos | 0–2, 2–5 | **Discovery — new** |
-| 2026-08-19 | 17:00 | Music on Castro | Downtown Mountain View, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-21 | 18:00 | Concerts on the Plaza | Civic Center Plaza, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-23 | 10:30 | Outdoor Storytime | Linden Tree Books, Los Altos | 0–2, 2–5, 5+ | On Puddles — *same slot as Kim; update title* |
-| 2026-08-23 | 10:30 | Storytime with Alison Kim, The Art of How Dogs Sleep | Linden Tree Books, Los Altos | 0–2, 2–5 | **Discovery — new** |
-| 2026-08-26 | 17:00 | Music on Castro | Downtown Castro Street, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-28 | 18:00 | Concerts on the Plaza | Civic Center Plaza, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-08-30 | 10:30 | Outdoor Storytime | Linden Tree Books, Los Altos | 0–2, 2–5, 5+ | On Puddles — *same slot as Connors; update title* |
-| 2026-08-30 | 10:30 | Storytime with Jerrold Connors, STAMPEDE! | Linden Tree Books, Los Altos | 0–2, 2–5 | **Discovery — new** |
-| 2026-09-02 | 13:00 | Doodle and Discover Wednesdays | Oshman Family JCC - Jeff Center for Families, Palo Alto | 2–5 | **Discovery — new** |
-| 2026-09-02 | 17:00 | Music on Castro | Downtown Castro Street, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-09-04 | 18:00 | Concerts on the Plaza | Civic Center Plaza, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-09-05 | 09:00 | Free In-Store Kids Workshops: School Bus Organizer | Home Depot, Palo Alto | 2–5 | On Puddles |
-| 2026-09-06 | 10:30 | Outdoor Storytime | Linden Tree Books, Los Altos | 0–2, 2–5, 5+ | On Puddles |
-| 2026-09-09 | 17:00 | Music on Castro | Downtown Castro Street, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-09-11 | 18:00 | Concerts on the Plaza | Civic Center Plaza, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-09-13 | 10:30 | Outdoor Storytime | Linden Tree Books, Los Altos | 0–2, 2–5, 5+ | On Puddles — *same slot as Fang; update title* |
-| 2026-09-13 | 10:30 | Storytime with Jasmine Fang, Beneath the Same Round Moon | Linden Tree Books, Los Altos | 0–2, 2–5 | **Discovery — new** |
-| 2026-09-16 | 17:00 | Music on Castro | Downtown Castro Street, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-09-18 | 18:00 | Concerts on the Plaza | Civic Center Plaza, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-09-23 | 17:00 | Music on Castro | Downtown Castro Street, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-09-26 | 09:00 | Harvest History Festival | Heritage Park, Mountain View | 0–2, 2–5, 5+ | On Puddles |
-| 2026-10-03 | 09:00 | Free In-Store Kids Workshops: Witch Candy Box | Home Depot, Palo Alto | 2–5 | On Puddles |
-| 2026-10-17 | 10:00 | Spooky Times at Deer Holloween Farm | Deer Hollow Farm, Mountain View | 0–2, 2–5, 5+ | On Puddles (Oct) |
-| 2026-10-24 | 10:00 | Family Fun Days | Los Altos Community Center, Los Altos | 0–2, 2–5, 5+ | On Puddles (Oct) |
-| 2026-10-24 | 10:00 | Monster Bash | Rengstorff Park, Mountain View | 0–2, 2–5, 5+ | On Puddles (Oct) |
-| 2026-10-30 | 16:00 | A BOO-tiful Downtown Halloween | Downtown Los Altos, Los Altos | 0–2, 2–5 | **Discovery — new** |
+## By city (discovery queue, in window)
 
-> **Author Sundays note:** Linden’s author storytimes are the same 10:30am slot as Outdoor Storytime. Prefer the author title; don’t publish both for one date.
+| City | Total | New for review |
+|------|-------|----------------|
+| Palo Alto | 110 | 0 |
+| Los Altos | 71 | 0 |
+| Mountain View | 56 | 0 |
+| Sunnyvale | 4 | 0 |
 
-## Newly queued in Admin → Discovery
+## By activity type (discovery queue, in window)
 
-- **2026-08-09 10:30** — Storytime with Charlotte Cheng, Ama’s Purse · Linden Tree Books · `Calendar Watchlist · Linden Tree Books`
-- **2026-08-16 10:30** — Storytime with Claire Wrenn Bobrow, Cowboys at the Ballet · Linden Tree Books · `Calendar Watchlist · Linden Tree Books`
-- **2026-08-23 10:30** — Storytime with Alison Kim, The Art of How Dogs Sleep · Linden Tree Books · `Calendar Watchlist · Linden Tree Books`
-- **2026-08-30 10:30** — Storytime with Jerrold Connors, STAMPEDE! · Linden Tree Books · `Calendar Watchlist · Linden Tree Books`
-- **2026-09-13 10:30** — Storytime with Jasmine Fang, Beneath the Same Round Moon · Linden Tree Books · `Calendar Watchlist · Linden Tree Books`
-- **2026-09-02 13:00** — Doodle and Discover Wednesdays · Oshman Family JCC - Jeff Center for Families · `Calendar Watchlist · Oshman Family JCC`
-- **2026-10-30 16:00** — A BOO-tiful Downtown Halloween · Downtown Los Altos · `Calendar Watchlist · Downtown Los Altos`
+| Type | Count |
+|------|-------|
+| Stories | 179 |
+| Build & Explore | 26 |
+| Outdoor | 13 |
+| Parent & Me | 12 |
+| Festivals & Community | 11 |
+| Arts & Crafts | 5 |
+| Other | 5 |
+| Music & Movement | 4 |
+| Social & Play | 3 |
 
-Review at `/admin/discovery`, then Approve → Draft → Publish.
+## Sunnyvale — pending review
+
+_No Sunnyvale rows in window — check watchlist (Mini Yoga, FIT4MOM) and library seeds._
+
+## Parent & Me — pending review (in window)
+
+_None — re-check FIT4MOM schedule, Marti Foster, Music Together, yoga studios._
+
+## Festivals & Community — pending review (in window)
+
+_None — check city special events, harvest/Halloween fairs, open houses._
+
+## Calendar watchlist — manual checks
+
+| Source | City | Cadence | Fit | On Puddles? |
+|--------|------|---------|-----|-------------|
+| Google Visitor Experience | Mountain View | monthly | partial | No |
+| City of Sunnyvale · Special Events | Sunnyvale | monthly | partial | No |
+| Downtown Sunnyvale · Cityline & Murphy Ave | Sunnyvale | monthly | partial | No |
+| Sunnyvale Recreation · Parent & Tot | Sunnyvale | seasonal | strong | No |
+| Sunnyvale Public Library · Kids Events | Sunnyvale | weekly | strong | No |
+| Mountain View Special Events | Mountain View | weekly in season | partial | Yes |
+| Los Altos Family Fun Days | Los Altos | seasonal | strong | Yes |
+| Downtown Los Altos Events | Los Altos | monthly | sparse | No |
+| CSMA Concerts | Mountain View | as needed | weak | No |
+| Los Altos History Museum | Los Altos | seasonal | partial | Yes |
+| Linden Tree Books | Los Altos | weekly | strong | Yes |
+| Home Depot Kids Workshop | Palo Alto | monthly | partial | Yes |
+| Oshman Family JCC · Jeff Center for Families | Palo Alto | weekly | strong | Yes |
+| Peninsula Youth Theatre · Stories on Stage | Mountain View | seasonal | strong | No |
+| Elizabeth F. Gamble Garden | Palo Alto | seasonal | partial | No |
+| Marti Foster Yoga · Parent & Baby | Mountain View | weekly | strong | No |
+| Music Together Menlo Park & Palo Alto | Palo Alto | semester | strong | No |
+| Mini Yoga Club | Sunnyvale | monthly | strong | No |
+| FIT4MOM Silicon Valley Central | Palo Alto | weekly Mondays | strong | No |
+| Talo Yoga · CircleMoms host | Palo Alto | semester | partial | No |
+
+## Gaps & next actions
+
+- **Sunnyvale:** No pending library rows — Sunnyvale Public Library is watchlist-only until `discover-sunnyvale.mjs` exists; verify Mini Yoga Club + FIT4MOM Las Palmas + library seeds.
+- **Sunnyvale library:** No automated Sunnyvale branch scraper — add `discover-sunnyvale.mjs` or keep `build-launch-staging.mjs` series seeds current.
+- **Parent & Me:** Re-check FIT4MOM weekly graphic (Mondays), Marti Foster, Music Together semester row.
+- **Festivals & Community:** Manual pass on MV/LA city calendars, harvest weekends, Halloween fairs (Sep–Oct).
+- **Seasonal drive picks:** Editorial farms/haunts live in `seasonal*DriveEvents.ts` — not library scrapers.
+- **Core cities only in regular discovery:** Events outside Palo Alto / Los Altos / Mountain View belong in Seasonal → Worth a Little Drive until a city landing justifies a scraper.
+
+## Ops
+
+- Review queue: `/admin/discovery`
+- Launch review: `/experiment/seasonal-launch-review`
+- Refresh libraries: `npm run discover:bay-area -- --days=90`
+- Regenerate this report: `npm run discover:expansion-lookahead`
+

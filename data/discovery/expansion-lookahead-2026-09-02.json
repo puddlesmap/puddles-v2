@@ -1,0 +1,113 @@
+{
+  "generatedAt": "2026-09-02T18:26:34.842Z",
+  "window": {
+    "start": "2026-09-02",
+    "end": "2026-12-01",
+    "days": 90
+  },
+  "launchTargets": {
+    "city": "Sunnyvale",
+    "activityTypes": [
+      "Parent & Me",
+      "Festivals & Community"
+    ]
+  },
+  "discoveryGeneratedAt": "2026-09-01T21:14:08.436Z",
+  "expansion": {
+    "sunnyvale": {
+      "inWindow": 4,
+      "pending": 0,
+      "onCatalog": 9
+    },
+    "parentAndMe": {
+      "inWindow": 12,
+      "pending": 0,
+      "onCatalog": 7
+    },
+    "festivals": {
+      "inWindow": 11,
+      "pending": 0,
+      "onCatalog": 5
+    },
+    "byCity": [
+      [
+        "Palo Alto",
+        {
+          "total": 110,
+          "pending": 0
+        }
+      ],
+      [
+        "Los Altos",
+        {
+          "total": 71,
+          "pending": 0
+        }
+      ],
+      [
+        "Mountain View",
+        {
+          "total": 56,
+          "pending": 0
+        }
+      ],
+      [
+        "Sunnyvale",
+        {
+          "total": 4,
+          "pending": 0
+        }
+      ]
+    ],
+    "byType": [
+      [
+        "Stories",
+        179
+      ],
+      [
+        "Build & Explore",
+        26
+      ],
+      [
+        "Outdoor",
+        13
+      ],
+      [
+        "Parent & Me",
+        12
+      ],
+      [
+        "Festivals & Community",
+        11
+      ],
+      [
+        "Arts & Crafts",
+        5
+      ],
+      [
+        "Other",
+        5
+      ],
+      [
+        "Music & Movement",
+        4
+      ],
+      [
+        "Social & Play",
+        3
+      ]
+    ],
+    "sunnyvalePendingRows": [],
+    "parentAndMePendingRows": [],
+    "festivalsPendingRows": [],
+    "actions": [
+      "**Sunnyvale:** No pending library rows — Sunnyvale Public Library is watchlist-only until `discover-sunnyvale.mjs` exists; verify Mini Yoga Club + FIT4MOM Las Palmas + library seeds.",
+      "**Sunnyvale library:** No automated Sunnyvale branch scraper — add `discover-sunnyvale.mjs` or keep `build-launch-staging.mjs` series seeds current.",
+      "**Parent & Me:** Re-check FIT4MOM weekly graphic (Mondays), Marti Foster, Music Together semester row.",
+      "**Festivals & Community:** Manual pass on MV/LA city calendars, harvest weekends, Halloween fairs (Sep–Oct).",
+      "**Seasonal drive picks:** Editorial farms/haunts live in `seasonal*DriveEvents.ts` — not library scrapers.",
+      "**Core cities only in regular discovery:** Events outside Palo Alto / Los Altos / Mountain View belong in Seasonal → Worth a Little Drive until a city landing justifies a scraper."
+    ]
+  },
+  "watchlistUpdatedAt": "2026-09-01"
+}
