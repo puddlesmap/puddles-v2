@@ -25,6 +25,7 @@ import {
   filterEventsInBounds,
   getEventsMapCenter,
 } from '../../utils/mapBounds'
+import { CARTO_BASEMAP_ATTRIBUTION, getCartoVoyagerTileUrl } from '../../utils/cartoBasemap'
 import 'leaflet/dist/leaflet.css'
 
 interface BrowseLeafletMapViewProps {
@@ -36,8 +37,6 @@ interface BrowseLeafletMapViewProps {
   restoreSnapshot?: BrowseReturnSnapshot | null
   detachedViewToggle?: ReactNode
 }
-
-import { CARTO_BASEMAP_ATTRIBUTION, getCartoVoyagerTileUrl } from '../../utils/cartoBasemap'
 
 const MAP_TILE_URL = getCartoVoyagerTileUrl()
 const MAP_TILE_ATTRIBUTION = CARTO_BASEMAP_ATTRIBUTION
