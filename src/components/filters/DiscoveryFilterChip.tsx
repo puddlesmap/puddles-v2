@@ -42,6 +42,7 @@ function NearbyPinIcon({ tone = 'default' }: { tone?: 'default' | 'brand' }) {
 export function DiscoveryFilterChip({
   label,
   sub,
+  badge,
   active,
   onClick,
   icon,
@@ -49,6 +50,8 @@ export function DiscoveryFilterChip({
 }: {
   label: string
   sub?: string
+  /** Inline tag (e.g. NEW on launch activity types). */
+  badge?: string
   active: boolean
   onClick: () => void
   icon?: ReactNode
@@ -61,6 +64,7 @@ export function DiscoveryFilterChip({
       className={[
         'discovery-filter-chip',
         sub ? 'discovery-filter-chip--stacked' : '',
+        badge ? 'discovery-filter-chip--with-badge' : '',
         icon ? 'discovery-filter-chip--with-icon' : '',
         active ? 'discovery-filter-chip-active' : '',
         className,
@@ -71,6 +75,7 @@ export function DiscoveryFilterChip({
     >
       {icon ? <span className="discovery-filter-chip-leading">{icon}</span> : null}
       <span className="discovery-filter-chip-label">{label}</span>
+      {badge ? <span className="discovery-filter-chip-badge">{badge}</span> : null}
       {sub ? <span className="discovery-filter-chip-sub">{sub}</span> : null}
     </button>
   )
