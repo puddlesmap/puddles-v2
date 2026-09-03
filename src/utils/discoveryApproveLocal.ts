@@ -156,7 +156,7 @@ function titlesLikelySameOuting(a: string, b: string): boolean {
 
 /** Published catalog row that duplicates a Draft (URL+date, else title+date+city). */
 export function findLiveDuplicateForDraft(
-  draft: Event,
+  draft: Pick<Event, 'id' | 'title' | 'date' | 'city' | 'eventUrl'>,
   pool: Event[] = currentAdminEvents(),
 ): Event | null {
   const published = pool.filter((event) => event.status === 'Published' && event.id !== draft.id)
@@ -222,26 +222,9 @@ export function pruneDiscoveryDraftsAlreadyLive(): {
         {
           id: localDraftId(candidate, edits),
           title: edits.title || candidate.title,
-          description: '',
-          venue: edits.venue || candidate.venue,
-          address: '',
           city: asCity(edits.city || candidate.city),
           date: edits.date || candidate.date,
-          startTime: edits.startTime || candidate.startTime || '',
-          endTime: edits.endTime || candidate.endTime || '',
-          ageRange: edits.ageRange || candidate.ageRange || '',
-          ageMin: candidate.ageMin ?? 0,
-          ageMax: candidate.ageMax ?? 5,
-          types: asActivityTypes(edits.types?.length ? edits.types : candidate.types),
-          categoryTags: [],
-          cost: 'Free',
-          imageUrl: '',
           eventUrl: edits.eventUrl || candidate.eventUrl || '#',
-          lat: 0,
-          lng: 0,
-          status: 'Draft',
-          isPast: false,
-          isLive: false,
         },
         events,
       )
@@ -495,26 +478,9 @@ export function syncReadyDiscoveryIntoAdminCache(): {
       {
         id: draftId,
         title: edits.title || candidate.title,
-        description: '',
-        venue: edits.venue || candidate.venue,
-        address: '',
         city: asCity(edits.city || candidate.city),
         date: targetDate,
-        startTime: edits.startTime || candidate.startTime || '',
-        endTime: edits.endTime || candidate.endTime || '',
-        ageRange: edits.ageRange || candidate.ageRange || '',
-        ageMin: candidate.ageMin ?? 0,
-        ageMax: candidate.ageMax ?? 5,
-        types: asActivityTypes(edits.types?.length ? edits.types : candidate.types),
-        categoryTags: [],
-        cost: 'Free',
-        imageUrl: '',
         eventUrl: edits.eventUrl || candidate.eventUrl || '#',
-        lat: 0,
-        lng: 0,
-        status: 'Draft',
-        isPast: false,
-        isLive: false,
       },
       events,
     )
