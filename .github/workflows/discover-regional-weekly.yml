@@ -1,13 +1,13 @@
 # Weekly Bay Area regional / destination events for Admin review.
-# Fridays: re-ingest watchlist drive rows + regional-leads-inbox.json + report.
+# Fridays 8:00 AM Pacific: re-ingest watchlist drive rows + regional-leads-inbox.json + report.
 # 小紅書 search stays human/agent-assisted — paste official URLs into the inbox.
 
 name: Discover regional (weekly)
 
 on:
   schedule:
-    # Fridays 17:00 UTC ≈ 10:00 AM Pacific (DST may shift by 1h)
-    - cron: '0 17 * * 5'
+    # Fridays 15:00 UTC ≈ 8:00 AM Pacific (PDT); 7:00 AM during PST
+    - cron: '0 15 * * 5'
   workflow_dispatch:
 
 permissions:

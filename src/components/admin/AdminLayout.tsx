@@ -153,7 +153,8 @@ export function AdminLayout() {
                 </li>
                 <li>
                   <strong>Discovery</strong> — Approve library candidates, then{' '}
-                  <strong>Go live</strong>.
+                  <strong>Go live</strong>. Auto-refresh: Sundays 8:00 AM PT (queue); Fridays 8:00 AM
+                  PT (Worth a little drive). Mid-week = manual.
                 </li>
                 <li>
                   <strong>Events</strong> — Monitor <strong>Live</strong>,{' '}

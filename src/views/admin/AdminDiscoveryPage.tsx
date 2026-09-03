@@ -541,6 +541,22 @@ export function AdminDiscoveryPage() {
           <strong>Go live</strong> to publish them on the public site (~2–4 min). Events tab monitors
           what is already Live / Needs attention / Past.
         </p>
+        <aside className="admin-discovery-schedule-note" aria-label="Discovery automation schedule">
+          <h2 className="admin-discovery-schedule-note__title">Automation schedule</h2>
+          <ul className="admin-discovery-schedule-note__list">
+            <li>
+              <strong>Sundays @ 8:00 AM PT:</strong> Weekly queue refresh (new finds added; manual
+              approval required before going live).
+            </li>
+            <li>
+              <strong>Fridays @ 8:00 AM PT:</strong> Regional pass for “Worth a little drive”
+              highlights.
+            </li>
+          </ul>
+          <p className="admin-discovery-schedule-note__foot">
+            Mid-week updates are manual runs.
+          </p>
+        </aside>
         <label className="admin-discovery-sheet-toggle">
           <input
             type="checkbox"
@@ -600,7 +616,7 @@ export function AdminDiscoveryPage() {
                 timeZone: 'America/Los_Angeles',
               })
             : '—'}
-          . Refresh with <code>npm run discover:palo-alto</code>. Review status is saved in this
+          . Refresh with <code>npm run discover:bay-area</code>. Review status is saved in this
           browser.
         </p>
         {view === 'thisWeek' ? (

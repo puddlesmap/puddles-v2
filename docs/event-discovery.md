@@ -45,16 +45,16 @@ Writes dated CSV/JSON under `data/discovery/` **and** the Admin queue at `src/da
 
 ### Scheduled refresh (GitHub Actions)
 
-Workflow: [`.github/workflows/discover-bay-area.yml`](../.github/workflows/discover-bay-area.yml)
+| Trigger | When | Workflow |
+|---|---|---|
+| **Sunday cron** | 8:00 AM PT | [`.github/workflows/discover-bay-area.yml`](../.github/workflows/discover-bay-area.yml) — library queue refresh (`discover:bay-area`, ~90 days). New finds need **Approve → Go live** (no auto-publish). |
+| **Friday cron** | 8:00 AM PT | [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml) — regional / Worth a little drive pass |
+| **Manual** | Anytime | GitHub → Actions → run either workflow, or locally `npm run discover:bay-area` |
+| Mid-week | Manual only | Same commands as above |
 
-| Trigger | When |
-|---|---|
-| **Manual** | GitHub → Actions → “Discover bay area libraries” → Run workflow |
-| ~~Cron~~ | Not enabled yet — add `schedule` after manual runs look good in Admin |
+Each Sunday run:
 
-Each run:
-
-1. `npm run discover:bay-area -- --days=60` (default in CI)
+1. `npm run discover:bay-area -- --days=90` (default in CI)
 2. Merges into `discovery-candidates.json` and **preserves** `reviewStatus` / `convertedEventId` / `lastChecked` for matching library events
 3. **Keeps** non-library rows (Calendar Watchlist · …) that were already in the Admin queue
 4. `npm run build` — fail early if data breaks the app
@@ -68,7 +68,7 @@ Bay Area destination events (farms, festivals, trains) outside the four Browse c
 
 | Command | When |
 |---------|------|
-| `npm run discover:regional-weekly` | Local or Friday GitHub Action |
+| `npm run discover:regional-weekly` | Local or Friday GitHub Action (8:00 AM PT) |
 | Inbox | `data/discovery/regional-leads-inbox.json` |
 
 Workflow: [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml)

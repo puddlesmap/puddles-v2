@@ -26,6 +26,16 @@ Prefer Admin Refresh over Sheet CSV — Sheet fallback can overwrite local revie
 1. Edit if needed → **Approve** → Ready.
 2. **Go live** on Ready items → public catalog.
 
+**Automation schedule**
+
+| When | What |
+|------|------|
+| **Sundays @ 8:00 AM PT** | Weekly queue refresh — new finds added; Approve → Go live still required |
+| **Fridays @ 8:00 AM PT** | Regional pass for Worth a little drive highlights |
+| Mid-week | Manual runs only |
+
+See also [event-discovery.md](./event-discovery.md).
+
 ## Events
 
 Monitor and **edit live events** (expand a row → edit → **Save & publish**):

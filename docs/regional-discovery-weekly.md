@@ -6,10 +6,11 @@ Puddles **Regular Browse** stays Palo Alto · Los Altos · Mountain View · Sunn
 
 | When | What |
 |------|------|
-| **Sunday** | Library scrape (`discover-bay-area`) — four-city storytimes & classes |
-| **Friday** | Regional pass (`discover:regional-weekly`) — watchlist drive rows + inbox leads + report |
+| **Sundays @ 8:00 AM PT** | Library scrape (`discover-bay-area`) — four-city storytimes & classes (Approve → Go live required) |
+| **Fridays @ 8:00 AM PT** | Regional pass (`discover:regional-weekly`) — watchlist drive rows + inbox leads + report |
+| Mid-week | Manual runs only |
 
-GitHub Actions: [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml)
+GitHub Actions: [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml) · [`.github/workflows/discover-bay-area.yml`](../.github/workflows/discover-bay-area.yml)
 
 ## 小紅書 — why not fully automatic?
 
