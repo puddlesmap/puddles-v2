@@ -30,7 +30,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -63,7 +63,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -96,7 +96,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -126,7 +126,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -159,7 +159,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -192,7 +192,40 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "staging-sunnyvale-library-magical-bridge-storytime-series",
+    "title": "Storytime at Magical Bridge Playground",
+    "description": "Outdoor stories at Fair Oaks Park’s inclusive playground — sing, rhyme & explore.",
+    "tips": "Weekly · First Fridays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nUsually first Fridays (next after Sep 4: Oct 2, Nov 6) — check the kids calendar for extras.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Magical Bridge Playground · Fair Oaks Park",
+    "address": "540 N Fair Oaks Ave, Sunnyvale, CA 94085",
+    "city": "Sunnyvale",
+    "date": "2026-09-04",
+    "startTime": "11:00",
+    "endTime": "11:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3902,
+    "lng": -122.0085,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -225,7 +258,39 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-decorate-playhouse-2026-09-05",
+    "title": "Decorate a Playhouse",
+    "description": "Color, paint, decorate and play in big cardboard playhouses — a hands-on craft outing for little ones.",
+    "tips": "Ages 3+ with caregivers. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-05",
+    "startTime": "15:00",
+    "endTime": "16:00",
+    "ageRange": "2–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12385/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -258,7 +323,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -291,7 +356,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -323,7 +388,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -356,7 +421,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -390,7 +455,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -422,7 +487,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -454,7 +519,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -486,7 +551,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -518,7 +583,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -550,7 +615,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -582,7 +647,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -615,7 +680,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -649,7 +714,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -683,7 +748,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -715,7 +780,40 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-orchard-music-series-2026",
+    "title": "Sunnyvale Orchard Music Series",
+    "description": "Free Thursday evening concerts at the Community Center Amphitheater — food trucks and kids’ activities on the lawn.",
+    "tips": "Bring a blanket or lawn chair. Kids’ activities & food trucks each night · Sep 17 The Peelers · Sep 24 Aja Vu · Oct 1 Pop Fiction · Oct 8 Pop Rockz.",
+    "venue": "Sunnyvale Community Center Amphitheater",
+    "address": "550 E Remington Dr, Sunnyvale, CA 94087",
+    "city": "Sunnyvale",
+    "date": "2026-09-17",
+    "startTime": "18:00",
+    "endTime": "20:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement",
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
+    "lat": 37.3782,
+    "lng": -122.0265,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -742,13 +840,77 @@
       "Arts & Crafts"
     ],
     "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12401/74",
     "lat": 37.3688,
     "lng": -122.0363,
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-japanese-storytime-2026-09-25",
+    "title": "Japanese Storytime",
+    "description": "Japanese-language stories with Poponta Children’s Cultural Society — songs and picture books for little ones and their grown-ups.",
+    "tips": "Ages 0–5 with caregivers. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-25",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12413/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-early-learning-playtime-2026-09-25",
+    "title": "Early Learning Playtime",
+    "description": "Drop-in play for the littlest patrons — toys and early-learning fun with other families.",
+    "tips": "Ages 0–5 with caregivers. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-25",
+    "startTime": "15:00",
+    "endTime": "17:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Social & Play"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12415/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -784,40 +946,334 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
-      "Stories",
-      "Series · Sunnyvale library seed"
+      "Sunnyvale",
+      "Library special"
     ],
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
     "room": "",
-    "id": "staging-sunnyvale-library-magical-bridge-storytime-series",
-    "title": "Storytime at Magical Bridge Playground",
-    "description": "Outdoor stories at Fair Oaks Park’s inclusive playground — sing, rhyme & explore.",
-    "tips": "Weekly · First Fridays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nExtra Magical Bridge storytimes sometimes land midweek — check the kids calendar.\nCheck the library kids calendar for the next date and any themed replacements.",
-    "venue": "Magical Bridge Playground · Fair Oaks Park",
-    "address": "540 N Fair Oaks Ave, Sunnyvale, CA 94085",
+    "id": "watchlist-sunnyvale-library-jamaroo-music-2026-09-28",
+    "title": "Music and Movement with JAMaROO",
+    "description": "Sing and dance at a bilingual Mandarin/Cantonese and English music performance from JAMaROO.",
+    "tips": "Ages 1–5 with caregivers. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
     "city": "Sunnyvale",
-    "date": "2026-10-02",
+    "date": "2026-09-28",
     "startTime": "11:00",
-    "endTime": "11:30",
+    "endTime": "12:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 1,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12963/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Festivals & Community",
+      "Hello Fall featured seed"
+    ],
+    "imageUrl": "https://images.squarespace-cdn.com/content/v1/537e88a6e4b078fc56661bfc/1754420047400-H0U24PC5N4GT5MH51KSR/moon-festival-02-1.png",
+    "room": "",
+    "id": "watchlist-sunnyvale-mid-autumn-festival-2026-10-03",
+    "title": "Sunnyvale Mid-Autumn Festival",
+    "description": "Dance & music stages plus cultural activities downtown — a Mid-Autumn weekend outing little ones can watch, wander, and explore.",
+    "tips": "Free admission; food and crafts are pay-as-you-go. Runs Oct 3–4 — this row is the Saturday kickoff.",
+    "venue": "Cityline Sunnyvale",
+    "address": "345 W McKinley Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-03",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community",
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.sunnyvaledowntown.org/",
+    "lat": 37.3789,
+    "lng": -122.0302,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Festivals & Community",
+      "Hello Fall featured seed"
+    ],
+    "imageUrl": "https://static.wixstatic.com/media/7127d0_8beadeed7bae476e8fe63f5f984f6f5b~mv2.jpg/v1/fill/w_1600,h_900,al_c/7127d0_8beadeed7bae476e8fe63f5f984f6f5b~mv2.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-diwali-sacas-2026-10-03",
+    "title": "Sunnyvale Diwali Festival",
+    "description": "Kids Zone with diya painting, face painting, bookmark workshop & balloons — a free Diwali mela little ones can join in.",
+    "tips": "Free entry; food and henna are pay-as-you-go. Same weekend as Mid-Autumn Festival downtown — plan for crowds.",
+    "venue": "Downtown Sunnyvale",
+    "address": "230 S Murphy Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-03",
+    "startTime": "11:30",
+    "endTime": "19:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community",
+      "Arts & Crafts"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.sacas.org/",
+    "lat": 37.3789,
+    "lng": -122.0302,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-hispanic-heritage-celebration-2026-10-04",
+    "title": "Hispanic Heritage Month Celebration",
+    "description": "Celebrate Hispanic Heritage at the library with art, music and stories — a drop-in outing little ones can join.",
+    "tips": "All ages · no registration. Program Room and Plaza at the Main Library.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-04",
+    "startTime": "14:00",
+    "endTime": "17:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community",
+      "Arts & Crafts"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12987/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-sensory-storytime-2026-10-09",
+    "title": "Sensory Storytime",
+    "description": "Interactive literacy with movement, music, sensory materials & a calmer group size — great for little ones who need a gentler storytime.",
+    "tips": "Registration required · limited to 12 participants and caregivers. Ages 3+ · caregivers stay with children.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-09",
+    "startTime": "11:00",
+    "endTime": "11:45",
+    "ageRange": "2–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12626/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-individuo-hispanic-heritage-2026-10-10",
+    "title": "Celebrate Hispanic Heritage Month with IndiviDúo!",
+    "description": "Latin music from IndiviDúo — songs little ones can listen, move, and enjoy with their grown-ups.",
+    "tips": "All ages · no registration; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-10",
+    "startTime": "15:00",
+    "endTime": "16:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12739/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-autumn-japanese-storytime-2026-10-11",
+    "title": "Autumn Japanese Storytime",
+    "description": "Autumn-themed Japanese picture books, fingerplays, nursery rhymes & traditional songs — plus a craft.",
+    "tips": "Ages 0–5 with caregivers. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-11",
+    "startTime": "15:00",
+    "endTime": "16:00",
     "ageRange": "0–2, 2–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
       "Stories",
-      "Outdoor"
+      "Arts & Crafts"
     ],
     "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3902,
-    "lng": -122.0085,
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12644/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special",
+      "Parent & Me"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-asl-for-babies-2026-10-12",
+    "title": "ASL for Babies",
+    "description": "Early signs with Happy Baby Signs — grown-ups and babies learn simple ASL together.",
+    "tips": "Expectant parents and caregivers of babies 0–24 months. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-12",
+    "startTime": "11:00",
+    "endTime": "11:45",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12648/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Seasonal"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-halloween-costume-swap-2026-10-14",
+    "title": "Halloween Costume Swap",
+    "description": "Pick up a free children’s costume for spooky season — while supplies last.",
+    "tips": "Children of all ages · one costume per child. No registration. Donations accepted earlier at the library and community centers.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-14",
+    "startTime": "15:30",
+    "endTime": "17:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12569/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-bilingual-spanish-storytime-craft-2026-10-16",
+    "title": "Bilingual (Spanish/English) Storytime & Craft",
+    "description": "Stories and songs in Spanish and English, then a simple craft for little hands.",
+    "tips": "Ages 0–5 with caregivers. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-16",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Arts & Crafts"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12662/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
   },
   {
     "categoryTags": [
@@ -850,6 +1306,167 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-01"
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-healthy-smile-storytime-2026-10-19",
+    "title": "Healthy Smile Storytime",
+    "description": "Storytime with a dentist — songs and books plus simple oral-hygiene tips for little smiles.",
+    "tips": "Ages 2+ with caregivers. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-19",
+    "startTime": "11:00",
+    "endTime": "11:45",
+    "ageRange": "2–5",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12706/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-family-movie-elio-2026-10-25",
+    "title": "Family Movie: Elio",
+    "description": "Bring snacks and watch Elio (PG) together in the Children’s Room — a cozy family movie outing.",
+    "tips": "Ages 3+ with caregivers. Bring your own snacks. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-25",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "ageRange": "2–5, 5+",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Social & Play"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12714/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Seasonal"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-spooky-storywalk-2026-10-28",
+    "title": "Spooky StoryWalk®",
+    "description": "Stroll Columbia Park reading a Halloween story page by page — costumes welcome, with a craft at the end while supplies last.",
+    "tips": "Children of all ages with caregivers. Bring a treat bag if you like. Craft supplies limited.",
+    "venue": "Columbia Park",
+    "address": "739 Morse Ave, Sunnyvale, CA 94085",
+    "city": "Sunnyvale",
+    "date": "2026-10-28",
+    "startTime": "16:00",
+    "endTime": "18:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12565/74",
+    "lat": 37.3954,
+    "lng": -122.0198,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-japanese-storytime-2026-10-30",
+    "title": "Japanese Storytime",
+    "description": "Japanese-language stories with Poponta Children’s Cultural Society — songs and picture books for little ones and their grown-ups.",
+    "tips": "Ages 0–5 with caregivers. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-30",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12720/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-early-learning-playtime-2026-10-30",
+    "title": "Early Learning Playtime",
+    "description": "Drop-in play for the littlest patrons — toys and early-learning fun with other families.",
+    "tips": "Ages 0–5 with caregivers. No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-30",
+    "startTime": "15:00",
+    "endTime": "17:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Social & Play"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12722/74",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-03"
   }
 ]

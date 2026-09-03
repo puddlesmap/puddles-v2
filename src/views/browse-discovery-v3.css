@@ -111,12 +111,24 @@
   margin-top: var(--discovery-copy-support-gap);
   min-height: var(--discovery-v3-pillars-height);
   max-height: var(--discovery-v3-pillars-height);
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  pointer-events: auto;
   scrollbar-width: none;
+}
+
+.browse-content .discovery-v3-event-card .lem-disc-meta-pillars.is-scrollable:not(.is-scrolled-end),
+.browse-map-results .discovery-v3-event-card .lem-disc-meta-pillars.is-scrollable:not(.is-scrolled-end),
+.browse-map-preview-sheet .discovery-v3-event-card .lem-disc-meta-pillars.is-scrollable:not(.is-scrolled-end),
+.discovery-page .discovery-v3-event-card .lem-disc-meta-pillars.is-scrollable:not(.is-scrolled-end),
+.seasonal-discovery-module__card .discovery-v3-event-card .lem-disc-meta-pillars.is-scrollable:not(.is-scrolled-end) {
+  mask-image: linear-gradient(to right, #000 78%, transparent);
 }
 
 .browse-content .discovery-v3-event-card .lem-disc-meta-pillars::-webkit-scrollbar,
@@ -138,8 +150,7 @@
 .discovery-page .discovery-v3-event-card .lem-disc-meta-pill,
 .seasonal-discovery-module__card .discovery-v3-event-card .lem-disc-meta-pill {
   flex: 0 0 auto;
-  min-width: 0;
-  max-width: none;
+  min-width: max-content;
   white-space: nowrap;
   overflow: visible;
   text-overflow: clip;

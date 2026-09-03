@@ -35,8 +35,8 @@ function enrich(event) {
   const { isPast, isLive } = resolvePublishingFields({
     statusRaw: status,
     approvedRaw: status === 'Published',
-    isPastRaw: event.isPast,
-    isLiveRaw: false,
+    isPastRaw: null,
+    isLiveRaw: null,
     date: event.date,
     endTime: event.endTime || event.startTime,
   })

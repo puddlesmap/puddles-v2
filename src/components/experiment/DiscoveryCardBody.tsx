@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import {
   formatDiscoveryTypePillarLabel,
   type DiscoveryV3CardData,
@@ -60,9 +61,41 @@ function MetaStyledPillars({
 }: MetaRowProps) {
   const priceTone = cost === 'Free' ? 'free' : cost === 'Low-cost' ? 'low' : 'paid'
   const typeLabel = compact ? formatDiscoveryTypePillarLabel(type) : type
+  const scrollerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = scrollerRef.current
+    if (!el) return
+
+    const updateOverflow = () => {
+      const canScroll = el.scrollWidth > el.clientWidth + 1
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2
+      el.classList.toggle('is-scrollable', canScroll)
+      el.classList.toggle('is-scrolled-end', !canScroll || atEnd)
+    }
+
+    const onWheel = (event: WheelEvent) => {
+      if (el.scrollWidth <= el.clientWidth) return
+      if (Math.abs(event.deltaY) < Math.abs(event.deltaX)) return
+      event.preventDefault()
+      event.stopPropagation()
+      el.scrollLeft += event.deltaY
+    }
+
+    updateOverflow()
+    el.addEventListener('wheel', onWheel, { passive: false })
+    el.addEventListener('scroll', updateOverflow, { passive: true })
+    window.addEventListener('resize', updateOverflow)
+    return () => {
+      el.removeEventListener('wheel', onWheel)
+      el.removeEventListener('scroll', updateOverflow)
+      window.removeEventListener('resize', updateOverflow)
+    }
+  }, [])
 
   return (
     <div
+      ref={scrollerRef}
       className={[
         'lem-disc-meta-pillars',
         compact ? 'lem-disc-meta-pillars--compact' : '',

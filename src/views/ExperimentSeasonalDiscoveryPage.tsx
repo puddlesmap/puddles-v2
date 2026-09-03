@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 import { HomeExperimentPage } from './HomeExperimentPage'
 import { SeasonalDiscoveryModule } from '../components/seasonal/SeasonalDiscoveryModule'
 import { SeasonalBrowseCategoriesPreview } from '../components/seasonal/SeasonalBrowseCategoriesPreview'
+import { HomeLaunchAnnouncement } from '../components/home/HomeLaunchAnnouncement'
 import {
   PUDDLES_WORDMARK_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC_2X,
@@ -71,31 +72,17 @@ export function ExperimentSeasonalDiscoveryPage() {
     </>
   )
 
-  const leading = (
-    <p className="seasonal-discovery-experiment-note">
-      Seasonal discovery experiment — Hello, Fall is live; Halloween is a separate October
-      collection.{' '}
-      <Link to="/experiment/seasonal-bg-dial" className="seasonal-discovery-experiment-note__link">
-        Open background color dial
-      </Link>
-      {' · '}
-      <Link to="/" className="seasonal-discovery-experiment-note__link">
-        View production home
-      </Link>
-    </p>
-  )
-
   return (
     <HomeExperimentPage
-      pageClassName="home-experiment-page--refined home-experiment-page--seasonal-discovery"
-      shellClassName="home-experiment-shell--refined"
+      pageClassName="home-experiment-page--refined home-experiment-page--seasonal-discovery home-experiment-page--planetbox-band"
+      shellClassName="home-experiment-shell--refined home-experiment-shell--seasonal-puddles-aligned"
       heroVariant="refined"
       layout="refined"
       logoOnly={false}
       logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
       logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
       showBrandName={false}
-      leading={leading}
+      headerBelow={<HomeLaunchAnnouncement />}
       topBand={topBand}
       afterResults={afterResults}
     />

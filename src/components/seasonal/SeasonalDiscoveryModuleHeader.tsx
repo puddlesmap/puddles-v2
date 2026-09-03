@@ -4,14 +4,36 @@ import type { SeasonalCollection } from '../../data/seasonalDiscovery'
 interface SeasonalDiscoveryModuleHeaderProps {
   collection: SeasonalCollection
   headingId: string
-  /** PlanetBox-style "View all" in the section header row. */
+  /** PlanetBox-style “View all” in the section header row. */
   headerCta?: { href: string; label: string }
   /**
-   * Home band — mobile: title + See all row; desktop: See all aligned with SEPTEMBER.
+   * Home band — SEPTEMBER + See all on one full-width row; title beside art, subtitle below.
    */
   homeBand?: boolean
   /** Home band eyebrow line — default matches collection subtitle (Hello, Fall). */
   homeBandEyebrow?: 'subtitle' | 'timing'
+}
+
+/** Break after the em dash so the second clause starts on its own line. */
+export function SeasonalEmDashTagline({
+  text,
+  className,
+}: {
+  text: string
+  className?: string
+}) {
+  const [lead, rest] = text.split(/\s+[—–-]\s+/)
+  if (!rest) {
+    return <p className={className}>{text}</p>
+  }
+
+  return (
+    <p className={className}>
+      {lead} —
+      <br />
+      {rest}
+    </p>
+  )
 }
 
 export function SeasonalDiscoveryModuleHeader({
@@ -25,51 +47,35 @@ export function SeasonalDiscoveryModuleHeader({
     const eyebrowText =
       homeBandEyebrow === 'timing' ? collection.timingLabel : collection.subtitle
 
-    const cta = headerCta ? (
-      <Link to={headerCta.href} className="seasonal-discovery-module__header-cta">
-        {headerCta.label}
-        <span aria-hidden> →</span>
-      </Link>
-    ) : null
-
     return (
       <header className="seasonal-discovery-module__header seasonal-discovery-module__header--home-band">
-        <div className="seasonal-discovery-module__header-content">
-          <div className="seasonal-discovery-module__header-copy-group">
-            <div className="seasonal-discovery-module__header-text">
-
-              {/* Desktop: SEPTEMBER ……………… See all → */}
-              <div className="seasonal-discovery-module__eyebrow-row">
-                <p className="seasonal-discovery-module__eyebrow">{eyebrowText}</p>
-                <span className="seasonal-discovery-module__header-cta-slot seasonal-discovery-module__header-cta-slot--desktop">
-                  {cta}
-                </span>
-              </div>
-
-              {/* Title */}
-              <div className="seasonal-discovery-module__title-row">
-                <h2 id={headingId} className="seasonal-discovery-module__title">
-                  {collection.title}
-                </h2>
-                {/* Mobile: See all sits beside title */}
-                <span className="seasonal-discovery-module__header-cta-slot seasonal-discovery-module__header-cta-slot--mobile">
-                  {cta}
-                </span>
-              </div>
-
-              <p className="seasonal-discovery-module__description">{collection.moduleTagline}</p>
-            </div>
-
-            <img
-              src={collection.illustrationSrc}
-              alt=""
-              className="seasonal-discovery-module__illustration--header-copy"
-              width={88}
-              height={88}
-              decoding="async"
-            />
-          </div>
+        <div className="seasonal-discovery-module__eyebrow-row">
+          <p className="seasonal-discovery-module__eyebrow">{eyebrowText}</p>
+          {headerCta ? (
+            <Link to={headerCta.href} className="seasonal-discovery-module__header-cta">
+              {headerCta.label}
+              <span aria-hidden> →</span>
+            </Link>
+          ) : null}
         </div>
+
+        <div className="seasonal-discovery-module__title-with-art">
+          <h2 id={headingId} className="seasonal-discovery-module__title">
+            {collection.title}
+          </h2>
+          <img
+            src={collection.illustrationSrc}
+            alt=""
+            className="seasonal-discovery-module__illustration--header-copy"
+            width={52}
+            height={52}
+            decoding="async"
+          />
+        </div>
+        <SeasonalEmDashTagline
+          text={collection.moduleTagline}
+          className="seasonal-discovery-module__description"
+        />
       </header>
     )
   }

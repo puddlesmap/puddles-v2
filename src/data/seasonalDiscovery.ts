@@ -271,11 +271,13 @@ export const HELLO_FALL_CURATION = {
 export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
   {
     slug: 'hello-fall',
-    title: 'Fall with little ones',
+    title: 'Hello, Fall',
     subtitle: 'Hello, Fall',
     timingLabel: 'September',
-    description: 'Farms, outdoor days & seasonal celebrations.',
-    moduleTagline: 'Farms, outdoor days & seasonal celebrations.',
+    description:
+      'Farms, outdoor days & seasonal celebrations — close to home or worth a little drive.',
+    moduleTagline:
+      'Farms, outdoor days & seasonal celebrations — close to home or worth a little drive.',
     ctaLabel: 'See all',
     decor: ['🍎', '🍂', '🌾'],
     illustrationSrc: '/seasonal/hello-fall.png',

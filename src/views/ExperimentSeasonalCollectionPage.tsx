@@ -5,6 +5,7 @@ import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
 import { PageContainer } from '../components/layout/PageContainer'
 import { BrowseEventCard } from '../components/BrowseEventCard'
+import { SeasonalEmDashTagline } from '../components/seasonal/SeasonalDiscoveryModuleHeader'
 import type { Event } from '../types/event'
 import {
   getSeasonalCollection,
@@ -239,26 +240,27 @@ export function ExperimentSeasonalCollectionPage() {
           </Link>
 
           <header className="seasonal-collection-hero">
-            <div className="seasonal-collection-hero__split">
-              <div className="seasonal-collection-hero__copy">
-                <p className="seasonal-collection-hero__eyebrow">{collection.timingLabel}</p>
-                <h1 className="seasonal-collection-hero__title">{collection.subtitle}</h1>
-                {supportingLine ? (
-                  <p className="seasonal-collection-hero__subtitle">{supportingLine}</p>
-                ) : null}
-                {showDescription ? (
-                  <p className="seasonal-collection-hero__description">{collection.description}</p>
-                ) : null}
-              </div>
+            <p className="seasonal-collection-hero__eyebrow">{collection.timingLabel}</p>
+            <div className="seasonal-collection-hero__title-row">
+              <h1 className="seasonal-collection-hero__title">{collection.subtitle}</h1>
               <img
                 src={collection.illustrationSrc}
                 alt=""
                 className="seasonal-collection-hero__illustration"
-                width={112}
-                height={112}
+                width={52}
+                height={52}
                 decoding="async"
               />
             </div>
+            {supportingLine ? (
+              <p className="seasonal-collection-hero__subtitle">{supportingLine}</p>
+            ) : null}
+            {showDescription ? (
+              <SeasonalEmDashTagline
+                text={collection.description}
+                className="seasonal-collection-hero__description"
+              />
+            ) : null}
           </header>
 
           {hasGeographicSections ? (
