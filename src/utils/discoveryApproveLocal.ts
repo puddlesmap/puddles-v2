@@ -6,7 +6,11 @@ import type { ActivityType, City, Event } from '../types/event'
 import { ACTIVITY_TYPES } from '../types/event'
 import { resolveEventCost } from './eventCost'
 import { enrichPublishingFields } from './publishing'
-import { findMatchingEventIdsForCandidate } from './discoveryMatchEvents'
+import {
+  findMatchingEventIdsForCandidate,
+  findMatchingEventsForCandidate,
+  normalizeDiscoveryEventUrl,
+} from './discoveryMatchEvents'
 import { inferAgeRangeFromText } from './discoveryAgeHints'
 import {
   findOutsidePuddlesAgeScope,
@@ -15,6 +19,7 @@ import {
   applyDiscoveryReviewOverrides,
   editableFieldsFromCandidate,
   loadDiscoveryReviewStore,
+  saveDiscoveryReviewRecord,
 } from './discoveryReview'
 import {
   loadCachedAdminRefresh,
@@ -106,6 +111,159 @@ function persistAdminEvents(events: Event[]) {
     events,
     refreshedAt: new Date().toISOString(),
   })
+}
+
+const TITLE_STOP_WORDS = new Set([
+  'the',
+  'and',
+  'with',
+  'for',
+  'a',
+  'an',
+  'at',
+  'of',
+  'to',
+  'in',
+  'on',
+  'family',
+  'english',
+  'main',
+])
+
+function titleTokens(title: string): Set<string> {
+  return new Set(
+    String(title || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9\u4e00-\u9fff]+/g, ' ')
+      .split(/\s+/)
+      .map((part) => part.trim())
+      .filter((part) => part.length > 2 && !TITLE_STOP_WORDS.has(part)),
+  )
+}
+
+function titlesLikelySameOuting(a: string, b: string): boolean {
+  const left = titleTokens(a)
+  const right = titleTokens(b)
+  if (left.size === 0 || right.size === 0) return false
+  let overlap = 0
+  for (const token of left) {
+    if (right.has(token)) overlap += 1
+  }
+  if (overlap >= 2) return true
+  if (overlap >= 1 && (left.size <= 2 || right.size <= 2)) return true
+  return false
+}
+
+/** Published catalog row that duplicates a Draft (URL+date, else title+date+city). */
+export function findLiveDuplicateForDraft(
+  draft: Event,
+  pool: Event[] = currentAdminEvents(),
+): Event | null {
+  const published = pool.filter((event) => event.status === 'Published' && event.id !== draft.id)
+  const draftUrl = normalizeDiscoveryEventUrl(draft.eventUrl)
+  if (draftUrl && draftUrl !== '#') {
+    const byUrlDate = published.find(
+      (event) =>
+        normalizeDiscoveryEventUrl(event.eventUrl) === draftUrl && event.date === draft.date,
+    )
+    if (byUrlDate) return byUrlDate
+  }
+
+  return (
+    published.find(
+      (event) =>
+        event.date === draft.date &&
+        event.city === draft.city &&
+        titlesLikelySameOuting(event.title, draft.title),
+    ) || null
+  )
+}
+
+/**
+ * Drop Discovery Drafts that already exist as Published/Live, and promote matching
+ * Discovery Ready rows to Live so sync does not recreate the Drafts.
+ */
+export function pruneDiscoveryDraftsAlreadyLive(): {
+  events: Event[]
+  draftsRemoved: number
+  readyPromoted: number
+} {
+  ensureAdminEventsCacheSeeded()
+  const before = currentAdminEvents()
+  const removeIds = new Set<string>()
+  const liveByDraftId = new Map<string, Event>()
+
+  for (const event of before) {
+    if (event.status !== 'Draft') continue
+    const live = findLiveDuplicateForDraft(event, before)
+    if (!live) continue
+    removeIds.add(event.id)
+    liveByDraftId.set(event.id, live)
+  }
+
+  let events = before
+  if (removeIds.size > 0) {
+    events = before.filter((event) => !removeIds.has(event.id))
+    persistAdminEvents(events)
+  }
+
+  const store = loadDiscoveryReviewStore()
+  const candidates = applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, store)
+  let readyPromoted = 0
+
+  for (const candidate of candidates) {
+    if (candidate.reviewStatus !== 'approved') continue
+    const edits = editableFieldsFromCandidate(candidate)
+    const matched =
+      findMatchingEventsForCandidate({ ...candidate, ...edits }).find(
+        (event) => event.status === 'Published',
+      ) ||
+      findLiveDuplicateForDraft(
+        {
+          id: localDraftId(candidate, edits),
+          title: edits.title || candidate.title,
+          description: '',
+          venue: edits.venue || candidate.venue,
+          address: '',
+          city: asCity(edits.city || candidate.city),
+          date: edits.date || candidate.date,
+          startTime: edits.startTime || candidate.startTime || '',
+          endTime: edits.endTime || candidate.endTime || '',
+          ageRange: edits.ageRange || candidate.ageRange || '',
+          ageMin: candidate.ageMin ?? 0,
+          ageMax: candidate.ageMax ?? 5,
+          types: asActivityTypes(edits.types?.length ? edits.types : candidate.types),
+          categoryTags: [],
+          cost: 'Free',
+          imageUrl: '',
+          eventUrl: edits.eventUrl || candidate.eventUrl || '#',
+          lat: 0,
+          lng: 0,
+          status: 'Draft',
+          isPast: false,
+          isLive: false,
+        },
+        events,
+      )
+
+    if (!matched || matched.status !== 'Published') continue
+
+    const existing = store[candidate.id]
+    saveDiscoveryReviewRecord(candidate.id, {
+      reviewStatus: 'live',
+      edits: existing?.edits,
+      convertedEventId: matched.id,
+      approvedOn: existing?.approvedOn || candidate.lastChecked || edits.lastChecked,
+      updatedAt: new Date().toISOString(),
+    })
+    readyPromoted += 1
+  }
+
+  return {
+    events: currentAdminEvents(),
+    draftsRemoved: removeIds.size,
+    readyPromoted,
+  }
 }
 
 /** Stamp verifiedDate on matching Events in the Admin browser cache. */
@@ -271,8 +429,12 @@ export function syncReadyDiscoveryIntoAdminCache(): {
   events: Event[]
   draftsAdded: number
   verifiedUpdated: number
+  draftsRemoved?: number
+  readyPromoted?: number
 } {
   ensureAdminEventsCacheSeeded()
+  const pruned = pruneDiscoveryDraftsAlreadyLive()
+
   const store = loadDiscoveryReviewStore()
   const candidates = applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, store)
   const ready = candidates.filter((candidate) => candidate.reviewStatus === 'approved')
@@ -285,9 +447,28 @@ export function syncReadyDiscoveryIntoAdminCache(): {
     const verifiedDate = (candidate.lastChecked || edits.lastChecked || '').trim()
     if (!verifiedDate) continue
 
-    if (candidate.alreadyOnPuddles) {
-      const matchedIds = findMatchingEventIdsForCandidate({ ...candidate, ...edits })
+    const publishedMatch =
+      findMatchingEventsForCandidate({ ...candidate, ...edits }).find(
+        (event) => event.status === 'Published',
+      ) || null
+
+    if (candidate.alreadyOnPuddles || publishedMatch) {
+      const matchedIds = publishedMatch
+        ? [publishedMatch.id]
+        : findMatchingEventIdsForCandidate({ ...candidate, ...edits })
       if (matchedIds.length === 0) continue
+
+      if (!candidate.alreadyOnPuddles && publishedMatch) {
+        const existing = store[candidate.id]
+        saveDiscoveryReviewRecord(candidate.id, {
+          reviewStatus: 'live',
+          edits: existing?.edits,
+          convertedEventId: publishedMatch.id,
+          approvedOn: existing?.approvedOn || verifiedDate,
+          updatedAt: new Date().toISOString(),
+        })
+      }
+
       const events = currentAdminEvents()
       const needsUpdate = matchedIds.some((id) => {
         const row = events.find((event) => event.id === id)
@@ -310,6 +491,45 @@ export function syncReadyDiscoveryIntoAdminCache(): {
       .replace(/\/$/, '')
       .toLowerCase()
     const targetDate = edits.date || candidate.date
+    const softLive = findLiveDuplicateForDraft(
+      {
+        id: draftId,
+        title: edits.title || candidate.title,
+        description: '',
+        venue: edits.venue || candidate.venue,
+        address: '',
+        city: asCity(edits.city || candidate.city),
+        date: targetDate,
+        startTime: edits.startTime || candidate.startTime || '',
+        endTime: edits.endTime || candidate.endTime || '',
+        ageRange: edits.ageRange || candidate.ageRange || '',
+        ageMin: candidate.ageMin ?? 0,
+        ageMax: candidate.ageMax ?? 5,
+        types: asActivityTypes(edits.types?.length ? edits.types : candidate.types),
+        categoryTags: [],
+        cost: 'Free',
+        imageUrl: '',
+        eventUrl: edits.eventUrl || candidate.eventUrl || '#',
+        lat: 0,
+        lng: 0,
+        status: 'Draft',
+        isPast: false,
+        isLive: false,
+      },
+      events,
+    )
+    if (softLive) {
+      const existing = store[candidate.id]
+      saveDiscoveryReviewRecord(candidate.id, {
+        reviewStatus: 'live',
+        edits: existing?.edits,
+        convertedEventId: softLive.id,
+        approvedOn: existing?.approvedOn || verifiedDate,
+        updatedAt: new Date().toISOString(),
+      })
+      continue
+    }
+
     const alreadyPresent =
       events.some((event) => event.id === draftId) ||
       (Boolean(candidate.convertedEventId) &&
@@ -343,6 +563,8 @@ export function syncReadyDiscoveryIntoAdminCache(): {
     events: currentAdminEvents(),
     draftsAdded,
     verifiedUpdated,
+    draftsRemoved: pruned.draftsRemoved,
+    readyPromoted: pruned.readyPromoted,
   }
 }
 

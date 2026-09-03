@@ -100,9 +100,24 @@ export function AdminEventsPage() {
   useEffect(() => {
     function reloadFromDiscoveryReady() {
       const synced = syncReadyDiscoveryIntoAdminCache()
-      if (synced.draftsAdded === 0 && synced.verifiedUpdated === 0) return
+      if (
+        synced.draftsAdded === 0 &&
+        synced.verifiedUpdated === 0 &&
+        (synced.draftsRemoved ?? 0) === 0 &&
+        (synced.readyPromoted ?? 0) === 0
+      ) {
+        return
+      }
       setEvents(synced.events.map((event) => enrichPublishingFields(event)))
       setAdminRefreshedAt(new Date().toISOString())
+      if ((synced.draftsRemoved ?? 0) > 0) {
+        setActionMessage(
+          `Cleared ${synced.draftsRemoved} Draft${synced.draftsRemoved === 1 ? '' : 's'} already Live` +
+            ((synced.readyPromoted ?? 0) > 0
+              ? ` · marked ${synced.readyPromoted} Discovery Ready as Live`
+              : ''),
+        )
+      }
     }
 
     function onVisible() {
