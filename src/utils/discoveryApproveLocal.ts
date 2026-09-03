@@ -326,8 +326,17 @@ export function syncReadyDiscoveryIntoAdminCache(): {
 
     if (alreadyPresent) continue
 
-    appendDraftInAdminCache(candidate, edits, verifiedDate)
-    draftsAdded += 1
+    // Ready Regional / Worth-a-drive rows must not crash Admin when syncing drafts.
+    // Approve / Go live still hard-block via assertDiscoveryCityInScope.
+    const city = String(edits.city ?? candidate.city ?? '').trim()
+    if (!(LAUNCH_CITIES as readonly string[]).includes(city)) continue
+
+    try {
+      appendDraftInAdminCache(candidate, edits, verifiedDate)
+      draftsAdded += 1
+    } catch {
+      // Age/city asserts or corrupt rows — skip; do not take down Admin Events.
+    }
   }
 
   return {
