@@ -15,7 +15,14 @@ export function parseCost(raw: string): CostLabel {
     }
   }
 
-  if (/\bpaid\b/.test(value)) return 'Paid'
+  if (/\bpaid\b/.test(value)) {
+    // Keep authored labels like "Paid · First class free" (do not collapse to Paid).
+    const preserved = original.replace(/\s+/g, ' ').trim()
+    if (/first class free/i.test(preserved) || /·/.test(preserved)) {
+      return preserved as CostLabel
+    }
+    return 'Paid'
+  }
   if (/\blow(?:-|\s*)cost\b/.test(value) || value.includes('low-cost') || value === 'low') {
     return 'Low-cost'
   }

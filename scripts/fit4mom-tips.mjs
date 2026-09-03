@@ -4,6 +4,12 @@
 
 const SCHEDULE_LINE = 'Check the official schedule for current class times.'
 
+/** Card cost — membership/package rates vary; first class is free per FIT4MOM. */
+export const FIT4MOM_COST = 'Paid · First class free'
+
+const FIT4MOM_PRICING_TIP =
+  'Pricing varies by class or package. Check registration for the current rate.'
+
 const CUESTA_RAIN = "Rainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd."
 const MITCHELL_RAIN =
   "Rainy day: Meet under the overhang by Mitchell Park Library / Ada's Cafe."
@@ -17,6 +23,7 @@ function weeklyGoodToKnow({ dayLabel, venue, rainyDayLine, extraLines = [] }) {
     STROLLER_CLASS_WHO,
     `Weekly · ${dayLabel} at ${venue}.`,
     SCHEDULE_LINE,
+    FIT4MOM_PRICING_TIP,
     rainyDayLine,
     ...extraLines,
   ]
@@ -28,6 +35,7 @@ function lasPalmasGoodToKnow({ dayLabel, extraLines = [] }) {
   return [
     `Weekly · ${dayLabel} at Las Palmas Park.`,
     'Pre-enroll for schedule updates and rainy-day location changes.',
+    FIT4MOM_PRICING_TIP,
     ...extraLines,
   ]
     .filter(Boolean)
@@ -53,6 +61,7 @@ export const FIT4MOM_SERIES_COPY = {
       STROLLER_CLASS_WHO,
       'Weekly · Tuesdays at Las Palmas Park.',
       SCHEDULE_LINE,
+      FIT4MOM_PRICING_TIP,
       'Pre-enroll for schedule updates and rainy-day location changes.',
     ].join('\n'),
   },
@@ -80,6 +89,7 @@ export const FIT4MOM_SERIES_COPY = {
     tips: [
       'Weekly · Wednesdays at Cuesta Park.',
       SCHEDULE_LINE,
+      FIT4MOM_PRICING_TIP,
       CUESTA_RAIN,
     ].join('\n'),
   },
