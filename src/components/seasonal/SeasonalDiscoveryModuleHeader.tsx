@@ -4,11 +4,10 @@ import type { SeasonalCollection } from '../../data/seasonalDiscovery'
 interface SeasonalDiscoveryModuleHeaderProps {
   collection: SeasonalCollection
   headingId: string
-  /** PlanetBox-style “View all” in the section header row. */
+  /** PlanetBox-style "View all" in the section header row. */
   headerCta?: { href: string; label: string }
   /**
-   * Home band — mobile: title + See all row; desktop: See all with SEPTEMBER,
-   * larger centered illustration beside copy.
+   * Home band — mobile: title + See all row; desktop: See all aligned with SEPTEMBER.
    */
   homeBand?: boolean
   /** Home band eyebrow line — default matches collection subtitle (Hello, Fall). */
@@ -38,12 +37,21 @@ export function SeasonalDiscoveryModuleHeader({
         <div className="seasonal-discovery-module__header-content">
           <div className="seasonal-discovery-module__header-copy-group">
             <div className="seasonal-discovery-module__header-text">
-              <p className="seasonal-discovery-module__eyebrow">{eyebrowText}</p>
 
+              {/* Desktop: SEPTEMBER ……………… See all → */}
+              <div className="seasonal-discovery-module__eyebrow-row">
+                <p className="seasonal-discovery-module__eyebrow">{eyebrowText}</p>
+                <span className="seasonal-discovery-module__header-cta-slot seasonal-discovery-module__header-cta-slot--desktop">
+                  {cta}
+                </span>
+              </div>
+
+              {/* Title */}
               <div className="seasonal-discovery-module__title-row">
                 <h2 id={headingId} className="seasonal-discovery-module__title">
                   {collection.title}
                 </h2>
+                {/* Mobile: See all sits beside title */}
                 <span className="seasonal-discovery-module__header-cta-slot seasonal-discovery-module__header-cta-slot--mobile">
                   {cta}
                 </span>
@@ -61,10 +69,6 @@ export function SeasonalDiscoveryModuleHeader({
               decoding="async"
             />
           </div>
-
-          <span className="seasonal-discovery-module__header-cta-slot seasonal-discovery-module__header-cta-slot--desktop">
-            {cta}
-          </span>
         </div>
       </header>
     )

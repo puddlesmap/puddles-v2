@@ -937,14 +937,26 @@
   flex: 1 1 auto;
 }
 
-.seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__eyebrow {
+/* Desktop: SEPTEMBER row with See all → on the right */
+.seasonal-discovery-module__eyebrow-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
   margin: 0 0 var(--seasonal-copy-kicker-gap);
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__eyebrow-row .seasonal-discovery-module__eyebrow,
+.seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__eyebrow {
+  margin: 0;
   font-size: 0.75rem;
   line-height: 1.25;
   color: var(--seasonal-accent-eyebrow, #b45309);
 }
 
 @media (min-width: 768px) {
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__eyebrow-row .seasonal-discovery-module__eyebrow,
   .seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__eyebrow {
     font-size: 0.8125rem;
   }
@@ -999,11 +1011,7 @@
   text-underline-offset: 0.2em;
 }
 
-.seasonal-discovery-module__header-content > .seasonal-discovery-module__header-cta-slot--desktop {
-  flex-shrink: 0;
-  align-self: flex-start;
-  padding-top: 0.05rem;
-}
+/* Desktop CTA is inside the eyebrow row — no extra positioning needed */
 
 .seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__description {
   margin: var(--seasonal-copy-subtitle-gap) 0 0;
