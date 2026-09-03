@@ -1,8 +1,97 @@
 {
   "name": "Calendar Watchlist",
   "description": "Human-curated calendars and recurring feeds Puddles checks for ages 0–5 activities. Distinct from Discovery library scrapers (BiblioCommons / LibCal) and from the live Events catalog.",
-  "updatedAt": "2026-08-25",
+  "updatedAt": "2026-09-02",
   "sources": [
+    {
+      "id": "google-visitor-experience",
+      "name": "Google Visitor Experience",
+      "org": "Google",
+      "city": "Mountain View",
+      "url": "https://visit.withgoogle.com/",
+      "fitFor0to5": "partial",
+      "notes": "Free plaza + Huddle at Gradient Canopy (2000 N Shoreline Blvd, MV). Sep 12 2026 Endless Summer Festival — magic shows, DJs, crafts, sports zone (all ages; toddler-friendly activations). Pop-up Parent & Me workshops (e.g. Mini Yoga Jul 2026 on Puddles). Check rsvp.withgoogle.com for upcoming Huddle events. Core-adjacent MV — not Sunnyvale.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "monthly",
+      "knownEventPages": [
+        {
+          "slug": "endless-summer-festival-2026",
+          "title": "Endless Summer Festival",
+          "url": "https://rsvp.withgoogle.com/events/endless-summer-festival-2026",
+          "date": "2026-09-12",
+          "alreadyOnPuddles": false
+        }
+      ]
+    },
+    {
+      "id": "sunnyvale-special-events",
+      "name": "City of Sunnyvale · Special Events",
+      "org": "City of Sunnyvale · Recreation",
+      "city": "Sunnyvale",
+      "url": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
+      "fitFor0to5": "partial",
+      "notes": "Hands on the Arts Oct 17 2026 (41st annual) — on Puddles. Skip State of the City (Sep 19), Tech Business Expo (Oct 15). Farmers market alone is not an event. Winter holiday programming Nov–Dec TBD.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "monthly",
+      "knownEventPages": [
+        {
+          "slug": "hands-on-the-arts-2026",
+          "title": "Hands on the Arts",
+          "url": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
+          "date": "2026-10-17",
+          "alreadyOnPuddles": true
+        }
+      ]
+    },
+    {
+      "id": "sunnyvale-downtown",
+      "name": "Downtown Sunnyvale · Cityline & Murphy Ave",
+      "org": "Sunnyvale Downtown Association / SACAS",
+      "city": "Sunnyvale",
+      "url": "https://downtownsunnyvale.org/",
+      "fitFor0to5": "partial",
+      "notes": "Mid-Autumn Festival Oct 3–4 (performances, family activities). Diwali Oct 3 SACAS — Kids Zone (diya painting, face paint, balloons). OMG Food Festival Sep 28–29 — food-forward; only include if clear kid activations posted. Saturday farmers market = vendors only (skip unless special kids booth).",
+      "alreadyOnPuddles": false,
+      "checkCadence": "monthly",
+      "knownEventPages": [
+        {
+          "slug": "mid-autumn-festival-2026",
+          "title": "Sunnyvale Mid-Autumn Festival",
+          "url": "https://www.sunnyvaledowntown.org/",
+          "date": "2026-10-03",
+          "alreadyOnPuddles": false
+        },
+        {
+          "slug": "sunnyvale-diwali-2026",
+          "title": "Sunnyvale Diwali Festival",
+          "url": "https://www.sacas.org/",
+          "date": "2026-10-03",
+          "alreadyOnPuddles": false
+        }
+      ]
+    },
+    {
+      "id": "sunnyvale-recreation-preschool",
+      "name": "Sunnyvale Recreation · Parent & Tot",
+      "org": "City of Sunnyvale · Recreation",
+      "city": "Sunnyvale",
+      "url": "https://www.sunnyvale.ca.gov/recreation-and-community/classes-and-activities/preschool/preschool-parent-and-tot",
+      "fitFor0to5": "strong",
+      "notes": "Super Safari Parent & Tot at Serra Park (ages 1.5–3.5; caregiver required). Fall 2026 sessions in Activities Guide — one semester row per session, not weekly spam. Registration: registration.sunnyvale.ca.gov (may require desk/phone during system transition).",
+      "alreadyOnPuddles": false,
+      "checkCadence": "seasonal"
+    },
+    {
+      "id": "sunnyvale-library",
+      "name": "Sunnyvale Public Library · Kids Events",
+      "org": "Sunnyvale Public Library",
+      "city": "Sunnyvale",
+      "url": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+      "fitFor0to5": "strong",
+      "notes": "Baby Lapsit, Toddler, Preschool, Family, Night Owl + Magical Bridge (first Fridays). Site blocks scrapers (Akamai) — manual seeds in build-launch-staging.mjs until discover-sunnyvale.mjs. Sep 2026 specials queued: Sensory (9), bilingual Hebrew (11), Mid-Autumn storytime+craft (13), ASL for Babies (14), bilingual Spanish+craft (18). Re-bump weekly series dates so Browse stays live.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "weekly"
+    },
     {
       "id": "mv-special-events",
       "name": "Mountain View Special Events",
@@ -58,6 +147,27 @@
       "checkCadence": "as needed"
     },
     {
+      "id": "los-altos-history-museum",
+      "name": "Los Altos History Museum",
+      "org": "Los Altos History Museum",
+      "city": "Los Altos",
+      "url": "https://www.losaltoshistory.org/events/",
+      "fitFor0to5": "partial",
+      "notes": "Seasonal family programs (Train Day, holiday events). Skip adult-leaning lectures and galas. Train Day Aug 30 2026 — model trains, robotics demos, train films — on Puddles.",
+      "knownEventPages": [
+        {
+          "slug": "train-day-2026",
+          "title": "Train Day",
+          "url": "https://www.losaltoshistory.org/TrainDay2026",
+          "catalogEventUrl": "https://www.losaltoshistory.org/2026/08/train-day-rolls-into-los-altos-history-museum/",
+          "date": "2026-08-30",
+          "alreadyOnPuddles": true
+        }
+      ],
+      "alreadyOnPuddles": true,
+      "checkCadence": "seasonal"
+    },
+    {
       "id": "linden-tree",
       "name": "Linden Tree Books",
       "org": "Linden Tree Books",
@@ -108,9 +218,124 @@
       "city": "Palo Alto",
       "url": "https://www.gamblegarden.org/event/halloween/",
       "fitFor0to5": "partial",
-      "notes": "Halloween Magic Oct 24 (Paid tickets, outdoors) in Discovery. Skip adult-leaning Halloween Tea.",
+      "notes": "Halloween Magic Oct 24 + Parent & Me Yoga Sep 19 (ages 4–8 + grown-up) in Discovery. Skip adult-leaning Halloween Tea.",
       "alreadyOnPuddles": false,
       "checkCadence": "seasonal"
+    },
+    {
+      "id": "marti-foster-yoga",
+      "name": "Marti Foster Yoga · Parent & Baby",
+      "org": "Marti Foster Yoga",
+      "city": "Mountain View",
+      "url": "https://martifosteryoga.com/baby-yoga-outdoors",
+      "fitFor0to5": "strong",
+      "notes": "Sat 11:15am–12:15pm Parent & Baby at Pioneer Memorial Park (weather permitting). Do not list Sat 10–11 prenatal as Parent & Me.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "weekly"
+    },
+    {
+      "id": "music-together-mp-pa",
+      "name": "Music Together Menlo Park & Palo Alto",
+      "org": "Music Together",
+      "city": "Palo Alto",
+      "url": "https://www.mt-mp.com/vlt198021.htm",
+      "fitFor0to5": "strong",
+      "notes": "Fall 2026 semester Sep 8–Nov 18. Represent as one series row (not weekly flood). Caregiver + child = Parent & Me / Music & Movement. Do not publish seat-level or waitlist-by-time in public tips — link to mt-mp.com for availability.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "semester"
+    },
+    {
+      "id": "mini-yoga-club",
+      "name": "Mini Yoga Club",
+      "org": "Mini Yoga Club",
+      "city": "Sunnyvale",
+      "url": "https://miniyogaclub.com/pages/events",
+      "fitFor0to5": "strong",
+      "notes": "Pop-up family yoga (e.g. Treehouse Silicon Valley Sep 26). Sunnyvale is a launch city as of Sep 2026.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "monthly"
+    },
+    {
+      "id": "fit4mom-sv-central",
+      "name": "FIT4MOM Silicon Valley Central",
+      "org": "FIT4MOM",
+      "city": "Palo Alto",
+      "url": "https://sunnyvale.fit4mom.com/schedule",
+      "fitFor0to5": "strong",
+      "notes": "Weekly graphic on /schedule (not live Glofox text). Verified Aug 2026: Mon/Fri Stroller Strides Cuesta 9:30; Wed Stroller Barre Cuesta 9:30 + Fourth Trimester+ 10:45; Thu Stroller Barre Mitchell 10:00; Sat Family Strides Cuesta 9:30; Tue Las Palmas Stroller Strides 9:30 + Mommy & Baby Yoga 11:15. Next-week rows in Discovery for Aug 31–Sep 5. Re-check Mondays when September graphic posts. Skip Body Ignite / prenatal FIT4BABY.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "weekly Mondays"
+    },
+    {
+      "id": "talo-yoga",
+      "name": "Talo Yoga · CircleMoms host",
+      "org": "Talo Yoga / CircleMoms",
+      "city": "Palo Alto",
+      "url": "https://www.taloyoga.com/",
+      "fitFor0to5": "partial",
+      "notes": "Hosts CircleMoms newborn cohorts (not weekly drop-in Parent & Baby). Next PA cohort Oct 14. Adult/prenatal studio classes otherwise.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "semester"
+    },
+    {
+      "id": "lemos-farm",
+      "name": "Lemos Farm",
+      "org": "Lemos Farm",
+      "city": "Half Moon Bay",
+      "url": "https://www.lemosfarm.com/pumpkin-patch",
+      "fitFor0to5": "strong",
+      "notes": "Fall pumpkin patch Sep 5–Nov 15. Labor Day opening weekend. Paid timed admission — buy ahead on lemosfarm.com. Train, hay rides, petting zoo, ponies (weight limits apply). Worth a Drive · Hello Fall.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "seasonal",
+      "knownEventPages": [
+        {
+          "slug": "pumpkin-patch-2026",
+          "title": "2026 Fall Pumpkin Patch",
+          "url": "https://www.lemosfarm.com/pumpkin-patch",
+          "date": "2026-09-05",
+          "alreadyOnPuddles": true
+        }
+      ]
+    },
+    {
+      "id": "garin-apple-festival",
+      "name": "East Bay Regional Parks · Garin Apple Festival",
+      "org": "East Bay Regional Park District",
+      "city": "Hayward",
+      "url": "https://www.ebparks.org/parks/garin",
+      "fitFor0to5": "strong",
+      "notes": "Annual one-day apple festival at Garin Regional Park. Free event; $5 cash parking. Orchard tours, cider pressing, crafts & games. Worth a Drive · Hello Fall.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "annual",
+      "knownEventPages": [
+        {
+          "slug": "garin-apple-festival-2026",
+          "title": "Garin Apple Festival",
+          "url": "https://www.ebparks.org/parks/garin",
+          "date": "2026-09-06",
+          "alreadyOnPuddles": true
+        }
+      ]
+    },
+    {
+      "id": "roaring-camp-railroads",
+      "name": "Roaring Camp Railroads",
+      "org": "Roaring Camp Railroads",
+      "city": "Felton",
+      "url": "https://roaringcamp.com/events/labor-day-weekend",
+      "fitFor0to5": "strong",
+      "notes": "Labor Day steam or beach train + Town of Roaring Camp activities (gold panning, blacksmith, live music). Paid train tickets — check official site for times. Worth a Drive.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "annual",
+      "knownEventPages": [
+        {
+          "slug": "labor-day-weekend-2026",
+          "title": "Labor Day Weekend",
+          "url": "https://roaringcamp.com/events/labor-day-weekend",
+          "date": "2026-09-05",
+          "alreadyOnPuddles": true
+        }
+      ]
     }
   ]
 }

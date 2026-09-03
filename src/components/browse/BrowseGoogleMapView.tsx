@@ -3,7 +3,7 @@ import { Map } from '@vis.gl/react-google-maps'
 import type { Event } from '../../types/event'
 import type { BrowseFilters } from '../../utils/filters'
 import { getBrowseResultsSummary } from '../../utils/browseResultsCopy'
-import { EventCard } from '../EventCard'
+import { BrowseEventCard } from '../BrowseEventCard'
 import { GoogleMapProvider } from '../maps/GoogleMapProvider'
 import { EventGoogleMarker } from './EventGoogleMarker'
 import {
@@ -12,11 +12,11 @@ import {
   GoogleMapLocateHandler,
   GoogleMapPanToEvent,
   GoogleMapSearchAreaDetector,
+  GoogleMapStyles,
   GoogleUserLocationMarker,
 } from './GoogleMapBehaviors'
 import { MapControls } from './MapControls'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
-import { useBrowseMapListTwoColumn } from '../../hooks/useBrowseMapListTwoColumn'
 import { useBrowseMapInteraction, type MapOpenEventHandler } from '../../hooks/useBrowseMapInteraction'
 import { useMapPreviewSheetHeight } from '../../hooks/useMapPreviewSheetHeight'
 import { useUserLocation } from '../../hooks/useUserLocation'
@@ -56,7 +56,6 @@ export function BrowseGoogleMapView({
   const [locateTrigger, setLocateTrigger] = useState(0)
   const [searchGeneration, setSearchGeneration] = useState(0)
   const resultsRef = useRef<HTMLElement>(null)
-  const isTwoColumnMapList = useBrowseMapListTwoColumn(resultsRef)
   const [googleMap, setGoogleMap] = useState<google.maps.Map | null>(null)
 
   const {
@@ -233,15 +232,19 @@ export function BrowseGoogleMapView({
   function renderGoogleMap(className: string) {
     return (
       <Map
+        key="puddles-clean-raster"
         defaultCenter={{ lat: mapCenter[0], lng: mapCenter[1] }}
         defaultZoom={BROWSE_MAP_DEFAULT_ZOOM}
         className={className}
         gestureHandling="greedy"
         disableDefaultUI
         clickableIcons={false}
+        // JSON styles require raster; vector maps ignore them.
+        renderingType="RASTER"
         styles={MUTED_GOOGLE_MAP_STYLES}
-        backgroundColor="#f5f3ef"
+        backgroundColor="#f8f9fb"
       >
+        <GoogleMapStyles styles={MUTED_GOOGLE_MAP_STYLES} />
         {renderMapMarkers()}
       </Map>
     )
@@ -301,10 +304,9 @@ export function BrowseGoogleMapView({
                     .join(' ')}
                   data-event-id={event.id}
                 >
-                  <EventCard
+                  <BrowseEventCard
                     event={event}
-                    variant="map-preview-sheet"
-                    discovery
+                    density="map-sheet"
                     selected={isEventSelected(event.id)}
                     onClick={() => handleCardClick(event)}
                   />
@@ -341,10 +343,8 @@ export function BrowseGoogleMapView({
                     onMouseEnter={() => handleCardHover(event.id)}
                     onMouseLeave={() => handleCardHover(null)}
                   >
-                    <EventCard
+                    <BrowseEventCard
                       event={event}
-                      variant={isTwoColumnMapList ? 'grid' : 'map-grid'}
-                      discovery
                       selected={isEventSelected(event.id)}
                       hovered={hoveredEventId === event.id}
                       onClick={() => handleCardClick(event)}

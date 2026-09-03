@@ -3,11 +3,11 @@ import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import { StaticMap } from '@vis.gl/react-google-maps'
 import 'leaflet/dist/leaflet.css'
 import type { Event } from '../types/event'
-import { getCartoVoyagerTileUrl } from '../utils/cartoBasemap'
+import { getLeafletBasemap } from '../utils/cartoBasemap'
 import { buildEventStaticMapUrl, hasGoogleMapsApiKey } from '../utils/googleMaps'
 import { getEventMapCoordinates, getEventMapMarkerAddress } from '../utils/maps'
 
-const MAP_TILE_URL = getCartoVoyagerTileUrl()
+const MAP_BASEMAP = getLeafletBasemap()
 
 function LeafletMapViewSync({ lat, lng, zoom }: { lat: number; lng: number; zoom: number }) {
   const map = useMap()
@@ -59,7 +59,7 @@ export function EventRouteMapPreview({ event }: EventRouteMapPreviewProps) {
       boxZoom={false}
       keyboard={false}
     >
-      <TileLayer url={MAP_TILE_URL} />
+      <TileLayer url={MAP_BASEMAP.url} />
       <LeafletMapViewSync lat={lat} lng={lng} zoom={15} />
     </MapContainer>
   )

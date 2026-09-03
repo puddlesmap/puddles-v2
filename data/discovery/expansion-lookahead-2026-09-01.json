@@ -1,0 +1,957 @@
+{
+  "generatedAt": "2026-09-01T21:03:24.129Z",
+  "window": {
+    "start": "2026-09-01",
+    "end": "2026-11-30",
+    "days": 90
+  },
+  "launchTargets": {
+    "city": "Sunnyvale",
+    "activityTypes": [
+      "Parent & Me",
+      "Festivals & Community"
+    ]
+  },
+  "discoveryGeneratedAt": "2026-09-01T21:03:24.100Z",
+  "expansion": {
+    "sunnyvale": {
+      "inWindow": 3,
+      "pending": 3,
+      "onCatalog": 0
+    },
+    "parentAndMe": {
+      "inWindow": 14,
+      "pending": 14,
+      "onCatalog": 0
+    },
+    "festivals": {
+      "inWindow": 7,
+      "pending": 6,
+      "onCatalog": 0
+    },
+    "byCity": [
+      [
+        "Palo Alto",
+        {
+          "total": 116,
+          "pending": 45
+        }
+      ],
+      [
+        "Los Altos",
+        {
+          "total": 81,
+          "pending": 43
+        }
+      ],
+      [
+        "Mountain View",
+        {
+          "total": 56,
+          "pending": 25
+        }
+      ],
+      [
+        "Sunnyvale",
+        {
+          "total": 3,
+          "pending": 3
+        }
+      ]
+    ],
+    "byType": [
+      [
+        "Stories",
+        180
+      ],
+      [
+        "Build & Explore",
+        27
+      ],
+      [
+        "Other",
+        20
+      ],
+      [
+        "Parent & Me",
+        14
+      ],
+      [
+        "Outdoor",
+        14
+      ],
+      [
+        "Festivals & Community",
+        7
+      ],
+      [
+        "Arts & Crafts",
+        3
+      ],
+      [
+        "Music & Movement",
+        3
+      ],
+      [
+        "Social & Play",
+        3
+      ]
+    ],
+    "sunnyvalePendingRows": [
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "isRecurring": true,
+        "cost": "Paid",
+        "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+        "source": "Calendar Watchlist · FIT4MOM Silicon Valley Central",
+        "id": "watchlist-fit4mom-stroller-strides-laspalmas-2026-09-01",
+        "title": "FIT4MOM Stroller Strides · Las Palmas Park",
+        "date": "2026-09-01",
+        "startTime": "09:30",
+        "endTime": "10:30",
+        "venue": "Las Palmas Park",
+        "address": "850 Russet Dr, Sunnyvale, CA 94087",
+        "city": "Sunnyvale",
+        "lat": 37.3515,
+        "lng": -122.0255,
+        "ageRange": "0–2, 2–5",
+        "ageMin": 0,
+        "ageMax": 5,
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "description": "Stroller Strides at Las Palmas Park (Sunnyvale). Caregiver workout with child in stroller — Parent & Me. Sunnyvale launch-city session.",
+        "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts. Pre-enroll for weather updates."
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "isRecurring": true,
+        "cost": "Paid",
+        "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+        "source": "Calendar Watchlist · FIT4MOM Silicon Valley Central",
+        "id": "watchlist-fit4mom-mommy-baby-yoga-laspalmas-2026-09-01",
+        "title": "FIT4MOM Mommy & Baby Yoga · Las Palmas Park",
+        "date": "2026-09-01",
+        "startTime": "11:15",
+        "endTime": "12:15",
+        "venue": "Las Palmas Park",
+        "address": "850 Russet Dr, Sunnyvale, CA 94087",
+        "city": "Sunnyvale",
+        "lat": 37.3515,
+        "lng": -122.0255,
+        "ageRange": "0–2",
+        "ageMin": 0,
+        "ageMax": 2,
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "description": "Mommy & Baby Yoga outdoors — caregiver and baby practice together. Clear Parent & Me fit.",
+        "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nBring a yoga mat / blanket."
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me",
+          "Priority: add"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "ageMin": 2,
+        "ageMax": 5,
+        "id": "watchlist-mini-yoga-treehouse-2026-09-26",
+        "title": "Family Yoga with Mini Yoga Club at Treehouse",
+        "date": "2026-09-26",
+        "startTime": "11:00",
+        "endTime": "11:30",
+        "venue": "Treehouse Hotel Silicon Valley",
+        "address": "1100 North Mathilda Avenue, Sunnyvale, CA 94089",
+        "city": "Sunnyvale",
+        "lat": 37.4115,
+        "lng": -122.0258,
+        "ageRange": "2–5",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Low-cost",
+        "description": "Family yoga on the Event Lawn: movement, music, and mindfulness for little ones with grown-ups (~ages 2–7). Useful one-off Parent & Me test and adjacent-city appetite check.",
+        "tips": "Buy one ticket per participating child ($15). Adults free.\nBring a yoga mat.\nOfficial ticketed session 11:00–11:30am (Sep 26).",
+        "eventUrl": "https://miniyogaclub.com/products/mini-yoga-club-x-treehouse-silicon-valley-copy",
+        "source": "Calendar Watchlist · Mini Yoga Club",
+        "isRecurring": false
+      }
+    ],
+    "parentAndMePendingRows": [
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "isRecurring": true,
+        "cost": "Paid",
+        "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+        "source": "Calendar Watchlist · FIT4MOM Silicon Valley Central",
+        "id": "watchlist-fit4mom-stroller-strides-laspalmas-2026-09-01",
+        "title": "FIT4MOM Stroller Strides · Las Palmas Park",
+        "date": "2026-09-01",
+        "startTime": "09:30",
+        "endTime": "10:30",
+        "venue": "Las Palmas Park",
+        "address": "850 Russet Dr, Sunnyvale, CA 94087",
+        "city": "Sunnyvale",
+        "lat": 37.3515,
+        "lng": -122.0255,
+        "ageRange": "0–2, 2–5",
+        "ageMin": 0,
+        "ageMax": 5,
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "description": "Stroller Strides at Las Palmas Park (Sunnyvale). Caregiver workout with child in stroller — Parent & Me. Sunnyvale launch-city session.",
+        "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts. Pre-enroll for weather updates."
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "isRecurring": true,
+        "cost": "Paid",
+        "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+        "source": "Calendar Watchlist · FIT4MOM Silicon Valley Central",
+        "id": "watchlist-fit4mom-mommy-baby-yoga-laspalmas-2026-09-01",
+        "title": "FIT4MOM Mommy & Baby Yoga · Las Palmas Park",
+        "date": "2026-09-01",
+        "startTime": "11:15",
+        "endTime": "12:15",
+        "venue": "Las Palmas Park",
+        "address": "850 Russet Dr, Sunnyvale, CA 94087",
+        "city": "Sunnyvale",
+        "lat": 37.3515,
+        "lng": -122.0255,
+        "ageRange": "0–2",
+        "ageMin": 0,
+        "ageMax": 2,
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "description": "Mommy & Baby Yoga outdoors — caregiver and baby practice together. Clear Parent & Me fit.",
+        "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nBring a yoga mat / blanket."
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "isRecurring": true,
+        "cost": "Paid",
+        "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+        "source": "Calendar Watchlist · FIT4MOM Silicon Valley Central",
+        "id": "watchlist-fit4mom-stroller-barre-cuesta-2026-09-02",
+        "title": "FIT4MOM Stroller Barre · Cuesta Park",
+        "date": "2026-09-02",
+        "startTime": "09:30",
+        "endTime": "10:30",
+        "venue": "Cuesta Park",
+        "address": "615 Cuesta Drive, Mountain View, CA 94040",
+        "city": "Mountain View",
+        "lat": 37.3745,
+        "lng": -122.0785,
+        "ageRange": "0–2, 2–5",
+        "ageMin": 0,
+        "ageMax": 5,
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "description": "Stroller Barre at Cuesta Park — barre-style workout with little ones in strollers. Parent & Me.",
+        "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nRain: St. Timothy’s overhang, 2094 Grant Rd."
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "isRecurring": true,
+        "cost": "Paid",
+        "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+        "source": "Calendar Watchlist · FIT4MOM Silicon Valley Central",
+        "id": "watchlist-fit4mom-fourth-trimester-cuesta-2026-09-02",
+        "title": "FIT4MOM Fourth Trimester+ · Cuesta Park",
+        "date": "2026-09-02",
+        "startTime": "10:45",
+        "endTime": "11:45",
+        "venue": "Cuesta Park",
+        "address": "615 Cuesta Drive, Mountain View, CA 94040",
+        "city": "Mountain View",
+        "lat": 37.3745,
+        "lng": -122.0785,
+        "ageRange": "0–2",
+        "ageMin": 0,
+        "ageMax": 2,
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "description": "Fourth Trimester+ postpartum class with babies welcome — caregiver movement with baby present. Parent & Me.",
+        "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nConfirm format on-site if unsure whether babies participate vs watch."
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "isRecurring": true,
+        "cost": "Paid",
+        "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+        "source": "Calendar Watchlist · FIT4MOM Silicon Valley Central",
+        "id": "watchlist-fit4mom-stroller-barre-mitchell-2026-09-03",
+        "title": "FIT4MOM Stroller Barre · Mitchell Park",
+        "date": "2026-09-03",
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "venue": "Mitchell Park",
+        "address": "600 E Meadow Dr, Palo Alto, CA 94303",
+        "city": "Palo Alto",
+        "lat": 37.419,
+        "lng": -122.1095,
+        "ageRange": "0–2, 2–5",
+        "ageMin": 0,
+        "ageMax": 5,
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "description": "Stroller Barre at Mitchell Park multipurpose bowl — caregiver workout with child in stroller. Core-city Parent & Me.",
+        "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nMeet at multi-purpose area/bowl.\nRain: overhang by Mitchell Park Library / Ada’s Cafe."
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "isRecurring": true,
+        "cost": "Paid",
+        "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+        "source": "Calendar Watchlist · FIT4MOM Silicon Valley Central",
+        "id": "watchlist-fit4mom-stroller-strides-cuesta-2026-09-04",
+        "title": "FIT4MOM Stroller Strides · Cuesta Park",
+        "date": "2026-09-04",
+        "startTime": "09:30",
+        "endTime": "10:30",
+        "venue": "Cuesta Park",
+        "address": "615 Cuesta Drive, Mountain View, CA 94040",
+        "city": "Mountain View",
+        "lat": 37.3745,
+        "lng": -122.0785,
+        "ageRange": "0–2, 2–5",
+        "ageMin": 0,
+        "ageMax": 5,
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "description": "Friday Stroller Strides at Cuesta Park. Parent & Me stroller workout.",
+        "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nRain: St. Timothy’s overhang, 2094 Grant Rd."
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "isRecurring": true,
+        "cost": "Paid",
+        "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+        "source": "Calendar Watchlist · FIT4MOM Silicon Valley Central",
+        "id": "watchlist-fit4mom-family-strides-cuesta-2026-09-05",
+        "title": "FIT4MOM Family Strides 360 · Cuesta Park",
+        "date": "2026-09-05",
+        "startTime": "09:30",
+        "endTime": "10:30",
+        "venue": "Cuesta Park",
+        "address": "615 Cuesta Drive, Mountain View, CA 94040",
+        "city": "Mountain View",
+        "lat": 37.3745,
+        "lng": -122.0785,
+        "ageRange": "0–2, 2–5",
+        "ageMin": 0,
+        "ageMax": 5,
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "description": "Saturday Family Strides 360 — family stroller fitness at Cuesta Park. Parent & Me.",
+        "tips": "Times verified from August WEEKLY CLASSES graphic on sunnyvale.fit4mom.com/schedule (fetched Aug 27, 2026). Re-check Mondays when September graphic posts.\nSat meet near playgroup gazebo/stairs; park on Cuesta Dr near playground."
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me",
+          "Priority: strong test"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "ageMin": 0,
+        "ageMax": 2,
+        "id": "watchlist-marti-parent-baby-2026-09-05",
+        "title": "Parent & Baby Yoga with Marti Foster",
+        "date": "2026-09-05",
+        "startTime": "11:15",
+        "endTime": "12:15",
+        "venue": "Pioneer Memorial Park",
+        "address": "1146 Church St, Mountain View, CA 94041",
+        "city": "Mountain View",
+        "lat": 37.3896,
+        "lng": -122.0832,
+        "ageRange": "0–2",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Paid",
+        "description": "Outdoor Parent & Baby yoga — caregiver practices while baby comes along. Feeding, diapering, and baby needs are welcome in class. Weekly, weather permitting. Strong Parent & Me test case (grown-up participates; baby is part of the session). Separate Sat 10–11am prenatal class is not Parent & Me.",
+        "tips": "Weather permitting — check with Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.\nRegister at martifosteryoga.com.",
+        "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
+        "source": "Calendar Watchlist · Marti Foster Yoga",
+        "isRecurring": true
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me",
+          "Series · do not explode weekly",
+          "Priority: definitely add"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "ageMin": 0,
+        "ageMax": 5,
+        "id": "watchlist-mt-pa-fall-mixed-ages-2026",
+        "title": "Music Together — Fall Mixed Ages",
+        "date": "2026-09-09",
+        "startTime": "09:30",
+        "endTime": "",
+        "venue": "Unity Church · Music Together Palo Alto",
+        "address": "3391 Middlefield Rd, Palo Alto, CA 94306",
+        "city": "Palo Alto",
+        "lat": 37.4275,
+        "lng": -122.1289,
+        "ageRange": "0–2, 2–5",
+        "types": [
+          "Parent & Me",
+          "Music & Movement"
+        ],
+        "cost": "Paid",
+        "description": "10-week Fall 2026 caregiver + child music series (babies–preschool + grown-up). Series starts Sep 9 (Wed) and Sep 14 (Mon) depending on section; semester runs through Nov 18. Multiple time slots at Unity Church; several currently open for registration. Represented as one series — not separate weekly events.",
+        "tips": "Weekly · registration required (semester package, not drop-in).\nStarts Sep 9 / Sep 14 · 10-week series.\nOpen seats as of Aug 27: Mon 9:30, 10:30, 11:30; Wed 9:30, 10:30; Fri 11:30. Fri 9:30 & 10:30 waitlist.\nFree demo visit available before enrolling.\nRegister at mt-mp.com.",
+        "eventUrl": "https://www.mt-mp.com/vlt198021.htm",
+        "source": "Calendar Watchlist · Music Together MP/PA",
+        "isRecurring": true
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me",
+          "Priority: strong test"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "ageMin": 0,
+        "ageMax": 2,
+        "id": "watchlist-marti-parent-baby-2026-09-12",
+        "title": "Parent & Baby Yoga with Marti Foster",
+        "date": "2026-09-12",
+        "startTime": "11:15",
+        "endTime": "12:15",
+        "venue": "Pioneer Memorial Park",
+        "address": "1146 Church St, Mountain View, CA 94041",
+        "city": "Mountain View",
+        "lat": 37.3896,
+        "lng": -122.0832,
+        "ageRange": "0–2",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Paid",
+        "description": "Outdoor Parent & Baby yoga — caregiver practices while baby comes along. Feeding, diapering, and baby needs are welcome in class. Weekly, weather permitting. Strong Parent & Me test case (grown-up participates; baby is part of the session). Separate Sat 10–11am prenatal class is not Parent & Me.",
+        "tips": "Weather permitting — check with Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.\nRegister at martifosteryoga.com.",
+        "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
+        "source": "Calendar Watchlist · Marti Foster Yoga",
+        "isRecurring": true
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me",
+          "Priority: lower",
+          "Ages 4–8 listed",
+          "Verify time"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "ageMin": 4,
+        "ageMax": 5,
+        "id": "watchlist-gamble-parent-me-yoga-2026-09-19",
+        "title": "Parent & Me Yoga at Gamble Garden",
+        "date": "2026-09-19",
+        "startTime": "09:00",
+        "endTime": "10:00",
+        "venue": "Elizabeth F. Gamble Garden",
+        "address": "1431 Waverley Street, Palo Alto, CA 94301",
+        "city": "Palo Alto",
+        "lat": 37.4406,
+        "lng": -122.1402,
+        "ageRange": "2–5",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Paid",
+        "description": "Parent/child yoga on the Front Lawn for children ages 4–8 and a grown-up. Only ages 4–5 overlap with Puddles — lower priority; not a flagship Parent & Me example.",
+        "tips": "Lower priority: official ages 4–8 (only 4–5 overlap Puddles).\nVERIFY TIME before publish: header says 9:00–10:00am; details elsewhere say 9:00–10:30am.\nBring a large towel, blanket, or two yoga mats.\nMembers: Adult $16 / Child $8. Non-members: Adult $20 / Child $10.\nRegister at gamblegarden.org.",
+        "eventUrl": "https://www.gamblegarden.org/event/yoga/",
+        "source": "Calendar Watchlist · Gamble Garden",
+        "isRecurring": false
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me",
+          "Priority: strong test"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "ageMin": 0,
+        "ageMax": 2,
+        "id": "watchlist-marti-parent-baby-2026-09-19",
+        "title": "Parent & Baby Yoga with Marti Foster",
+        "date": "2026-09-19",
+        "startTime": "11:15",
+        "endTime": "12:15",
+        "venue": "Pioneer Memorial Park",
+        "address": "1146 Church St, Mountain View, CA 94041",
+        "city": "Mountain View",
+        "lat": 37.3896,
+        "lng": -122.0832,
+        "ageRange": "0–2",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Paid",
+        "description": "Outdoor Parent & Baby yoga — caregiver practices while baby comes along. Feeding, diapering, and baby needs are welcome in class. Weekly, weather permitting. Strong Parent & Me test case (grown-up participates; baby is part of the session). Separate Sat 10–11am prenatal class is not Parent & Me.",
+        "tips": "Weather permitting — check with Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.\nRegister at martifosteryoga.com.",
+        "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
+        "source": "Calendar Watchlist · Marti Foster Yoga",
+        "isRecurring": true
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me",
+          "Priority: add"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "ageMin": 2,
+        "ageMax": 5,
+        "id": "watchlist-mini-yoga-treehouse-2026-09-26",
+        "title": "Family Yoga with Mini Yoga Club at Treehouse",
+        "date": "2026-09-26",
+        "startTime": "11:00",
+        "endTime": "11:30",
+        "venue": "Treehouse Hotel Silicon Valley",
+        "address": "1100 North Mathilda Avenue, Sunnyvale, CA 94089",
+        "city": "Sunnyvale",
+        "lat": 37.4115,
+        "lng": -122.0258,
+        "ageRange": "2–5",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Low-cost",
+        "description": "Family yoga on the Event Lawn: movement, music, and mindfulness for little ones with grown-ups (~ages 2–7). Useful one-off Parent & Me test and adjacent-city appetite check.",
+        "tips": "Buy one ticket per participating child ($15). Adults free.\nBring a yoga mat.\nOfficial ticketed session 11:00–11:30am (Sep 26).",
+        "eventUrl": "https://miniyogaclub.com/products/mini-yoga-club-x-treehouse-silicon-valley-copy",
+        "source": "Calendar Watchlist · Mini Yoga Club",
+        "isRecurring": false
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me",
+          "Priority: strong test"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-08-27",
+        "ageMin": 0,
+        "ageMax": 2,
+        "id": "watchlist-marti-parent-baby-2026-09-26",
+        "title": "Parent & Baby Yoga with Marti Foster",
+        "date": "2026-09-26",
+        "startTime": "11:15",
+        "endTime": "12:15",
+        "venue": "Pioneer Memorial Park",
+        "address": "1146 Church St, Mountain View, CA 94041",
+        "city": "Mountain View",
+        "lat": 37.3896,
+        "lng": -122.0832,
+        "ageRange": "0–2",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Paid",
+        "description": "Outdoor Parent & Baby yoga — caregiver practices while baby comes along. Feeding, diapering, and baby needs are welcome in class. Weekly, weather permitting. Strong Parent & Me test case (grown-up participates; baby is part of the session). Separate Sat 10–11am prenatal class is not Parent & Me.",
+        "tips": "Weather permitting — check with Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.\nRegister at martifosteryoga.com.",
+        "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
+        "source": "Calendar Watchlist · Marti Foster Yoga",
+        "isRecurring": true
+      }
+    ],
+    "festivalsPendingRows": [
+      {
+        "id": "6a57fc45cca66c2f00a3ae1f",
+        "title": "Practice Your Vote!",
+        "date": "2026-10-17",
+        "startTime": "",
+        "endTime": "",
+        "venue": "College Terrace Library",
+        "room": "",
+        "address": "2300  Wellesley St., Palo Alto, CA 94306",
+        "city": "Palo Alto",
+        "lat": 37.42337482539388,
+        "lng": -122.14864582698362,
+        "ageRange": "0–2, 2–5, 5+",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Celebrations",
+          "Community Conversations",
+          "Exhibit"
+        ],
+        "cost": "Free",
+        "description": "Come practice your right to vote! Visit any Palo Alto City Library Branch to vote on our oversized ballot. On November 4th, we'll tally up the votes and see who won by branch AND overall amongst all the branches. Don't miss out on your opportunity to practice your voting skillz!",
+        "tips": "",
+        "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/86591ddc51d0f0c9eb7bb43ebbf5a5f1/Event Types - Celebration.jpg",
+        "eventUrl": "https://paloalto.bibliocommons.com/events/6a57fc45cca66c2f00a3ae1f",
+        "source": "Palo Alto Library · BiblioCommons",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": ""
+      },
+      {
+        "id": "6a57fc950d65ac36003ff829",
+        "title": "Practice Your Vote!",
+        "date": "2026-10-17",
+        "startTime": "",
+        "endTime": "",
+        "venue": "Downtown Library",
+        "room": "",
+        "address": "270 Forest Ave., Palo Alto, CA 94301",
+        "city": "Palo Alto",
+        "lat": 37.44387529999999,
+        "lng": -122.15917860000002,
+        "ageRange": "0–2, 2–5, 5+",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Celebrations",
+          "Community Conversations",
+          "Exhibit"
+        ],
+        "cost": "Free",
+        "description": "Come practice your right to vote! Visit any Palo Alto City Library Branch to vote on our oversized ballot. On November 4th, we'll tally up the votes and see who won by branch AND overall amongst all the branches. Don't miss out on your opportunity to practice your voting skillz!",
+        "tips": "",
+        "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/86591ddc51d0f0c9eb7bb43ebbf5a5f1/Event Types - Celebration.jpg",
+        "eventUrl": "https://paloalto.bibliocommons.com/events/6a57fc950d65ac36003ff829",
+        "source": "Palo Alto Library · BiblioCommons",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": ""
+      },
+      {
+        "id": "6a57fcfe0d65ac36003ff83e",
+        "title": "Practice Your Vote!",
+        "date": "2026-10-17",
+        "startTime": "",
+        "endTime": "",
+        "venue": "Rinconada Library",
+        "room": "",
+        "address": "1213 Newell Rd., Palo Alto, CA 94303",
+        "city": "Palo Alto",
+        "lat": 37.4449696,
+        "lng": -122.13916010000003,
+        "ageRange": "0–2, 2–5, 5+",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Celebrations",
+          "Community Conversations",
+          "Exhibit"
+        ],
+        "cost": "Free",
+        "description": "Come practice your right to vote! Visit any Palo Alto City Library Branch to vote on our oversized ballot. On November 4th, we'll tally up the votes and see who won by branch AND overall amongst all the branches. Don't miss out on your opportunity to practice your voting skillz!",
+        "tips": "",
+        "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/86591ddc51d0f0c9eb7bb43ebbf5a5f1/Event Types - Celebration.jpg",
+        "eventUrl": "https://paloalto.bibliocommons.com/events/6a57fcfe0d65ac36003ff83e",
+        "source": "Palo Alto Library · BiblioCommons",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": ""
+      },
+      {
+        "id": "6a57faf688e9bf28003121f6",
+        "title": "Practice Your Vote!",
+        "date": "2026-10-17",
+        "startTime": "",
+        "endTime": "",
+        "venue": "Children's Library",
+        "room": "",
+        "address": "1276  Harriet Street, Palo Alto, CA 94301",
+        "city": "Palo Alto",
+        "lat": 37.4447829,
+        "lng": -122.14501310000003,
+        "ageRange": "0–2, 2–5, 5+",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Celebrations",
+          "Community Conversations",
+          "Exhibit"
+        ],
+        "cost": "Free",
+        "description": "Come practice your right to vote! Visit any Palo Alto City Library Branch to vote on our oversized ballot. On November 4th, we'll tally up the votes and see who won by branch AND overall amongst all the branches. Don't miss out on your opportunity to practice your voting skillz!",
+        "tips": "",
+        "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/86591ddc51d0f0c9eb7bb43ebbf5a5f1/Event Types - Celebration.jpg",
+        "eventUrl": "https://paloalto.bibliocommons.com/events/6a57faf688e9bf28003121f6",
+        "source": "Palo Alto Library · BiblioCommons",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": ""
+      },
+      {
+        "id": "6a57fcc8cca66c2f00a3ae6d",
+        "title": "Practice Your Vote!",
+        "date": "2026-10-17",
+        "startTime": "",
+        "endTime": "",
+        "venue": "Mitchell Park Library",
+        "room": "",
+        "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+        "city": "Palo Alto",
+        "lat": 37.4223141,
+        "lng": -122.11265209999999,
+        "ageRange": "0–2, 2–5, 5+",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Celebrations",
+          "Community Conversations",
+          "Exhibit"
+        ],
+        "cost": "Free",
+        "description": "Come practice your right to vote! Visit any Palo Alto City Library Branch to vote on our oversized ballot. On November 4th, we'll tally up the votes and see who won by branch AND overall amongst all the branches. Don't miss out on your opportunity to practice your voting skillz!",
+        "tips": "",
+        "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/86591ddc51d0f0c9eb7bb43ebbf5a5f1/Event Types - Celebration.jpg",
+        "eventUrl": "https://paloalto.bibliocommons.com/events/6a57fcc8cca66c2f00a3ae6d",
+        "source": "Palo Alto Library · BiblioCommons",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": ""
+      },
+      {
+        "id": "6a8f395260ccaf01c0213e7c",
+        "title": "Festival of Lights: A Diwali Celebration",
+        "date": "2026-11-22",
+        "startTime": "13:00",
+        "endTime": "17:00",
+        "venue": "",
+        "room": "",
+        "address": "",
+        "city": "Palo Alto",
+        "lat": null,
+        "lng": null,
+        "ageRange": "0–2, 2–5, 5+",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "Adults; Babies (under 2); Kids (6-11); Pre-schoolers (3-5); Seniors; Teens (14-18); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Celebrations",
+          "Celebrating Cultures"
+        ],
+        "cost": "Free",
+        "description": "Join us at the Mitchell Park Community Center, as we celebrate Diwali! Enjoy fun activities for all ages. Exact time for this two-hour event and all activities are TBD. Stay tuned!",
+        "tips": "",
+        "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/dae961dc5715a720c7c945abb0f385cb/diwali2023_890x445.png",
+        "eventUrl": "https://paloalto.bibliocommons.com/events/6a8f395260ccaf01c0213e7c",
+        "source": "Palo Alto Library · BiblioCommons",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": ""
+      }
+    ],
+    "actions": [
+      "**Sunnyvale library:** No automated Sunnyvale branch scraper — add `discover-sunnyvale.mjs` or keep `build-launch-staging.mjs` series seeds current.",
+      "**Seasonal drive picks:** Editorial farms/haunts live in `seasonal*DriveEvents.ts` — not library scrapers.",
+      "**Core cities only in regular discovery:** Events outside Palo Alto / Los Altos / Mountain View belong in Seasonal → Worth a Little Drive until a city landing justifies a scraper."
+    ]
+  },
+  "watchlistUpdatedAt": "2026-09-01"
+}

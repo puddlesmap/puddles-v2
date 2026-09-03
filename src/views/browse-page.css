@@ -800,8 +800,10 @@
     padding: 0;
   }
 
-  /* browse-v1: wide map list uses grid variant — mirror .browse-content card layout */
-  .browse-page-shell:not(.browse-page-shell--experiment) .browse-map-grid .discovery-event-card {
+  /* Legacy map-grid cards only — Discovery v3 keeps its framed white shell */
+  .browse-page-shell:not(.browse-page-shell--experiment)
+    .browse-map-grid
+    .discovery-event-card:not(.discovery-v3-event-card) {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -814,20 +816,29 @@
     box-shadow: none;
   }
 
-  .browse-page-shell:not(.browse-page-shell--experiment) .browse-map-grid .discovery-event-card .card-listing-media {
+  .browse-page-shell:not(.browse-page-shell--experiment)
+    .browse-map-grid
+    .discovery-event-card:not(.discovery-v3-event-card)
+    .card-listing-media {
     width: 100%;
     aspect-ratio: 1 / 1;
     height: auto;
     flex-shrink: 0;
   }
 
-  .browse-page-shell:not(.browse-page-shell--experiment) .browse-map-grid .discovery-event-card .card-listing-image {
+  .browse-page-shell:not(.browse-page-shell--experiment)
+    .browse-map-grid
+    .discovery-event-card:not(.discovery-v3-event-card)
+    .card-listing-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .browse-page-shell:not(.browse-page-shell--experiment) .browse-map-grid .discovery-event-card-body {
+  .browse-page-shell:not(.browse-page-shell--experiment)
+    .browse-map-grid
+    .discovery-event-card:not(.discovery-v3-event-card)
+    .discovery-event-card-body {
     padding-top: 0.625rem;
   }
 }

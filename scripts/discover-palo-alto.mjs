@@ -11,7 +11,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { inferAgeRangeFromText } from './age-hints.mjs'
-import { finalizeTips, isUrlAlreadyOnPuddles, loadCatalogUrls } from './discovery-shared.mjs'
+import { finalizeTips, isLibraryClosureNotice, isUrlAlreadyOnPuddles, loadCatalogUrls } from './discovery-shared.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = join(__dirname, '..')
@@ -40,7 +40,7 @@ const TYPE_MAP = {
   'Movies & Music': 'Music & Movement',
   Workshops: 'Build & Explore',
   Performance: 'Social & Play',
-  Celebrations: 'Social & Play',
+  Celebrations: 'Festivals & Community',
   SRP: 'Other',
 }
 
@@ -392,6 +392,7 @@ async function main() {
     young++
 
     const candidate = normalizeCandidate(event, entities)
+    if (isLibraryClosureNotice(candidate)) continue
     candidate.alreadyOnPuddles = isUrlAlreadyOnPuddles(candidate.eventUrl, catalogUrls)
     candidates.push(candidate)
   }

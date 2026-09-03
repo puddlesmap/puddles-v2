@@ -16,6 +16,8 @@ const ACTIVITY_TYPES = [
   'Outdoor',
   'Social & Play',
   'Classes',
+  'Festivals & Community',
+  'Parent & Me',
   'Other',
 ]
 
@@ -349,6 +351,7 @@ export function inferCityFromAddress(address) {
     .replace(/\s+/g, ' ')
 
   if (text.includes('los altos hills')) return 'Los Altos Hills'
+  if (text.includes('sunnyvale')) return 'Sunnyvale'
   if (text.includes('mountain view')) return 'Mountain View'
   if (text.includes('menlo park')) return 'Menlo Park'
   if (text.includes('los altos')) return 'Los Altos'
@@ -362,12 +365,20 @@ export function normalizeCity(raw, address = '') {
   const lower = source.toLowerCase()
 
   if (lower.includes('los altos hills')) return 'Los Altos'
+  if (lower.includes('sunnyvale')) return 'Sunnyvale'
   if (lower.includes('menlo park')) return 'Palo Alto'
   if (lower.includes('mountain view')) return 'Mountain View'
   if (lower.includes('los altos')) return 'Los Altos'
   if (lower.includes('palo alto')) return 'Palo Alto'
 
-  if (value === 'Palo Alto' || value === 'Los Altos' || value === 'Mountain View') return value
+  if (
+    value === 'Palo Alto' ||
+    value === 'Los Altos' ||
+    value === 'Mountain View' ||
+    value === 'Sunnyvale'
+  ) {
+    return value
+  }
   return 'Palo Alto'
 }
 

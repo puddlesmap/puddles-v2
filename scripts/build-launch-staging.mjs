@@ -37,11 +37,13 @@ const FIT4MOM_SERIES = [
     sampleId: 'watchlist-fit4mom-stroller-strides-laspalmas-2026-09-01',
     seriesId: 'watchlist-fit4mom-stroller-strides-laspalmas-series',
     requireCity: 'Sunnyvale',
+    nextDate: '2026-09-08',
   },
   {
     sampleId: 'watchlist-fit4mom-mommy-baby-yoga-laspalmas-2026-09-01',
     seriesId: 'watchlist-fit4mom-mommy-baby-yoga-laspalmas-series',
     requireCity: 'Sunnyvale',
+    nextDate: '2026-09-08',
   },
   {
     sampleId: 'watchlist-fit4mom-stroller-strides-cuesta-2026-09-04',
@@ -130,7 +132,19 @@ const DESCRIPTION_OVERRIDES = {
   'watchlist-mt-pa-fall-mixed-ages-2026': MUSIC_TOGETHER_FALL_2026.description,
 }
 
-/** Sunnyvale Public Library recurring storytimes (manual seeds until discover-sunnyvale.mjs). */
+/** Sunnyvale Public Library recurring storytimes (manual seeds until discover-sunnyvale.mjs).
+ * `date` = next upcoming meeting so Browse keeps the series live (re-bump weekly). */
+const LIBRARY_MAIN = {
+  venue: 'Sunnyvale Public Library',
+  address: '665 W Olive Ave, Sunnyvale, CA 94086',
+  city: 'Sunnyvale',
+  lat: 37.3688,
+  lng: -122.0363,
+  eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
+  imageUrl:
+    'https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg',
+}
+
 const SUNNYVALE_LIBRARY_SERIES = [
   {
     id: 'staging-sunnyvale-library-baby-lapsit-series',
@@ -138,12 +152,13 @@ const SUNNYVALE_LIBRARY_SERIES = [
     description: 'Rhymes, songs & lap bounces for babies — then stay & play with other families.',
     dayLabel: 'Thursdays',
     startTime: '10:30',
-    endTime: '11:15',
+    endTime: '12:00',
     ageRange: '0–2',
     ageMin: 0,
-    ageMax: 2,
+    ageMax: 1,
     types: ['Stories'],
-    date: '2026-09-04',
+    date: '2026-09-10',
+    tipExtras: ['For babies 0–12 months and their caregivers — no older siblings.'],
   },
   {
     id: 'staging-sunnyvale-library-toddler-storytime-series',
@@ -151,12 +166,13 @@ const SUNNYVALE_LIBRARY_SERIES = [
     description: 'Short stories, songs & movement for wiggly toddlers and their grown-ups.',
     dayLabel: 'Tuesdays',
     startTime: '11:00',
-    endTime: '11:30',
+    endTime: '11:25',
     ageRange: '0–2, 2–5',
     ageMin: 1,
     ageMax: 3,
     types: ['Stories'],
-    date: '2026-09-02',
+    date: '2026-09-08',
+    tipExtras: ['Best for ages 1–3.'],
   },
   {
     id: 'staging-sunnyvale-library-preschool-storytime-series',
@@ -164,12 +180,13 @@ const SUNNYVALE_LIBRARY_SERIES = [
     description: 'Picture books, songs & early-literacy play for preschoolers ready to sit & listen.',
     dayLabel: 'Wednesdays',
     startTime: '11:00',
-    endTime: '11:30',
+    endTime: '11:25',
     ageRange: '2–5',
     ageMin: 3,
     ageMax: 5,
     types: ['Stories'],
-    date: '2026-09-03',
+    date: '2026-09-09',
+    tipExtras: ['Best for ages 3–5.'],
   },
   {
     id: 'staging-sunnyvale-library-family-storytime-series',
@@ -177,12 +194,12 @@ const SUNNYVALE_LIBRARY_SERIES = [
     description: 'Stories & songs for the whole family — siblings welcome on Saturday mornings.',
     dayLabel: 'Saturdays',
     startTime: '11:00',
-    endTime: '11:30',
+    endTime: '11:25',
     ageRange: '0–2, 2–5',
     ageMin: 0,
     ageMax: 5,
     types: ['Stories'],
-    date: '2026-09-06',
+    date: '2026-09-12',
   },
   {
     id: 'staging-sunnyvale-library-night-owl-storytime-series',
@@ -190,12 +207,12 @@ const SUNNYVALE_LIBRARY_SERIES = [
     description: 'Pajama-friendly stories & songs before bed — a calm evening outing with little ones.',
     dayLabel: 'Thursdays',
     startTime: '19:00',
-    endTime: '19:30',
+    endTime: '19:25',
     ageRange: '0–2, 2–5',
     ageMin: 0,
     ageMax: 5,
     types: ['Stories'],
-    date: '2026-09-04',
+    date: '2026-09-10',
   },
   {
     id: 'staging-sunnyvale-library-magical-bridge-storytime-series',
@@ -208,24 +225,155 @@ const SUNNYVALE_LIBRARY_SERIES = [
     ageMin: 0,
     ageMax: 5,
     types: ['Stories', 'Outdoor'],
-    date: '2026-09-05',
+    date: '2026-10-02',
     venue: 'Magical Bridge Playground · Fair Oaks Park',
     address: '540 N Fair Oaks Ave, Sunnyvale, CA 94085',
     lat: 37.3902,
     lng: -122.0085,
+    tipExtras: ['Extra Magical Bridge storytimes sometimes land midweek — check the kids calendar.'],
   },
 ]
 
-const LIBRARY_MAIN = {
-  venue: 'Sunnyvale Public Library',
-  address: '665 W Olive Ave, Sunnyvale, CA 94086',
-  city: 'Sunnyvale',
-  lat: 37.3688,
-  lng: -122.0363,
-  eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
-  imageUrl:
-    'https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg',
-}
+/** Dated Sunnyvale specials (Sep–Oct 2026) verified on library / city calendars. */
+const SUNNYVALE_SPECIAL_EVENTS = [
+  {
+    id: 'watchlist-sunnyvale-library-sensory-storytime-2026-09-09',
+    title: 'Sensory Storytime',
+    description:
+      'Interactive literacy with movement, music, sensory materials & a calmer group size — great for little ones who need a gentler storytime.',
+    tips: 'Registration required · limited spots. Caregivers stay with children.',
+    venue: 'Sunnyvale Public Library',
+    address: '665 W Olive Ave, Sunnyvale, CA 94086',
+    city: 'Sunnyvale',
+    date: '2026-09-09',
+    startTime: '15:00',
+    endTime: '15:45',
+    ageRange: '2–5',
+    ageMin: 3,
+    ageMax: 5,
+    types: ['Stories'],
+    categoryTags: ['Sunnyvale', 'Library special'],
+    cost: 'Free',
+    imageUrl: '',
+    eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
+    lat: 37.3688,
+    lng: -122.0363,
+  },
+  {
+    id: 'watchlist-sunnyvale-library-bilingual-hebrew-storytime-2026-09-11',
+    title: 'Bilingual Hebrew-English Storytime',
+    description: 'Stories, songs & rhymes in Hebrew and English for little ones and their grown-ups.',
+    tips: 'No registration — arrive early; doors close when the room is full.',
+    venue: 'Sunnyvale Public Library',
+    address: '665 W Olive Ave, Sunnyvale, CA 94086',
+    city: 'Sunnyvale',
+    date: '2026-09-11',
+    startTime: '11:00',
+    endTime: '12:00',
+    ageRange: '0–2, 2–5',
+    ageMin: 0,
+    ageMax: 5,
+    types: ['Stories'],
+    categoryTags: ['Sunnyvale', 'Library special'],
+    cost: 'Free',
+    imageUrl: '',
+    eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
+    lat: 37.3688,
+    lng: -122.0363,
+  },
+  {
+    id: 'watchlist-sunnyvale-library-mid-autumn-storytime-craft-2026-09-13',
+    title: 'Mid-Autumn Festival Storytime and Craft',
+    description:
+      'Seasonal Mid-Autumn stories plus a hands-on craft — a gentle festival outing for little ones.',
+    tips: 'No registration — arrive early; doors close when the room is full.',
+    venue: 'Sunnyvale Public Library',
+    address: '665 W Olive Ave, Sunnyvale, CA 94086',
+    city: 'Sunnyvale',
+    date: '2026-09-13',
+    startTime: '14:00',
+    endTime: '15:00',
+    ageRange: '0–2, 2–5',
+    ageMin: 0,
+    ageMax: 5,
+    types: ['Stories', 'Arts & Crafts'],
+    categoryTags: ['Sunnyvale', 'Library special', 'Hello Fall'],
+    cost: 'Free',
+    imageUrl: '',
+    eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
+    lat: 37.3688,
+    lng: -122.0363,
+  },
+  {
+    id: 'watchlist-sunnyvale-library-asl-for-babies-2026-09-14',
+    title: 'ASL for Babies',
+    description:
+      'Early signs with songs and play — grown-ups and babies learn simple ASL together.',
+    tips: 'No registration — arrive early; doors close when the room is full.',
+    venue: 'Sunnyvale Public Library',
+    address: '665 W Olive Ave, Sunnyvale, CA 94086',
+    city: 'Sunnyvale',
+    date: '2026-09-14',
+    startTime: '11:00',
+    endTime: '12:00',
+    ageRange: '0–2',
+    ageMin: 0,
+    ageMax: 2,
+    types: ['Parent & Me', 'Stories'],
+    categoryTags: ['Sunnyvale', 'Library special', 'Parent & Me'],
+    cost: 'Free',
+    imageUrl: '',
+    eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
+    lat: 37.3688,
+    lng: -122.0363,
+  },
+  {
+    id: 'watchlist-sunnyvale-library-bilingual-spanish-storytime-craft-2026-09-18',
+    title: 'Bilingual (Spanish/English) Storytime & Craft',
+    description:
+      'Stories and songs in Spanish and English, then a simple craft for little hands.',
+    tips: 'No registration — arrive early; doors close when the room is full.',
+    venue: 'Sunnyvale Public Library',
+    address: '665 W Olive Ave, Sunnyvale, CA 94086',
+    city: 'Sunnyvale',
+    date: '2026-09-18',
+    startTime: '11:00',
+    endTime: '12:00',
+    ageRange: '0–2, 2–5',
+    ageMin: 0,
+    ageMax: 5,
+    types: ['Stories', 'Arts & Crafts'],
+    categoryTags: ['Sunnyvale', 'Library special'],
+    cost: 'Free',
+    imageUrl: '',
+    eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
+    lat: 37.3688,
+    lng: -122.0363,
+  },
+  {
+    id: 'watchlist-sunnyvale-hands-on-the-arts-2026-10-17',
+    title: 'Hands on the Arts',
+    description:
+      '20+ hands-on art booths, roving performers, and food vendors — Sunnyvale’s long-running children’s arts festival celebrating cultures from around the world.',
+    tips: 'Free wristband at check-in unlocks all workshops (booths tailored ~ages 3–15; best for preschool+). Limited parking; bike valet often available.',
+    venue: 'Sunnyvale Community Center',
+    address: '550 E Remington Dr, Sunnyvale, CA 94087',
+    city: 'Sunnyvale',
+    date: '2026-10-17',
+    startTime: '10:30',
+    endTime: '15:00',
+    ageRange: '2–5, 5+',
+    ageMin: 2,
+    ageMax: 5,
+    types: ['Arts & Crafts', 'Festivals & Community'],
+    categoryTags: ['Seasonal', 'Sunnyvale'],
+    cost: 'Free',
+    imageUrl: '',
+    eventUrl: 'https://www.sunnyvale.ca.gov/recreation-and-community/special-events',
+    lat: 37.3782,
+    lng: -122.0265,
+  },
+]
 
 function loadCandidates() {
   const raw = JSON.parse(readFileSync(join(root, 'src/data/discovery-candidates.json'), 'utf8'))
@@ -338,6 +486,7 @@ function buildFit4MomSeries(candidate, config) {
   event.description = copy.description
   event.tips = copy.tips
   event.categoryTags = ['Parent & Me', 'Series · do not explode weekly']
+  if (config.nextDate) event.date = config.nextDate
   if (IMAGE_OVERRIDES[event.id]) {
     event.imageUrl = IMAGE_OVERRIDES[event.id]
   }
@@ -351,7 +500,7 @@ function buildLibrarySeries(seed) {
     id: seed.id,
     title: seed.title,
     description: seed.description,
-    tips: buildSunnyvaleLibrarySeriesGoodToKnow(seed.dayLabel),
+    tips: buildSunnyvaleLibrarySeriesGoodToKnow(seed.dayLabel, seed.tipExtras ?? []),
     venue,
     address,
     city: LIBRARY_MAIN.city,
@@ -435,6 +584,15 @@ function main() {
 
   for (const seed of SUNNYVALE_LIBRARY_SERIES) {
     events.push(buildLibrarySeries(seed))
+  }
+
+  for (const seed of SUNNYVALE_SPECIAL_EVENTS) {
+    events.push(
+      asPublishedEvent({
+        ...seed,
+        imageUrl: seed.imageUrl || LIBRARY_MAIN.imageUrl,
+      }),
+    )
   }
 
   for (const seed of HELLO_FALL_FEATURED_SEEDS) {

@@ -219,7 +219,16 @@ export function getSeasonalIllustrationSrc(timing: string): string | undefined {
 
 /**
  * Editorial seasonal collections — not a new event taxonomy.
- * Themes transition with local activity patterns (Hello, Fall → Halloween in late September).
+ * Themes transition with local activity patterns (Hello, Fall → Halloween in early October).
+ *
+ * **One live theme at a time:** Home band, collection page, and Fall/Halloween Pick badges all
+ * follow `activeFrom` / `activeUntil` via `getActiveSeasonalCollection()`. Never show Fall Pick and
+ * Halloween Pick together. The same event may appear in both collections and switch badge labels
+ * at the theme swap (e.g. pumpkin farm: Fall Pick in September → Halloween Pick in October).
+ *
+ * **Browse window:** public discovery shows roughly the next **60 days** (`PUBLIC_DISPLAY_WINDOW_DAYS`)
+ * — from early September that reaches ~end of October. Seasonal inventory can coexist in the feed;
+ * only the active theme’s badge/module is editorial.
  *
  * **Litmus (every theme):** if it isn’t special because of this season / month, don’t make it a
  * seasonal pick — keep year-round classes in regular browse. Full rules:
@@ -305,6 +314,24 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         note: 'Optional light September / back-to-school pick',
       },
       {
+        eventId: 'seasonal-drive-lemos-farm-pumpkin-patch-2026-09-05',
+        featuredFrom: '2026-09-04',
+        featuredUntil: '2026-09-21',
+        note: 'Worth a drive · coastal pumpkin farm opens Labor Day weekend',
+      },
+      {
+        eventId: 'seasonal-drive-garin-apple-festival-2026-09-06',
+        featuredFrom: '2026-09-04',
+        featuredUntil: '2026-09-06',
+        note: 'Worth a drive · one-day harvest festival — drop after Sep 6',
+      },
+      {
+        eventId: 'seasonal-drive-roaring-camp-labor-day-2026-09-05',
+        featuredFrom: '2026-09-04',
+        featuredUntil: '2026-09-07',
+        note: 'Optional short-term Fall Pick · Labor Day weekend only — remove from Seasonal after Sep 7',
+      },
+      {
         eventId: 'seasonal-drive-sf-chinatown-autumn-moon-festival-2026-09-19',
         featuredFrom: '2026-09-15',
         featuredUntil: '2026-09-21',
@@ -348,6 +375,12 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         note: 'South Bay pumpkin patch — feature when it opens, not earlier',
       },
       {
+        eventId: 'watchlist-mini-yoga-treehouse-2026-09-26',
+        featuredFrom: '2026-09-20',
+        featuredUntil: '2026-09-27',
+        note: 'Sunnyvale pop-up family yoga on the Treehouse lawn — late September Fall Pick',
+      },
+      {
         eventId: 'watchlist-sunnyvale-diwali-sacas-2026-10-03',
         featuredFrom: '2026-09-28',
         featuredUntil: '2026-10-05',
@@ -373,11 +406,15 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'disc-storytime-with-jasmine-fang-beneath-the--2026-09-13-watchlist-linden-2026-09-13',
       'disc-author-event-celebrate-the-mooncake-fest-2026-09-23-6a6cdceee30fe4845965ed72',
       'watchlist-google-endless-summer-festival-2026-09-12',
+      'watchlist-mini-yoga-treehouse-2026-09-26',
       'watchlist-sunnyvale-diwali-sacas-2026-10-03',
       'watchlist-sunnyvale-mid-autumn-festival-2026-10-03',
       'free-in-store-kids-workshops-school-bus-organizer-home-depot-2026-09-05-09-00',
     ],
     driveEventIds: [
+      'seasonal-drive-lemos-farm-pumpkin-patch-2026-09-05',
+      'seasonal-drive-garin-apple-festival-2026-09-06',
+      'seasonal-drive-roaring-camp-labor-day-2026-09-05',
       'seasonal-drive-farmer-johns-pumpkin-farm-2026-09-04',
       'seasonal-drive-spina-farms-pumpkin-patch-2026-09-17',
       'seasonal-drive-sf-chinatown-autumn-moon-festival-2026-09-19',
@@ -456,6 +493,9 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30',
     ],
     driveEventIds: [
+      // Spanning Fall → Halloween: same farms keep the seasonal badge under the new theme
+      'seasonal-drive-spina-farms-pumpkin-patch-2026-09-17',
+      'seasonal-drive-farmer-johns-pumpkin-farm-2026-09-04',
       'spooky-times-at-deer-holloween-farm-deer-hollow-farm-2026-10-17-10-00',
       'seasonal-drive-grimm-manor-san-jose-2026-10-10',
       'seasonal-drive-spooktacular-lego-redwood-city-2026-10-12',
@@ -486,11 +526,51 @@ export interface HelloFallCurationCandidate {
 
 export const HELLO_FALL_DISCOVERY_PIPELINE: HelloFallCurationCandidate[] = [
   {
+    discoveryId: 'seasonal-drive-lemos-farm-pumpkin-patch-2026-09-05',
+    title: 'Lemos Farm Fall Pumpkin Patch',
+    date: '2026-09-05',
+    city: 'Half Moon Bay',
+    why: 'Worth a drive · coastal pumpkin farm with rides & animals — Hello Fall only, not regular Browse.',
+    priority: 'high',
+  },
+  {
+    discoveryId: 'seasonal-drive-garin-apple-festival-2026-09-06',
+    title: 'Garin Apple Festival',
+    date: '2026-09-06',
+    city: 'Hayward',
+    why: 'Worth a drive · one-day harvest festival — Hello Fall only, not regular Browse.',
+    priority: 'high',
+  },
+  {
+    discoveryId: 'seasonal-drive-roaring-camp-labor-day-2026-09-05',
+    title: 'Labor Day Weekend at Roaring Camp',
+    date: '2026-09-05',
+    city: 'Felton',
+    why: 'Optional short-term Fall Pick · Labor Day weekend only — remove after Sep 7.',
+    priority: 'medium',
+  },
+  {
     discoveryId: '16188977',
     title: 'Mid-Autumn Festival Story Celebration (PiggySprout)',
     date: '2026-09-12',
     city: 'Mountain View',
     why: 'Mandarin stories + hands-on Mid-Autumn activities — true fall seasonal celebration.',
+    priority: 'high',
+  },
+  {
+    discoveryId: '6a6cdceee30fe4845965ed72',
+    title: 'Author Event: Celebrate the Mooncake Festival with Jasmine Fang',
+    date: '2026-09-23',
+    city: 'Palo Alto',
+    why: 'Mooncake Festival story + craft — season-true Mid-Autumn at the library.',
+    priority: 'high',
+  },
+  {
+    discoveryId: 'harvest-history-festival-heritage-park-2026-09-26-09-00',
+    title: 'Harvest History Festival',
+    date: '2026-09-26',
+    city: 'Mountain View',
+    why: 'Late-September harvest anchor — bubbles, puppets & Immigrant House for little ones.',
     priority: 'high',
   },
   {
@@ -518,6 +598,9 @@ export const HELLO_FALL_DISCOVERY_PIPELINE: HelloFallCurationCandidate[] = [
     priority: 'medium',
   },
 ]
+
+/** @deprecated Use SEASONAL_DISCOVERY_PIPELINE from ../utils/seasonalDiscoveryPipeline */
+export { SEASONAL_DISCOVERY_PIPELINE } from '../utils/seasonalDiscoveryPipeline'
 
 /** Full seasonal calendar for product preview (including themes without curated events yet). */
 export const SEASONAL_THEME_CALENDAR = SEASONAL_EYEBROW_PALETTE.map((entry) => ({
@@ -568,7 +651,7 @@ export const SEASONAL_THEME_SCHEDULE: SeasonalThemeScheduleEntry[] = [
     activeUntil: '2026-10-05',
     transitionFrom: '2026-09-29',
     transitionNote:
-      'Sep 29–Oct 5: Diwali / Sunnyvale Mid-Autumn weekend; blend early Halloween picks; title swaps to Halloween Oct 6.',
+      'Sep 29–Oct 5: Diwali / Sunnyvale Mid-Autumn weekend; optional early Halloween featured blend; title + badges swap to Halloween Oct 6. Browse still shows ~60 days of inventory (~through late October).',
     curated: true,
   },
   {
@@ -581,7 +664,8 @@ export const SEASONAL_THEME_SCHEDULE: SeasonalThemeScheduleEntry[] = [
     illustrationSrc: '/seasonal/halloween-with-little-ones.png',
     activeFrom: '2026-10-06',
     activeUntil: '2026-10-31',
-    transitionNote: 'Replaces Fall module title Oct 6 — after Diwali / Mid-Autumn weekend.',
+    transitionNote:
+      'Replaces Fall module + Fall Pick badges Oct 6. Spanning picks (e.g. pumpkin farms) keep a seasonal badge as Halloween Pick; Fall-only events drop the badge but stay in regular browse.',
     curated: true,
   },
   {
@@ -721,11 +805,12 @@ export function getActiveSeasonalCollection(now: Date = new Date()): SeasonalCol
   )
 }
 
-/** Experiment preview — Hello, Fall is the live V1 module. */
+/** Experiment / review tooling — Hello, Fall curated set (not date-gated). */
 export function getSeasonalCollectionForExperiment(): SeasonalCollection {
   return getSeasonalCollection('hello-fall')!
 }
 
+/** Experiment / review tooling — Halloween curated set (not date-gated). */
 export function getUpcomingSeasonalCollectionForExperiment(): SeasonalCollection {
   return getSeasonalCollection('halloween-with-little-ones')!
 }

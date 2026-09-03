@@ -19,6 +19,8 @@ export const ACTIVITY_TYPES = [
   'Outdoor',
   'Social & Play',
   'Classes',
+  'Festivals & Community',
+  'Parent & Me',
   'Other',
 ]
 
@@ -218,13 +220,22 @@ export function inferActivityTypesFromText(...parts) {
     matched.push('Build & Explore')
   }
   if (lower.includes('play') || lower.includes('social')) matched.push('Social & Play')
+  if (
+    /\b(festival|fair|carnival|parade|open\s+house|community\s+day|kids\s+zone|farmers?\s+market)\b/.test(
+      lower,
+    ) ||
+    (/\b(farm|barn|livestock|ponies?|horses?|petting\s+zoo)\b/.test(lower) &&
+      /\b(festival|celebrate|celebration|annual|invite you and your family)\b/.test(lower))
+  ) {
+    if (!matched.includes('Festivals & Community')) matched.push('Festivals & Community')
+  }
   if (lower.includes('class')) matched.push('Classes')
   if (
-    /\b(farm|barn|livestock|ponies?|horses?|petting\s+zoo)\b/.test(lower) &&
-    /\b(festival|celebrate|celebration|annual|invite you and your family)\b/.test(lower)
+    /\b(parent\s*&\s*me|parent\s+and\s+me|mommy\s*&\s*me|mommy\s+and\s+me|dad\s*&\s*me|baby\s+yoga|parent\s*&\s*baby|parent\s+and\s+baby|stroller\s+(strides|barre|fitness)|family\s+yoga|caregiver\s*\+\s*child)\b/.test(
+      lower,
+    )
   ) {
-    if (!matched.includes('Social & Play')) matched.push('Social & Play')
-    if (!matched.includes('Outdoor')) matched.push('Outdoor')
+    if (!matched.includes('Parent & Me')) matched.push('Parent & Me')
   }
 
   return matched
@@ -275,7 +286,7 @@ export function resolveActivityTypes(sheetTypesRaw, title, description, category
   const combinedRaw = [sheetTypesRaw, ...tags].filter(Boolean).join(', ')
 
   if (isAnimalCommunityGathering(title, description, tags)) {
-    return ['Social & Play', 'Outdoor']
+    return ['Festivals & Community']
   }
 
   const onlyOther = sheetTypes.length === 1 && sheetTypes[0] === 'Other'

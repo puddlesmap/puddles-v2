@@ -54,6 +54,51 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   }
   if (pathname === '/experiment-browse') return formatDocumentTitle('Browse Bay Area Activities')
   if (pathname === '/experiment-welcome') return formatDocumentTitle('Welcome Experiment')
+  if (pathname === '/experiment/seasonal-discovery') {
+    return formatDocumentTitle('Seasonal Discovery Experiment')
+  }
+  if (pathname === '/experiment/seasonal-discovery/calendar') {
+    return formatDocumentTitle('Seasonal Theme Calendar')
+  }
+  if (pathname === '/experiment/seasonal-discovery/hello-fall') {
+    return formatDocumentTitle('Hello, Fall')
+  }
+  if (pathname === '/experiment/seasonal-discovery/halloween-with-little-ones') {
+    return formatDocumentTitle('Halloween with little ones')
+  }
+  if (pathname === '/experiment/community-events-mockup') {
+    return formatDocumentTitle('Community Events Mockup')
+  }
+  if (pathname === '/experiment/launch-expand-mockup') {
+    return formatDocumentTitle('Event Card Badges Mockup')
+  }
+  if (pathname === '/experiment/browse-v2-mockup') {
+    return formatDocumentTitle('Browse · Version 2-2 · User Test')
+  }
+  if (pathname === '/experiment/browse-v3-mockup') {
+    return formatDocumentTitle('Browse · Version 3 · User Test')
+  }
+  if (pathname === '/experiment/browse-card-layout-mockup') {
+    return formatDocumentTitle('Browse Card Layout Comparison')
+  }
+  if (pathname === '/experiment/browse-card-design-reference') {
+    return formatDocumentTitle('Browse Card Design Reference')
+  }
+  if (pathname === '/experiment/browse-live-vs-option2') {
+    return formatDocumentTitle('Live vs V3 Option 2')
+  }
+  if (pathname === '/experiment/home-launch-preview') {
+    return formatDocumentTitle('Home Launch Preview')
+  }
+  if (pathname === '/experiment/seasonal-launch-review') {
+    return formatDocumentTitle('Seasonal Launch Review')
+  }
+  if (pathname === '/experiment/hallmark-home-mockup') {
+    return formatDocumentTitle('Hallmark Home Mockup')
+  }
+  if (pathname === '/experiment/hallmark-hello-fall-mockup') {
+    return formatDocumentTitle('Hallmark Hello Fall Mockup')
+  }
   if (pathname === '/share-experiment') return formatDocumentTitle('Share Experiment')
   if (pathname === '/about-experiment' || pathname === '/experiment_about') {
     return formatDocumentTitle('About Experiment')

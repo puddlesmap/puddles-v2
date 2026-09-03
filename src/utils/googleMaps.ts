@@ -16,14 +16,96 @@ export function hasGoogleMapsApiKey(): boolean {
   return GOOGLE_MAPS_API_KEY.length > 0
 }
 
-/** Slightly muted roadmap — closer to the current Carto preview feel. */
+/**
+ * Modern clean roadmap — cool greys, white roads, soft blue water, minimal clutter.
+ * Applied on browse Google Map via `styles={...}`.
+ */
 export const MUTED_GOOGLE_MAP_STYLES: google.maps.MapTypeStyle[] = [
-  { elementType: 'geometry', stylers: [{ saturation: -55 }, { lightness: 8 }] },
-  { elementType: 'labels.text.fill', stylers: [{ saturation: -35 }, { lightness: 20 }] },
-  { elementType: 'labels.text.stroke', stylers: [{ lightness: 100 }] },
-  { featureType: 'poi', elementType: 'geometry', stylers: [{ saturation: -40 }, { lightness: 10 }] },
-  { featureType: 'road', elementType: 'geometry', stylers: [{ saturation: -45 }, { lightness: 12 }] },
-  { featureType: 'water', elementType: 'geometry', stylers: [{ saturation: -30 }, { lightness: 10 }] },
+  { elementType: 'geometry', stylers: [{ color: '#f8f9fb' }] },
+  { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+  { elementType: 'labels.text.fill', stylers: [{ color: '#6b7280' }] },
+  { elementType: 'labels.text.stroke', stylers: [{ color: '#ffffff' }, { weight: 2 }] },
+  {
+    featureType: 'administrative',
+    elementType: 'geometry.stroke',
+    stylers: [{ color: '#e5e7eb' }],
+  },
+  {
+    featureType: 'administrative.land_parcel',
+    stylers: [{ visibility: 'off' }],
+  },
+  {
+    featureType: 'administrative.neighborhood',
+    stylers: [{ visibility: 'off' }],
+  },
+  {
+    featureType: 'poi',
+    stylers: [{ visibility: 'off' }],
+  },
+  {
+    featureType: 'poi.park',
+    elementType: 'geometry.fill',
+    stylers: [{ visibility: 'on' }, { color: '#e8f0e9' }],
+  },
+  {
+    featureType: 'poi.park',
+    elementType: 'labels',
+    stylers: [{ visibility: 'off' }],
+  },
+  {
+    featureType: 'road',
+    elementType: 'geometry.fill',
+    stylers: [{ color: '#ffffff' }],
+  },
+  {
+    featureType: 'road',
+    elementType: 'geometry.stroke',
+    stylers: [{ color: '#e5e7eb' }],
+  },
+  {
+    featureType: 'road.arterial',
+    elementType: 'geometry.fill',
+    stylers: [{ color: '#ffffff' }],
+  },
+  {
+    featureType: 'road.arterial',
+    elementType: 'geometry.stroke',
+    stylers: [{ color: '#d1d5db' }],
+  },
+  {
+    featureType: 'road.highway',
+    elementType: 'geometry.fill',
+    stylers: [{ color: '#e5e7eb' }],
+  },
+  {
+    featureType: 'road.highway',
+    elementType: 'geometry.stroke',
+    stylers: [{ color: '#d1d5db' }],
+  },
+  {
+    featureType: 'road.highway',
+    elementType: 'labels.icon',
+    stylers: [{ visibility: 'off' }],
+  },
+  {
+    featureType: 'road.local',
+    elementType: 'labels',
+    stylers: [{ visibility: 'off' }],
+  },
+  {
+    featureType: 'transit',
+    stylers: [{ visibility: 'off' }],
+  },
+  {
+    featureType: 'water',
+    elementType: 'geometry',
+    stylers: [{ color: '#dbeafe' }],
+  },
+  {
+    featureType: 'water',
+    elementType: 'labels.text.fill',
+    stylers: [{ color: '#93a4b8' }],
+  },
 ]
 
 export function buildEventStaticMapUrl(

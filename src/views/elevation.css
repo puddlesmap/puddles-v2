@@ -71,7 +71,11 @@ body {
 
 .discovery-page-shell .discovery-event-card .card-listing-media,
 .home-experiment-shell .discovery-event-card .card-listing-media,
-.browse-page-shell .discovery-event-card .card-listing-media {
+.browse-page-shell .discovery-event-card .card-listing-media,
+.seasonal-discovery-module:not(.seasonal-discovery-module--home-band)
+  .seasonal-discovery-module__card
+  .discovery-event-card
+  .card-listing-media {
   box-shadow: var(--elevation-shadow-soft);
 }
 

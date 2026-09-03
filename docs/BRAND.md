@@ -14,7 +14,7 @@ When updating public-facing language, change the source file listed here — the
 | **Full lockup** | Puddles · the tot map |
 | **Domain** | https://puddlesmap.com |
 | **Audience** | Parents and caregivers of children ages 0–5 |
-| **Geography** | Bay Area → Palo Alto, Los Altos, Mountain View |
+| **Geography** | Bay Area → Palo Alto, Los Altos, Mountain View, Sunnyvale |
 | **Theme color** | `#FFFFFF` |
 
 **Source:** `src/config/site.ts`, `src/components/layout/BrandLockup.tsx`
@@ -141,7 +141,7 @@ When updating public-facing language, change the source file listed here — the
 | Field | Value |
 |-------|-------|
 | **Site title** | Puddles \| Bay Area Activities for Ages 0–5 |
-| **Meta description** | Find storytimes, music, drop-ins, library events, community programs, and local family activities for ages 0–5 in the Bay Area. Starting in Palo Alto, Los Altos, and Mountain View. |
+| **Meta description** | Find storytimes, music, drop-ins, library events, community programs, and local family activities for ages 0–5 in the Bay Area. Starting in Palo Alto, Los Altos, Mountain View, and Sunnyvale. |
 | **OG description** | Same as meta, without “Starting in Palo Alto…” |
 | **OG image** | https://puddlesmap.com/og-image.png |
 | **Twitter card** | summary_large_image |
@@ -300,6 +300,6 @@ These routes exist for design experiments. Do not treat as live brand unless pro
 
 **SEO title:** Puddles | Bay Area Activities for Ages 0–5
 
-**SEO description (short):** Bay Area activities for ages 0–5 — storytimes, music, drop-ins, library programs, and free or low-cost local outings in Palo Alto, Los Altos, and Mountain View.
+**SEO description (short):** Bay Area activities for ages 0–5 — storytimes, music, drop-ins, library programs, and free or low-cost local outings in Palo Alto, Los Altos, Mountain View, and Sunnyvale.
 
 **OG image URL:** https://puddlesmap.com/og-image.png

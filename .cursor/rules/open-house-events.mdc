@@ -1,0 +1,68 @@
+---
+description: When to include open houses / community explore events for ages 0–5, and how to type + write card copy
+alwaysApply: true
+---
+
+# Open houses & community explore events
+
+## When to include
+
+Include an open house or community event when there is a clear reason a child ages 0–5 would enjoy the experience—not just because children are allowed.
+
+Good signals:
+
+- Children can **explore a space** they do not normally access.
+- There is something interesting to **watch, touch, discover, or experience**.
+- The event includes demonstrations, tours, art-making, vehicles, animals, music, performances, or other visually engaging elements.
+- Families can participate casually without needing to sit through a long structured program.
+- The experience works well as a short outing with a young child.
+
+Examples that may qualify:
+
+- Art studio open houses
+- Fire station or community-service open houses
+- Farm open days
+- Maker or craft demonstrations
+- Cultural demonstrations
+- Train or vehicle displays
+- Behind-the-scenes community events
+
+## When not to include
+
+Do not include events where:
+
+- Children are technically welcome, but the experience is primarily designed for adults.
+- The main activity is networking, shopping, drinking, or viewing exhibits quietly.
+- There is little for a young child to interact with or observe.
+- The program is long, highly structured, or better suited to older children.
+
+## Activity type
+
+Use the most specific existing activity type rather than labeling everything as **Festivals & Community**.
+
+Example: **Art Studios Open House** → **Arts & Crafts**.
+
+If the open house is broader and does not fit another category, use **Festivals & Community** (as a category tag when that label is used in the product; otherwise prefer the closest `ActivityType`).
+
+## Event card copy
+
+The description (card subtitle) should explain **why the event may be interesting for little ones**.
+
+Example:
+
+**Art Studios Open House**  
+*Explore the studios, meet artists & see how art gets made.*
+
+Avoid generic copy such as:
+
+- Family-friendly open house
+- All ages welcome
+- Visit the Art Center
+
+Tell parents what their child will actually experience.
+
+## Core rule
+
+> **Include it when there is something meaningful for a little one to explore, watch, participate in, or experience—not simply because kids are welcome.**
+
+For broader festivals, markets, and community celebrations, see `community-events-inclusion.mdc` and `docs/community-events-inclusion.md`.

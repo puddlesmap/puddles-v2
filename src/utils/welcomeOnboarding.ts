@@ -1,4 +1,4 @@
-export const WELCOME_LAUNCH_CITIES = ['Palo Alto', 'Los Altos', 'Mountain View'] as const
+export const WELCOME_LAUNCH_CITIES = ['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale'] as const
 
 export const WELCOME_CTA_DISMISS_DAYS = 30
 export const WELCOME_FAB_MIN_DELAY_MS = 2500

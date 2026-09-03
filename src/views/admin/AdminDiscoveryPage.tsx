@@ -31,6 +31,7 @@ type ActionMessage = { type: 'success' | 'error'; text: string }
 
 const VIEW_OPTIONS: { id: DiscoveryViewFilter; label: string }[] = [
   { id: 'thisWeek', label: 'This week' },
+  { id: 'seasonal', label: 'Seasonal picks' },
   { id: 'pending', label: 'Pending' },
   { id: 'new', label: 'New only' },
   { id: 'already', label: 'Already on site' },
@@ -712,7 +713,9 @@ export function AdminDiscoveryPage() {
                 ? thisWeekSummary.total
                 : option.id === 'pending'
                   ? counts.pending
-                  : option.id === 'new'
+                  : option.id === 'seasonal'
+                    ? counts.seasonal
+                    : option.id === 'new'
                     ? counts.newPending
                     : option.id === 'already'
                       ? counts.alreadyPending

@@ -145,7 +145,7 @@ export function getEventMapCoordinates(event: Event): { lat: number; lng: number
   }
 
   const city = event.city?.trim() as City | undefined
-  if (city === 'Palo Alto' || city === 'Los Altos' || city === 'Mountain View') {
+  if (city === 'Palo Alto' || city === 'Los Altos' || city === 'Mountain View' || city === 'Sunnyvale') {
     const center = getCityCenter(city)
     return { lat: center.lat, lng: center.lng }
   }

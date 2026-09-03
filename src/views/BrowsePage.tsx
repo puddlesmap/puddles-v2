@@ -173,18 +173,18 @@ export function BrowsePage({
 
   useEffect(() => {
     const cityFromQuery = resolveCitySlugParam(searchParams.get('city'))
-    if (!cityFromQuery) return
-
     const activityFromQuery = searchParams.get('activity')
     const activityType = ACTIVITY_TYPES.find((type) => type === activityFromQuery)
-
     const ageFromQuery = searchParams.get('age')
     const age = PUBLIC_AGE_FILTER_OPTIONS.find((option) => option.key === ageFromQuery)?.key
 
+    // Deep links (home announcement, seasonal chips, city landings) should land on a
+    // clean filtered state — not inherit leftover day/time/type filters from prior browsing.
+    if (!cityFromQuery && !activityType && !age) return
+
     setBrowseFilters({
       ...DEFAULT_BROWSE_FILTERS,
-      city: cityFromQuery,
-      cityLocked: true,
+      ...(cityFromQuery ? { city: cityFromQuery, cityLocked: true } : null),
       ...(activityType ? { types: [activityType] } : null),
       ...(age ? { age } : null),
     })

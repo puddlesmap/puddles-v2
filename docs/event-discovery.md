@@ -62,12 +62,54 @@ Each run:
 
 Mountain View **city** special events (festivals, movies on Castro, etc.) are **not** on LibCal — they stay on the [Calendar Watchlist](./calendar-watchlist.md) (Akamai blocks automated fetch of mountainview.gov). Marketing page URLs like `/special-events/harvest-history-festival` are aliased to CivicPlus calendar event IDs when marking already-on-Puddles.
 
+### Regional / Worth a Drive (Fridays)
+
+Bay Area destination events (farms, festivals, trains) outside the four Browse cities — plus **小紅書 leads** you paste with official URLs — use a separate weekly pass. See [Regional discovery — weekly](./regional-discovery-weekly.md).
+
+| Command | When |
+|---------|------|
+| `npm run discover:regional-weekly` | Local or Friday GitHub Action |
+| Inbox | `data/discovery/regional-leads-inbox.json` |
+
+Workflow: [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml)
+
+### Seasonal picks ↔ Discovery
+
+Every Hello Fall / Halloween curated pick should have a matching row in Admin → Discovery (**Seasonal picks** tab). Source of truth for the pick list: `src/data/seasonalDiscovery.ts` (`collectionEventIds`, `driveEventIds`, `featuredWindows`).
+
+| Command | What |
+|---------|------|
+| `npm run discover:sync-seasonal` | Add/update Discovery rows for all seasonal picks (tags `Seasonal · Hello Fall` / `Seasonal · Halloween`) |
+
+Pipeline map: `src/utils/seasonalDiscoveryPipeline.ts` (includes Biblio id aliases when scrape id ≠ live event id).
+
 | Script | Source |
 |--------|--------|
 | `discover:palo-alto` | Palo Alto Library · BiblioCommons |
 | `discover:los-altos` | SCCL Los Altos + Woodland branches |
 | `discover:mountain-view` | Mountain View Library · LibCal |
 | `discover:bay-area` | All three into one Admin queue |
+| `discover:expansion-lookahead` | 90-day report for **Sunnyvale** + **Parent & Me** + **Festivals** (no scrape) |
+| `discover:expansion-refresh` | `discover:bay-area --days=90` then expansion report |
+
+### Expansion lookahead (new city + launch types)
+
+For launch expansion (Sunnyvale city filter, Parent & Me, Festivals & Community):
+
+```bash
+# Refresh libraries + write report (recommended monthly)
+npm run discover:expansion-refresh
+
+# Report only (uses current discovery-candidates.json)
+npm run discover:expansion-lookahead -- --days=90
+```
+
+Writes:
+
+- `docs/calendar-watchlist-next-2-months.md` — human-readable priorities
+- `data/discovery/expansion-lookahead-{date}.json` — machine-readable stats
+
+**Sunnyvale library** is on the [Calendar Watchlist](./calendar-watchlist.md) (site blocks scrapers) until `discover-sunnyvale.mjs` exists; use staging seeds + FIT4MOM / Mini Yoga watchlist rows for Sunnyvale inventory.
 
 Each candidate is enriched toward a Puddles Events row:
 

@@ -31,7 +31,7 @@ function submissionEventId(submission: SheetSubmission): string {
 }
 
 function asCity(raw: string): City {
-  const cities: City[] = ['Palo Alto', 'Los Altos', 'Mountain View']
+  const cities: City[] = ['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale']
   const hit = cities.find((city) => city.toLowerCase() === raw.trim().toLowerCase())
   return hit ?? ((raw.trim() || 'Palo Alto') as City)
 }

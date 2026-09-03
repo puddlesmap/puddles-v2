@@ -228,11 +228,19 @@ function resolveClientRouterEntry(pathname: string, search: string): string {
   return currentEntry
 }
 
+function ClientRouteLoading() {
+  return (
+    <div className="admin-auth-shell" role="status" aria-live="polite">
+      <p className="admin-auth-loading">Loading Puddles…</p>
+    </div>
+  )
+}
+
 export function ClientRoutePage({ pathname, search = '' }: ClientRoutePageProps) {
   const initialEntry = resolveClientRouterEntry(pathname, search)
 
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<ClientRouteLoading />}>
       <MemoryRouter key={initialEntry} initialEntries={[initialEntry]}>
         <ClientRoutes />
       </MemoryRouter>

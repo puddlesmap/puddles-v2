@@ -1,0 +1,199 @@
+{
+  "description": "Bay Area major-event leads (e.g. from 小紅書 / parent blogs / agent web search). Add rows here; run npm run discover:regional-weekly to queue them in Admin Discovery for review. Every lead MUST have an official eventUrl for fact-check — not the XHS post URL.",
+  "updatedAt": "2026-09-02",
+  "leads": [
+    {
+      "id": "regional-kings-mountain-art-fair-2026-09-05",
+      "title": "Kings Mountain Art Fair",
+      "date": "2026-09-05",
+      "startTime": "10:00",
+      "endTime": "17:00",
+      "venue": "Kings Mountain Community Center & Firehouse",
+      "address": "13889 Skyline Blvd, Woodside, CA 94062",
+      "city": "Woodside",
+      "lat": 37.428,
+      "lng": -122.345,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Festivals & Community",
+        "Arts & Crafts",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Free",
+      "description": "Walk the redwoods & browse juried art — Kiddie Hollow has supervised spin art, sand art & a toddler-friendly craft table.",
+      "tips": "Labor Day weekend Sep 5–7, booths 10am–5pm. Free admission & shuttle from marked Skyline stops (per official site). Kiddie Hollow $5 supply fee, 10am–4pm. No pets.",
+      "eventUrl": "https://kingsmountainartfair.org/",
+      "leadSource": "agent",
+      "leadNotes": "Web search — Labor Day regional roundup; Kiddie Hollow on official site · Do not add — weak toddler seasonal fit; out of core cities.",
+      "processed": true,
+      "processedAt": "2026-09-02",
+      "queuedId": "regional-kings-mountain-art-fair-2026-09-05",
+      "disposition": "Do not add — weak toddler seasonal fit; out of core cities."
+    },
+    {
+      "id": "regional-scottish-games-pleasanton-2026-09-05",
+      "title": "Scottish Highland Gathering & Games",
+      "date": "2026-09-05",
+      "startTime": "08:00",
+      "endTime": "18:00",
+      "venue": "Alameda County Fairgrounds",
+      "address": "4501 Pleasanton Avenue, Pleasanton, CA 94566",
+      "city": "Pleasanton",
+      "lat": 37.663,
+      "lng": -121.874,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Paid",
+      "description": "Sheepdog trials, birds of prey, Celtic animals & living history — plus Passport to the Clans for kids to explore the grounds.",
+      "tips": "Sep 5–6; gates 8am, admission closes 4:30pm. Tickets online only (QR at gate). Free tickets for ages 5 & under per official FAQ. No dogs except service animals.",
+      "eventUrl": "https://thescottishgames.com/",
+      "leadSource": "agent",
+      "leadNotes": "Web search — 160th annual Labor Day weekend; family activities on FAQ · Do not add — weak toddler seasonal fit; out of core cities.",
+      "processed": true,
+      "processedAt": "2026-09-02",
+      "queuedId": "regional-scottish-games-pleasanton-2026-09-05",
+      "disposition": "Do not add — weak toddler seasonal fit; out of core cities."
+    },
+    {
+      "id": "regional-gilroy-harvest-festival-2026-09-19",
+      "title": "Garlic City Car Show & Harvest Festival",
+      "date": "2026-09-19",
+      "startTime": "14:30",
+      "endTime": "18:30",
+      "venue": "Hecker Pass Outdoor Event Center",
+      "address": "3050 Hecker Pass Highway, Gilroy, CA 95020",
+      "city": "Gilroy",
+      "lat": 37.005,
+      "lng": -121.568,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Paid",
+      "description": "Classic cars plus a family harvest zone — petting zoo, pumpkin activities & slot-car track (first 300 families get a pumpkin ticket per official page).",
+      "tips": "Sat Sep 19, 2:30–6:30pm. Adults $10 online; under 18 free; parking free. Gilroy Gardens Premium Members admitted without separate ticket (per gilroy.org).",
+      "eventUrl": "https://gilroy.org/car-show-harvest-festival/",
+      "leadSource": "agent",
+      "leadNotes": "Web search — Gilroy fall harvest; kid activities on official event page · Do not add — Garlic City Car Show; weak toddler seasonal fit.",
+      "processed": true,
+      "processedAt": "2026-09-02",
+      "queuedId": "regional-gilroy-harvest-festival-2026-09-19",
+      "disposition": "Do not add — Garlic City Car Show; weak toddler seasonal fit."
+    },
+    {
+      "id": "regional-nicasio-pumpkin-patch-2026-09-25",
+      "title": "Nicasio Valley Pumpkin Patch",
+      "date": "2026-09-25",
+      "startTime": "10:00",
+      "endTime": "18:00",
+      "venue": "Nicasio Valley Pumpkin Patch",
+      "address": "5300 Nicasio Valley Road, Nicasio, CA 94946",
+      "city": "Nicasio",
+      "lat": 38.058,
+      "lng": -122.699,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Outdoor",
+        "Festivals & Community"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Free admission",
+      "description": "Hayrides, pony rides, petting zoo & two hay mazes — West Marin farm outing with no admission or parking fee.",
+      "tips": "Opens Sep 25 daily through Oct 31 (hours on official site). Weekend extras from Sep 26 include live kids music & farm animals. Check nicasiovalleypumpkinpatch.net for activity dates.",
+      "eventUrl": "https://www.nicasiovalleypumpkinpatch.net/",
+      "leadSource": "agent",
+      "leadNotes": "Web search — Marin/North Bay pumpkin season opener · Queue later — Seasonal / Worth a drive closer to opening; not Fall featured yet.",
+      "processed": true,
+      "processedAt": "2026-09-02",
+      "queuedId": "regional-nicasio-pumpkin-patch-2026-09-25",
+      "disposition": "Queue later — Seasonal / Worth a drive closer to opening; not Fall featured yet."
+    },
+    {
+      "id": "regional-gilroy-gardens-great-big-boo-2026-09-25",
+      "title": "The Great Big BOO! at Gilroy Gardens",
+      "date": "2026-09-25",
+      "startTime": "11:00",
+      "endTime": "21:00",
+      "venue": "Gilroy Gardens Family Theme Park",
+      "address": "3050 Hecker Pass Highway, Gilroy, CA 95020",
+      "city": "Gilroy",
+      "lat": 37.005,
+      "lng": -121.568,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Paid",
+      "description": "Family-friendly Halloween at the theme park — BOO Trail trick-or-treat stations, costumes welcome & seasonal shows.",
+      "tips": "Fri–Sun Sep 25–Oct 31 (park closed to public Sat Oct 10 per official page). Park admission required. Not-too-spooky — masks covering full face not allowed.",
+      "eventUrl": "https://www.gilroygardens.org/halloween/",
+      "leadSource": "agent",
+      "leadNotes": "Web search — South Bay fall theme-park event · Hold for Halloween with little ones — never Fall Pick; Seasonal drive only.",
+      "processed": true,
+      "processedAt": "2026-09-02",
+      "queuedId": "regional-gilroy-gardens-great-big-boo-2026-09-25",
+      "disposition": "Hold for Halloween with little ones — never Fall Pick; Seasonal drive only."
+    },
+    {
+      "id": "regional-hmb-pumpkin-festival-2026-10-17",
+      "title": "Half Moon Bay Art & Pumpkin Festival",
+      "date": "2026-10-17",
+      "startTime": "09:00",
+      "endTime": "17:00",
+      "venue": "Historic Main Street",
+      "address": "Main Street, Half Moon Bay, CA 94019",
+      "city": "Half Moon Bay",
+      "lat": 37.463,
+      "lng": -122.429,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Free",
+      "description": "Coastside pumpkin festival on Main Street — Great Pumpkin Parade, costume contest & pumpkin carving for little ones.",
+      "tips": "Oct 17–18, 9am–5pm; free admission. Kids Fun Run Sun Oct 18 (separate registration on official schedule). Weigh-Off Mon Oct 12 is a separate event. No pets.",
+      "eventUrl": "https://www.hmbpumpkinfest.com/",
+      "leadSource": "agent",
+      "leadNotes": "Web search — signature Coastside fall festival · Hold for October / Halloween seasonal discovery — Seasonal drive only.",
+      "processed": true,
+      "processedAt": "2026-09-02",
+      "queuedId": "regional-hmb-pumpkin-festival-2026-10-17",
+      "disposition": "Hold for October / Halloween seasonal discovery — Seasonal drive only."
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './exper
 import { useStructuredData } from '../hooks/useStructuredData'
 import { websiteJsonLd, websiteStructuredDataId } from '../utils/siteStructuredData'
 import {
-  getSeasonalCollectionForExperiment,
+  getActiveSeasonalCollection,
   resolveFeaturedSeasonalEvents,
 } from '../data/seasonalDiscovery'
 import { HomeLaunchAnnouncement } from '../components/home/HomeLaunchAnnouncement'
@@ -14,9 +14,9 @@ import { useEventNavigation } from '../hooks/useEventNavigation'
 export function HomePage() {
   useStructuredData(websiteStructuredDataId, websiteJsonLd)
   const openEvent = useEventNavigation()
-  const collection = getSeasonalCollectionForExperiment()
+  const collection = getActiveSeasonalCollection()
   const featuredEvents = useMemo(
-    () => resolveFeaturedSeasonalEvents(collection),
+    () => (collection ? resolveFeaturedSeasonalEvents(collection) : []),
     [collection],
   )
 
@@ -32,14 +32,16 @@ export function HomePage() {
       showBrandName={false}
       headerBelow={<HomeLaunchAnnouncement />}
       topBand={
-        <SeasonalDiscoveryModule
-          collection={collection}
-          events={featuredEvents}
-          onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
-          bandLayout="home"
-          homeBandEyebrow="timing"
-          homeBandCopyTone="neutral"
-        />
+        collection ? (
+          <SeasonalDiscoveryModule
+            collection={collection}
+            events={featuredEvents}
+            onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
+            bandLayout="home"
+            homeBandEyebrow="timing"
+            homeBandCopyTone="neutral"
+          />
+        ) : null
       }
     />
   )

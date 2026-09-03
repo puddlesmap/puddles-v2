@@ -5,6 +5,7 @@ import {
   type DuplicateCluster,
 } from './eventDuplicates'
 import { findOutOfAgeAudienceMatch } from './eventAudienceAge'
+import { WELCOME_LAUNCH_CITIES } from './welcomeOnboarding'
 
 export type AdminReviewFlagType = 'duplicate' | 'out_of_age' | 'out_of_area' | 'field_mismatch'
 
@@ -22,7 +23,8 @@ export interface AdminReviewFlag {
   clusterId?: string
 }
 
-export const LAUNCH_CITIES = ['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale'] as const
+/** In-market Browse cities — keep in sync with welcome onboarding & Browse filters. */
+export const LAUNCH_CITIES = WELCOME_LAUNCH_CITIES
 
 const OUTSIDE_CITY_HINTS = [
   'san francisco',
@@ -38,6 +40,14 @@ const OUTSIDE_CITY_HINTS = [
   'campbell',
   'saratoga',
   'san carlos',
+  'half moon bay',
+  'hayward',
+  'pleasanton',
+  'woodside',
+  'gilroy',
+  'nicasio',
+  'felton',
+  'morgan hill',
 ]
 
 function isCandidateStatus(event: Event): boolean {

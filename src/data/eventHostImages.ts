@@ -33,6 +33,8 @@ export const EVENT_HOST_IMAGES: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/9/95/City_Hall_of_Mountain_View_-_panoramio_-_Aleh_Haiko_%281%29.jpg',
   'Deer Hollow Farm':
     'https://upload.wikimedia.org/wikipedia/commons/7/73/Meadow_in_Rancho_San_Antonio_County_Park.jpg',
+  'Heritage Park':
+    'https://upload.wikimedia.org/wikipedia/commons/f/fc/Heritage_Park,_Mountain_View,_California,_Immigrant_House,_June_2019.jpg',
   'Rengstorff Park':
     'https://upload.wikimedia.org/wikipedia/commons/8/87/Rengstorff_House.jpg',
   'Elizabeth F. Gamble Garden':
@@ -63,6 +65,7 @@ const EVENT_HOST_IMAGE_ALIASES: Record<string, string> = {
   'downtown los altos': 'Downtown Los Altos',
   'civic center plaza': 'Civic Center Plaza',
   'deer hollow farm': 'Deer Hollow Farm',
+  'heritage park': 'Heritage Park',
   'rengstorff park': 'Rengstorff Park',
   'elizabeth f. gamble garden': 'Elizabeth F. Gamble Garden',
   'gamble garden': 'Gamble Garden',

@@ -1,0 +1,57 @@
+# Weekly Bay Area regional / destination events for Admin review.
+# Fridays: re-ingest watchlist drive rows + regional-leads-inbox.json + report.
+# 小紅書 search stays human/agent-assisted — paste official URLs into the inbox.
+
+name: Discover regional (weekly)
+
+on:
+  schedule:
+    # Fridays 17:00 UTC ≈ 10:00 AM Pacific (DST may shift by 1h)
+    - cron: '0 17 * * 5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: discover-regional-weekly
+  cancel-in-progress: true
+
+jobs:
+  regional:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Regional weekly pass
+        run: npm run discover:regional-weekly
+
+      - name: Reminder — 小紅書 lead pass
+        if: github.event_name == 'schedule'
+        run: |
+          echo "::notice title=小紅書 regional leads::Search Bay Area parent roundups on 小紅書. Add official event URLs to data/discovery/regional-leads-inbox.json, then re-run this workflow or discover:regional-weekly locally."
+
+      - name: Verify build
+        run: npm run build
+
+      - name: Commit regional discovery updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/discovery-candidates.json data/discovery/regional-leads-inbox.json data/discovery/regional-weekly-*.md data/calendar-watchlist.json
+          if git diff --staged --quiet; then
+            echo "No regional discovery changes — skipping commit."
+          else
+            git commit -m "chore: weekly regional discovery pass"
+            git push
+          fi

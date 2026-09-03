@@ -6,9 +6,11 @@ import type {
 } from '../types/discovery'
 import { inferAgeRangeFromText, isAgeTargetingSentence } from '../utils/discoveryAgeHints'
 import { isOutsidePuddlesAgeScope } from '../utils/eventAudienceAge'
+import { isLibraryClosureNotice } from '../utils/discoveryClosureNotices'
 import { pacificTodayYmd } from '../utils/discoveryReview'
 import { computeIsPast } from '../utils/publishing'
 import { getDiscoveryWeekStart, isDiscoveryNewThisWeek } from '../utils/discoveryThisWeek'
+import { isSeasonalDiscoveryCandidate } from '../utils/seasonalDiscoveryPipeline'
 
 export const DISCOVERY_CATALOG = catalog as DiscoveryCatalog
 
@@ -76,6 +78,7 @@ export const ALL_DISCOVERY_CANDIDATES: DiscoveryCandidate[] = DISCOVERY_CATALOG.
     }),
   )
   .filter((candidate) => !isDiscoveryCandidateExpired(candidate))
+  .filter((candidate) => !isLibraryClosureNotice(candidate))
 
 export function summarizeDiscoveryCounts(candidates: DiscoveryCandidate[]) {
   return {
@@ -84,6 +87,7 @@ export function summarizeDiscoveryCounts(candidates: DiscoveryCandidate[]) {
     newPending: candidates.filter((c) => c.reviewStatus === 'pending' && !c.alreadyOnPuddles).length,
     alreadyPending: candidates.filter((c) => c.reviewStatus === 'pending' && c.alreadyOnPuddles)
       .length,
+    seasonal: candidates.filter((c) => isSeasonalDiscoveryCandidate(c)).length,
     approved: candidates.filter((c) => c.reviewStatus === 'approved').length,
     live: candidates.filter((c) => c.reviewStatus === 'live').length,
     dismissed: candidates.filter((c) => c.reviewStatus === 'dismissed').length,
@@ -128,6 +132,7 @@ export function filterDiscoveryCandidates(
     ) {
       return false
     }
+    if (opts.view === 'seasonal' && !isSeasonalDiscoveryCandidate(candidate)) return false
     if (
       opts.view === 'already' &&
       !(candidate.reviewStatus === 'pending' && candidate.alreadyOnPuddles)

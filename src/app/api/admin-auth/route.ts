@@ -55,7 +55,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         ok: false,
-        error: 'Admin password is not configured. Set ADMIN_PASSWORD on Netlify.',
+        error:
+          'Admin password is not configured. For local dev add ADMIN_PASSWORD to .env.local (or leave it unset to skip login). On Netlify set ADMIN_PASSWORD in site env.',
       },
       { status: 503 },
     )

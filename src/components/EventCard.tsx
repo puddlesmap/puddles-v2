@@ -19,7 +19,11 @@ interface EventCardProps {
   selected?: boolean
   hovered?: boolean
   discovery?: boolean
-  /** Show Fall / Halloween / Holiday Pick on the image when the event qualifies. */
+  /**
+   * Show Fall / Halloween / Holiday Pick when the event qualifies.
+   * Default on for mixed feeds (browse map, nearby). Pass false on seasonal
+   * Discovery collection / home band — those surfaces are already themed.
+   */
   seasonalEditorial?: boolean
   /** Override seasonal editorial badge on the image. */
   editorialBadge?: EditorialBadgeDisplay | null
@@ -211,7 +215,7 @@ export function EventCard({
   selected = false,
   hovered = false,
   discovery = false,
-  seasonalEditorial = false,
+  seasonalEditorial = true,
   editorialBadge,
   showActivityTypeMeta,
 }: EventCardProps) {

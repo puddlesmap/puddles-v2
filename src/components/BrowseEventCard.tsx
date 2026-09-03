@@ -10,6 +10,11 @@ interface BrowseEventCardProps {
   hovered?: boolean
   /** Show Fall / Halloween / Holiday Pick when the event qualifies. Default on for browse feeds. */
   seasonalEditorial?: boolean
+  /**
+   * `map-sheet` — compact horizontal card for mobile map preview (more map visible).
+   * Default is the full vertical Discovery v3 card.
+   */
+  density?: 'default' | 'map-sheet'
 }
 
 /** Production browse card — Discovery v3 · Option 2 (city-soft). */
@@ -19,6 +24,7 @@ export function BrowseEventCard({
   selected = false,
   hovered = false,
   seasonalEditorial = true,
+  density = 'default',
 }: BrowseEventCardProps) {
   const badge = seasonalEditorial ? getSeasonalEditorialBadgeForEvent(event) : null
   const card = eventToBrowseCard(event, badge)
@@ -32,6 +38,7 @@ export function BrowseEventCard({
       hovered={hovered}
       compactPillars
       bodyLayout="city-soft"
+      density={density}
     />
   )
 }

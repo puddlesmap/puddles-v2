@@ -2,10 +2,10 @@ import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { HomeExperimentPage } from './HomeExperimentPage'
 import { SeasonalDiscoveryModule } from '../components/seasonal/SeasonalDiscoveryModule'
-import { HomeLaunchAnnouncement, HOME_LAUNCH_PREVIEW_ANNOUNCEMENT } from '../components/home/HomeLaunchAnnouncement'
+import { HomeLaunchAnnouncement } from '../components/home/HomeLaunchAnnouncement'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 import {
-  getSeasonalCollectionForExperiment,
+  getActiveSeasonalCollection,
   resolveFeaturedSeasonalEvents,
 } from '../data/seasonalDiscovery'
 import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
@@ -15,9 +15,9 @@ import { useEventNavigation } from '../hooks/useEventNavigation'
 export function HomeLaunchPreviewPage() {
   const openEvent = useEventNavigation()
   const { getCatalog } = useLaunchStagingCatalog()
-  const collection = getSeasonalCollectionForExperiment()
+  const collection = getActiveSeasonalCollection()
   const featuredEvents = useMemo(
-    () => resolveFeaturedSeasonalEvents(collection, getCatalog()),
+    () => (collection ? resolveFeaturedSeasonalEvents(collection, getCatalog()) : []),
     [collection, getCatalog],
   )
 
@@ -40,18 +40,20 @@ export function HomeLaunchPreviewPage() {
       logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
       logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
       showBrandName={false}
-      headerBelow={<HomeLaunchAnnouncement message={HOME_LAUNCH_PREVIEW_ANNOUNCEMENT} />}
+      headerBelow={<HomeLaunchAnnouncement />}
       leading={leading}
       getEventsCatalog={getCatalog}
       topBand={
-        <SeasonalDiscoveryModule
-          collection={collection}
-          events={featuredEvents}
-          onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
-          bandLayout="home"
-          homeBandEyebrow="timing"
-          homeBandCopyTone="neutral"
-        />
+        collection ? (
+          <SeasonalDiscoveryModule
+            collection={collection}
+            events={featuredEvents}
+            onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
+            bandLayout="home"
+            homeBandEyebrow="timing"
+            homeBandCopyTone="neutral"
+          />
+        ) : null
       }
     />
   )

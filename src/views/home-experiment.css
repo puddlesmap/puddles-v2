@@ -49,7 +49,7 @@
   color: #282e31;
 }
 
-.home-experiment-title {
+.home-experiment-title:not(.home-experiment-refined-title) {
   margin: 0.5rem 0 0; /* 8px — 8pt grid below brand line */
   max-width: 47.875rem;
   font-family: var(--font-sans);
@@ -265,7 +265,7 @@
   }
 
   .home-experiment-intro,
-  .home-experiment-title {
+  .home-experiment-title:not(.home-experiment-refined-title) {
     max-width: none;
   }
 
@@ -303,7 +303,7 @@
   }
 
   .home-experiment-brand-line,
-  .home-experiment-title,
+  .home-experiment-title:not(.home-experiment-refined-title),
   .home-experiment-hero-headline {
     font-size: 1.875rem; /* 30px */
     line-height: 1.35;

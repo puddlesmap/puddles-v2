@@ -19,6 +19,7 @@ import {
   sortCandidates,
   stripHtml,
   writeDiscoveryOutputs,
+  isLibraryClosureNotice,
 } from './discovery-shared.mjs'
 
 const LIBRARY = 'sccl'
@@ -45,7 +46,7 @@ const TYPE_MAP = {
   'Movies & Music': 'Music & Movement',
   Workshops: 'Build & Explore',
   Performance: 'Social & Play',
-  Celebrations: 'Social & Play',
+  Celebrations: 'Festivals & Community',
   SRP: 'Other',
 }
 
@@ -274,6 +275,7 @@ export async function discoverLosAltos({ days = 30, writeAdmin = true } = {}) {
     young++
 
     const candidate = normalizeCandidate(event, entities)
+    if (isLibraryClosureNotice(candidate)) continue
     candidate.alreadyOnPuddles = isUrlAlreadyOnPuddles(candidate.eventUrl, catalogUrls)
     candidates.push(candidate)
   }

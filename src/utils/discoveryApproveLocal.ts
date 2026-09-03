@@ -21,8 +21,12 @@ import {
   resolveAdminEventsSource,
   saveCachedAdminRefresh,
 } from './sheetSync'
+import { LAUNCH_CITIES } from './adminReviewFlags'
 
 export const OUTSIDE_PUDDLES_AGE_MESSAGE = 'Outside Puddles ages 0–5 — cannot approve.'
+
+export const OUTSIDE_CORE_CITY_MESSAGE =
+  'Outside Puddles core cities (Palo Alto · Los Altos · Mountain View · Sunnyvale). Do not Go live into regular Browse — use Seasonal Discovery / Worth a little drive only.'
 
 /** Merge candidate + edits (and fresh copy inference) then block out-of-scope ages. */
 export function assertDiscoveryAgeInScope(
@@ -43,6 +47,17 @@ export function assertDiscoveryAgeInScope(
   })
   if (scope) {
     throw new Error(scope.note || OUTSIDE_PUDDLES_AGE_MESSAGE)
+  }
+}
+
+/** Block Go live / Approve into the public catalog for out-of-area Regional rows. */
+export function assertDiscoveryCityInScope(
+  candidate: DiscoveryCandidate,
+  edits: Partial<DiscoveryEditableFields> = {},
+): void {
+  const city = String(edits.city ?? candidate.city ?? '').trim()
+  if (!(LAUNCH_CITIES as readonly string[]).includes(city)) {
+    throw new Error(OUTSIDE_CORE_CITY_MESSAGE)
   }
 }
 
@@ -68,7 +83,7 @@ function localDraftId(candidate: DiscoveryCandidate, edits: DiscoveryEditableFie
 }
 
 function asCity(raw: string): City {
-  const cities: City[] = ['Palo Alto', 'Los Altos', 'Mountain View']
+  const cities: City[] = ['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale']
   const hit = cities.find((city) => city.toLowerCase() === raw.trim().toLowerCase())
   return hit ?? ((raw.trim() || 'Palo Alto') as City)
 }
@@ -147,6 +162,7 @@ export function appendDraftInAdminCache(
   verifiedDate: string,
 ): { eventId: string } {
   assertDiscoveryAgeInScope(candidate, edits)
+  assertDiscoveryCityInScope(candidate, edits)
   const eventId = localDraftId(candidate, edits)
   let events = currentAdminEvents()
 
@@ -210,6 +226,7 @@ export function approveDiscoveryLocally(
   verifiedDate: string,
 ): { eventId: string; mode: 'existing' | 'draft' } {
   assertDiscoveryAgeInScope(candidate, edits)
+  assertDiscoveryCityInScope(candidate, edits)
   if (candidate.alreadyOnPuddles) {
     const result = applyVerifiedDateInAdminCache(candidate, edits, verifiedDate)
     return { eventId: result.eventId, mode: 'existing' }
@@ -334,6 +351,8 @@ export function prepareGoLiveEvents(
 
   for (const candidate of candidates) {
     const edits = editableFieldsFromCandidate(candidate)
+    assertDiscoveryAgeInScope(candidate, edits)
+    assertDiscoveryCityInScope(candidate, edits)
     const stamped = { ...edits, lastChecked: verifiedDate }
 
     let eventId = ''

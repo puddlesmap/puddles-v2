@@ -4,7 +4,7 @@ import L from 'leaflet'
 import type { Event } from '../../types/event'
 import type { BrowseFilters } from '../../utils/filters'
 import { getBrowseResultsSummary } from '../../utils/browseResultsCopy'
-import { EventCard } from '../EventCard'
+import { BrowseEventCard } from '../BrowseEventCard'
 import { MapControls } from './MapControls'
 import { MapInstanceCapture } from './MapInstanceCapture'
 import { MapFitEvents, MapSearchAreaDetector } from './MapSearchAreaDetector'
@@ -15,7 +15,6 @@ import {
   BROWSE_MAP_FOCUS_ZOOM,
 } from './mapViewConfig'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
-import { useBrowseMapListTwoColumn } from '../../hooks/useBrowseMapListTwoColumn'
 import { useBrowseMapInteraction, type MapOpenEventHandler } from '../../hooks/useBrowseMapInteraction'
 import { useMapPreviewSheetHeight } from '../../hooks/useMapPreviewSheetHeight'
 import { useUserLocation } from '../../hooks/useUserLocation'
@@ -25,7 +24,7 @@ import {
   filterEventsInBounds,
   getEventsMapCenter,
 } from '../../utils/mapBounds'
-import { CARTO_BASEMAP_ATTRIBUTION, getCartoVoyagerTileUrl } from '../../utils/cartoBasemap'
+import { getLeafletBasemap } from '../../utils/cartoBasemap'
 import 'leaflet/dist/leaflet.css'
 
 interface BrowseLeafletMapViewProps {
@@ -38,8 +37,7 @@ interface BrowseLeafletMapViewProps {
   detachedViewToggle?: ReactNode
 }
 
-const MAP_TILE_URL = getCartoVoyagerTileUrl()
-const MAP_TILE_ATTRIBUTION = CARTO_BASEMAP_ATTRIBUTION
+const MAP_BASEMAP = getLeafletBasemap()
 
 const LOCAL_ZOOM = BROWSE_MAP_FOCUS_ZOOM
 
@@ -106,9 +104,9 @@ function MapLocateHandler({
 function MapTileLayer() {
   return (
     <TileLayer
-      attribution={MAP_TILE_ATTRIBUTION}
-      url={MAP_TILE_URL}
-      subdomains={['a', 'b', 'c', 'd']}
+      attribution={MAP_BASEMAP.attribution}
+      url={MAP_BASEMAP.url}
+      subdomains={MAP_BASEMAP.subdomains}
       maxZoom={20}
     />
   )
@@ -132,7 +130,6 @@ export function BrowseLeafletMapView({
   const [locateTrigger, setLocateTrigger] = useState(0)
   const [searchGeneration, setSearchGeneration] = useState(0)
   const resultsRef = useRef<HTMLElement>(null)
-  const isTwoColumnMapList = useBrowseMapListTwoColumn(resultsRef)
   const [leafletMap, setLeafletMap] = useState<L.Map | null>(null)
 
   const {
@@ -362,10 +359,9 @@ export function BrowseLeafletMapView({
                       .join(' ')}
                     data-event-id={event.id}
                   >
-                    <EventCard
+                    <BrowseEventCard
                       event={event}
-                      variant="map-preview-sheet"
-                      discovery
+                      density="map-sheet"
                       selected={isEventSelected(event.id)}
                       onClick={() => handleCardClick(event)}
                     />
@@ -405,10 +401,8 @@ export function BrowseLeafletMapView({
                     onMouseEnter={() => handleCardHover(event.id)}
                     onMouseLeave={() => handleCardHover(null)}
                   >
-                    <EventCard
+                    <BrowseEventCard
                       event={event}
-                      variant={isTwoColumnMapList ? 'grid' : 'map-grid'}
-                      discovery
                       selected={isEventSelected(event.id)}
                       hovered={hoveredEventId === event.id}
                       onClick={() => handleCardClick(event)}

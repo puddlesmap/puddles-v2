@@ -22,6 +22,27 @@ export const TIP_SENTENCE_RE =
 export const TIP_EXCLUDE_RE =
   /\b(imagination|steam|early childhood development|problem solving|self-confidence|oceans of possibilities|earn badges)\b/i
 
+/** Holiday / closure calendar rows from libraries — not family outings. */
+export function isLibraryClosureNotice(input) {
+  const title = String(input.title ?? '').trim()
+  const lowerTitle = title.toLowerCase()
+
+  if (/^closed\b/i.test(title)) return true
+  if (/\bclosed for\b/i.test(lowerTitle)) return true
+  if (/\blibrary closed\b/i.test(lowerTitle)) return true
+  if (/\bbranch library closed\b/i.test(lowerTitle)) return true
+
+  const body = [input.description, input.tips].filter(Boolean).join(' ').toLowerCase()
+  if (
+    /\b(will be closed|locations will be closed|all sccld locations will be closed)\b/.test(body) &&
+    !/\b(storytime|workshop|class|concert|festival|yoga)\b/.test(lowerTitle)
+  ) {
+    return true
+  }
+
+  return false
+}
+
 export function parseArgs(argv, defaults = {}) {
   let days = defaults.days ?? DEFAULT_DAYS
   let writeAdmin = defaults.writeAdmin !== false
@@ -458,11 +479,19 @@ export function writeDiscoveryOutputs({
   const newCsvPath = join(outDir, `${fileStem}-${stamp}-new-only.csv`)
   const rawCandidates = payload.candidates || []
   const skippedOutOfAge = rawCandidates.filter((c) => isOutsidePuddlesAgeScope(c))
-  const candidates = rawCandidates.filter((c) => !isOutsidePuddlesAgeScope(c))
+  const skippedClosures = rawCandidates.filter(
+    (c) => !isOutsidePuddlesAgeScope(c) && isLibraryClosureNotice(c),
+  )
+  const candidates = rawCandidates.filter(
+    (c) => !isOutsidePuddlesAgeScope(c) && !isLibraryClosureNotice(c),
+  )
   if (skippedOutOfAge.length > 0) {
     console.log(
       `  Skipped ${skippedOutOfAge.length} candidate(s) outside Puddles ages 0–5`,
     )
+  }
+  if (skippedClosures.length > 0) {
+    console.log(`  Skipped ${skippedClosures.length} library closure notice(s)`)
   }
   const newOnly = candidates.filter((c) => !c.alreadyOnPuddles)
 

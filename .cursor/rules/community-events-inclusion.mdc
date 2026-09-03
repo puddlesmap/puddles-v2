@@ -1,0 +1,68 @@
+---
+description: Inclusion, typing, and card copy for broader festivals, markets, and community events (ages 0–5)
+alwaysApply: true
+---
+
+# Broader community events (festivals, markets, celebrations)
+
+## Core rule
+
+> **Puddles includes events that give little ones something meaningful to do — not simply events where children are welcome.**
+
+For broader community events, require at least **one strong toddler-relevant reason**, ideally two (Kids Zone, crafts, music/dance, animals/vehicles, play structures, participatory cultural activities, seasonal kid experiences, short drop-in performances).
+
+### Usually exclude
+
+- “All ages” with no child activity
+- Primarily food/drink/shopping
+- Adult concerts where kids are only permitted
+- Late-night festivals
+- Activities mainly for 6+
+- Farmers markets with only vendors/produce
+
+### Farmers markets
+
+> The market itself is not an event. A special kids activation at the market can be.
+
+## Activity type: Festivals & Community
+
+Do **not** invent a **Family Friendly** activity type.
+
+### Definition
+
+Broader local events not designed specifically for young children, but with a clear, meaningful experience for little ones—something to **explore, watch, participate in, or experience**, not merely attend.
+
+### Include when
+
+Clear reason ages 0–5 would enjoy it; kid activities (crafts, music, face painting, animals, vehicles, play areas, demos); casual drop-in outing; **no more specific type fits**.
+
+### Do not include when
+
+Kids welcome but nothing meaningful for them; primarily food/alcohol/shopping/adult entertainment; stroller-friendly only; mainly 6+; a specific type fits better.
+
+### Classification rule
+
+> **Use Festivals & Community when a broader community event gives little ones something meaningful to do or experience—not simply because kids are welcome.**
+
+Prefer **Arts & Crafts**, **Music & Movement**, **Parent & Me**, etc. when they fit. One primary type per event.
+
+Full definition, examples, and edge cases: `docs/community-events-inclusion.md` §2.
+
+## Card copy
+
+The subtitle / Good to know should answer **why Puddles recommends this for little ones**, not “family-friendly” or “all ages welcome.”
+
+Example: *Kids Zone with face painting, trampolines & more*
+
+## Age wording
+
+- Toddler-specific programs: can use best-for ages (e.g. 2–5).
+- Broader festivals: prefer **All ages · Little ones welcome** (or All ages + a short “best for little ones who…” line). Do not pretend the festival is designed only for toddlers.
+
+## Filters
+
+Do not add a **Family Friendly** filter. **Festivals & Community** is in the Activity Type filter; no separate Festival filter.
+
+## Related
+
+See `docs/community-events-inclusion.md` and the open-house explore-events rule for studio/firehouse-style open houses. See `docs/parent-and-me-inclusion.md` for Parent & Me typing.

@@ -56,7 +56,7 @@ export function sharedEventCityLabel(city: string): string {
 /** Normalize known Bay Area city casing inside an address line. */
 export function capitalizeCitiesInText(text: string, city?: string): string {
   let result = text
-  const known = ['Palo Alto', 'Los Altos', 'Mountain View']
+  const known = ['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale']
   for (const name of known) {
     result = result.replace(new RegExp(name.replace(/\s+/g, '\\s+'), 'gi'), name)
   }
@@ -80,7 +80,7 @@ const NON_BREAKING_SPACE = '\u00A0'
  * non-breaking space so the whole name wraps to the next line together.
  */
 export function keepCityNameOnOneLine(text: string, city?: string): string {
-  const names = ['Palo Alto', 'Los Altos', 'Mountain View']
+  const names = ['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale']
   if (city?.trim()) names.push(sharedEventCityLabel(city))
 
   let result = text

@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
 import { trackCitySelected } from '../utils/analytics'
 
-const CITIES = ['Palo Alto', 'Los Altos', 'Mountain View'] as const
+const CITIES = ['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale'] as const
 
 export function LocationBridge() {
   const navigate = useNavigate()

@@ -7,6 +7,7 @@ export const SHARE_CITY_OPTIONS: { value: ShareCity; label: string }[] = [
   { value: 'Palo Alto', label: 'Palo Alto' },
   { value: 'Los Altos', label: 'Los Altos' },
   { value: 'Mountain View', label: 'Mountain View' },
+  { value: 'Sunnyvale', label: 'Sunnyvale' },
   { value: 'Other', label: 'Other / Not sure' },
 ]
 

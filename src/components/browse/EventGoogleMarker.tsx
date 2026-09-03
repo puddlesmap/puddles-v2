@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Marker, useApiIsLoaded } from '@vis.gl/react-google-maps'
 import type { Event } from '../../types/event'
-import { EVENT_MARKER_SRC, getEventPinDimensions } from './mapPins'
+import { getEventPinDataUrl, getEventPinDimensions } from './mapPins'
 
 interface EventGoogleMarkerProps {
   event: Event
@@ -20,16 +20,17 @@ export function EventGoogleMarker({
 }: EventGoogleMarkerProps) {
   const apiLoaded = useApiIsLoaded()
   const { width, height } = getEventPinDimensions(selected, hovered)
+  const pinUrl = getEventPinDataUrl(selected, hovered)
 
   const icon = useMemo(() => {
     if (!apiLoaded || typeof google === 'undefined') return undefined
 
     return {
-      url: EVENT_MARKER_SRC,
+      url: pinUrl,
       scaledSize: new google.maps.Size(width, height),
       anchor: new google.maps.Point(width / 2, height),
     }
-  }, [apiLoaded, height, width])
+  }, [apiLoaded, height, pinUrl, width])
 
   return (
     <Marker

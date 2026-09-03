@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { EventCard } from '../components/EventCard'
+import { BrowseEventCard } from '../components/BrowseEventCard'
 import { DiscoveryEmptyState } from '../components/empty-states/DiscoveryEmptyState'
 import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
@@ -12,7 +12,7 @@ import {
   LOCAL_CITY_ROUTES,
   type LocalCitySlug,
 } from '../config/localRoutes'
-import { getPublicEventsFromCatalog } from '../data/events'
+import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
 import { useEventNavigation } from '../hooks/useEventNavigation'
 import type { Event } from '../types/event'
 import { filterEvents } from '../utils/filters'
@@ -33,10 +33,11 @@ interface CityLandingPageProps {
 export function CityLandingPage({ citySlug }: CityLandingPageProps) {
   const city = LOCAL_CITY_ROUTES[citySlug]
   const openEvent = useEventNavigation()
+  const { getCatalog } = useLaunchStagingCatalog()
 
   const events = useMemo(
-    () => sortEventsByUpcomingDate(filterEvents(getPublicEventsFromCatalog(), { city })),
-    [city],
+    () => sortEventsByUpcomingDate(filterEvents(getCatalog(), { city })),
+    [city, getCatalog],
   )
 
   const resultsLabel =
@@ -80,11 +81,9 @@ export function CityLandingPage({ citySlug }: CityLandingPageProps) {
           ) : (
             <div className="browse-event-grid motion-feed-in">
               {events.map((event) => (
-                <EventCard
+                <BrowseEventCard
                   key={event.id}
                   event={event}
-                  variant="grid"
-                  discovery
                   onClick={() => openEvent(event, 'city_landing')}
                 />
               ))}

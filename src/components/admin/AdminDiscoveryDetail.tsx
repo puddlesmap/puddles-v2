@@ -1,20 +1,12 @@
 import { Fragment, useEffect, useState, type ReactNode } from 'react'
 import type { DiscoveryCandidate, DiscoveryEditableFields } from '../../types/discovery'
+import { ACTIVITY_TYPES } from '../../types/event'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
 import { latestApprovedOnForCandidate } from '../../utils/discoveryMatchEvents'
 import { editableFieldsFromCandidate } from '../../utils/discoveryReview'
 import { DetailSection } from './AdminDetailGrid'
 
-const ACTIVITY_TYPE_OPTIONS = [
-  'Stories',
-  'Music & Movement',
-  'Arts & Crafts',
-  'Build & Explore',
-  'Outdoor',
-  'Social & Play',
-  'Classes',
-  'Other',
-] as const
+const ACTIVITY_TYPE_OPTIONS = ACTIVITY_TYPES
 
 interface AdminDiscoveryDetailProps {
   candidate: DiscoveryCandidate

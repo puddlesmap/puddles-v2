@@ -11,6 +11,10 @@ export type City =
   | 'San Jose'
   | 'Fremont'
   | 'San Francisco'
+  /** Seasonal / Worth a little drive destinations (not Browse city filters). */
+  | 'Half Moon Bay'
+  | 'Hayward'
+  | 'Felton'
 export type CostLabel = 'Free' | 'Low-cost' | 'Paid' | (string & {})
 
 /** True when the activity is free to attend (not a dollar amount / paid tag). */

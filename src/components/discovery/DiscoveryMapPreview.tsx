@@ -20,11 +20,11 @@ import {
   getEventsWithCoordinates,
   getMapViewportForBounds,
 } from '../../utils/mapBounds'
-import { getCartoVoyagerTileUrl } from '../../utils/cartoBasemap'
+import { getLeafletBasemap } from '../../utils/cartoBasemap'
 import { buildDiscoveryStaticMapUrl, hasGoogleMapsApiKey } from '../../utils/googleMaps'
 import 'leaflet/dist/leaflet.css'
 
-const MAP_TILE_URL = getCartoVoyagerTileUrl()
+const MAP_BASEMAP = getLeafletBasemap()
 
 function getBoundsCenter(bounds: MapBoundsBox): [number, number] {
   return [(bounds.north + bounds.south) / 2, (bounds.east + bounds.west) / 2]
@@ -142,7 +142,7 @@ export function DiscoveryMapPreview({
       boxZoom={false}
       keyboard={false}
     >
-      <TileLayer url={MAP_TILE_URL} subdomains={['a', 'b', 'c', 'd']} maxZoom={20} />
+      <TileLayer url={MAP_BASEMAP.url} subdomains={MAP_BASEMAP.subdomains} maxZoom={20} />
       <MapSizeFix />
       {anchorPoints && anchorPoints.length > 0 ? (
         <MapFitPoints

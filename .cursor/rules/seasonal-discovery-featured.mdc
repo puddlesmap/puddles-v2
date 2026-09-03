@@ -32,8 +32,18 @@ Seasonal Discovery must read as **curated editorial**, not a month dump of every
 
 ### Seasonal badge scope (all themes)
 
-- **Seasonal Discovery surfaces** (collection page + home seasonal band): **no** seasonal badge — the page/band already is the theme.
-- **Browse / home mixed feeds**: show the theme badge (🍂 Fall Pick, Halloween Pick, Holiday Pick) so curated seasonal events stand out among regular activities.
+- **One live theme only.** Fall Pick and Halloween Pick never appear at the same time. Badge label follows `getActiveSeasonalCollection()` — same source as the Home band and “See all” collection.
+- While **Hello, Fall** is active → curated members show **Fall Pick** only.
+- When the theme swaps to **Halloween with little ones** → drop Fall Pick everywhere; eligible curated members show **Halloween Pick**.
+- The **same event** may stay featured across the swap if it still fits (e.g. pumpkin farm: Fall Pick in September → Halloween Pick in October). List it in both themes’ `collectionEventIds` / `driveEventIds`.
+- Events that leave the active theme stay in **regular browse** but **lose** the seasonal badge.
+- Badge = membership in the **active** theme’s collection/drive IDs — not title heuristics.
+- **Seasonal Discovery surfaces** (collection page + home seasonal band): **no** seasonal badge — the page/band already is the theme. Pass `seasonalEditorial={false}` on cards there.
+- **Everywhere else** (browse list, browse map, home results, nearby, city landing): show the active theme badge. `BrowseEventCard` and `EventCard` default `seasonalEditorial` **on**.
+
+### Browse date window
+
+Public discovery shows roughly the **next 60 days** (`PUBLIC_DISPLAY_WINDOW_DAYS` in `src/utils/dates.ts`). From early September that reaches **~end of October** (~10/30). Fall and Halloween inventory can both appear in Browse; only one seasonal **module + badge** is editorial at a time.
 
 ---
 
@@ -62,7 +72,7 @@ Seasonal Discovery must read as **curated editorial**, not a month dump of every
 
 Feature Spina Farms (and similar late-open patches) near open date (~9/17), not in the early-September carousel.
 
-Hello Fall runs through **~Oct 5** (Diwali / Sunnyvale Mid-Autumn weekend); Halloween module starts **Oct 6**.
+Hello Fall runs through **~Oct 5** (Diwali / Sunnyvale Mid-Autumn weekend); Halloween module starts **Oct 6**. Browse still surfaces ~60 days of inventory (~through late October from early September).
 
 ---
 
@@ -73,6 +83,12 @@ Hello Fall runs through **~Oct 5** (Diwali / Sunnyvale Mid-Autumn weekend); Hall
 | **Featured** | `featuredWindows` | Home carousel — **temporary** (~2–3 weeks per pick) |
 | **Collection** | `collectionEventIds` | Full “See all” close-to-home set — **season-long** while valid |
 | **Drive** | `driveEventIds` | “Worth a little drive” — **stable** anchors; rotate less often |
+
+### Geographic rule (drive / out-of-area)
+
+> **Regular Browse = Palo Alto · Los Altos · Mountain View · Sunnyvale only.**
+
+Out-of-area farms/festivals/trains belong in **`driveEventIds`** (Hidden seasonal drive events) — never Go live into the public sheet/Browse feed. Admin Discovery may still hold `Regional ·` review rows; Approve/Go live for non-core cities is blocked.
 
 ## Featured rotation
 
@@ -86,8 +102,16 @@ Hello Fall runs through **~Oct 5** (Diwali / Sunnyvale Mid-Autumn weekend); Hall
 ## Theme transitions
 
 - **One seasonal theme module at a time** — `activeFrom` / `activeUntil` do not overlap.
-- **Transition week:** blend **1–2 picks from the next theme** into the current theme’s `featuredWindows` before the module title swaps.
-- Preview picks live on the **outgoing** theme until the swap; then move primary home to the **incoming** theme.
+- Home band, collection CTA, and card badges all use `getActiveSeasonalCollection()`.
+- **Transition week:** blend **1–2 picks from the next theme** into the current theme’s `featuredWindows` before the module title swaps (preview on the outgoing theme; badge stays the outgoing theme’s label until `activeUntil` ends).
+- After the swap, remove outgoing-theme IDs that no longer fit; keep spanning picks (farms, etc.) on the incoming collection so their badge label updates.
+
+### Timing (2026)
+
+| Theme | Live window |
+|-------|-------------|
+| Hello, Fall | ~Sep 1 – Oct 5 (early–late September through Diwali / Mid-Autumn weekend) |
+| Halloween with little ones | Oct 6 – Oct 31 (once Halloween inventory is ready; browse window still reaches ~10/30 from early Sep) |
 
 ## Drive picks
 

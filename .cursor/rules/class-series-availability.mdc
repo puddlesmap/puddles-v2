@@ -1,0 +1,57 @@
+---
+description: How to write Good to know for classes and series — avoid stale seat/waitlist availability on public listings.
+alwaysApply: true
+---
+
+# Class / series availability handling
+
+## Goal
+
+> **Puddles helps parents understand fit and enrollment; the provider is the source of truth for real-time availability.**
+
+## Do not show on public listings
+
+- Exact open seats by day/time (“Open seats as of Aug 27: Mon 9:30…”)
+- Section-by-section waitlist status (“Waitlist: Fri 9:30 & 10:30”)
+- Dated availability snapshots that will go stale within days
+- **Open** or **Available** badges unless status can be refreshed reliably (automated feed or same-day manual refresh)
+
+## Keep on Puddles (stable)
+
+- Series date range (e.g. Sep 9–Nov 18)
+- Recurring days pattern (e.g. Mon, Wed & Fri options)
+- Age fit
+- Registration required vs drop-in
+- Semester/package vs single session
+- Free demo or trial availability (when offered as a standing policy)
+- Venue and what the experience is for little ones
+
+## For changing availability
+
+Use general language and link out:
+
+> Some sections may fill or move to waitlist — check the official registration page for current availability.
+
+Link `eventUrl` to the provider’s official registration or schedule page. Do not duplicate “Register at …” in tips when the official link button already goes there.
+
+## Internal vs public
+
+- `lastChecked` / verified date → admin only; not shown to parents on cards or detail
+- Seat-level notes may live in **calendar watchlist** or discovery admin notes for editors — not in `description` or `tips` on live events
+
+## Series rows
+
+Semester and multi-section programs = **one series row**, not weekly Browse spam. See `parent-and-me-events.mdc`.
+
+## Examples
+
+| Avoid | Prefer |
+|-------|--------|
+| Open seats as of Aug 27: Mon 9:30, Wed 10:30 | Multiple Mon, Wed & Fri class times available |
+| Fri 9:30 waitlist | Some sections may fill or move to waitlist — check the official registration page |
+| Several currently open for registration | Registration required · semester package, not drop-in |
+
+## Related
+
+- `docs/parent-and-me-inclusion.md` — series vs one-off
+- `scripts/series-enrollment-tips.mjs` — shared copy helpers

@@ -141,6 +141,24 @@ export function GoogleMapInstanceCapture({ onReady }: { onReady: (map: google.ma
   return null
 }
 
+/** Apply clean JSON styles via StyledMapType (works when vector maps ignore `styles`). */
+export function GoogleMapStyles({ styles }: { styles: google.maps.MapTypeStyle[] }) {
+  const map = useMap()
+  const apiLoaded = useApiIsLoaded()
+
+  useEffect(() => {
+    if (!map || !apiLoaded || typeof google === 'undefined') return
+
+    const mapTypeId = 'puddles_clean'
+    const styled = new google.maps.StyledMapType(styles, { name: 'Puddles Clean' })
+    map.mapTypes.set(mapTypeId, styled)
+    map.setMapTypeId(mapTypeId as google.maps.MapTypeId)
+    map.setOptions({ styles })
+  }, [map, apiLoaded, styles])
+
+  return null
+}
+
 export function GoogleUserLocationMarker({
   coords,
 }: {

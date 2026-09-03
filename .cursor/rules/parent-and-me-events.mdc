@@ -1,0 +1,54 @@
+---
+description: When to type events as Parent & Me vs Classes, Stories, Music & Movement, etc.
+alwaysApply: true
+---
+
+# Parent & Me activities
+
+## Core rule
+
+> **Use Parent & Me when the grown-up and little one are doing the experience together.**
+
+A parent seeing **Parent & Me** should understand: *we do this together — not just an activity I take my child to.*
+
+The caregiver participates—not supervising from the side, not using separate childcare while the adult does something else.
+
+## Include when
+
+- Intentionally designed for caregiver + child together
+- Caregiver participation is expected or central (parent + baby yoga, stroller fitness, parent-child art/music, family yoga, caregiver-baby groups)
+- Ages 0–5 appropriate; meaningful shared experience
+
+## Do not use Parent & Me when
+
+- Adult activity with on-site childcare → future **Childcare available** attribute (not this type)
+- Kids class where parents wait nearby / merely stay
+- Standard storytime / library program (use **Stories** even if caregivers attend)
+- Toddler gymnastics / playground where adults happen to be present
+- Child is only allowed to accompany the caregiver
+- Primary fit is clearly **Music & Movement**, **Arts & Crafts**, etc. — use that type instead when it’s a better primary label
+
+## Parent & Me vs Childcare available
+
+| Concept | Need |
+|---------|------|
+| **Parent & Me** | We do it together |
+| **Childcare available** *(future attribute)* | Something for me, with care for them |
+
+Do not collapse these into one type.
+
+## Series vs one-off
+
+Multi-week enrollment (e.g. Music Together semester) = **one series row**, not weekly event spam. Drop-in weekly sessions that are independently attendable may stay dated.
+
+Do not put exact open seats or waitlisted times in public **Good to know** — link to the provider for current availability. See `class-series-availability.mdc`.
+
+## Naming
+
+Activity type label: **Parent & Me** (not “Grown-up + Me”). Supporting copy may say “for little ones and their grown-ups.”
+
+**Parent & Me** is in the Activity Type filter.
+
+## Related
+
+Full definition and examples: `docs/parent-and-me-inclusion.md`. For festivals/open houses, see `community-events-inclusion.mdc`.

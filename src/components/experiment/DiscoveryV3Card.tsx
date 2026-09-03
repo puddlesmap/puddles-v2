@@ -49,6 +49,8 @@ interface DiscoveryV3CardProps extends DiscoveryV3CardData {
   hovered?: boolean
   compactPillars?: boolean
   bodyLayout?: DiscoveryCardBodyLayout
+  /** Compact horizontal layout for mobile map preview sheet. */
+  density?: 'default' | 'map-sheet'
 }
 
 export function DiscoveryBadge({
@@ -82,10 +84,21 @@ function DiscoveryV3CardContent({
   event,
   compactPillars = false,
   bodyLayout = 'venue-line',
+  density = 'default',
 }: DiscoveryV3CardProps) {
+  const isMapSheet = density === 'map-sheet'
+
   return (
     <>
-      <div className="card-listing-media relative aspect-square">
+      <div
+        className={[
+          'card-listing-media',
+          'relative',
+          isMapSheet ? 'discovery-v3-event-card__media--map-sheet' : 'aspect-square',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
         {event ? (
           <EventImage event={event} className="card-listing-image" />
         ) : (
@@ -109,7 +122,11 @@ function DiscoveryV3CardContent({
         cost={cost}
         layout={bodyLayout}
         compactPillars={compactPillars}
-        bodyClassName="discovery-v3-event-card__body"
+        bodyClassName={
+          isMapSheet
+            ? 'discovery-v3-event-card__body discovery-v3-event-card__body--map-sheet'
+            : 'discovery-v3-event-card__body'
+        }
       />
     </>
   )
@@ -122,12 +139,14 @@ export function DiscoveryV3Card(props: DiscoveryV3CardProps) {
     onClick,
     selected = false,
     hovered = false,
+    density = 'default',
   } = props
   const cardClass = [
     'card-listing',
     'group',
     'discovery-event-card',
     'discovery-v3-event-card',
+    density === 'map-sheet' ? 'discovery-v3-event-card--map-sheet card-listing--map-preview-sheet' : '',
     discoveryCardBodyLayoutClass(bodyLayout),
     selected ? 'card-listing--selected' : '',
     hovered ? 'card-listing--hovered' : '',

@@ -13,15 +13,24 @@ const ROOT = join(__dirname, '..')
 const ASSETS = join(ROOT, '..', '.cursor', 'projects', 'Users-schei-puddles-v2', 'assets')
 const OUT = join(ROOT, 'public', 'event-fallbacks')
 
+// Stories + Arts have near-white page/canvas faces. Edge flood-fill knockout
+// eats those interiors (and puddle highlights). Regenerate them with:
+//   python3 scripts/process-fallback-white-interior.py
+// Do not re-knock them here.
 const MAPPINGS = [
   ['Build___Explore-9ff4fce1-512a-4ff7-b4c2-8e95ca23a524.png', 'build.png', 'square-badge'],
   ['Classes_2-ba6d3167-7e36-454a-833b-6d78b9e23836.png', 'classes.png', 'bottom-label'],
   ['Other-fc130138-8100-454d-b194-e4b2f87d4561.png', 'other.png', 'square-badge'],
   ['Music___movement-8cf9dc65-3845-4175-8ec3-e2172b2f2798.png', 'music.png', 'square-badge'],
-  ['Art___Crafts-42007422-2c79-4812-a3a9-b4bf95c04083.png', 'arts.png', 'square-badge'],
   ['Social___Play-53c07eb4-7428-44ba-94dc-edbcb17bb142.png', 'play.png', 'square-badge'],
   ['Outdoor-a3248d95-68da-4dd8-a0cd-06a08b754a53.png', 'outdoor.png', 'square-badge'],
-  ['Stories-7641664f-9fea-4691-96df-c0d5e0c8dc5a.png', 'stories.png', 'square-badge'],
+]
+
+const SKIP_KNOCKOUT = [
+  ['Art___Crafts-42007422-2c79-4812-a3a9-b4bf95c04083.png', 'arts.png'],
+  ['Stories-7641664f-9fea-4691-96df-c0d5e0c8dc5a.png', 'stories.png'],
+  ['Festival___Community-f8873c91-d3df-476f-93ed-ee299cecfb27.png', 'festivals.png'],
+  ['Parent_me-dc8b669c-1603-468c-bb06-8ec953ea4943.png', 'parent-me.png'],
 ]
 
 const PY = `
@@ -128,6 +137,14 @@ for (const [srcName, outName, mode] of MAPPINGS) {
     process.exit(1)
   }
   console.log(`✓ ${outName} ← ${srcName}`, result.stdout.trim())
+}
+
+for (const [srcName, outName] of SKIP_KNOCKOUT) {
+  const hint =
+    outName === 'festivals.png' || outName === 'parent-me.png'
+      ? 'scripts/process-fallback-black-bg.py'
+      : 'scripts/process-fallback-white-interior.py'
+  console.log(`⊘ ${outName} ← skipped. Use ${hint}`)
 }
 
 console.log('Done —', MAPPINGS.length, 'fallback images updated in public/event-fallbacks/')

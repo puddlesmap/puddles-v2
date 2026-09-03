@@ -18,6 +18,7 @@ const STATIC_PATHS = [
   '/palo-alto',
   '/los-altos',
   '/mountain-view',
+  '/sunnyvale',
 ]
 
 function parseAgeBuckets(raw) {

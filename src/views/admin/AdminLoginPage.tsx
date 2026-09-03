@@ -31,7 +31,17 @@ export function AdminLoginPage({ onSuccess }: AdminLoginPageProps) {
       <div className="admin-auth-card">
         <p className="admin-auth-eyebrow">Puddles Admin</p>
         <h1 className="admin-auth-title">Sign in</h1>
-        <p className="admin-auth-body">Enter the admin password to open the operations dashboard.</p>
+        <p className="admin-auth-body">
+          Enter the admin password to open the operations dashboard.
+          {typeof window !== 'undefined' &&
+          (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? (
+            <>
+              {' '}
+              Local dev uses <code>ADMIN_PASSWORD</code> from <code>.env.local</code> — not the
+              production Netlify password unless you copied it there.
+            </>
+          ) : null}
+        </p>
 
         <form className="admin-auth-form" onSubmit={(e) => void handleSubmit(e)}>
           <label className="share-field-label mb-2 block" htmlFor="admin-password">

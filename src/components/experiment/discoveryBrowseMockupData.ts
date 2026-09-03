@@ -16,6 +16,7 @@ import {
   SEASONAL_BADGE_HOLIDAY,
   getSeasonalEditorialBadgeForEvent,
   isFallPickCandidate,
+  isHalloweenCollectionCandidate,
   isHalloweenPickCandidate,
   isHolidayPickCandidate,
 } from '../../utils/seasonalEditorialBadges'
@@ -57,21 +58,34 @@ export interface SeasonalEditorialComparisonPair {
   badge: DiscoveryBadgeData
 }
 
-/** One Fall Pick and one Halloween Pick event for side-by-side mocks. */
+/** One Fall Pick and one Halloween Pick event for side-by-side mocks (date-forced themes). */
 export function getSeasonalEditorialComparisonPairs(): SeasonalEditorialComparisonPair[] {
   const catalog = getPublicEventsFromCatalog()
   const pairs: SeasonalEditorialComparisonPair[] = []
   const seen = new Set<string>()
 
-  for (const targetLabel of [SEASONAL_BADGE_FALL.label, SEASONAL_BADGE_HALLOWEEN.label]) {
+  const samples: Array<{ label: string; asOf: Date; matches: (event: Event) => boolean }> = [
+    {
+      label: SEASONAL_BADGE_FALL.label,
+      asOf: new Date('2026-09-15T12:00:00'),
+      matches: isFallPickCandidate,
+    },
+    {
+      label: SEASONAL_BADGE_HALLOWEEN.label,
+      asOf: new Date('2026-10-15T12:00:00'),
+      matches: isHalloweenCollectionCandidate,
+    },
+  ]
+
+  for (const sample of samples) {
     const match = catalog.find((event) => {
       if (seen.has(event.id)) return false
-      return getSeasonalEditorialBadgeForEvent(event)?.label === targetLabel
+      return sample.matches(event)
     })
 
     if (!match) continue
 
-    const badge = getSeasonalEditorialBadgeForEvent(match)
+    const badge = getSeasonalEditorialBadgeForEvent(match, sample.asOf)
     if (!badge) continue
 
     pairs.push({ event: match, badge })

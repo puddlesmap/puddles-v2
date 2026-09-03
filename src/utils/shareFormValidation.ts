@@ -21,8 +21,15 @@ export function isShareCityOther(city: ShareCity | null): boolean {
   return city === 'Other'
 }
 
-export function isLaunchCity(city: ShareCity | null): city is 'Palo Alto' | 'Los Altos' | 'Mountain View' {
-  return city === 'Palo Alto' || city === 'Los Altos' || city === 'Mountain View'
+export function isLaunchCity(
+  city: ShareCity | null,
+): city is 'Palo Alto' | 'Los Altos' | 'Mountain View' | 'Sunnyvale' {
+  return (
+    city === 'Palo Alto' ||
+    city === 'Los Altos' ||
+    city === 'Mountain View' ||
+    city === 'Sunnyvale'
+  )
 }
 
 function hasValidLocation(state: ShareActivityFormState): boolean {

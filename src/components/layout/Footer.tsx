@@ -53,7 +53,7 @@ export function Footer({
       <div className="site-footer-inner">
         <div className="site-footer-lead">
           <p className="site-footer-lead-line">
-            Starting in Palo Alto, Los Altos, and Mountain View.
+            Starting in Palo Alto, Los Altos, Mountain View, and Sunnyvale.
           </p>
           <p className="site-footer-lead-line">
             {/*

@@ -152,9 +152,12 @@ export function buildMartiGoodToKnow() {
   ].join('\n')
 }
 
-export function buildSunnyvaleLibrarySeriesGoodToKnow(dayLabel) {
+export function buildSunnyvaleLibrarySeriesGoodToKnow(dayLabel, extras = []) {
   return [
-    'Weekly classes — check the library events calendar for current times and holiday closures.',
-    `Meets ${dayLabel.toLowerCase()}.`,
+    `Weekly · ${dayLabel} through mid-November (holiday closures & special replacements vary).`,
+    'No registration — arrive early; doors close when the room is full.',
+    'Grown-ups stay with little ones the whole time.',
+    ...extras,
+    'Check the library kids calendar for the next date and any themed replacements.',
   ].join('\n')
 }

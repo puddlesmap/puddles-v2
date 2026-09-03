@@ -24,11 +24,9 @@ export function AboutStoryIntro() {
               <span className="about-intro-brand-tag">{ABOUT_BRAND_TAG}</span>
               {' started with a simple question:'}
             </span>
-            {ABOUT_LEAD_LINES.slice(1).map((line) => (
-              <span key={line} className="about-intro-lead-line">
-                {line}
-              </span>
-            ))}
+            <span className="about-intro-lead-line about-intro-lead-question">
+              <strong>{ABOUT_LEAD_LINES[1]}</strong>
+            </span>
           </p>
           <AboutIntroNarrative />
         </div>

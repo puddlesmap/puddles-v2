@@ -68,6 +68,7 @@ export type DiscoveryViewFilter =
   | 'pending'
   | 'new'
   | 'thisWeek'
+  | 'seasonal'
   | 'already'
   | 'approved'
   | 'live'

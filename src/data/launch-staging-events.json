@@ -34,71 +34,8 @@
   },
   {
     "categoryTags": [
-      "Parent & Me"
-    ],
-    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/b1d4bba1caf446edaff553933886ce3a/1/4SoifmQpDrHbZJ6VybMjS/FIT4MOM%20Stroller%20Strides%20stroller%20workout%20for%20moms.jpg",
-    "room": "",
-    "id": "watchlist-fit4mom-stroller-strides-laspalmas-series",
-    "title": "FIT4MOM Stroller Strides · Las Palmas Park",
-    "description": "Stroller workout for caregivers with baby in tow — cardio & strength at Las Palmas Park.",
-    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Tuesdays at Las Palmas Park.\nCheck the official schedule for current class times.\nPre-enroll for schedule updates and rainy-day location changes.",
-    "venue": "Las Palmas Park",
-    "address": "850 Russet Dr, Sunnyvale, CA 94087",
-    "city": "Sunnyvale",
-    "date": "2026-09-01",
-    "startTime": "09:30",
-    "endTime": "10:30",
-    "ageRange": "0–2, 2–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
       "Parent & Me",
-      "Outdoor"
-    ],
-    "cost": "Paid",
-    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
-    "lat": 37.3515,
-    "lng": -122.0255,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-01"
-  },
-  {
-    "categoryTags": [
-      "Parent & Me"
-    ],
-    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/ee462d0ca5bc4fe88d0d4863fceebe05/1/4SoifmQpDrHbZJ6W5XJrp/3V7A8901.jpg",
-    "room": "",
-    "id": "watchlist-fit4mom-mommy-baby-yoga-laspalmas-series",
-    "title": "FIT4MOM Mommy & Baby Yoga · Las Palmas Park",
-    "description": "Outdoor caregiver & baby yoga at Las Palmas Park, with gentle poses for grown-ups and little ones together. Check the official schedule for current class times.",
-    "tips": "Weekly · Tuesdays at Las Palmas Park.\nPre-enroll for schedule updates and rainy-day location changes.\nBring a yoga mat or blanket.",
-    "venue": "Las Palmas Park",
-    "address": "850 Russet Dr, Sunnyvale, CA 94087",
-    "city": "Sunnyvale",
-    "date": "2026-09-01",
-    "startTime": "11:15",
-    "endTime": "12:15",
-    "ageRange": "0–2",
-    "ageMin": 0,
-    "ageMax": 2,
-    "types": [
-      "Parent & Me",
-      "Outdoor"
-    ],
-    "cost": "Paid",
-    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
-    "lat": 37.3515,
-    "lng": -122.0255,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-01"
-  },
-  {
-    "categoryTags": [
-      "Parent & Me"
+      "Series · do not explode weekly"
     ],
     "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/dc6450fd530c46908f3e38abeba487e1/1/4SoifmQpDrHbZJ6VybMjS/strollerbarre.jpeg",
     "room": "",
@@ -130,7 +67,8 @@
   },
   {
     "categoryTags": [
-      "Parent & Me"
+      "Parent & Me",
+      "Series · do not explode weekly"
     ],
     "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/e2defeaaf73f43e48de87d5adc0992f4/1/4SoifmQpDrHbZJ6W5XJrp/what-to-expect-in-class.jpg",
     "room": "",
@@ -162,38 +100,6 @@
   },
   {
     "categoryTags": [
-      "Stories",
-      "Series"
-    ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
-    "room": "",
-    "id": "staging-sunnyvale-library-toddler-storytime-series",
-    "title": "Toddler Storytime",
-    "description": "Short stories, songs & movement for wiggly toddlers and their grown-ups.",
-    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets tuesdays.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-09-02",
-    "startTime": "11:00",
-    "endTime": "11:30",
-    "ageRange": "0–2, 2–5",
-    "ageMin": 1,
-    "ageMax": 3,
-    "types": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-01"
-  },
-  {
-    "categoryTags": [
       "Arts & Crafts",
       "Hello Fall featured seed"
     ],
@@ -215,7 +121,6 @@
       "Arts & Crafts"
     ],
     "cost": "Free",
-    "eventUrl": "https://bit.ly/artstudiosopenhouse",
     "lat": 37.4441,
     "lng": -122.1392,
     "status": "Published",
@@ -225,7 +130,8 @@
   },
   {
     "categoryTags": [
-      "Parent & Me"
+      "Parent & Me",
+      "Series · do not explode weekly"
     ],
     "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/dc6450fd530c46908f3e38abeba487e1/1/4SoifmQpDrHbZJ6VybMjS/strollerbarre.jpeg",
     "room": "",
@@ -257,39 +163,8 @@
   },
   {
     "categoryTags": [
-      "Stories",
-      "Series"
-    ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
-    "room": "",
-    "id": "staging-sunnyvale-library-preschool-storytime-series",
-    "title": "Preschool Storytime",
-    "description": "Picture books, songs & early-literacy play for preschoolers ready to sit & listen.",
-    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets wednesdays.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-09-03",
-    "startTime": "11:00",
-    "endTime": "11:30",
-    "ageRange": "2–5",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-01"
-  },
-  {
-    "categoryTags": [
-      "Parent & Me"
+      "Parent & Me",
+      "Series · do not explode weekly"
     ],
     "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/b1d4bba1caf446edaff553933886ce3a/1/4SoifmQpDrHbZJ6VybMjS/FIT4MOM%20Stroller%20Strides%20stroller%20workout%20for%20moms.jpg",
     "room": "",
@@ -321,71 +196,8 @@
   },
   {
     "categoryTags": [
-      "Stories",
-      "Series"
-    ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
-    "room": "",
-    "id": "staging-sunnyvale-library-baby-lapsit-series",
-    "title": "Baby Lapsit & Playtime",
-    "description": "Rhymes, songs & lap bounces for babies — then stay & play with other families.",
-    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets thursdays.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-09-04",
-    "startTime": "10:30",
-    "endTime": "11:15",
-    "ageRange": "0–2",
-    "ageMin": 0,
-    "ageMax": 2,
-    "types": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-01"
-  },
-  {
-    "categoryTags": [
-      "Stories",
-      "Series"
-    ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
-    "room": "",
-    "id": "staging-sunnyvale-library-night-owl-storytime-series",
-    "title": "Night Owl Storytime",
-    "description": "Pajama-friendly stories & songs before bed — a calm evening outing with little ones.",
-    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets thursdays.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-09-04",
-    "startTime": "19:00",
-    "endTime": "19:30",
-    "ageRange": "0–2, 2–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-01"
-  },
-  {
-    "categoryTags": [
-      "Parent & Me"
+      "Parent & Me",
+      "Series · do not explode weekly"
     ],
     "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/a253ff95ba7a49cd8adb94b7da4c66e5/1/4SoifmQpDrHbZJ6VybMjS/strides360.jpeg",
     "room": "",
@@ -417,74 +229,10 @@
   },
   {
     "categoryTags": [
-      "Stories",
-      "Series"
+      "Parent & Me",
+      "Series · do not explode weekly"
     ],
-    "imageUrl": "https://static.wixstatic.com/media/b287ea_66fff7ceec2e46bf9603d2a4fef94da4~mv2.jpg/v1/fit/w_1548,h_920,q_90/b287ea_66fff7ceec2e46bf9603d2a4fef94da4~mv2.jpg",
-    "room": "",
-    "id": "staging-sunnyvale-library-magical-bridge-storytime-series",
-    "title": "Storytime at Magical Bridge Playground",
-    "description": "Outdoor stories at Fair Oaks Park’s inclusive playground — sing, rhyme & explore.",
-    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets first fridays.",
-    "venue": "Magical Bridge Playground · Fair Oaks Park",
-    "address": "540 N Fair Oaks Ave, Sunnyvale, CA 94085",
-    "city": "Sunnyvale",
-    "date": "2026-09-05",
-    "startTime": "11:00",
-    "endTime": "11:30",
-    "ageRange": "0–2, 2–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3902,
-    "lng": -122.0085,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-01"
-  },
-  {
-    "categoryTags": [
-      "Stories",
-      "Series"
-    ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
-    "room": "",
-    "id": "staging-sunnyvale-library-family-storytime-series",
-    "title": "Family Storytime",
-    "description": "Stories & songs for the whole family — siblings welcome on Saturday mornings.",
-    "tips": "Weekly classes — check the library events calendar for current times and holiday closures.\nMeets saturdays.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-09-06",
-    "startTime": "11:00",
-    "endTime": "11:30",
-    "ageRange": "0–2, 2–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-01"
-  },
-  {
-    "categoryTags": [
-      "Parent & Me"
-    ],
-    "imageUrl": "https://images.squarespace-cdn.com/content/v1/60172f3960bac64bcb546edb/6183447a-4f71-453b-8dd6-9dd50c5e06c7/Moms+and+babies+outside+doing+yoga.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "disc-marti-parent-baby-yoga-series-2026",
     "title": "Parent & Baby Yoga with Marti Foster",
@@ -515,9 +263,108 @@
   {
     "categoryTags": [
       "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/b1d4bba1caf446edaff553933886ce3a/1/4SoifmQpDrHbZJ6VybMjS/FIT4MOM%20Stroller%20Strides%20stroller%20workout%20for%20moms.jpg",
+    "room": "",
+    "id": "watchlist-fit4mom-stroller-strides-laspalmas-series",
+    "title": "FIT4MOM Stroller Strides · Las Palmas Park",
+    "description": "Stroller workout for caregivers with baby in tow — cardio & strength at Las Palmas Park.",
+    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Tuesdays at Las Palmas Park.\nCheck the official schedule for current class times.\nPre-enroll for schedule updates and rainy-day location changes.",
+    "venue": "Las Palmas Park",
+    "address": "850 Russet Dr, Sunnyvale, CA 94087",
+    "city": "Sunnyvale",
+    "date": "2026-09-08",
+    "startTime": "09:30",
+    "endTime": "10:30",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3515,
+    "lng": -122.0255,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "staging-sunnyvale-library-toddler-storytime-series",
+    "title": "Toddler Storytime",
+    "description": "Short stories, songs & movement for wiggly toddlers and their grown-ups.",
+    "tips": "Weekly · Tuesdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nBest for ages 1–3.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-08",
+    "startTime": "11:00",
+    "endTime": "11:25",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 1,
+    "ageMax": 3,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/ee462d0ca5bc4fe88d0d4863fceebe05/1/4SoifmQpDrHbZJ6W5XJrp/3V7A8901.jpg",
+    "room": "",
+    "id": "watchlist-fit4mom-mommy-baby-yoga-laspalmas-series",
+    "title": "FIT4MOM Mommy & Baby Yoga · Las Palmas Park",
+    "description": "Outdoor caregiver & baby yoga at Las Palmas Park, with gentle poses for grown-ups and little ones together. Check the official schedule for current class times.",
+    "tips": "Weekly · Tuesdays at Las Palmas Park.\nPre-enroll for schedule updates and rainy-day location changes.\nBring a yoga mat or blanket.",
+    "venue": "Las Palmas Park",
+    "address": "850 Russet Dr, Sunnyvale, CA 94087",
+    "city": "Sunnyvale",
+    "date": "2026-09-08",
+    "startTime": "11:15",
+    "endTime": "12:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3515,
+    "lng": -122.0255,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly",
       "Priority: definitely add"
     ],
-    "imageUrl": "https://duy554ewuuwzm.cloudfront.net/photos/3/39/DMN_3989/image_vault/190319115534710_1.png",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-mt-pa-fall-mixed-ages-2026",
     "title": "Music Together — Fall Mixed Ages",
@@ -546,7 +393,203 @@
     "verifiedDate": "2026-09-01"
   },
   {
-    "categoryTags": [],
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "staging-sunnyvale-library-preschool-storytime-series",
+    "title": "Preschool Storytime",
+    "description": "Picture books, songs & early-literacy play for preschoolers ready to sit & listen.",
+    "tips": "Weekly · Wednesdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nBest for ages 3–5.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-09",
+    "startTime": "11:00",
+    "endTime": "11:25",
+    "ageRange": "2–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-sensory-storytime-2026-09-09",
+    "title": "Sensory Storytime",
+    "description": "Interactive literacy with movement, music, sensory materials & a calmer group size — great for little ones who need a gentler storytime.",
+    "tips": "Registration required · limited spots. Caregivers stay with children.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-09",
+    "startTime": "15:00",
+    "endTime": "15:45",
+    "ageRange": "2–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "staging-sunnyvale-library-baby-lapsit-series",
+    "title": "Baby Lapsit & Playtime",
+    "description": "Rhymes, songs & lap bounces for babies — then stay & play with other families.",
+    "tips": "Weekly · Thursdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nFor babies 0–12 months and their caregivers — no older siblings.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-10",
+    "startTime": "10:30",
+    "endTime": "12:00",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 1,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "staging-sunnyvale-library-night-owl-storytime-series",
+    "title": "Night Owl Storytime",
+    "description": "Pajama-friendly stories & songs before bed — a calm evening outing with little ones.",
+    "tips": "Weekly · Thursdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-10",
+    "startTime": "19:00",
+    "endTime": "19:25",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-bilingual-hebrew-storytime-2026-09-11",
+    "title": "Bilingual Hebrew-English Storytime",
+    "description": "Stories, songs & rhymes in Hebrew and English for little ones and their grown-ups.",
+    "tips": "No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-11",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "staging-sunnyvale-library-family-storytime-series",
+    "title": "Family Storytime",
+    "description": "Stories & songs for the whole family — siblings welcome on Saturday mornings.",
+    "tips": "Weekly · Saturdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-12",
+    "startTime": "11:00",
+    "endTime": "11:25",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Seasonal pick",
+      "Seasonal · Hello Fall",
+      "featured"
+    ],
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_08_13_14_38_29.jpg",
     "room": "1st Floor Program Room",
     "id": "16188977",
@@ -569,6 +612,74 @@
     "eventUrl": "https://mountainview.libcal.com/event/16188977",
     "lat": 37.3895,
     "lng": -122.0818,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special",
+      "Hello Fall"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-mid-autumn-storytime-craft-2026-09-13",
+    "title": "Mid-Autumn Festival Storytime and Craft",
+    "description": "Seasonal Mid-Autumn stories plus a hands-on craft — a gentle festival outing for little ones.",
+    "tips": "No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-13",
+    "startTime": "14:00",
+    "endTime": "15:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Arts & Crafts"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
+      "Sunnyvale",
+      "Library special",
+      "Parent & Me"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-asl-for-babies-2026-09-14",
+    "title": "ASL for Babies",
+    "description": "Early signs with songs and play — grown-ups and babies learn simple ASL together.",
+    "tips": "No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-14",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
     "status": "Published",
     "isPast": false,
     "isLive": true,
@@ -608,8 +719,44 @@
   },
   {
     "categoryTags": [
+      "Sunnyvale",
+      "Library special"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-library-bilingual-spanish-storytime-craft-2026-09-18",
+    "title": "Bilingual (Spanish/English) Storytime & Craft",
+    "description": "Stories and songs in Spanish and English, then a simple craft for little hands.",
+    "tips": "No registration — arrive early; doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-18",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "0–2, 2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Arts & Crafts"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
+  },
+  {
+    "categoryTags": [
       "Parent & Me",
-      "Priority: add"
+      "Priority: add",
+      "Seasonal pick",
+      "Seasonal · Hello Fall",
+      "collection"
     ],
     "imageUrl": "https://miniyogaclub.com/cdn/shop/files/treehouse-silicon-valley.png?crop=center&height=1000&v=1783889349&width=1000",
     "room": "",
@@ -640,167 +787,69 @@
     "verifiedDate": "2026-09-01"
   },
   {
-    "id": "watchlist-google-endless-summer-festival-2026-09-12",
-    "title": "Endless Summer Festival",
-    "description": "Magic shows, 3D chalk art, slime truck & a kids sports zone — a free plaza festival with plenty for little ones to watch, make, and move.",
-    "tips": "Register for a reminder on the official page. Arrive early for parking; plaza is outdoors.",
-    "venue": "Google Visitor Experience",
-    "address": "2000 N Shoreline Blvd, Mountain View, CA 94043",
-    "city": "Mountain View",
-    "date": "2026-09-12",
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "staging-sunnyvale-library-magical-bridge-storytime-series",
+    "title": "Storytime at Magical Bridge Playground",
+    "description": "Outdoor stories at Fair Oaks Park’s inclusive playground — sing, rhyme & explore.",
+    "tips": "Weekly · First Fridays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nExtra Magical Bridge storytimes sometimes land midweek — check the kids calendar.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Magical Bridge Playground · Fair Oaks Park",
+    "address": "540 N Fair Oaks Ave, Sunnyvale, CA 94085",
+    "city": "Sunnyvale",
+    "date": "2026-10-02",
     "startTime": "11:00",
-    "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "endTime": "11:30",
+    "ageRange": "0–2, 2–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Festivals & Community",
+      "Stories",
       "Outdoor"
     ],
-    "categoryTags": [
-      "Festivals & Community",
-      "Hello Fall featured seed"
-    ],
     "cost": "Free",
-    "imageUrl": "https://services.google.com/fh/files/misc/esfhero-albertlaw.jpg",
-    "eventUrl": "https://rsvp.withgoogle.com/events/endless-summer-festival-2026",
-    "verifiedDate": "2026-09-02",
-    "lat": 37.4227,
-    "lng": -122.0844,
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3902,
+    "lng": -122.0085,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "verifiedDate": "2026-09-01"
   },
   {
-    "id": "watchlist-sunnyvale-diwali-sacas-2026-10-03",
-    "title": "Sunnyvale Diwali Festival",
-    "description": "Kids Zone with diya painting, face painting, bookmark workshop & balloons — a free Diwali mela little ones can join in.",
-    "tips": "Free entry; food and henna are pay-as-you-go. Same weekend as Mid-Autumn Festival downtown — plan for crowds.",
-    "venue": "Downtown Sunnyvale",
-    "address": "230 S Murphy Ave, Sunnyvale, CA 94086",
+    "categoryTags": [
+      "Seasonal",
+      "Sunnyvale"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "watchlist-sunnyvale-hands-on-the-arts-2026-10-17",
+    "title": "Hands on the Arts",
+    "description": "20+ hands-on art booths, roving performers, and food vendors — Sunnyvale’s long-running children’s arts festival celebrating cultures from around the world.",
+    "tips": "Free wristband at check-in unlocks all workshops (booths tailored ~ages 3–15; best for preschool+). Limited parking; bike valet often available.",
+    "venue": "Sunnyvale Community Center",
+    "address": "550 E Remington Dr, Sunnyvale, CA 94087",
     "city": "Sunnyvale",
-    "date": "2026-10-03",
-    "startTime": "11:30",
-    "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
+    "date": "2026-10-17",
+    "startTime": "10:30",
+    "endTime": "15:00",
+    "ageRange": "2–5, 5+",
+    "ageMin": 2,
     "ageMax": 5,
     "types": [
-      "Festivals & Community",
-      "Arts & Crafts"
-    ],
-    "categoryTags": [
-      "Festivals & Community",
-      "Hello Fall featured seed"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://static.wixstatic.com/media/7127d0_8beadeed7bae476e8fe63f5f984f6f5b~mv2.jpg/v1/fill/w_1600,h_900,al_c/7127d0_8beadeed7bae476e8fe63f5f984f6f5b~mv2.jpg",
-    "eventUrl": "https://www.sacas.org/",
-    "verifiedDate": "2026-09-02",
-    "lat": 37.3789,
-    "lng": -122.0302,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "watchlist-sunnyvale-mid-autumn-festival-2026-10-03",
-    "title": "Sunnyvale Mid-Autumn Festival",
-    "description": "Dance & music stages plus cultural activities downtown — a Mid-Autumn weekend outing little ones can watch, wander, and explore.",
-    "tips": "Free admission; food and crafts are pay-as-you-go. Runs Oct 3–4 — this row is the Saturday kickoff.",
-    "venue": "Cityline Sunnyvale",
-    "address": "345 W McKinley Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-03",
-    "startTime": "10:00",
-    "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Festivals & Community",
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Festivals & Community",
-      "Hello Fall featured seed"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://images.squarespace-cdn.com/content/v1/537e88a6e4b078fc56661bfc/1754420047400-H0U24PC5N4GT5MH51KSR/moon-festival-02-1.png",
-    "eventUrl": "https://www.sunnyvaledowntown.org/",
-    "verifiedDate": "2026-09-02",
-    "lat": 37.3789,
-    "lng": -122.0302,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "harvest-history-festival-heritage-park-2026-09-26-09-00",
-    "title": "Harvest History Festival",
-    "description": "Bubbles, puppets, face painting & art for little ones — plus live music and a peek inside the historic Immigrant House.",
-    "venue": "Heritage Park",
-    "address": "771 N. Rengstorff Avenue",
-    "city": "Mountain View",
-    "date": "2026-09-26",
-    "startTime": "09:00",
-    "endTime": "12:00",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Festivals & Community",
-      "Outdoor"
-    ],
-    "categoryTags": [
+      "Arts & Crafts",
       "Festivals & Community"
     ],
     "cost": "Free",
-    "imageUrl": "https://www.mountainview.gov/home/showpublishedimage/2521/638151863819370000",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3482/656?npage=2",
-    "verifiedDate": "2026-07-07",
-    "lat": 37.4139,
-    "lng": -122.0925,
+    "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
+    "lat": 37.3782,
+    "lng": -122.0265,
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "sheetTypesRaw": "Festivals & Community, Outdoor",
-    "tips": "Free. Very limited street parking — bike or walk if you can. Check the city page for this year’s kids lineup."
-  },
-  {
-    "id": "disc-author-event-celebrate-the-mooncake-fest-2026-09-23-6a6cdceee30fe4845965ed72",
-    "title": "Author Event: Celebrate the Mooncake Festival with Jasmine Fang",
-    "description": "Mid-Autumn moon story with Jasmine Fang, then a hands-on craft — little ones celebrate the Mooncake Festival through books and making.",
-    "tips": "Ages 3+. Space is limited (50 seats) — check the official page for registration.",
-    "venue": "Children's Library",
-    "room": "Secret Garden",
-    "address": "1276  Harriet Street, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-09-23",
-    "startTime": "14:00",
-    "endTime": "15:00",
-    "ageRange": "2–5, 5+",
-    "ageMin": 3,
-    "ageMax": 12,
-    "types": [
-      "Festivals & Community",
-      "Stories"
-    ],
-    "categoryTags": [
-      "Author Events",
-      "Celebrations",
-      "Writing & Poetry",
-      "Celebrating Cultures"
-    ],
-    "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/df114ed9818627bc7c360daafac4e01f/Event Types - Author Event.jpg",
-    "eventUrl": "https://paloalto.bibliocommons.com/events/6a6cdceee30fe4845965ed72",
-    "verifiedDate": "2026-08-24",
-    "lat": 37.4447829,
-    "lng": -122.14501310000003,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Social & Play"
+    "verifiedDate": "2026-09-01"
   }
 ]

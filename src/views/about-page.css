@@ -145,6 +145,10 @@
   margin-top: 0.125rem;
 }
 
+.about-page .about-intro-lead-question strong {
+  font-weight: 700;
+}
+
 .about-page .about-intro-brand-name {
   color: var(--color-brand);
 }

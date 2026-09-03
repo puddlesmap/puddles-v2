@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "dev:clean": "rm -rf .next && next dev -H 127.0.0.1",
     "build": "next build",
     "start": "next start",
     "dev:vite": "vite",
@@ -19,6 +20,12 @@
     "discover:los-altos": "node scripts/discover-los-altos.mjs",
     "discover:mountain-view": "node scripts/discover-mountain-view.mjs",
     "discover:bay-area": "node scripts/discover-bay-area.mjs",
+    "discover:expansion-lookahead": "node scripts/discover-expansion-lookahead.mjs",
+    "discover:expansion-refresh": "node scripts/discover-expansion-lookahead.mjs --days=90 --run-scrape",
+    "discover:ingest-expansion": "node scripts/ingest-watchlist-expansion.mjs",
+    "discover:regional-weekly": "node scripts/discover-regional-weekly.mjs",
+    "discover:sync-seasonal": "node scripts/sync-seasonal-discovery.mjs",
+    "build:launch-staging": "node scripts/build-launch-staging.mjs",
     "verify-expansion-watch": "node scripts/verify-expansion-watch-submission.mjs"
   },
   "dependencies": {
