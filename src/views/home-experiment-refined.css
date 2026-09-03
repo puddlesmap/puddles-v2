@@ -725,6 +725,10 @@
   color: inherit;
 }
 
+.home-announcement-bar__mobile-break {
+  display: block;
+}
+
 .home-announcement-bar__link {
   color: inherit;
   font-weight: inherit;
@@ -752,6 +756,15 @@
 
   .home-announcement-bar__text {
     font-size: 0.875rem;
+  }
+
+  /* Keep Sunnyvale + Plus festivals on one line on desktop */
+  .home-announcement-bar__mobile-break {
+    display: none;
+  }
+
+  .home-announcement-bar__line--secondary::before {
+    content: ' ';
   }
 }
 
@@ -917,10 +930,58 @@
   max-width: calc(100% - 5.5rem);
 }
 
+/* Mobile: stack See all + illustration on the left (under eyebrow / title) */
+@media (max-width: 767px) {
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-copy-group {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .seasonal-discovery-module--home-band
+    .seasonal-discovery-module__header-text
+    .seasonal-discovery-module__header-cta--mobile {
+    display: inline-flex;
+    margin: 0 0 0.5rem;
+    padding-top: 0;
+    align-self: flex-start;
+  }
+
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-cta--desktop,
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__illustration--desktop {
+    display: none;
+  }
+
+  .seasonal-discovery-module--home-band
+    .seasonal-discovery-module__header-text
+    .seasonal-discovery-module__illustration--mobile {
+    display: block;
+    align-self: flex-start;
+    margin: 0.5rem 0 0;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-text {
+    width: 100%;
+  }
+}
+
 @media (min-width: 768px) {
   .seasonal-discovery-module__header-copy-group {
     gap: 0.875rem;
     max-width: calc(100% - 6.5rem);
+  }
+
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-cta--mobile,
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__illustration--mobile {
+    display: none;
   }
 }
 
@@ -1030,6 +1091,11 @@
   text-decoration: none;
   white-space: nowrap;
   transition: color 0.14s ease-out;
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__header-cta--mobile,
+.seasonal-discovery-module--home-band .seasonal-discovery-module__illustration--mobile {
+  display: none;
 }
 
 .seasonal-discovery-module__header-content .seasonal-discovery-module__header-cta:hover {

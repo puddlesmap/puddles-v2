@@ -29,22 +29,42 @@ export function SeasonalDiscoveryModuleHeader({
           <div className="seasonal-discovery-module__header-copy-group">
             <div className="seasonal-discovery-module__header-text">
               <p className="seasonal-discovery-module__eyebrow">{eyebrowText}</p>
+              {headerCta ? (
+                <Link
+                  to={headerCta.href}
+                  className="seasonal-discovery-module__header-cta seasonal-discovery-module__header-cta--mobile"
+                >
+                  {headerCta.label}
+                  <span aria-hidden> →</span>
+                </Link>
+              ) : null}
               <h2 id={headingId} className="seasonal-discovery-module__title">
                 {collection.title}
               </h2>
+              <img
+                src={collection.illustrationSrc}
+                alt=""
+                className="seasonal-discovery-module__illustration--header-copy seasonal-discovery-module__illustration--mobile"
+                width={72}
+                height={72}
+                decoding="async"
+              />
               <p className="seasonal-discovery-module__description">{collection.moduleTagline}</p>
             </div>
             <img
               src={collection.illustrationSrc}
               alt=""
-              className="seasonal-discovery-module__illustration--header-copy"
+              className="seasonal-discovery-module__illustration--header-copy seasonal-discovery-module__illustration--desktop"
               width={72}
               height={72}
               decoding="async"
             />
           </div>
           {headerCta ? (
-            <Link to={headerCta.href} className="seasonal-discovery-module__header-cta">
+            <Link
+              to={headerCta.href}
+              className="seasonal-discovery-module__header-cta seasonal-discovery-module__header-cta--desktop"
+            >
               {headerCta.label}
               <span aria-hidden> →</span>
             </Link>

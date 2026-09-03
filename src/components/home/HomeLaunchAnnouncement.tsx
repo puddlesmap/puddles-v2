@@ -14,19 +14,25 @@ export function HomeLaunchAnnouncement({ message }: { message?: string } = {}) {
       <p className="home-announcement-bar__text">
         {message ?? (
           <>
-            Puddles is now in{' '}
-            <Link to={BROWSE_SUNNYVALE_HREF} className="home-announcement-bar__link">
-              Sunnyvale
-            </Link>{' '}
-            🎉 Plus{' '}
-            <Link to={BROWSE_FESTIVALS_HREF} className="home-announcement-bar__link">
-              festivals
-            </Link>{' '}
-            and{' '}
-            <Link to={BROWSE_PARENT_ME_HREF} className="home-announcement-bar__link">
-              Parent &amp; Me
-            </Link>{' '}
-            activities.
+            <span className="home-announcement-bar__line">
+              Puddles is now in{' '}
+              <Link to={BROWSE_SUNNYVALE_HREF} className="home-announcement-bar__link">
+                Sunnyvale
+              </Link>{' '}
+              🎉
+            </span>
+            <br className="home-announcement-bar__mobile-break" />
+            <span className="home-announcement-bar__line home-announcement-bar__line--secondary">
+              Plus{' '}
+              <Link to={BROWSE_FESTIVALS_HREF} className="home-announcement-bar__link">
+                festivals
+              </Link>{' '}
+              and{' '}
+              <Link to={BROWSE_PARENT_ME_HREF} className="home-announcement-bar__link">
+                Parent &amp; Me
+              </Link>{' '}
+              activities.
+            </span>
           </>
         )}
       </p>
