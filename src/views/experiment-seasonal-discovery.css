@@ -698,7 +698,13 @@
 }
 
 .seasonal-collection-band__header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .seasonal-collection-band__header {
+    margin-bottom: 1rem;
+  }
 }
 
 .seasonal-collection-band__title {
@@ -744,9 +750,16 @@
   overflow: visible;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 390px) {
   .seasonal-collection-page--split .seasonal-collection-grid.browse-event-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.625rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .seasonal-collection-page--split .seasonal-collection-grid.browse-event-grid {
+    gap: 1rem;
   }
 }
 
