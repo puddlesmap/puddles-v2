@@ -8,7 +8,6 @@ import {
   PUDDLES_WORDMARK_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC_2X,
 } from './experimentShared'
-import { SeasonalThemeCalendarReview } from '../components/seasonal/SeasonalThemeCalendarReview'
 import {
   getSeasonalCollectionForExperiment,
   getUpcomingSeasonalCollectionForExperiment,
@@ -65,10 +64,6 @@ export function ExperimentSeasonalDiscoveryPage() {
       </aside>
 
       <SeasonalBrowseCategoriesPreview />
-      <SeasonalThemeCalendarReview compact />
-      <p className="seasonal-discovery-experiment-note seasonal-discovery-experiment-note--calendar">
-        <Link to="/experiment/seasonal-discovery/calendar">Open full calendar review →</Link>
-      </p>
     </>
   )
 

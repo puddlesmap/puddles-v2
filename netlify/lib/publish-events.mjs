@@ -230,4 +230,4 @@ export async function publishEventsToGithub({ events, env = process.env }) {
   }
 }
 
-export { getGitHubConfig }
+export { getGitHubConfig, githubGetFile, githubPutFile }

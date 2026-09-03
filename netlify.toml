@@ -63,6 +63,11 @@
   status = 200
 
 [[redirects]]
+  from = "/api/publish-seasonal-curation"
+  to = "/.netlify/functions/publish-seasonal-curation"
+  status = 200
+
+[[redirects]]
   from = "/api/submissions"
   to = "/.netlify/functions/submissions"
   status = 200

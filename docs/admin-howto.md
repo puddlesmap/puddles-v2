@@ -25,6 +25,8 @@ Prefer Admin Refresh over Sheet CSV — Sheet fallback can overwrite local revie
 
 1. Edit if needed → **Approve** → Ready.
 2. **Go live** on Ready items → public catalog.
+3. Opening Discovery/Events **syncs lived duplicates** (Draft/Ready/Pending twins of Live are cleared or promoted).
+4. Toggle **Regular Discovery** (core cities) vs **Seasonal picks** (Close to home / Worth a little drive). Stage add/remove/move, then **Publish curation** to update the seasonal page (~2–4 min).
 
 **Automation schedule**
 

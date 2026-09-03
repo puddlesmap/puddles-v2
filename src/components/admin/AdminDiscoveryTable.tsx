@@ -31,6 +31,10 @@ interface AdminDiscoveryTableProps {
   onGoLive: (candidates: DiscoveryCandidate[]) => void
   onDismiss: (candidate: DiscoveryCandidate) => void
   onRestore: (candidate: DiscoveryCandidate) => void
+  /** Seasonal curation actions (Seasonal Discovery mode). */
+  curationSection?: 'closeToHome' | 'worthADrive'
+  onRemoveFromSeasonal?: (candidate: DiscoveryCandidate) => void
+  onMoveSeasonal?: (candidate: DiscoveryCandidate) => void
 }
 
 const SORTABLE_COLUMNS: { key: DiscoverySortKey; label: string; className?: string }[] = [
@@ -170,6 +174,9 @@ export function AdminDiscoveryTable({
   onGoLive,
   onDismiss,
   onRestore,
+  curationSection,
+  onRemoveFromSeasonal,
+  onMoveSeasonal,
 }: AdminDiscoveryTableProps) {
   const [sortKey, setSortKey] = useState<DiscoverySortKey>('when')
   const [sortDir, setSortDir] = useState<SortDir>('asc')
@@ -513,6 +520,39 @@ export function AdminDiscoveryTable({
                           onPointerDown={(e) => e.stopPropagation()}
                         >
                           {isBusy ? '…' : 'Go live'}
+                        </button>
+                      ) : null}
+                      {curationSection && onRemoveFromSeasonal ? (
+                        <button
+                          type="button"
+                          className="admin-btn admin-btn-secondary"
+                          disabled={isBusy || bulkBusy}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            onRemoveFromSeasonal(candidate)
+                          }}
+                          onPointerDown={(e) => e.stopPropagation()}
+                        >
+                          Remove
+                        </button>
+                      ) : null}
+                      {curationSection && onMoveSeasonal ? (
+                        <button
+                          type="button"
+                          className="admin-btn admin-btn-secondary"
+                          disabled={isBusy || bulkBusy}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            onMoveSeasonal(candidate)
+                          }}
+                          onPointerDown={(e) => e.stopPropagation()}
+                          title={
+                            curationSection === 'closeToHome'
+                              ? 'Move to Worth a little drive'
+                              : 'Move to Close to home'
+                          }
+                        >
+                          {curationSection === 'closeToHome' ? '→ Drive' : '→ Home'}
                         </button>
                       ) : null}
                     </td>

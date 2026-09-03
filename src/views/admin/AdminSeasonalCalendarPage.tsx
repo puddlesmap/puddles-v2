@@ -17,7 +17,7 @@ export function AdminSeasonalCalendarPage() {
         </div>
         <div className="admin-events-header-actions">
           <Link to="/experiment/seasonal-discovery/calendar" className="admin-btn admin-btn-secondary">
-            Public preview ↗
+            Experiment calendar ↗
           </Link>
           <Link to="/experiment/seasonal-discovery" className="admin-btn admin-btn-secondary">
             Seasonal experiment ↗

@@ -104,19 +104,27 @@ export function AdminEventsPage() {
         synced.draftsAdded === 0 &&
         synced.verifiedUpdated === 0 &&
         (synced.draftsRemoved ?? 0) === 0 &&
-        (synced.readyPromoted ?? 0) === 0
+        (synced.readyPromoted ?? 0) === 0 &&
+        (synced.pendingPromoted ?? 0) === 0
       ) {
         return
       }
       setEvents(synced.events.map((event) => enrichPublishingFields(event)))
       setAdminRefreshedAt(new Date().toISOString())
-      if ((synced.draftsRemoved ?? 0) > 0) {
-        setActionMessage(
-          `Cleared ${synced.draftsRemoved} Draft${synced.draftsRemoved === 1 ? '' : 's'} already Live` +
-            ((synced.readyPromoted ?? 0) > 0
-              ? ` · marked ${synced.readyPromoted} Discovery Ready as Live`
-              : ''),
-        )
+      if ((synced.draftsRemoved ?? 0) > 0 || (synced.readyPromoted ?? 0) > 0 || (synced.pendingPromoted ?? 0) > 0) {
+        const parts: string[] = []
+        if ((synced.draftsRemoved ?? 0) > 0) {
+          parts.push(
+            `cleared ${synced.draftsRemoved} Draft${synced.draftsRemoved === 1 ? '' : 's'} already Live`,
+          )
+        }
+        if ((synced.readyPromoted ?? 0) > 0) {
+          parts.push(`promoted ${synced.readyPromoted} Ready → Live`)
+        }
+        if ((synced.pendingPromoted ?? 0) > 0) {
+          parts.push(`promoted ${synced.pendingPromoted} Pending → Live`)
+        }
+        setActionMessage(parts.join(' · '))
       }
     }
 

@@ -180,25 +180,24 @@ export function findLiveDuplicateForDraft(
 }
 
 /**
- * Drop Discovery Drafts that already exist as Published/Live, and promote matching
- * Discovery Ready rows to Live so sync does not recreate the Drafts.
+ * Reconcile Admin browser state with the Published/Live catalog:
+ * drop Draft twins, promote Ready/Pending matches to Live, refresh verified dates.
  */
-export function pruneDiscoveryDraftsAlreadyLive(): {
+export function reconcileAdminWithLivedCatalog(): {
   events: Event[]
   draftsRemoved: number
   readyPromoted: number
+  pendingPromoted: number
 } {
   ensureAdminEventsCacheSeeded()
   const before = currentAdminEvents()
   const removeIds = new Set<string>()
-  const liveByDraftId = new Map<string, Event>()
 
   for (const event of before) {
     if (event.status !== 'Draft') continue
     const live = findLiveDuplicateForDraft(event, before)
     if (!live) continue
     removeIds.add(event.id)
-    liveByDraftId.set(event.id, live)
   }
 
   let events = before
@@ -210,9 +209,11 @@ export function pruneDiscoveryDraftsAlreadyLive(): {
   const store = loadDiscoveryReviewStore()
   const candidates = applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, store)
   let readyPromoted = 0
+  let pendingPromoted = 0
 
   for (const candidate of candidates) {
-    if (candidate.reviewStatus !== 'approved') continue
+    if (candidate.reviewStatus === 'live' || candidate.reviewStatus === 'dismissed') continue
+
     const edits = editableFieldsFromCandidate(candidate)
     const matched =
       findMatchingEventsForCandidate({ ...candidate, ...edits }).find(
@@ -232,20 +233,38 @@ export function pruneDiscoveryDraftsAlreadyLive(): {
     if (!matched || matched.status !== 'Published') continue
 
     const existing = store[candidate.id]
+    const wasReady = candidate.reviewStatus === 'approved'
     saveDiscoveryReviewRecord(candidate.id, {
       reviewStatus: 'live',
       edits: existing?.edits,
       convertedEventId: matched.id,
-      approvedOn: existing?.approvedOn || candidate.lastChecked || edits.lastChecked,
+      approvedOn:
+        existing?.approvedOn ||
+        candidate.lastChecked ||
+        edits.lastChecked ||
+        matched.verifiedDate ||
+        '',
       updatedAt: new Date().toISOString(),
     })
-    readyPromoted += 1
+    if (wasReady) readyPromoted += 1
+    else pendingPromoted += 1
   }
 
   return {
     events: currentAdminEvents(),
     draftsRemoved: removeIds.size,
     readyPromoted,
+    pendingPromoted,
+  }
+}
+
+/** @deprecated Prefer reconcileAdminWithLivedCatalog */
+export function pruneDiscoveryDraftsAlreadyLive() {
+  const result = reconcileAdminWithLivedCatalog()
+  return {
+    events: result.events,
+    draftsRemoved: result.draftsRemoved,
+    readyPromoted: result.readyPromoted,
   }
 }
 
@@ -414,9 +433,10 @@ export function syncReadyDiscoveryIntoAdminCache(): {
   verifiedUpdated: number
   draftsRemoved?: number
   readyPromoted?: number
+  pendingPromoted?: number
 } {
   ensureAdminEventsCacheSeeded()
-  const pruned = pruneDiscoveryDraftsAlreadyLive()
+  const pruned = reconcileAdminWithLivedCatalog()
 
   const store = loadDiscoveryReviewStore()
   const candidates = applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, store)
@@ -531,6 +551,7 @@ export function syncReadyDiscoveryIntoAdminCache(): {
     verifiedUpdated,
     draftsRemoved: pruned.draftsRemoved,
     readyPromoted: pruned.readyPromoted,
+    pendingPromoted: pruned.pendingPromoted,
   }
 }
 

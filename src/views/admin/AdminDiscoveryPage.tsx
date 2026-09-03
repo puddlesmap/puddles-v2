@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   ALL_DISCOVERY_CANDIDATES,
   DISCOVERY_CATALOG,
   filterDiscoveryCandidates,
   summarizeDiscoveryCounts,
 } from '../../data/discovery'
+import { getSeasonalCollection } from '../../data/seasonalDiscovery'
 import { AdminDiscoveryTable } from '../../components/admin/AdminDiscoveryTable'
 import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryViewFilter } from '../../types/discovery'
 import { findMatchingEventIdsForCandidate, enrichCandidatesWithSiteVerifiedDates } from '../../utils/discoveryMatchEvents'
@@ -14,9 +15,11 @@ import {
   ensureAdminEventsCacheSeeded,
   loadWriteSheetPreference,
   prepareGoLiveEvents,
+  reconcileAdminWithLivedCatalog,
   saveWriteSheetPreference,
 } from '../../utils/discoveryApproveLocal'
 import { publishEventsToSite } from '../../utils/publishEvents'
+import { publishSeasonalCurationToSite } from '../../utils/publishSeasonalCuration'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
   applyDiscoveryReviewOverrides,
@@ -26,12 +29,27 @@ import {
   saveDiscoveryReviewRecord,
 } from '../../utils/discoveryReview'
 import { summarizeDiscoveryThisWeek } from '../../utils/discoveryThisWeek'
+import {
+  addToSeasonalSection,
+  clearSeasonalThemeStaging,
+  commitSeasonalCurationPublish,
+  getActiveThemeSlugForAdmin,
+  getEffectiveSeasonalSectionIds,
+  moveSeasonalSection,
+  removeFromSeasonalSection,
+  stagingHasChanges,
+  type SeasonalCurationSection,
+} from '../../utils/seasonalCurationStaging'
+import {
+  filterRegularDiscoveryCandidates,
+  resolveSeasonalDiscoveryRows,
+} from '../../utils/seasonalDiscoveryAdmin'
 
 type ActionMessage = { type: 'success' | 'error'; text: string }
+type DiscoveryMode = 'regular' | 'seasonal'
 
-const VIEW_OPTIONS: { id: DiscoveryViewFilter; label: string }[] = [
+const REGULAR_VIEW_OPTIONS: { id: DiscoveryViewFilter; label: string }[] = [
   { id: 'thisWeek', label: 'This week' },
-  { id: 'seasonal', label: 'Seasonal picks' },
   { id: 'pending', label: 'Pending' },
   { id: 'new', label: 'New only' },
   { id: 'already', label: 'Already on site' },
@@ -40,6 +58,16 @@ const VIEW_OPTIONS: { id: DiscoveryViewFilter; label: string }[] = [
   { id: 'dismissed', label: 'Dismissed' },
   { id: 'all', label: 'All' },
 ]
+
+function reloadDiscoveryCandidates(): DiscoveryCandidate[] {
+  return enrichCandidatesWithSiteVerifiedDates(
+    applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, loadDiscoveryReviewStore()),
+  )
+}
+
+function curationEventId(candidate: DiscoveryCandidate): string {
+  return (candidate.convertedEventId || candidate.id).trim()
+}
 
 function mergeCandidate(
   candidate: DiscoveryCandidate,
@@ -146,36 +174,175 @@ async function writeNewDraftToSheet(
 }
 
 export function AdminDiscoveryPage() {
-  const [candidates, setCandidates] = useState<DiscoveryCandidate[]>(() =>
-    enrichCandidatesWithSiteVerifiedDates(
-      applyDiscoveryReviewOverrides(ALL_DISCOVERY_CANDIDATES, loadDiscoveryReviewStore()),
-    ),
-  )
+  const [candidates, setCandidates] = useState<DiscoveryCandidate[]>(() => reloadDiscoveryCandidates())
+  const [discoveryMode, setDiscoveryMode] = useState<DiscoveryMode>('regular')
   const [view, setView] = useState<DiscoveryViewFilter>('thisWeek')
   const [search, setSearch] = useState('')
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
   const [bulkBusy, setBulkBusy] = useState(false)
   const [goLiveBusy, setGoLiveBusy] = useState(false)
+  const [publishCurationBusy, setPublishCurationBusy] = useState(false)
   const [writeSheet, setWriteSheet] = useState(() => loadWriteSheetPreference())
   const [actionMessage, setActionMessage] = useState<ActionMessage | null>(null)
+  const [curationTick, setCurationTick] = useState(0)
+  const [addTarget, setAddTarget] = useState<SeasonalCurationSection>('closeToHome')
+  const [addQuery, setAddQuery] = useState('')
 
-  const counts = useMemo(() => summarizeDiscoveryCounts(candidates), [candidates])
+  const themeSlug = getActiveThemeSlugForAdmin()
+  const seasonalCollection = getSeasonalCollection(themeSlug)
+
+  function refreshCandidatesFromStore() {
+    setCandidates(reloadDiscoveryCandidates())
+  }
+
+  function runLivedReconcile() {
+    const result = reconcileAdminWithLivedCatalog()
+    refreshCandidatesFromStore()
+    if (
+      result.draftsRemoved === 0 &&
+      result.readyPromoted === 0 &&
+      result.pendingPromoted === 0
+    ) {
+      return
+    }
+    const parts: string[] = []
+    if (result.draftsRemoved > 0) {
+      parts.push(
+        `cleared ${result.draftsRemoved} Draft${result.draftsRemoved === 1 ? '' : 's'} already Live`,
+      )
+    }
+    if (result.readyPromoted > 0) {
+      parts.push(`promoted ${result.readyPromoted} Ready → Live`)
+    }
+    if (result.pendingPromoted > 0) {
+      parts.push(`promoted ${result.pendingPromoted} Pending → Live`)
+    }
+    setActionMessage({ type: 'success', text: parts.join(' · ') })
+  }
+
+  useEffect(() => {
+    runLivedReconcile()
+    const onFocus = () => runLivedReconcile()
+    window.addEventListener('focus', onFocus)
+    return () => window.removeEventListener('focus', onFocus)
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mount/focus reconcile only
+  }, [])
+
+  const regularCandidates = useMemo(
+    () => filterRegularDiscoveryCandidates(candidates),
+    [candidates],
+  )
+
+  const counts = useMemo(() => summarizeDiscoveryCounts(regularCandidates), [regularCandidates])
 
   const thisWeekSummary = useMemo(
-    () => summarizeDiscoveryThisWeek(candidates, undefined, DISCOVERY_CATALOG.generatedAt),
-    [candidates],
+    () => summarizeDiscoveryThisWeek(regularCandidates, undefined, DISCOVERY_CATALOG.generatedAt),
+    [regularCandidates],
   )
 
   const filtered = useMemo(
     () =>
-      filterDiscoveryCandidates(candidates, {
+      filterDiscoveryCandidates(regularCandidates, {
         view,
         search,
         catalogGeneratedAt: DISCOVERY_CATALOG.generatedAt,
       }),
-    [candidates, view, search],
+    [regularCandidates, view, search],
   )
+
+  const seasonalSections = useMemo(() => {
+    void curationTick
+    const effective = getEffectiveSeasonalSectionIds(themeSlug)
+    return {
+      closeToHome: resolveSeasonalDiscoveryRows(effective.closeToHome, candidates),
+      worthADrive: resolveSeasonalDiscoveryRows(effective.worthADrive, candidates),
+      staging: effective.staging,
+      closeIds: effective.closeToHome,
+      driveIds: effective.worthADrive,
+    }
+  }, [candidates, themeSlug, curationTick])
+
+  const addPickerOptions = useMemo(() => {
+    const q = addQuery.trim().toLowerCase()
+    const pool = candidates.filter(
+      (row) => row.reviewStatus === 'live' || row.reviewStatus === 'approved',
+    )
+    if (!q) return pool.slice(0, 12)
+    return pool
+      .filter((row) => {
+        const hay = `${row.title} ${row.venue} ${row.city} ${row.date}`.toLowerCase()
+        return hay.includes(q)
+      })
+      .slice(0, 12)
+  }, [candidates, addQuery])
+
+  function bumpCuration() {
+    setCurationTick((n) => n + 1)
+  }
+
+  function handleAddToSeasonal(candidate: DiscoveryCandidate, section: SeasonalCurationSection) {
+    addToSeasonalSection(curationEventId(candidate), section, themeSlug)
+    bumpCuration()
+    setActionMessage({
+      type: 'success',
+      text: `Staged “${candidate.title}” for ${
+        section === 'closeToHome' ? 'Close to home' : 'Worth a little drive'
+      }. Publish curation to update the site.`,
+    })
+    setAddQuery('')
+  }
+
+  function handleRemoveFromSeasonal(
+    candidate: DiscoveryCandidate,
+    section: SeasonalCurationSection,
+  ) {
+    removeFromSeasonalSection(curationEventId(candidate), section, themeSlug)
+    bumpCuration()
+    setActionMessage({
+      type: 'success',
+      text: `Removed “${candidate.title}” from seasonal staging.`,
+    })
+  }
+
+  function handleMoveSeasonal(candidate: DiscoveryCandidate, from: SeasonalCurationSection) {
+    const to: SeasonalCurationSection =
+      from === 'closeToHome' ? 'worthADrive' : 'closeToHome'
+    moveSeasonalSection(curationEventId(candidate), from, to, themeSlug)
+    bumpCuration()
+    setActionMessage({
+      type: 'success',
+      text: `Moved “${candidate.title}” to ${
+        to === 'closeToHome' ? 'Close to home' : 'Worth a little drive'
+      }.`,
+    })
+  }
+
+  async function handlePublishCuration() {
+    setPublishCurationBusy(true)
+    setActionMessage(null)
+    try {
+      const message = await publishSeasonalCurationToSite({
+        themeSlug,
+        collectionEventIds: seasonalSections.closeIds,
+        driveEventIds: seasonalSections.driveIds,
+      })
+      commitSeasonalCurationPublish(
+        themeSlug,
+        seasonalSections.closeIds,
+        seasonalSections.driveIds,
+      )
+      bumpCuration()
+      setActionMessage({ type: 'success', text: message })
+    } catch (error) {
+      setActionMessage({
+        type: 'error',
+        text: error instanceof Error ? error.message : 'Could not publish seasonal curation.',
+      })
+    } finally {
+      setPublishCurationBusy(false)
+    }
+  }
 
   function persistCandidate(
     next: DiscoveryCandidate,
@@ -513,6 +680,8 @@ export function AdminDiscoveryPage() {
 
       setSelectedId(null)
       setView('live')
+      refreshCandidatesFromStore()
+      runLivedReconcile()
       setActionMessage({
         type: 'success',
         text: message,
@@ -538,8 +707,9 @@ export function AdminDiscoveryPage() {
       <section className="admin-sync-bar" aria-label="Discovery overview">
         <p className="admin-submissions-intro">
           Review library candidates here. <strong>Approve</strong> → <strong>Ready</strong>, then{' '}
-          <strong>Go live</strong> to publish them on the public site (~2–4 min). Events tab monitors
-          what is already Live / Needs attention / Past.
+          <strong>Go live</strong> to publish them on the public site (~2–4 min). Use{' '}
+          <strong>Seasonal picks</strong> to curate Close to home / Worth a little drive for the
+          active theme.
         </p>
         <aside className="admin-discovery-schedule-note" aria-label="Discovery automation schedule">
           <h2 className="admin-discovery-schedule-note__title">Automation schedule</h2>
@@ -705,71 +875,240 @@ export function AdminDiscoveryPage() {
         <div className="admin-events-header">
           <div>
             <h2 className="font-display text-lg text-charcoal">Discovery queue</h2>
-            <p className="mt-1 text-sm text-muted">{filtered.length} shown</p>
+            <p className="mt-1 text-sm text-muted">
+              {discoveryMode === 'regular'
+                ? `${filtered.length} shown · core cities`
+                : `${seasonalCollection?.title || themeSlug} · ${
+                    seasonalSections.closeToHome.length + seasonalSections.worthADrive.length
+                  } curated`}
+            </p>
           </div>
         </div>
 
-        <div className="admin-toolbar">
-          <label className="admin-search">
-            <span className="sr-only">Search discovery</span>
-            <input
-              type="search"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search title, venue, tips…"
-              className="admin-search-input"
+        <div className="admin-discovery-mode-toggle" role="tablist" aria-label="Discovery mode">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={discoveryMode === 'regular'}
+            className={`admin-btn ${
+              discoveryMode === 'regular' ? 'admin-btn-primary' : 'admin-btn-secondary'
+            }`}
+            onClick={() => setDiscoveryMode('regular')}
+          >
+            Regular Discovery
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={discoveryMode === 'seasonal'}
+            className={`admin-btn ${
+              discoveryMode === 'seasonal' ? 'admin-btn-primary' : 'admin-btn-secondary'
+            }`}
+            onClick={() => setDiscoveryMode('seasonal')}
+          >
+            Seasonal picks
+          </button>
+        </div>
+
+        {discoveryMode === 'regular' ? (
+          <>
+            <div className="admin-toolbar">
+              <label className="admin-search">
+                <span className="sr-only">Search discovery</span>
+                <input
+                  type="search"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search title, venue, tips…"
+                  className="admin-search-input"
+                />
+              </label>
+            </div>
+
+            <div className="admin-view-tabs" role="tablist" aria-label="Discovery views">
+              {REGULAR_VIEW_OPTIONS.map((option) => {
+                const count =
+                  option.id === 'thisWeek'
+                    ? thisWeekSummary.total
+                    : option.id === 'pending'
+                      ? counts.pending
+                      : option.id === 'new'
+                        ? counts.newPending
+                        : option.id === 'already'
+                          ? counts.alreadyPending
+                          : option.id === 'approved'
+                            ? counts.approved
+                            : option.id === 'live'
+                              ? counts.live
+                              : option.id === 'dismissed'
+                                ? counts.dismissed
+                                : counts.total
+                return (
+                  <button
+                    key={option.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={view === option.id}
+                    className={`admin-btn ${view === option.id ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
+                    onClick={() => setView(option.id)}
+                  >
+                    {option.label} ({count})
+                  </button>
+                )
+              })}
+            </div>
+
+            <AdminDiscoveryTable
+              candidates={filtered}
+              selectedId={selectedId}
+              busyId={busyId}
+              bulkBusy={bulkBusy || goLiveBusy}
+              onSelect={handleSelect}
+              onSaveEdits={handleSaveEdits}
+              onApprove={handleApprove}
+              onBulkApprove={(rows) => void handleBulkApprove(rows)}
+              onGoLive={(rows) => void handleGoLive(rows)}
+              onDismiss={handleDismiss}
+              onRestore={handleRestore}
             />
-          </label>
-        </div>
+          </>
+        ) : (
+          <div className="admin-discovery-seasonal">
+            <div className="admin-discovery-seasonal__toolbar">
+              <p className="admin-discovery-seasonal__lede">
+                Curating <strong>{seasonalCollection?.title || themeSlug}</strong>
+                {seasonalCollection?.timingLabel ? ` · ${seasonalCollection.timingLabel}` : ''}.
+                Staging is local until you publish curation.
+              </p>
+              <div className="admin-discovery-seasonal__actions">
+                {stagingHasChanges(seasonalSections.staging) ? (
+                  <button
+                    type="button"
+                    className="admin-btn admin-btn-secondary"
+                    disabled={publishCurationBusy}
+                    onClick={() => {
+                      clearSeasonalThemeStaging(themeSlug)
+                      bumpCuration()
+                      setActionMessage({ type: 'success', text: 'Cleared local seasonal staging.' })
+                    }}
+                  >
+                    Discard staging
+                  </button>
+                ) : null}
+                <button
+                  type="button"
+                  className="admin-btn admin-btn-primary"
+                  disabled={publishCurationBusy || !stagingHasChanges(seasonalSections.staging)}
+                  onClick={() => void handlePublishCuration()}
+                >
+                  {publishCurationBusy ? 'Publishing…' : 'Publish curation'}
+                </button>
+              </div>
+            </div>
 
-        <div className="admin-view-tabs" role="tablist" aria-label="Discovery views">
-          {VIEW_OPTIONS.map((option) => {
-            const count =
-              option.id === 'thisWeek'
-                ? thisWeekSummary.total
-                : option.id === 'pending'
-                  ? counts.pending
-                  : option.id === 'seasonal'
-                    ? counts.seasonal
-                    : option.id === 'new'
-                    ? counts.newPending
-                    : option.id === 'already'
-                      ? counts.alreadyPending
-                      : option.id === 'approved'
-                        ? counts.approved
-                        : option.id === 'live'
-                          ? counts.live
-                          : option.id === 'dismissed'
-                            ? counts.dismissed
-                            : counts.total
-            return (
-              <button
-                key={option.id}
-                type="button"
-                role="tab"
-                aria-selected={view === option.id}
-                className={`admin-btn ${view === option.id ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
-                onClick={() => setView(option.id)}
-              >
-                {option.label} ({count})
-              </button>
-            )
-          })}
-        </div>
+            <div className="admin-discovery-seasonal__add">
+              <label className="admin-discovery-seasonal__add-label">
+                Add Live/Ready activity
+                <select
+                  value={addTarget}
+                  onChange={(e) => setAddTarget(e.target.value as SeasonalCurationSection)}
+                  className="admin-discovery-input"
+                >
+                  <option value="closeToHome">Close to home</option>
+                  <option value="worthADrive">Worth a little drive</option>
+                </select>
+              </label>
+              <input
+                type="search"
+                value={addQuery}
+                onChange={(e) => setAddQuery(e.target.value)}
+                placeholder="Search title, venue, city…"
+                className="admin-search-input"
+              />
+              {addQuery.trim() ? (
+                <ul className="admin-discovery-seasonal__add-results">
+                  {addPickerOptions.length === 0 ? (
+                    <li className="text-sm text-muted">No Live/Ready matches.</li>
+                  ) : (
+                    addPickerOptions.map((row) => (
+                      <li key={row.id}>
+                        <button
+                          type="button"
+                          className="admin-btn admin-btn-secondary"
+                          onClick={() => handleAddToSeasonal(row, addTarget)}
+                        >
+                          Add · {row.title}
+                          <span className="text-muted">
+                            {' '}
+                            · {row.city} · {row.date}
+                          </span>
+                        </button>
+                      </li>
+                    ))
+                  )}
+                </ul>
+              ) : null}
+            </div>
 
-        <AdminDiscoveryTable
-          candidates={filtered}
-          selectedId={selectedId}
-          busyId={busyId}
-          bulkBusy={bulkBusy || goLiveBusy}
-          onSelect={handleSelect}
-          onSaveEdits={handleSaveEdits}
-          onApprove={handleApprove}
-          onBulkApprove={(rows) => void handleBulkApprove(rows)}
-          onGoLive={(rows) => void handleGoLive(rows)}
-          onDismiss={handleDismiss}
-          onRestore={handleRestore}
-        />
+            <section className="admin-discovery-seasonal__section" aria-labelledby="close-to-home-heading">
+              <div className="admin-discovery-seasonal__section-head">
+                <h3 id="close-to-home-heading" className="admin-discovery-seasonal__section-title">
+                  {seasonalCollection?.closeToHome?.title || 'Close to home'}
+                </h3>
+                <p className="admin-discovery-seasonal__section-sub">
+                  {seasonalCollection?.closeToHome?.subtitle ||
+                    'Palo Alto · Los Altos · Mountain View · Sunnyvale'}{' '}
+                  · {seasonalSections.closeToHome.length}
+                </p>
+              </div>
+              <AdminDiscoveryTable
+                candidates={seasonalSections.closeToHome}
+                selectedId={selectedId}
+                busyId={busyId}
+                bulkBusy={bulkBusy || goLiveBusy}
+                onSelect={handleSelect}
+                onSaveEdits={handleSaveEdits}
+                onApprove={handleApprove}
+                onBulkApprove={(rows) => void handleBulkApprove(rows)}
+                onGoLive={(rows) => void handleGoLive(rows)}
+                onDismiss={handleDismiss}
+                onRestore={handleRestore}
+                curationSection="closeToHome"
+                onRemoveFromSeasonal={(row) => handleRemoveFromSeasonal(row, 'closeToHome')}
+                onMoveSeasonal={(row) => handleMoveSeasonal(row, 'closeToHome')}
+              />
+            </section>
+
+            <section className="admin-discovery-seasonal__section" aria-labelledby="worth-drive-heading">
+              <div className="admin-discovery-seasonal__section-head">
+                <h3 id="worth-drive-heading" className="admin-discovery-seasonal__section-title">
+                  {seasonalCollection?.worthADrive?.title || 'Worth a little drive'}
+                </h3>
+                <p className="admin-discovery-seasonal__section-sub">
+                  {seasonalCollection?.worthADrive?.subtitle ||
+                    'A few extra-special picks nearby'}{' '}
+                  · {seasonalSections.worthADrive.length}
+                </p>
+              </div>
+              <AdminDiscoveryTable
+                candidates={seasonalSections.worthADrive}
+                selectedId={selectedId}
+                busyId={busyId}
+                bulkBusy={bulkBusy || goLiveBusy}
+                onSelect={handleSelect}
+                onSaveEdits={handleSaveEdits}
+                onApprove={handleApprove}
+                onBulkApprove={(rows) => void handleBulkApprove(rows)}
+                onGoLive={(rows) => void handleGoLive(rows)}
+                onDismiss={handleDismiss}
+                onRestore={handleRestore}
+                curationSection="worthADrive"
+                onRemoveFromSeasonal={(row) => handleRemoveFromSeasonal(row, 'worthADrive')}
+                onMoveSeasonal={(row) => handleMoveSeasonal(row, 'worthADrive')}
+              />
+            </section>
+          </div>
+        )}
       </section>
     </>
   )

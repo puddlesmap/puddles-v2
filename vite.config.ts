@@ -12,6 +12,7 @@ import {
   sessionCookieHeader,
 } from './netlify/lib/admin-session.mjs'
 import { publishEventsToGithub } from './netlify/lib/publish-events.mjs'
+import { publishSeasonalCurationToGithub } from './netlify/lib/publish-seasonal-curation.mjs'
 import { mirrorSubmissionToGoogleSheet } from './netlify/lib/mirror-submission-sheet.mjs'
 import {
   appendSubmissionToGithub,
@@ -260,6 +261,43 @@ export default defineConfig(({ mode }) => {
               sendJson(res, 502, {
                 ok: false,
                 error: error instanceof Error ? error.message : 'Could not publish events',
+              })
+            }
+          })
+
+          server.middlewares.use('/api/publish-seasonal-curation', async (req, res) => {
+            if (req.method !== 'POST') {
+              sendJson(res, 405, { ok: false, error: 'Method not allowed' })
+              return
+            }
+
+            const event = mockEvent(req)
+            if (!isAdminAuthEnabled() || !hasAdminSession(event)) {
+              sendJson(res, 401, { ok: false, error: 'Unauthorized' })
+              return
+            }
+
+            try {
+              const raw = await readBody(req)
+              const body = raw ? JSON.parse(raw) : {}
+              const result = await publishSeasonalCurationToGithub({
+                themeSlug: body.themeSlug || '',
+                collectionEventIds: body.collectionEventIds || [],
+                driveEventIds: body.driveEventIds || [],
+                env,
+              })
+              sendJson(res, result.status || (result.ok ? 200 : 502), {
+                ok: result.ok,
+                message: result.message,
+                error: result.error,
+                themeSlug: result.themeSlug,
+                closeCount: result.closeCount,
+                driveCount: result.driveCount,
+              })
+            } catch (error) {
+              sendJson(res, 502, {
+                ok: false,
+                error: error instanceof Error ? error.message : 'Could not publish seasonal curation',
               })
             }
           })

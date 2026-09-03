@@ -1,5 +1,6 @@
 import type { Event } from '../types/event'
 import { ALL_EVENTS, getPublicEventsFromCatalog } from './events'
+import seasonalCurationOverrides from './seasonal-curation-overrides.json'
 
 export type SeasonalCollectionSlug = 'hello-fall' | 'halloween-with-little-ones'
 
@@ -785,8 +786,30 @@ export function getLiveSeasonalThemeScheduleEntry(
   )
 }
 
+type SeasonalCurationOverride = {
+  collectionEventIds?: string[]
+  driveEventIds?: string[]
+  updatedAt?: string
+} | null
+
+const CURATION_OVERRIDES = seasonalCurationOverrides as Record<
+  string,
+  SeasonalCurationOverride
+>
+
+function withCurationOverrides(collection: SeasonalCollection): SeasonalCollection {
+  const override = CURATION_OVERRIDES[collection.slug]
+  if (!override) return collection
+  return {
+    ...collection,
+    collectionEventIds: override.collectionEventIds ?? collection.collectionEventIds,
+    driveEventIds: override.driveEventIds ?? collection.driveEventIds,
+  }
+}
+
 export function getSeasonalCollection(slug: string): SeasonalCollection | undefined {
-  return SEASONAL_COLLECTIONS.find((collection) => collection.slug === slug)
+  const base = SEASONAL_COLLECTIONS.find((collection) => collection.slug === slug)
+  return base ? withCurationOverrides(base) : undefined
 }
 
 /** True when the event is curated in a seasonal collection (featured or full list). */
@@ -802,9 +825,10 @@ export function isEventInSeasonalCollection(
 
 export function getActiveSeasonalCollection(now: Date = new Date()): SeasonalCollection | undefined {
   const today = now.toISOString().slice(0, 10)
-  return SEASONAL_COLLECTIONS.find(
+  const base = SEASONAL_COLLECTIONS.find(
     (collection) => collection.activeFrom <= today && today <= collection.activeUntil,
   )
+  return base ? withCurationOverrides(base) : undefined
 }
 
 /** Experiment / review tooling — Hello, Fall curated set (not date-gated). */
