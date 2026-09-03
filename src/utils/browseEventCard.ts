@@ -4,12 +4,13 @@ import { getEventCardAgeLabel } from './ageRange'
 import { formatCardDateTime } from './dates'
 import { eventDetailPath } from './eventPages'
 import { getEventDisplayCategory, getEventImageUrl } from './eventImages'
+import { formatCostBadgeLabel } from './eventCost'
 import { formatEventCardLocation } from './maps'
 import type { DiscoveryBadgeData } from '../components/experiment/DiscoveryV3Card'
 
 export function formatBrowseCardCost(cost: string): string {
   if (isFreeCost(cost)) return 'Free'
-  const trimmed = cost.trim()
+  const trimmed = formatCostBadgeLabel(cost)
   if (trimmed === 'Paid') return 'Paid'
   if (trimmed === 'Low-cost') return 'Low-cost'
   return trimmed

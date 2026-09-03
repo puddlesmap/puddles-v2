@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import type { Event } from '../types/event'
 import { isFreeCost } from '../types/event'
 import { getEventCardAgeLabel } from '../utils/ageRange'
+import { formatCostBadgeLabel } from '../utils/eventCost'
 import { formatActivityTypeMetaLabel } from '../utils/activityTypeMeta'
 import { formatCardDateTime } from '../utils/dates'
 import { getEventDisplayCategory } from '../utils/eventImages'
@@ -55,7 +56,7 @@ function EventCardPills({
     if (isFreeCost(event.cost)) {
       pills.push({ key: 'cost', label: 'Free', tone: 'free' })
     } else {
-      pills.push({ key: 'cost', label: event.cost })
+      pills.push({ key: 'cost', label: formatCostBadgeLabel(event.cost) })
     }
 
     return (
@@ -85,7 +86,7 @@ function EventCardPills({
   if (isFreeCost(event.cost)) {
     pills.push({ key: 'cost', label: 'Free', tone: 'free' })
   } else {
-    pills.push({ key: 'cost', label: event.cost })
+    pills.push({ key: 'cost', label: formatCostBadgeLabel(event.cost) })
   }
 
   return (

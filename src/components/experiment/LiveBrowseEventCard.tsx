@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import type { Event } from '../../types/event'
 import { isFreeCost } from '../../types/event'
 import { getEventCardAgeLabel } from '../../utils/ageRange'
+import { formatCostBadgeLabel } from '../../utils/eventCost'
 import { formatCardDateTime } from '../../utils/dates'
 import { getEventDisplayCategory } from '../../utils/eventImages'
 import { formatEventCardLocation } from '../../utils/maps'
@@ -24,7 +25,7 @@ function LiveBrowseEventCardPills({ event }: { event: Event }) {
   if (isFreeCost(event.cost)) {
     pills.push({ key: 'cost', label: 'Free', tone: 'free' })
   } else {
-    pills.push({ key: 'cost', label: event.cost })
+    pills.push({ key: 'cost', label: formatCostBadgeLabel(event.cost) })
   }
 
   const visible =

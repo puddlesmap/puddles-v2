@@ -1,5 +1,16 @@
 import type { CostLabel } from '../types/event'
 
+/**
+ * Short label for card / image pills. Detail pages keep the full authored cost
+ * (e.g. "Paid · First class free" → badge "Paid", detail keeps the full string).
+ */
+export function formatCostBadgeLabel(cost: string): string {
+  const trimmed = String(cost ?? '').replace(/\s+/g, ' ').trim()
+  if (!trimmed) return trimmed
+  if (/^paid\b/i.test(trimmed) && /first class free/i.test(trimmed)) return 'Paid'
+  return trimmed
+}
+
 export function parseCost(raw: string): CostLabel {
   const original = String(raw ?? '').trim()
   const value = original.toLowerCase()
@@ -16,7 +27,7 @@ export function parseCost(raw: string): CostLabel {
   }
 
   if (/\bpaid\b/.test(value)) {
-    // Keep authored labels like "Paid · First class free" (do not collapse to Paid).
+    // Keep authored labels like "Paid · First class free" for detail pages.
     const preserved = original.replace(/\s+/g, ' ').trim()
     if (/first class free/i.test(preserved) || /·/.test(preserved)) {
       return preserved as CostLabel

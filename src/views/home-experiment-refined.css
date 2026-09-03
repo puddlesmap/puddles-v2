@@ -860,7 +860,7 @@
   .seasonal-discovery-module--home-band {
     --seasonal-card-gap: 1rem;
     --seasonal-copy-kicker-gap: 0.625rem;
-    --seasonal-copy-subtitle-gap: 0.4375rem;
+    --seasonal-copy-subtitle-gap: 0.3125rem;
     --seasonal-copy-cards-gap: 2rem;
   }
 }
@@ -887,18 +887,57 @@
 }
 
 .seasonal-discovery-module__header.seasonal-discovery-module__header--home-band {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  gap: 0;
+  display: block;
   margin-bottom: var(--seasonal-copy-cards-gap);
   padding-inline: 0;
   padding-block: 0;
   width: 100%;
 }
 
-.seasonal-discovery-module--home-band .seasonal-discovery-module__eyebrow {
+/* Desktop: [copy + art] …… See all (aligned with SEPTEMBER). Mobile: title + See all. */
+.seasonal-discovery-module__header-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  width: 100%;
+  min-width: 0;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .seasonal-discovery-module__header-content {
+    gap: 2rem;
+  }
+}
+
+.seasonal-discovery-module__header-copy-group {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-width: 0;
+  flex: 1 1 auto;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .seasonal-discovery-module__header-copy-group {
+    align-items: center;
+    gap: 1.125rem;
+    flex: 0 1 auto;
+    width: fit-content;
+    max-width: calc(100% - 6.5rem);
+  }
+}
+
+.seasonal-discovery-module__header-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__eyebrow {
   margin: 0 0 var(--seasonal-copy-kicker-gap);
   font-size: 0.75rem;
   line-height: 1.25;
@@ -906,12 +945,11 @@
 }
 
 @media (min-width: 768px) {
-  .seasonal-discovery-module--home-band .seasonal-discovery-module__eyebrow {
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__eyebrow {
     font-size: 0.8125rem;
   }
 }
 
-/* Title + See all on one row */
 .seasonal-discovery-module__title-row {
   display: flex;
   align-items: baseline;
@@ -940,10 +978,10 @@
   }
 }
 
-.seasonal-discovery-module--home-band .seasonal-discovery-module__title-row .seasonal-discovery-module__header-cta {
-  flex-shrink: 0;
+.seasonal-discovery-module--home-band .seasonal-discovery-module__header-cta {
+  display: inline-flex;
   margin: 0;
-  padding: 0.35rem 0;
+  padding: 0.2rem 0;
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 600;
@@ -955,27 +993,20 @@
   transition: color 0.14s ease-out;
 }
 
-.seasonal-discovery-module--home-band .seasonal-discovery-module__title-row .seasonal-discovery-module__header-cta:hover {
+.seasonal-discovery-module--home-band .seasonal-discovery-module__header-cta:hover {
   color: var(--seasonal-accent-eyebrow, #b45309);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
-/* Subtitle + illustration — art supports the block without splitting title/subtitle */
-.seasonal-discovery-module__subtitle-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-top: var(--seasonal-copy-subtitle-gap);
-  width: 100%;
-  min-width: 0;
+.seasonal-discovery-module__header-content > .seasonal-discovery-module__header-cta-slot--desktop {
+  flex-shrink: 0;
+  align-self: flex-start;
+  padding-top: 0.05rem;
 }
 
-.seasonal-discovery-module--home-band .seasonal-discovery-module__subtitle-row .seasonal-discovery-module__description {
-  margin: 0;
-  flex: 1 1 auto;
-  min-width: 0;
+.seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__description {
+  margin: var(--seasonal-copy-subtitle-gap) 0 0;
   max-width: 34rem;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
@@ -987,42 +1018,51 @@
   );
 }
 
-@media (max-width: 767px) {
-  .seasonal-discovery-module--home-band .seasonal-discovery-module__subtitle-row .seasonal-discovery-module__description {
-    font-size: 0.9375rem; /* 15px — readable, not cramped */
-    line-height: 1.45;
-  }
-
-  .seasonal-discovery-module--home-band
-    .seasonal-discovery-module__subtitle-row
-    .seasonal-discovery-module__illustration--header-copy {
-    width: 2.75rem;
-    height: 2.75rem;
-    margin-top: 0.1rem;
+@media (min-width: 768px) {
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-text .seasonal-discovery-module__description {
+    font-size: 0.875rem;
   }
 }
 
 .seasonal-discovery-module--home-band
-  .seasonal-discovery-module__subtitle-row
+  .seasonal-discovery-module__header-copy-group
   .seasonal-discovery-module__illustration--header-copy {
   flex-shrink: 0;
-  width: 3.5rem;
-  height: 3.5rem;
+  align-self: flex-end;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 0.1rem;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(39, 48, 52, 0.1));
 }
 
 @media (min-width: 768px) {
   .seasonal-discovery-module--home-band
-    .seasonal-discovery-module__subtitle-row
+    .seasonal-discovery-module__header-copy-group
     .seasonal-discovery-module__illustration--header-copy {
-    width: 4.25rem;
-    height: 4.25rem;
+    align-self: center;
+    width: 5.25rem;
+    height: 5.25rem;
+    margin-bottom: 0;
   }
 
-  .seasonal-discovery-module--home-band .seasonal-discovery-module__subtitle-row {
-    align-items: center;
-    gap: 1rem;
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-cta-slot--mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-content {
+    display: block;
+  }
+
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-cta-slot--desktop {
+    display: none;
+  }
+
+  .seasonal-discovery-module--home-band .seasonal-discovery-module__header-copy-group {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -1034,19 +1074,17 @@
 }
 
 .seasonal-discovery-module--home-band.seasonal-discovery-module--neutral-home-copy
-  .seasonal-discovery-module__subtitle-row
+  .seasonal-discovery-module__header-text
   .seasonal-discovery-module__description {
   color: var(--color-muted, #686868);
 }
 
 .seasonal-discovery-module--home-band.seasonal-discovery-module--neutral-home-copy
-  .seasonal-discovery-module__title-row
   .seasonal-discovery-module__header-cta {
   color: var(--color-charcoal, #273034);
 }
 
 .seasonal-discovery-module--home-band.seasonal-discovery-module--neutral-home-copy
-  .seasonal-discovery-module__title-row
   .seasonal-discovery-module__header-cta:hover {
   color: var(--color-charcoal, #273034);
   text-decoration: underline;

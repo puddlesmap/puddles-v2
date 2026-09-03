@@ -8,7 +8,7 @@ const SCHEDULE_LINE = 'Check the official schedule for current class times.'
 export const FIT4MOM_COST = 'Paid · First class free'
 
 const FIT4MOM_PRICING_TIP =
-  'Pricing varies by class or package. Check registration for the current rate.'
+  'First class free. Pricing varies by class or package — check registration for the current rate.'
 
 const CUESTA_RAIN = "Rainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd."
 const MITCHELL_RAIN =

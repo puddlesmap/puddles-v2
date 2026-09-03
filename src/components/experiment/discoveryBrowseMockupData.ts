@@ -5,6 +5,7 @@ import {
 } from '../../data/seasonalDiscovery'
 import type { ActivityType, Event } from '../../types/event'
 import { isFreeCost } from '../../types/event'
+import { formatCostBadgeLabel } from '../../utils/eventCost'
 import { getEventCardAgeLabel } from '../../utils/ageRange'
 import { formatCardDateTime } from '../../utils/dates'
 import { eventDetailPath } from '../../utils/eventPages'
@@ -35,15 +36,16 @@ let browseMockupBadgePlan: Map<string, DiscoveryBadgeData> | null = null
 
 export function formatDiscoveryCardCost(cost: string): string {
   if (isFreeCost(cost)) return 'Free'
-  const trimmed = cost.trim()
+  const trimmed = formatCostBadgeLabel(cost)
   if (trimmed === 'Paid') return 'Paid'
   if (trimmed === 'Low-cost') return 'Low-cost'
   return trimmed
 }
 
 export function formatDiscoveryImagePrice(cost: string): string {
-  if (cost === 'Free') return 'Free'
-  if (cost === 'Paid') return '$'
+  const badge = formatCostBadgeLabel(cost)
+  if (badge === 'Free') return 'Free'
+  if (badge === 'Paid') return '$'
   return cost
 }
 
