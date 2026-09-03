@@ -1,6 +1,6 @@
 import type { Event } from '../types/event'
 import { isPublicAgeEligible } from './ageRange'
-import { ALL_EVENTS } from '../data/events'
+import { ALL_EVENTS, ALL_SEASONAL_DRIVE_EVENTS } from '../data/events'
 import {
   addDays,
   getEventEffectiveEnd,
@@ -8,6 +8,9 @@ import {
 } from './dates'
 import { computeIsPast, isPublicEvent, isWithinPublicDisplayWindow } from './publishing'
 import { EXPERIMENT_CANCELLED_EVENT_IDS } from '../data/experimentExpiredActivity'
+
+/** Hidden editorial picks that still get `/event/:id` from seasonal collection cards. */
+const SEASONAL_DRIVE_DETAIL_IDS = new Set(ALL_SEASONAL_DRIVE_EVENTS.map((event) => event.id))
 
 export type EventLifecycleStatus = 'upcoming' | 'ended' | 'archived' | 'cancelled'
 
@@ -50,8 +53,11 @@ export function isDiscoverableLifecycleEvent(event: Event, now: Date = new Date(
 }
 
 export function isLifecycleDetailAccessible(event: Event): boolean {
-  // Draft / Hidden = unavailable. Cancelled keeps the detail URL with a cancelled banner.
-  return event.status !== 'Draft' && event.status !== 'Hidden'
+  // Draft = unavailable. Hidden is unavailable unless it is a seasonal Worth-a-drive
+  // editorial pick (cards link to /event/:id; Browse/sitemap stay gated via Published).
+  if (event.status === 'Draft') return false
+  if (event.status === 'Hidden') return SEASONAL_DRIVE_DETAIL_IDS.has(event.id)
+  return true
 }
 
 export function isLifecycleEventIndexable(event: Event, now: Date = new Date()): boolean {

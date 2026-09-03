@@ -160,7 +160,8 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     types: ['Outdoor', 'Festivals & Community'],
     categoryTags: ['Seasonal', 'Hello Fall', 'Worth a Drive'],
     cost: 'Paid',
-    imageUrl: 'https://www.lemosfarm.com/wp-content/uploads/2021/08/pumpkin-patch-hero.jpg',
+    imageUrl:
+      'https://static.wixstatic.com/media/018359_04db1710209548419c54ad83a0b4d671~mv2.jpg',
     eventUrl: 'https://www.lemosfarm.com/pumpkin-patch',
     verifiedDate: '2026-09-02',
     lat: 37.465,
@@ -187,8 +188,7 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     types: ['Festivals & Community', 'Outdoor'],
     categoryTags: ['Seasonal', 'Hello Fall', 'Worth a Drive'],
     cost: 'Free',
-    imageUrl:
-      'https://www.ebparks.org/sites/default/files/styles/scale_width_860/public/Garin%20Apple%20Festival%202024.jpg',
+    imageUrl: 'https://www.ebparks.org/sites/default/files/16x9_Garin_Jerry%20Ting.jpg',
     eventUrl: 'https://www.ebparks.org/parks/garin',
     verifiedDate: '2026-09-02',
     lat: 37.632,

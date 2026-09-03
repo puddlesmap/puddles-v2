@@ -45,6 +45,10 @@ export const EVENT_HOST_IMAGES: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/3/31/Pioneer_Memorial_Park%2C_Mountain_View%2C_California%2C_July_2019.jpg',
   'Mountain View Center for the Performing Arts':
     'https://upload.wikimedia.org/wikipedia/commons/4/4d/Mountain_View_Center_for_the_Performing_Art_-_panoramio_-_Aleh_Haiko_%281%29.jpg',
+  'Lemos Farm':
+    'https://static.wixstatic.com/media/018359_04db1710209548419c54ad83a0b4d671~mv2.jpg',
+  'Garin Regional Park':
+    'https://www.ebparks.org/sites/default/files/16x9_Garin_Jerry%20Ting.jpg',
 }
 
 /** Case-insensitive venue / host alias → canonical EVENT_HOST_IMAGES key */
@@ -72,6 +76,9 @@ const EVENT_HOST_IMAGE_ALIASES: Record<string, string> = {
   'pioneer park': 'Pioneer Park',
   'mountain view center for the performing arts': 'Mountain View Center for the Performing Arts',
   'mvcpa': 'Mountain View Center for the Performing Arts',
+  'lemos farm': 'Lemos Farm',
+  'garin regional park': 'Garin Regional Park',
+  'garin': 'Garin Regional Park',
 }
 
 /** @deprecated Use getEventHostImageUrl */
