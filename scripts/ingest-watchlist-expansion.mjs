@@ -237,7 +237,8 @@ const EXPANSION_ROWS = [
     description:
       'Downtown Mid-Autumn celebration — pan-Asian food, dance and music stages, and family-friendly cultural activities on Murphy Avenue.',
     tips: 'Free admission; food and crafts are pay-as-you-go. Runs Oct 3–4 — this row is the Saturday kickoff.',
-    imageUrl: '',
+    imageUrl:
+      'https://static.wixstatic.com/media/51093d_af37922c1165447794d7eeaf911a1399~mv2.jpg/v1/fill/w_1200,h_900,al_c,q_85,enc_auto/DSC01766.jpg',
     eventUrl: 'https://www.sunnyvaledowntown.org/',
     source: 'Calendar Watchlist · Downtown Sunnyvale · Cityline & Murphy Ave',
     watchlistSourceId: 'sunnyvale-downtown',
