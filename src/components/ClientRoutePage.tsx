@@ -15,6 +15,7 @@ import { HomePage } from '@/views/HomePage'
 import { HomeLaunchPreviewPage } from '@/views/HomeLaunchPreviewPage'
 import { ExperimentHallmarkHelloFallMockupPage } from '@/views/ExperimentHallmarkHelloFallMockupPage'
 import { ExperimentHallmarkHomeMockupPage } from '@/views/ExperimentHallmarkHomeMockupPage'
+import { ExperimentHomeApricotBandMockupPage } from '@/views/ExperimentHomeApricotBandMockupPage'
 import { HomeV1Page } from '@/views/HomeV1Page'
 import { HomeExperiment1Page } from '@/views/HomeExperiment1Page'
 import { HomeExperiment2Page } from '@/views/HomeExperiment2Page'
@@ -99,6 +100,10 @@ function ClientRoutes() {
             <Route
               path="/experiment/hallmark-home-mockup"
               element={<ExperimentHallmarkHomeMockupPage />}
+            />
+            <Route
+              path="/experiment/home-apricot-band"
+              element={<ExperimentHomeApricotBandMockupPage />}
             />
             <Route
               path="/experiment/hallmark-hello-fall-mockup"

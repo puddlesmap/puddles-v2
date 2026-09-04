@@ -32,9 +32,10 @@ export function ExperimentHallmarkHelloFallMockupPage() {
 
       <p className="hallmark-mockup-host__note layout-container">
         Standalone artifact at{' '}
-        <code className="hallmark-mockup-host__code">{HALLMARK_HTML_PATH}</code>. Edit the HTML or
-        prompt Hallmark with <code className="hallmark-mockup-host__code">.hallmark/brief.md</code>.
-        Refresh this page after changes.
+        <code className="hallmark-mockup-host__code">{HALLMARK_HTML_PATH}</code>. Use the sticky{' '}
+        <strong>Background wash</strong> strip in the iframe to compare warmer orange fall backgrounds
+        (Current → Pumpkin). Fine-tune further on{' '}
+        <Link to="/experiment/seasonal-bg-dial">seasonal bg dial</Link>. Refresh after HTML edits.
       </p>
 
       <iframe

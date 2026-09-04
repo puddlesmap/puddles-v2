@@ -1,7 +1,7 @@
 import type { ActivityType, Event } from '../types/event'
 import { isFreeCost } from '../types/event'
 import { getEventCardAgeLabel } from './ageRange'
-import { formatCardDateTime } from './dates'
+import { formatDiscoveryWhen } from './formatSeasonalSchedule'
 import { eventDetailPath } from './eventPages'
 import { getEventDisplayCategory, getEventImageUrl } from './eventImages'
 import { formatCostBadgeLabel } from './eventCost'
@@ -23,10 +23,12 @@ function getPrimaryType(event: Event): ActivityType | string {
 export function eventToBrowseCard(
   event: Event,
   badge: DiscoveryBadgeData | null = null,
+  now: Date = new Date(),
 ) {
+  const when = formatDiscoveryWhen(event, now)
   return {
     title: event.title,
-    when: formatCardDateTime(event.date, event.startTime),
+    when: when.line,
     location: formatEventCardLocation(event),
     city: event.city?.trim() ?? '',
     type: getPrimaryType(event),

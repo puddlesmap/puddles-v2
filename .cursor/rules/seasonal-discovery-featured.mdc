@@ -24,7 +24,7 @@ Seasonal Discovery must read as **curated editorial**, not a month dump of every
 ### Shared principles (all themes)
 
 - Prioritize events **genuinely good for ages 0–5**.
-- Keep each collection tight (**~6–8**); Home carousel roughly **3–6** active featured picks.
+- Keep each collection tight (**~6–8**); Home carousel **max 4** active featured picks (one horizontal row; scrollable on mobile).
 - **Rotate** time-sensitive festivals into featured windows near their dates; drop when the window ends or the date passes.
 - Recurring / enrollment / year-round Parent & Me, Stories, Music → **never** seasonal editorial by default.
 - Community one-offs with a **weak seasonal tie** → regular Festivals / Browse, not seasonal picks.
@@ -94,10 +94,12 @@ Out-of-area farms/festivals/trains belong in **`driveEventIds`** (Hidden seasona
 
 - Default featured duration: **~2–3 weeks** per pick.
 - Rotate **at least 1–2 cards every ~2 weeks** so the carousel stays fresh.
-- Keep **3–6 cards** active on any given day (overlap windows briefly during handoffs).
+- Keep **at most 4 cards** on Home any given day (`MAX_SEASONAL_FEATURED_HOME`). Prefer `anchor: true`, then editorial order in `featuredWindows`.
+- Resolve with Pacific calendar date (`zonedCalendarDate`) so evening PT does not flip windows early via UTC.
 - Mark **1–2 anchor slots** (`anchor: true`) — festival weekends, strong seasonal rows.
 - Use `note` on each window for launch-review context.
 - Resolve Home carousel with `resolveFeaturedSeasonalEvents()` / `getFeaturedEventIdsForDate()` — **never** a static ID list.
+- Home band layout: **one horizontal line** (desktop ~4 across; mobile horizontal scroll). Do not wrap to a multi-row grid.
 
 ## Theme transitions
 

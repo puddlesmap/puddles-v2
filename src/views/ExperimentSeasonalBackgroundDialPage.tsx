@@ -17,7 +17,7 @@ import {
 import './experiment-seasonal-bg-dial.css'
 import './seasonal-color-disc-picker.css'
 
-const DEFAULT_SINGLE = '#fff7ed'
+const DEFAULT_SINGLE = '#ffd8a8'
 const DEFAULT_STOPS = ['#fef2e1', '#fde6cd', '#fbcfa7'] as const
 const DEFAULT_GLOW = 0.24
 const DEFAULT_ANGLE = 125

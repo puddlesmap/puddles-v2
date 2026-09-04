@@ -808,8 +808,8 @@
 
 /* Hello, Fall collection — warm wash + accent colors (layout matches Halloween split page) */
 .home-experiment-shell--hello-fall-collection {
-  --page-background: var(--seasonal-accent-bg, #fff7ed);
-  background: var(--seasonal-accent-bg, #fff7ed);
+  --page-background: var(--seasonal-accent-bg, #ffd8a8);
+  background: var(--seasonal-accent-bg, #ffd8a8);
 }
 
 .home-experiment-shell--hello-fall-collection .seasonal-collection-page--hello-fall {

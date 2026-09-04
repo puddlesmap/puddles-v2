@@ -15,6 +15,7 @@ import {
   formatModalDate,
   formatModalTimeRange,
 } from '../../utils/dates'
+import { formatDiscoveryWhen } from '../../utils/formatSeasonalSchedule'
 import {
   formatLifecycleCancelledPhrase,
   formatLifecycleEndedPhrase,
@@ -89,8 +90,11 @@ function formatV3TimeRange(startTime: string, endTime?: string): string {
 }
 
 function getEventPresentation(event: Event) {
-  const dateLabel = formatEventDate(event.date)
-  const timeLabel = formatEventTimeRange(event.startTime, event.endTime)
+  const discoveryWhen =
+    event.scheduleKind === 'seasonal-run' ? formatDiscoveryWhen(event) : null
+  const dateLabel = discoveryWhen?.primary ?? formatEventDate(event.date)
+  const timeLabel =
+    discoveryWhen?.secondary ?? formatEventTimeRange(event.startTime, event.endTime)
   const addressLine = keepCityNameOnOneLine(
     capitalizeCitiesInText(getEventAddressLine(event), event.city),
     event.city,

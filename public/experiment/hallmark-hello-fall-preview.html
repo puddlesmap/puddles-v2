@@ -132,9 +132,186 @@
           height: 9rem;
         }
       }
+
+      /* Wash comparison — mockup only */
+      .wash-picker {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        border-bottom: 1px solid rgb(39 48 52 / 0.1);
+        background: color-mix(in srgb, var(--seasonal-band-bg) 88%, white);
+        backdrop-filter: blur(8px);
+      }
+
+      .wash-picker__inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.65rem 1rem;
+        max-width: var(--layout-max);
+        margin: 0 auto;
+        padding: 0.65rem var(--layout-pad);
+      }
+
+      .wash-picker__copy {
+        flex: 1 1 12rem;
+        min-width: 0;
+      }
+
+      .wash-picker__label {
+        margin: 0;
+        font-size: 0.6875rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--seasonal-eyebrow);
+      }
+
+      .wash-picker__note {
+        margin: 0.15rem 0 0;
+        font-size: 0.8125rem;
+        line-height: 1.35;
+        color: var(--color-muted);
+      }
+
+      .wash-picker__note code {
+        font-size: 0.75rem;
+        color: var(--color-charcoal);
+      }
+
+      .wash-picker__swatches {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .wash-picker__swatch {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+        min-width: 4.75rem;
+        padding: 0.35rem 0.45rem 0.4rem;
+        border: 1.5px solid rgb(39 48 52 / 0.14);
+        border-radius: 12px;
+        background: #fff;
+        cursor: pointer;
+        font: inherit;
+        text-align: left;
+        color: var(--color-charcoal);
+      }
+
+      .wash-picker__swatch:hover {
+        border-color: rgb(39 48 52 / 0.28);
+      }
+
+      .wash-picker__swatch[aria-pressed='true'] {
+        border-color: var(--seasonal-eyebrow);
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--seasonal-eyebrow) 28%, transparent);
+      }
+
+      .wash-picker__chip {
+        display: block;
+        width: 100%;
+        height: 1.35rem;
+        border-radius: 7px;
+        border: 1px solid rgb(39 48 52 / 0.08);
+      }
+
+      .wash-picker__name {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .wash-picker__hex {
+        font-size: 0.625rem;
+        color: var(--color-muted);
+        font-variant-numeric: tabular-nums;
+      }
     </style>
   </head>
   <body>
+    <aside class="wash-picker" aria-label="Fall background wash options">
+      <div class="wash-picker__inner">
+        <div class="wash-picker__copy">
+          <p class="wash-picker__label">Background wash</p>
+          <p class="wash-picker__note">
+            Current live is persimmon. Try other washes below —
+            active: <code id="wash-active-hex">#ffd8a8</code>
+          </p>
+        </div>
+        <div class="wash-picker__swatches" role="group" aria-label="Wash presets">
+          <button
+            type="button"
+            class="wash-picker__swatch"
+            data-wash="#ffd8a8"
+            data-name="Current"
+            aria-pressed="true"
+          >
+            <span class="wash-picker__chip" style="background:#ffd8a8"></span>
+            <span class="wash-picker__name">Current</span>
+            <span class="wash-picker__hex">#ffd8a8</span>
+          </button>
+          <button
+            type="button"
+            class="wash-picker__swatch"
+            data-wash="#fff7ed"
+            data-name="Peach cream"
+            aria-pressed="false"
+          >
+            <span class="wash-picker__chip" style="background:#fff7ed"></span>
+            <span class="wash-picker__name">Peach cream</span>
+            <span class="wash-picker__hex">#fff7ed</span>
+          </button>
+          <button
+            type="button"
+            class="wash-picker__swatch"
+            data-wash="#ffefd8"
+            data-name="Apricot"
+            aria-pressed="false"
+          >
+            <span class="wash-picker__chip" style="background:#ffefd8"></span>
+            <span class="wash-picker__name">Apricot</span>
+            <span class="wash-picker__hex">#ffefd8</span>
+          </button>
+          <button
+            type="button"
+            class="wash-picker__swatch"
+            data-wash="#ffe4c4"
+            data-name="Cantaloupe"
+            aria-pressed="false"
+          >
+            <span class="wash-picker__chip" style="background:#ffe4c4"></span>
+            <span class="wash-picker__name">Cantaloupe</span>
+            <span class="wash-picker__hex">#ffe4c4</span>
+          </button>
+          <button
+            type="button"
+            class="wash-picker__swatch"
+            data-wash="#ffc98a"
+            data-name="Amber glow"
+            aria-pressed="false"
+          >
+            <span class="wash-picker__chip" style="background:#ffc98a"></span>
+            <span class="wash-picker__name">Amber</span>
+            <span class="wash-picker__hex">#ffc98a</span>
+          </button>
+          <button
+            type="button"
+            class="wash-picker__swatch"
+            data-wash="#ffb86b"
+            data-name="Pumpkin wash"
+            aria-pressed="false"
+          >
+            <span class="wash-picker__chip" style="background:#ffb86b"></span>
+            <span class="wash-picker__name">Pumpkin</span>
+            <span class="wash-picker__hex">#ffb86b</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
     <header class="site-header">
       <div class="site-header__inner">
         <a href="/experiment/hallmark-home-preview.html" aria-label="Puddles home mockup">
@@ -413,8 +590,44 @@
           <a href="/experiment/hallmark-home-preview.html">Home mockup</a>
           ·
           <a href="/experiment/hallmark-hello-fall-mockup">Host page</a>
+          ·
+          <a href="/experiment/seasonal-bg-dial">Fine-tune dial</a>
         </p>
       </div>
     </main>
+    <script>
+      ;(function () {
+        var root = document.documentElement
+        var hexLabel = document.getElementById('wash-active-hex')
+        var buttons = Array.prototype.slice.call(
+          document.querySelectorAll('.wash-picker__swatch[data-wash]'),
+        )
+
+        function applyWash(hex) {
+          root.style.setProperty('--seasonal-band-bg', hex)
+          if (hexLabel) hexLabel.textContent = hex
+          buttons.forEach(function (btn) {
+            btn.setAttribute('aria-pressed', btn.getAttribute('data-wash') === hex ? 'true' : 'false')
+          })
+          try {
+            localStorage.setItem('puddles-hello-fall-wash-preview', hex)
+          } catch (_) {}
+        }
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            applyWash(btn.getAttribute('data-wash'))
+          })
+        })
+
+        var saved = null
+        try {
+          saved = localStorage.getItem('puddles-hello-fall-wash-preview')
+        } catch (_) {}
+        if (saved && buttons.some(function (btn) { return btn.getAttribute('data-wash') === saved })) {
+          applyWash(saved)
+        }
+      })()
+    </script>
   </body>
 </html>

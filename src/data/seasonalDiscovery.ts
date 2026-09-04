@@ -1,6 +1,10 @@
 import type { Event } from '../types/event'
 import { ALL_EVENTS, getPublicEventsFromCatalog } from './events'
 import seasonalCurationOverrides from './seasonal-curation-overrides.json'
+import { zonedCalendarDate } from '../utils/dates'
+
+/** Hard max cards on the Home seasonal discovery band (one row). */
+export const MAX_SEASONAL_FEATURED_HOME = 4
 
 export type SeasonalCollectionSlug = 'hello-fall' | 'halloween-with-little-ones'
 
@@ -84,26 +88,82 @@ export function isSeasonalFeaturedWindowActive(
   window: SeasonalFeaturedWindow,
   now: Date = new Date(),
 ): boolean {
-  const today = now.toISOString().slice(0, 10)
+  const today = zonedCalendarDate(now)
   return window.featuredFrom <= today && today <= window.featuredUntil
 }
 
-/** Featured carousel IDs active on the given date, in editorial order. */
+export interface FeaturedHomeCandidate {
+  eventId: string
+  anchor: boolean
+  featuredFrom: string
+  featuredUntil: string
+  note?: string
+  /** Index in featuredWindows (editorial order). */
+  order: number
+}
+
+/**
+ * Active featured windows for Pacific “today”, deduped by eventId (first wins).
+ * Does not apply the Home max-4 cap.
+ */
+export function getActiveFeaturedCandidates(
+  collection: SeasonalCollection,
+  now: Date = new Date(),
+): FeaturedHomeCandidate[] {
+  const seen = new Set<string>()
+  const candidates: FeaturedHomeCandidate[] = []
+
+  collection.featuredWindows.forEach((window, order) => {
+    if (!isSeasonalFeaturedWindowActive(window, now)) return
+    if (seen.has(window.eventId)) return
+    seen.add(window.eventId)
+    candidates.push({
+      eventId: window.eventId,
+      anchor: Boolean(window.anchor),
+      featuredFrom: window.featuredFrom,
+      featuredUntil: window.featuredUntil,
+      note: window.note,
+      order,
+    })
+  })
+
+  return candidates
+}
+
+function rankFeaturedForHome(candidates: FeaturedHomeCandidate[]): FeaturedHomeCandidate[] {
+  return [...candidates].sort((a, b) => {
+    if (a.anchor !== b.anchor) return a.anchor ? -1 : 1
+    return a.order - b.order
+  })
+}
+
+/** Featured carousel IDs for Home — Pacific today, anchors first, max 4. */
 export function getFeaturedEventIdsForDate(
   collection: SeasonalCollection,
   now: Date = new Date(),
 ): string[] {
-  const seen = new Set<string>()
-  const ids: string[] = []
+  return rankFeaturedForHome(getActiveFeaturedCandidates(collection, now))
+    .slice(0, MAX_SEASONAL_FEATURED_HOME)
+    .map((row) => row.eventId)
+}
 
-  for (const window of collection.featuredWindows) {
-    if (!isSeasonalFeaturedWindowActive(window, now)) continue
-    if (seen.has(window.eventId)) continue
-    seen.add(window.eventId)
-    ids.push(window.eventId)
-  }
-
-  return ids
+/** Explain Home featured selection for mockups / ops review. */
+export function explainFeaturedHomeSelection(
+  collection: SeasonalCollection,
+  now: Date = new Date(),
+): {
+  today: string
+  max: number
+  active: FeaturedHomeCandidate[]
+  selected: FeaturedHomeCandidate[]
+  truncated: FeaturedHomeCandidate[]
+} {
+  const today = zonedCalendarDate(now)
+  const active = getActiveFeaturedCandidates(collection, now)
+  const ranked = rankFeaturedForHome(active)
+  const selected = ranked.slice(0, MAX_SEASONAL_FEATURED_HOME)
+  const truncated = ranked.slice(MAX_SEASONAL_FEATURED_HOME)
+  return { today, max: MAX_SEASONAL_FEATURED_HOME, active, selected, truncated }
 }
 
 /** All event IDs that appear in featured windows (any date) — for review tooling. */
@@ -284,9 +344,9 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
     illustrationSrc: '/seasonal/hello-fall.png',
     accent: {
       eyebrow: '#b45309',
-      background: '#fff7ed',
-      border: '#f5d0b0',
-      glow: 'rgba(255, 247, 237, 0.24)',
+      background: '#ffd8a8',
+      border: '#f0c080',
+      glow: 'rgba(255, 216, 168, 0.32)',
       title: '#7c2d12',
       description: '#9a3412',
       cta: '#7c2d12',

@@ -1039,7 +1039,7 @@
   text-decoration: underline;
 }
 
-/* Home band — full-width 4-across grid */
+/* Home band — one-row carousel (≤4 cards; mobile scrolls) */
 .seasonal-discovery-module--home-band .seasonal-discovery-module__carousel-wrap--home {
   margin-top: 0;
   margin-inline: 0;
@@ -1098,23 +1098,4 @@
   }
 }
 
-@media (min-width: 769px) {
-  .seasonal-discovery-module--home-band .seasonal-discovery-module__carousel {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    overflow: visible;
-    scroll-snap-type: none;
-  }
-
-  .seasonal-discovery-module--home-band .seasonal-discovery-module__carousel::after {
-    display: none;
-  }
-
-  .seasonal-discovery-module--home-band .seasonal-discovery-module__card {
-    flex: unset;
-    width: auto;
-    min-width: 0;
-    max-width: none;
-    scroll-snap-align: unset;
-  }
-}
+/* Desktop stays one horizontal line (up to 4 visible); do not wrap to a second row. */

@@ -63,6 +63,17 @@ export interface Event {
   date: string
   startTime: string
   endTime: string
+  /**
+   * Long-running destinations (pumpkin farms, holiday displays).
+   * When set to `seasonal-run`, card/detail use Opens / Open TODAY labels instead of a single-day date.
+   */
+  scheduleKind?: 'one-time' | 'seasonal-run'
+  /** Season opening day (YYYY-MM-DD). Defaults to `date` when scheduleKind is seasonal-run. */
+  openingDate?: string
+  /** Official closing day only — never invent. */
+  closingDate?: string
+  /** e.g. Daily, Fri–Sun, Wed–Sun */
+  recurringDaysLabel?: string
   ageRange: string
   ageMin: number
   ageMax: number

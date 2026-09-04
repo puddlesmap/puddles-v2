@@ -27,10 +27,10 @@
   color: var(--type-supporting-color, #686868);
 }
 
-/* Hello Fall — softer warm page wash */
+/* Hello Fall — persimmon page wash */
 .home-experiment-shell--seasonal-puddles-aligned.home-experiment-shell--hello-fall-collection {
-  --seasonal-accent-bg: #fffaf5;
-  background: #fffaf5;
+  --seasonal-accent-bg: #ffd8a8;
+  background: #ffd8a8;
 }
 
 /* Back link — editorial muted, not brand blue */

@@ -1,0 +1,207 @@
+/* Apricot discovery-band home mockup + featured-rules callout */
+
+.home-experiment-shell--apricot-band-mockup {
+  --seasonal-accent-bg: #ffd8a8;
+}
+
+.home-experiment-shell--apricot-band-mockup .seasonal-discovery-module--home-band {
+  --seasonal-accent-bg: #ffd8a8;
+  background: #ffd8a8;
+}
+
+.home-apricot-mockup-rules {
+  margin: 0 auto 1.25rem;
+  max-width: var(--layout-max, 1120px);
+  padding: 1rem 1rem 1.15rem;
+  border: 1px solid rgb(39 48 52 / 0.12);
+  border-radius: 16px;
+  background: #fffdf8;
+}
+
+.home-apricot-mockup-rules__eyebrow {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #b45309;
+}
+
+.home-apricot-mockup-rules__title {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  line-height: 1.25;
+  color: var(--color-charcoal, #273034);
+}
+
+.home-apricot-mockup-rules__lede {
+  margin: 0.45rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--color-muted, #717171);
+}
+
+.home-apricot-mockup-rules__lede code {
+  font-size: 0.8125rem;
+  color: var(--color-charcoal, #273034);
+}
+
+.home-apricot-mockup-rules__lede a {
+  color: var(--color-brand-dark, #4db8f2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.home-apricot-mockup-rules__steps {
+  margin: 0.9rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-charcoal, #273034);
+}
+
+.home-apricot-mockup-rules__steps li + li {
+  margin-top: 0.35rem;
+}
+
+.home-apricot-mockup-rules__steps code {
+  font-size: 0.75rem;
+}
+
+.home-apricot-mockup-rules__live {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .home-apricot-mockup-rules__live {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.home-apricot-mockup-rules__col-title {
+  margin: 0 0 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-charcoal, #273034);
+}
+
+.home-apricot-mockup-rules__list {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.home-apricot-mockup-rules__list li + li {
+  margin-top: 0.45rem;
+}
+
+.home-apricot-mockup-rules__list--muted {
+  color: var(--color-muted, #717171);
+}
+
+.home-apricot-mockup-rules__event {
+  display: block;
+  font-weight: 650;
+  color: var(--color-charcoal, #273034);
+}
+
+.home-apricot-mockup-rules__tag {
+  display: inline-block;
+  margin: 0.15rem 0.35rem 0 0;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  background: #ffedd5;
+  color: #9a3412;
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-apricot-mockup-rules__meta {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.75rem;
+  color: var(--color-muted, #717171);
+}
+
+.home-apricot-mockup-rules__tag--close {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.home-apricot-mockup-rules__tag--drive {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.home-apricot-mockup-rules__tag--other {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.home-apricot-mockup-specimens {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(39 48 52 / 0.1);
+}
+
+.home-apricot-mockup-specimens__grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+}
+
+.home-apricot-mockup-specimens__item {
+  min-width: 0;
+}
+
+.home-apricot-mockup-specimens__label {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #b45309;
+}
+
+.home-apricot-mockup-specimens__when {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--color-charcoal, #273034);
+}
+
+.home-apricot-mockup-specimens__card {
+  max-width: 14rem;
+}
+
+.home-apricot-mockup-specimens__card .discovery-v3-event-card,
+.home-apricot-mockup-specimens__card .card-listing {
+  width: 100%;
+}
+
+.home-apricot-mockup-specimens__detail {
+  margin: 0.45rem 0 0;
+  font-size: 0.75rem;
+  color: var(--color-muted, #717171);
+}
+
+.home-apricot-mockup-specimens__detail code {
+  font-size: 0.6875rem;
+  color: var(--color-charcoal, #273034);
+}
+
+.home-apricot-mockup-specimens--meta {
+  margin-top: 1rem;
+}
+
+.home-apricot-mockup-specimens__meta-card {
+  margin-top: 0.65rem;
+  max-width: 13.5rem;
+}
