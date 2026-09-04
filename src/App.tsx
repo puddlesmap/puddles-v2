@@ -14,6 +14,7 @@ import { ExperimentHallmarkHelloFallMockupPage } from './views/ExperimentHallmar
 import { ExperimentHallmarkHomeMockupPage } from './views/ExperimentHallmarkHomeMockupPage'
 import { ExperimentHomeApricotBandMockupPage } from './views/ExperimentHomeApricotBandMockupPage'
 import { ExperimentSeasonalBackNavMockupPage } from './views/ExperimentSeasonalBackNavMockupPage'
+import { ExperimentHomeBrowseChipsMockupPage } from './views/ExperimentHomeBrowseChipsMockupPage'
 import { HomeV1Page } from './views/HomeV1Page'
 import { HomeExperiment1Page } from './views/HomeExperiment1Page'
 import { HomeExperiment2Page } from './views/HomeExperiment2Page'
@@ -98,6 +99,10 @@ function AppShell() {
       <Route
         path="/experiment/seasonal-back-nav-mockup"
         element={<ExperimentSeasonalBackNavMockupPage />}
+      />
+      <Route
+        path="/experiment/home-browse-chips-mockup"
+        element={<ExperimentHomeBrowseChipsMockupPage />}
       />
       <Route
         path="/experiment/hallmark-hello-fall-mockup"
