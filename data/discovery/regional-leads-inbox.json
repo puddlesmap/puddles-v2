@@ -1,6 +1,6 @@
 {
   "description": "Bay Area major-event leads (e.g. from 小紅書 / parent blogs / agent web search). Add rows here; run npm run discover:regional-weekly to queue them in Admin Discovery for review. Every lead MUST have an official eventUrl for fact-check — not the XHS post URL.",
-  "updatedAt": "2026-09-02",
+  "updatedAt": "2026-09-04",
   "leads": [
     {
       "id": "regional-kings-mountain-art-fair-2026-09-05",
