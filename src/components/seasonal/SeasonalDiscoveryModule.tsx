@@ -26,10 +26,9 @@ export function SeasonalDiscoveryModule({
   homeBandEyebrow = 'subtitle',
   homeBandCopyTone = 'seasonal',
 }: SeasonalDiscoveryModuleProps) {
-  if (events.length === 0) return null
-
   const isHomeBand = bandLayout === 'home'
-  const showCollectionLink = events.length >= 3
+  const isEmpty = events.length === 0
+  const showCollectionLink = isEmpty || events.length >= 3
   const collectionHref = seasonalCollectionPath(collection.slug)
   const headerCta =
     isHomeBand && showCollectionLink
@@ -46,26 +45,32 @@ export function SeasonalDiscoveryModule({
         homeBandEyebrow={homeBandEyebrow}
       />
 
-      <div
-        className={[
-          'seasonal-discovery-module__carousel-wrap',
-          isHomeBand ? 'browse-content seasonal-discovery-module__carousel-wrap--home' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-      >
-        <div className="seasonal-discovery-module__carousel" role="list">
-          {events.map((event) => (
-            <div key={event.id} className="seasonal-discovery-module__card" role="listitem">
-              <BrowseEventCard
-                event={event}
-                seasonalEditorial={false}
-                onClick={() => onEventClick(event)}
-              />
-            </div>
-          ))}
+      {isEmpty ? (
+        <p className="seasonal-discovery-module__empty">
+          Featured picks for this week are updating — see the full collection.
+        </p>
+      ) : (
+        <div
+          className={[
+            'seasonal-discovery-module__carousel-wrap',
+            isHomeBand ? 'browse-content seasonal-discovery-module__carousel-wrap--home' : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        >
+          <div className="seasonal-discovery-module__carousel" role="list">
+            {events.map((event) => (
+              <div key={event.id} className="seasonal-discovery-module__card" role="listitem">
+                <BrowseEventCard
+                  event={event}
+                  seasonalEditorial={false}
+                  onClick={() => onEventClick(event)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {!isHomeBand && showCollectionLink ? (
         <div className="seasonal-discovery-module__footer">

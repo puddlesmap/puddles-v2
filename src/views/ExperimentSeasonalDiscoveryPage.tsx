@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { useMemo } from 'react'
 import { HomeExperimentPage } from './HomeExperimentPage'
 import { SeasonalDiscoveryModule } from '../components/seasonal/SeasonalDiscoveryModule'
@@ -9,17 +8,16 @@ import {
   PUDDLES_WORDMARK_LOGO_SRC_2X,
 } from './experimentShared'
 import {
+  getComingNextSeasonalTeaser,
   getSeasonalCollectionForExperiment,
-  getUpcomingSeasonalCollectionForExperiment,
   resolveFeaturedSeasonalEvents,
-  seasonalCollectionPath,
 } from '../data/seasonalDiscovery'
 import { useEventNavigation } from '../hooks/useEventNavigation'
 
 export function ExperimentSeasonalDiscoveryPage() {
   const openEvent = useEventNavigation()
   const collection = getSeasonalCollectionForExperiment()
-  const upcoming = getUpcomingSeasonalCollectionForExperiment()
+  const comingNext = getComingNextSeasonalTeaser()
 
   const featuredEvents = useMemo(
     () => resolveFeaturedSeasonalEvents(collection),
@@ -39,29 +37,25 @@ export function ExperimentSeasonalDiscoveryPage() {
 
   const afterResults = (
     <>
-      <aside className="seasonal-next-preview" aria-label="Next seasonal theme">
-        <p className="seasonal-next-preview__eyebrow">Coming next</p>
-        <div className="seasonal-next-preview__row">
-          <img
-            src={upcoming.illustrationSrc}
-            alt=""
-            className="seasonal-next-preview__illustration"
-            width={72}
-            height={72}
-            decoding="async"
-          />
-          <div className="seasonal-next-preview__copy">
-            <h2 className="seasonal-next-preview__title">{upcoming.subtitle}</h2>
-            <p className="seasonal-next-preview__tagline">{upcoming.moduleTagline}</p>
+      {comingNext ? (
+        <aside className="seasonal-next-preview" aria-label="Next seasonal theme">
+          <p className="seasonal-next-preview__eyebrow">Coming next</p>
+          <div className="seasonal-next-preview__row">
+            <img
+              src={comingNext.illustrationSrc}
+              alt=""
+              className="seasonal-next-preview__illustration"
+              width={72}
+              height={72}
+              decoding="async"
+            />
+            <div className="seasonal-next-preview__copy">
+              <h2 className="seasonal-next-preview__title">{comingNext.subtitle}</h2>
+              <p className="seasonal-next-preview__tagline">{comingNext.moduleTagline}</p>
+            </div>
           </div>
-          <Link
-            to={seasonalCollectionPath(upcoming.slug)}
-            className="seasonal-next-preview__cta"
-          >
-            Preview Halloween →
-          </Link>
-        </div>
-      </aside>
+        </aside>
+      ) : null}
 
       <SeasonalBrowseCategoriesPreview />
     </>

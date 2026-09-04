@@ -901,6 +901,49 @@ export function getUpcomingSeasonalCollectionForExperiment(): SeasonalCollection
   return getSeasonalCollection('halloween-with-little-ones')!
 }
 
+/** Days before the next theme's activeFrom when the Coming next teaser may appear. */
+export const COMING_NEXT_TEASER_DAYS = 14
+
+function pacificYmd(now: Date): string {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Los_Angeles',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(now)
+}
+
+function daysBetweenYmd(fromYmd: string, toYmd: string): number {
+  const from = Date.parse(`${fromYmd}T12:00:00Z`)
+  const to = Date.parse(`${toYmd}T12:00:00Z`)
+  return Math.round((to - from) / 86_400_000)
+}
+
+/**
+ * Next curated seasonal collection to tease on Home-shaped surfaces.
+ * Only returns a collection when Pacific today is within COMING_NEXT_TEASER_DAYS
+ * before that theme's activeFrom (and the theme has not started yet).
+ */
+export function getComingNextSeasonalTeaser(
+  now: Date = new Date(),
+): SeasonalCollection | undefined {
+  const today = pacificYmd(now)
+  const next = SEASONAL_THEME_SCHEDULE.find(
+    (entry) =>
+      entry.curated &&
+      entry.slug != null &&
+      entry.activeFrom > today,
+  )
+  if (!next?.slug) return undefined
+
+  const daysUntilStart = daysBetweenYmd(today, next.activeFrom)
+  if (daysUntilStart < 1 || daysUntilStart > COMING_NEXT_TEASER_DAYS) {
+    return undefined
+  }
+
+  return getSeasonalCollection(next.slug)
+}
+
 /** Resolve curated IDs in order. Prefer public catalog, then full sheet for editorial picks. */
 export function resolveSeasonalEvents(
   eventIds: string[],

@@ -392,6 +392,24 @@
   padding-inline: var(--seasonal-shell-pad-x);
 }
 
+.seasonal-discovery-module__empty {
+  position: relative;
+  z-index: 1;
+  margin: 0.75rem 0 0;
+  padding-inline: var(--seasonal-shell-pad-x, 0);
+  max-width: 28rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--color-muted, #686868);
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__empty {
+  padding-inline: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
 .seasonal-discovery-module--featured .seasonal-discovery-module__cta {
   font-size: 0.9375rem;
   font-weight: 600;

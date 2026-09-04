@@ -15,9 +15,6 @@ export function SeasonalBrowseCategoriesPreview() {
         <h2 id="seasonal-browse-preview-heading" className="seasonal-browse-preview__title">
           Browse by activity
         </h2>
-        <p className="seasonal-browse-preview__lede">
-          Filter the full catalog when you know what you&apos;re in the mood for.
-        </p>
       </div>
 
       <div className="seasonal-browse-preview__track">

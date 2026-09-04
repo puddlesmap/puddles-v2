@@ -150,7 +150,7 @@ export function ExperimentSeasonalCollectionPage() {
   )
 
   if (!validSlug || !collection) {
-    return <Navigate to="/experiment/seasonal-discovery" replace />
+    return <Navigate to="/" replace />
   }
 
   const isHalloween = collection.slug === 'halloween-with-little-ones'
@@ -235,8 +235,8 @@ export function ExperimentSeasonalCollectionPage() {
             } as CSSProperties
           }
         >
-          <Link to="/experiment/seasonal-discovery" className="seasonal-collection-back">
-            ← Back to seasonal discovery
+          <Link to="/" className="seasonal-collection-back">
+            ← Back home
           </Link>
 
           <header className="seasonal-collection-hero">
