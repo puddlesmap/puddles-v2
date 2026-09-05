@@ -1,13 +1,8 @@
-import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { HomeExperimentPage } from './HomeExperimentPage'
-import { SeasonalDiscoveryModule } from '../components/seasonal/SeasonalDiscoveryModule'
+import { HomeSeasonalDiscoveryBands } from '../components/seasonal/HomeSeasonalDiscoveryBands'
 import { HomeLaunchAnnouncement } from '../components/home/HomeLaunchAnnouncement'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
-import {
-  getActiveSeasonalCollection,
-  resolveFeaturedSeasonalEvents,
-} from '../data/seasonalDiscovery'
 import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
 import { useEventNavigation } from '../hooks/useEventNavigation'
 
@@ -15,11 +10,6 @@ import { useEventNavigation } from '../hooks/useEventNavigation'
 export function HomeLaunchPreviewPage() {
   const openEvent = useEventNavigation()
   const { getCatalog } = useLaunchStagingCatalog()
-  const collection = getActiveSeasonalCollection()
-  const featuredEvents = useMemo(
-    () => (collection ? resolveFeaturedSeasonalEvents(collection, getCatalog()) : []),
-    [collection, getCatalog],
-  )
 
   const leading = (
     <p className="home-launch-preview-note">
@@ -44,16 +34,10 @@ export function HomeLaunchPreviewPage() {
       leading={leading}
       getEventsCatalog={getCatalog}
       topBand={
-        collection ? (
-          <SeasonalDiscoveryModule
-            collection={collection}
-            events={featuredEvents}
-            onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
-            bandLayout="home"
-            homeBandEyebrow="timing"
-            homeBandCopyTone="neutral"
-          />
-        ) : null
+        <HomeSeasonalDiscoveryBands
+          catalog={getCatalog()}
+          onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
+        />
       }
     />
   )

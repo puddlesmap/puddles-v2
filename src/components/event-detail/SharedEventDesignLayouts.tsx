@@ -231,6 +231,43 @@ function ModalTrustCard({ verified }: { verified: string }) {
   )
 }
 
+/** Desktop Where facts — same hierarchy as mobile: venue → room → address link. */
+function WhereFactStacked({
+  event,
+  venue,
+  roomLine,
+  addressLine,
+  directionsUrl,
+}: {
+  event: Event
+  venue?: string
+  roomLine?: string
+  addressLine?: string | null
+  directionsUrl?: string | null
+}) {
+  return (
+    <div className="sedl-where-stacked">
+      {venue ? <p className="sedl-fact-value sedl-where-venue">{venue}</p> : null}
+      {roomLine ? <p className="sedl-where-room">{roomLine}</p> : null}
+      {directionsUrl && addressLine ? (
+        <a
+          href={directionsUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="event-modal-address-link sedl-where-address"
+          aria-label={getEventDirectionsLabel(event)}
+          onClick={() => trackActivityEngagement(ANALYTICS_EVENTS.OPEN_ROUTE_CLICKED, event)}
+        >
+          <span>{addressLine}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      ) : addressLine ? (
+        <p className="event-modal-address-plain sedl-where-address">{addressLine}</p>
+      ) : null}
+    </div>
+  )
+}
+
 function AirbnbV1CtaRail({
   event,
   presentation,
@@ -252,7 +289,15 @@ function AirbnbV1CtaRail({
           </span>
         ))}
       </p>
-      <p className="sedl-airbnb-rail__where">{event.venue || p.city}</p>
+      <p className="sedl-airbnb-rail__where">
+        {event.venue || p.city}
+        {p.roomLine ? (
+          <>
+            <br />
+            <span className="sedl-airbnb-rail__room">{p.roomLine}</span>
+          </>
+        ) : null}
+      </p>
       <button
         type="button"
         className="btn-primary sedl-cta"
@@ -308,7 +353,15 @@ function AirbnbV3LifecycleRail({
         {isCancelled ? 'Cancelled' : 'Ended'}
       </p>
       <p className="sedl-airbnb-rail__when">{schedule}</p>
-      <p className="sedl-airbnb-rail__where">{event.venue || event.city}</p>
+      <p className="sedl-airbnb-rail__where">
+        {event.venue || event.city}
+        {getEventRoomLine(event) ? (
+          <>
+            <br />
+            <span className="sedl-airbnb-rail__room">{getEventRoomLine(event)}</span>
+          </>
+        ) : null}
+      </p>
       {nextPath ? (
         <Link to={nextPath} className="btn-primary sedl-cta">
           View the next date
@@ -399,21 +452,13 @@ function AirbnbLayout({
             </div>
             <div>
               <p className="sedl-fact-label">Where</p>
-              <p className="sedl-fact-value">
-                {event.venue}
-                {p.addressLine ? ` · ${p.addressLine}` : ''}
-              </p>
-              {p.directionsUrl ? (
-                <a
-                  href={p.directionsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="sedl-text-link"
-                  onClick={() => trackActivityEngagement(ANALYTICS_EVENTS.OPEN_ROUTE_CLICKED, event)}
-                >
-                  Get directions
-                </a>
-              ) : null}
+              <WhereFactStacked
+                event={event}
+                venue={event.venue}
+                roomLine={p.roomLine}
+                addressLine={p.addressLine}
+                directionsUrl={p.directionsUrl}
+              />
             </div>
           </div>
 
@@ -454,7 +499,15 @@ function AirbnbLayout({
               </>
             ) : null}
           </p>
-          <p className="sedl-airbnb-rail__where">{event.venue}</p>
+          <p className="sedl-airbnb-rail__where">
+            {event.venue}
+            {p.roomLine ? (
+              <>
+                <br />
+                <span className="sedl-airbnb-rail__room">{p.roomLine}</span>
+              </>
+            ) : null}
+          </p>
           <button
             type="button"
             className="btn-primary sedl-cta"
@@ -1012,21 +1065,13 @@ export function AirbnbV3DesktopContent({
             </div>
             <div>
               <p className="sedl-fact-label">Where</p>
-              <p className="sedl-fact-value">
-                {event.venue}
-                {p.addressLine ? ` · ${p.addressLine}` : ''}
-              </p>
-              {p.directionsUrl ? (
-                <a
-                  href={p.directionsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="sedl-text-link"
-                  onClick={() => trackActivityEngagement(ANALYTICS_EVENTS.OPEN_ROUTE_CLICKED, event)}
-                >
-                  Get directions
-                </a>
-              ) : null}
+              <WhereFactStacked
+                event={event}
+                venue={event.venue}
+                roomLine={p.roomLine}
+                addressLine={p.addressLine}
+                directionsUrl={p.directionsUrl}
+              />
             </div>
             <div>
               <p className="sedl-fact-label">Cost</p>

@@ -8,7 +8,7 @@
  */
 export const EVENT_HOST_IMAGES: Record<string, string> = {
   'Linden Tree Books':
-    'https://cdn.shoplightspeed.com/shops/611345/themes/10258/v/1120325/assets/banner-image.png?20260305055717',
+    'https://cdn.shoplightspeed.com/shops/611345/themes/10258/v/1165060/assets/banner-image.png',
   // Sunnyvale Public Library: prefer activity-type clay fallbacks over the shared building photo.
   'Los Altos Library':
     'https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early%20Learning%20%26%20Storytime.jpg',

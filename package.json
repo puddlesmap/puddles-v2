@@ -20,6 +20,7 @@
     "discover:los-altos": "node scripts/discover-los-altos.mjs",
     "discover:mountain-view": "node scripts/discover-mountain-view.mjs",
     "discover:bay-area": "node scripts/discover-bay-area.mjs",
+    "discover:linden-tree": "node scripts/discover-linden-tree.mjs",
     "discover:expansion-lookahead": "node scripts/discover-expansion-lookahead.mjs",
     "discover:expansion-refresh": "node scripts/discover-expansion-lookahead.mjs --days=90 --run-scrape",
     "discover:ingest-expansion": "node scripts/ingest-watchlist-expansion.mjs",

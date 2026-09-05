@@ -38,11 +38,13 @@ export function SeasonalDiscoveryModule({
       ? { href: collectionHref, label: collection.ctaLabel }
       : undefined
 
+  const headingId = `seasonal-discovery-heading-${collection.slug}`
+
   const shell = (
     <div className="seasonal-discovery-module__shell">
       <SeasonalDiscoveryModuleHeader
         collection={collection}
-        headingId="seasonal-discovery-heading"
+        headingId={headingId}
         headerCta={headerCta}
         homeBand={isHomeBand}
         homeBandEyebrow={homeBandEyebrow}
@@ -99,7 +101,7 @@ export function SeasonalDiscoveryModule({
       ]
         .filter(Boolean)
         .join(' ')}
-      aria-labelledby="seasonal-discovery-heading"
+      aria-labelledby={headingId}
       style={
         {
           '--seasonal-accent-eyebrow': collection.accent.eyebrow,

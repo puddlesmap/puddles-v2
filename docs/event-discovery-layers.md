@@ -154,7 +154,7 @@ Surface them only when intentionally curated into:
 
 This keeps everyday Browse local while still recommending exceptional regional farms, festivals, and trains through editorial layers.
 
-Keep **one seasonal theme active at a time** (Hello, Fall → then Halloween with little ones). Do not show Fall Pick and Halloween Pick simultaneously.
+**Hello Fall** stays live through Oct 31, 2026. From **Oct 5**, Home shows **two seasonal themes at once** (Hello Fall + Halloween) via `getActiveSeasonalCollections()` — dual Home modules + badge rules. **Rename decision:** keep **Halloween with little ones** (slug unchanged); consider a broader “October with little ones” name only if non-Halloween October curation expands.
 
 ## Simple model
 

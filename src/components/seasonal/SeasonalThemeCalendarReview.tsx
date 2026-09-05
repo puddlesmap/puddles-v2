@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import {
   formatSeasonalDateRange,
-  getLiveSeasonalThemeScheduleEntry,
+  getLiveSeasonalThemeScheduleEntries,
   getSeasonalThemeScheduleStatus,
   SEASONAL_THEME_SCHEDULE,
   seasonalCollectionPath,
@@ -99,7 +99,7 @@ export function SeasonalThemeCalendarReview({
   compact = false,
 }: SeasonalThemeCalendarReviewProps) {
   const todayLabel = today.toISOString().slice(0, 10)
-  const liveEntry = getLiveSeasonalThemeScheduleEntry(today)
+  const liveEntries = getLiveSeasonalThemeScheduleEntries(today)
 
   return (
     <section className="seasonal-theme-calendar" aria-labelledby="seasonal-theme-calendar-heading">
@@ -108,9 +108,8 @@ export function SeasonalThemeCalendarReview({
           Seasonal calendar
         </h2>
         <p className="seasonal-theme-calendar__lede">
-          One theme live at a time — Fall with little ones → Halloween with little ones → Holiday
-          magic. Content may blend during transition windows; the module title swaps on the start
-          date of the next theme.
+          Themes can overlap — from Oct 5–31 Home shows Hello Fall and Halloween with little ones
+          together. Later months still hand off in sequence (Fall gatherings → Holiday magic).
         </p>
         <p className="seasonal-theme-calendar__today">
           Review date:{' '}
@@ -122,10 +121,11 @@ export function SeasonalThemeCalendarReview({
               year: 'numeric',
             })}
           </strong>
-          {liveEntry ? (
+          {liveEntries.length > 0 ? (
             <>
               {' '}
-              · Live module: <strong>{liveEntry.moduleTitle}</strong>
+              · Live module{liveEntries.length > 1 ? 's' : ''}:{' '}
+              <strong>{liveEntries.map((entry) => entry.moduleTitle).join(' · ')}</strong>
             </>
           ) : (
             <> · No seasonal module scheduled</>

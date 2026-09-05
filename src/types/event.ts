@@ -16,6 +16,9 @@ export type City =
   | 'Morgan Hill'
   | 'Hayward'
   | 'Felton'
+  | 'Santa Clara'
+  | 'Los Gatos'
+  | 'Woodside'
 export type CostLabel = 'Free' | 'Low-cost' | 'Paid' | (string & {})
 
 /** True when the activity is free to attend (not a dollar amount / paid tag). */

@@ -174,7 +174,7 @@
       "city": "Los Altos",
       "url": "https://www.lindentreebooks.com/events-calendar/",
       "fitFor0to5": "strong",
-      "notes": "Weekly Outdoor Storytime + author picture-book storytimes in Discovery. Skip YA/MG launches and 9+ book clubs.",
+      "notes": "WEEKLY CHECK: scrape events-calendar for Sunday 10:30 Outdoor Storytime + named author picture-book storytimes (npm run discover:linden-tree). Skip YA/MG launches, book clubs, ages 7+ workshops.",
       "alreadyOnPuddles": true,
       "checkCadence": "weekly"
     },

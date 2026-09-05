@@ -1,7 +1,7 @@
 import type { Event } from '../types/event'
 import type { DiscoveryBadgeData } from '../components/experiment/DiscoveryV3Card'
 import {
-  getActiveSeasonalCollection,
+  getActiveSeasonalCollections,
   isEventInSeasonalCollection,
   type SeasonalCollectionSlug,
 } from '../data/seasonalDiscovery'
@@ -64,16 +64,19 @@ export function isHalloweenCollectionCandidate(event: Event): boolean {
 
 /**
  * Editorial image badge for mixed browse/home feeds.
- * One active seasonal theme at a time — never Fall Pick and Halloween Pick together.
- * Membership in the live theme’s collection/drive IDs only; title heuristics do not apply.
+ * Resolves against all date-active themes (`getActiveSeasonalCollections`). One badge per card:
+ * first active collection that includes the event (Hello Fall is listed before Halloween, so
+ * overlapping farm picks stay Fall Pick during dual windows). Title heuristics do not apply.
  * Off on seasonal collection/band (callers pass seasonalEditorial={false}).
  */
 export function getSeasonalEditorialBadgeForEvent(
   event: Event,
   now: Date = new Date(),
 ): DiscoveryBadgeData | null {
-  const active = getActiveSeasonalCollection(now)
-  if (!active) return null
-  if (!isEventInSeasonalCollection(event.id, active.slug)) return null
-  return BADGE_BY_ACTIVE_SLUG[active.slug] ?? null
+  const activeCollections = getActiveSeasonalCollections(now)
+  for (const collection of activeCollections) {
+    if (!isEventInSeasonalCollection(event.id, collection.slug)) continue
+    return BADGE_BY_ACTIVE_SLUG[collection.slug] ?? null
+  }
+  return null
 }

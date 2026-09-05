@@ -119,6 +119,34 @@
   color: #222;
 }
 
+.sedl-where-stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.sedl-where-venue {
+  margin: 0;
+}
+
+.sedl-where-room {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #717171;
+}
+
+.sedl-where-address {
+  margin-top: 0.15rem;
+  font-size: 0.9375rem;
+}
+
+.sedl-airbnb-rail__room {
+  font-weight: 500;
+  color: #717171;
+}
+
 .sedl-text-link {
   display: inline-block;
   margin-top: 0.35rem;

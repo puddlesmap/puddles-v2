@@ -284,16 +284,16 @@ export function getSeasonalIllustrationSrc(timing: string): string | undefined {
 
 /**
  * Editorial seasonal collections — not a new event taxonomy.
- * Themes transition with local activity patterns (Hello, Fall → Halloween in early October).
+ * Themes transition with local activity patterns (Hello, Fall → Halloween / broader October).
  *
- * **One live theme at a time:** Home band, collection page, and Fall/Halloween Pick badges all
- * follow `activeFrom` / `activeUntil` via `getActiveSeasonalCollection()`. Never show Fall Pick and
- * Halloween Pick together. The same event may appear in both collections and switch badge labels
- * at the theme swap (e.g. pumpkin farm: Fall Pick in September → Halloween Pick in October).
+ * **Live themes:** Home bands use `getActiveSeasonalCollections()` (all overlapping windows).
+ * Hello Fall runs through Oct 31, 2026; Halloween overlaps from Oct 5.
  *
- * **Browse window:** public discovery shows roughly the next **60 days** (`PUBLIC_DISPLAY_WINDOW_DAYS`)
- * — from early September that reaches ~end of October. Seasonal inventory can coexist in the feed;
- * only the active theme’s badge/module is editorial.
+ * **Dual themes (shipped):** Hello Fall stays live alongside Halloween — two Home modules + badge
+ * rules via the plural helper. **Rename decision:** keep **Halloween with little ones** (slug
+ * unchanged); broader “October with little ones” only if non-Halloween October curation expands.
+ *
+ * **Browse window:** public discovery shows roughly the next **60 days** (`PUBLIC_DISPLAY_WINDOW_DAYS`).
  *
  * **Litmus (every theme):** if it isn’t special because of this season / month, don’t make it a
  * seasonal pick — keep year-round classes in regular browse. Full rules:
@@ -484,6 +484,10 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'watchlist-sunnyvale-diwali-sacas-2026-10-03',
       'watchlist-sunnyvale-mid-autumn-festival-2026-10-03',
       'free-in-store-kids-workshops-school-bus-organizer-home-depot-2026-09-05-09-00',
+      'mountain-view-art-wine-festival-2026-09-12',
+      'great-glass-pumpkin-patch-2026-09-26',
+      'cantor-art-for-all-family-day-2026-10-11',
+      'watchlist-sunnyvale-hands-on-the-arts-2026-10-17',
     ],
     driveEventIds: [
       'seasonal-drive-lemos-farm-pumpkin-patch-2026-09-05',
@@ -494,6 +498,14 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'seasonal-drive-sf-chinatown-autumn-moon-festival-2026-09-19',
       'seasonal-drive-cdm-mid-autumn-moon-festival-2026-09-26',
       'seasonal-drive-bay-area-chuseok-festival-2026-09-26',
+      'seasonal-drive-silicon-valley-fall-fest-2026-09-12',
+      'seasonal-drive-viva-calle-into-the-valley-2026-09-13',
+      'seasonal-drive-flood-park-fallfest-2026-09-19',
+      'seasonal-drive-santa-clara-art-wine-2026-09-19',
+      'seasonal-drive-st-marys-country-fair-2026-10-02',
+      'seasonal-drive-pumpkins-in-the-park-2026-10-10',
+      'seasonal-drive-woodside-day-of-the-horse-fair-2026-10-11',
+      'seasonal-drive-day-on-the-bay-2026-10-17',
     ],
     closeToHome: {
       title: 'Close to home',
@@ -503,13 +515,14 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       title: 'Worth a little drive',
       subtitle: 'Farm days & standout fall outings a little farther afield.',
     },
-    // Through Diwali / Sunnyvale Mid-Autumn weekend; Halloween module starts Oct 6
+    // Hold Hello Fall through late October so mid-Oct festivals stay in one theme.
+    // Overlaps Halloween Oct 5–31 — dual Home bands via getActiveSeasonalCollections().
     activeFrom: '2026-09-01',
-    activeUntil: '2026-10-05',
+    activeUntil: '2026-10-31',
   },
   {
     slug: 'halloween-with-little-ones',
-    title: 'Sweet, spooky-season outings for ages 0–5.',
+    title: 'Halloween with little ones',
     subtitle: 'Halloween with little ones',
     timingLabel: 'October',
     description: 'Sweet, spooky-season outings for ages 0–5.',
@@ -567,7 +580,7 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30',
     ],
     driveEventIds: [
-      // Spanning Fall → Halloween: same farms keep the seasonal badge under the new theme
+      // Spanning Fall → next theme: farms keep the seasonal badge under both modules
       'seasonal-drive-spina-farms-pumpkin-patch-2026-09-17',
       'seasonal-drive-farmer-johns-pumpkin-farm-2026-09-04',
       'spooky-times-at-deer-holloween-farm-deer-hollow-farm-2026-10-17-10-00',
@@ -583,7 +596,9 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       title: 'Worth a little drive',
       subtitle: 'A few extra-special Halloween picks nearby.',
     },
-    activeFrom: '2026-10-06',
+    // Overlaps Hello Fall from Oct 5 — Home shows both via getActiveSeasonalCollections().
+    // Rename decision: keep Halloween with little ones (spooky-only curation); slug unchanged.
+    activeFrom: '2026-10-05',
     activeUntil: '2026-10-31',
   },
 ]
@@ -686,7 +701,7 @@ export const SEASONAL_THEME_CALENDAR = SEASONAL_EYEBROW_PALETTE.map((entry) => (
   illustrationSrc: entry.illustrationSrc,
 }))
 
-/** Editorial schedule for product review — one live module at a time; no overlap. */
+/** Editorial schedule for product review. Dual live themes Oct 5–31, 2026. */
 export interface SeasonalThemeScheduleEntry {
   timing: string
   theme: string
@@ -722,24 +737,24 @@ export const SEASONAL_THEME_SCHEDULE: SeasonalThemeScheduleEntry[] = [
     eyebrow: getSeasonalEyebrowColor('September'),
     illustrationSrc: '/seasonal/hello-fall.png',
     activeFrom: '2026-09-01',
-    activeUntil: '2026-10-05',
-    transitionFrom: '2026-09-29',
+    activeUntil: '2026-10-31',
+    transitionFrom: '2026-10-05',
     transitionNote:
-      'Sep 29–Oct 5: Diwali / Sunnyvale Mid-Autumn weekend; optional early Halloween featured blend; title + badges swap to Halloween Oct 6. Browse still shows ~60 days of inventory (~through late October).',
+      'Dual themes: from Oct 5 Home shows Hello Fall + Halloween together (getActiveSeasonalCollections). Hello Fall stays through Oct 31.',
     curated: true,
   },
   {
     timing: 'October',
     theme: 'Halloween with little ones',
-    moduleTitle: 'Sweet, spooky-season outings for ages 0–5.',
+    moduleTitle: 'Halloween with little ones',
     emoji: '🎃',
     slug: 'halloween-with-little-ones',
     eyebrow: getSeasonalEyebrowColor('October'),
     illustrationSrc: '/seasonal/halloween-with-little-ones.png',
-    activeFrom: '2026-10-06',
+    activeFrom: '2026-10-05',
     activeUntil: '2026-10-31',
     transitionNote:
-      'Replaces Fall module + Fall Pick badges Oct 6. Spanning picks (e.g. pumpkin farms) keep a seasonal badge as Halloween Pick; Fall-only events drop the badge but stay in regular browse.',
+      'DECIDED: keep name “Halloween with little ones” (slug stable). Broader “October with little ones” only if non-Halloween October curation expands. Shows alongside Hello Fall Oct 5–31.',
     curated: true,
   },
   {
@@ -848,13 +863,19 @@ export function getSeasonalThemeScheduleStatus(
   return 'live'
 }
 
+export function getLiveSeasonalThemeScheduleEntries(
+  now: Date = new Date(),
+): SeasonalThemeScheduleEntry[] {
+  const today = pacificYmd(now)
+  return SEASONAL_THEME_SCHEDULE.filter(
+    (entry) => entry.activeFrom <= today && today <= entry.activeUntil,
+  )
+}
+
 export function getLiveSeasonalThemeScheduleEntry(
   now: Date = new Date(),
 ): SeasonalThemeScheduleEntry | undefined {
-  const today = now.toISOString().slice(0, 10)
-  return SEASONAL_THEME_SCHEDULE.find(
-    (entry) => entry.activeFrom <= today && today <= entry.activeUntil,
-  )
+  return getLiveSeasonalThemeScheduleEntries(now)[0]
 }
 
 type SeasonalCurationOverride = {
@@ -894,12 +915,17 @@ export function isEventInSeasonalCollection(
   return Boolean(collection.driveEventIds?.includes(eventId))
 }
 
-export function getActiveSeasonalCollection(now: Date = new Date()): SeasonalCollection | undefined {
-  const today = now.toISOString().slice(0, 10)
-  const base = SEASONAL_COLLECTIONS.find(
+/** All seasonal collections whose Pacific calendar day falls in their active window. */
+export function getActiveSeasonalCollections(now: Date = new Date()): SeasonalCollection[] {
+  const today = pacificYmd(now)
+  return SEASONAL_COLLECTIONS.filter(
     (collection) => collection.activeFrom <= today && today <= collection.activeUntil,
-  )
-  return base ? withCurationOverrides(base) : undefined
+  ).map(withCurationOverrides)
+}
+
+/** Primary live theme — first matching window (Hello Fall while both overlap). */
+export function getActiveSeasonalCollection(now: Date = new Date()): SeasonalCollection | undefined {
+  return getActiveSeasonalCollections(now)[0]
 }
 
 /** Experiment / review tooling — Hello, Fall curated set (not date-gated). */

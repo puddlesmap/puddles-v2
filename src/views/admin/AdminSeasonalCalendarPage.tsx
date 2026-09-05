@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { SeasonalThemeCalendarReview } from '../../components/seasonal/SeasonalThemeCalendarReview'
-import { getLiveSeasonalThemeScheduleEntry } from '../../data/seasonalDiscovery'
+import { getLiveSeasonalThemeScheduleEntries } from '../../data/seasonalDiscovery'
 
 export function AdminSeasonalCalendarPage() {
-  const liveEntry = getLiveSeasonalThemeScheduleEntry()
+  const liveEntries = getLiveSeasonalThemeScheduleEntries()
 
   return (
     <div className="admin-seasonal-calendar-page">
@@ -11,8 +11,8 @@ export function AdminSeasonalCalendarPage() {
         <div>
           <h2 className="font-display text-xl text-charcoal">Seasonal calendar</h2>
           <p className="mt-1 max-w-2xl text-sm leading-relaxed text-muted">
-            Editorial schedule for home seasonal modules — one live theme at a time, with gradual
-            handoffs between Fall, Halloween, and Holiday magic.
+            Editorial schedule for home seasonal modules. Hello Fall and Halloween overlap Oct 5–31
+            (two Home bands); later months hand off in sequence.
           </p>
         </div>
         <div className="admin-events-header-actions">
@@ -25,9 +25,10 @@ export function AdminSeasonalCalendarPage() {
         </div>
       </div>
 
-      {liveEntry ? (
+      {liveEntries.length > 0 ? (
         <p className="admin-seasonal-calendar-page__live-note" role="status">
-          Live module today: <strong>{liveEntry.moduleTitle}</strong> ({liveEntry.theme})
+          Live module{liveEntries.length > 1 ? 's' : ''} today:{' '}
+          <strong>{liveEntries.map((entry) => entry.moduleTitle).join(' · ')}</strong>
         </p>
       ) : (
         <p className="admin-seasonal-calendar-page__live-note" role="status">
