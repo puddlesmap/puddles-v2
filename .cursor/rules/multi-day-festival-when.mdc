@@ -1,0 +1,49 @@
+---
+description: Multi-day festival WHEN (Labor Day weekend, Moon Festival, etc.)
+alwaysApply: true
+---
+
+# Multi-day festival When
+
+Short multi-day festivals (not long seasonal farms) use `scheduleKind: 'multi-day'` with `openingDate` + `closingDate`.
+
+## Event page WHEN
+
+**When the next day is today or tomorrow**
+
+```
+Tomorrow, September 5
+8:00 AM–5:00 PM
+During Labor Day weekend · Sep 5–7
+```
+
+(`scheduleWindowLabel` + range on the third line when set.)
+
+**When the span is further out**
+
+```
+Sep 19–20
+Sat–Sun · 11:00 AM–5:00 PM
+```
+
+(No third line unless `scheduleWindowLabel` is set.)
+
+## Browse card
+
+Status + hours only (same spirit as seasonal-run): relative day or span as primary, hours as secondary. Omit the “During …” window line on cards.
+
+## Fields
+
+| Field | Use |
+| --- | --- |
+| `openingDate` / `closingDate` | Inclusive festival dates |
+| `recurringDaysLabel` | e.g. `Sat–Sun` when helpful; omit or Daily when every day in a short window |
+| `scheduleWindowLabel` | e.g. `During Labor Day weekend` → third WHEN line with the date range |
+
+## Tips
+
+Do not restate the weekend dates/hours in Good to know — see `tips-no-when-duplication.mdc`.
+
+## Related
+
+Implementation: `src/utils/formatSeasonalSchedule.ts` (`multi-day` branch).

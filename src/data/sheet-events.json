@@ -8693,7 +8693,7 @@
     "id": "los-altos-first-friday-2026-09-04",
     "title": "Los Altos First Friday",
     "description": "Live music on downtown streets — 10–15 bands at once for little ones to watch, dance & wander.",
-    "tips": "Free · first Friday of each month · 6–9pm in Downtown Los Altos (Rancho Shopping Center also hosts music).\nCheck losaltosfirstfriday.fun/entertainment for this month’s stages.\nBring a small folding chair if you want to linger at one stage.\nStroller-friendly sidewalks; stages can be loud — pick a quieter block if needed.",
+    "tips": "Free community music festival downtown (Rancho Shopping Center also hosts music).\nCheck losaltosfirstfriday.fun/entertainment for this month’s stages.\nBring a small folding chair if you want to linger at one stage.\nStroller-friendly sidewalks; stages can be loud — pick a quieter block if needed.",
     "venue": "Downtown Los Altos",
     "address": "Main Street & State Street, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -8707,7 +8707,104 @@
       "Festivals & Community"
     ],
     "categoryTags": [
+      "Festivals & Community",
+      "Monthly · first Friday"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Los_Altos_Main_Street_2.jpg",
+    "eventUrl": "https://losaltosfirstfriday.fun/",
+    "verifiedDate": "2026-09-04",
+    "lat": 37.3792,
+    "lng": -122.1177,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Festivals & Community"
+  },
+  {
+    "id": "los-altos-first-friday-2026-10-02",
+    "title": "Los Altos First Friday",
+    "description": "Live music on downtown streets — 10–15 bands at once for little ones to watch, dance & wander.",
+    "tips": "Free community music festival downtown (Rancho Shopping Center also hosts music).\nMonthly · first Friday of each month, year-round — confirm holiday weekends on losaltosfirstfriday.fun.\nCheck losaltosfirstfriday.fun/entertainment for this month’s stages.\nBring a small folding chair if you want to linger at one stage.\nStroller-friendly sidewalks; stages can be loud — pick a quieter block if needed.",
+    "venue": "Downtown Los Altos",
+    "address": "Main Street & State Street, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-10-02",
+    "startTime": "18:00",
+    "endTime": "21:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
       "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community",
+      "Monthly · first Friday"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Los_Altos_Main_Street_2.jpg",
+    "eventUrl": "https://losaltosfirstfriday.fun/",
+    "verifiedDate": "2026-09-04",
+    "lat": 37.3792,
+    "lng": -122.1177,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Festivals & Community"
+  },
+  {
+    "id": "los-altos-first-friday-2026-11-06",
+    "title": "Los Altos First Friday",
+    "description": "Live music on downtown streets — 10–15 bands at once for little ones to watch, dance & wander.",
+    "tips": "Free community music festival downtown (Rancho Shopping Center also hosts music).\nMonthly · first Friday of each month, year-round — confirm holiday weekends on losaltosfirstfriday.fun.\nCheck losaltosfirstfriday.fun/entertainment for this month’s stages.\nBring a small folding chair if you want to linger at one stage.\nStroller-friendly sidewalks; stages can be loud — pick a quieter block if needed.",
+    "venue": "Downtown Los Altos",
+    "address": "Main Street & State Street, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-11-06",
+    "startTime": "18:00",
+    "endTime": "21:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community",
+      "Monthly · first Friday"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Los_Altos_Main_Street_2.jpg",
+    "eventUrl": "https://losaltosfirstfriday.fun/",
+    "verifiedDate": "2026-09-04",
+    "lat": 37.3792,
+    "lng": -122.1177,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Festivals & Community"
+  },
+  {
+    "id": "los-altos-first-friday-2026-12-04",
+    "title": "Los Altos First Friday",
+    "description": "Live music on downtown streets — 10–15 bands at once for little ones to watch, dance & wander.",
+    "tips": "Free community music festival downtown (Rancho Shopping Center also hosts music).\nMonthly · first Friday of each month, year-round — confirm holiday weekends on losaltosfirstfriday.fun.\nCheck losaltosfirstfriday.fun/entertainment for this month’s stages.\nBring a small folding chair if you want to linger at one stage.\nStroller-friendly sidewalks; stages can be loud — pick a quieter block if needed.",
+    "venue": "Downtown Los Altos",
+    "address": "Main Street & State Street, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-12-04",
+    "startTime": "18:00",
+    "endTime": "21:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community",
+      "Monthly · first Friday"
     ],
     "cost": "Free",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Los_Altos_Main_Street_2.jpg",
@@ -8823,7 +8920,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-decorate-playhouse-2026-09-05",
     "title": "Decorate a Playhouse",
@@ -9012,7 +9109,7 @@
       "Stories",
       "Series · Sunnyvale library seed"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "staging-sunnyvale-library-toddler-storytime-series",
     "title": "Toddler Storytime",
@@ -9297,7 +9394,7 @@
       "Stories",
       "Series · Sunnyvale library seed"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "staging-sunnyvale-library-preschool-storytime-series",
     "title": "Preschool Storytime",
@@ -9362,7 +9459,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-sensory-storytime-2026-09-09",
     "title": "Sensory Storytime",
@@ -9455,7 +9552,7 @@
       "Stories",
       "Series · Sunnyvale library seed"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "staging-sunnyvale-library-baby-lapsit-series",
     "title": "Baby Lapsit & Playtime",
@@ -9617,7 +9714,7 @@
       "Stories",
       "Series · Sunnyvale library seed"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "staging-sunnyvale-library-night-owl-storytime-series",
     "title": "Night Owl Storytime",
@@ -9740,7 +9837,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-bilingual-hebrew-storytime-2026-09-11",
     "title": "Bilingual Hebrew-English Storytime",
@@ -9895,7 +9992,7 @@
       "Stories",
       "Series · Sunnyvale library seed"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "staging-sunnyvale-library-family-storytime-series",
     "title": "Family Storytime",
@@ -10052,7 +10149,7 @@
       "Library special",
       "Hello Fall"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-mid-autumn-storytime-craft-2026-09-13",
     "title": "Mid-Autumn Festival Storytime and Craft",
@@ -10117,7 +10214,7 @@
       "Library special",
       "Parent & Me"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-asl-for-babies-2026-09-14",
     "title": "ASL for Babies",
@@ -10806,7 +10903,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-bilingual-spanish-storytime-craft-2026-09-18",
     "title": "Bilingual (Spanish/English) Storytime & Craft",
@@ -11556,7 +11653,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-japanese-storytime-2026-09-25",
     "title": "Japanese Storytime",
@@ -11620,7 +11717,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-early-learning-playtime-2026-09-25",
     "title": "Early Learning Playtime",
@@ -11813,7 +11910,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-jamaroo-music-2026-09-28",
     "title": "Music and Movement with JAMaROO",
@@ -12662,7 +12759,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-hispanic-heritage-celebration-2026-10-04",
     "title": "Hispanic Heritage Month Celebration",
@@ -13265,7 +13362,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-sensory-storytime-2026-10-09",
     "title": "Sensory Storytime",
@@ -13391,7 +13488,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-individuo-hispanic-heritage-2026-10-10",
     "title": "Celebrate Hispanic Heritage Month with IndiviDúo!",
@@ -13454,7 +13551,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-autumn-japanese-storytime-2026-10-11",
     "title": "Autumn Japanese Storytime",
@@ -13520,7 +13617,7 @@
       "Library special",
       "Parent & Me"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-asl-for-babies-2026-10-12",
     "title": "ASL for Babies",
@@ -13838,7 +13935,7 @@
       "Sunnyvale",
       "Seasonal"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-halloween-costume-swap-2026-10-14",
     "title": "Halloween Costume Swap",
@@ -14123,7 +14220,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-bilingual-spanish-storytime-craft-2026-10-16",
     "title": "Bilingual (Spanish/English) Storytime & Craft",
@@ -14382,7 +14479,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-healthy-smile-storytime-2026-10-19",
     "title": "Healthy Smile Storytime",
@@ -15110,7 +15207,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-family-movie-elio-2026-10-25",
     "title": "Family Movie: Elio",
@@ -15838,7 +15935,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-japanese-storytime-2026-10-30",
     "title": "Japanese Storytime",
@@ -15900,7 +15997,7 @@
       "Sunnyvale",
       "Library special"
     ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "imageUrl": "",
     "room": "",
     "id": "watchlist-sunnyvale-library-early-learning-playtime-2026-10-30",
     "title": "Early Learning Playtime",

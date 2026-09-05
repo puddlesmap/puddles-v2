@@ -1,0 +1,42 @@
+---
+description: Do not duplicate When/schedule facts in Good to know tips
+alwaysApply: true
+---
+
+# Tips vs When — no schedule duplication
+
+## Core rule
+
+> **If it belongs in WHEN, do not repeat it in Good to know.**
+
+Parents already see dates, hours, Through, and festival window labels in the When block. Tips should add *other* useful info (tickets, parking, what to bring, crowd notes) — not restate the schedule.
+
+## Put in WHEN (not tips)
+
+- Opening / next open / Open TODAY / Tomorrow…
+- Operating hours
+- Recurrence (Daily, Weekends, Sat–Sun)
+- Through [close date]
+- Multi-day window lines (e.g. `During Labor Day weekend · Sep 5–7`)
+- Date spans already shown as `Sep 19–20`
+
+## Keep in Good to know
+
+- Ticket / registration links and policies
+- Parking, strollers, crowds, what to bring
+- Variable hours caveat (“hours vary — check the farm calendar”) when WHEN only shows a representative open-day time
+- Editorial notes that are *not* the schedule itself
+
+## Avoid
+
+| Avoid in tips | Prefer |
+| --- | --- |
+| Sat–Sun Sep 19–20 · 11am–5pm on Grant Avenue | (WHEN shows range + Sat–Sun · hours) |
+| Open September 17–November 2, 7 days a week | (WHEN shows Opens / Daily · hours / Through Nov 2) |
+| Labor Day weekend Sep 5–7 only | (WHEN shows During Labor Day weekend · Sep 5–7) |
+| Sat Sep 26 · 11am–4pm at Presidio Main Parade Lawn | (WHEN shows the date + hours; tip can say Free admission / RSVP / parking) |
+
+## Related
+
+- `.cursor/rules/long-duration-event-when.mdc` — seasonal Through / Opens labels
+- Multi-day festivals use `scheduleKind: 'multi-day'` + optional `scheduleWindowLabel`

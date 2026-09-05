@@ -15,7 +15,7 @@ import {
   formatModalDate,
   formatModalTimeRange,
 } from '../../utils/dates'
-import { formatSeasonalDetailWhen, type SeasonalWhenRow } from '../../utils/formatSeasonalSchedule'
+import { formatSeasonalDetailWhen, eventUsesSeasonalWhen, type SeasonalWhenRow } from '../../utils/formatSeasonalSchedule'
 import {
   formatLifecycleCancelledPhrase,
   formatLifecycleEndedPhrase,
@@ -137,8 +137,9 @@ function WhenRowList({
 }
 
 function getEventPresentation(event: Event, now: Date = new Date()) {
-  const seasonalWhen =
-    event.scheduleKind === 'seasonal-run' ? formatSeasonalDetailWhen(event, now) : null
+  const seasonalWhen = eventUsesSeasonalWhen(event)
+    ? formatSeasonalDetailWhen(event, now)
+    : null
   const whenRows = seasonalWhen?.rows ?? null
   const whenRail = seasonalWhen?.rail ?? null
   const dateLabel = whenRows?.[0]?.text ?? formatEventDate(event.date)
@@ -729,13 +730,13 @@ function AirbnbV2Layout({
   const tipItems = parseEventTips(event.tips)
   const ageLabel = getEventAgeRecommendation(event).label
   const railLines =
-    event.scheduleKind === 'seasonal-run'
+    eventUsesSeasonalWhen(event)
       ? p.whenRail
       : ([formatModalDate(event.date), formatModalTimeRange(event.startTime, event.endTime)].filter(
           (line): line is string => Boolean(line),
         ) as string[])
   const metaRows =
-    event.scheduleKind === 'seasonal-run'
+    eventUsesSeasonalWhen(event)
       ? p.whenRows
       : toWhenRows(railLines)
 
@@ -948,7 +949,7 @@ export function AirbnbV3DesktopContent({
   const p = getEventPresentation(event, lifecycleNow)
   const tipItems = parseEventTips(event.tips)
   const whenRows =
-    event.scheduleKind === 'seasonal-run'
+    eventUsesSeasonalWhen(event)
       ? p.whenRows
       : toWhenRows(
           [formatModalDate(event.date), formatV3TimeRange(event.startTime, event.endTime)].filter(
@@ -1112,7 +1113,7 @@ function AirbnbV3Layout({
   const isDesktop = useMediaQuery('(min-width: 768px)')
   const isEnded = isEndedLifecycleStatus(lifecycleStatus)
   const whenRows =
-    event.scheduleKind === 'seasonal-run'
+    eventUsesSeasonalWhen(event)
       ? p.whenRows
       : toWhenRows(
           [formatModalDate(event.date), formatV3TimeRange(event.startTime, event.endTime)].filter(

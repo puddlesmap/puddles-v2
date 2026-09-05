@@ -24,8 +24,8 @@ export function isEventCancelledForLifecycle(event: Event): boolean {
 export function getEventEffectiveEndTime(
   event: Pick<Event, 'date' | 'startTime' | 'endTime' | 'scheduleKind' | 'closingDate' | 'openingDate'>,
 ): Date | null {
-  // Seasonal runs last through closingDate (end of that calendar day), not the opening day's hours.
-  if (event.scheduleKind === 'seasonal-run') {
+  // Seasonal / multi-day runs last through closingDate (end of that calendar day).
+  if (event.scheduleKind === 'seasonal-run' || event.scheduleKind === 'multi-day') {
     const closing = (event.closingDate || '').trim()
     if (closing) {
       // End of the closing calendar day (Pacific), not opening-day hours.

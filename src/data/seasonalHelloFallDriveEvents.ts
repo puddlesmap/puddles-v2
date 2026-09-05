@@ -46,7 +46,6 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     description:
       'Cow train, hay rides & a corn maze — a South Bay pumpkin patch with plenty for little ones to ride and explore.',
     tips: [
-      'Open September 17–November 2, 7 days a week (weather permitting).',
       'Hours vary by day — check the farm calendar for the day you visit.',
       'Patch admission is free; attraction tickets are sold on-site only (no online ticket sales).',
       'Parking free Monday–Thursday; $30 cash only Friday–Sunday.',
@@ -113,8 +112,7 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     description:
       'Korea’s harvest holiday on the Presidio lawn — traditional games, performances & family activities for little ones to try.',
     tips: [
-      'Free admission · Sat Sep 26 · 11am–4pm at Presidio Main Parade Lawn.',
-      'RSVP on the official page helps organizers plan capacity.',
+      'Free admission. RSVP on the official page helps organizers plan capacity.',
       'Paid Presidio parking nearby; bring a blanket for the lawn.',
     ].join('\n'),
     venue: 'Presidio Main Parade Lawn',
@@ -144,7 +142,6 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     description:
       'Lion dancing, street performances & kids activities along Grant Avenue — a classic Mid-Autumn celebration for little ones to watch and explore.',
     tips: [
-      'Free street festival · Sat–Sun Sep 19–20 · 11am–5pm on Grant Avenue.',
       'Kids activities, lion dancing & street performances — strollers easier on side streets; expect midday crowds.',
     ].join('\n'),
     venue: 'Grant Avenue · Chinatown',
@@ -153,6 +150,10 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     date: '2026-09-19',
     startTime: '11:00',
     endTime: '17:00',
+    scheduleKind: 'multi-day',
+    openingDate: '2026-09-19',
+    closingDate: '2026-09-20',
+    recurringDaysLabel: 'Sat–Sun',
     ageRange: '0–2, 2–5, 5+',
     ageMin: 0,
     ageMax: 5,
@@ -162,7 +163,7 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     imageUrl:
       'https://images.squarespace-cdn.com/content/v1/629ea90b27bf2b1528862d49/5f0bf5de-0b52-4782-95aa-9c0356e92c36/DSC_9811ionE+%281%29.jpg',
     eventUrl: 'https://www.moonfestival.org/',
-    verifiedDate: '2026-09-02',
+    verifiedDate: '2026-09-04',
     lat: 37.7936,
     lng: -122.4062,
     status: 'Hidden',
@@ -243,7 +244,6 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     description:
       'Redwood Forest steam train or beach train, plus Town of Roaring Camp — gold panning, blacksmith demos, mini tractors & live music for a Labor Day outing.',
     tips: [
-      'Labor Day weekend Sep 5–7 only — remove from Hello Fall after the holiday.',
       'Ride the steam or beach train, then Town of Roaring Camp activities (gold panning, blacksmith, mini tractors & live music).',
       'Train tickets sold separately on roaringcamp.com — check departure times on the official page.',
     ].join('\n'),
@@ -253,6 +253,10 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     date: '2026-09-05',
     startTime: '08:00',
     endTime: '17:00',
+    scheduleKind: 'multi-day',
+    openingDate: '2026-09-05',
+    closingDate: '2026-09-07',
+    scheduleWindowLabel: 'During Labor Day weekend',
     ageRange: 'All ages · Little ones welcome',
     ageMin: 0,
     ageMax: 5,

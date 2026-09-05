@@ -67,8 +67,9 @@ export interface Event {
   /**
    * Long-running destinations (pumpkin farms, holiday displays).
    * When set to `seasonal-run`, card/detail use Opens / Open TODAY labels instead of a single-day date.
+   * `multi-day` = short festival weekends (e.g. Labor Day Fri–Sun, Moon Festival Sat–Sun).
    */
-  scheduleKind?: 'one-time' | 'seasonal-run'
+  scheduleKind?: 'one-time' | 'seasonal-run' | 'multi-day'
   /** Season opening day (YYYY-MM-DD). Defaults to `date` when scheduleKind is seasonal-run. */
   openingDate?: string
   /** Official closing day only — never invent. */
@@ -80,6 +81,11 @@ export interface Event {
    * (e.g. “Also open weekdays in September & October”). Omit from browse cards / rail.
    */
   scheduleNote?: string
+  /**
+   * Multi-day festival window label for WHEN (e.g. “During Labor Day weekend”).
+   * Shown as “{label} · Sep 5–7” under hours — not in Good to know.
+   */
+  scheduleWindowLabel?: string
   ageRange: string
   ageMin: number
   ageMax: number

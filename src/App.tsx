@@ -16,6 +16,7 @@ import { ExperimentHomeApricotBandMockupPage } from './views/ExperimentHomeApric
 import { ExperimentSeasonalBackNavMockupPage } from './views/ExperimentSeasonalBackNavMockupPage'
 import { ExperimentHomeBrowseChipsMockupPage } from './views/ExperimentHomeBrowseChipsMockupPage'
 import { ExperimentFarmSeasonAgesMockupPage } from './views/ExperimentFarmSeasonAgesMockupPage'
+import { ExperimentSunnyvaleLibraryImagesMockupPage } from './views/ExperimentSunnyvaleLibraryImagesMockupPage'
 import { HomeV1Page } from './views/HomeV1Page'
 import { HomeExperiment1Page } from './views/HomeExperiment1Page'
 import { HomeExperiment2Page } from './views/HomeExperiment2Page'
@@ -108,6 +109,10 @@ function AppShell() {
       <Route
         path="/experiment/farm-season-ages-mockup"
         element={<ExperimentFarmSeasonAgesMockupPage />}
+      />
+      <Route
+        path="/experiment/sunnyvale-library-images-mockup"
+        element={<ExperimentSunnyvaleLibraryImagesMockupPage />}
       />
       <Route
         path="/experiment/hallmark-hello-fall-mockup"

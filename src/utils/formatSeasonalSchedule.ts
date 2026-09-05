@@ -73,7 +73,15 @@ type SeasonalFields = Pick<
   | 'closingDate'
   | 'recurringDaysLabel'
   | 'scheduleNote'
+  | 'scheduleWindowLabel'
 >
+
+/** True when detail WHEN uses structured seasonal / multi-day rows (not one-time modal date). */
+export function eventUsesSeasonalWhen(
+  event: Pick<Event, 'scheduleKind'>,
+): boolean {
+  return event.scheduleKind === 'seasonal-run' || event.scheduleKind === 'multi-day'
+}
 
 function asWhenRows(texts: string[]): SeasonalWhenRow[] {
   return texts.filter(Boolean).map((text) => ({ text }))
@@ -139,6 +147,36 @@ function addDaysYmd(ymd: string, days: number): string {
   return zonedCalendarDate(d)
 }
 
+function formatLongMonthDay(ymd: string): string {
+  const d = new Date(`${ymd}T12:00:00`)
+  if (Number.isNaN(d.getTime())) return ymd
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })
+}
+
+/** Today, September 5 / Tomorrow, September 5 / Saturday, September 19 */
+function formatRelativeLongDay(ymd: string, today: string): string {
+  const tomorrow = addDaysYmd(today, 1)
+  const monthDay = formatLongMonthDay(ymd)
+  if (ymd === today) return `Today, ${monthDay}`
+  if (ymd === tomorrow) return `Tomorrow, ${monthDay}`
+  const d = new Date(`${ymd}T12:00:00`)
+  return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
+}
+
+function multiDayPrimaryLabel(opening: string, closing: string, today: string): string {
+  const range = formatRangeLabel(opening, closing)
+  if (today > closing) return `Closed · was ${range}`
+  if (today >= opening && today <= closing) {
+    return formatRelativeLongDay(today, today)
+  }
+  // Before opening: today/tomorrow → relative day; otherwise the span (Sep 19–20).
+  const tomorrow = addDaysYmd(today, 1)
+  if (opening === today || opening === tomorrow) {
+    return formatRelativeLongDay(opening, today)
+  }
+  return range
+}
+
 function formatShortOpenDate(ymd: string): string {
   const d = new Date(`${ymd}T12:00:00`)
   if (Number.isNaN(d.getTime())) return ymd
@@ -146,7 +184,20 @@ function formatShortOpenDate(ymd: string): string {
   return `${month} ${d.getDate()}`
 }
 
+/** Same month → Sep 5–7; otherwise Sep 19–Oct 2. */
 function formatRangeLabel(from: string, to: string): string {
+  if (!to || from === to) return formatShortOpenDate(from)
+  const a = new Date(`${from}T12:00:00`)
+  const b = new Date(`${to}T12:00:00`)
+  if (Number.isNaN(a.getTime()) || Number.isNaN(b.getTime())) {
+    return `${formatShortOpenDate(from)}–${formatShortOpenDate(to)}`
+  }
+  const sameMonth =
+    a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth()
+  if (sameMonth) {
+    const month = a.toLocaleDateString('en-US', { month: 'short' })
+    return `${month} ${a.getDate()}–${b.getDate()}`
+  }
   return `${formatShortOpenDate(from)}–${formatShortOpenDate(to)}`
 }
 
@@ -230,7 +281,7 @@ function opensStatusLabel(opening: string, today: string): string {
 }
 
 /**
- * Shared availability for seasonal-run and (for sorting) one-time events.
+ * Shared availability for seasonal-run, multi-day festivals, and (for sorting) one-time events.
  */
 export function getSeasonalAvailability(
   event: SeasonalFields,
@@ -242,18 +293,21 @@ export function getSeasonalAvailability(
   const hoursOk = hours !== '—'
   const openDays = parseRecurringWeekdays(recurring)
 
-  if (event.scheduleKind === 'seasonal-run') {
+  if (event.scheduleKind === 'seasonal-run' || event.scheduleKind === 'multi-day') {
     const opening = (event.openingDate || event.date || '').trim()
     const closing = (event.closingDate || '').trim()
+    const isMultiDay = event.scheduleKind === 'multi-day'
 
     if (closing && today > closing) {
       return {
         bucket: 'ended',
-        statusLabel: `Closed · was ${formatRangeLabel(opening || event.date, closing)}`,
+        statusLabel: isMultiDay
+          ? multiDayPrimaryLabel(opening || event.date, closing, today)
+          : `Closed · was ${formatRangeLabel(opening || event.date, closing)}`,
         nextRelevantYmd: closing,
         opening,
         closing,
-        recurring,
+        recurring: isMultiDay && recurring === 'Daily' ? '' : recurring,
         hours,
         hoursOk,
         openToday: false,
@@ -263,27 +317,31 @@ export function getSeasonalAvailability(
     if (opening && today < opening) {
       return {
         bucket: 'openingSoon',
-        statusLabel: opensStatusLabel(opening, today),
+        statusLabel: isMultiDay
+          ? multiDayPrimaryLabel(opening, closing || opening, today)
+          : opensStatusLabel(opening, today),
         nextRelevantYmd: opening,
         opening,
         closing,
-        recurring,
+        recurring: isMultiDay && recurring === 'Daily' ? '' : recurring,
         hours,
         hoursOk,
         openToday: false,
       }
     }
 
-    // In season (or open day with no close)
+    // In season / festival window
     const openToday = isOpenOnYmd(openDays, today)
     if (openToday) {
       return {
         bucket: 'openToday',
-        statusLabel: 'Open TODAY',
+        statusLabel: isMultiDay
+          ? multiDayPrimaryLabel(opening || event.date, closing || today, today)
+          : 'Open TODAY',
         nextRelevantYmd: today,
         opening: opening || event.date,
         closing,
-        recurring,
+        recurring: isMultiDay && recurring === 'Daily' ? '' : recurring,
         hours,
         hoursOk,
         openToday: true,
@@ -295,11 +353,13 @@ export function getSeasonalAvailability(
       const weekday = WEEKDAY_NAMES[weekdayIndexFromYmd(next)]
       return {
         bucket: 'closedToday',
-        statusLabel: `Next open ${weekday}`,
+        statusLabel: isMultiDay
+          ? formatRelativeLongDay(next, today)
+          : `Next open ${weekday}`,
         nextRelevantYmd: next,
         opening: opening || event.date,
         closing,
-        recurring,
+        recurring: isMultiDay && recurring === 'Daily' ? '' : recurring,
         hours,
         hoursOk,
         openToday: false,
@@ -309,12 +369,14 @@ export function getSeasonalAvailability(
     return {
       bucket: 'ended',
       statusLabel: closing
-        ? `Closed · was ${formatRangeLabel(opening || event.date, closing)}`
+        ? isMultiDay
+          ? multiDayPrimaryLabel(opening || event.date, closing, today)
+          : `Closed · was ${formatRangeLabel(opening || event.date, closing)}`
         : 'Closed',
       nextRelevantYmd: closing || today,
       opening: opening || event.date,
       closing,
-      recurring,
+      recurring: isMultiDay && recurring === 'Daily' ? '' : recurring,
       hours,
       hoursOk,
       openToday: false,
@@ -377,7 +439,7 @@ export function formatSeasonalBrowseWhen(
   event: SeasonalFields,
   now: Date = new Date(),
 ): DiscoveryWhenParts {
-  if (event.scheduleKind !== 'seasonal-run') {
+  if (!eventUsesSeasonalWhen(event)) {
     const line = formatCardDateTime(event.date, event.startTime, now)
     return { primary: line, line }
   }
@@ -392,12 +454,38 @@ export function formatSeasonalBrowseWhen(
   return { primary, secondary, line: joinWhen(primary, secondary) }
 }
 
+function buildMultiDayDetailWhen(
+  event: SeasonalFields,
+  avail: SeasonalAvailability,
+): SeasonalDetailWhen {
+  const windowLabel = (event.scheduleWindowLabel || '').trim()
+  const opening = avail.opening || event.date
+  const closing = avail.closing || opening
+  const range = formatRangeLabel(opening, closing)
+  const hoursLine = avail.recurring
+    ? avail.hoursOk
+      ? `${avail.recurring} · ${avail.hours}`
+      : avail.recurring
+    : avail.hoursOk
+      ? avail.hours
+      : ''
+  const windowLine = windowLabel ? `${windowLabel} · ${range}` : ''
+
+  if (avail.bucket === 'ended') {
+    return { rows: [{ text: avail.statusLabel }], rail: [avail.statusLabel] }
+  }
+
+  const rows = asWhenRows([avail.statusLabel, hoursLine, windowLine])
+  const rail = [avail.statusLabel, avail.hoursOk ? avail.hours : '', windowLine].filter(Boolean)
+  return { rows, rail }
+}
+
 /** Event detail WHEN rows + compact action-rail lines. */
 export function formatSeasonalDetailWhen(
   event: SeasonalFields,
   now: Date = new Date(),
 ): SeasonalDetailWhen {
-  if (event.scheduleKind !== 'seasonal-run') {
+  if (!eventUsesSeasonalWhen(event)) {
     const line = formatCardDateTime(event.date, event.startTime, now)
     const hours = hoursLabel(event)
     return {
@@ -407,6 +495,11 @@ export function formatSeasonalDetailWhen(
   }
 
   const avail = getSeasonalAvailability(event, now)
+
+  if (event.scheduleKind === 'multi-day') {
+    return buildMultiDayDetailWhen(event, avail)
+  }
+
   const note = (event.scheduleNote || '').trim()
 
   if (avail.bucket === 'ended') {

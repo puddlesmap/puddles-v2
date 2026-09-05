@@ -12,5 +12,6 @@ When setting or backfilling `imageUrl` for events:
 2. **If none, use the event host’s image** — the bookstore, library, garden, farm, city program, or organization that hosts the event (storefront, venue identity photo, org logo/photo from the host).
 3. **Never reuse another event’s artwork** just because it shares a venue, city, or date (e.g. do not give Pet a Pony a Purissima Park movie-night Zootopia poster).
 4. **Do not invent or use unrelated stock** when a host image exists. Activity-type clay fallbacks (`/event-fallbacks/*`) are last resort only when both event and host images are missing.
+5. **Exception — Sunnyvale Public Library:** do not use the shared building host photo for every program. Leave `imageUrl` empty (or event-specific only) so cards resolve to activity-type fallbacks and different event types look distinct.
 
 Resolution order in code (`getEventImageUrl`): event `imageUrl` → host image registry → activity-type fallback.

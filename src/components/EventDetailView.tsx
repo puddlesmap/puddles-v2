@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import type { Event } from '../types/event'
 import type { EventOpenSource } from '../types/analytics'
 import { formatModalDate, formatModalTimeRange } from '../utils/dates'
-import { formatSeasonalDetailWhen, type SeasonalWhenRow } from '../utils/formatSeasonalSchedule'
+import { formatSeasonalDetailWhen, eventUsesSeasonalWhen, type SeasonalWhenRow } from '../utils/formatSeasonalSchedule'
 import {
   buildClipboardShareText,
   buildNativeSharePayload,
@@ -144,8 +144,9 @@ function EventDetailMetadata({
   'event' | 'directionsUrl' | 'addressLine' | 'roomLine' | 'categoryTags'
 >) {
   const ageRec = getEventAgeRecommendation(event).label
-  const seasonalWhen =
-    event.scheduleKind === 'seasonal-run' ? formatSeasonalDetailWhen(event) : null
+  const seasonalWhen = eventUsesSeasonalWhen(event)
+    ? formatSeasonalDetailWhen(event)
+    : null
   const whenRows: SeasonalWhenRow[] = seasonalWhen?.rows ?? [
     formatModalDate(event.date),
     formatModalTimeRange(event.startTime, event.endTime),
