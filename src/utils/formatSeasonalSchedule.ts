@@ -449,6 +449,13 @@ export function formatSeasonalBrowseWhen(
     return { primary: avail.statusLabel, line: avail.statusLabel }
   }
 
+  // Multi-day festivals on cards: start day/date + start time (not date-span or hours duration).
+  if (event.scheduleKind === 'multi-day') {
+    const day = avail.nextRelevantYmd || avail.opening || event.date
+    const line = formatCardDateTime(day, event.startTime, now)
+    return { primary: line, line }
+  }
+
   const primary = avail.statusLabel
   const secondary = avail.hoursOk ? avail.hours : undefined
   return { primary, secondary, line: joinWhen(primary, secondary) }

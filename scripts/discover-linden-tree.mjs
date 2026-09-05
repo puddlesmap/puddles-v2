@@ -23,9 +23,9 @@ import {
 export const LINDEN_SOURCE = 'Calendar Watchlist · Linden Tree Books'
 export const LINDEN_WATCHLIST_ID = 'linden-tree'
 export const LINDEN_CALENDAR_URL = 'https://www.lindentreebooks.com/events-calendar/'
-/** Homepage staff-picks banner from lindentreebooks.com (host identity). */
+/** Store logo — not Staff Picks collage. */
 export const LINDEN_HOST_IMAGE =
-  'https://cdn.shoplightspeed.com/shops/611345/themes/10258/v/1165060/assets/banner-image.png'
+  'https://cdn.shoplightspeed.com/shops/611345/themes/10258/v/165078/assets/logo.png'
 
 const VENUE = {
   venue: 'Linden Tree Books',

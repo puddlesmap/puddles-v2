@@ -22,6 +22,7 @@ import { useUserLocation } from '../hooks/useUserLocation'
 import {
   DEFAULT_BROWSE_FILTERS,
   filterEvents,
+  sortEventsBySchedule,
   getBrowseActivityChipLabel,
   getBrowseAgeChipLabel,
   getBrowseSeeUpcomingFilters,
@@ -278,7 +279,7 @@ export function BrowsePage({
       )
     }
 
-    return base
+    return sortEventsBySchedule(base)
   }, [browseFilters, coords, discoveryGate, resolveCatalog])
 
   const awaitingNearby = browseFilters.city === 'nearby' && !coords

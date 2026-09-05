@@ -466,7 +466,7 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     id: "seasonal-drive-day-on-the-bay-2026-10-17",
     title: "Day on the Bay",
     description: "Bayshore festival at Alviso Marina with youth activities and entertainment — a South Bay shoreline outing for little explorers.",
-    tips: "Free. Confirm 2026 kids activities (pumpkins, youth booths) on the County Parks Day on the Bay page before you go.\nSame Saturday as Sunnyvale Hands on the Arts — pick one outing.",
+    tips: "Free. Confirm 2026 kids activities (pumpkins, youth booths) on the County Parks Day on the Bay page before you go.",
     venue: "Alviso Marina County Park",
     address: "1195 Hope Street, San Jose, CA 95002",
     city: "San Jose",

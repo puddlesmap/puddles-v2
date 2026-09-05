@@ -14,7 +14,7 @@ import { AppHeader } from '../components/layout/AppHeader'
 import { DiscoveryHeroPlaceholder } from '../components/placeholders/VisualPlaceholders'
 import { useApp } from '../context/AppContext'
 import { useEventNavigation } from '../hooks/useEventNavigation'
-import { filterEvents } from '../utils/filters'
+import { filterEvents, sortEventsBySchedule } from '../utils/filters'
 import { getFirstTemporalTabWithEvents, getTemporalTabs } from '../utils/dates'
 import { trackCitySelected, trackDateFilterSelected } from '../utils/analytics'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
@@ -61,10 +61,12 @@ export function DiscoveryPage({
     setTemporalTab(getFirstTemporalTabWithEvents(pool))
   }, [city, setTemporalTab])
 
-  const events = filterEvents(getPublicEventsFromCatalog(), {
-    city: city === 'all' ? 'all' : city,
-    temporalTab,
-  })
+  const events = sortEventsBySchedule(
+    filterEvents(getPublicEventsFromCatalog(), {
+      city: city === 'all' ? 'all' : city,
+      temporalTab,
+    }),
+  )
 
   const feedKey = useMemo(() => `${city}|${temporalTab}`, [city, temporalTab])
 

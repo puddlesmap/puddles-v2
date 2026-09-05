@@ -7,8 +7,12 @@
  * 3. Never another event’s flyer just because the venue matches
  */
 export const EVENT_HOST_IMAGES: Record<string, string> = {
+  // Linden Tree Books — store logo (not Staff Picks collage).
   'Linden Tree Books':
-    'https://cdn.shoplightspeed.com/shops/611345/themes/10258/v/1165060/assets/banner-image.png',
+    'https://cdn.shoplightspeed.com/shops/611345/themes/10258/v/165078/assets/logo.png',
+  // Cantor Arts Center — venue exterior when event flyer isn’t on museum.stanford.edu.
+  'Cantor Arts Center':
+    'https://upload.wikimedia.org/wikipedia/commons/6/6d/Iris_%26_B._Gerald_Cantor_Center_for_Visual_Arts%2C_Stanford%2C_California_-_20060728.jpg',
   // Sunnyvale Public Library: prefer activity-type clay fallbacks over the shared building photo.
   'Los Altos Library':
     'https://sccl.bibliocommons.com/events/uploads/images/full/9789d6ae7a5db8da406ba9e1d3837e1e/Early%20Learning%20%26%20Storytime.jpg',
@@ -53,6 +57,9 @@ export const EVENT_HOST_IMAGES: Record<string, string> = {
 /** Case-insensitive venue / host alias → canonical EVENT_HOST_IMAGES key */
 const EVENT_HOST_IMAGE_ALIASES: Record<string, string> = {
   'linden tree books': 'Linden Tree Books',
+  'cantor arts center': 'Cantor Arts Center',
+  'cantor arts center at stanford university': 'Cantor Arts Center',
+  'iris & b. gerald cantor center for visual arts': 'Cantor Arts Center',
   'los altos library': 'Los Altos Library',
   'mountain view public library': 'Mountain View Public Library',
   'mountain view library': 'Mountain View Public Library',

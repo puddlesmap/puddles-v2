@@ -94,6 +94,17 @@ export function filterEvents(
   })
 }
 
+/** Chronological feed order — date, then start time, then title. */
+export function sortEventsBySchedule(events: Event[]): Event[] {
+  return [...events].sort((a, b) => {
+    const byDate = a.date.localeCompare(b.date)
+    if (byDate !== 0) return byDate
+    const byTime = (a.startTime || '').localeCompare(b.startTime || '')
+    if (byTime !== 0) return byTime
+    return a.title.localeCompare(b.title)
+  })
+}
+
 export function getFilteredCount(browse: BrowseFilters): number {
   return filterEvents(getPublicEventsFromCatalog(), { browse }).length
 }

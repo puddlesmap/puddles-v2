@@ -28,7 +28,7 @@ import {
 import { useUserLocation } from '../hooks/useUserLocation'
 import { useApp } from '../context/AppContext'
 import { useEventNavigation } from '../hooks/useEventNavigation'
-import { filterEvents } from '../utils/filters'
+import { filterEvents, sortEventsBySchedule } from '../utils/filters'
 import type { TemporalTab } from '../utils/dates'
 import { getFirstTemporalTabWithEvents, getTemporalTabs } from '../utils/dates'
 import {
@@ -203,7 +203,7 @@ export function HomeExperimentPage({
       )
     }
 
-    return base
+    return sortEventsBySchedule(base)
   }, [whereMode, temporalTab, coords, resolveCatalog])
 
   const feedKey = useMemo(

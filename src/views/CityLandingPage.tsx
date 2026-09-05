@@ -15,15 +15,11 @@ import {
 import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
 import { useEventNavigation } from '../hooks/useEventNavigation'
 import type { Event } from '../types/event'
-import { filterEvents } from '../utils/filters'
+import { filterEvents, sortEventsBySchedule } from '../utils/filters'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 
 function sortEventsByUpcomingDate(events: Event[]): Event[] {
-  return [...events].sort((a, b) => {
-    const dateCompare = a.date.localeCompare(b.date)
-    if (dateCompare !== 0) return dateCompare
-    return a.startTime.localeCompare(b.startTime)
-  })
+  return sortEventsBySchedule(events)
 }
 
 interface CityLandingPageProps {

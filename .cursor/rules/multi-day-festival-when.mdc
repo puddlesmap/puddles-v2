@@ -30,7 +30,8 @@ Sat–Sun · 11:00 AM–5:00 PM
 
 ## Browse card
 
-Status + hours only (same spirit as seasonal-run): relative day or span as primary, hours as secondary. Omit the “During …” window line on cards.
+Start day & date + start time only (same shape as one-time cards), e.g. `SAT, SEP 12 · 11:00 AM`.
+Do **not** show the date span or hours duration on the card — those stay on the event page WHEN.
 
 ## Fields
 
