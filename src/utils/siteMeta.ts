@@ -105,6 +105,9 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   if (pathname === '/experiment/home-browse-chips-mockup') {
     return formatDocumentTitle('Home Browse Chips Mockup')
   }
+  if (pathname === '/experiment/farm-season-ages-mockup') {
+    return formatDocumentTitle('Farm Season Ages Mockup')
+  }
   if (pathname === '/experiment/hallmark-hello-fall-mockup') {
     return formatDocumentTitle('Hallmark Hello Fall Mockup')
   }

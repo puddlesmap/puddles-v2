@@ -18,6 +18,7 @@ import { ExperimentHallmarkHomeMockupPage } from '@/views/ExperimentHallmarkHome
 import { ExperimentHomeApricotBandMockupPage } from '@/views/ExperimentHomeApricotBandMockupPage'
 import { ExperimentSeasonalBackNavMockupPage } from '@/views/ExperimentSeasonalBackNavMockupPage'
 import { ExperimentHomeBrowseChipsMockupPage } from '@/views/ExperimentHomeBrowseChipsMockupPage'
+import { ExperimentFarmSeasonAgesMockupPage } from '@/views/ExperimentFarmSeasonAgesMockupPage'
 import { HomeV1Page } from '@/views/HomeV1Page'
 import { HomeExperiment1Page } from '@/views/HomeExperiment1Page'
 import { HomeExperiment2Page } from '@/views/HomeExperiment2Page'
@@ -114,6 +115,10 @@ function ClientRoutes() {
             <Route
               path="/experiment/home-browse-chips-mockup"
               element={<ExperimentHomeBrowseChipsMockupPage />}
+            />
+            <Route
+              path="/experiment/farm-season-ages-mockup"
+              element={<ExperimentFarmSeasonAgesMockupPage />}
             />
             <Route
               path="/experiment/hallmark-hello-fall-mockup"
