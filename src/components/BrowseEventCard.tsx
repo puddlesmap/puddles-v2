@@ -25,9 +25,11 @@ export function BrowseEventCard({
   hovered = false,
   seasonalEditorial = true,
   density = 'default',
-}: BrowseEventCardProps) {
+  /** Override “today” for seasonal-run date labels (review mockups). */
+  asOf,
+}: BrowseEventCardProps & { asOf?: Date }) {
   const badge = seasonalEditorial ? getSeasonalEditorialBadgeForEvent(event) : null
-  const card = eventToBrowseCard(event, badge)
+  const card = eventToBrowseCard(event, badge, asOf ?? new Date())
 
   return (
     <DiscoveryV3Card

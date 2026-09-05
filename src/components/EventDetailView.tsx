@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import type { Event } from '../types/event'
 import type { EventOpenSource } from '../types/analytics'
 import { formatModalDate, formatModalTimeRange } from '../utils/dates'
+import { formatSeasonalDetailWhen, type SeasonalWhenRow } from '../utils/formatSeasonalSchedule'
 import {
   buildClipboardShareText,
   buildNativeSharePayload,
@@ -143,18 +144,39 @@ function EventDetailMetadata({
   'event' | 'directionsUrl' | 'addressLine' | 'roomLine' | 'categoryTags'
 >) {
   const ageRec = getEventAgeRecommendation(event).label
+  const seasonalWhen =
+    event.scheduleKind === 'seasonal-run' ? formatSeasonalDetailWhen(event) : null
+  const whenRows: SeasonalWhenRow[] = seasonalWhen?.rows ?? [
+    formatModalDate(event.date),
+    formatModalTimeRange(event.startTime, event.endTime),
+  ]
+    .filter(Boolean)
+    .map((text) => ({ text }))
 
   return (
     <>
       <div className="event-detail-row">
         <EventDetailIcon kind="time" />
         <div className="event-detail-row-content">
-          <p className="event-detail-meta">
-            <RelativeDateLabel label={formatModalDate(event.date)} />
-          </p>
-          <p className="event-detail-meta text-muted">
-            {formatModalTimeRange(event.startTime, event.endTime)}
-          </p>
+          {whenRows.map((row, index) => {
+            const isNote = row.variant === 'note'
+            const isFirst = index === 0 && !isNote
+            return (
+              <p
+                key={`${row.text}-${index}`}
+                className={
+                  isNote
+                    ? 'event-detail-meta text-muted sedl-when-note'
+                    : isFirst
+                      ? 'event-detail-meta'
+                      : 'event-detail-meta text-muted'
+                }
+                style={index > 0 ? { marginTop: '0.15rem' } : undefined}
+              >
+                {isFirst ? <RelativeDateLabel label={row.text} /> : row.text}
+              </p>
+            )
+          })}
         </div>
       </div>
 

@@ -15,7 +15,7 @@ import {
   formatModalDate,
   formatModalTimeRange,
 } from '../../utils/dates'
-import { formatDiscoveryWhen } from '../../utils/formatSeasonalSchedule'
+import { formatSeasonalDetailWhen, type SeasonalWhenRow } from '../../utils/formatSeasonalSchedule'
 import {
   formatLifecycleCancelledPhrase,
   formatLifecycleEndedPhrase,
@@ -89,12 +89,66 @@ function formatV3TimeRange(startTime: string, endTime?: string): string {
   return formatModalTimeRange(startTime, endTime)
 }
 
-function getEventPresentation(event: Event) {
-  const discoveryWhen =
-    event.scheduleKind === 'seasonal-run' ? formatDiscoveryWhen(event) : null
-  const dateLabel = discoveryWhen?.primary ?? formatEventDate(event.date)
-  const timeLabel =
-    discoveryWhen?.secondary ?? formatEventTimeRange(event.startTime, event.endTime)
+function toWhenRows(lines: string[]): SeasonalWhenRow[] {
+  return lines.filter(Boolean).map((text) => ({ text }))
+}
+
+function WhenRowList({
+  rows,
+  density = 'default',
+}: {
+  rows: SeasonalWhenRow[]
+  density?: 'default' | 'fact'
+}) {
+  return (
+    <>
+      {rows.map((row, index) => {
+        const isNote = row.variant === 'note'
+        const isFirst = index === 0 && !isNote
+        if (density === 'fact') {
+          return (
+            <p
+              key={`${row.text}-${index}`}
+              className={isNote ? 'sedl-when-note' : undefined}
+              style={{ margin: index === 0 ? 0 : '0.2rem 0 0' }}
+            >
+              {isFirst ? <RelativeDateLabel label={row.text} /> : row.text}
+            </p>
+          )
+        }
+        return (
+          <p
+            key={`${row.text}-${index}`}
+            className={
+              isNote
+                ? 'event-detail-meta text-muted sedl-when-note'
+                : isFirst
+                  ? 'event-detail-meta'
+                  : 'event-detail-meta text-muted'
+            }
+            style={index > 0 ? { marginTop: '0.15rem' } : undefined}
+          >
+            {isFirst ? <RelativeDateLabel label={row.text} /> : row.text}
+          </p>
+        )
+      })}
+    </>
+  )
+}
+
+function getEventPresentation(event: Event, now: Date = new Date()) {
+  const seasonalWhen =
+    event.scheduleKind === 'seasonal-run' ? formatSeasonalDetailWhen(event, now) : null
+  const whenRows = seasonalWhen?.rows ?? null
+  const whenRail = seasonalWhen?.rail ?? null
+  const dateLabel = whenRows?.[0]?.text ?? formatEventDate(event.date)
+  const timeLabel = whenRows
+    ? whenRows
+        .slice(1)
+        .filter((row) => row.variant !== 'note')
+        .map((row) => row.text)
+        .join(' · ') || undefined
+    : formatEventTimeRange(event.startTime, event.endTime)
   const addressLine = keepCityNameOnOneLine(
     capitalizeCitiesInText(getEventAddressLine(event), event.city),
     event.city,
@@ -134,6 +188,10 @@ function getEventPresentation(event: Event) {
   return {
     dateLabel,
     timeLabel,
+    whenRows:
+      whenRows ??
+      toWhenRows([dateLabel, timeLabel].filter((line): line is string => Boolean(line))),
+    whenRail: whenRail ?? ([dateLabel, timeLabel].filter((line): line is string => Boolean(line))),
     addressLine,
     directionsUrl,
     canCalendar,
@@ -186,13 +244,12 @@ function AirbnbV1CtaRail({
       <p className="sedl-airbnb-rail__cost">{event.cost}</p>
       {ageLabel ? <p className="sedl-airbnb-rail__age">{ageLabel}</p> : null}
       <p className="sedl-airbnb-rail__when">
-        <RelativeDateLabel label={p.dateLabel} />
-        {p.timeLabel ? (
-          <>
-            <br />
-            {p.timeLabel}
-          </>
-        ) : null}
+        {p.whenRail.map((line, index) => (
+          <span key={`${line}-${index}`}>
+            {index > 0 ? <br /> : null}
+            {index === 0 ? <RelativeDateLabel label={line} /> : line}
+          </span>
+        ))}
       </p>
       <p className="sedl-airbnb-rail__where">{event.venue || p.city}</p>
       <button
@@ -671,6 +728,16 @@ function AirbnbV2Layout({
   const p = getEventPresentation(event)
   const tipItems = parseEventTips(event.tips)
   const ageLabel = getEventAgeRecommendation(event).label
+  const railLines =
+    event.scheduleKind === 'seasonal-run'
+      ? p.whenRail
+      : ([formatModalDate(event.date), formatModalTimeRange(event.startTime, event.endTime)].filter(
+          (line): line is string => Boolean(line),
+        ) as string[])
+  const metaRows =
+    event.scheduleKind === 'seasonal-run'
+      ? p.whenRows
+      : toWhenRows(railLines)
 
   return (
     <div className="sedl sedl--airbnb-v2">
@@ -706,10 +773,7 @@ function AirbnbV2Layout({
               <div className="event-detail-row">
                 <EventDetailIcon kind="time" />
                 <div className="event-detail-row-content">
-                  <p className="event-detail-meta">{formatModalDate(event.date)}</p>
-                  <p className="event-detail-meta text-muted">
-                    {formatModalTimeRange(event.startTime, event.endTime)}
-                  </p>
+                  <WhenRowList rows={metaRows} />
                 </div>
               </div>
 
@@ -808,10 +872,12 @@ function AirbnbV2Layout({
         </div>
 
         <aside className="sedl-v2-rail" aria-label="Save this activity">
-          <p className="sedl-v2-rail__when">{formatModalDate(event.date)}</p>
-          <p className="sedl-v2-rail__time text-muted">
-            {formatModalTimeRange(event.startTime, event.endTime)}
-          </p>
+          <p className="sedl-v2-rail__when">{railLines[0]}</p>
+          {railLines.slice(1).map((line) => (
+            <p key={line} className="sedl-v2-rail__time text-muted">
+              {line}
+            </p>
+          ))}
           <p className="sedl-v2-rail__venue">{event.venue || p.city}</p>
           <p className="sedl-v2-rail__cost">{event.cost}</p>
           {ageLabel ? <p className="sedl-v2-rail__age">{ageLabel}</p> : null}
@@ -879,13 +945,16 @@ export function AirbnbV3DesktopContent({
   lifecycleNow?: Date
   lifecycleLinkTarget?: LifecycleLinkTarget
 }) {
-  const p = getEventPresentation(event)
+  const p = getEventPresentation(event, lifecycleNow)
   const tipItems = parseEventTips(event.tips)
-  const v3 = {
-    ...p,
-    dateLabel: formatModalDate(event.date),
-    timeLabel: formatV3TimeRange(event.startTime, event.endTime),
-  }
+  const whenRows =
+    event.scheduleKind === 'seasonal-run'
+      ? p.whenRows
+      : toWhenRows(
+          [formatModalDate(event.date), formatV3TimeRange(event.startTime, event.endTime)].filter(
+            (line): line is string => Boolean(line),
+          ),
+        )
   const isModal = chrome === 'modal'
   const isEnded = isEndedLifecycleStatus(lifecycleStatus)
   const displayDescription = event.description
@@ -936,10 +1005,9 @@ export function AirbnbV3DesktopContent({
           <div className="sedl-airbnb-facts">
             <div>
               <p className="sedl-fact-label">When</p>
-              <p className="sedl-fact-value">
-                <RelativeDateLabel label={v3.dateLabel} />
-                {v3.timeLabel ? ` · ${v3.timeLabel}` : ''}
-              </p>
+              <div className="sedl-fact-value">
+                <WhenRowList rows={whenRows} density="fact" />
+              </div>
             </div>
             <div>
               <p className="sedl-fact-label">Where</p>
@@ -958,6 +1026,10 @@ export function AirbnbV3DesktopContent({
                   Get directions
                 </a>
               ) : null}
+            </div>
+            <div>
+              <p className="sedl-fact-label">Cost</p>
+              <p className="sedl-fact-value">{event.cost}</p>
             </div>
             <div>
               <p className="sedl-fact-label">Ages</p>
@@ -1001,7 +1073,7 @@ export function AirbnbV3DesktopContent({
             linkTarget={lifecycleLinkTarget}
           />
         ) : (
-          <AirbnbV1CtaRail event={event} presentation={v3} />
+          <AirbnbV1CtaRail event={event} presentation={p} />
         )}
       </div>
 
@@ -1031,7 +1103,7 @@ function AirbnbV3Layout({
   lifecycleNow = new Date(),
   lifecycleLinkTarget = 'production',
 }: Omit<SharedEventDesignLayoutProps, 'layout'>) {
-  const p = getEventPresentation(event)
+  const p = getEventPresentation(event, lifecycleNow)
   const tipItems = parseEventTips(event.tips)
   const ageRec = getEventAgeRecommendation(event).label
   const displayDescription = event.description
@@ -1039,11 +1111,14 @@ function AirbnbV3Layout({
     : ''
   const isDesktop = useMediaQuery('(min-width: 768px)')
   const isEnded = isEndedLifecycleStatus(lifecycleStatus)
-  const v3 = {
-    ...p,
-    dateLabel: formatModalDate(event.date),
-    timeLabel: formatV3TimeRange(event.startTime, event.endTime),
-  }
+  const whenRows =
+    event.scheduleKind === 'seasonal-run'
+      ? p.whenRows
+      : toWhenRows(
+          [formatModalDate(event.date), formatV3TimeRange(event.startTime, event.endTime)].filter(
+            (line): line is string => Boolean(line),
+          ),
+        )
 
   if (isDesktop) {
     return (
@@ -1098,10 +1173,7 @@ function AirbnbV3Layout({
               <div className="event-detail-row">
                 <EventDetailIcon kind="time" />
                 <div className="event-detail-row-content">
-                  <p className="event-detail-meta">
-                    <RelativeDateLabel label={v3.dateLabel} />
-                  </p>
-                  <p className="event-detail-meta text-muted">{v3.timeLabel}</p>
+                  <WhenRowList rows={whenRows} />
                 </div>
               </div>
 
@@ -1197,7 +1269,7 @@ function AirbnbV3Layout({
               linkTarget={lifecycleLinkTarget}
             />
           ) : (
-            <AirbnbV1CtaRail event={event} presentation={v3} />
+            <AirbnbV1CtaRail event={event} presentation={p} />
           )}
         </div>
       </div>

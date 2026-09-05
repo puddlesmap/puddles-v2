@@ -8661,18 +8661,19 @@
   {
     "id": "free-in-store-kids-workshops-school-bus-organizer-home-depot-2026-09-05-09-00",
     "title": "Free In-Store Kids Workshops: School Bus Organizer",
-    "description": "Join Us at 9 a.m. the First Saturday of Every Month. While Supplies Last.",
+    "description": "Build a free School Bus Organizer wood kit in-store with a parent — first Saturday drop-in while supplies last.",
+    "tips": "Designed for ages 5–12; younger kids welcome with a parent. Free 9am–noon while kits last — register ahead on the Home Depot Kids Workshop page.",
     "venue": "Home Depot",
-    "address": "1781 E Bayshore Rd\n\nEast Palo Alto, CA 94303",
-    "city": "Palo Alto",
+    "address": "1781 E Bayshore Rd, East Palo Alto, CA 94303",
+    "city": "East Palo Alto",
     "date": "2026-09-05",
     "startTime": "09:00",
     "endTime": "12:00",
-    "ageRange": "2–5",
-    "ageMin": 2,
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
     "ageMax": 5,
     "types": [
-      "Classes"
+      "Arts & Crafts"
     ],
     "categoryTags": [
       "Classes"
@@ -8680,13 +8681,44 @@
     "cost": "Free",
     "imageUrl": "https://dam.thdstatic.com/content/production/rgdkSn91AufHtfKhVwnqbA/0vexx6W5gyypRzu_PUWCzQ/Original%20file/2025_Kids_Workshops_hero_01032025_Ps.png",
     "eventUrl": "https://www.homedepot.com/c/kids-workshop",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-09-04",
     "lat": 37.4664,
     "lng": -122.1404,
     "status": "Published",
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Classes"
+  },
+  {
+    "id": "los-altos-first-friday-2026-09-04",
+    "title": "Los Altos First Friday",
+    "description": "Live music on downtown streets — 10–15 bands at once for little ones to watch, dance & wander.",
+    "tips": "Free · first Friday of each month · 6–9pm in Downtown Los Altos (Rancho Shopping Center also hosts music).\nCheck losaltosfirstfriday.fun/entertainment for this month’s stages.\nBring a small folding chair if you want to linger at one stage.\nStroller-friendly sidewalks; stages can be loud — pick a quieter block if needed.",
+    "venue": "Downtown Los Altos",
+    "address": "Main Street & State Street, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-09-04",
+    "startTime": "18:00",
+    "endTime": "21:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Los_Altos_Main_Street_2.jpg",
+    "eventUrl": "https://losaltosfirstfriday.fun/",
+    "verifiedDate": "2026-09-04",
+    "lat": 37.3792,
+    "lng": -122.1177,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Festivals & Community"
   },
   {
     "categoryTags": [
@@ -9901,7 +9933,7 @@
     "id": "16188977",
     "title": "Mid-Autumn Festival Story Celebration",
     "description": "Mandarin stories, picture books & hands-on Mid-Autumn crafts with PiggySprout.",
-    "tips": "",
+    "tips": "Free · Sat Sep 12 · 11am–noon · 1st Floor Program Room. Designed for preschoolers and families.",
     "venue": "Mountain View Library",
     "address": "585 Franklin St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -9921,7 +9953,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-03"
+    "verifiedDate": "2026-09-04"
   },
   {
     "id": "outdoor-storytime-linden-tree-books-2026-09-13-10-30",
@@ -9959,14 +9991,14 @@
     "id": "disc-storytime-with-jasmine-fang-beneath-the--2026-09-13-watchlist-linden-2026-09-13",
     "title": "Storytime with Jasmine Fang, Beneath the Same Round Moon",
     "description": "Celebrate Mid-Autumn Festival with Sunday storytime featuring local author Jasmine Fang and her debut picture book Beneath the Same Round Moon.",
-    "tips": "In front of the store. Picture-book storytime for families. Grab a treat from Manresa Bread next door.",
+    "tips": "In front of the store · outdoor Sunday storytime. Picture books for families — Manresa Bread next door.",
     "venue": "Linden Tree Books",
     "address": "265 State Street, Los Altos, CA 94022",
     "city": "Los Altos",
     "date": "2026-09-13",
     "startTime": "10:30",
-    "endTime": "11:15",
-    "ageRange": "0–2, 2–5",
+    "endTime": "10:30",
+    "ageRange": "All ages · Little ones welcome",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10040,13 +10072,13 @@
       "Arts & Crafts"
     ],
     "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12391/129?fsiteid=2&curm=9&cury=2026",
     "lat": 37.3688,
     "lng": -122.0363,
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-03"
+    "verifiedDate": "2026-09-04"
   },
   {
     "id": "book-launch-with-raina-telgemeier-and-gale-galligan-the-baby-sitters-club-super-special-baby-sitters",
@@ -11237,15 +11269,15 @@
     "id": "disc-author-event-celebrate-the-mooncake-fest-2026-09-23-6a6cdceee30fe4845965ed72",
     "title": "Author Event: Celebrate the Mooncake Festival with Jasmine Fang",
     "description": "Mid-Autumn moon story with Jasmine Fang, then a hands-on craft — little ones celebrate the Mooncake Festival through books and making.",
-    "tips": "Ages 3+. Space is limited (50 seats) — check the official page for registration.",
+    "tips": "Ages 3+ (library lists preschoolers through tweens). Space is limited — check the official page for registration. Book signing after; Linden Tree Books sells copies.",
     "venue": "Children's Library",
     "room": "Secret Garden",
-    "address": "1276  Harriet Street, Palo Alto, CA 94301",
+    "address": "1276 Harriet Street, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-09-23",
     "startTime": "14:00",
     "endTime": "15:00",
-    "ageRange": "2–5, 5+",
+    "ageRange": "All ages · Little ones welcome",
     "ageMin": 3,
     "ageMax": 12,
     "types": [
@@ -11649,9 +11681,9 @@
   {
     "id": "harvest-history-festival-heritage-park-2026-09-26-09-00",
     "title": "Harvest History Festival",
-    "description": "Bubbles, puppets, face painting & art for little ones — plus live music and a peek inside the historic Immigrant House.",
+    "description": "Family activities and a peek inside the historic Immigrant House — Mountain View’s agricultural heritage festival for little ones and grown-ups.",
     "venue": "Heritage Park",
-    "address": "771 N. Rengstorff Avenue",
+    "address": "771 N. Rengstorff Avenue, Mountain View, CA 94043",
     "city": "Mountain View",
     "date": "2026-09-26",
     "startTime": "09:00",
@@ -11668,15 +11700,15 @@
     ],
     "cost": "Free",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Heritage_Park,_Mountain_View,_California,_Immigrant_House,_June_2019.jpg",
-    "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3482/656?npage=2",
-    "verifiedDate": "2026-07-07",
+    "eventUrl": "https://www.mountainview.gov/our-city/departments/community-services/special-events/harvest-history-festival",
+    "verifiedDate": "2026-09-04",
     "lat": 37.4139,
     "lng": -122.0925,
     "status": "Published",
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Festivals & Community, Outdoor",
-    "tips": "Free. Very limited street parking — bike or walk if you can. Check the city page for this year’s kids lineup."
+    "tips": "Free · Sat Sep 26 · 9am–noon. Very limited street parking — bike or walk if you can. Check the city page for this year’s kids lineup."
   },
   {
     "id": "698e125a2a787a47a5e73be3",

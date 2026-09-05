@@ -2,6 +2,7 @@ import type { Event } from '../types/event'
 import { ALL_EVENTS, getPublicEventsFromCatalog } from './events'
 import seasonalCurationOverrides from './seasonal-curation-overrides.json'
 import { zonedCalendarDate } from '../utils/dates'
+import { sortSeasonalDiscoveryEvents } from '../utils/formatSeasonalSchedule'
 
 /** Hard max cards on the Home seasonal discovery band (one row). */
 export const MAX_SEASONAL_FEATURED_HOME = 4
@@ -183,7 +184,10 @@ export function resolveFeaturedSeasonalEvents(
   catalog: Event[] = getPublicEventsFromCatalog(),
   now: Date = new Date(),
 ): Event[] {
-  return resolveSeasonalEvents(getFeaturedEventIdsForDate(collection, now), catalog)
+  return sortSeasonalDiscoveryEvents(
+    resolveSeasonalEvents(getFeaturedEventIdsForDate(collection, now), catalog),
+    now,
+  )
 }
 
 /**
@@ -365,6 +369,12 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         note: 'Mid-Autumn picture-book storytime',
       },
       {
+        eventId: 'watchlist-sunnyvale-library-mid-autumn-storytime-craft-2026-09-13',
+        featuredFrom: '2026-09-08',
+        featuredUntil: '2026-09-13',
+        note: 'Sunnyvale Library Mid-Autumn storytime + craft',
+      },
+      {
         eventId: 'watchlist-google-endless-summer-festival-2026-09-12',
         featuredFrom: '2026-09-08',
         featuredUntil: '2026-09-14',
@@ -467,6 +477,7 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'harvest-history-festival-heritage-park-2026-09-26-09-00',
       '16188977',
       'disc-storytime-with-jasmine-fang-beneath-the--2026-09-13-watchlist-linden-2026-09-13',
+      'watchlist-sunnyvale-library-mid-autumn-storytime-craft-2026-09-13',
       'disc-author-event-celebrate-the-mooncake-fest-2026-09-23-6a6cdceee30fe4845965ed72',
       'watchlist-google-endless-summer-festival-2026-09-12',
       'watchlist-mini-yoga-treehouse-2026-09-26',

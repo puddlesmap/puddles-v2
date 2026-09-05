@@ -15,6 +15,8 @@ interface SeasonalDiscoveryModuleProps {
   bandLayout?: 'default' | 'home'
   homeBandEyebrow?: 'subtitle' | 'timing'
   homeBandCopyTone?: 'seasonal' | 'neutral'
+  /** Override “today” for seasonal When (mockups / tests). */
+  asOf?: Date
 }
 
 export function SeasonalDiscoveryModule({
@@ -25,6 +27,7 @@ export function SeasonalDiscoveryModule({
   bandLayout = 'default',
   homeBandEyebrow = 'subtitle',
   homeBandCopyTone = 'seasonal',
+  asOf,
 }: SeasonalDiscoveryModuleProps) {
   const isHomeBand = bandLayout === 'home'
   const isEmpty = events.length === 0
@@ -64,6 +67,7 @@ export function SeasonalDiscoveryModule({
                 <BrowseEventCard
                   event={event}
                   seasonalEditorial={false}
+                  asOf={asOf}
                   onClick={() => onEventClick(event)}
                 />
               </div>

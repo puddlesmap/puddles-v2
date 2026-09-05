@@ -1,6 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom'
 import type { Event } from '../../types/event'
-import { LOCAL_CITY_ROUTES, type LocalCitySlug } from '../../config/localRoutes'
+import {
+  citySlugForCity,
+  LOCAL_CITY_ROUTES,
+  type LocalCitySlug,
+} from '../../config/localRoutes'
 import { eventDetailPath } from '../../utils/eventPages'
 import { EventCard } from '../EventCard'
 import { buildSharedEventBrowseHref, sharedEventCityLabel } from '../../utils/sharedEventNearby'
@@ -14,7 +18,12 @@ interface SharedEventNearbySectionProps {
   buildEventHref?: (eventId: string) => string
 }
 
-const EXPLORE_CITY_ORDER: LocalCitySlug[] = ['palo-alto', 'los-altos', 'mountain-view']
+const EXPLORE_CITY_ORDER: LocalCitySlug[] = [
+  'palo-alto',
+  'los-altos',
+  'mountain-view',
+  'sunnyvale',
+]
 
 function V3NearbyFooter({ city }: { city: string }) {
   const cityLabel = sharedEventCityLabel(city)
@@ -55,6 +64,11 @@ export function SharedEventNearbySection({
   buildEventHref = (eventId) => eventDetailPath({ id: eventId }),
 }: SharedEventNearbySectionProps) {
   const navigate = useNavigate()
+  // Only show nearby for Puddles core launch cities — not San Jose / coastal drive cities.
+  if (!citySlugForCity((event.city || '') as Event['city'])) {
+    return null
+  }
+
   const city = sharedEventCityLabel(event.city || '')
   const browseHref = buildSharedEventBrowseHref(event.city || '')
   const isV3 = variant === 'v3'

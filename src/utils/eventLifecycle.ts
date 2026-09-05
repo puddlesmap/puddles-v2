@@ -4,6 +4,7 @@ import { ALL_EVENTS, ALL_SEASONAL_DRIVE_EVENTS } from '../data/events'
 import {
   addDays,
   getEventEffectiveEnd,
+  parseEventDateTime,
   parseFlexibleDate,
 } from './dates'
 import { computeIsPast, isPublicEvent, isWithinPublicDisplayWindow } from './publishing'
@@ -20,12 +21,24 @@ export function isEventCancelledForLifecycle(event: Event): boolean {
   return EXPERIMENT_CANCELLED_EVENT_IDS.has(event.id)
 }
 
-export function getEventEffectiveEndTime(event: Pick<Event, 'date' | 'startTime' | 'endTime'>): Date | null {
+export function getEventEffectiveEndTime(
+  event: Pick<Event, 'date' | 'startTime' | 'endTime' | 'scheduleKind' | 'closingDate' | 'openingDate'>,
+): Date | null {
+  // Seasonal runs last through closingDate (end of that calendar day), not the opening day's hours.
+  if (event.scheduleKind === 'seasonal-run') {
+    const closing = (event.closingDate || '').trim()
+    if (closing) {
+      // End of the closing calendar day (Pacific), not opening-day hours.
+      return parseEventDateTime(closing, '23:59') ?? parseFlexibleDate(closing)
+    }
+    // No published close — stay upcoming (do not treat opening day endTime as season end).
+    return null
+  }
   return getEventEffectiveEnd(event.date, event.startTime, event.endTime)
 }
 
 export function getEventArchiveTime(
-  event: Pick<Event, 'date' | 'startTime' | 'endTime'>,
+  event: Pick<Event, 'date' | 'startTime' | 'endTime' | 'scheduleKind' | 'closingDate' | 'openingDate'>,
 ): Date | null {
   const effectiveEnd = getEventEffectiveEndTime(event)
   if (!effectiveEnd) return null

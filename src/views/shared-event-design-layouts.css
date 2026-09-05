@@ -319,6 +319,16 @@
   .sedl-airbnb-facts {
     grid-template-columns: 1fr 1fr;
   }
+
+  .sedl-airbnb-facts > div {
+    min-width: 0;
+  }
+}
+
+.sedl-when-note {
+  font-size: 0.875em;
+  font-style: italic;
+  font-weight: 400;
 }
 
 /* ——— Luma-inspired: centered invite card ——— */

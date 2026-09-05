@@ -13,6 +13,7 @@ import {
   resolveSeasonalEvents,
   type SeasonalCollection,
 } from '../data/seasonalDiscovery'
+import { sortSeasonalDiscoveryEvents } from '../utils/formatSeasonalSchedule'
 import {
   PUDDLES_WORDMARK_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC_2X,
@@ -138,13 +139,15 @@ export function ExperimentSeasonalCollectionPage() {
     if (!collection) return []
     const driveIds = new Set(collection.driveEventIds ?? [])
     const closeIds = collection.collectionEventIds.filter((id) => !driveIds.has(id))
-    return resolveSeasonalEvents(closeIds, getCatalog())
+    return sortSeasonalDiscoveryEvents(resolveSeasonalEvents(closeIds, getCatalog()))
   }, [collection, getCatalog])
 
   const driveEvents = useMemo(
     () =>
       collection?.driveEventIds?.length
-        ? resolveSeasonalEvents(collection.driveEventIds, getCatalog())
+        ? sortSeasonalDiscoveryEvents(
+            resolveSeasonalEvents(collection.driveEventIds, getCatalog()),
+          )
         : [],
     [collection, getCatalog],
   )

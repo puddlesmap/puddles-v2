@@ -8,6 +8,7 @@ type PublicEnvName =
  * Read a public env var for browser + server.
  * Next.js only inlines `process.env.NEXT_PUBLIC_*` when the full key is a
  * static string — dynamic `process.env[name]` is empty in the client bundle.
+ * Vite replaces the same keys via `define` in vite.config.ts.
  */
 export function getPublicEnv(name: PublicEnvName): string {
   switch (name) {

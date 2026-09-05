@@ -241,18 +241,23 @@ export type EventAgeRecommendation = {
  * otherwise unambiguous description/tips; never invent from vague copy.
  * Filter buckets (0–2 / 2–5) are unchanged — callers keep using ageRange.
  */
+function isAllAgesOnlyRecommendation(label: string): boolean {
+  return /^all\s+ages\.?$/i.test(label.trim())
+}
+
 export function getEventAgeRecommendation(
   event: Pick<Event, 'ageRange' | 'ageMin' | 'ageMax' | 'description' | 'tips' | 'title'>,
 ): EventAgeRecommendation {
   const copy = [event.description, event.tips ?? '', event.title].filter(Boolean).join('\n')
 
   const fromStructured = recommendationFromStructured(event.ageMin, event.ageMax, event.ageRange)
-  if (fromStructured) {
+  if (fromStructured && !isAllAgesOnlyRecommendation(fromStructured)) {
     return { label: fromStructured, hideBroadAgePill: true }
   }
 
   const fromText = extractSpecificAgeRecommendationFromText(copy)
-  if (fromText) {
+  // “All ages welcome” in tips must not echo under an Ages field that already says All Ages.
+  if (fromText && !isAllAgesOnlyRecommendation(fromText)) {
     return { label: fromText, hideBroadAgePill: true }
   }
 

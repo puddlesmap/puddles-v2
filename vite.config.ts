@@ -1,4 +1,6 @@
 // @ts-nocheck
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -23,6 +25,7 @@ import {
 const SPREADSHEET_ID = '1ko8p-HMzXMnSHT8qPxv14X-TPaac0RJTrfw8PwjikH8'
 const EVENTS_GID = '1023308778'
 const SUBMISSIONS_GID = '1055272051'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 function readBody(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -56,6 +59,31 @@ export default defineConfig(({ mode }) => {
   const sheetApiUrl = env.GOOGLE_APPS_SCRIPT_URL || env.VITE_GOOGLE_APPS_SCRIPT_URL
 
   return {
+    resolve: {
+      alias: [
+        {
+          find: /^@\//,
+          replacement: `${path.resolve(__dirname, 'src')}/`,
+        },
+      ],
+    },
+    define: {
+      'process.env.NEXT_PUBLIC_ANCHOR_DATE': JSON.stringify(env.NEXT_PUBLIC_ANCHOR_DATE || ''),
+      'process.env.VITE_ANCHOR_DATE': JSON.stringify(env.VITE_ANCHOR_DATE || ''),
+      'process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY': JSON.stringify(
+        env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
+      ),
+      'process.env.VITE_GOOGLE_MAPS_API_KEY': JSON.stringify(env.VITE_GOOGLE_MAPS_API_KEY || ''),
+      'process.env.NEXT_PUBLIC_CARTO_BASEMAP_API_KEY': JSON.stringify(
+        env.NEXT_PUBLIC_CARTO_BASEMAP_API_KEY || '',
+      ),
+      'process.env.VITE_CARTO_BASEMAP_API_KEY': JSON.stringify(env.VITE_CARTO_BASEMAP_API_KEY || ''),
+      'process.env.NEXT_PUBLIC_PUDDLES_API_KEY': JSON.stringify(
+        env.NEXT_PUBLIC_PUDDLES_API_KEY || '',
+      ),
+      'process.env.VITE_PUDDLES_API_KEY': JSON.stringify(env.VITE_PUDDLES_API_KEY || ''),
+      'process.env.NODE_ENV': JSON.stringify(mode),
+    },
     plugins: [
       react(),
       tailwindcss(),

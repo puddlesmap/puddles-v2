@@ -1,0 +1,22 @@
+# Long-duration / seasonal When — Through date
+
+When a seasonal / long-duration event has a **published closing date**, event page WHEN and the sticky rail must include:
+
+**Through [Mon D]** (e.g. `Through Nov 15`)
+
+Never use “Ends Nov 15”. Never invent a closing date.
+
+Optional **`scheduleNote`** (smaller italic on event WHEN only): caveats like weekday exceptions under the recurrence · hours line. Omit from browse cards and the sticky rail.
+
+## Surfaces
+
+| Surface | End date |
+| --- | --- |
+| Browse card | Omit Through — status + hours only |
+| Event page WHEN | Status → recurrence · hours → optional italic scheduleNote → **Through …** when known |
+| Sticky rail | Status → hours → **Through …** when known (no scheduleNote) |
+| No published close | Omit Through; optional tip that no closing date is listed |
+
+## Related
+
+Implementation: `src/utils/formatSeasonalSchedule.ts` (`formatSeasonalDetailWhen`).

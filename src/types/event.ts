@@ -13,6 +13,7 @@ export type City =
   | 'San Francisco'
   /** Seasonal / Worth a little drive destinations (not Browse city filters). */
   | 'Half Moon Bay'
+  | 'Morgan Hill'
   | 'Hayward'
   | 'Felton'
 export type CostLabel = 'Free' | 'Low-cost' | 'Paid' | (string & {})
@@ -72,8 +73,13 @@ export interface Event {
   openingDate?: string
   /** Official closing day only — never invent. */
   closingDate?: string
-  /** e.g. Daily, Fri–Sun, Wed–Sun */
+  /** e.g. Daily, Fri–Sun, Weekends — shown on event WHEN as recurrence · hours */
   recurringDaysLabel?: string
+  /**
+   * Smaller italic caveat under the schedule line on event WHEN
+   * (e.g. “Also open weekdays in September & October”). Omit from browse cards / rail.
+   */
+  scheduleNote?: string
   ageRange: string
   ageMin: number
   ageMax: number
