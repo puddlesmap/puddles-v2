@@ -4,9 +4,6 @@ import seasonalCurationOverrides from './seasonal-curation-overrides.json'
 import { zonedCalendarDate } from '../utils/dates'
 import { sortSeasonalDiscoveryEvents } from '../utils/formatSeasonalSchedule'
 
-/** Hard max cards on the Home seasonal discovery band (one row). */
-export const MAX_SEASONAL_FEATURED_HOME = 4
-
 export type SeasonalCollectionSlug = 'hello-fall' | 'halloween-with-little-ones'
 
 export interface SeasonalAccent {
@@ -105,7 +102,6 @@ export interface FeaturedHomeCandidate {
 
 /**
  * Active featured windows for Pacific “today”, deduped by eventId (first wins).
- * Does not apply the Home max-4 cap.
  */
 export function getActiveFeaturedCandidates(
   collection: SeasonalCollection,
@@ -138,14 +134,14 @@ function rankFeaturedForHome(candidates: FeaturedHomeCandidate[]): FeaturedHomeC
   })
 }
 
-/** Featured carousel IDs for Home — Pacific today, anchors first, max 4. */
+/** Featured carousel IDs for Home — Pacific today, anchors first, all active windows. */
 export function getFeaturedEventIdsForDate(
   collection: SeasonalCollection,
   now: Date = new Date(),
 ): string[] {
-  return rankFeaturedForHome(getActiveFeaturedCandidates(collection, now))
-    .slice(0, MAX_SEASONAL_FEATURED_HOME)
-    .map((row) => row.eventId)
+  return rankFeaturedForHome(getActiveFeaturedCandidates(collection, now)).map(
+    (row) => row.eventId,
+  )
 }
 
 /** Explain Home featured selection for mockups / ops review. */
@@ -154,7 +150,7 @@ export function explainFeaturedHomeSelection(
   now: Date = new Date(),
 ): {
   today: string
-  max: number
+  max: number | null
   active: FeaturedHomeCandidate[]
   selected: FeaturedHomeCandidate[]
   truncated: FeaturedHomeCandidate[]
@@ -162,9 +158,7 @@ export function explainFeaturedHomeSelection(
   const today = zonedCalendarDate(now)
   const active = getActiveFeaturedCandidates(collection, now)
   const ranked = rankFeaturedForHome(active)
-  const selected = ranked.slice(0, MAX_SEASONAL_FEATURED_HOME)
-  const truncated = ranked.slice(MAX_SEASONAL_FEATURED_HOME)
-  return { today, max: MAX_SEASONAL_FEATURED_HOME, active, selected, truncated }
+  return { today, max: null, active, selected: ranked, truncated: [] }
 }
 
 /** All event IDs that appear in featured windows (any date) — for review tooling. */
@@ -381,12 +375,6 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         note: 'September outdoor plaza festival — magic, chalk, crafts',
       },
       {
-        eventId: 'free-in-store-kids-workshops-school-bus-organizer-home-depot-2026-09-05-09-00',
-        featuredFrom: '2026-09-01',
-        featuredUntil: '2026-09-07',
-        note: 'Optional light September / back-to-school pick',
-      },
-      {
         eventId: 'seasonal-drive-lemos-farm-pumpkin-patch-2026-09-05',
         featuredFrom: '2026-09-04',
         featuredUntil: '2026-09-21',
@@ -483,7 +471,6 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'watchlist-mini-yoga-treehouse-2026-09-26',
       'watchlist-sunnyvale-diwali-sacas-2026-10-03',
       'watchlist-sunnyvale-mid-autumn-festival-2026-10-03',
-      'free-in-store-kids-workshops-school-bus-organizer-home-depot-2026-09-05-09-00',
       'mountain-view-art-wine-festival-2026-09-12',
       'great-glass-pumpkin-patch-2026-09-26',
       'cantor-art-for-all-family-day-2026-10-11',

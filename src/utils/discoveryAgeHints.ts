@@ -35,6 +35,7 @@ function bandsFromInclusive(min: number, max: number): InferredAge | null {
 
   const bands: string[] = []
   // Overlap rules keep “under 2” as 0–2 only, and “ages 2–8” as 2–5, 5+.
+  // Ranges that start at 5 (e.g. ages 5–12) are 5+ only — outside Puddles public 0–5.
   if (min < 2 && max > 0) bands.push('0–2')
   if (min < 5 && max > 2) bands.push('2–5')
   if (max > 5 || min >= 5) bands.push('5+')

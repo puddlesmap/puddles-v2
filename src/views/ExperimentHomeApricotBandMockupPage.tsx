@@ -8,7 +8,6 @@ import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './exper
 import {
   explainFeaturedHomeSelection,
   getActiveSeasonalCollection,
-  MAX_SEASONAL_FEATURED_HOME,
   resolveFeaturedSeasonalEvents,
   resolveSeasonalEvents,
 } from '../data/seasonalDiscovery'
@@ -111,8 +110,8 @@ export function ExperimentHomeApricotBandMockupPage() {
           Home band + long-running dates + meta scroll
         </h1>
         <p className="home-apricot-mockup-rules__lede">
-          Wash <code>{FALL_WASH}</code> · max {MAX_SEASONAL_FEATURED_HOME} one-row cards · Pacific
-          today <code>{explanation?.today ?? '—'}</code>. Compare{' '}
+          Wash <code>{FALL_WASH}</code> · all active featured windows · Pacific today{' '}
+          <code>{explanation?.today ?? '—'}</code>. Compare{' '}
           <Link to="/">production home</Link>
           {' · '}
           <Link to="/experiment/seasonal-discovery/hello-fall">Hello Fall discovery</Link>.
@@ -121,8 +120,8 @@ export function ExperimentHomeApricotBandMockupPage() {
 
       <ol className="home-apricot-mockup-rules__steps">
         <li>
-          <strong>Featured mix</strong> — coming-up close to home first, at most one worth-a-drive,
-          cap {MAX_SEASONAL_FEATURED_HOME}.
+          <strong>Featured mix</strong> — coming-up close to home first, at most one worth-a-drive
+          (no hard card-count cap).
         </li>
         <li>
           <strong>Long-running</strong> — farms use <code>Opens TOMORROW</code> /{' '}
@@ -137,7 +136,7 @@ export function ExperimentHomeApricotBandMockupPage() {
         <div className="home-apricot-mockup-rules__live">
           <div className="home-apricot-mockup-rules__col">
             <h2 className="home-apricot-mockup-rules__col-title">
-              Showing on Home ({explanation.selected.length}/{explanation.max})
+              Showing on Home ({explanation.selected.length})
             </h2>
             <ol className="home-apricot-mockup-rules__list">
               {explanation.selected.map((row) => {
@@ -168,25 +167,8 @@ export function ExperimentHomeApricotBandMockupPage() {
             </ol>
           </div>
           <div className="home-apricot-mockup-rules__col">
-            <h2 className="home-apricot-mockup-rules__col-title">
-              Active but truncated ({explanation.truncated.length})
-            </h2>
-            {explanation.truncated.length === 0 ? (
-              <p className="home-apricot-mockup-rules__empty">None — ≤4 windows active today.</p>
-            ) : (
-              <ol className="home-apricot-mockup-rules__list home-apricot-mockup-rules__list--muted">
-                {explanation.truncated.map((row) => (
-                  <li key={row.eventId}>
-                    <span className="home-apricot-mockup-rules__event">
-                      {eventsById.get(row.eventId)?.title || row.eventId}
-                    </span>
-                    <span className="home-apricot-mockup-rules__meta">
-                      Still in See all · {row.featuredFrom} → {row.featuredUntil}
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            )}
+            <h2 className="home-apricot-mockup-rules__col-title">Truncated by cap</h2>
+            <p className="home-apricot-mockup-rules__empty">None — Home featured has no card-count cap.</p>
           </div>
         </div>
       ) : (

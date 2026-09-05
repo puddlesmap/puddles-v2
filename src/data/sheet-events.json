@@ -4566,9 +4566,9 @@
     "date": "2026-08-01",
     "startTime": "09:00",
     "endTime": "12:00",
-    "ageRange": "2–5",
-    "ageMin": 2,
-    "ageMax": 5,
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
     "types": [
       "Classes"
     ],
@@ -4581,10 +4581,11 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.4664,
     "lng": -122.1404,
-    "status": "Expired",
+    "status": "Hidden",
     "isPast": true,
     "isLive": false,
-    "sheetTypesRaw": "Classes"
+    "sheetTypesRaw": "Classes",
+    "tips": "Home Depot Kids Workshop — designed for ages 5–12 (outside Puddles 0–5)."
   },
   {
     "id": "6a29b53116554cd59fc7d044",
@@ -8662,16 +8663,16 @@
     "id": "free-in-store-kids-workshops-school-bus-organizer-home-depot-2026-09-05-09-00",
     "title": "Free In-Store Kids Workshops: School Bus Organizer",
     "description": "Build a free School Bus Organizer wood kit in-store with a parent — first Saturday drop-in while supplies last.",
-    "tips": "Designed for ages 5–12; younger kids welcome with a parent. Free 9am–noon while kits last — register ahead on the Home Depot Kids Workshop page.",
+    "tips": "Home Depot Kids Workshop — typically ages 5–12.",
     "venue": "Home Depot",
     "address": "1781 E Bayshore Rd, East Palo Alto, CA 94303",
-    "city": "East Palo Alto",
+    "city": "Palo Alto",
     "date": "2026-09-05",
     "startTime": "09:00",
     "endTime": "12:00",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
     "types": [
       "Arts & Crafts"
     ],
@@ -8684,9 +8685,9 @@
     "verifiedDate": "2026-09-04",
     "lat": 37.4664,
     "lng": -122.1404,
-    "status": "Published",
+    "status": "Hidden",
     "isPast": false,
-    "isLive": true,
+    "isLive": false,
     "sheetTypesRaw": "Classes"
   },
   {
@@ -12810,9 +12811,9 @@
     "date": "2026-10-03",
     "startTime": "09:00",
     "endTime": "12:00",
-    "ageRange": "2–5",
-    "ageMin": 2,
-    "ageMax": 5,
+    "ageRange": "5+",
+    "ageMin": 5,
+    "ageMax": 12,
     "types": [
       "Classes"
     ],
@@ -12825,10 +12826,11 @@
     "verifiedDate": "2026-07-07",
     "lat": 37.4664,
     "lng": -122.1404,
-    "status": "Published",
+    "status": "Hidden",
     "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Classes"
+    "isLive": false,
+    "sheetTypesRaw": "Classes",
+    "tips": "Home Depot Kids Workshop — designed for ages 5–12 (outside Puddles 0–5)."
   },
   {
     "id": "watchlist-sunnyvale-mid-autumn-festival-2026-10-03",
