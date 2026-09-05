@@ -134,7 +134,7 @@ function rankFeaturedForHome(candidates: FeaturedHomeCandidate[]): FeaturedHomeC
   })
 }
 
-/** Featured carousel IDs for Home — Pacific today, anchors first, all active windows. */
+/** Featured carousel IDs for Home — Pacific today, then editorial anchors / order. */
 export function getFeaturedEventIdsForDate(
   collection: SeasonalCollection,
   now: Date = new Date(),

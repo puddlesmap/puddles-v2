@@ -426,14 +426,6 @@ export function getSeasonalAvailability(
   }
 }
 
-const BUCKET_RANK: Record<SeasonalDiscoveryBucket, number> = {
-  openToday: 0,
-  openingSoon: 1,
-  closedToday: 2,
-  future: 3,
-  ended: 4,
-}
-
 /** Browse card: next actionable open + hours only. */
 export function formatSeasonalBrowseWhen(
   event: SeasonalFields,
@@ -542,11 +534,14 @@ export function formatDiscoveryWhen(
  * Drops only events whose final occurrence has ended (effective end / closing day).
  * Curation IDs stay in seasonalDiscovery data — this only filters the public list.
  * Event detail pages still resolve ended rows and show the lifecycle Ended state.
+ *
+ * Home band priority: soonest next day first (today → tomorrow → later), then start time.
  */
 export function sortSeasonalDiscoveryEvents<T extends Event>(
   events: T[],
   now: Date = new Date(),
 ): T[] {
+  const today = zonedCalendarDate(now)
   const decorated = events.map((event, originalIndex) => {
     const avail = getSeasonalAvailability(event, now)
     return { event, originalIndex, avail }
@@ -557,11 +552,15 @@ export function sortSeasonalDiscoveryEvents<T extends Event>(
   const active = decorated.filter((row) => row.avail.bucket !== 'ended')
 
   active.sort((a, b) => {
-    const rank = BUCKET_RANK[a.avail.bucket] - BUCKET_RANK[b.avail.bucket]
-    if (rank !== 0) return rank
-    if (a.avail.nextRelevantYmd !== b.avail.nextRelevantYmd) {
-      return a.avail.nextRelevantYmd < b.avail.nextRelevantYmd ? -1 : 1
-    }
+    // Same calendar day as today first, then chronological by next relevant day.
+    const aDay = a.avail.nextRelevantYmd || a.event.date || ''
+    const bDay = b.avail.nextRelevantYmd || b.event.date || ''
+    const aIsToday = a.avail.openToday || a.avail.bucket === 'openToday' || aDay === today
+    const bIsToday = b.avail.openToday || b.avail.bucket === 'openToday' || bDay === today
+    if (aIsToday !== bIsToday) return aIsToday ? -1 : 1
+
+    if (aDay !== bDay) return aDay < bDay ? -1 : 1
+
     const aTime = a.event.startTime || ''
     const bTime = b.event.startTime || ''
     if (aTime !== bTime) return aTime < bTime ? -1 : 1

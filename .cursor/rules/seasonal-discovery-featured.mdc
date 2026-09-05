@@ -95,6 +95,7 @@ Out-of-area farms/festivals/trains belong in **`driveEventIds`** (Hidden seasona
 - Default featured duration: **~2–3 weeks** per pick.
 - Rotate **at least 1–2 cards every ~2 weeks** so the carousel stays fresh.
 - Keep the Home carousel to a **tight, intentional set** of active `featuredWindows` for the day — no hard card-count cap. Prefer `anchor: true`, then editorial order in `featuredWindows`.
+- **Home band order:** prioritize events happening **today**, then soonest next day / start time (`sortSeasonalDiscoveryEvents`).
 - Resolve with Pacific calendar date (`zonedCalendarDate`) so evening PT does not flip windows early via UTC.
 - Mark **1–2 anchor slots** (`anchor: true`) — festival weekends, strong seasonal rows.
 - Use `note` on each window for launch-review context.
