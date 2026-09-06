@@ -1,39 +1,48 @@
 # Expansion discovery lookahead
 
-Window: **2026-09-02 → 2026-12-01** (90 days)
+Window: **2026-09-06 → 2026-12-05** (90 days)
 
-Generated 2026-09-02T18:26:34.842Z
+Generated 2026-09-06T17:30:38.132Z
 
 ## Launch expansion targets
 
 | Target | In window (discovery queue) | Pending review | On live catalog |
 |--------|----------------------------|----------------|-----------------|
-| **Sunnyvale** (new city) | 4 | 0 | 9 |
-| **Parent & Me** (new type) | 12 | 0 | 7 |
-| **Festivals & Community** (new type) | 11 | 0 | 5 |
+| **Sunnyvale** (new city) | 8 | 0 | 32 |
+| **Parent & Me** (new type) | 7 | 0 | 7 |
+| **Festivals & Community** (new type) | 22 | 0 | 15 |
 
 ## By city (discovery queue, in window)
 
 | City | Total | New for review |
 |------|-------|----------------|
-| Palo Alto | 110 | 0 |
-| Los Altos | 71 | 0 |
-| Mountain View | 56 | 0 |
-| Sunnyvale | 4 | 0 |
+| Palo Alto | 114 | 9 |
+| Mountain View | 55 | 3 |
+| Los Altos | 21 | 0 |
+| Sunnyvale | 8 | 0 |
+| Hayward | 2 | 0 |
+| San Francisco | 2 | 0 |
+| Gilroy | 2 | 0 |
+| San Jose | 2 | 0 |
+| Morgan Hill | 1 | 0 |
+| Nicasio | 1 | 0 |
+| Redwood City | 1 | 0 |
+| Half Moon Bay | 1 | 0 |
+| Fremont | 1 | 0 |
 
 ## By activity type (discovery queue, in window)
 
 | Type | Count |
 |------|-------|
-| Stories | 179 |
-| Build & Explore | 26 |
-| Outdoor | 13 |
-| Parent & Me | 12 |
-| Festivals & Community | 11 |
-| Arts & Crafts | 5 |
+| Stories | 137 |
+| Outdoor | 36 |
+| Build & Explore | 29 |
+| Festivals & Community | 22 |
+| Social & Play | 9 |
+| Arts & Crafts | 8 |
+| Parent & Me | 7 |
 | Other | 5 |
 | Music & Movement | 4 |
-| Social & Play | 3 |
 
 ## Sunnyvale — pending review
 
@@ -52,7 +61,7 @@ _None — check city special events, harvest/Halloween fairs, open houses._
 | Source | City | Cadence | Fit | On Puddles? |
 |--------|------|---------|-----|-------------|
 | Google Visitor Experience | Mountain View | monthly | partial | No |
-| City of Sunnyvale · Special Events | Sunnyvale | monthly | partial | No |
+| City of Sunnyvale · Special Events | Sunnyvale | monthly | partial | Yes |
 | Downtown Sunnyvale · Cityline & Murphy Ave | Sunnyvale | monthly | partial | No |
 | Sunnyvale Recreation · Parent & Tot | Sunnyvale | seasonal | strong | No |
 | Sunnyvale Public Library · Kids Events | Sunnyvale | weekly | strong | No |
@@ -71,6 +80,9 @@ _None — check city special events, harvest/Halloween fairs, open houses._
 | Mini Yoga Club | Sunnyvale | monthly | strong | No |
 | FIT4MOM Silicon Valley Central | Palo Alto | weekly Mondays | strong | No |
 | Talo Yoga · CircleMoms host | Palo Alto | semester | partial | No |
+| Lemos Farm | Half Moon Bay | seasonal | strong | Yes |
+| East Bay Regional Parks · Garin Apple Festival | Hayward | annual | strong | Yes |
+| Roaring Camp Railroads | Felton | annual | strong | Yes |
 
 ## Gaps & next actions
 
