@@ -38,7 +38,14 @@ export function AdminSubmissionDetailPanel({ submission }: { submission: SheetSu
       <DetailSection title="What parents shared">
         <DetailDescription label="What happens" value={submission.eventDescription} />
         <DetailDescription label="Parent tips" value={parentTips} />
-        <DetailRow label="Submitted by" value={submission.submittedByEmail} />
+        <DetailRow
+          label="Contact"
+          value={
+            [submission.submittedByName?.trim(), submission.submittedByEmail?.trim()]
+              .filter(Boolean)
+              .join(' · ') || null
+          }
+        />
       </DetailSection>
 
       {(submission.internalNotes || submission.convertedEventId) && (

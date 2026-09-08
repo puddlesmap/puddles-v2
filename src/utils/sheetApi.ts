@@ -102,6 +102,7 @@ export interface AppendSubmissionPayload {
   endTime?: string
   link?: string
   additionalInfo?: string
+  submittedByName?: string
   submittedByEmail?: string
   submittedAt?: string
   internalNotes?: string
@@ -118,6 +119,8 @@ export interface AppendSubmissionPayload {
   requestedLocation?: string
   sourceContext?: string
   selectedCity?: string
+  /** Defaults to New in the store when omitted. */
+  status?: string
 }
 
 interface SheetApiResponse<T = unknown> {
@@ -237,13 +240,32 @@ export function buildActivitySubmissionRow(
   const scheduleNote =
     payload.eventType === 'Recurring class' ? payload.scheduleDescription : ''
 
+  const repeatsNote =
+    payload.eventType === 'Recurring class'
+      ? payload.recurringRepeat === 'weekly'
+        ? 'Repeats: Weekly'
+        : payload.recurringRepeat === 'other'
+          ? 'Repeats: Other schedule'
+          : ''
+      : ''
+
+  const reviewNotes = [
+    payload.reviewReasons.includes('other-city') ? 'Review only (Other city)' : '',
+    payload.reviewReasons.includes('variable-schedule')
+      ? 'Review only (other / non-weekly schedule)'
+      : '',
+  ].filter(Boolean)
+
+  const needsManualReview = payload.reviewReasons.includes('variable-schedule')
+
   const internalNotes = [
     payload.eventType,
     payload.recurringDay ? `Day: ${payload.recurringDay}` : '',
+    repeatsNote,
     scheduleNote,
     payload.signupRequirement ? `Signup: ${payload.signupRequirement}` : '',
     payload.signupLinkInfo ? `Signup link: ${payload.signupLinkInfo}` : '',
-    payload.reviewOnly ? 'Review only (Other city)' : '',
+    ...reviewNotes,
     payload.venueId && payload.venueId !== 'custom' ? `Venue ID: ${payload.venueId}` : '',
   ]
     .filter(Boolean)
@@ -267,9 +289,11 @@ export function buildActivitySubmissionRow(
     signupLinkInfo: payload.signupLinkInfo,
     eventDescription: payload.eventDescription,
     parentTips: payload.parentTips,
+    submittedByName: payload.submittedByName,
     submittedByEmail: payload.submittedByEmail,
     submittedAt: payload.submittedAt,
     internalNotes,
+    status: needsManualReview ? 'Needs review' : undefined,
   }
 }
 

@@ -30,6 +30,7 @@ function matchesSearch(submission: SheetSubmission, search: string): boolean {
     submission.eventDescription,
     submission.parentTips,
     submission.additionalInfo,
+    submission.submittedByName,
     submission.submittedByEmail,
     submission.requestedLocation,
     submission.sourceContext,

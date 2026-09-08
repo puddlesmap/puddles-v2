@@ -13,7 +13,7 @@ import type {
   ShareCostType,
   ShareSignupRequirement,
 } from '../../types/submission'
-import { canSubmitShareActivity, isLaunchCity, isShareCityOther } from '../../utils/shareFormValidation'
+import { canSubmitShareActivity, isLaunchCity, isShareCityOther, type RecurringRepeat } from '../../utils/shareFormValidation'
 
 type Category = 'one-time' | 'recurring'
 
@@ -46,12 +46,30 @@ function formatTimeLabel(time: string): string {
   return minutes === 0 ? `${hour12} ${period}` : `${hour12}:${String(minutes).padStart(2, '0')} ${period}`
 }
 
-function buildRecurringSchedule(day: string, startTime: string, endTime: string, notes: string): string {
-  let schedule = `Every ${day}`
+function buildRecurringSchedule(params: {
+  day: string
+  startTime: string
+  endTime: string
+  recurringRepeat: RecurringRepeat
+  otherScheduleDetail: string
+  scheduleNotes: string
+}): string {
+  const { day, startTime, endTime, recurringRepeat, otherScheduleDetail, scheduleNotes } = params
+  let schedule =
+    recurringRepeat === 'weekly'
+      ? `Weekly · Every ${day}`
+      : `Other schedule · ${day}`
+
   if (startTime) schedule += ` at ${formatTimeLabel(startTime)}`
   if (endTime) schedule += ` – ${formatTimeLabel(endTime)}`
-  const trimmedNotes = notes.trim()
-  if (trimmedNotes) schedule += `. ${trimmedNotes}`
+
+  const otherDetail = otherScheduleDetail.trim()
+  if (recurringRepeat === 'other' && otherDetail) {
+    schedule += `. ${otherDetail}`
+  }
+
+  const notes = scheduleNotes.trim()
+  if (notes) schedule += `. Notes: ${notes}`
   return schedule
 }
 
@@ -77,7 +95,9 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
   const [recurringDay, setRecurringDay] = useState('')
   const [startTime, setStartTime] = useState('')
   const [endTime, setEndTime] = useState('')
-  const [scheduleDescription, setScheduleDescription] = useState('')
+  const [recurringRepeat, setRecurringRepeat] = useState<RecurringRepeat | null>(null)
+  const [otherScheduleDetail, setOtherScheduleDetail] = useState('')
+  const [scheduleNotes, setScheduleNotes] = useState('')
   const [ageRange, setAgeRange] = useState<ShareAgeRange | ''>('')
   const [link, setLink] = useState('')
   const [costType, setCostType] = useState<ShareCostType | ''>('')
@@ -86,6 +106,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
   const [signupLinkInfo, setSignupLinkInfo] = useState('')
   const [eventDescription, setEventDescription] = useState('')
   const [parentTips, setParentTips] = useState('')
+  const [submittedByName, setSubmittedByName] = useState('')
   const [submittedByEmail, setSubmittedByEmail] = useState('')
   const [showVenueSuggestions, setShowVenueSuggestions] = useState(false)
   const venueRef = useRef<HTMLDivElement>(null)
@@ -126,8 +147,11 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
     recurringDay,
     startTime,
     endTime,
-    scheduleDescription,
+    recurringRepeat,
+    otherScheduleDetail,
+    scheduleNotes,
     link,
+    submittedByName,
     submittedByEmail,
   }
 
@@ -204,27 +228,62 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
     setShowVenueSuggestions(true)
   }
 
+  function handleCategoryChange(next: Category) {
+    setCategory(next)
+    if (next !== 'recurring') {
+      setRecurringRepeat(null)
+      setRecurringDay('')
+      setOtherScheduleDetail('')
+      setScheduleNotes('')
+    } else {
+      setEventDate('')
+    }
+  }
+
+  function handleRecurringRepeatChange(next: RecurringRepeat) {
+    setRecurringRepeat(next)
+    if (next !== 'other') {
+      setOtherScheduleDetail('')
+    }
+  }
+
   async function handleSubmit() {
     if (!category || !city || !canSubmit) return
 
-    const reviewOnly = isShareCityOther(city)
+    const otherCity = isShareCityOther(city)
+    const variableSchedule = category === 'recurring' && recurringRepeat === 'other'
+    const reviewReasons: ActivitySubmissionPayload['reviewReasons'] = []
+    if (otherCity) reviewReasons.push('other-city')
+    if (variableSchedule) reviewReasons.push('variable-schedule')
+    const reviewOnly = reviewReasons.length > 0
 
     await onSubmit({
       submissionType: 'Event',
       eventType: category === 'recurring' ? 'Recurring class' : 'One-time event',
       eventName: title.trim(),
-      city: reviewOnly ? 'Other' : city,
-      cityOther: reviewOnly ? cityOther.trim() : '',
+      city: otherCity ? 'Other' : city,
+      cityOther: otherCity ? cityOther.trim() : '',
       placeOrAddress: placeOrAddress.trim(),
-      venueId: selectedVenueId && !reviewOnly ? selectedVenueId : 'custom',
+      venueId: selectedVenueId && !otherCity ? selectedVenueId : 'custom',
       date: category === 'one-time' ? eventDate : '',
       recurringDay: category === 'recurring' ? recurringDay : '',
       startTime,
       endTime,
       scheduleDescription:
-        category === 'recurring'
-          ? buildRecurringSchedule(recurringDay, startTime, endTime, scheduleDescription)
+        category === 'recurring' && recurringRepeat
+          ? buildRecurringSchedule({
+              day: recurringDay,
+              startTime,
+              endTime,
+              recurringRepeat,
+              otherScheduleDetail,
+              scheduleNotes,
+            })
           : '',
+      recurringRepeat: category === 'recurring' ? recurringRepeat : null,
+      otherScheduleDetail:
+        category === 'recurring' && recurringRepeat === 'other' ? otherScheduleDetail.trim() : '',
+      scheduleNotes: category === 'recurring' ? scheduleNotes.trim() : '',
       ageRange,
       link: link.trim(),
       costType,
@@ -237,9 +296,11 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
           : '',
       eventDescription: eventDescription.trim(),
       parentTips: parentTips.trim(),
+      submittedByName: submittedByName.trim(),
       submittedByEmail: submittedByEmail.trim(),
       submittedAt: new Date().toISOString(),
       reviewOnly,
+      reviewReasons,
     })
   }
 
@@ -261,7 +322,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
             <button
               key={val}
               type="button"
-              onClick={() => setCategory(val)}
+              onClick={() => handleCategoryChange(val)}
               className={`pill-select ${category === val ? 'pill-select-active' : ''}`}
             >
               {label}
@@ -346,7 +407,7 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
                 className="input-field"
               />
               <p className="share-field-hint mt-2">
-                A place name is enough if you don&apos;t know the exact address.
+                A place name is fine if you don&apos;t know the exact address.
               </p>
               {canSearchVenues &&
                 showVenueSuggestions &&
@@ -446,17 +507,46 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
                   />
                 </label>
               </div>
-              <div>
+              <fieldset>
+                <legend className="share-time-label mb-2 block">Repeats</legend>
+                <div className="pill-wrap">
+                  {(
+                    [
+                      ['weekly', 'Weekly'],
+                      ['other', 'Other schedule'],
+                    ] as const
+                  ).map(([value, label]) => (
+                    <button
+                      key={value}
+                      type="button"
+                      onClick={() => handleRecurringRepeatChange(value)}
+                      className={`pill-select ${recurringRepeat === value ? 'pill-select-active' : ''}`}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
+              {recurringRepeat === 'other' && (
+                <label className="share-time-field block">
+                  <span className="share-time-label">Tell us about the schedule</span>
+                  <input
+                    value={otherScheduleDetail}
+                    onChange={(e) => setOtherScheduleDetail(e.target.value)}
+                    placeholder="e.g., Every other week, first Saturday of the month, runs through June"
+                    className="input-field"
+                  />
+                </label>
+              )}
+              <label className="share-time-field block">
+                <span className="share-time-label">Schedule notes (optional)</span>
                 <input
-                  value={scheduleDescription}
-                  onChange={(e) => setScheduleDescription(e.target.value)}
-                  placeholder="Anything else about the schedule? (optional)"
+                  value={scheduleNotes}
+                  onChange={(e) => setScheduleNotes(e.target.value)}
+                  placeholder="e.g., No class on holidays"
                   className="input-field"
                 />
-                <p className="share-field-hint mt-2">
-                  e.g., &quot;Runs through June&quot; or &quot;No class on holidays.&quot;
-                </p>
-              </div>
+              </label>
             </div>
           )}
         </div>
@@ -610,8 +700,8 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
       </div>
 
       <div>
-        <label className="share-field-label mb-2 block" htmlFor="share-email">
-          Email <span className="font-normal text-muted">(Optional)</span>
+        <label className="share-form-question mb-2 block" htmlFor="share-email">
+          Contact email
         </label>
         <input
           id="share-email"
@@ -620,11 +710,25 @@ export const ShareActivityForm = forwardRef<ShareActivityFormHandle, ShareActivi
           onChange={(e) => setSubmittedByEmail(e.target.value)}
           placeholder="you@example.com"
           autoComplete="email"
+          required
           className="input-field"
         />
-        <p className="share-field-hint mt-2">
-          We&apos;ll only use this if we have a quick question about your event.
-        </p>
+        <p className="share-field-hint mt-2">For questions or updates.</p>
+      </div>
+
+      <div>
+        <label className="share-form-question mb-2 block" htmlFor="share-contact-name">
+          Contact name <span className="font-normal text-muted">(Optional)</span>
+        </label>
+        <input
+          id="share-contact-name"
+          value={submittedByName}
+          onChange={(e) => setSubmittedByName(e.target.value)}
+          placeholder="Your name"
+          autoComplete="name"
+          className="input-field"
+        />
+        <p className="share-field-hint mt-2">Who should we contact?</p>
       </div>
     </div>
   )

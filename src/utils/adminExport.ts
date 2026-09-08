@@ -42,6 +42,7 @@ export const SUBMISSION_EXPORT_COLUMNS: CsvColumn<SheetSubmission>[] = [
   { key: 'eventDescription', label: 'Event Description', value: (row) => row.eventDescription },
   { key: 'parentTips', label: 'Parent-to-Parent Tips', value: (row) => row.parentTips },
   { key: 'additionalInfo', label: 'Additional Info', value: (row) => row.additionalInfo },
+  { key: 'submittedByName', label: 'Submitted By Name', value: (row) => row.submittedByName },
   { key: 'submittedByEmail', label: 'Submitted By Email', value: (row) => row.submittedByEmail },
   { key: 'requestedLocation', label: 'Requested Location', value: (row) => row.requestedLocation },
   { key: 'sourceContext', label: 'Source Context', value: (row) => row.sourceContext },

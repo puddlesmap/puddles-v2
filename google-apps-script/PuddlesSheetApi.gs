@@ -234,6 +234,7 @@ function ensureSubmissionHeaders(sheet) {
     'Signup Link / Info',
     'Event Description',
     'Parent-to-Parent Tips',
+    'Submitted By Name',
     'Submitted By Email',
     'Requested Location',
     'Source Context',
@@ -265,7 +266,7 @@ function appendSubmission(payload) {
   var id = generateSubmissionId();
   var submittedAt = payload.submittedAt || formatSubmittedDate();
   var submissionType = payload.submissionType || 'Event';
-  var status = 'New';
+  var status = payload.status || 'New';
   var costType = payload.costType || '';
   var costDetail = payload.costDetail || '';
 
@@ -295,6 +296,7 @@ function appendSubmission(payload) {
     'Additional Info': payload.parentTips || payload.additionalInfo || '',
     'Internal Notes': payload.internalNotes || '',
     'Converted Event ID': '',
+    'Submitted By Name': payload.submittedByName || '',
     'Submitted By Email': payload.submittedByEmail || '',
     'Requested Location':
       payload.requestedLocation || payload.locationName || payload.city || '',

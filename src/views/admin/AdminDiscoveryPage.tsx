@@ -54,7 +54,6 @@ const REGULAR_VIEW_OPTIONS: { id: DiscoveryViewFilter; label: string }[] = [
   { id: 'new', label: 'New only' },
   { id: 'already', label: 'Already on site' },
   { id: 'approved', label: 'Ready' },
-  { id: 'live', label: 'Live' },
   { id: 'dismissed', label: 'Dismissed' },
   { id: 'all', label: 'All' },
 ]
@@ -188,6 +187,10 @@ export function AdminDiscoveryPage() {
   const [curationTick, setCurationTick] = useState(0)
   const [addTarget, setAddTarget] = useState<SeasonalCurationSection>('closeToHome')
   const [addQuery, setAddQuery] = useState('')
+
+  useEffect(() => {
+    if (view === 'live') setView('thisWeek')
+  }, [view])
 
   const themeSlug = getActiveThemeSlugForAdmin()
   const seasonalCollection = getSeasonalCollection(themeSlug)
@@ -679,7 +682,7 @@ export function AdminDiscoveryPage() {
       }
 
       setSelectedId(null)
-      setView('live')
+      setView('thisWeek')
       refreshCandidatesFromStore()
       runLivedReconcile()
       setActionMessage({
@@ -754,10 +757,6 @@ export function AdminDiscoveryPage() {
           <div className="admin-stat-card admin-stat-card-static">
             <div className="admin-stat-value">{counts.approved}</div>
             <div className="admin-stat-label">Ready</div>
-          </div>
-          <div className="admin-stat-card admin-stat-card-static">
-            <div className="admin-stat-value">{counts.live}</div>
-            <div className="admin-stat-label">Live</div>
           </div>
           <div className="admin-stat-card admin-stat-card-static">
             <div className="admin-stat-value">{counts.dismissed}</div>
@@ -938,11 +937,9 @@ export function AdminDiscoveryPage() {
                           ? counts.alreadyPending
                           : option.id === 'approved'
                             ? counts.approved
-                            : option.id === 'live'
-                              ? counts.live
-                              : option.id === 'dismissed'
-                                ? counts.dismissed
-                                : counts.total
+                            : option.id === 'dismissed'
+                              ? counts.dismissed
+                              : counts.queue
                 return (
                   <button
                     key={option.id}

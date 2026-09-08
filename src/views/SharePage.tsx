@@ -20,6 +20,29 @@ import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './exper
 type ShareTab = 'activity' | 'idea'
 type View = 'form' | 'success'
 
+function activitySuccessBody(
+  reviewOnly: boolean,
+  reasons: ActivitySubmissionPayload['reviewReasons'],
+): string {
+  if (!reviewOnly) {
+    return "We'll quickly review the details to make sure everything is accurate, then add it live to the neighborhood map so other families can find it."
+  }
+
+  const otherCity = reasons.includes('other-city')
+  const variableSchedule = reasons.includes('variable-schedule')
+
+  if (otherCity && variableSchedule) {
+    return "We'll review your submission manually — it's outside our current cities, and it isn't a regular weekly class. We'll follow up if we expand there."
+  }
+  if (otherCity) {
+    return "We'll review your submission manually since it's outside our current cities. We'll follow up if we expand there."
+  }
+  if (variableSchedule) {
+    return "We'll review this manually since it isn't a regular weekly class — we'll check the schedule details before listing it."
+  }
+  return "We'll review your submission manually before it appears on the map."
+}
+
 function ShareActivityIntro({ variant }: { variant: 'mobile' | 'desktop' }) {
   if (variant === 'mobile') {
     return (
@@ -169,6 +192,9 @@ export function SharePage({
   const [view, setView] = useState<View>('form')
   const [tab, setTab] = useState<ShareTab>('activity')
   const [submittedReviewOnly, setSubmittedReviewOnly] = useState(false)
+  const [submittedReviewReasons, setSubmittedReviewReasons] = useState<
+    ActivitySubmissionPayload['reviewReasons']
+  >([])
 
   const [selectedChips, setSelectedChips] = useState<IdeaChipKey[]>([])
   const [ideaDetail, setIdeaDetail] = useState('')
@@ -196,6 +222,7 @@ export function SharePage({
 
   function resetForm() {
     setSubmittedReviewOnly(false)
+    setSubmittedReviewReasons([])
     setSelectedChips([])
     setIdeaDetail('')
     setSubmittedByEmail('')
@@ -218,6 +245,7 @@ export function SharePage({
     await submitActivitySubmission(payload)
     trackShareFormSubmitted('event_tip')
     setSubmittedReviewOnly(payload.reviewOnly)
+    setSubmittedReviewReasons(payload.reviewReasons)
     setView('success')
   }
 
@@ -239,6 +267,7 @@ export function SharePage({
         trackShareFormSubmitted('idea')
         setSubmittedIdeaChips(selectedChips)
         setSubmittedReviewOnly(false)
+        setSubmittedReviewReasons([])
         setView('success')
       }
     } catch (error) {
@@ -263,9 +292,7 @@ export function SharePage({
           <div className="share-success-panel animate-fade-in text-center">
             <h1 className="share-page-title">Thanks for helping out!</h1>
             <p className="share-page-body-muted">
-              {submittedReviewOnly
-                ? "We'll review your submission manually since it's outside our current cities. We'll follow up if we expand there."
-                : "We'll quickly review the details to make sure everything is accurate, then add it live to the neighborhood map so other families can find it."}
+              {activitySuccessBody(submittedReviewOnly, submittedReviewReasons)}
             </p>
             <div className="mt-10 space-y-3">
               <Link to="/" className="btn-primary block w-full">

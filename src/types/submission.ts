@@ -35,7 +35,17 @@ export interface ActivitySubmissionPayload {
   recurringDay: string
   startTime: string
   endTime: string
+  /** Assembled schedule summary for admin notes. */
   scheduleDescription: string
+  /**
+   * Recurring class only.
+   * `other` routes to manual review (Needs review) instead of treating as a weekly series.
+   */
+  recurringRepeat: 'weekly' | 'other' | null
+  /** Required when recurringRepeat is `other`. */
+  otherScheduleDetail: string
+  /** Optional recurring notes (e.g. holidays). */
+  scheduleNotes: string
   ageRange: ShareAgeRange | ''
   link: string
   costType: ShareCostType | ''
@@ -44,10 +54,14 @@ export interface ActivitySubmissionPayload {
   signupLinkInfo: string
   eventDescription: string
   parentTips: string
+  /** Optional — who to contact about this tip. */
+  submittedByName: string
   submittedByEmail: string
   submittedAt: string
-  /** Other-city submissions are intake-only — never auto-published. */
+  /** Intake-only / manual queue — never treat as ready to auto-publish. */
   reviewOnly: boolean
+  /** Why reviewOnly is set — drives success copy and admin notes. */
+  reviewReasons: Array<'other-city' | 'variable-schedule'>
 }
 
 /** Share form payload — idea tab. */
@@ -86,6 +100,7 @@ export interface SheetSubmission {
   additionalInfo: string
   internalNotes: string
   convertedEventId: string
+  submittedByName: string
   submittedByEmail: string
   requestedLocation: string
   sourceContext: string

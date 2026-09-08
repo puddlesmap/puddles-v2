@@ -83,6 +83,7 @@ function mapRecord(record: Record<string, string>): SheetSubmission | null {
       pickField(record, ['additional info']),
     internalNotes: pickField(record, ['internal notes']),
     convertedEventId: pickField(record, ['converted event id']),
+    submittedByName: pickField(record, ['submitted by name', 'contact name', 'name']),
     submittedByEmail: pickField(record, ['submitted by email', 'email']),
     requestedLocation: pickField(record, ['requested location']),
     sourceContext: pickField(record, ['source context']),

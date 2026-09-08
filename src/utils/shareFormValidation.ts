@@ -1,5 +1,7 @@
 import type { ShareCity } from '../data/shareVenues'
 
+export type RecurringRepeat = 'weekly' | 'other'
+
 export interface ShareActivityFormState {
   category: 'one-time' | 'recurring' | null
   title: string
@@ -12,9 +14,17 @@ export interface ShareActivityFormState {
   recurringDay: string
   startTime: string
   endTime: string
-  scheduleDescription: string
+  /** Recurring only — null until answered. */
+  recurringRepeat: RecurringRepeat | null
+  otherScheduleDetail: string
+  scheduleNotes: string
   link: string
+  submittedByName: string
   submittedByEmail: string
+}
+
+export function isValidShareEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
 }
 
 export function isShareCityOther(city: ShareCity | null): boolean {
@@ -55,6 +65,10 @@ function hasValidSchedule(state: ShareActivityFormState): boolean {
     if (!state.recurringDay) return false
     if (!state.startTime) return false
     if (state.endTime && state.endTime <= state.startTime) return false
+    if (!state.recurringRepeat) return false
+    if (state.recurringRepeat === 'other' && state.otherScheduleDetail.trim().length < 3) {
+      return false
+    }
     return true
   }
 
@@ -68,5 +82,6 @@ export function canSubmitShareActivity(state: ShareActivityFormState, isSubmitti
   if (isShareCityOther(state.city) && state.cityOther.trim().length < 2) return false
   if (!hasValidLocation(state)) return false
   if (!hasValidSchedule(state)) return false
+  if (!isValidShareEmail(state.submittedByEmail)) return false
   return true
 }
