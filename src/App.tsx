@@ -18,7 +18,6 @@ import { ExperimentHomeBrowseChipsMockupPage } from './views/ExperimentHomeBrows
 import { ExperimentFarmSeasonAgesMockupPage } from './views/ExperimentFarmSeasonAgesMockupPage'
 import { ExperimentSunnyvaleLibraryImagesMockupPage } from './views/ExperimentSunnyvaleLibraryImagesMockupPage'
 import { HomeV1Page } from './views/HomeV1Page'
-import { HomeV2SeasonalBannerPage } from './views/HomeV2SeasonalBannerPage'
 import { HomeExperiment1Page } from './views/HomeExperiment1Page'
 import { HomeExperiment2Page } from './views/HomeExperiment2Page'
 import { HomeExperiment3Page } from './views/HomeExperiment3Page'
@@ -120,11 +119,6 @@ function AppShell() {
         element={<ExperimentHallmarkHelloFallMockupPage />}
       />
       <Route path="/home-v1" element={<HomeV1Page />} />
-      <Route path="/home-v2" element={<HomeV2SeasonalBannerPage />} />
-      <Route
-        path="/experiment/home-v2-seasonal-banner"
-        element={<HomeV2SeasonalBannerPage />}
-      />
       <Route path="/home-experiment" element={<Navigate to="/" replace />} />
       <Route path="/home-experiment-1" element={<HomeExperiment1Page />} />
       <Route path="/home-experiment-2" element={<HomeExperiment2Page />} />

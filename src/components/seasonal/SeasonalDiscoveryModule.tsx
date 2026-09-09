@@ -20,16 +20,8 @@ interface SeasonalDiscoveryModuleProps {
   bandLayout?: 'default' | 'home'
   homeBandEyebrow?: 'subtitle' | 'timing'
   homeBandCopyTone?: 'seasonal' | 'neutral'
-  /**
-   * `map-sheet` — compact horizontal cards (mobile dock / map preview style).
-   * Default is the full vertical Discovery card.
-   */
-  cardDensity?: 'default' | 'map-sheet'
   /** Override “today” for seasonal When (mockups / tests). */
   asOf?: Date
-  /** Analytics placement — defaults from band layout. */
-  analyticsPlacement?: string
-  analyticsPage?: string
 }
 
 export function SeasonalDiscoveryModule({
@@ -40,17 +32,12 @@ export function SeasonalDiscoveryModule({
   bandLayout = 'default',
   homeBandEyebrow = 'subtitle',
   homeBandCopyTone = 'seasonal',
-  cardDensity = 'default',
   asOf,
-  analyticsPlacement,
-  analyticsPage = 'home',
 }: SeasonalDiscoveryModuleProps) {
   const isHomeBand = bandLayout === 'home'
-  const isMapSheet = cardDensity === 'map-sheet'
   const isEmpty = events.length === 0
   const showCollectionLink = isEmpty || events.length >= 3
   const collectionHref = seasonalCollectionPath(collection.slug)
-  const placement = analyticsPlacement ?? (isHomeBand ? 'home' : 'module')
   const rootRef = useRef<HTMLDivElement>(null)
   const impressedRef = useRef(false)
 
@@ -62,13 +49,15 @@ export function SeasonalDiscoveryModule({
     const observer = new IntersectionObserver(
       (entries) => {
         if (impressedRef.current) return
-        const visible = entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.35)
+        const visible = entries.some(
+          (entry) => entry.isIntersecting && entry.intersectionRatio >= 0.35,
+        )
         if (!visible) return
         impressedRef.current = true
         trackSeasonalBannerImpression({
           themeSlug: collection.slug,
-          placement,
-          page: analyticsPage,
+          placement: 'home',
+          page: 'home',
         })
         observer.disconnect()
       },
@@ -77,24 +66,26 @@ export function SeasonalDiscoveryModule({
 
     observer.observe(node)
     return () => observer.disconnect()
-  }, [analyticsPage, collection.slug, isHomeBand, placement])
+  }, [collection.slug, isHomeBand])
 
   const trackBannerCta = () => {
     trackSeasonalBannerClicked({
       themeSlug: collection.slug,
       clickTarget: 'see_all',
-      placement,
-      page: analyticsPage,
+      placement: isHomeBand ? 'home' : 'module',
+      page: 'home',
     })
   }
 
   const handleEventClick = (event: Event) => {
-    trackSeasonalCollectionEventOpened({
-      event,
-      themeSlug: collection.slug,
-      placement,
-      page: analyticsPage,
-    })
+    if (isHomeBand) {
+      trackSeasonalCollectionEventOpened({
+        event,
+        themeSlug: collection.slug,
+        placement: 'home',
+        page: 'home',
+      })
+    }
     onEventClick(event)
   }
 
@@ -103,7 +94,7 @@ export function SeasonalDiscoveryModule({
       ? { href: collectionHref, label: collection.ctaLabel, onClick: trackBannerCta }
       : undefined
 
-  const headingId = `seasonal-discovery-heading-${collection.slug}${isMapSheet ? '-compact' : ''}`
+  const headingId = `seasonal-discovery-heading-${collection.slug}`
 
   const shell = (
     <div className="seasonal-discovery-module__shell">
@@ -124,35 +115,16 @@ export function SeasonalDiscoveryModule({
           className={[
             'seasonal-discovery-module__carousel-wrap',
             isHomeBand ? 'browse-content seasonal-discovery-module__carousel-wrap--home' : '',
-            isMapSheet ? 'seasonal-discovery-module__carousel-wrap--map-sheet' : '',
           ]
             .filter(Boolean)
             .join(' ')}
         >
-          <div
-            className={[
-              'seasonal-discovery-module__carousel',
-              isMapSheet ? 'seasonal-discovery-module__carousel--map-sheet' : '',
-            ]
-              .filter(Boolean)
-              .join(' ')}
-            role="list"
-          >
+          <div className="seasonal-discovery-module__carousel" role="list">
             {events.map((event) => (
-              <div
-                key={event.id}
-                className={[
-                  'seasonal-discovery-module__card',
-                  isMapSheet ? 'seasonal-discovery-module__card--map-sheet' : '',
-                ]
-                  .filter(Boolean)
-                  .join(' ')}
-                role="listitem"
-              >
+              <div key={event.id} className="seasonal-discovery-module__card" role="listitem">
                 <BrowseEventCard
                   event={event}
                   seasonalEditorial={false}
-                  density={cardDensity}
                   asOf={asOf}
                   onClick={() => handleEventClick(event)}
                 />
@@ -181,7 +153,6 @@ export function SeasonalDiscoveryModule({
         isHomeBand && homeBandCopyTone === 'neutral'
           ? 'seasonal-discovery-module--neutral-home-copy'
           : '',
-        isMapSheet ? 'seasonal-discovery-module--map-sheet' : '',
         className,
       ]
         .filter(Boolean)

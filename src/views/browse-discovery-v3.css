@@ -305,44 +305,6 @@
   height: 100%;
 }
 
-.seasonal-discovery-module__card--map-sheet .discovery-v3-event-card.discovery-v3-event-card--map-sheet {
-  display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr);
-  column-gap: 0.625rem;
-  align-items: center;
-  height: auto;
-  min-height: 0;
-  padding: 0.5rem;
-  border-radius: 0.75rem;
-  background: #fff;
-  border: 1px solid color-mix(in srgb, var(--charcoal, #273034) 8%, transparent);
-  box-shadow: 0 1px 2px rgb(39 48 52 / 0.04);
-}
-
-.seasonal-discovery-module__card--map-sheet .discovery-v3-event-card__media--map-sheet {
-  width: 4.5rem;
-  height: 4.5rem;
-  min-height: 4.5rem;
-  max-height: 4.5rem;
-  aspect-ratio: 1;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.seasonal-discovery-module__card--map-sheet .discovery-v3-event-card__media--map-sheet.aspect-square {
-  aspect-ratio: 1;
-}
-
-.seasonal-discovery-module__card--map-sheet .discovery-v3-event-card__body--map-sheet {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.125rem;
-  padding: 0;
-  height: auto;
-  min-height: 0;
-}
-
 .seasonal-discovery-module__card .discovery-v3-event-card__body {
   display: flex;
   flex-direction: column;

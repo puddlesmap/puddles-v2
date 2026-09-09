@@ -111,14 +111,8 @@ interface HomeExperimentPageProps {
   leading?: ReactNode
   /** Renders flush under the nav inside the sticky header (e.g. promo bar). */
   headerBelow?: ReactNode
-  /** Renders above the sticky nav (e.g. mobile seasonal banner that blends on scroll). */
-  headerAbove?: ReactNode
   /** Full-bleed band between header and page content (e.g. seasonal hero). */
   topBand?: ReactNode
-  /** Fixed mobile dock above bottom nav (e.g. Hello Fall scroll-blend). */
-  mobileBottomDock?: ReactNode
-  /** Renders after the Find-activities control block, before results (e.g. seasonal). */
-  afterControl?: ReactNode
   /** Refined layout — place “All cities · N activities” with results (default) or under hero (`after-hero`). */
   refinedSummaryPlacement?: 'with-results' | 'after-hero'
   logoOnly?: boolean
@@ -168,10 +162,7 @@ export function HomeExperimentPage({
   beforeFilters,
   leading,
   headerBelow,
-  headerAbove,
   topBand,
-  mobileBottomDock,
-  afterControl,
   refinedSummaryPlacement = 'with-results',
   logoOnly = false,
   logoSrc = PUDDLES_WORDMARK_LOGO_SRC,
@@ -306,26 +297,6 @@ export function HomeExperimentPage({
       aria-label="Quick filters"
     >
       <div className="discovery-filter-group home-experiment-filter-group">
-        <span className="discovery-filter-label" id="home-experiment-when-label">
-          When
-        </span>
-        <div
-          className="discovery-filter-chips"
-          role="group"
-          aria-labelledby="home-experiment-when-label"
-        >
-          {tabs.map((tab) => (
-            <DiscoveryFilterChip
-              key={tab.key}
-              label={tab.label}
-              active={temporalTab === tab.key}
-              onClick={() => handleDayChange(tab.key)}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="discovery-filter-group home-experiment-filter-group">
         <span className="discovery-filter-label" id="home-experiment-where-label">
           Where
         </span>
@@ -347,6 +318,26 @@ export function HomeExperimentPage({
               badge={isNewCityFilter(chip.value) ? 'NEW' : undefined}
               active={whereMode.kind === 'city' && whereMode.value === chip.value}
               onClick={() => handleCitySelect(chip.value)}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="discovery-filter-group home-experiment-filter-group">
+        <span className="discovery-filter-label" id="home-experiment-when-label">
+          When
+        </span>
+        <div
+          className="discovery-filter-chips"
+          role="group"
+          aria-labelledby="home-experiment-when-label"
+        >
+          {tabs.map((tab) => (
+            <DiscoveryFilterChip
+              key={tab.key}
+              label={tab.label}
+              active={temporalTab === tab.key}
+              onClick={() => handleDayChange(tab.key)}
             />
           ))}
         </div>
@@ -423,26 +414,15 @@ export function HomeExperimentPage({
     </div>
   )
 
-  const appHeader = (
-    <AppHeader
-      logoOnly={logoOnly}
-      logoSrc={logoSrc}
-      logoSrc2x={logoSrc2x}
-      showBrandName={showBrandName}
-      below={headerBelow}
-    />
-  )
-
   return (
     <div className={['home-experiment-shell', shellClassName].filter(Boolean).join(' ')}>
-      {headerAbove ? (
-        <div className="home-sticky-chrome">
-          {headerAbove}
-          {appHeader}
-        </div>
-      ) : (
-        appHeader
-      )}
+      <AppHeader
+        logoOnly={logoOnly}
+        logoSrc={logoSrc}
+        logoSrc2x={logoSrc2x}
+        showBrandName={showBrandName}
+        below={headerBelow}
+      />
 
       {topBand}
 
@@ -467,8 +447,6 @@ export function HomeExperimentPage({
                 {renderMapPreview()}
               </div>
             </section>
-
-            {afterControl}
 
             {/* Sticky track ends with results so the aside parks on that grid line */}
             <div className="home-experiment-refined-sticky-track">
@@ -497,7 +475,6 @@ export function HomeExperimentPage({
               {beforeFilters}
               {filterSection}
             </section>
-            {afterControl}
             {resultsSection}
             {afterResults}
             {shareCta}
@@ -507,7 +484,6 @@ export function HomeExperimentPage({
       </PageContainer>
 
       <Footer fullBleed className="mt-0" />
-      {mobileBottomDock}
     </div>
   )
 }
