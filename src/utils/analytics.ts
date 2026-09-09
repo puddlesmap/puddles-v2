@@ -51,6 +51,9 @@ export const ANALYTICS_EVENTS = {
   NEARBY_REQUEST_OPENED: 'nearby_request_opened',
   NEARBY_REQUEST_SUBMITTED: 'nearby_request_submitted',
   NEARBY_REQUEST_ERROR: 'nearby_request_error',
+  SEASONAL_BANNER_IMPRESSION: 'seasonal_banner_impression',
+  SEASONAL_BANNER_CLICKED: 'seasonal_banner_clicked',
+  SEASONAL_COLLECTION_EVENT_OPENED: 'seasonal_collection_event_opened',
 } as const
 
 type PlausibleInitOptions = {
@@ -413,6 +416,67 @@ export function trackWelcomeDismissed(page: string): void {
 
 export function trackWelcomeExploreClicked(page: string): void {
   trackEvent(ANALYTICS_EVENTS.WELCOME_EXPLORE_CLICKED, { page })
+}
+
+function themeSlug(slug: string): string {
+  return slug.trim().toLowerCase().replace(/-/g, '_')
+}
+
+/** Home / browse seasonal band became visible (once per mount). */
+export function trackSeasonalBannerImpression({
+  themeSlug: theme,
+  placement = 'home',
+  page = 'home',
+}: {
+  themeSlug: string
+  placement?: string
+  page?: string
+}): void {
+  trackEvent(ANALYTICS_EVENTS.SEASONAL_BANNER_IMPRESSION, {
+    theme_slug: themeSlug(theme),
+    placement,
+    page,
+  })
+}
+
+/** User clicked the seasonal banner CTA (e.g. See all → collection). */
+export function trackSeasonalBannerClicked({
+  themeSlug: theme,
+  clickTarget = 'see_all',
+  placement = 'home',
+  page = 'home',
+}: {
+  themeSlug: string
+  clickTarget?: string
+  placement?: string
+  page?: string
+}): void {
+  trackEvent(ANALYTICS_EVENTS.SEASONAL_BANNER_CLICKED, {
+    theme_slug: themeSlug(theme),
+    click_target: clickTarget,
+    placement,
+    page,
+  })
+}
+
+/** User opened an activity from the seasonal banner carousel. */
+export function trackSeasonalCollectionEventOpened({
+  event,
+  themeSlug: theme,
+  placement = 'home',
+  page = 'home',
+}: {
+  event: Event
+  themeSlug: string
+  placement?: string
+  page?: string
+}): void {
+  trackEvent(ANALYTICS_EVENTS.SEASONAL_COLLECTION_EVENT_OPENED, {
+    ...activityProps(event),
+    theme_slug: themeSlug(theme),
+    placement,
+    page,
+  })
 }
 
 export function trackNearbyRequestOpened({

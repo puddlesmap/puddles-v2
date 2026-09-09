@@ -60,6 +60,7 @@ After changing env vars, **trigger a new deploy** so the public token is baked i
 Suggested PostHog insights:
 
 - Funnel: `$pageview` → `activity_opened` → (`add_to_calendar_clicked` OR `visit_official_page_clicked` OR `activity_shared`)
+- Seasonal: `seasonal_banner_impression` → (`seasonal_banner_clicked` OR `seasonal_collection_event_opened`) → `activity_opened`
 - Weekly retention: `activity_opened` → return with `activity_opened`
 - Weekly trends: `$pageview`, `activity_opened`, `add_to_calendar_clicked`, `visit_official_page_clicked`
 
@@ -106,6 +107,16 @@ Tracked on route change for public pages only. The `page` property identifies th
 
 `event_category` slugs: `stories`, `music_movement`, `arts_crafts`, `build_explore`, `outdoor`, `social_play`, `classes`, `other`
 
+### Seasonal banner (Home)
+
+| Event | Properties |
+|-------|------------|
+| `seasonal_banner_impression` | `theme_slug` (`hello_fall`, …), `placement` (`home`), `page` (`home`) — once per mount when ≥35% visible |
+| `seasonal_banner_clicked` | `theme_slug`, `click_target` (`see_all`), `placement`, `page` — See all → collection |
+| `seasonal_collection_event_opened` | `event_id`, `event_city`, `event_category`, `theme_slug`, `placement`, `page` — card in the banner carousel |
+
+Wired on the Home Hello Fall band via [`SeasonalDiscoveryModule`](../src/components/seasonal/SeasonalDiscoveryModule.tsx). Opening a card still also fires `activity_opened` from the event detail view.
+
 ### Community contribution
 
 | Event | Properties |
@@ -117,7 +128,7 @@ Tracked on route change for public pages only. The `page` property identifies th
 
 ## Plausible goals to create
 
-In Plausible → your site → **Settings → Goals**, add custom event goals for each event name above (15 goals). Pageviews are automatic.
+In Plausible → your site → **Settings → Goals**, add custom event goals for each event name above (18 goals). Pageviews are automatic.
 
 Suggested reports:
 

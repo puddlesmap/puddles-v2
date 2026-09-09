@@ -1,0 +1,57 @@
+[
+  {
+    "event_name": "activity_opened",
+    "event_description": "User opens an activity detail view from browse, map, or direct link.",
+    "file": "src/utils/analytics.ts"
+  },
+  {
+    "event_name": "activity_shared",
+    "event_description": "User shares an activity via native share or clipboard copy.",
+    "file": "src/utils/analytics.ts"
+  },
+  {
+    "event_name": "visit_official_page_clicked",
+    "event_description": "User clicks the 'Visit official page' link on an activity detail.",
+    "file": "src/utils/analytics.ts"
+  },
+  {
+    "event_name": "add_to_calendar_clicked",
+    "event_description": "User adds an activity to their calendar.",
+    "file": "src/utils/analytics.ts"
+  },
+  {
+    "event_name": "share_form_submitted",
+    "event_description": "User submits a new activity suggestion via the share form.",
+    "file": "src/utils/analytics.ts"
+  },
+  {
+    "event_name": "outdated_info_reported",
+    "event_description": "User reports that an activity's info is outdated or incorrect.",
+    "file": "src/utils/analytics.ts"
+  },
+  {
+    "event_name": "expansion_watch_submitted",
+    "event_description": "User signs up for expansion watch notifications for a new city.",
+    "file": "src/utils/analytics.ts"
+  },
+  {
+    "event_name": "city_selected",
+    "event_description": "User selects a city filter when browsing activities.",
+    "file": "src/utils/analytics.ts"
+  },
+  {
+    "event_name": "seasonal_banner_impression",
+    "event_description": "Home seasonal banner (e.g. Hello Fall) becomes visible to the user.",
+    "file": "src/components/seasonal/SeasonalDiscoveryModule.tsx"
+  },
+  {
+    "event_name": "seasonal_banner_clicked",
+    "event_description": "User clicks See all on the home seasonal banner to open the collection.",
+    "file": "src/components/seasonal/SeasonalDiscoveryModule.tsx"
+  },
+  {
+    "event_name": "seasonal_collection_event_opened",
+    "event_description": "User opens an activity from the home seasonal banner carousel.",
+    "file": "src/components/seasonal/SeasonalDiscoveryModule.tsx"
+  }
+]

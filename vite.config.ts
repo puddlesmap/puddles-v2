@@ -85,6 +85,21 @@ export default defineConfig(({ mode }) => {
       'process.env.NODE_ENV': JSON.stringify(mode),
     },
     plugins: [
+      {
+        name: 'puddles-vite-event-navigation',
+        enforce: 'pre',
+        resolveId(source) {
+          const normalized = source.replace(/\\/g, '/')
+          if (
+            normalized === '@/hooks/useEventNavigation' ||
+            normalized.endsWith('/hooks/useEventNavigation') ||
+            normalized.endsWith('/hooks/useEventNavigation.ts')
+          ) {
+            return path.resolve(__dirname, 'src/hooks/useEventNavigation.vite.ts')
+          }
+          return null
+        },
+      },
       react(),
       tailwindcss(),
       {

@@ -5,7 +5,7 @@ interface SeasonalDiscoveryModuleHeaderProps {
   collection: SeasonalCollection
   headingId: string
   /** PlanetBox-style “View all” in the section header row. */
-  headerCta?: { href: string; label: string }
+  headerCta?: { href: string; label: string; onClick?: () => void }
   /**
    * Home band — SEPTEMBER + See all on one full-width row; title beside art, subtitle below.
    */
@@ -52,7 +52,11 @@ export function SeasonalDiscoveryModuleHeader({
         <div className="seasonal-discovery-module__eyebrow-row">
           <p className="seasonal-discovery-module__eyebrow">{eyebrowText}</p>
           {headerCta ? (
-            <Link to={headerCta.href} className="seasonal-discovery-module__header-cta">
+            <Link
+              to={headerCta.href}
+              className="seasonal-discovery-module__header-cta"
+              onClick={headerCta.onClick}
+            >
               {headerCta.label}
               <span aria-hidden> →</span>
             </Link>
