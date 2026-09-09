@@ -15,19 +15,25 @@ import {
 } from '@/utils/eventShare'
 import { EventDetailPageLoader } from './EventDetailPageLoader'
 
-/** Fully static — avoid Netlify ISR/serverless invocations that were 502'ing. */
+/** Prefer static shells on Netlify; avoid build-time SSG of every ended URL (OOM). */
 export const dynamic = 'force-static'
 export const revalidate = false
+/** Ended / archived ids not returned by generateStaticParams still resolve on first request. */
+export const dynamicParams = true
 
 interface EventPageProps {
   params: Promise<{ eventId: string }>
 }
 
 export async function generateStaticParams() {
-  // Prebuild every non-Draft event so ended/archived detail URLs stay reachable
-  // as static shells (this route is force-static; missing params would 404).
+  // Prebuild live/upcoming (+ seasonal Hidden drive shells) only.
+  // Prebuilding every ended/archived detail page (~600) OOMs Netlify (SIGKILL mid SSG).
   return getAllCatalogEventsForLifecycle()
-    .filter((event) => isLifecycleDetailAccessible(event))
+    .filter(
+      (event) =>
+        isLifecycleDetailAccessible(event) &&
+        (isLifecycleEventIndexable(event) || event.status === 'Hidden'),
+    )
     .map((event) => ({ eventId: event.id }))
 }
 
