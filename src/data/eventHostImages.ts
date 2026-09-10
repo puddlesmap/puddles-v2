@@ -52,6 +52,10 @@ export const EVENT_HOST_IMAGES: Record<string, string> = {
     'https://static.wixstatic.com/media/018359_04db1710209548419c54ad83a0b4d671~mv2.jpg',
   'Garin Regional Park':
     'https://www.ebparks.org/sites/default/files/16x9_Garin_Jerry%20Ting.jpg',
+  'Ravenswood Historic Site':
+    'https://upload.wikimedia.org/wikipedia/commons/6/62/Ravenswood_%28Livermore%2C_CA%29.JPG',
+  'Meek Estate Park':
+    'https://upload.wikimedia.org/wikipedia/commons/9/90/Meek_Mansion_%28Hayward%2C_CA%29.JPG',
 }
 
 /** Case-insensitive venue / host alias → canonical EVENT_HOST_IMAGES key */
@@ -84,6 +88,10 @@ const EVENT_HOST_IMAGE_ALIASES: Record<string, string> = {
   'lemos farm': 'Lemos Farm',
   'garin regional park': 'Garin Regional Park',
   'garin': 'Garin Regional Park',
+  'ravenswood historic site': 'Ravenswood Historic Site',
+  'ravenswood': 'Ravenswood Historic Site',
+  'meek estate park': 'Meek Estate Park',
+  'meek park': 'Meek Estate Park',
 }
 
 /** @deprecated Use getEventHostImageUrl */

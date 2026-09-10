@@ -47,6 +47,8 @@
     "Civic Center Plaza": { "city": "Mountain View", "lat": 37.39, "lng": -122.0815 },
     "Downtown Castro Street": { "city": "Mountain View", "lat": 37.3905, "lng": -122.0788 },
     "Mitchell Park Athletics Fields": { "city": "Palo Alto", "lat": 37.419, "lng": -122.1095 },
+    "Mitchell Park · Tot area": { "city": "Palo Alto", "lat": 37.4218, "lng": -122.1128 },
+    "The Village at San Antonio Center": { "city": "Mountain View", "lat": 37.4036, "lng": -122.1089 },
     "Rengstorff Park": { "city": "Mountain View", "lat": 37.396, "lng": -122.1018 },
     "Cuesta Park": { "city": "Mountain View", "lat": 37.3734, "lng": -122.0816 },
     "Las Palmas Park": { "city": "Sunnyvale", "lat": 37.3515, "lng": -122.0255 },
@@ -76,7 +78,11 @@
       "lng": -122.0815
     },
     "Gamble Garden": { "city": "Palo Alto", "lat": 37.4397, "lng": -122.1481 },
-    "Downtown Los Altos": { "city": "Los Altos", "lat": 37.3792, "lng": -122.1177 }
+    "Downtown Los Altos": { "city": "Los Altos", "lat": 37.3792, "lng": -122.1177 },
+    "AAH Smile Farm": { "city": "Sunnyvale", "lat": 37.4184, "lng": -122.0154 },
+    "Ravenswood Historic Site": { "city": "Livermore", "lat": 37.652, "lng": -121.7699 },
+    "Patchen Christmas Tree & Pumpkin Farm": { "city": "Los Gatos", "lat": 37.215, "lng": -121.98 },
+    "Meek Estate Park": { "city": "Hayward", "lat": 37.6838, "lng": -122.1134 }
   },
   "venueAddresses": {
     "Downtown Library": "270 Forest Ave, Palo Alto, CA 94301",
@@ -102,6 +108,8 @@
     "Civic Center Plaza": "500 Castro Street, Mountain View, CA 94041",
     "Downtown Castro Street": "200 Castro St, Mountain View, CA 94041",
     "Mitchell Park Athletics Fields": "600 East Meadow Drive, Palo Alto, CA 94303",
+    "Mitchell Park · Tot area": "3700 Middlefield Rd, Palo Alto, CA 94303",
+    "The Village at San Antonio Center": "645 San Antonio Rd, Mountain View, CA 94040",
     "Rengstorff Park": "1931 S Rengstorff Ave, Mountain View, CA 94040",
     "Cuesta Park": "615 Cuesta Dr, Mountain View, CA 94040",
     "Las Palmas Park": "850 Russet Dr, Sunnyvale, CA 94087",
@@ -127,7 +135,11 @@
     "Unity Church of Palo Alto": "3391 Middlefield Rd, Palo Alto, CA 94306",
     "Mountain View Center for the Performing Arts": "500 Castro Street, Mountain View, CA 94041",
     "Gamble Garden": "1431 Waverley Street, Palo Alto, CA 94301",
-    "Downtown Los Altos": "Main Street & State Street, Los Altos, CA 94022"
+    "Downtown Los Altos": "Main Street & State Street, Los Altos, CA 94022",
+    "AAH Smile Farm": "999 E Caribbean Dr, Sunnyvale, CA 94089",
+    "Ravenswood Historic Site": "2647 Arroyo Rd, Livermore, CA 94550",
+    "Patchen Christmas Tree & Pumpkin Farm": "22217 Old Santa Cruz Highway, Los Gatos, CA 95033",
+    "Meek Estate Park": "240 Hampton Road, Hayward, CA 94541"
   },
   "cityCenters": {
     "Palo Alto": { "lat": 37.4419, "lng": -122.143 },

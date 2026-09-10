@@ -9859,6 +9859,39 @@
     "sheetTypesRaw": "Music & Movement"
   },
   {
+    "id": "gamble-garden-second-saturday-2026-09-12",
+    "title": "Second Saturday at Gamble Garden",
+    "description": "Storytime, scavenger hunts & a tissue-paper corn craft — a free garden morning for little ones to explore and make.",
+    "tips": "Register for a timed entry slot at 10:00, 10:30, or 11:00 AM, then check in at a Welcome Table.\nHarvest tastings are samples on site — not produce to take home.",
+    "venue": "Elizabeth F. Gamble Garden",
+    "address": "1431 Waverley Street, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "date": "2026-09-12",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Festivals & Community",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.gamblegarden.org/event/septembersaturday/",
+    "verifiedDate": "2026-09-10",
+    "lat": 37.4397,
+    "lng": -122.1481,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Festivals & Community, Outdoor"
+  },
+  {
     "id": "698e125a2a787a47a5e73be1",
     "title": "Family Storytime",
     "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
@@ -10021,6 +10054,72 @@
     "isPast": false,
     "isLive": true,
     "verifiedDate": "2026-09-05"
+  },
+  {
+    "id": "village-san-antonio-creative-play-foam-fun-2026-09-12",
+    "title": "Creative Play & Foam Fun",
+    "description": "Paint a birdhouse, watch a puppet show & jump into a foam party in the park.",
+    "tips": "RSVP on Eventbrite is encouraged. Activities while supplies last.\nFoam play can get messy — bring a change of clothes.\nFree parking in the garage on the 2nd floor and above.",
+    "venue": "The Village at San Antonio Center",
+    "address": "645 San Antonio Rd, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-09-12",
+    "startTime": "16:00",
+    "endTime": "18:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Social & Play",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Social & Play",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.eventbrite.com/e/creative-play-foam-fun-tickets-1989067899632",
+    "verifiedDate": "2026-09-10",
+    "lat": 37.4036,
+    "lng": -122.1089,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Social & Play, Outdoor"
+  },
+  {
+    "id": "aah-smile-farm-grandparents-day-2026-09-13",
+    "title": "Grandparents Day at Smile Farm",
+    "description": "A relaxed morning at the Smile Farm for grandparents and grandchildren to explore together.",
+    "tips": "Tickets required — register on the official page.\nHosted by Animal Assisted Happiness at Baylands Park.",
+    "venue": "AAH Smile Farm",
+    "address": "999 E Caribbean Dr, Sunnyvale, CA 94089",
+    "city": "Sunnyvale",
+    "date": "2026-09-13",
+    "startTime": "09:30",
+    "endTime": "11:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor",
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Outdoor",
+      "Social & Play"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://gran2gether.givesmart.com/",
+    "verifiedDate": "2026-09-10",
+    "lat": 37.4184,
+    "lng": -122.0154,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Outdoor, Social & Play"
   },
   {
     "id": "outdoor-storytime-linden-tree-books-2026-09-13-10-30",
@@ -10991,6 +11090,39 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Build & Explore"
+  },
+  {
+    "id": "national-day-of-play-popup-playdate-mitchell-park-2026-09-19",
+    "title": "National Day of Play Pop-up Playdate",
+    "description": "Pop-up play materials to play, create & move — meet by Mitchell Park’s tot area.",
+    "tips": "Drop in by the tot area and look for the IPA USA CA team.\nThey provide materials for playing, creating, and moving.\nHosted by IPA USA California.",
+    "venue": "Mitchell Park · Tot area",
+    "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-09-19",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Social & Play",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Social & Play",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "/events/national-day-of-play-popup-2026-09-19.jpg",
+    "eventUrl": "https://www.instagram.com/ca.ipa.usa/p/DdF8FRvJfCV/",
+    "verifiedDate": "2026-09-10",
+    "lat": 37.4218,
+    "lng": -122.1128,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Social & Play, Outdoor"
   },
   {
     "id": "698e125a2a787a47a5e73be2",
