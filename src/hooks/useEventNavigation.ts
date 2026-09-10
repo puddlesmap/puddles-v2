@@ -6,6 +6,7 @@ import type { Event } from '@/types/event'
 import type { EventOpenSource } from '@/types/analytics'
 import { saveBrowseReturnSnapshot, type BrowseReturnSnapshot } from '@/utils/browseReturnState'
 import { isEventModalOverlaySource } from '@/utils/eventDetailNavigation'
+import { saveHomeReturnSnapshotFromLive } from '@/utils/homeReturnState'
 import { saveEventDetailOverlayState } from '@/utils/nextEventDetailState'
 import { eventDetailPath } from '@/utils/eventPages'
 
@@ -19,6 +20,10 @@ export function useEventNavigation() {
       const search = searchParams.toString()
       const returnTo = `${pathname}${search ? `?${search}` : ''}`
       const useBrowseOverlay = isEventModalOverlaySource(source)
+
+      if (source === 'home') {
+        saveHomeReturnSnapshotFromLive(window.scrollY)
+      }
 
       if (!useBrowseOverlay) {
         saveBrowseReturnSnapshot({

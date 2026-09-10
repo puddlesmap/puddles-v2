@@ -2,6 +2,7 @@
 
 import { useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import { dispatchHomeReturn } from '@/utils/homeReturnState'
 import {
   clearEventDetailOverlayState,
   isEventDetailOverlayActive,
@@ -43,6 +44,7 @@ export function useCloseEventDetail() {
     const returnPath = readEventDetailReturnPath()
     clearEventDetailOverlayState()
     clearEventDetailReturnPath()
+    dispatchHomeReturn()
 
     if (overlayState?.backgroundPath) {
       router.back()

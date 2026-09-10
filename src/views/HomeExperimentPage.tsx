@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { usePathname } from 'next/navigation'
 import { Link } from 'react-router-dom'
 import { CommunityCtaCard } from '../components/brand/CommunityCtaCard'
 import { getPublicEventsFromCatalog } from '../data/events'
@@ -42,6 +43,14 @@ import {
 } from '../utils/analytics'
 import { homeFiltersToBrowseFilters, getHomeResultsSummaryRefined } from '../utils/homeMapPreview'
 import { getHomeFilterResultsSummary } from '../utils/browseResultsCopy'
+import {
+  clearLiveHomeUiState,
+  readHomeReturnSnapshot,
+  rememberHomeUiState,
+  scheduleConsumeHomeReturnSnapshot,
+  subscribeHomeReturn,
+  type HomeReturnSnapshot,
+} from '../utils/homeReturnState'
 
 type CityValue = 'all' | 'Palo Alto' | 'Los Altos' | 'Mountain View' | 'Sunnyvale'
 
@@ -177,18 +186,80 @@ export function HomeExperimentPage({
   )
   const { browseFilters, setBrowseFilters } = useApp()
   const openEvent = useEventNavigation()
-  const [whereMode, setWhereMode] = useState<WhereMode>({ kind: 'city', value: 'all' })
-  const [temporalTab, setLocalTemporalTab] = useState<TemporalTab>('today')
+  const nextPathname = usePathname()
+  const restoredOnInitRef = useRef(Boolean(typeof window !== 'undefined' && readHomeReturnSnapshot()))
+  const didInitHomeUiRef = useRef(false)
+  const [whereMode, setWhereMode] = useState<WhereMode>(() => {
+    return readHomeReturnSnapshot()?.whereMode ?? { kind: 'city', value: 'all' }
+  })
+  const [temporalTab, setLocalTemporalTab] = useState<TemporalTab>(() => {
+    return readHomeReturnSnapshot()?.temporalTab ?? 'today'
+  })
   const { coords, isRequesting, requestLocation } = useUserLocation()
 
   const tabs = getTemporalTabs()
 
-  const cityFilter = whereMode.kind === 'city' ? whereMode.value : 'all'
+  rememberHomeUiState({ temporalTab, whereMode })
+
+  const applyHomeSnapshot = useCallback((snapshot: HomeReturnSnapshot) => {
+    restoredOnInitRef.current = true
+    setWhereMode(snapshot.whereMode)
+    setLocalTemporalTab(snapshot.temporalTab)
+    const scrollY = snapshot.scrollY
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' })
+    })
+  }, [])
+
+  const restoreHomeScroll = useCallback((scrollY: number) => {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' })
+    })
+  }, [])
 
   useEffect(() => {
-    const pool = filterEvents(resolveCatalog(), { city: cityFilter === 'all' ? 'all' : cityFilter })
+    if (didInitHomeUiRef.current) return
+    didInitHomeUiRef.current = true
+
+    const snapshot = readHomeReturnSnapshot()
+    if (snapshot) {
+      applyHomeSnapshot(snapshot)
+      if (snapshot.whereMode.kind === 'nearby') {
+        void requestLocation()
+      }
+      return
+    }
+
+    if (restoredOnInitRef.current) return
+    restoredOnInitRef.current = true
+    const pool = filterEvents(resolveCatalog(), { city: 'all' })
     setLocalTemporalTab(getFirstTemporalTabWithEvents(pool))
-  }, [cityFilter, resolveCatalog])
+  }, [applyHomeSnapshot, requestLocation, resolveCatalog])
+
+  useEffect(() => {
+    if (nextPathname.startsWith('/event/')) return
+    const snapshot = readHomeReturnSnapshot()
+    if (!snapshot) return
+    restoreHomeScroll(snapshot.scrollY)
+    scheduleConsumeHomeReturnSnapshot()
+  }, [nextPathname, restoreHomeScroll])
+
+  useEffect(() => {
+    return subscribeHomeReturn(() => {
+      const snapshot = readHomeReturnSnapshot()
+      if (!snapshot) return
+      restoreHomeScroll(snapshot.scrollY)
+      if (!nextPathname.startsWith('/event/')) {
+        scheduleConsumeHomeReturnSnapshot()
+      }
+    })
+  }, [nextPathname, restoreHomeScroll])
+
+  useEffect(() => {
+    return () => {
+      clearLiveHomeUiState()
+    }
+  }, [])
 
   const events = useMemo(() => {
     const base = filterEvents(resolveCatalog(), {
@@ -219,15 +290,23 @@ export function HomeExperimentPage({
     }
   }, [requestLocation])
 
+  function pickFirstTabForCity(city: CityValue) {
+    const pool = filterEvents(resolveCatalog(), { city: city === 'all' ? 'all' : city })
+    setLocalTemporalTab(getFirstTemporalTabWithEvents(pool))
+  }
+
   function handleNearbySelect() {
     if (whereMode.kind === 'nearby' && coords) return
     setWhereMode({ kind: 'nearby' })
+    pickFirstTabForCity('all')
     trackCitySelected('nearby', 'home')
     void requestNearbyLocation()
   }
 
   function handleCitySelect(value: CityValue) {
+    if (whereMode.kind === 'city' && whereMode.value === value) return
     setWhereMode({ kind: 'city', value })
+    pickFirstTabForCity(value)
     trackCitySelected(value === 'all' ? 'all' : value, 'home')
   }
 
