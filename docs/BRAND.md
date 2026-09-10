@@ -184,8 +184,8 @@ Home uses the full site title (not the short pattern).
 | Asset | Path | Used on |
 |-------|------|---------|
 | Wordmark (primary) | `/about-experiment/puddles-wordmark.png` (+ `@2x`) | Home, Browse, About, Share headers |
-| Header logo (legacy) | `/puddles-logo-header.png` | Alternate layouts |
-| P mark | `/brand/puddles-p-mark.png` (+ `@2x`) | Brand experiments |
+| Pin mark | `/puddles-logo-pin.png` | Header fallback when no wordmark is passed |
+| Wordmark + tagline | `/about/puddles-logo-tagline.png` (+ `@2x`) | Combined lockup |
 
 **Source:** `src/pages/experimentShared.ts`
 
@@ -202,7 +202,6 @@ Home uses the full site title (not the short pattern).
 | Asset | Path | Notes |
 |-------|------|-------|
 | OG share image | `/og-image.png` | Link previews (Facebook, iMessage, Slack, etc.) |
-| Discovery hero | `/discovery-hero.png` | Legacy `/discovery` route |
 
 ### About page art
 
@@ -210,7 +209,6 @@ Home uses the full site title (not the short pattern).
 |-------|------|
 | Hero | `/about/hero.png` (+ `@2x`) |
 | Decorative | `/about/book.png`, `/about/feet.png`, `/about/tree.png` (+ `@2x`) |
-| Logo + tagline | `/about/puddles-logo-tagline.png` (+ `@2x`) |
 
 ### Home map & UI
 
@@ -218,6 +216,7 @@ Home uses the full site title (not the short pattern).
 |-------|------|
 | Map pin | `/home-experiment/spotlight-marker.png` |
 | Droplet | `/home-experiment/puddles-droplet.png` |
+| P mark | `/brand/puddles-p-mark.png` (+ `@2x`) | Brand experiments |
 
 **Source:** `src/pages/experimentShared.ts`, `src/pages/homeMapPreview.ts`
 
@@ -228,11 +227,11 @@ Home uses the full site title (not the short pattern).
 | Empty state | `/empty-state-pin.png` | No results |
 | 404 | `/not-found-pin.png` | Page not found |
 | Maintenance | `/maintenance-pin.png` | Maintenance mode |
-| Activity fallbacks | `/event-fallbacks/{stories,music,play,outdoor,arts,build,classes,other}.png` | Missing activity images |
+| Activity fallbacks | `/event-fallbacks/{stories,music,play,outdoor,arts,build,classes,festivals,parent-me,other}.png` | Missing activity images |
 
-### Not production
+### Not production (keep for future)
 
-`/logo-explorations/*` — design exploration only; do not use on live pages.
+`/logo-explorations/*` — design exploration only; do not use on live pages. Shown on `/logo-lab` with live SVGs.
 
 ---
 

@@ -24,3 +24,8 @@ dist-ssr
 *.sln
 *.sw?
 .env.local
+
+# Local scratch and TS incremental cache
+.tmp-*
+tsconfig.tsbuildinfo
+data/discovery/fit4mom-assets/

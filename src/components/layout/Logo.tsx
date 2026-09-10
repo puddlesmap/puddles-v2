@@ -4,7 +4,7 @@ interface LogoProps {
   className?: string
 }
 
-const DEFAULT_LOGO_SRC = '/puddles-logo-mark.png'
+const DEFAULT_LOGO_SRC = '/puddles-logo-pin.png'
 
 export function Logo({ src = DEFAULT_LOGO_SRC, src2x, className }: LogoProps) {
   const srcSet = src2x ? `${src} 1x, ${src2x} 2x` : undefined

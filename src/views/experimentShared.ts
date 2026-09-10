@@ -1,5 +1,3 @@
-export const HOME_HEADER_LOGO_SRC = '/puddles-logo-header.png'
-
 export const PUDDLES_WORDMARK_LOGO_SRC = '/about-experiment/puddles-wordmark.png'
 export const PUDDLES_WORDMARK_LOGO_SRC_2X = '/about-experiment/puddles-wordmark@2x.png'
 

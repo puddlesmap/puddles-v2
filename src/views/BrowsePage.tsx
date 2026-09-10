@@ -43,7 +43,6 @@ import {
   getBrowseResultsSummary,
 } from '../utils/browseResultsCopy'
 import {
-  HOME_HEADER_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC_2X,
 } from './experimentShared'
@@ -108,7 +107,6 @@ function BrowseViewToggle({
 
 interface BrowsePageProps {
   shellClassName?: string
-  useHomeHeader?: boolean
   resultsCountStyle?: 'default' | 'contextual'
   mapInteractionMode?: 'default' | 'connected'
   defaultViewMode?: 'list' | 'map'
@@ -125,7 +123,6 @@ function isBrowseHubPath(pathname: string): boolean {
 
 export function BrowsePage({
   shellClassName,
-  useHomeHeader = true,
   resultsCountStyle = 'default',
   mapInteractionMode = 'default',
   defaultViewMode = 'list',
@@ -543,8 +540,8 @@ export function BrowsePage({
         .join(' ')}
     >
       <AppHeader
-        logoSrc={useHomeHeader ? PUDDLES_WORDMARK_LOGO_SRC : HOME_HEADER_LOGO_SRC}
-        logoSrc2x={useHomeHeader ? PUDDLES_WORDMARK_LOGO_SRC_2X : undefined}
+        logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
+        logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
         showBrandName={false}
         below={
           <div
