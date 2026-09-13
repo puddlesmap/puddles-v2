@@ -1,26 +1,25 @@
 # Expansion discovery lookahead
 
-Window: **2026-09-06 → 2026-12-05** (90 days)
+Window: **2026-09-13 → 2026-12-12** (90 days)
 
-Generated 2026-09-06T17:30:38.132Z
+Generated 2026-09-13T17:55:08.784Z
 
 ## Launch expansion targets
 
 | Target | In window (discovery queue) | Pending review | On live catalog |
 |--------|----------------------------|----------------|-----------------|
-| **Sunnyvale** (new city) | 8 | 0 | 32 |
-| **Parent & Me** (new type) | 7 | 0 | 7 |
-| **Festivals & Community** (new type) | 22 | 0 | 15 |
+| **Sunnyvale** (new city) | 6 | 0 | 24 |
+| **Parent & Me** (new type) | 5 | 0 | 3 |
+| **Festivals & Community** (new type) | 19 | 0 | 14 |
 
 ## By city (discovery queue, in window)
 
 | City | Total | New for review |
 |------|-------|----------------|
-| Palo Alto | 114 | 9 |
-| Mountain View | 55 | 3 |
+| Palo Alto | 113 | 8 |
+| Mountain View | 49 | 3 |
 | Los Altos | 21 | 0 |
-| Sunnyvale | 8 | 0 |
-| Hayward | 2 | 0 |
+| Sunnyvale | 6 | 0 |
 | San Francisco | 2 | 0 |
 | Gilroy | 2 | 0 |
 | San Jose | 2 | 0 |
@@ -34,15 +33,15 @@ Generated 2026-09-06T17:30:38.132Z
 
 | Type | Count |
 |------|-------|
-| Stories | 137 |
-| Outdoor | 36 |
+| Stories | 131 |
+| Outdoor | 32 |
 | Build & Explore | 29 |
-| Festivals & Community | 22 |
+| Festivals & Community | 19 |
 | Social & Play | 9 |
 | Arts & Crafts | 8 |
-| Parent & Me | 7 |
 | Other | 5 |
-| Music & Movement | 4 |
+| Parent & Me | 5 |
+| Music & Movement | 3 |
 
 ## Sunnyvale — pending review
 
