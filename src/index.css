@@ -72,8 +72,8 @@
   --radius-pill: var(--radius-full);
   --layout-min: 320px;
   --layout-max: 1120px;
-  /* Admin ops dashboard — a bit wider than the public site for dense tables */
-  --layout-max-admin: calc(var(--layout-max) + 10rem);
+  /* Admin ops dashboard — wider than the public site for event tables, still short of ultra-wide */
+  --layout-max-admin: calc(var(--layout-max) + 16rem);
   --layout-padding-mobile: 16px;
   --layout-padding-tablet: 24px;
   --layout-padding-tablet-wide: 32px;
@@ -4450,11 +4450,11 @@ select.input-field,
 }
 
 .admin-table-events col.admin-col-city {
-  width: 10%;
+  width: 11%;
 }
 
 .admin-table-events col.admin-col-when {
-  width: 13%;
+  width: 15%;
 }
 
 .admin-table-events col.admin-col-status {
@@ -4466,7 +4466,7 @@ select.input-field,
 }
 
 .admin-table-events col.admin-col-approved {
-  width: 15%;
+  width: 12%;
 }
 
 .admin-table-events col.admin-col-actions {
