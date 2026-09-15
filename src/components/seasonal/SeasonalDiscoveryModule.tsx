@@ -89,10 +89,6 @@ export function SeasonalDiscoveryModule({
     onEventClick(event)
   }
 
-  const headerCta = isHomeBand
-    ? { href: collectionHref, label: collection.ctaLabel, onClick: trackBannerCta }
-    : undefined
-
   const headingId = `seasonal-discovery-heading-${collection.slug}`
 
   const shell = (
@@ -100,7 +96,6 @@ export function SeasonalDiscoveryModule({
       <SeasonalDiscoveryModuleHeader
         collection={collection}
         headingId={headingId}
-        headerCta={headerCta}
         homeBand={isHomeBand}
         homeBandEyebrow={homeBandEyebrow}
       />
