@@ -1,6 +1,6 @@
 {
   "description": "Bay Area destination leads (~1 hour Worth a Drive web/social + 小紅書). Add rows here; run npm run discover:regional-weekly to queue them in Admin Discovery. eventUrl must be the official host page — not a 小紅書 or roundup-site URL.",
-  "updatedAt": "2026-09-10",
+  "updatedAt": "2026-09-11",
   "leads": [
     {
       "id": "regional-kings-mountain-art-fair-2026-09-05",
