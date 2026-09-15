@@ -913,7 +913,7 @@
   width: 100%;
 }
 
-/* SEPTEMBER ……………… See all → */
+/* SEPTEMBER eyebrow — See all is footer-only on Home */
 .seasonal-discovery-module--home-band .seasonal-discovery-module__eyebrow-row {
   display: flex;
   align-items: center;
@@ -969,28 +969,6 @@
   }
 }
 
-.seasonal-discovery-module--home-band .seasonal-discovery-module__header-cta {
-  display: inline-flex;
-  flex-shrink: 0;
-  margin: 0;
-  padding: 0.125rem 0;
-  font-family: var(--font-sans);
-  font-size: var(--type-body, 0.875rem);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--seasonal-accent-cta, var(--seasonal-accent-title, #7c2d12));
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.14s ease-out;
-}
-
-.seasonal-discovery-module--home-band .seasonal-discovery-module__header-cta:hover {
-  color: var(--seasonal-accent-eyebrow, #b45309);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
 .seasonal-discovery-module--home-band .seasonal-discovery-module__description {
   margin: var(--seasonal-copy-subtitle-gap) 0 0;
   max-width: 36rem;
@@ -1034,17 +1012,6 @@
 .seasonal-discovery-module--home-band.seasonal-discovery-module--neutral-home-copy
   .seasonal-discovery-module__description {
   color: var(--color-muted, #686868);
-}
-
-.seasonal-discovery-module--home-band.seasonal-discovery-module--neutral-home-copy
-  .seasonal-discovery-module__header-cta {
-  color: var(--color-charcoal, #273034);
-}
-
-.seasonal-discovery-module--home-band.seasonal-discovery-module--neutral-home-copy
-  .seasonal-discovery-module__header-cta:hover {
-  color: var(--color-charcoal, #273034);
-  text-decoration: underline;
 }
 
 /* Home band — one-row carousel (≤4 cards; mobile scrolls) */
@@ -1104,6 +1071,20 @@
     min-width: min(14.25rem, calc(100% - 2.5rem));
     max-width: min(14.25rem, calc(100% - 2.5rem));
   }
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__footer--home {
+  justify-content: flex-end;
+  margin-top: 0.85rem;
+  padding-inline: 0;
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__footer--home .seasonal-discovery-module__cta {
+  color: var(--seasonal-accent-cta, var(--seasonal-accent-title, #7c2d12));
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__footer--home .seasonal-discovery-module__cta:hover {
+  color: var(--seasonal-accent-eyebrow, #b45309);
 }
 
 /* Desktop stays one horizontal line (up to 4 visible); do not wrap to a second row. */

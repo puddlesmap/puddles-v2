@@ -88,7 +88,7 @@ Tracked on route change for public pages only. The `page` property identifies th
 |-------|------------|
 | `city_selected` | `city`, `context` (`home` \| `browse`) |
 | `date_filter_selected` | `date_filter` (`today`, `tomorrow`, `this_weekend`, `anytime`), `context` |
-| `activity_type_selected` | `activity_type` |
+| `activity_type_selected` | `activity_type`, `context` (`home` \| `browse`), optional `placement` / `page` |
 | `time_filter_selected` | `time_filter` |
 | `age_filter_selected` | `age_filter` |
 | `view_mode_changed` | `view_mode` (`list`, `map`) |
@@ -105,7 +105,9 @@ Tracked on route change for public pages only. The `page` property identifies th
 
 `source_context` values: `home`, `browse`, `map`, `city_page`
 
-`event_category` slugs: `stories`, `music_movement`, `arts_crafts`, `build_explore`, `outdoor`, `social_play`, `classes`, `other`
+`event_category` slugs: `stories`, `music_movement`, `arts_crafts`, `build_explore`, `outdoor`, `social_play`, `classes`, `festivals_community`, `parent_me`, `other`
+
+Home Browse-by-activity chips fire `activity_type_selected` with `context: home`, `placement: browse_by_activity`, `page: home`. Browse activity-type pills fire the same event with `context: browse` (no placement/page).
 
 ### Seasonal banner (Home)
 
@@ -134,7 +136,7 @@ Suggested reports:
 
 - **Cities:** `city_selected` filtered by `city`
 - **Date tabs:** `date_filter_selected` filtered by `date_filter`
-- **Activity types:** `activity_type_selected` filtered by `activity_type`
+- **Activity types:** `activity_type_selected` filtered by `activity_type` (split Home vs Browse with `context`)
 - **Engagement funnel:** `activity_opened` → `visit_official_page_clicked` / `add_to_calendar_clicked` / `open_route_clicked`
 - **Community:** `share_form_opened` vs `share_form_submitted`; `expansion_watch_submitted` by `requested_location`
 

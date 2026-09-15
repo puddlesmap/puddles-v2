@@ -17,6 +17,9 @@ export interface AdminEventFilters {
   verificationStatus?: string | 'all'
 }
 
+/** Regular Browse vs Hello Fall / Halloween + Worth a little drive. */
+export type AdminEventCatalog = 'regular' | 'seasonal'
+
 export type AdminEventViewId =
   | 'live'
   | 'draft'

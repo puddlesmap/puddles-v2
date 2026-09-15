@@ -1,13 +1,11 @@
-import { Link } from 'react-router-dom'
 import type { SeasonalCollection } from '../../data/seasonalDiscovery'
 
 interface SeasonalDiscoveryModuleHeaderProps {
   collection: SeasonalCollection
   headingId: string
-  /** PlanetBox-style “View all” in the section header row. */
-  headerCta?: { href: string; label: string; onClick?: () => void }
   /**
-   * Home band — SEPTEMBER + See all on one full-width row; title beside art, subtitle below.
+   * Home band — SEPTEMBER on its own row; title beside art, subtitle below.
+   * See all lives in the module footer only.
    */
   homeBand?: boolean
   /** Home band eyebrow line — default matches collection subtitle (Hello, Fall). */
@@ -39,7 +37,6 @@ export function SeasonalEmDashTagline({
 export function SeasonalDiscoveryModuleHeader({
   collection,
   headingId,
-  headerCta,
   homeBand = false,
   homeBandEyebrow = 'subtitle',
 }: SeasonalDiscoveryModuleHeaderProps) {
@@ -51,16 +48,6 @@ export function SeasonalDiscoveryModuleHeader({
       <header className="seasonal-discovery-module__header seasonal-discovery-module__header--home-band">
         <div className="seasonal-discovery-module__eyebrow-row">
           <p className="seasonal-discovery-module__eyebrow">{eyebrowText}</p>
-          {headerCta ? (
-            <Link
-              to={headerCta.href}
-              className="seasonal-discovery-module__header-cta"
-              onClick={headerCta.onClick}
-            >
-              {headerCta.label}
-              <span aria-hidden> →</span>
-            </Link>
-          ) : null}
         </div>
 
         <div className="seasonal-discovery-module__title-with-art">

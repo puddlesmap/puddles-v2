@@ -1,8 +1,14 @@
-import type { AdminEventFilters, AdminEventRecord, AdminEventView } from '../types/admin'
+import type {
+  AdminEventCatalog,
+  AdminEventFilters,
+  AdminEventRecord,
+  AdminEventView,
+} from '../types/admin'
 import { ADMIN_EVENT_VIEWS } from '../types/admin'
 import type { Event } from '../types/event'
 import { addDays, getAnchorDate, startOfDay } from './dates'
 import { collectAdminReviewFlags } from './adminReviewFlags'
+import { eventsForCatalog, isSeasonalMonitorEvent } from './adminSeasonalEvents'
 import { eventsInDuplicateClusters, findDuplicateClusters } from './eventDuplicates'
 
 export const VERIFICATION_STALE_DAYS = 30
@@ -59,38 +65,50 @@ export function getAdminEventView(id: AdminEventView['id']): AdminEventView | un
 export function filterAdminEventsByView(
   events: AdminEventRecord[],
   viewId: AdminEventView['id'],
+  catalog: AdminEventCatalog = 'regular',
 ): AdminEventRecord[] {
+  const scoped = eventsForCatalog(events, catalog)
   if (viewId === 'duplicates') {
-    return eventsInDuplicateClusters(events)
+    return eventsInDuplicateClusters(scoped)
   }
   if (viewId === 'needs-attention') {
     const ids = new Set(
-      collectAdminReviewFlags(events).flatMap((flag) => flag.eventIds),
+      collectAdminReviewFlags(scoped).flatMap((flag) => flag.eventIds),
     )
-    return events.filter((event) => ids.has(event.id))
+    return scoped.filter((event) => ids.has(event.id))
+  }
+  if (viewId === 'live') {
+    if (catalog === 'seasonal') {
+      return scoped.filter((event) => isSeasonalMonitorEvent(event))
+    }
+    return filterAdminEvents(scoped, { isLive: true })
   }
   const view = getAdminEventView(viewId)
-  if (!view) return events
-  return filterAdminEvents(events, view.filters)
+  if (!view) return scoped
+  return filterAdminEvents(scoped, view.filters)
 }
 
 export function countAdminEvents(events: AdminEventRecord[], filters: AdminEventFilters): number {
   return filterAdminEvents(events, filters).length
 }
 
-export function summarizePublishingCounts(events: AdminEventRecord[]) {
-  const duplicateClusters = findDuplicateClusters(events)
-  const reviewFlags = collectAdminReviewFlags(events)
+export function summarizePublishingCounts(
+  events: AdminEventRecord[],
+  catalog: AdminEventCatalog = 'regular',
+) {
+  const scoped = eventsForCatalog(events, catalog)
+  const duplicateClusters = findDuplicateClusters(scoped)
+  const reviewFlags = collectAdminReviewFlags(scoped)
   return {
-    published: countAdminEvents(events, { status: 'Published' }),
-    draft: countAdminEvents(events, { status: 'Draft' }),
-    hidden: countAdminEvents(events, { status: 'Hidden' }),
-    cancelled: countAdminEvents(events, { status: 'Cancelled' }),
-    expired: countAdminEvents(events, { status: 'Expired' }),
-    live: countAdminEvents(events, { isLive: true }),
-    past: countAdminEvents(events, { isPast: true }),
-    needsVerification: countAdminEvents(events, { verificationStatus: 'Needs Review' }),
-    duplicates: eventsInDuplicateClusters(events).length,
+    published: countAdminEvents(scoped, { status: 'Published' }),
+    draft: countAdminEvents(scoped, { status: 'Draft' }),
+    hidden: countAdminEvents(scoped, { status: 'Hidden' }),
+    cancelled: countAdminEvents(scoped, { status: 'Cancelled' }),
+    expired: countAdminEvents(scoped, { status: 'Expired' }),
+    live: filterAdminEventsByView(events, 'live', catalog).length,
+    past: countAdminEvents(scoped, { isPast: true }),
+    needsVerification: countAdminEvents(scoped, { verificationStatus: 'Needs Review' }),
+    duplicates: eventsInDuplicateClusters(scoped).length,
     duplicateGroups: duplicateClusters.length,
     needsAttention: reviewFlags.length,
   }

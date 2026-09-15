@@ -13,6 +13,19 @@ When writing or editing **description**, **Good to know / tips**, ages, cost, sc
 4. **Prefer their wording** when close enough (“stroller-aged children”, “babies through preschoolers”) over marketing paraphrase that overclaims.
 5. If official info is missing or ambiguous, use **general language** and link out — do not fill gaps with assumptions.
 
+## Age recommendations (Best for)
+
+Do **not** write or infer a parent-facing **Best for [ages]** line (event CTA rail or card) unless the official event / host page **explicitly states an age range** or clear age-specific eligibility (e.g. “ages 2–5”, “babies through preschoolers”).
+
+Not enough on their own:
+
+- “Kids under 3 are free” (pricing, not who it is for)
+- “All ages” / “little ones welcome”
+- Puddles 0–5 filter tags
+- That the outing *seems* toddler-friendly
+
+Broader festivals may still use **All ages · Little ones welcome** in the Ages field. Omit **Best for** on the CTA when the provider did not name a range.
+
 ## Related
 
 - `class-series-availability.mdc` — availability stays on the provider page

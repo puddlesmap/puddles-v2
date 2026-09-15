@@ -42,6 +42,9 @@ export function getDocumentTitle(pathname: string, search = ''): string {
 
   if (pathname === '/share') return formatDocumentTitle('Share with Us')
   if (pathname === '/about') return formatDocumentTitle('About')
+  if (pathname === '/experiment/mobile-event-desc-top') {
+    return formatDocumentTitle('Mobile Event Description Experiment')
+  }
 
   const citySlug = localCitySlugFromPath(pathname)
   if (citySlug) return cityDocumentTitle(citySlug)
@@ -68,6 +71,12 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   }
   if (pathname === '/experiment/community-events-mockup') {
     return formatDocumentTitle('Community Events Mockup')
+  }
+  if (pathname === '/experiment/admin-workflow-mockup') {
+    return formatDocumentTitle('Admin Workflow Mockup')
+  }
+  if (pathname === '/experiment/thursday-all-search-mockup') {
+    return formatDocumentTitle('Thursday All-Search Mockup')
   }
   if (pathname === '/experiment/launch-expand-mockup') {
     return formatDocumentTitle('Event Card Badges Mockup')

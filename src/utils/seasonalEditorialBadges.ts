@@ -63,11 +63,13 @@ export function isHalloweenCollectionCandidate(event: Event): boolean {
 }
 
 /**
- * Editorial image badge for mixed browse/home feeds.
+ * Editorial image badge for mixed Home / Browse / search feeds.
  * Resolves against all date-active themes (`getActiveSeasonalCollections`). One badge per card:
  * first active collection that includes the event (Hello Fall is listed before Halloween, so
  * overlapping farm picks stay Fall Pick during dual windows). Title heuristics do not apply.
- * Off on seasonal collection/band (callers pass seasonalEditorial={false}).
+ * Collection pages pass seasonalEditorial={false} — page title already provides the theme.
+ * Keep calling getSeasonalEditorialBadgeForEvent on Home / Browse / search so the same
+ * collection membership still shows 🍂 Fall Pick there.
  */
 export function getSeasonalEditorialBadgeForEvent(
   event: Event,

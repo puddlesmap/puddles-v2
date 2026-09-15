@@ -11,8 +11,9 @@ import {
 import { AdminMarkInternalAnalytics } from './AdminMarkInternalAnalytics'
 
 const NAV_ITEMS = [
-  { to: '/admin/events', label: 'Events' },
+  { to: '/admin', label: 'Dashboard', end: true },
   { to: '/admin/discovery', label: 'Discovery' },
+  { to: '/admin/events', label: 'Events' },
   { to: '/admin/submissions', label: 'Submissions' },
   { to: '/admin/seasonal-calendar', label: 'Seasonal' },
 ] as const
@@ -143,8 +144,9 @@ export function AdminLayout() {
           {howToOpen ? (
             <div id="admin-howto-panel" className="admin-howto-panel">
               <p className="admin-howto-panel__lead">
-                Form → Submissions → Go live. Discovery → Approve → Go live. Events monitors the
-                public catalog. Full guide: <code>docs/admin-howto.md</code>
+                Form → Submissions → Go live. Discovery → Approve as Draft, then header{' '}
+                <strong>Deploy</strong> on the Dashboard. Discovery still has Go live as backup.
+                Events monitors the public catalog. Full guide: <code>docs/admin-howto.md</code>
               </p>
               <ol className="admin-howto-panel__list">
                 <li>
@@ -153,11 +155,12 @@ export function AdminLayout() {
                 </li>
                 <li>
                   <strong>Discovery</strong> — Approve library candidates, then{' '}
-                  <strong>Go live</strong>. Auto-refresh: Sundays 8:00 AM PT (queue); Fridays 8:00 AM
-                  PT (Worth a little drive). Mid-week = manual.
+                  <strong>Go live</strong>. Auto-refresh: Sundays 8:00 AM PT (library queue);
+                  Thursdays 8:00 AM PT (core cities + Worth a little drive). Mid-week = manual.
                 </li>
                 <li>
-                  <strong>Events</strong> — Monitor <strong>Live</strong>,{' '}
+                  <strong>Events</strong> — Switch <strong>Regular</strong> or{' '}
+                  <strong>Regional / Seasonal</strong>, then monitor <strong>Live</strong>,{' '}
                   <strong>Needs attention</strong>, and <strong>Past</strong>. Expand a row to{' '}
                   <strong>edit &amp; publish</strong>.
                 </li>
@@ -170,7 +173,10 @@ export function AdminLayout() {
 
           <nav className="admin-section-nav" aria-label="Admin sections">
             {NAV_ITEMS.map((item) => {
-              const isActive = location.pathname.startsWith(item.to)
+              const isActive =
+                item.to === '/admin'
+                  ? location.pathname === '/admin'
+                  : location.pathname.startsWith(item.to)
               return (
                 <Link
                   key={item.to}

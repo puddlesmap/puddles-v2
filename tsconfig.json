@@ -23,5 +23,19 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "dist", "src/main.tsx", "src/App.tsx", "vite.config.ts"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/main.tsx",
+    "src/App.tsx",
+    "vite.config.ts",
+    "src/components/saved",
+    "src/context/SavedContext.tsx",
+    "src/types/saved.ts",
+    "src/utils/savedSchedule.ts",
+    "src/utils/savedSource.ts",
+    "src/utils/savedStorage.ts",
+    "src/views/SavedPage.tsx",
+    "src/views/ExperimentSavedPage.tsx"
+  ]
 }

@@ -1,0 +1,58 @@
+# Weekly core-city weekend search ingest for Admin review.
+# Thursdays 8:00 AM Pacific: ingest web/Instagram/小紅書 inbox leads + report.
+# Runs the same morning as regional / Worth a little drive ingest.
+# The search itself stays human/agent-assisted — paste official URLs into the inbox.
+
+name: Discover core cities (weekend search)
+
+on:
+  schedule:
+    # Thursdays 15:00 UTC ≈ 8:00 AM Pacific (PDT); 7:00 AM during PST
+    - cron: '0 15 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: discover-core-weekend
+  cancel-in-progress: true
+
+jobs:
+  weekend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Core-city weekend inbox ingest
+        run: npm run discover:core-weekend
+
+      - name: Reminder — web & social weekend search
+        if: github.event_name == 'schedule'
+        run: |
+          echo "::notice title=Core cities weekend search::Search official calendars + Instagram for Palo Alto / Los Altos / Mountain View / Sunnyvale this weekend and next. Follow docs/core-cities-weekend-search.md. Add official URLs to data/discovery/core-cities-weekend-inbox.json, then re-run this workflow or npm run discover:core-weekend."
+
+      - name: Verify build
+        run: npm run build
+
+      - name: Commit weekend-search discovery updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/discovery-candidates.json data/discovery/core-cities-weekend-inbox.json data/discovery/core-weekend-*.md data/calendar-watchlist.json
+          if git diff --staged --quiet; then
+            echo "No core-weekend discovery changes — skipping commit."
+          else
+            git commit -m "chore: weekly core-city weekend search ingest"
+            git push
+          fi

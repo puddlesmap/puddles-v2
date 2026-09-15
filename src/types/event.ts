@@ -104,6 +104,16 @@ export interface Event {
   lng: number
   /** Editorial/admin decision — editable in admin dashboard. */
   status: EventStatus
+  /**
+   * Hello Fall / Halloween close-to-home pick. Admin Events shows these on Seasonal events,
+   * not Live. Unset falls back to seasonal collection membership.
+   */
+  isSeasonal?: boolean
+  /**
+   * Worth a little drive / out of core cities. Admin Events shows these on Seasonal events.
+   * Unset falls back to drive-curation IDs / `seasonal-drive-` prefix.
+   */
+  isRegional?: boolean
   /** Computed: event date/time has passed. Read-only in admin. */
   isPast: boolean
   /** Computed: Status = Published AND Is Past = FALSE. Public website gate. Read-only in admin. */

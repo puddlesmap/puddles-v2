@@ -6,9 +6,13 @@ import type { ActivityType, City, Event } from '../types/event'
 import { ACTIVITY_TYPES } from '../types/event'
 import { resolveEventCost } from './eventCost'
 import { enrichPublishingFields } from './publishing'
+import { isSeasonalDiscoveryCandidate } from './seasonalDiscoveryPipeline'
+import { isRegionalListing, isSeasonalListing } from './adminSeasonalEvents'
 import {
+  findExistingDraftForCandidate,
   findMatchingEventIdsForCandidate,
   findMatchingEventsForCandidate,
+  findOnSiteCatalogEvent,
   normalizeDiscoveryEventUrl,
 } from './discoveryMatchEvents'
 import { inferAgeRangeFromText } from './discoveryAgeHints'
@@ -113,6 +117,20 @@ function persistAdminEvents(events: Event[]) {
   })
 }
 
+/** Upsert one Admin cache row so Dashboard Save / Deploy keep the same catalog as Events. */
+export function upsertAdminCacheEvent(event: Event): Event {
+  ensureAdminEventsCacheSeeded()
+  const prepared = enrichPublishingFields(event)
+  const events = currentAdminEvents()
+  const exists = events.some((item) => item.id === prepared.id)
+  persistAdminEvents(
+    exists
+      ? events.map((item) => (item.id === prepared.id ? prepared : item))
+      : [prepared, ...events],
+  )
+  return prepared
+}
+
 const TITLE_STOP_WORDS = new Set([
   'the',
   'and',
@@ -215,22 +233,8 @@ export function reconcileAdminWithLivedCatalog(): {
     if (candidate.reviewStatus === 'live' || candidate.reviewStatus === 'dismissed') continue
 
     const edits = editableFieldsFromCandidate(candidate)
-    const matched =
-      findMatchingEventsForCandidate({ ...candidate, ...edits }).find(
-        (event) => event.status === 'Published',
-      ) ||
-      findLiveDuplicateForDraft(
-        {
-          id: localDraftId(candidate, edits),
-          title: edits.title || candidate.title,
-          city: asCity(edits.city || candidate.city),
-          date: edits.date || candidate.date,
-          eventUrl: edits.eventUrl || candidate.eventUrl || '#',
-        },
-        events,
-      )
-
-    if (!matched || matched.status !== 'Published') continue
+    const matched = findOnSiteCatalogEvent({ ...candidate, ...edits })
+    if (!matched) continue
 
     const existing = store[candidate.id]
     const wasReady = candidate.reviewStatus === 'approved'
@@ -315,14 +319,24 @@ export function applyVerifiedDateInAdminCache(
   return { eventId: updatedIds[0], updatedIds }
 }
 
+export type DiscoveryApproveOptions = {
+  /** Inbox Add / Seasonal Drafts may be out of the core four (Worth a little drive). */
+  allowRegional?: boolean
+  isSeasonal?: boolean
+  isRegional?: boolean
+}
+
 /** Add a local Draft into the Admin Events cache (no Sheet write). */
 export function appendDraftInAdminCache(
   candidate: DiscoveryCandidate,
   edits: DiscoveryEditableFields,
   verifiedDate: string,
+  options?: DiscoveryApproveOptions,
 ): { eventId: string } {
   assertDiscoveryAgeInScope(candidate, edits)
-  assertDiscoveryCityInScope(candidate, edits)
+  if (!options?.allowRegional) {
+    assertDiscoveryCityInScope(candidate, edits)
+  }
   const eventId = localDraftId(candidate, edits)
   let events = currentAdminEvents()
 
@@ -362,6 +376,9 @@ export function appendDraftInAdminCache(
     lat: candidate.lat ?? 0,
     lng: candidate.lng ?? 0,
     status: 'Draft',
+    isSeasonal: options?.isSeasonal ?? isSeasonalDiscoveryCandidate(candidate),
+    isRegional:
+      options?.isRegional ?? String(candidate.source ?? '').startsWith('Regional ·'),
   })
 
   if (existingIndex >= 0) {
@@ -384,14 +401,31 @@ export function approveDiscoveryLocally(
   candidate: DiscoveryCandidate,
   edits: DiscoveryEditableFields,
   verifiedDate: string,
+  options?: DiscoveryApproveOptions,
 ): { eventId: string; mode: 'existing' | 'draft' } {
   assertDiscoveryAgeInScope(candidate, edits)
-  assertDiscoveryCityInScope(candidate, edits)
-  if (candidate.alreadyOnPuddles) {
-    const result = applyVerifiedDateInAdminCache(candidate, edits, verifiedDate)
-    return { eventId: result.eventId, mode: 'existing' }
+  if (!options?.allowRegional) {
+    assertDiscoveryCityInScope(candidate, edits)
   }
-  const result = appendDraftInAdminCache(candidate, edits, verifiedDate)
+  const merged = { ...candidate, ...edits }
+  const onSite = findOnSiteCatalogEvent(merged) ?? findOnSiteCatalogEvent(candidate)
+  if (candidate.alreadyOnPuddles || onSite) {
+    try {
+      const result = applyVerifiedDateInAdminCache(candidate, edits, verifiedDate)
+      return { eventId: result.eventId, mode: 'existing' }
+    } catch (error) {
+      if (onSite) {
+        upsertAdminCacheEvent({ ...onSite, verifiedDate })
+        return { eventId: onSite.id, mode: 'existing' }
+      }
+      throw error
+    }
+  }
+  const existingDraft = findExistingDraftForCandidate(merged) ?? findExistingDraftForCandidate(candidate)
+  if (existingDraft) {
+    return { eventId: existingDraft.id, mode: 'draft' }
+  }
+  const result = appendDraftInAdminCache(candidate, edits, verifiedDate, options)
   return { eventId: result.eventId, mode: 'draft' }
 }
 
@@ -593,10 +627,20 @@ export function prepareGoLiveEvents(
 
   let events = currentAdminEvents().map((event) => {
     if (!publishIds.has(event.id)) return event
+    const result = results.find((row) => row.eventId === event.id)
+    const candidate = result
+      ? candidates.find((row) => row.id === result.candidateId)
+      : undefined
     return enrichPublishingFields({
       ...event,
       status: 'Published',
       verifiedDate,
+      isSeasonal: candidate
+        ? isSeasonalDiscoveryCandidate(candidate) || isSeasonalListing(event)
+        : isSeasonalListing(event),
+      isRegional: candidate
+        ? String(candidate.source ?? '').startsWith('Regional ·') || isRegionalListing(event)
+        : isRegionalListing(event),
     })
   })
   persistAdminEvents(events)

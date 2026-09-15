@@ -1,15 +1,15 @@
-# Admin how-to (twice-a-week review)
+# Admin how-to (Thursday review)
 
 Quick ops guide for `/admin`.
 
-**Rule of thumb:** Form → Admin Submissions → Go live. Discovery → Approve → Go live. Events monitors Live / Needs attention / Past. No Google Sheet required.
+**Rule of thumb:** Form → Admin Submissions → Go live. Dashboard Inbox → Add as Draft → header **Deploy**. Discovery still has **Go live** as backup. No Google Sheet required.
 
 ## Typical session
 
-1. **Submissions** (`/admin/submissions`) — Refresh, review new Share form items, **Go live** for Events
-2. **Discovery** (`/admin/discovery`) — Approve library candidates, **Go live**
-3. **Events** (`/admin/events`) — Monitor Live / Needs attention / Past
-4. Wait ~2–4 min for Netlify after Go live
+1. **Dashboard** (`/admin`) — Inbox Watch / Skip / Add as Draft; Events edits; header **Deploy**
+2. **Discovery backup** (`/admin/discovery`) — library queue Approve → **Go live** if Deploy is unavailable
+3. **Submissions** (`/admin/submissions`) — Refresh, review new Share form items, **Go live** for Events
+4. Wait ~2–4 min for Netlify after Deploy / Go live
 
 ## Submissions
 
@@ -23,8 +23,8 @@ Prefer Admin Refresh over Sheet CSV — Sheet fallback can overwrite local revie
 
 ## Discovery
 
-1. Edit if needed → **Approve** → Ready.
-2. **Go live** on Ready items → public catalog.
+1. Edit if needed → **Approve** / Dashboard **Add** → Draft / Ready.
+2. Header **Deploy** on the Dashboard (or Discovery **Go live** as backup) → public catalog.
 3. Opening Discovery/Events **syncs lived duplicates** (Draft/Ready/Pending twins of Live are cleared or promoted).
 4. Toggle **Regular Discovery** (core cities) vs **Seasonal picks** (Close to home / Worth a little drive). Stage add/remove/move, then **Publish curation** to update the seasonal page (~2–4 min).
 
@@ -32,9 +32,9 @@ Prefer Admin Refresh over Sheet CSV — Sheet fallback can overwrite local revie
 
 | When | What |
 |------|------|
-| **Sundays @ 8:00 AM PT** | Weekly queue refresh — new finds added; Approve → Go live still required |
-| **Fridays @ 8:00 AM PT** | Regional pass for Worth a little drive highlights |
-| Mid-week | Manual runs only |
+| **Sundays @ 8:00 AM PT** | Weekly library queue refresh — new finds added; Approve → Go live still required |
+| **Thursdays @ 8:00 AM PT** | Weekly review: core-city weekend search + Worth a little drive / 小紅書 inbox ingest |
+| Mid-week | Manual runs, or chat: “search this weekend and next” (core cities) / “fall within an hour” (drive) |
 
 See also [event-discovery.md](./event-discovery.md).
 

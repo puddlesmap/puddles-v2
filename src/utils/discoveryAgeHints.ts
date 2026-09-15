@@ -30,6 +30,15 @@ function parseAgeToken(raw: string): number | null {
   return Number.isFinite(n) ? n : null
 }
 
+/** Pricing or supervision policy — not who the activity is designed for. */
+export function isNonTargetingAgeMention(around: string): boolean {
+  const hay = String(around || '').toLowerCase()
+  if (/\b(accompanied|accompany|with an adult|supervision)\b/.test(hay)) return true
+  if (/\b(free|complimentary|discount)\b/.test(hay)) return true
+  if (/\b(admission|ticket|fee|cost|price|register|registration)\b/.test(hay)) return true
+  return false
+}
+
 function bandsFromInclusive(min: number, max: number): InferredAge | null {
   if (!Number.isFinite(min) || !Number.isFinite(max) || max < 0 || min > max) return null
 
@@ -71,7 +80,7 @@ export function inferAgeRangeFromText(text: string): InferredAge | null {
   )
   if (under) {
     const around = hay.slice(Math.max(0, under.index! - 40), under.index! + under[0].length + 50)
-    if (!/\b(accompanied|accompany|with an adult|supervision)\b/.test(around)) {
+    if (!isNonTargetingAgeMention(around)) {
       const n = parseAgeToken(under[1])
       if (n != null && n > 0) {
         // Exclusive upper bound: under 2 → just below 2
@@ -202,7 +211,9 @@ export function isAgeTargetingSentence(sentence: string): boolean {
     .toLowerCase()
     .replace(/\s+/g, ' ')
   if (!hay.trim()) return false
-  if (/\bunder(?:\s+the\s+age\s+of)?\s+(\d+|one|two|three|four|five)\b/.test(hay)) return true
+  if (/\bunder(?:\s+the\s+age\s+of)?\s+(\d+|one|two|three|four|five)\b/.test(hay)) {
+    if (!isNonTargetingAgeMention(hay)) return true
+  }
   if (/\bolder\s+than\s+(\d+|one|two|three|four|five)\b/.test(hay)) return true
   if (/\byounger\s+than\s+(\d+|one|two|three|four|five)\b/.test(hay)) return true
   if (/\bearly\s+walkers?\b/.test(hay) && /\b\d+s\b/.test(hay)) return true

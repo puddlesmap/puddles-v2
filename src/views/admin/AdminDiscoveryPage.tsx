@@ -722,8 +722,9 @@ export function AdminDiscoveryPage() {
               approval required before going live).
             </li>
             <li>
-              <strong>Fridays @ 8:00 AM PT:</strong> Regional pass for “Worth a little drive”
-              highlights.
+              <strong>Thursdays @ 8:00 AM PT:</strong> Weekly review — core-city weekend web &
+              social, plus Worth a little drive (~1 hour + 小紅書). Drive rows stay Hidden seasonal
+              — do not Go live into Browse.
             </li>
           </ul>
           <p className="admin-discovery-schedule-note__foot">
@@ -876,7 +877,7 @@ export function AdminDiscoveryPage() {
             <h2 className="font-display text-lg text-charcoal">Discovery queue</h2>
             <p className="mt-1 text-sm text-muted">
               {discoveryMode === 'regular'
-                ? `${filtered.length} shown · core cities`
+                ? `${filtered.length} shown · core cities + Worth a Drive pending`
                 : `${seasonalCollection?.title || themeSlug} · ${
                     seasonalSections.closeToHome.length + seasonalSections.worthADrive.length
                   } curated`}

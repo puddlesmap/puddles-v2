@@ -56,6 +56,8 @@ import { ExperimentSharedEventDetailPage } from './views/ExperimentSharedEventDe
 import { ExperimentWelcomePage } from './views/ExperimentWelcomePage'
 import { ExperimentSeasonalDiscoveryPage } from './views/ExperimentSeasonalDiscoveryPage'
 import { ExperimentCommunityEventsMockupPage } from './views/ExperimentCommunityEventsMockupPage'
+import { ExperimentAdminWorkflowMockupPage } from './views/ExperimentAdminWorkflowMockupPage'
+import { ExperimentThursdayAllSearchMockupPage } from './views/ExperimentThursdayAllSearchMockupPage'
 import { ExperimentLaunchExpandMockupPage } from './views/ExperimentLaunchExpandMockupPage'
 import { ExperimentBrowseV2MockupPage } from './views/ExperimentBrowseV2MockupPage'
 import { ExperimentBrowseV3MockupPage } from './views/ExperimentBrowseV3MockupPage'
@@ -79,6 +81,9 @@ function AppShell() {
   const location = useLocation()
   const backgroundLocation = getEventDetailBackground(location.state)
   const isAdminRoute = location.pathname.startsWith('/admin')
+  const isAdminMockup =
+    location.pathname.startsWith('/experiment/admin-workflow-mockup') ||
+    location.pathname.startsWith('/experiment/thursday-all-search-mockup')
   const isLogoLab = location.pathname === '/logo-lab'
   const isStandaloneEventDetail =
     /^\/event\/[^/]+$/.test(location.pathname) && !backgroundLocation
@@ -159,6 +164,14 @@ function AppShell() {
         element={<ExperimentCommunityEventsMockupPage />}
       />
       <Route
+        path="/experiment/admin-workflow-mockup"
+        element={<ExperimentAdminWorkflowMockupPage />}
+      />
+      <Route
+        path="/experiment/thursday-all-search-mockup"
+        element={<ExperimentThursdayAllSearchMockupPage />}
+      />
+      <Route
         path="/experiment/launch-expand-mockup"
         element={<ExperimentLaunchExpandMockupPage />}
       />
@@ -208,15 +221,15 @@ function AppShell() {
       <Route path="/logo-lab" element={<LogoLabPage />} />
       <Route path="/maintenance" element={<MaintenancePage />} />
       <Route path="/admin" element={<AdminAuthGate />}>
+        <Route index element={<ExperimentAdminWorkflowMockupPage live />} />
         <Route element={<AdminLayout />}>
-          <Route index element={<Navigate to="events" replace />} />
           <Route path="events" element={<AdminEventsPage />} />
           <Route path="discovery" element={<AdminDiscoveryPage />} />
           <Route path="submissions" element={<AdminSubmissionsPage />} />
           <Route path="seasonal-calendar" element={<AdminSeasonalCalendarPage />} />
         </Route>
       </Route>
-      <Route path="/Admin" element={<Navigate to="/admin/events" replace />} />
+      <Route path="/Admin" element={<Navigate to="/admin" replace />} />
       <Route path="*" element={<NotFoundPage />} />
     </>
   )
@@ -235,9 +248,9 @@ function AppShell() {
           <Route path="/event/:eventId" element={<EventDetailModalOverlay />} />
         </Routes>
       ) : null}
-      {!isAdminRoute && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
+      {!isAdminRoute && !isAdminMockup && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
       {!isAdminRoute && <LocationBridge />}
-      {!isAdminRoute && !isLogoLab && <WelcomeOnboarding />}
+      {!isAdminRoute && !isAdminMockup && !isLogoLab && <WelcomeOnboarding />}
     </div>
   )
 }

@@ -59,6 +59,8 @@ import { ExperimentSeasonalDiscoveryPage } from '@/views/ExperimentSeasonalDisco
 import { ExperimentSeasonalCollectionPage } from '@/views/ExperimentSeasonalCollectionPage'
 import { ExperimentSeasonalLaunchReviewPage } from '@/views/ExperimentSeasonalLaunchReviewPage'
 import { ExperimentCommunityEventsMockupPage } from '@/views/ExperimentCommunityEventsMockupPage'
+import { ExperimentAdminWorkflowMockupPage } from '@/views/ExperimentAdminWorkflowMockupPage'
+import { ExperimentThursdayAllSearchMockupPage } from '@/views/ExperimentThursdayAllSearchMockupPage'
 import { ExperimentLaunchExpandMockupPage } from '@/views/ExperimentLaunchExpandMockupPage'
 import { ExperimentBrowseV2MockupPage } from '@/views/ExperimentBrowseV2MockupPage'
 import { ExperimentBrowseV3MockupPage } from '@/views/ExperimentBrowseV3MockupPage'
@@ -81,6 +83,9 @@ function ClientRoutes() {
   const searchParams = useSearchParams()
   const search = searchParams.toString()
   const isAdminRoute = pathname.startsWith('/admin')
+  const isAdminMockup =
+    pathname.startsWith('/experiment/admin-workflow-mockup') ||
+    pathname.startsWith('/experiment/thursday-all-search-mockup')
   const isLogoLab = pathname === '/logo-lab'
   const isStandaloneEventDetail =
     /^\/event\/[^/]+$/.test(pathname) && !readEventDetailOverlayState()
@@ -169,6 +174,14 @@ function ClientRoutes() {
               element={<ExperimentCommunityEventsMockupPage />}
             />
             <Route
+              path="/experiment/admin-workflow-mockup"
+              element={<ExperimentAdminWorkflowMockupPage />}
+            />
+            <Route
+              path="/experiment/thursday-all-search-mockup"
+              element={<ExperimentThursdayAllSearchMockupPage />}
+            />
+            <Route
               path="/experiment/launch-expand-mockup"
               element={<ExperimentLaunchExpandMockupPage />}
             />
@@ -218,22 +231,22 @@ function ClientRoutes() {
             <Route path="/logo-lab" element={<LogoLabPage />} />
             <Route path="/maintenance" element={<MaintenancePage />} />
             <Route path="/admin" element={<AdminAuthGate />}>
+              <Route index element={<ExperimentAdminWorkflowMockupPage live />} />
               <Route element={<AdminLayout />}>
-                <Route index element={<Navigate to="events" replace />} />
                 <Route path="events" element={<AdminEventsPage />} />
                 <Route path="discovery" element={<AdminDiscoveryPage />} />
                 <Route path="submissions" element={<AdminSubmissionsPage />} />
                 <Route path="seasonal-calendar" element={<AdminSeasonalCalendarPage />} />
               </Route>
             </Route>
-            <Route path="/Admin" element={<Navigate to="/admin/events" replace />} />
+            <Route path="/Admin" element={<Navigate to="/admin" replace />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </ErrorBoundary>
       </main>
-      {!isAdminRoute && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
+      {!isAdminRoute && !isAdminMockup && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
       {!isAdminRoute && <LocationBridge />}
-      {!isAdminRoute && !isLogoLab && <WelcomeOnboarding />}
+      {!isAdminRoute && !isAdminMockup && !isLogoLab && <WelcomeOnboarding />}
     </div>
   )
 }

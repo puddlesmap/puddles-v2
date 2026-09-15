@@ -25,6 +25,7 @@
     "discover:expansion-refresh": "node scripts/discover-expansion-lookahead.mjs --days=90 --run-scrape",
     "discover:ingest-expansion": "node scripts/ingest-watchlist-expansion.mjs",
     "discover:regional-weekly": "node scripts/discover-regional-weekly.mjs",
+    "discover:core-weekend": "node scripts/discover-core-weekend.mjs",
     "discover:sync-seasonal": "node scripts/sync-seasonal-discovery.mjs",
     "build:launch-staging": "node scripts/build-launch-staging.mjs",
     "verify-expansion-watch": "node scripts/verify-expansion-watch-submission.mjs"
