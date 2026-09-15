@@ -448,11 +448,15 @@
 }
 
 /* Wrapper holds the right-edge fade; the track is the inner scroller
-   (home shell overflow-x: clip does not block this). */
+   (home shell overflow-x: clip does not block this).
+   Chip width is 6 full + half of the next: 6w + 6g + w/2 = inner width. */
 .seasonal-browse-preview__scroller {
+  --browse-chip-gap: 0.875rem;
+  --browse-chip-pad: calc(2 * var(--layout-padding-mobile));
   position: relative;
   min-width: 0;
   margin-inline: calc(-1 * var(--layout-padding-mobile));
+  container-type: inline-size;
 }
 
 .seasonal-browse-preview__scroller::after {
@@ -461,7 +465,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 2.5rem;
+  width: 0.85rem;
   pointer-events: none;
   z-index: 1;
   background: linear-gradient(to right, transparent, var(--color-surface, #ffffff));
@@ -470,7 +474,7 @@
 .seasonal-browse-preview__track {
   display: flex;
   flex-wrap: nowrap;
-  gap: 0.875rem;
+  gap: var(--browse-chip-gap);
   padding-inline: var(--layout-padding-mobile);
   padding-bottom: 0.25rem;
   overflow-x: auto;
@@ -489,12 +493,13 @@
 
 @media (min-width: 768px) {
   .seasonal-browse-preview__scroller {
+    --browse-chip-gap: 1.125rem;
+    --browse-chip-pad: 0px;
     margin-inline: 0;
   }
 
   .seasonal-browse-preview__track {
     padding-inline: 0;
-    gap: 1.125rem;
   }
 }
 
@@ -506,7 +511,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 0 0 5.75rem;
+  flex: 0 0 auto;
+  width: max(
+    4.75rem,
+    calc((100cqi - var(--browse-chip-pad) - 6 * var(--browse-chip-gap)) * 2 / 13)
+  );
   gap: 0.625rem;
   padding: 0.125rem;
   border: none;
