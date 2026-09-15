@@ -27,10 +27,13 @@ export const ALL_SHOWCASE_EVENTS: Event[] = includeShowcaseEvents
   : []
 
 /** Seasonal editorial picks outside the public catalog (e.g. “worth a drive” farms & haunts). */
-export const ALL_SEASONAL_DRIVE_EVENTS: Event[] = withPublishing([
-  ...HELLO_FALL_DRIVE_EVENTS,
-  ...HALLOWEEN_DRIVE_EVENTS,
-])
+export const ALL_SEASONAL_DRIVE_EVENTS: Event[] = withPublishing(
+  [...HELLO_FALL_DRIVE_EVENTS, ...HALLOWEEN_DRIVE_EVENTS].map((event) => ({
+    ...event,
+    isSeasonal: event.isSeasonal ?? true,
+    isRegional: event.isRegional ?? true,
+  })),
+)
 
 /**
  * Localhost launch staging — merge only via LaunchStagingContext / getLaunchReviewCatalog.

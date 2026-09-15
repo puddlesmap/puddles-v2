@@ -72,8 +72,8 @@
   --radius-pill: var(--radius-full);
   --layout-min: 320px;
   --layout-max: 1120px;
-  /* Admin ops dashboard — wider than the public site for event tables, still short of ultra-wide */
-  --layout-max-admin: calc(var(--layout-max) + 16rem);
+  /* Admin ops dashboard — use most of the desktop width so event tables do not scroll sideways */
+  --layout-max-admin: min(100rem, calc(100vw - 2rem));
   --layout-padding-mobile: 16px;
   --layout-padding-tablet: 24px;
   --layout-padding-tablet-wide: 32px;
@@ -3354,6 +3354,7 @@ select.input-field,
 
 .admin-section-nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1rem;
 }
@@ -3780,6 +3781,11 @@ select.input-field,
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1rem;
+}
+
+.admin-events-catalog-toggle {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .admin-discovery-seasonal {
@@ -4470,7 +4476,23 @@ select.input-field,
 }
 
 .admin-table-events col.admin-col-actions {
-  width: 12.5rem;
+  width: 12%;
+}
+
+.admin-table-events {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.admin-table-wrap:has(.admin-table-events) {
+  overflow-x: hidden;
+}
+
+@media (max-width: 899px) {
+  .admin-table-events .admin-col-site,
+  .admin-table-events .admin-col-approved {
+    display: none;
+  }
 }
 
 .admin-table-events th.admin-col-event,
@@ -4487,14 +4509,14 @@ select.input-field,
 }
 
 .admin-table-events .admin-col-city {
-  min-width: 6.75rem;
+  min-width: 0;
   padding-inline: 0.55rem 0.85rem;
   white-space: nowrap;
   font-size: 13px;
 }
 
 .admin-table-events .admin-col-when {
-  min-width: 8.75rem;
+  min-width: 0;
   padding-inline: 0.65rem 0.55rem;
   white-space: nowrap;
   font-size: 13px;
@@ -4518,8 +4540,8 @@ select.input-field,
 }
 
 .admin-table-events .admin-table-actions-col {
-  width: 12.5rem;
-  max-width: 12.5rem;
+  width: auto;
+  max-width: none;
   padding-inline: 0.55rem 0.75rem;
 }
 
@@ -5094,6 +5116,22 @@ select.input-field,
   gap: 0.75rem;
 }
 
+.admin-discovery-form--two-col {
+  align-items: start;
+}
+
+@media (min-width: 720px) {
+  .admin-discovery-form--two-col {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.admin-discovery-form__col {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
 .admin-discovery-form__row {
   display: grid;
   gap: 0.75rem;
@@ -5154,6 +5192,19 @@ select.input-field,
   color: var(--color-charcoal);
 }
 
+.admin-discovery-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.admin-discovery-fieldset__hint {
+  margin: 0.15rem 0 0.45rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--color-muted);
+}
+
 .admin-discovery-checked {
   display: flex;
   flex-wrap: wrap;
@@ -5185,12 +5236,16 @@ select.input-field,
 }
 
 .admin-discovery-table {
-  table-layout: auto;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.admin-table-wrap:has(.admin-discovery-table) {
+  overflow-x: hidden;
 }
 
 .admin-discovery-col-when {
-  width: 9.75rem;
-  max-width: 9.75rem;
+  width: 12%;
   white-space: nowrap;
 }
 
@@ -5199,9 +5254,7 @@ select.input-field,
 }
 
 .admin-discovery-col-title {
-  width: 9.5rem;
-  min-width: 9.5rem;
-  max-width: 9.5rem;
+  width: 18%;
 }
 
 .admin-discovery-title-text {
@@ -5211,33 +5264,61 @@ select.input-field,
 }
 
 .admin-discovery-col-venue {
-  min-width: 8rem;
+  width: 14%;
+  overflow: hidden;
 }
 
 .admin-discovery-col-ages {
-  width: 6.75rem;
-  max-width: 6.75rem;
+  width: 8%;
   white-space: nowrap;
 }
 
 .admin-discovery-col-tips {
-  min-width: 18rem;
-  max-width: 22rem;
+  width: 22%;
+  overflow: hidden;
 }
 
 .admin-discovery-col-status {
-  width: 5.5rem;
+  width: 8%;
   white-space: nowrap;
 }
 
 .admin-discovery-col-checked {
-  width: 7.5rem;
+  width: 10%;
   white-space: nowrap;
 }
 
 .admin-discovery-col-actions {
-  width: 5.5rem;
+  width: 8%;
   white-space: nowrap;
+}
+
+@media (max-width: 899px) {
+  .admin-discovery-col-tips,
+  .admin-discovery-col-ages,
+  .admin-discovery-col-checked {
+    display: none;
+  }
+
+  .admin-discovery-col-when {
+    width: 22%;
+  }
+
+  .admin-discovery-col-title {
+    width: 34%;
+  }
+
+  .admin-discovery-col-venue {
+    width: 22%;
+  }
+
+  .admin-discovery-col-status {
+    width: 12%;
+  }
+
+  .admin-discovery-col-actions {
+    width: 10%;
+  }
 }
 
 .admin-discovery-check-btn {

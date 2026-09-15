@@ -175,11 +175,12 @@ export function getAllFeaturedCandidateIds(collection: SeasonalCollection): stri
 
 export function resolveFeaturedSeasonalEvents(
   collection: SeasonalCollection,
-  catalog: Event[] = getPublicEventsFromCatalog(),
+  catalog?: Event[],
   now: Date = new Date(),
 ): Event[] {
+  const source = catalog ?? getPublicEventsFromCatalog(now)
   return sortSeasonalDiscoveryEvents(
-    resolveSeasonalEvents(getFeaturedEventIdsForDate(collection, now), catalog),
+    resolveSeasonalEvents(getFeaturedEventIdsForDate(collection, now), source),
     now,
   )
 }
@@ -394,13 +395,13 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       },
       {
         eventId: 'seasonal-drive-sf-chinatown-autumn-moon-festival-2026-09-19',
-        featuredFrom: '2026-09-15',
+        featuredFrom: '2026-09-14',
         featuredUntil: '2026-09-21',
         note: 'SF Chinatown Mid-Autumn street festival — drive pick',
       },
       {
         eventId: 'disc-author-event-celebrate-the-mooncake-fest-2026-09-23-6a6cdceee30fe4845965ed72',
-        featuredFrom: '2026-09-15',
+        featuredFrom: '2026-09-14',
         featuredUntil: '2026-09-24',
         note: 'Mooncake Festival story + craft',
       },
@@ -424,7 +425,7 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       },
       {
         eventId: 'harvest-history-festival-heritage-park-2026-09-26-09-00',
-        featuredFrom: '2026-09-15',
+        featuredFrom: '2026-09-14',
         featuredUntil: '2026-09-28',
         anchor: true,
         note: 'Harvest festival anchor — late September',

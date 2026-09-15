@@ -220,6 +220,8 @@ function buildMarkdownReport({
     '- Review queue: `/admin/discovery`',
     '- Launch review: `/experiment/seasonal-launch-review`',
     '- Refresh libraries: `npm run discover:bay-area -- --days=90`',
+    '- Weekend web/social (core cities): `npm run discover:core-weekend`',
+    '- Weekend Worth a Drive (~1 hour): `npm run discover:regional-weekly`',
     '- Regenerate this report: `npm run discover:expansion-lookahead`',
     '',
   )

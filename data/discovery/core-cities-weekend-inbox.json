@@ -1,0 +1,70 @@
+{
+  "description": "Core-city weekend leads (web / Instagram / Facebook) for Palo Alto · Los Altos · Mountain View · Sunnyvale. Add rows here; run npm run discover:core-weekend to queue them in Admin Discovery. eventUrl must be the official host page (Instagram post OK when that is the announcement).",
+  "updatedAt": "2026-09-10",
+  "leads": [
+    {
+      "id": "core-weekend-gamble-second-saturday-2026-09-12",
+      "title": "Second Saturday at Gamble Garden",
+      "date": "2026-09-12",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "venue": "Elizabeth F. Gamble Garden",
+      "address": "1431 Waverley Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "eventUrl": "https://www.gamblegarden.org/event/septembersaturday/",
+      "leadSource": "web",
+      "processed": true,
+      "processedAt": "2026-09-10",
+      "queuedId": "gamble-garden-second-saturday-2026-09-12",
+      "skipReason": "already on Puddles catalog"
+    },
+    {
+      "id": "core-weekend-village-foam-fun-2026-09-12",
+      "title": "Creative Play & Foam Fun",
+      "date": "2026-09-12",
+      "startTime": "16:00",
+      "endTime": "18:00",
+      "venue": "The Village at San Antonio Center",
+      "address": "645 San Antonio Rd, Mountain View, CA 94040",
+      "city": "Mountain View",
+      "eventUrl": "https://www.eventbrite.com/e/creative-play-foam-fun-tickets-1989067899632",
+      "leadSource": "web",
+      "processed": true,
+      "processedAt": "2026-09-10",
+      "queuedId": "village-san-antonio-creative-play-foam-fun-2026-09-12",
+      "skipReason": "already on Puddles catalog"
+    },
+    {
+      "id": "core-weekend-aah-grandparents-day-2026-09-13",
+      "title": "Grandparents Day at Smile Farm",
+      "date": "2026-09-13",
+      "startTime": "09:30",
+      "endTime": "11:30",
+      "venue": "AAH Smile Farm",
+      "address": "999 E Caribbean Dr, Sunnyvale, CA 94089",
+      "city": "Sunnyvale",
+      "eventUrl": "https://gran2gether.givesmart.com/",
+      "leadSource": "web",
+      "processed": true,
+      "processedAt": "2026-09-10",
+      "queuedId": "aah-smile-farm-grandparents-day-2026-09-13",
+      "skipReason": "already on Puddles catalog"
+    },
+    {
+      "id": "core-weekend-ipa-national-day-of-play-2026-09-19",
+      "title": "National Day of Play Pop-up Playdate",
+      "date": "2026-09-19",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "venue": "Mitchell Park · Tot area",
+      "address": "3700 Middlefield Rd, Palo Alto, CA 94303",
+      "city": "Palo Alto",
+      "eventUrl": "https://www.instagram.com/ca.ipa.usa/p/DdF8FRvJfCV/",
+      "leadSource": "instagram",
+      "processed": true,
+      "processedAt": "2026-09-10",
+      "queuedId": "national-day-of-play-popup-playdate-mitchell-park-2026-09-19",
+      "skipReason": "already on Puddles catalog"
+    }
+  ]
+}

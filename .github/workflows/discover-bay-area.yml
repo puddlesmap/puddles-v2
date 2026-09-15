@@ -55,6 +55,11 @@ jobs:
         run: |
           echo "::notice title=FIT4MOM schedule check::Re-verify https://sunnyvale.fit4mom.com/schedule. Update Calendar Watchlist · FIT4MOM rows in Admin Discovery if times changed."
 
+      - name: Reminder — core-city weekend web & social search
+        if: github.event_name == 'schedule'
+        run: |
+          echo "::notice title=Core cities weekend search::This weekend + next: search official calendars and Instagram for Palo Alto / Los Altos / Mountain View / Sunnyvale. Follow docs/core-cities-weekend-search.md. Paste official URLs into data/discovery/core-cities-weekend-inbox.json and run npm run discover:core-weekend (also Thursday cron)."
+
       - name: Expansion lookahead report
         run: npm run discover:expansion-lookahead -- --days=${{ inputs.days || '90' }}
 

@@ -16,7 +16,7 @@ Automated collection of family events (ages 0–5) for Puddles review, then publ
 
 1. **Human review** before anything goes live (no auto-Publish).
 2. **Discovery queue is not the Events spreadsheet** — review in Admin; Sheet (or DB) only when promoting to Draft/Published.
-3. **Library calendars first** (BiblioCommons / LibCal-style APIs), not whole-web search.
+3. **Library calendars first** (BiblioCommons / LibCal-style APIs). Weekly **web & social** search for the four core cities is a separate Thursday pass — see [Core cities weekend search](./core-cities-weekend-search.md).
 4. **Dedupe by official URL** so weekly runs stay small after the first pass.
 5. **One publishing path** — Events → sync → site (unchanged until a full Admin/DB migration).
 
@@ -48,8 +48,8 @@ Writes dated CSV/JSON under `data/discovery/` **and** the Admin queue at `src/da
 | Trigger | When | Workflow |
 |---|---|---|
 | **Sunday cron** | 8:00 AM PT | [`.github/workflows/discover-bay-area.yml`](../.github/workflows/discover-bay-area.yml) — library queue refresh (`discover:bay-area`, ~90 days). New finds need **Approve → Go live** (no auto-publish). |
-| **Friday cron** | 8:00 AM PT | [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml) — regional / Worth a little drive pass |
-| **Manual** | Anytime | GitHub → Actions → run either workflow, or locally `npm run discover:bay-area` |
+| **Thursday cron** | 8:00 AM PT | Core-city weekend inbox ([`discover-core-weekend.yml`](../.github/workflows/discover-core-weekend.yml)) **and** regional / Worth a little drive ([`discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml)). Search itself is agent-assisted (web, social, 小紅書). |
+| **Manual** | Anytime | GitHub → Actions → run a workflow, or locally `npm run discover:bay-area` / `discover:core-weekend` / `discover:regional-weekly` |
 | Mid-week | Manual only | Same commands as above |
 
 Each Sunday run:
@@ -62,13 +62,24 @@ Each Sunday run:
 
 Mountain View **city** special events (festivals, movies on Castro, etc.) are **not** on LibCal — they stay on the [Calendar Watchlist](./calendar-watchlist.md) (Akamai blocks automated fetch of mountainview.gov). Marketing page URLs like `/special-events/harvest-history-festival` are aliased to CivicPlus calendar event IDs when marking already-on-Puddles.
 
-### Regional / Worth a Drive (Fridays)
+### Core cities — weekend web & social (Thursdays)
 
-Bay Area destination events (farms, festivals, trains) outside the four Browse cities — plus **小紅書 leads** you paste with official URLs — use a separate weekly pass. See [Regional discovery — weekly](./regional-discovery-weekly.md).
+Library scrapers miss Instagram pop-ups, garden mornings, and shopping-center play days. Each Thursday (or in chat: “search this weekend and next”), search official calendars + social for **Palo Alto · Los Altos · Mountain View · Sunnyvale**, then paste official URLs into `data/discovery/core-cities-weekend-inbox.json`. See [Core cities — weekend search](./core-cities-weekend-search.md).
 
 | Command | When |
 |---------|------|
-| `npm run discover:regional-weekly` | Local or Friday GitHub Action (8:00 AM PT) |
+| `npm run discover:core-weekend` | Local or Thursday GitHub Action (8:00 AM PT) |
+| Inbox | `data/discovery/core-cities-weekend-inbox.json` |
+
+These **can** Approve → Go live (core cities). Out-of-area finds still use the regional inbox.
+
+### Regional / Worth a Drive (Thursdays, same morning as core cities)
+
+Bay Area destination events (farms, festivals, trains) outside the four Browse cities — plus **小紅書** and **weekend web/social (~1 hour)** leads you paste with official URLs — use the Thursday review pass. See [Regional discovery — weekly](./regional-discovery-weekly.md) and [weekend Worth a Drive search](./regional-weekend-drive-search.md).
+
+| Command | When |
+|---------|------|
+| `npm run discover:regional-weekly` | Local or Thursday GitHub Action (8:00 AM PT) |
 | Inbox | `data/discovery/regional-leads-inbox.json` |
 
 Workflow: [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml)

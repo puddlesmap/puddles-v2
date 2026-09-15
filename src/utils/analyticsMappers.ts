@@ -61,6 +61,8 @@ export function sourceContextSlug(source: EventOpenSource): string {
       return 'city_page'
     case 'discovery':
       return 'browse'
+    case 'direct':
+      return 'direct'
     default:
       return source
   }

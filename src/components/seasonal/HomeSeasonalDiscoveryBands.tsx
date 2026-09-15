@@ -26,17 +26,13 @@ export function HomeSeasonalDiscoveryBands({
   )
 
   const featuredBySlug = useMemo(() => {
+    const now = asOf ?? new Date()
     const map = new Map<string, Event[]>()
     for (const collection of collections) {
-      map.set(
-        collection.slug,
-        catalog
-          ? resolveFeaturedSeasonalEvents(collection, catalog)
-          : resolveFeaturedSeasonalEvents(collection),
-      )
+      map.set(collection.slug, resolveFeaturedSeasonalEvents(collection, catalog, now))
     }
     return map
-  }, [collections, catalog])
+  }, [collections, catalog, asOf])
 
   if (collections.length === 0) return null
 

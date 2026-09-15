@@ -1,19 +1,15 @@
 #!/usr/bin/env node
 /**
- * Weekly regional discovery pass — Bay Area destination events for Admin review.
+ * Weekly core-city weekend search ingest.
  *
- * 1. Re-ingest watchlist + Regional · Worth a Drive rows (official pages).
- * 2. Import unprocessed rows from data/discovery/regional-leads-inbox.json
- *    (e.g. 小紅書 leads you pasted with official event URLs).
- * 3. Write a short report of pending Regional candidates.
+ * Imports unprocessed rows from data/discovery/core-cities-weekend-inbox.json
+ * (web / Instagram / Facebook leads) into Admin Discovery as pending rows.
  *
- * Usage: node scripts/discover-regional-weekly.mjs
+ * Usage: node scripts/discover-core-weekend.mjs
  *
- * Human/agent step (not automated): search official farms + roundups + 小紅書
- * for this weekend and next (~1 hour from core cities) → add leads with
- * official links → run this script. See docs/regional-weekend-drive-search.md.
+ * Human/agent step (not automated): search official calendars + social for
+ * this weekend and next → add leads with official URLs → run this script.
  */
-import { spawnSync } from 'node:child_process'
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -28,10 +24,11 @@ import {
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = join(__dirname, '..')
-const INBOX_PATH = join(rootDir, 'data/discovery/regional-leads-inbox.json')
+const INBOX_PATH = join(rootDir, 'data/discovery/core-cities-weekend-inbox.json')
 const REPORT_DIR = join(rootDir, 'data/discovery')
 
-const REGIONAL_SOURCE_PREFIX = 'Regional ·'
+const SOURCE_PREFIX = 'Core cities · Weekend search'
+const CORE_CITIES = new Set(['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale'])
 
 function loadInbox() {
   try {
@@ -51,24 +48,25 @@ function normalizeLeadToCandidate(lead) {
   if (!eventUrl.startsWith('http')) {
     throw new Error(`Lead "${lead.title}" missing official eventUrl`)
   }
-  if (/xiaohongshu|xhslink|little red book/i.test(eventUrl)) {
-    throw new Error(`Lead "${lead.title}" must use the host official page, not a 小紅書 link`)
-  }
 
   const date = String(lead.date ?? '').trim()
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
     throw new Error(`Lead "${lead.title}" needs date YYYY-MM-DD`)
   }
 
-  const leadSource = lead.leadSource ?? 'editorial'
-  const sourceLabel =
-    leadSource === 'xiaohongshu'
-      ? 'Regional · Lead · 小紅書'
-      : `Regional · Lead · ${leadSource}`
+  const city = String(lead.city ?? '').trim()
+  if (!CORE_CITIES.has(city)) {
+    throw new Error(
+      `Lead "${lead.title}" city "${city}" is outside core cities — use data/discovery/regional-leads-inbox.json`,
+    )
+  }
+
+  const leadSource = lead.leadSource ?? 'web'
+  const sourceLabel = `${SOURCE_PREFIX} · ${leadSource}`
 
   const id =
     lead.id ??
-    `regional-lead-${date}-${String(lead.title ?? 'event')
+    `core-weekend-${date}-${String(lead.title ?? 'event')
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .slice(0, 48)}`
@@ -80,9 +78,9 @@ function normalizeLeadToCandidate(lead) {
     startTime: lead.startTime ?? '',
     endTime: lead.endTime ?? '',
     venue: lead.venue ?? '',
-    room: '',
+    room: lead.room ?? '',
     address: lead.address ?? '',
-    city: lead.city ?? '',
+    city,
     lat: lead.lat ?? null,
     lng: lead.lng ?? null,
     ageRange: lead.ageRange ?? 'All ages · Little ones welcome',
@@ -90,7 +88,7 @@ function normalizeLeadToCandidate(lead) {
     ageMax: lead.ageMax ?? 5,
     audiences: '',
     types: lead.types ?? ['Festivals & Community', 'Outdoor'],
-    categoryTags: ['Regional', 'Worth a Drive', ...(lead.categoryTags ?? [])],
+    categoryTags: ['Weekend search', ...(lead.categoryTags ?? [])],
     cost: lead.cost ?? '',
     description: lead.description ?? '',
     tips: lead.tips ?? (lead.leadNotes ? `Lead note: ${lead.leadNotes}` : ''),
@@ -180,31 +178,32 @@ function ingestInboxLeads() {
 function writeWeeklyReport() {
   const today = pacificTodayYmd()
   const discovery = JSON.parse(readFileSync(DISCOVERY_ADMIN_PATH, 'utf8'))
-  const regional = (discovery.candidates ?? []).filter(
+  const pending = (discovery.candidates ?? []).filter(
     (row) =>
-      String(row.source ?? '').startsWith(REGIONAL_SOURCE_PREFIX) &&
-      row.reviewStatus === 'pending',
+      String(row.source ?? '').startsWith(SOURCE_PREFIX) && row.reviewStatus === 'pending',
   )
 
-  regional.sort((a, b) => String(a.date).localeCompare(String(b.date)))
+  pending.sort((a, b) => String(a.date).localeCompare(String(b.date)))
 
   const lines = [
-    '# Regional discovery — weekly review',
+    '# Core cities — weekend search review',
     '',
     `Generated: ${today}`,
     '',
-    'Pending **Regional ·** rows in Admin Discovery (Worth a Drive / weekend ~1 hour / 小紅書).',
-    'Approve only after checking the **official** event page.',
+    'Pending **Core cities · Weekend search** rows in Admin Discovery.',
+    'These are Palo Alto / Los Altos / Mountain View / Sunnyvale — Approve → Go live when copy checks out.',
     '',
-    `**Pending count:** ${regional.length}`,
+    `**Pending count:** ${pending.length}`,
     '',
   ]
 
-  if (regional.length === 0) {
-    lines.push('_No pending regional rows. Add leads to `data/discovery/regional-leads-inbox.json` or extend Calendar Watchlist._')
+  if (pending.length === 0) {
+    lines.push(
+      '_No pending weekend-search rows. Run the web/social pass (see docs/core-cities-weekend-search.md), add leads to `data/discovery/core-cities-weekend-inbox.json`, then re-run this script._',
+    )
   } else {
     lines.push('| Date | Title | City | Source |', '| --- | --- | --- | --- |')
-    for (const row of regional) {
+    for (const row of pending) {
       lines.push(
         `| ${row.date} | ${row.title.replace(/\|/g, '\\|')} | ${row.city || '—'} | ${row.source.replace(/\|/g, '\\|')} |`,
       )
@@ -215,45 +214,36 @@ function writeWeeklyReport() {
     '',
     '## Weekly human / agent step',
     '',
-    '1. Search official farms + roundups for **this weekend and next** within ~1 hour of the four core cities (`docs/regional-weekend-drive-search.md`).',
-    '2. Search 小紅書 for Bay Area parent roundups (pumpkin / harvest / holiday).',
-    '3. For each fit: find the **official** host page — not the social post URL.',
-    '4. Add a row to `data/discovery/regional-leads-inbox.json` (`leadSource`: `web` | `instagram` | `xiaohongshu` | …).',
-    '5. Run `npm run discover:regional-weekly` (or wait for Thursday GitHub Action).',
-    '6. Review in `/admin/discovery`. Do not Go live — Hidden Worth a Drive when it earns a seasonal slot.',
+    '1. Search official calendars + Instagram for **this weekend and next** in the four core cities.',
+    '2. Fact-check on the official host page.',
+    '3. Add keepers to `data/discovery/core-cities-weekend-inbox.json`.',
+    '4. Run `npm run discover:core-weekend` (or wait for Thursday GitHub Action).',
+    '5. Review in `/admin/discovery` → Approve → Go live.',
     '',
     '## Commands',
     '',
-    '- `npm run discover:regional-weekly` — ingest watchlist + inbox + this report',
-    '- `npm run discover:ingest-expansion` — watchlist expansion rows only',
+    '- `npm run discover:core-weekend` — ingest inbox + this report',
+    '- `npm run discover:regional-weekly` — out-of-area Worth a Drive / 小紅書',
     '',
   )
 
   mkdirSync(REPORT_DIR, { recursive: true })
-  const reportPath = join(REPORT_DIR, `regional-weekly-${today}.md`)
+  const reportPath = join(REPORT_DIR, `core-weekend-${today}.md`)
   writeFileSync(reportPath, `${lines.join('\n')}\n`)
-  return { reportPath, pendingCount: regional.length }
+  return { reportPath, pendingCount: pending.length }
 }
 
 function main() {
-  console.log('Regional weekly discovery pass\n')
-
-  const ingest = spawnSync(process.execPath, [join(__dirname, 'ingest-watchlist-expansion.mjs')], {
-    cwd: rootDir,
-    stdio: 'inherit',
-  })
-  if (ingest.status !== 0) {
-    process.exit(ingest.status ?? 1)
-  }
+  console.log('Core cities weekend search ingest\n')
 
   const { added, errors } = ingestInboxLeads()
   if (added.length > 0) {
-    console.log(`\nQueued ${added.length} inbox lead(s):`)
+    console.log(`Queued ${added.length} inbox lead(s):`)
     for (const row of added) {
       console.log(`  ${row.date}  ${row.title}  ·  ${row.city}`)
     }
   } else {
-    console.log('\nNo new inbox leads to queue.')
+    console.log('No new inbox leads to queue.')
   }
   if (errors.length > 0) {
     console.warn('\nInbox errors (fix leads and re-run):')
@@ -261,9 +251,9 @@ function main() {
   }
 
   const { reportPath, pendingCount } = writeWeeklyReport()
-  console.log(`\nPending regional rows: ${pendingCount}`)
+  console.log(`\nPending weekend-search rows: ${pendingCount}`)
   console.log(`Report: ${reportPath}`)
-  console.log('\nNext: /admin/discovery — filter Source for "Regional ·"')
+  console.log('\nNext: /admin/discovery — filter Source for "Core cities · Weekend search"')
 }
 
 main()

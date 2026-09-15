@@ -2,6 +2,7 @@ import type { Event } from '../types/event'
 import type {
   ActivityEngagementAction,
   AnalyticsProps,
+  EventDetailAnalyticsContext,
   EventOpenSource,
   FilterContext,
   ShareSubmissionType,
@@ -352,9 +353,16 @@ export function trackDateFilterSelected(
   })
 }
 
-export function trackActivityTypeSelected(activityType: ActivityType): void {
+export function trackActivityTypeSelected(
+  activityType: ActivityType,
+  context: FilterContext,
+  extras?: { placement?: string; page?: string },
+): void {
   trackEvent(ANALYTICS_EVENTS.ACTIVITY_TYPE_SELECTED, {
     activity_type: activityTypeSlug(activityType),
+    context,
+    ...(extras?.placement ? { placement: extras.placement } : {}),
+    ...(extras?.page ? { page: extras.page } : {}),
   })
 }
 
@@ -374,15 +382,36 @@ export function trackViewModeChanged(viewMode: ViewMode): void {
   trackEvent(ANALYTICS_EVENTS.VIEW_MODE_CHANGED, { view_mode: viewMode })
 }
 
-export function trackActivityOpened(event: Event, source: EventOpenSource): void {
+function eventDetailAnalyticsProps(extras?: EventDetailAnalyticsContext): AnalyticsProps {
+  if (!extras) return {}
+  const props: AnalyticsProps = {}
+  if (extras.presentation) props.presentation = extras.presentation
+  if (extras.open_mode) props.open_mode = extras.open_mode
+  if (extras.desc_placement) props.desc_placement = extras.desc_placement
+  return props
+}
+
+export function trackActivityOpened(
+  event: Event,
+  source: EventOpenSource,
+  extras?: EventDetailAnalyticsContext,
+): void {
   trackEvent(ANALYTICS_EVENTS.ACTIVITY_OPENED, {
     ...activityProps(event),
     source_context: sourceContextSlug(source),
+    ...eventDetailAnalyticsProps(extras),
   })
 }
 
-export function trackActivityEngagement(action: ActivityEngagementAction, event: Event): void {
-  trackEvent(action, activityProps(event))
+export function trackActivityEngagement(
+  action: ActivityEngagementAction,
+  event: Event,
+  extras?: EventDetailAnalyticsContext,
+): void {
+  trackEvent(action, {
+    ...activityProps(event),
+    ...eventDetailAnalyticsProps(extras),
+  })
 }
 
 export function trackShareFormOpened(sourceContext: string): void {
@@ -539,7 +568,7 @@ export function trackBrowseFiltersApplied(prev: BrowseFilters, next: BrowseFilte
   if (prev.types.join(',') !== next.types.join(',')) {
     const added = next.types.filter((type) => !prev.types.includes(type))
     for (const type of added) {
-      trackActivityTypeSelected(type)
+      trackActivityTypeSelected(type, 'browse')
     }
   }
 }

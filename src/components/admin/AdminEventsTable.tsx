@@ -8,6 +8,7 @@ import type { DuplicateCluster } from '../../utils/eventDuplicates'
 import { eventDetailScore } from '../../utils/eventDuplicates'
 import type { AdminReviewFlag } from '../../utils/adminReviewFlags'
 import { ADMIN_REVIEW_FLAG_LABELS } from '../../utils/adminReviewFlags'
+import { seasonalListingLabels } from '../../utils/adminSeasonalEvents'
 import { AdminEventDetailPanel } from './AdminEventDetail'
 
 function StatusBadge({ status }: { status: EventStatus }) {
@@ -320,6 +321,7 @@ export function AdminEventsTable({
               const canCancel = onCancel && event.status === 'Published' && !event.isPast
               const approvedLabel = formatVerifiedDate(event.verifiedDate)
               const reviewFlags = reviewFlagsByEventId?.get(event.id) ?? []
+              const listingLabels = seasonalListingLabels(event)
 
               return (
                 <Fragment key={event.id}>
@@ -366,6 +368,18 @@ export function AdminEventsTable({
                       <div className="admin-event-meta" title={event.venue}>
                         {event.venue}
                       </div>
+                      {listingLabels.length > 0 ? (
+                        <div className="admin-event-flag-tags">
+                          {listingLabels.map((label) => (
+                            <span
+                              key={label}
+                              className="admin-badge admin-badge-status admin-badge-status-draft"
+                            >
+                              {label}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
                       {reviewFlags.length > 0 ? (
                         <div className="admin-event-flag-tags">
                           {reviewFlags.map((flag) => (

@@ -1,13 +1,14 @@
 # Weekly Bay Area regional / destination events for Admin review.
-# Fridays 8:00 AM Pacific: re-ingest watchlist drive rows + regional-leads-inbox.json + report.
-# 小紅書 search stays human/agent-assisted — paste official URLs into the inbox.
+# Thursdays 8:00 AM Pacific: re-ingest watchlist drive rows + regional-leads-inbox.json + report.
+# Same morning as core-city weekend ingest. Web/social (~1 hour) + 小紅書 search stays
+# human/agent-assisted — paste official URLs into the inbox.
 
 name: Discover regional (weekly)
 
 on:
   schedule:
-    # Fridays 15:00 UTC ≈ 8:00 AM Pacific (PDT); 7:00 AM during PST
-    - cron: '0 15 * * 5'
+    # Thursdays 15:00 UTC ≈ 8:00 AM Pacific (PDT); 7:00 AM during PST
+    - cron: '0 15 * * 4'
   workflow_dispatch:
 
 permissions:
@@ -35,6 +36,11 @@ jobs:
 
       - name: Regional weekly pass
         run: npm run discover:regional-weekly
+
+      - name: Reminder — weekend Worth a Drive web & social (~1 hour)
+        if: github.event_name == 'schedule'
+        run: |
+          echo "::notice title=Weekend Worth a Drive search::This weekend + next, within ~1 hour of Palo Alto / Los Altos / Mountain View / Sunnyvale: pumpkin patches, apple days, harvest festivals. Follow docs/regional-weekend-drive-search.md. Paste official URLs into data/discovery/regional-leads-inbox.json, then re-run this workflow or npm run discover:regional-weekly."
 
       - name: Reminder — 小紅書 lead pass
         if: github.event_name == 'schedule'

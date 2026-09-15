@@ -1,6 +1,7 @@
 import type { CsvColumn } from './exportCsv'
 import type { Event } from '../types/event'
 import type { SheetSubmission } from '../types/submission'
+import { isRegionalListing, isSeasonalListing } from './adminSeasonalEvents'
 
 export const EVENT_EXPORT_COLUMNS: CsvColumn<Event>[] = [
   { key: 'title', label: 'Title', value: (row) => row.title },
@@ -11,6 +12,8 @@ export const EVENT_EXPORT_COLUMNS: CsvColumn<Event>[] = [
   { key: 'endTime', label: 'End Time', value: (row) => row.endTime },
   { key: 'status', label: 'Status', value: (row) => row.status },
   { key: 'isLive', label: 'Is Live', value: (row) => row.isLive },
+  { key: 'isSeasonal', label: 'Seasonal', value: (row) => isSeasonalListing(row) },
+  { key: 'isRegional', label: 'Regional', value: (row) => isRegionalListing(row) },
   { key: 'isPast', label: 'Is Past', value: (row) => row.isPast },
   { key: 'verifiedDate', label: 'Last Checked', value: (row) => row.verifiedDate },
   { key: 'types', label: 'Types', value: (row) => row.types.join('; ') },

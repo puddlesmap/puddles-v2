@@ -1106,4 +1106,18 @@
   }
 }
 
+.seasonal-discovery-module--home-band .seasonal-discovery-module__footer--home {
+  justify-content: flex-end;
+  margin-top: 0.85rem;
+  padding-inline: 0;
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__footer--home .seasonal-discovery-module__cta {
+  color: var(--seasonal-accent-cta, var(--seasonal-accent-title, #7c2d12));
+}
+
+.seasonal-discovery-module--home-band .seasonal-discovery-module__footer--home .seasonal-discovery-module__cta:hover {
+  color: var(--seasonal-accent-eyebrow, #b45309);
+}
+
 /* Desktop stays one horizontal line (up to 4 visible); do not wrap to a second row. */

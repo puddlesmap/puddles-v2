@@ -3,7 +3,7 @@ import { AdminEventsTable } from '../../components/admin/AdminEventsTable'
 import { AdminNeedsAttentionFilters } from '../../components/admin/AdminNeedsAttentionInbox'
 import { AdminOverview } from '../../components/admin/AdminOverview'
 import { AdminSyncBar } from '../../components/admin/AdminSyncBar'
-import type { AdminEventViewId } from '../../types/admin'
+import type { AdminEventCatalog, AdminEventViewId } from '../../types/admin'
 import { ADMIN_EVENT_VIEWS } from '../../types/admin'
 import type { Event } from '../../types/event'
 import {
@@ -19,6 +19,10 @@ import {
   type AdminReviewFlag,
   type AdminReviewFlagType,
 } from '../../utils/adminReviewFlags'
+import {
+  eventMatchesCatalog,
+  reviewFlagsForCatalog,
+} from '../../utils/adminSeasonalEvents'
 import { findDuplicateClusters, type DuplicateCluster } from '../../utils/eventDuplicates'
 import { downloadRowsAsCsv } from '../../utils/exportCsv'
 import { EVENT_EXPORT_COLUMNS, exportFilename } from '../../utils/adminExport'
@@ -43,6 +47,16 @@ const EVENTS_MONITOR_VIEWS = ADMIN_EVENT_VIEWS.filter((view) =>
   view.id === 'needs-attention' ||
   view.id === 'past',
 )
+
+const LIVE_VIEW_COPY: Record<AdminEventCatalog, { description: string }> = {
+  regular: {
+    description: 'Published core-city events on the public website.',
+  },
+  seasonal: {
+    description:
+      'Current Hello Fall / Halloween close-to-home and Worth a little drive listings. Hidden regional stays off Browse.',
+  },
+}
 
 function getInitialAdminState(): {
   events: Event[]
@@ -92,6 +106,7 @@ export function AdminEventsPage() {
   const [checkedIds, setCheckedIds] = useState<string[]>([])
   const [bulkBusy, setBulkBusy] = useState(false)
   const [activeView, setActiveView] = useState<AdminEventViewId | 'all'>('live')
+  const [catalog, setCatalog] = useState<AdminEventCatalog>('regular')
   const [search, setSearch] = useState('')
   const [city, setCity] = useState<(typeof CITIES)[number]>('All cities')
   const [flagTypeFilter, setFlagTypeFilter] = useState<'all' | AdminReviewFlagType>('all')
@@ -143,22 +158,39 @@ export function AdminEventsPage() {
   useEffect(() => {
     setCheckedIds([])
     setSelectedId(null)
-  }, [activeView, search, city, flagTypeFilter])
+  }, [activeView, catalog, search, city, flagTypeFilter])
 
-  const counts = useMemo(() => summarizePublishingCounts(events), [events])
-  const viewMeta = activeView === 'all' ? null : getAdminEventView(activeView)
-  const liveEventIds = useMemo(
-    () => new Set(events.filter((event) => event.isLive).map((event) => event.id)),
-    [events],
+  const counts = useMemo(() => summarizePublishingCounts(events, catalog), [events, catalog])
+  const viewMeta = useMemo(() => {
+    if (activeView === 'all') return null
+    const base = getAdminEventView(activeView)
+    if (!base) return null
+    if (activeView === 'live') {
+      return { ...base, description: LIVE_VIEW_COPY[catalog].description }
+    }
+    return base
+  }, [activeView, catalog])
+  const catalogLiveEventIds = useMemo(
+    () =>
+      new Set(
+        events
+          .filter((event) => event.isLive && eventMatchesCatalog(event, catalog))
+          .map((event) => event.id),
+      ),
+    [events, catalog],
   )
   const allReviewFlags = useMemo(() => collectAdminReviewFlags(events), [events])
+  const catalogReviewFlags = useMemo(
+    () => reviewFlagsForCatalog(allReviewFlags, events, catalog),
+    [allReviewFlags, events, catalog],
+  )
   const openReviewFlags = useMemo(
     () =>
-      allReviewFlags.filter(
+      catalogReviewFlags.filter(
         (flag) =>
-          !dismissedFlagIds.has(flag.id) && flag.eventIds.some((id) => liveEventIds.has(id)),
+          !dismissedFlagIds.has(flag.id) && flag.eventIds.some((id) => catalogLiveEventIds.has(id)),
       ),
-    [allReviewFlags, dismissedFlagIds, liveEventIds],
+    [catalogReviewFlags, dismissedFlagIds, catalogLiveEventIds],
   )
   const openNeedsAttentionCount = openReviewFlags.length
 
@@ -182,13 +214,13 @@ export function AdminEventsPage() {
   const needsAttentionEvents = useMemo(() => {
     const ids = new Set(visibleNeedsAttentionFlags.flatMap((flag) => flag.eventIds))
     return filterAdminEvents(
-      events.filter((event) => event.isLive && ids.has(event.id)),
+      events.filter((event) => event.isLive && ids.has(event.id) && eventMatchesCatalog(event, catalog)),
       {
         search,
         city: city === 'All cities' ? 'all' : city,
       },
     ).sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title))
-  }, [events, visibleNeedsAttentionFlags, search, city])
+  }, [events, visibleNeedsAttentionFlags, search, city, catalog])
 
   const needsAttentionDuplicateClusters = useMemo(() => {
     if (flagTypeFilter !== 'duplicate') return undefined
@@ -208,15 +240,15 @@ export function AdminEventsPage() {
 
     let base: Event[]
     if (activeView === 'all') {
-      base = events
+      base = events.filter((event) => eventMatchesCatalog(event, catalog))
     } else {
-      base = filterAdminEventsByView(events, activeView)
+      base = filterAdminEventsByView(events, activeView, catalog)
     }
     return filterAdminEvents(base, {
       search,
       city: city === 'All cities' ? 'all' : city,
     }).sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title))
-  }, [events, activeView, search, city, needsAttentionEvents])
+  }, [events, activeView, catalog, search, city, needsAttentionEvents])
 
   const overviewCounts = useMemo(
     () => ({
@@ -561,7 +593,43 @@ export function AdminEventsPage() {
         onPublish={() => void handlePublish()}
       />
 
-      <AdminOverview counts={overviewCounts} activeView={activeView} onSelectView={setActiveView} />
+      <div
+        className="admin-discovery-mode-toggle admin-events-catalog-toggle"
+        role="tablist"
+        aria-label="Event catalog"
+      >
+        <button
+          type="button"
+          role="tab"
+          aria-selected={catalog === 'regular'}
+          className={`admin-btn ${catalog === 'regular' ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
+          onClick={() => {
+            setCatalog('regular')
+            setFlagTypeFilter('all')
+          }}
+        >
+          Regular
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={catalog === 'seasonal'}
+          className={`admin-btn ${catalog === 'seasonal' ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
+          onClick={() => {
+            setCatalog('seasonal')
+            setFlagTypeFilter('all')
+          }}
+        >
+          Regional / Seasonal
+        </button>
+      </div>
+
+      <AdminOverview
+        catalog={catalog}
+        counts={overviewCounts}
+        activeView={activeView}
+        onSelectView={setActiveView}
+      />
 
       {counts.draft > 0 && activeView !== 'draft' ? (
         <p className="admin-needs-attention-banner">
@@ -678,6 +746,7 @@ export function AdminEventsPage() {
               flags={openReviewFlags}
               typeFilter={flagTypeFilter}
               onTypeFilterChange={setFlagTypeFilter}
+              hideTypes={catalog === 'seasonal' ? ['out_of_area'] : undefined}
             />
             {filteredEvents.length === 0 ? (
               <div className="admin-empty">

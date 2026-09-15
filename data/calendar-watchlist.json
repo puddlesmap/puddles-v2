@@ -1,7 +1,7 @@
 {
   "name": "Calendar Watchlist",
   "description": "Human-curated calendars and recurring feeds Puddles checks for ages 0–5 activities. Distinct from Discovery library scrapers (BiblioCommons / LibCal) and from the live Events catalog.",
-  "updatedAt": "2026-09-02",
+  "updatedAt": "2026-09-10",
   "sources": [
     {
       "id": "google-visitor-experience",
@@ -216,11 +216,11 @@
       "name": "Elizabeth F. Gamble Garden",
       "org": "Gamble Garden",
       "city": "Palo Alto",
-      "url": "https://www.gamblegarden.org/event/halloween/",
+      "url": "https://www.gamblegarden.org/events/category/kids/",
       "fitFor0to5": "partial",
-      "notes": "Halloween Magic Oct 24 + Parent & Me Yoga Sep 19 (ages 4–8 + grown-up) in Discovery. Skip adult-leaning Halloween Tea.",
-      "alreadyOnPuddles": false,
-      "checkCadence": "seasonal"
+      "notes": "Monthly Second Saturday (storytime, scavenger hunt, craft — Sep 12 on Puddles). Halloween Magic Oct 24. Parent & Me Yoga Sep 19 is ages 4–8 (lower priority). Skip adult-leaning Halloween Tea.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "monthly"
     },
     {
       "id": "marti-foster-yoga",
@@ -336,6 +336,141 @@
           "alreadyOnPuddles": true
         }
       ]
+    },
+    {
+      "id": "ipa-usa-ca",
+      "name": "IPA USA California",
+      "org": "International Play Association USA · California Chapter",
+      "city": "Palo Alto",
+      "url": "https://www.instagram.com/ca.ipa.usa/",
+      "fitFor0to5": "strong",
+      "notes": "Pop-up playdates announced on Instagram (@ca.ipa.usa) and ipausaca.org. National Day of Play week (3rd week of September) — Mitchell Park tot area Sep 19 2026 on Puddles. Check Instagram weekly in season; no reliable event listing page.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "weekly",
+      "knownEventPages": [
+        {
+          "slug": "national-day-of-play-2026",
+          "title": "National Day of Play Pop-up Playdate",
+          "url": "https://www.instagram.com/ca.ipa.usa/p/DdF8FRvJfCV/",
+          "date": "2026-09-19",
+          "alreadyOnPuddles": true
+        }
+      ]
+    },
+    {
+      "id": "village-san-antonio",
+      "name": "The Village at San Antonio Center",
+      "org": "The Village at San Antonio Center",
+      "city": "Mountain View",
+      "url": "https://villageatsanantoniocenter.com/events/",
+      "fitFor0to5": "partial",
+      "notes": "Second Saturday community socials in the park (summer series). Sep 12 2026 Creative Play & Foam Fun on Puddles. Skip evening adult concerts unless there is a clear kids activation.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "monthly"
+    },
+    {
+      "id": "aah-smile-farm",
+      "name": "AAH Smile Farm",
+      "org": "Animal Assisted Happiness",
+      "city": "Sunnyvale",
+      "url": "https://www.aahsmilefarm.org/",
+      "fitFor0to5": "strong",
+      "notes": "Farm at Baylands Park (999 E Caribbean Dr). Ticketed open hours / specials (e.g. Grandparents Day Sep 13 2026). Check GiveSmart and social; site can be flaky.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "monthly"
+    },
+    {
+      "id": "palo-alto-events-directory",
+      "name": "City of Palo Alto · Events Directory",
+      "org": "City of Palo Alto",
+      "city": "Palo Alto",
+      "url": "https://www.paloalto.gov/Events-Directory",
+      "fitFor0to5": "partial",
+      "notes": "City special events, Magical Series, movie nights. Use for weekend web search — not scrapable as a single feed. Skip adult-only rec classes.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "weekly"
+    },
+    {
+      "id": "patchen-farm",
+      "name": "Patchen Christmas Tree & Pumpkin Farm",
+      "org": "Patchen Farm",
+      "city": "Los Gatos",
+      "url": "https://patchencalifornia.com/pumpkin/",
+      "fitFor0to5": "strong",
+      "notes": "Pumpkin patch in the Santa Cruz Mountains. 2026 season Sep 18–Oct 25, Fri–Sun. Wagons, pumpkins, photo ops. $20 parking includes a mini pumpkin. Skip Harvest Nights (wine/live music 4–6pm) as the tot reason. Worth a Drive · weekend ~1 hour search.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "seasonal",
+      "knownEventPages": [
+        {
+          "slug": "pumpkin-patch-2026",
+          "title": "Patchen Pumpkin Patch",
+          "url": "https://patchencalifornia.com/pumpkin/",
+          "date": "2026-09-18",
+          "alreadyOnPuddles": false
+        }
+      ]
+    },
+    {
+      "id": "larpd-applefest",
+      "name": "LARPD Applefest at Ravenswood",
+      "org": "Livermore Area Recreation and Park District",
+      "city": "Livermore",
+      "url": "https://www.larpd.org/2026-09-13-applefest",
+      "fitFor0to5": "strong",
+      "notes": "Annual one-day apple festival: cider pressing, orchard, games, apple craft. Register on LARPD; kids under 3 free. ~50–70 min. Worth a Drive · weekend ~1 hour search.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "annual",
+      "knownEventPages": [
+        {
+          "slug": "applefest-2026",
+          "title": "Applefest",
+          "url": "https://www.larpd.org/2026-09-13-applefest",
+          "date": "2026-09-13",
+          "alreadyOnPuddles": false
+        }
+      ]
+    },
+    {
+      "id": "hayward-ag-day-meek",
+      "name": "Ag Day at Meek Park",
+      "org": "Hayward Area Recreation and Park District",
+      "city": "Hayward",
+      "url": "https://www.haywardrec.org/2083/Ag-Day-at-Meek-Park",
+      "fitFor0to5": "strong",
+      "notes": "Free annual Ag Day: farm animals, hands-on ag, demos. Typically mid-September Saturday. Worth a Drive · weekend ~1 hour search.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "annual",
+      "knownEventPages": [
+        {
+          "slug": "ag-day-2026",
+          "title": "Ag Day at Meek Park",
+          "url": "https://www.haywardrec.org/2083/Ag-Day-at-Meek-Park",
+          "date": "2026-09-19",
+          "alreadyOnPuddles": false
+        }
+      ]
+    },
+    {
+      "id": "hidden-villa",
+      "name": "Hidden Villa",
+      "org": "Hidden Villa",
+      "city": "Los Altos Hills",
+      "url": "https://www.hiddenvilla.org/programs/individuals-families/",
+      "fitFor0to5": "strong",
+      "notes": "Farm animals + trails, ~15 min from core cities. Weekend Farm Tour catalog has listed Sep dates, but the family page has said tours are not offered — confirm on hiddenvilla.org before adding. Closed-toe shoes. Worth a Drive only if a dated public tour is confirmed.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "weekly"
+    },
+    {
+      "id": "gizdich-ranch",
+      "name": "Gizdich Ranch",
+      "org": "Gizdich Ranch",
+      "city": "Watsonville",
+      "url": "https://www.gizdich-ranch.com/u-pick",
+      "fitFor0to5": "strong",
+      "notes": "Apple u-pick + pie shop. Borderline ~1 hour from core cities. Official u-pick page can lag on exact 2026 hours — call or confirm before listing. Credit/debit only at u-pick. Worth a Drive · weekend ~1 hour search.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "seasonal"
     }
   ]
 }

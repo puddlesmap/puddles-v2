@@ -37,8 +37,8 @@
 .seasonal-discovery-module__card .discovery-v3-event-card .card-listing-media .lem-disc-badge {
   position: absolute;
   top: 12px;
-  right: 12px;
-  left: auto;
+  left: 12px;
+  right: auto;
   z-index: 2;
 }
 
@@ -247,8 +247,8 @@
 
 .browse-map-preview-sheet .discovery-v3-event-card--map-sheet .card-listing-media .lem-disc-badge {
   top: 6px;
-  right: 6px;
-  left: auto;
+  left: 6px;
+  right: auto;
   padding: 4px 8px;
   font-size: 10px;
   gap: 3px;

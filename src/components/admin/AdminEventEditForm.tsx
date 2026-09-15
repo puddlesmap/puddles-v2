@@ -19,6 +19,7 @@ interface AdminEventEditFormProps {
   busy?: boolean
   onChange: (draft: AdminEventEditableFields) => void
   showStatus?: boolean
+  twoColumn?: boolean
 }
 
 export function AdminEventEditForm({
@@ -26,6 +27,7 @@ export function AdminEventEditForm({
   busy = false,
   onChange,
   showStatus = true,
+  twoColumn = false,
 }: AdminEventEditFormProps) {
   function update<K extends keyof AdminEventEditableFields>(
     key: K,
@@ -42,8 +44,8 @@ export function AdminEventEditForm({
     })
   }
 
-  return (
-    <div className="admin-discovery-form">
+  const coreFields = (
+    <>
       {showStatus ? (
         <Field label="Status">
           <select
@@ -123,15 +125,20 @@ export function AdminEventEditForm({
           disabled={busy}
         />
       </Field>
+      <Field label="City">
+        <input
+          className="admin-discovery-input"
+          value={draft.city}
+          onChange={(e) => update('city', e.target.value)}
+          disabled={busy}
+        />
+      </Field>
+    </>
+  )
+
+  const restFields = (
+    <>
       <div className="admin-discovery-form__row">
-        <Field label="City">
-          <input
-            className="admin-discovery-input"
-            value={draft.city}
-            onChange={(e) => update('city', e.target.value)}
-            disabled={busy}
-          />
-        </Field>
         <Field label="Ages">
           <input
             className="admin-discovery-input"
@@ -169,6 +176,33 @@ export function AdminEventEditForm({
           ))}
         </div>
       </Field>
+      <fieldset className="admin-discovery-fieldset">
+        <legend className="admin-discovery-field__label">Catalog placement</legend>
+        <p className="admin-discovery-fieldset__hint">
+          Checking either moves this listing from Live into the Seasonal events tab. Regional
+          stays out of regular Browse (Worth a little drive).
+        </p>
+        <div className="admin-discovery-types">
+          <label className="admin-discovery-type">
+            <input
+              type="checkbox"
+              checked={draft.isSeasonal}
+              onChange={(e) => update('isSeasonal', e.target.checked)}
+              disabled={busy}
+            />
+            <span>Seasonal event</span>
+          </label>
+          <label className="admin-discovery-type">
+            <input
+              type="checkbox"
+              checked={draft.isRegional}
+              onChange={(e) => update('isRegional', e.target.checked)}
+              disabled={busy}
+            />
+            <span>Regional event</span>
+          </label>
+        </div>
+      </fieldset>
       <Field label="Description">
         <textarea
           className="admin-discovery-input admin-discovery-textarea"
@@ -213,6 +247,22 @@ export function AdminEventEditForm({
           disabled={busy}
         />
       </Field>
+    </>
+  )
+
+  if (twoColumn) {
+    return (
+      <div className="admin-discovery-form admin-discovery-form--two-col">
+        <div className="admin-discovery-form__col">{coreFields}</div>
+        <div className="admin-discovery-form__col">{restFields}</div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="admin-discovery-form">
+      {coreFields}
+      {restFields}
     </div>
   )
 }

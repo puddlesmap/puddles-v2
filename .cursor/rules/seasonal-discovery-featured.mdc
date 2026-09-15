@@ -37,9 +37,9 @@ Seasonal Discovery must read as **curated editorial**, not a month dump of every
 - When the theme swaps to **Halloween with little ones** → drop Fall Pick everywhere; eligible curated members show **Halloween Pick**.
 - The **same event** may stay featured across the swap if it still fits (e.g. pumpkin farm: Fall Pick in September → Halloween Pick in October). List it in both themes’ `collectionEventIds` / `driveEventIds`.
 - Events that leave the active theme stay in **regular browse** but **lose** the seasonal badge.
-- Badge = membership in the **active** theme’s collection/drive IDs — not title heuristics.
-- **Seasonal Discovery surfaces** (collection page + home seasonal band): **no** seasonal badge — the page/band already is the theme. Pass `seasonalEditorial={false}` on cards there.
-- **Everywhere else** (browse list, browse map, home results, nearby, city landing): show the active theme badge. `BrowseEventCard` and `EventCard` default `seasonalEditorial` **on**.
+- Badge = membership in the **active** theme’s collection/drive IDs — not title heuristics. Keep that membership even when a surface hides the badge.
+- **Hello, Fall collection** (and other seasonal collection pages) **and the Home seasonal banner**: **hide** the badge. The page/band title already provides the theme. Pass `seasonalEditorial={false}`.
+- **Browse / search / Home activity results** (mixed feeds): **show** 🍂 Fall Pick (or the active theme badge) so users understand why the event is highlighted. `BrowseEventCard` and `EventCard` default `seasonalEditorial` **on**.
 
 ### Browse date window
 
@@ -95,6 +95,7 @@ Out-of-area farms/festivals/trains belong in **`driveEventIds`** (Hidden seasona
 - Default featured duration: **~2–3 weeks** per pick.
 - Rotate **at least 1–2 cards every ~2 weeks** so the carousel stays fresh.
 - Keep the Home carousel to a **tight, intentional set** of active `featuredWindows` for the day — no hard card-count cap. Prefer `anchor: true`, then editorial order in `featuredWindows`.
+- Home band **always** shows **See all** to the collection page — even when only 1–2 featured cards resolve. Featured is a spotlight, not the full set.
 - **Home band order:** prioritize events happening **today**, then soonest next day / start time (`sortSeasonalDiscoveryEvents`).
 - Resolve with Pacific calendar date (`zonedCalendarDate`) so evening PT does not flip windows early via UTC.
 - Mark **1–2 anchor slots** (`anchor: true`) — festival weekends, strong seasonal rows.

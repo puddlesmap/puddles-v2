@@ -1,6 +1,7 @@
 import type { AdminEventEditableFields } from '../types/adminEventEdit'
 import type { ActivityType, City, Event } from '../types/event'
 import { ACTIVITY_TYPES } from '../types/event'
+import { isRegionalListing, isSeasonalListing } from './adminSeasonalEvents'
 import { applyEventCopyEnrichment } from './applyEventCopyEnrichment'
 import { resolveAgeFromSheetAndText } from './discoveryAgeHints'
 import { resolveEventCost } from './eventCost'
@@ -39,6 +40,8 @@ export function editableFieldsFromEvent(event: Event): AdminEventEditableFields 
     imageUrl: event.imageUrl,
     lastChecked: event.verifiedDate,
     status: event.status === 'Expired' ? 'Published' : event.status,
+    isSeasonal: isSeasonalListing(event),
+    isRegional: isRegionalListing(event),
   }
 }
 
@@ -65,6 +68,8 @@ export function mergeEditsIntoEvent(event: Event, edits: AdminEventEditableField
     imageUrl: edits.imageUrl.trim(),
     verifiedDate: edits.lastChecked.trim() || event.verifiedDate,
     status: edits.status,
+    isSeasonal: edits.isSeasonal,
+    isRegional: edits.isRegional,
   }
 
   if (tips) merged.tips = tips

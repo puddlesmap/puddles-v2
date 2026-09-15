@@ -4,6 +4,19 @@ export type EventOpenSource =
   | 'browse_map'
   | 'home'
   | 'city_landing'
+  | 'direct'
+
+export type EventDetailPresentation = 'overlay' | 'page'
+
+export type EventOpenMode = 'soft_navigation' | 'hard_load'
+
+export type EventDescPlacement = 'before_meta' | 'after_meta'
+
+export interface EventDetailAnalyticsContext {
+  presentation?: EventDetailPresentation
+  open_mode?: EventOpenMode
+  desc_placement?: EventDescPlacement
+}
 
 export type FilterContext = 'home' | 'browse'
 

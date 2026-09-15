@@ -5,6 +5,7 @@ import { editableFieldsFromEvent } from '../../utils/adminEventEdit'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
 import type { AdminReviewFlag } from '../../utils/adminReviewFlags'
 import { ADMIN_REVIEW_FLAG_LABELS } from '../../utils/adminReviewFlags'
+import { seasonalListingLabels } from '../../utils/adminSeasonalEvents'
 import { DetailSection } from './AdminDetailGrid'
 import { AdminEventEditForm } from './AdminEventEditForm'
 
@@ -50,6 +51,11 @@ export function AdminEventDetailPanel({
         ) : (
           <span className="admin-badge admin-badge-no">Not live</span>
         )}
+        {seasonalListingLabels(event).map((label) => (
+          <span key={label} className="admin-badge admin-badge-status admin-badge-status-draft">
+            {label}
+          </span>
+        ))}
         <span className="text-sm text-muted">ID: {event.id}</span>
       </div>
 

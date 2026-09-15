@@ -36,7 +36,7 @@ export function SeasonalDiscoveryModule({
 }: SeasonalDiscoveryModuleProps) {
   const isHomeBand = bandLayout === 'home'
   const isEmpty = events.length === 0
-  const showCollectionLink = isEmpty || events.length >= 3
+  // Featured is a short Home spotlight — always offer See all to the full collection.
   const collectionHref = seasonalCollectionPath(collection.slug)
   const rootRef = useRef<HTMLDivElement>(null)
   const impressedRef = useRef(false)
@@ -89,10 +89,9 @@ export function SeasonalDiscoveryModule({
     onEventClick(event)
   }
 
-  const headerCta =
-    isHomeBand && showCollectionLink
-      ? { href: collectionHref, label: collection.ctaLabel, onClick: trackBannerCta }
-      : undefined
+  const headerCta = isHomeBand
+    ? { href: collectionHref, label: collection.ctaLabel, onClick: trackBannerCta }
+    : undefined
 
   const headingId = `seasonal-discovery-heading-${collection.slug}`
 
@@ -134,14 +133,19 @@ export function SeasonalDiscoveryModule({
         </div>
       )}
 
-      {!isHomeBand && showCollectionLink ? (
-        <div className="seasonal-discovery-module__footer">
-          <Link to={collectionHref} className="seasonal-discovery-module__cta" onClick={trackBannerCta}>
-            {collection.ctaLabel}
-            <span aria-hidden> →</span>
-          </Link>
-        </div>
-      ) : null}
+      <div
+        className={[
+          'seasonal-discovery-module__footer',
+          isHomeBand ? 'seasonal-discovery-module__footer--home' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <Link to={collectionHref} className="seasonal-discovery-module__cta" onClick={trackBannerCta}>
+          {collection.ctaLabel}
+          <span aria-hidden> →</span>
+        </Link>
+      </div>
     </div>
   )
 

@@ -6,6 +6,8 @@ import type { ActivityType, City, Event } from '../types/event'
 import { ACTIVITY_TYPES } from '../types/event'
 import { resolveEventCost } from './eventCost'
 import { enrichPublishingFields } from './publishing'
+import { isSeasonalDiscoveryCandidate } from './seasonalDiscoveryPipeline'
+import { isRegionalListing, isSeasonalListing } from './adminSeasonalEvents'
 import {
   findMatchingEventIdsForCandidate,
   findMatchingEventsForCandidate,
@@ -111,6 +113,20 @@ function persistAdminEvents(events: Event[]) {
     events,
     refreshedAt: new Date().toISOString(),
   })
+}
+
+/** Upsert one Admin cache row so Dashboard Save / Deploy keep the same catalog as Events. */
+export function upsertAdminCacheEvent(event: Event): Event {
+  ensureAdminEventsCacheSeeded()
+  const prepared = enrichPublishingFields(event)
+  const events = currentAdminEvents()
+  const exists = events.some((item) => item.id === prepared.id)
+  persistAdminEvents(
+    exists
+      ? events.map((item) => (item.id === prepared.id ? prepared : item))
+      : [prepared, ...events],
+  )
+  return prepared
 }
 
 const TITLE_STOP_WORDS = new Set([
@@ -362,6 +378,8 @@ export function appendDraftInAdminCache(
     lat: candidate.lat ?? 0,
     lng: candidate.lng ?? 0,
     status: 'Draft',
+    isSeasonal: isSeasonalDiscoveryCandidate(candidate),
+    isRegional: String(candidate.source ?? '').startsWith('Regional ·'),
   })
 
   if (existingIndex >= 0) {
@@ -593,10 +611,20 @@ export function prepareGoLiveEvents(
 
   let events = currentAdminEvents().map((event) => {
     if (!publishIds.has(event.id)) return event
+    const result = results.find((row) => row.eventId === event.id)
+    const candidate = result
+      ? candidates.find((row) => row.id === result.candidateId)
+      : undefined
     return enrichPublishingFields({
       ...event,
       status: 'Published',
       verifiedDate,
+      isSeasonal: candidate
+        ? isSeasonalDiscoveryCandidate(candidate) || isSeasonalListing(event)
+        : isSeasonalListing(event),
+      isRegional: candidate
+        ? String(candidate.source ?? '').startsWith('Regional ·') || isRegionalListing(event)
+        : isRegionalListing(event),
     })
   })
   persistAdminEvents(events)

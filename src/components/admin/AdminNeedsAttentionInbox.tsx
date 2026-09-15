@@ -15,34 +15,39 @@ interface AdminNeedsAttentionFiltersProps {
   flags: AdminReviewFlag[]
   typeFilter: 'all' | AdminReviewFlagType
   onTypeFilterChange: (filter: 'all' | AdminReviewFlagType) => void
+  hideTypes?: AdminReviewFlagType[]
 }
 
 export function AdminNeedsAttentionFilters({
   flags,
   typeFilter,
   onTypeFilterChange,
+  hideTypes = [],
 }: AdminNeedsAttentionFiltersProps) {
+  const hidden = new Set(hideTypes)
   return (
     <div className="admin-needs-attention__filters" role="tablist" aria-label="Flag types">
-      {TYPE_FILTERS.map((filter) => {
-        const count =
-          filter.key === 'all'
-            ? flags.length
-            : flags.filter((flag) => flag.type === filter.key).length
-        return (
-          <button
-            key={filter.key}
-            type="button"
-            role="tab"
-            aria-selected={typeFilter === filter.key}
-            className={`admin-btn ${typeFilter === filter.key ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
-            onClick={() => onTypeFilterChange(filter.key)}
-          >
-            {filter.label}
-            {count > 0 ? ` (${count})` : ''}
-          </button>
-        )
-      })}
+      {TYPE_FILTERS.filter((filter) => filter.key === 'all' || !hidden.has(filter.key)).map(
+        (filter) => {
+          const count =
+            filter.key === 'all'
+              ? flags.length
+              : flags.filter((flag) => flag.type === filter.key).length
+          return (
+            <button
+              key={filter.key}
+              type="button"
+              role="tab"
+              aria-selected={typeFilter === filter.key}
+              className={`admin-btn ${typeFilter === filter.key ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
+              onClick={() => onTypeFilterChange(filter.key)}
+            >
+              {filter.label}
+              {count > 0 ? ` (${count})` : ''}
+            </button>
+          )
+        },
+      )}
     </div>
   )
 }
