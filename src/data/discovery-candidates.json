@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T17:55:08.571Z",
+  "generatedAt": "2026-09-15T15:05:21.576Z",
   "libraries": [
     "linden-tree"
   ],
@@ -1525,6 +1525,43 @@
       "lastChecked": "2026-09-01"
     },
     {
+      "id": "core-weekend-magical-bridge-performance-series-2026-09-16",
+      "title": "Magical Bridge Performance Series",
+      "date": "2026-09-16",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "Magical Bridge Playground at Rengstorff Park",
+      "room": "",
+      "address": "201 S. Rengstorff Ave, Mountain View, CA 94040",
+      "city": "Mountain View",
+      "lat": 37.4001,
+      "lng": -122.0986,
+      "ageRange": "All ages · Little ones welcome",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "",
+      "types": [
+        "Music & Movement",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Weekend search"
+      ],
+      "cost": "Free",
+      "description": "Live music, magic, puppetry & balloons on the inclusive playground stage — a short afternoon show little ones can watch, then play.",
+      "tips": "Magical Bridge’s calendar lists remaining named performances Wed Sep 16, Sep 30 & Oct 14. Series copy says 4:00–5:00 PM. This is not the 10:00 AM Bookmobile storytime. Confirm the date you go on magicalbridge.org/calendar (an older series page also lists other September/October dates).",
+      "imageUrl": "",
+      "eventUrl": "https://www.magicalbridge.org/calendar",
+      "source": "Core cities · Weekend search · web",
+      "watchlistSourceId": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "pending",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-15"
+    },
+    {
       "id": "seasonal-drive-spina-farms-pumpkin-patch-2026-09-17",
       "title": "Spina Farms Pumpkin Patch",
       "date": "2026-09-17",
@@ -1862,6 +1899,47 @@
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": "2026-09-10"
+    },
+    {
+      "id": "regional-millbrae-mid-autumn-festival-2026-09-19",
+      "title": "Millbrae Mid-Autumn Festival",
+      "date": "2026-09-19",
+      "startTime": "10:00",
+      "endTime": "17:00",
+      "venue": "Downtown Millbrae",
+      "room": "",
+      "address": "300 Broadway, Millbrae, CA 94030",
+      "city": "Millbrae",
+      "lat": null,
+      "lng": null,
+      "ageRange": "All ages · Little ones welcome",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Free",
+      "description": "Cultural performances, food & downtown booths for Mid-Autumn — a street festival little ones can watch and wander.",
+      "tips": "Sat Sep 19–Sun Sep 20. Organizer Eventbrite lists 10:00 AM start and free parking. Confirm Sunday close time on the Eventbrite page (Palo Alto Online also notes lion and dragon dancing).",
+      "imageUrl": "",
+      "eventUrl": "https://www.eventbrite.com/e/2026-millbrae-mid-autumn-festival-tickets-1998926678505",
+      "source": "Regional · Lead · web",
+      "watchlistSourceId": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "pending",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-15"
     },
     {
       "id": "national-day-of-play-popup-playdate-mitchell-park-2026-09-19",
@@ -2524,6 +2602,47 @@
       "lastChecked": "2026-09-02"
     },
     {
+      "id": "regional-webb-ranch-pumpkin-patch-2026-09-25",
+      "title": "Webb Ranch Pumpkin Patch",
+      "date": "2026-09-25",
+      "startTime": "10:00",
+      "endTime": "18:00",
+      "venue": "Webb Ranch",
+      "room": "",
+      "address": "2718 Alpine Road, Portola Valley, CA 94028",
+      "city": "Portola Valley",
+      "lat": null,
+      "lng": null,
+      "ageRange": "All ages · Little ones welcome",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "",
+      "types": [
+        "Outdoor",
+        "Festivals & Community"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Paid",
+      "description": "Pumpkins, bounce houses, a petting zoo, hayrides & a cornfield trail — a Portola Valley patch with plenty for little ones to do.",
+      "tips": "Open daily Sep 25–Oct 31, 10:00 AM–6:00 PM (activities close 5:00 PM). Weekend activity admission needs a reservation. Children 24 months and under are free per the farm page — that is pricing, not who the outing is for.",
+      "imageUrl": "",
+      "eventUrl": "https://www.webbranchinc.com/pumpkin-patch.html",
+      "source": "Regional · Lead · web",
+      "watchlistSourceId": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "pending",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-15"
+    },
+    {
       "id": "17170828",
       "title": "Baby Storytime: Rerun",
       "date": "2026-09-25",
@@ -2745,6 +2864,47 @@
       "reviewStatus": "approved",
       "convertedEventId": "",
       "lastChecked": "2026-09-02"
+    },
+    {
+      "id": "regional-pacific-coast-fog-fest-2026-09-26",
+      "title": "Pacific Coast Fog Fest",
+      "date": "2026-09-26",
+      "startTime": "10:00",
+      "endTime": "18:00",
+      "venue": "Palmetto Avenue",
+      "room": "",
+      "address": "Palmetto Avenue, Pacifica, CA 94044",
+      "city": "Pacifica",
+      "lat": null,
+      "lng": null,
+      "ageRange": "All ages · Little ones welcome",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Free",
+      "description": "Family Fun Fest and play areas plus a parade — Pacifica’s free coastal weekend with something for little ones to do, not only vendor rows.",
+      "tips": "Sat–Sun Sep 26–27, 10:00 AM–6:00 PM. Free admission. Confirm Family Fun Fest hours on pacificcoastfogfest.com before you go.",
+      "imageUrl": "",
+      "eventUrl": "https://pacificcoastfogfest.com/",
+      "source": "Regional · Lead · web",
+      "watchlistSourceId": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "pending",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-15"
     },
     {
       "id": "698e125a2a787a47a5e73be3",
@@ -3858,6 +4018,43 @@
       "reviewStatus": "approved",
       "convertedEventId": "",
       "lastChecked": "2026-09-01"
+    },
+    {
+      "id": "core-weekend-gamble-second-saturday-2026-10-10",
+      "title": "Second Saturday at Gamble Garden",
+      "date": "2026-10-10",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "venue": "Elizabeth F. Gamble Garden",
+      "room": "",
+      "address": "1431 Waverley Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4397,
+      "lng": -122.1481,
+      "ageRange": "All ages · Little ones welcome",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Weekend search"
+      ],
+      "cost": "Free",
+      "description": "Soil-by-feel station, pot-painting crafts, scavenger hunts & librarian storytime — a free garden morning for little ones to explore and make.",
+      "tips": "Register for a timed entry slot at 10:00, 10:30, or 11:00 AM, then check in at a Welcome Table. October theme is soil / Hispanic and Latinx Heritage Month.",
+      "imageUrl": "",
+      "eventUrl": "https://www.gamblegarden.org/event/octobersaturday/",
+      "source": "Core cities · Weekend search · web",
+      "watchlistSourceId": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "pending",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-15"
     },
     {
       "id": "698e125a2a787a47a5e73be5",
@@ -6910,6 +7107,43 @@
       "lastChecked": "2026-09-01"
     },
     {
+      "id": "core-weekend-gamble-second-saturday-2026-11-14",
+      "title": "Second Saturday at Gamble Garden",
+      "date": "2026-11-14",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "venue": "Elizabeth F. Gamble Garden",
+      "room": "",
+      "address": "1431 Waverley Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4397,
+      "lng": -122.1481,
+      "ageRange": "All ages · Little ones welcome",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Weekend search"
+      ],
+      "cost": "Free",
+      "description": "Storytime, scavenger hunts, crafts & a visit to Elizabeth’s house — a free November garden morning for little ones to explore.",
+      "tips": "Register for timed entry at 10:00, 10:30, or 11:00 AM. Check in at a Welcome Table. Activities subject to change per Gamble Garden.",
+      "imageUrl": "",
+      "eventUrl": "https://www.gamblegarden.org/event/novembersaturday/",
+      "source": "Core cities · Weekend search · web",
+      "watchlistSourceId": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "pending",
+      "convertedEventId": "",
+      "lastChecked": "2026-09-15"
+    },
+    {
       "id": "698e125a2a787a47a5e73bea",
       "title": "Family Storytime",
       "date": "2026-11-14",
@@ -8511,6 +8745,7 @@
     }
   ],
   "sources": [
+    "Core cities · Weekend search · web",
     "Regional · Lead · web"
   ]
 }

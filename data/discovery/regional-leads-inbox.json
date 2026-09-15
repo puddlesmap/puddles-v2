@@ -1,6 +1,6 @@
 {
   "description": "Bay Area destination leads (~1 hour Worth a Drive web/social + 小紅書). Add rows here; run npm run discover:regional-weekly to queue them in Admin Discovery. eventUrl must be the official host page — not a 小紅書 or roundup-site URL.",
-  "updatedAt": "2026-09-11",
+  "updatedAt": "2026-09-15",
   "leads": [
     {
       "id": "regional-kings-mountain-art-fair-2026-09-05",
@@ -290,6 +290,93 @@
       "processed": true,
       "processedAt": "2026-09-10",
       "queuedId": "regional-hayward-ag-day-meek-2026-09-19"
+    },
+    {
+      "id": "regional-webb-ranch-pumpkin-patch-2026-09-25",
+      "title": "Webb Ranch Pumpkin Patch",
+      "date": "2026-09-25",
+      "startTime": "10:00",
+      "endTime": "18:00",
+      "venue": "Webb Ranch",
+      "address": "2718 Alpine Road, Portola Valley, CA 94028",
+      "city": "Portola Valley",
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Outdoor",
+        "Festivals & Community"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Paid",
+      "description": "Pumpkins, bounce houses, a petting zoo, hayrides & a cornfield trail — a Portola Valley patch with plenty for little ones to do.",
+      "tips": "Open daily Sep 25–Oct 31, 10:00 AM–6:00 PM (activities close 5:00 PM). Weekend activity admission needs a reservation. Children 24 months and under are free per the farm page — that is pricing, not who the outing is for.",
+      "eventUrl": "https://www.webbranchinc.com/pumpkin-patch.html",
+      "leadSource": "web",
+      "leadNotes": "Thursday pre-run 2026-09-15. Official Webb Ranch pumpkin page. Opens Friday Sep 25 (this weekend’s span). Not already on Hello Fall drive.",
+      "processed": true,
+      "processedAt": "2026-09-15",
+      "queuedId": "regional-webb-ranch-pumpkin-patch-2026-09-25"
+    },
+    {
+      "id": "regional-pacific-coast-fog-fest-2026-09-26",
+      "title": "Pacific Coast Fog Fest",
+      "date": "2026-09-26",
+      "startTime": "10:00",
+      "endTime": "18:00",
+      "venue": "Palmetto Avenue",
+      "address": "Palmetto Avenue, Pacifica, CA 94044",
+      "city": "Pacifica",
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Free",
+      "description": "Family Fun Fest and play areas plus a parade — Pacifica’s free coastal weekend with something for little ones to do, not only vendor rows.",
+      "tips": "Sat–Sun Sep 26–27, 10:00 AM–6:00 PM. Free admission. Confirm Family Fun Fest hours on pacificcoastfogfest.com before you go.",
+      "eventUrl": "https://pacificcoastfogfest.com/",
+      "leadSource": "web",
+      "leadNotes": "Thursday pre-run 2026-09-15. Official Fog Fest site lists Family Fun Fest and play areas for kids.",
+      "processed": true,
+      "processedAt": "2026-09-15",
+      "queuedId": "regional-pacific-coast-fog-fest-2026-09-26"
+    },
+    {
+      "id": "regional-millbrae-mid-autumn-festival-2026-09-19",
+      "title": "Millbrae Mid-Autumn Festival",
+      "date": "2026-09-19",
+      "startTime": "10:00",
+      "endTime": "17:00",
+      "venue": "Downtown Millbrae",
+      "address": "300 Broadway, Millbrae, CA 94030",
+      "city": "Millbrae",
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Hello Fall"
+      ],
+      "cost": "Free",
+      "description": "Cultural performances, food & downtown booths for Mid-Autumn — a street festival little ones can watch and wander.",
+      "tips": "Sat Sep 19–Sun Sep 20. Organizer Eventbrite lists 10:00 AM start and free parking. Confirm Sunday close time on the Eventbrite page (Palo Alto Online also notes lion and dragon dancing).",
+      "eventUrl": "https://www.eventbrite.com/e/2026-millbrae-mid-autumn-festival-tickets-1998926678505",
+      "leadSource": "web",
+      "leadNotes": "Thursday pre-run 2026-09-15. Official Eventbrite is generic family-fun; include for cultural performances. Uncheck if Admin judges it too food/shopping-forward.",
+      "processed": true,
+      "processedAt": "2026-09-15",
+      "queuedId": "regional-millbrae-mid-autumn-festival-2026-09-19"
     }
   ]
 }

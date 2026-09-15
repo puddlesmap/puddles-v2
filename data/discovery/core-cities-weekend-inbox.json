@@ -1,6 +1,6 @@
 {
   "description": "Core-city weekend leads (web / Instagram / Facebook) for Palo Alto · Los Altos · Mountain View · Sunnyvale. Add rows here; run npm run discover:core-weekend to queue them in Admin Discovery. eventUrl must be the official host page (Instagram post OK when that is the announcement).",
-  "updatedAt": "2026-09-10",
+  "updatedAt": "2026-09-15",
   "leads": [
     {
       "id": "core-weekend-gamble-second-saturday-2026-09-12",
@@ -65,6 +65,84 @@
       "processedAt": "2026-09-10",
       "queuedId": "national-day-of-play-popup-playdate-mitchell-park-2026-09-19",
       "skipReason": "already on Puddles catalog"
+    },
+    {
+      "id": "core-weekend-magical-bridge-performance-series-2026-09-16",
+      "title": "Magical Bridge Performance Series",
+      "date": "2026-09-16",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "Magical Bridge Playground at Rengstorff Park",
+      "address": "201 S. Rengstorff Ave, Mountain View, CA 94040",
+      "city": "Mountain View",
+      "lat": 37.4001,
+      "lng": -122.0986,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Music & Movement",
+        "Outdoor"
+      ],
+      "cost": "Free",
+      "description": "Live music, magic, puppetry & balloons on the inclusive playground stage — a short afternoon show little ones can watch, then play.",
+      "tips": "Magical Bridge’s calendar lists remaining named performances Wed Sep 16, Sep 30 & Oct 14. Series copy says 4:00–5:00 PM. This is not the 10:00 AM Bookmobile storytime. Confirm the date you go on magicalbridge.org/calendar (an older series page also lists other September/October dates).",
+      "eventUrl": "https://www.magicalbridge.org/calendar",
+      "leadSource": "web",
+      "leadNotes": "Thursday pre-run 2026-09-15. Calendar named acts; hours from series page 4–5 PM. Do not mix with Magical Bridge Storytime rows already live.",
+      "processed": true,
+      "processedAt": "2026-09-15",
+      "queuedId": "core-weekend-magical-bridge-performance-series-2026-09-16"
+    },
+    {
+      "id": "core-weekend-gamble-second-saturday-2026-10-10",
+      "title": "Second Saturday at Gamble Garden",
+      "date": "2026-10-10",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "venue": "Elizabeth F. Gamble Garden",
+      "address": "1431 Waverley Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4397,
+      "lng": -122.1481,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "cost": "Free",
+      "description": "Soil-by-feel station, pot-painting crafts, scavenger hunts & librarian storytime — a free garden morning for little ones to explore and make.",
+      "tips": "Register for a timed entry slot at 10:00, 10:30, or 11:00 AM, then check in at a Welcome Table. October theme is soil / Hispanic and Latinx Heritage Month.",
+      "eventUrl": "https://www.gamblegarden.org/event/octobersaturday/",
+      "leadSource": "web",
+      "leadNotes": "Thursday pre-run 2026-09-15. Official Gamble October Second Saturday page. Sep 12 Second Saturday already live — this is the next month.",
+      "processed": true,
+      "processedAt": "2026-09-15",
+      "queuedId": "core-weekend-gamble-second-saturday-2026-10-10"
+    },
+    {
+      "id": "core-weekend-gamble-second-saturday-2026-11-14",
+      "title": "Second Saturday at Gamble Garden",
+      "date": "2026-11-14",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "venue": "Elizabeth F. Gamble Garden",
+      "address": "1431 Waverley Street, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4397,
+      "lng": -122.1481,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Festivals & Community",
+        "Outdoor"
+      ],
+      "cost": "Free",
+      "description": "Storytime, scavenger hunts, crafts & a visit to Elizabeth’s house — a free November garden morning for little ones to explore.",
+      "tips": "Register for timed entry at 10:00, 10:30, or 11:00 AM. Check in at a Welcome Table. Activities subject to change per Gamble Garden.",
+      "eventUrl": "https://www.gamblegarden.org/event/novembersaturday/",
+      "leadSource": "web",
+      "leadNotes": "Thursday pre-run 2026-09-15. Official Gamble November Second Saturday page.",
+      "processed": true,
+      "processedAt": "2026-09-15",
+      "queuedId": "core-weekend-gamble-second-saturday-2026-11-14"
     }
   ]
 }
