@@ -96,8 +96,11 @@ export function AdminEventDetailPanel({
       <DetailSection title="Edit event">
         <AdminEventEditForm draft={draft} onChange={setDraft} busy={busy} />
         <p className="text-sm text-muted">
-          Preview: {formatEventDate(draft.date)} · {formatEventTimeRange(draft.startTime, draft.endTime)}{' '}
-          · {draft.venue || '—'}
+          Preview: {formatEventDate(draft.date)}
+          {draft.closingDate.trim() && draft.closingDate !== draft.date
+            ? ` – ${formatEventDate(draft.closingDate)}`
+            : ''}{' '}
+          · {formatEventTimeRange(draft.startTime, draft.endTime)} · {draft.venue || '—'}
         </p>
       </DetailSection>
 

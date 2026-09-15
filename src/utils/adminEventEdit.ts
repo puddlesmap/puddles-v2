@@ -21,6 +21,50 @@ function asActivityTypes(values: string[]): ActivityType[] {
   return matched.length > 0 ? matched : ['Other']
 }
 
+function daySpanInclusive(start: string, end: string): number {
+  const from = Date.parse(`${start}T12:00:00`)
+  const to = Date.parse(`${end}T12:00:00`)
+  if (Number.isNaN(from) || Number.isNaN(to)) return 1
+  return Math.round((to - from) / 86_400_000) + 1
+}
+
+function inferScheduleKind(start: string, end: string): 'multi-day' | 'seasonal-run' {
+  return daySpanInclusive(start, end) > 7 ? 'seasonal-run' : 'multi-day'
+}
+
+/** Map admin start/end dates onto catalog schedule fields. */
+export function applyAdminScheduleDates(
+  event: Event,
+  edits: Pick<AdminEventEditableFields, 'date' | 'closingDate' | 'scheduleKind'>,
+): Event {
+  const start = edits.date.trim()
+  const end = edits.closingDate.trim()
+  const next: Event = { ...event, date: start }
+  const keepOpenEndedSeason = edits.scheduleKind === 'seasonal-run' && (!end || end === start)
+
+  if (end && end !== start) {
+    next.openingDate = start
+    next.closingDate = end
+    next.scheduleKind =
+      edits.scheduleKind === 'seasonal-run' || edits.scheduleKind === 'multi-day'
+        ? edits.scheduleKind
+        : inferScheduleKind(start, end)
+    return next
+  }
+
+  if (keepOpenEndedSeason) {
+    next.openingDate = start
+    next.scheduleKind = 'seasonal-run'
+    delete next.closingDate
+    return next
+  }
+
+  delete next.openingDate
+  delete next.closingDate
+  delete next.scheduleKind
+  return next
+}
+
 export function editableFieldsFromEvent(event: Event): AdminEventEditableFields {
   return {
     title: event.title,
@@ -30,7 +74,7 @@ export function editableFieldsFromEvent(event: Event): AdminEventEditableFields 
     room: event.room ?? '',
     address: event.address,
     city: event.city,
-    date: event.date,
+    date: event.openingDate || event.date,
     startTime: event.startTime,
     endTime: event.endTime,
     ageRange: event.ageRange,
@@ -42,6 +86,8 @@ export function editableFieldsFromEvent(event: Event): AdminEventEditableFields 
     status: event.status === 'Expired' ? 'Published' : event.status,
     isSeasonal: isSeasonalListing(event),
     isRegional: isRegionalListing(event),
+    closingDate: event.closingDate ?? '',
+    scheduleKind: event.scheduleKind ?? '',
   }
 }
 
@@ -49,28 +95,30 @@ export function mergeEditsIntoEvent(event: Event, edits: AdminEventEditableField
   const inferredAge = resolveAgeFromSheetAndText(edits.description, edits.tips ?? '')
   const tips = edits.tips?.trim()
 
-  const merged: Event = {
-    ...event,
-    title: edits.title.trim(),
-    description: edits.description,
-    venue: edits.venue.trim(),
-    address: edits.address.trim(),
-    city: asCity(edits.city),
-    date: edits.date,
-    startTime: edits.startTime,
-    endTime: edits.endTime,
-    ageRange: inferredAge?.ageRange ?? edits.ageRange,
-    ageMin: inferredAge?.ageMin ?? event.ageMin,
-    ageMax: inferredAge?.ageMax ?? event.ageMax,
-    types: asActivityTypes(edits.types),
-    cost: resolveEventCost(edits.cost, edits.description, tips ?? ''),
-    eventUrl: edits.eventUrl.trim() || '#',
-    imageUrl: edits.imageUrl.trim(),
-    verifiedDate: edits.lastChecked.trim() || event.verifiedDate,
-    status: edits.status,
-    isSeasonal: edits.isSeasonal,
-    isRegional: edits.isRegional,
-  }
+  const merged: Event = applyAdminScheduleDates(
+    {
+      ...event,
+      title: edits.title.trim(),
+      description: edits.description,
+      venue: edits.venue.trim(),
+      address: edits.address.trim(),
+      city: asCity(edits.city),
+      startTime: edits.startTime,
+      endTime: edits.endTime,
+      ageRange: inferredAge?.ageRange ?? edits.ageRange,
+      ageMin: inferredAge?.ageMin ?? event.ageMin,
+      ageMax: inferredAge?.ageMax ?? event.ageMax,
+      types: asActivityTypes(edits.types),
+      cost: resolveEventCost(edits.cost, edits.description, tips ?? ''),
+      eventUrl: edits.eventUrl.trim() || '#',
+      imageUrl: edits.imageUrl.trim(),
+      verifiedDate: edits.lastChecked.trim() || event.verifiedDate,
+      status: edits.status,
+      isSeasonal: edits.isSeasonal,
+      isRegional: edits.isRegional,
+    },
+    edits,
+  )
 
   if (tips) merged.tips = tips
   else delete merged.tips

@@ -70,8 +70,8 @@ export function AdminEventEditForm({
           disabled={busy}
         />
       </Field>
-      <div className="admin-discovery-form__row">
-        <Field label="Date">
+      <div className="admin-discovery-form__row admin-discovery-form__row--2">
+        <Field label="Start date">
           <input
             type="date"
             className="admin-discovery-input"
@@ -80,7 +80,18 @@ export function AdminEventEditForm({
             disabled={busy}
           />
         </Field>
-        <Field label="Start">
+        <Field label="End date">
+          <input
+            type="date"
+            className="admin-discovery-input"
+            value={draft.closingDate}
+            onChange={(e) => update('closingDate', e.target.value)}
+            disabled={busy}
+          />
+        </Field>
+      </div>
+      <div className="admin-discovery-form__row admin-discovery-form__row--2">
+        <Field label="Start time">
           <input
             type="time"
             className="admin-discovery-input"
@@ -89,7 +100,7 @@ export function AdminEventEditForm({
             disabled={busy}
           />
         </Field>
-        <Field label="End">
+        <Field label="End time">
           <input
             type="time"
             className="admin-discovery-input"
@@ -99,6 +110,10 @@ export function AdminEventEditForm({
           />
         </Field>
       </div>
+      <p className="admin-discovery-fieldset__hint">
+        End date is for multi-day festivals and seasonal runs. Leave blank for a single day, or when
+        no closing date is listed.
+      </p>
       <div className="admin-discovery-form__row">
         <Field label="Venue">
           <input

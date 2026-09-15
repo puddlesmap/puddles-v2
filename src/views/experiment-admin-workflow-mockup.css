@@ -47,6 +47,9 @@
 }
 
 .awm-toast {
+  position: sticky;
+  top: 0.5rem;
+  z-index: 6;
   margin: 0 0 1rem;
   padding: 0.65rem 0.85rem;
   border-radius: var(--radius-card);
@@ -54,6 +57,11 @@
   color: #1b7f4a;
   font-size: 0.875rem;
   font-weight: 600;
+}
+
+.awm-toast--error {
+  background: #fdecea;
+  color: #9b1c1c;
 }
 
 .awm-due td:first-child {
@@ -305,6 +313,16 @@
   .awm-table-inbox .awm-col-actions {
     width: 18%;
   }
+}
+
+.awm-expand-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 0.75rem;
+}
+
+.admin-table-row-clickable {
+  cursor: pointer;
 }
 
 .awm-title-btn {

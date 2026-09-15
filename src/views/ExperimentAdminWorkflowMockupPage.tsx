@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, type MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { SeasonalBrowseCategoriesPreview } from '../components/seasonal/SeasonalBrowseCategoriesPreview'
 import { SeasonalDiscoveryModule } from '../components/seasonal/SeasonalDiscoveryModule'
@@ -37,7 +37,11 @@ import {
   fitCollectionsForCandidate,
   geoForCity,
   isCoreCity,
+  isRegularDraftEvent,
+  isSeasonalDraftEvent,
   isUnplacedEvent,
+  categoryTagsForCollections,
+  findLiveMockupEvent,
   loadLiveInboxCandidates,
   loadLiveMockCatalogEvents,
   mockCandidateFromDiscovery,
@@ -61,14 +65,36 @@ import './experiment-admin-workflow-mockup.css'
 
 type Screen = 'inbox' | 'events' | 'collections' | 'sources'
 type InboxFilter = 'due' | 'new' | 'watch' | 'skip' | 'all'
-type EventsFilter = 'live' | 'draft' | 'unplaced' | 'attention' | 'past'
+type EventsFilter = 'live' | 'draft' | 'seasonalDraft' | 'unplaced' | 'attention' | 'past'
 type EventSortKey = 'title' | 'date' | 'venue' | 'area' | 'status' | 'collection'
 type MockupMode = 'review' | 'thursday'
 
 const MOCKUP_AS_OF = new Date('2026-09-14T12:00:00-07:00')
 
+function stopRowToggle(event: MouseEvent) {
+  event.stopPropagation()
+}
+
 function geoLabel(city: string): string {
   return isCoreCity(city) ? 'Core' : 'Out of area'
+}
+
+function eventsFilterForAdded(
+  event: MockCatalogEvent | undefined,
+  collections: MockCollectionId[],
+  mode: 'existing' | 'draft',
+): EventsFilter {
+  if (mode === 'existing' || event?.status === 'Published') return 'live'
+  const row = event
+    ? { ...event, collections: event.collections.length > 0 ? event.collections : collections }
+    : undefined
+  if (row && isUnplacedEvent(row)) return 'unplaced'
+  if ((row?.collections.length || collections.length) > 0) return 'seasonalDraft'
+  return 'draft'
+}
+
+function isToastError(message: string): boolean {
+  return /could not|outside|do not/i.test(message)
 }
 
 function canGoLiveEvent(event: MockCatalogEvent): boolean {
@@ -105,6 +131,9 @@ function applyEditsToMockCatalogEvent(
     eventUrl: edits.eventUrl,
     imageUrl: edits.imageUrl,
     lastChecked: edits.lastChecked,
+    openingDate: edits.date || event.openingDate,
+    closingDate: edits.closingDate,
+    scheduleKind: edits.scheduleKind,
     pendingDeploy: wasLive ? true : event.pendingDeploy,
   }
 }
@@ -196,6 +225,27 @@ export function ExperimentAdminWorkflowMockupPage({
     setToast(message)
   }
 
+  useEffect(() => {
+    if (!toast || isToastError(toast)) return
+    const timer = window.setTimeout(() => setToast(null), 4500)
+    return () => window.clearTimeout(timer)
+  }, [toast])
+
+  function revealAddedEvent(
+    eventId: string,
+    nextEvents: MockCatalogEvent[],
+    collections: MockCollectionId[],
+    mode: 'existing' | 'draft',
+  ) {
+    const row = nextEvents.find((item) => item.id === eventId)
+    setEvents(nextEvents)
+    setScreen('events')
+    setEventsFilter(eventsFilterForAdded(row, collections, mode))
+    setSelectedEventId(eventId)
+    setSelectedId(null)
+    setSearch('')
+  }
+
   function openCollectionEvent(eventId: string) {
     setDetailEventId(eventId)
   }
@@ -229,7 +279,8 @@ export function ExperimentAdminWorkflowMockupPage({
   const newCount = candidates.filter((candidate) => statusFor(candidate) === 'new').length
   const unplacedEvents = events.filter((event) => isUnplacedEvent(event) && !event.isPast)
   const liveCount = events.filter((event) => event.status === 'Published' && !event.isPast).length
-  const draftCount = events.filter((event) => event.status === 'Draft' && !event.isPast).length
+  const regularDraftCount = events.filter(isRegularDraftEvent).length
+  const seasonalDraftCount = events.filter(isSeasonalDraftEvent).length
   const attentionCount = events.filter((event) => Boolean(event.attention) && !event.isPast).length
   const pastCount = events.filter((event) => Boolean(event.isPast)).length
   const readyDraftCount = events.filter(canGoLiveEvent).length
@@ -243,7 +294,9 @@ export function ExperimentAdminWorkflowMockupPage({
     const query = search.trim().toLowerCase()
     const filtered = events.filter((event) => {
       if (eventsFilter === 'draft') {
-        if (event.status !== 'Draft' || event.isPast) return false
+        if (!isRegularDraftEvent(event)) return false
+      } else if (eventsFilter === 'seasonalDraft') {
+        if (!isSeasonalDraftEvent(event)) return false
       } else if (eventsFilter === 'unplaced') {
         if (!isUnplacedEvent(event) || event.isPast) return false
       } else if (eventsFilter === 'past') {
@@ -294,61 +347,93 @@ export function ExperimentAdminWorkflowMockupPage({
     flash(message)
   }
 
-  function addCandidate(candidate: MockCandidate, extraCollections?: MockCollectionId[]) {
+  function addFlashForDestination(
+    collections: MockCollectionId[],
+    city: string,
+    mode: 'existing' | 'draft',
+  ) {
+    const names = collections.map((id) => collectionLabel(id, allCollections)).join(', ')
+    if (mode === 'existing') {
+      flash(names ? `Already on ${names} (Live).` : 'Already on Puddles (Live).')
+      return
+    }
+    if (!isCoreCity(city) && collections.length === 0) {
+      flash(
+        'Added as Unplaced Draft. Out of area with no collection — parents will not see it. Assign a collection before Deploy.',
+      )
+      return
+    }
+    flash(
+      isCoreCity(city)
+        ? names
+          ? `Added as Seasonal draft · ${names}. Stays off the public site until Deploy.`
+          : 'Added as Draft. Core city → Browse after Deploy. No seasonal section until a collection is checked.'
+        : names
+          ? `Added as Seasonal draft · ${names}. Out of area → Worth a little drive after Deploy.`
+          : 'Added as Draft. Out of area — assign a collection before Deploy.',
+    )
+  }
+
+  function addCandidate(candidate: MockCandidate, extraCollections?: MockCollectionId[]): boolean {
     const collections = extraCollections ?? placementsFor(candidate)
     if (live) {
       const discovery =
         liveInbox.find((item) => item.id === candidate.id) ?? findLiveDiscoveryCandidate(candidate.id)
       if (!discovery) {
         flash('Could not find that inbox item. Use Discovery backup if it disappeared.')
-        return
+        return false
       }
       try {
         const verifiedDate = pacificTodayYmd()
         const edits = { ...editableFieldsFromCandidate(discovery), lastChecked: verifiedDate }
-        const local = approveDiscoveryLocally(discovery, edits, verifiedDate)
+        const local = approveDiscoveryLocally(discovery, edits, verifiedDate, {
+          allowRegional: true,
+          isSeasonal: collections.length > 0,
+          isRegional: !isCoreCity(candidate.city),
+        })
         saveDiscoveryReviewRecord(discovery.id, {
-          reviewStatus: 'approved',
+          reviewStatus: local.mode === 'existing' ? 'live' : 'approved',
           convertedEventId: local.eventId,
           edits,
           approvedOn: verifiedDate,
           updatedAt: new Date().toISOString(),
         })
+        if (local.mode === 'draft' && collections.length > 0) {
+          const cached = findLiveMockupEvent(local.eventId)
+          if (cached) {
+            upsertAdminCacheEvent({
+              ...cached,
+              categoryTags: categoryTagsForCollections(cached.categoryTags, collections),
+              isSeasonal: true,
+            })
+          }
+        }
         let nextEvents = loadLiveMockCatalogEvents(new Date())
-        if (collections.length > 0) {
+        if (local.mode === 'draft' && collections.length > 0) {
           nextEvents = nextEvents.map((item) =>
             item.id === local.eventId ? { ...item, collections } : item,
           )
         }
-        setEvents(nextEvents)
         setLiveInbox(loadLiveInboxCandidates())
-        setReviewStatus((current) => ({ ...current, [candidate.id]: 'draft' }))
+        setReviewStatus((current) => ({
+          ...current,
+          [candidate.id]: local.mode === 'existing' ? 'published' : 'draft',
+        }))
+        revealAddedEvent(local.eventId, nextEvents, collections, local.mode)
+        const row = nextEvents.find((item) => item.id === local.eventId)
+        addFlashForDestination(row?.collections?.length ? row.collections : collections, candidate.city, local.mode)
       } catch (error) {
         flash(error instanceof Error ? error.message : 'Could not add as Draft.')
-        return
+        return false
       }
-      const names = collections.map((id) => collectionLabel(id, allCollections)).join(', ')
-      if (!isCoreCity(candidate.city) && collections.length === 0) {
-        flash(
-          'Added as Unplaced Draft. Out of area with no collection — parents will not see it. Assign a collection before Deploy.',
-        )
-        return
-      }
-      flash(
-        isCoreCity(candidate.city)
-          ? names
-            ? `Added as Draft · ${names}. Stays off the public site until Deploy.`
-            : 'Added as Draft. Core city → Browse after Deploy. No seasonal section until a collection is checked.'
-          : names
-            ? `Added as Draft · ${names}. Out of area → Worth a little drive after Deploy.`
-            : 'Added as Draft. Out of area — assign a collection before Deploy.',
-      )
-      return
+      return true
     }
     const existing = events.find((event) => event.fromCandidateId === candidate.id)
     if (existing) {
-      setCandidateStatus(candidate.id, 'draft', `Already added as Draft: ${candidate.title}`)
-      return
+      setReviewStatus((current) => ({ ...current, [candidate.id]: 'draft' }))
+      revealAddedEvent(existing.id, events, existing.collections, existing.status === 'Published' ? 'existing' : 'draft')
+      addFlashForDestination(existing.collections, existing.city, existing.status === 'Published' ? 'existing' : 'draft')
+      return true
     }
     const event: MockCatalogEvent = {
       id: `evt-from-${candidate.id}`,
@@ -366,24 +451,11 @@ export function ExperimentAdminWorkflowMockupPage({
       fromCandidateId: candidate.id,
       isPast: false,
     }
-    setEvents((current) => [event, ...current])
-    setCandidateStatus(candidate.id, 'draft', '')
-    const names = collections.map((id) => collectionLabel(id, allCollections)).join(', ')
-    if (!isCoreCity(candidate.city) && collections.length === 0) {
-      flash(
-        'Added as Unplaced Draft. Out of area with no collection — parents will not see it. Assign a collection before Deploy.',
-      )
-      return
-    }
-    flash(
-      isCoreCity(candidate.city)
-        ? names
-          ? `Added as Draft · ${names}. Stays off the public site until Deploy.`
-          : 'Added as Draft. Core city → Browse after Deploy. No seasonal section until a collection is checked.'
-        : names
-          ? `Added as Draft · ${names}. Out of area → Worth a little drive after Deploy.`
-          : 'Added as Draft. Out of area — assign a collection before Deploy.',
-    )
+    const nextEvents = [event, ...events]
+    setReviewStatus((current) => ({ ...current, [candidate.id]: 'draft' }))
+    revealAddedEvent(event.id, nextEvents, collections, 'draft')
+    addFlashForDestination(collections, candidate.city, 'draft')
+    return true
   }
 
   function seasonalCandidate(candidate: MockCandidate) {
@@ -391,16 +463,6 @@ export function ExperimentAdminWorkflowMockupPage({
     const collections: MockCollectionId[] = chosen.length > 0 ? chosen : ['hello-fall']
     setPlacementDraft((current) => ({ ...current, [candidate.id]: collections }))
     addCandidate(candidate, collections)
-    const names = collections.map((id) => collectionLabel(id, allCollections)).join(', ')
-    if (isCoreCity(candidate.city)) {
-      flash(
-        `Seasonal is placement, not a status. Draft + ${names}. Parents see it on the theme after Deploy.`,
-      )
-    } else {
-      flash(
-        `Seasonal is placement, not a status. Draft + ${names}. Out of area → Worth a little drive after Deploy, never Browse.`,
-      )
-    }
   }
 
   async function deployPending() {
@@ -420,7 +482,7 @@ export function ExperimentAdminWorkflowMockupPage({
       try {
         const payloads = [...eligible, ...pendingLive].map((item) => ({
           ...eventForLivePublish(item),
-          status: 'Published' as const,
+          status: (isCoreCity(item.city) ? 'Published' : 'Hidden') as Event['status'],
         }))
         for (const event of payloads) upsertAdminCacheEvent(event)
         const message = await publishEventsToSite(payloads)
@@ -621,10 +683,10 @@ export function ExperimentAdminWorkflowMockupPage({
           {live ? (
             <>
               <p>
-                <strong>This is live Admin.</strong> Inbox Add creates a real Draft. Header{' '}
+                <strong>This is live Admin.</strong> Inbox Add opens Events → Draft (or Unplaced).
+                Seasonal opens Seasonal draft. Already-live Hello Fall rows leave Inbox. Header{' '}
                 <strong>Deploy</strong> publishes eligible Drafts the same way Discovery Go live
-                does (~2–4 min). Unplaced out-of-area drafts stay off Deploy until a collection is
-                assigned.
+                does (~2–4 min). Unplaced stays off Deploy until a collection is assigned.
               </p>
               <p>
                 If Deploy misbehaves, use <Link to="/admin/discovery">Discovery backup</Link> and
@@ -641,8 +703,8 @@ export function ExperimentAdminWorkflowMockupPage({
               </p>
               <p>
                 <strong>Watch</strong> / <strong>Skip</strong> stay in Inbox.{' '}
-                <strong>Add</strong> creates one Draft in Events (not live).{' '}
-                <strong>Seasonal</strong> is the same Draft plus a collection tag. Ingest auto-checks
+                <strong>Add</strong> creates one Draft in Events → Draft (not live).{' '}
+                <strong>Seasonal</strong> opens Events → Seasonal draft. Ingest auto-checks
                 a collection when the date fits. <strong>Deploy</strong> ships every eligible Draft
                 and saved Live edit at once. Unplaced (out of area, no collection) stays off Deploy.
               </p>
@@ -665,7 +727,10 @@ export function ExperimentAdminWorkflowMockupPage({
         </div>
 
         {toast ? (
-          <p className="awm-toast" role="status">
+          <p
+            className={`awm-toast${isToastError(toast) ? ' awm-toast--error' : ''}`}
+            role="status"
+          >
             {toast}
           </p>
         ) : null}
@@ -674,8 +739,9 @@ export function ExperimentAdminWorkflowMockupPage({
           <>
             <h2 className="font-display text-xl text-charcoal">Discovery Inbox</h2>
             <p className="awm-lede">
-              Scan Event · Date · City · Venue · Type · Source · Status. Add uses the auto-queued
-              collection when the date fits (uncheck if wrong). Watch / dates TBA get no tag.
+              Scan Event · Date · City · Venue · Type · Source · Status. Add opens Events → Draft
+              (or Unplaced). Seasonal opens Events → Seasonal draft. Already-live Hello Fall rows
+              leave this list — they are on Events → Live.
             </p>
             <div className="awm-filters" role="tablist" aria-label="Inbox filters">
               {(
@@ -770,14 +836,16 @@ export function ExperimentAdminWorkflowMockupPage({
           <>
             <h2 className="font-display text-xl text-charcoal">Events</h2>
             <p className="awm-lede">
-              One record per outing, synced from live Puddles / Admin in this browser. Unplaced = out
-              of area, no collection, not on the public site. Drafts wait here until header Deploy.
+              One record per outing, synced from live Puddles / Admin in this browser. Draft = core
+              city, no collection. Seasonal draft = a collection tag. Unplaced = out of area, no
+              collection. Header Deploy publishes eligible Drafts and Seasonal drafts.
             </p>
             <div className="awm-filters">
               {(
                 [
                   ['live', `Live (${liveCount})`],
-                  ['draft', `Draft (${draftCount})`],
+                  ['draft', `Draft (${regularDraftCount})`],
+                  ['seasonalDraft', `Seasonal draft (${seasonalDraftCount})`],
                   ['unplaced', `Unplaced (${unplacedEvents.length})`],
                   ['attention', `Needs attention (${attentionCount})`],
                   ['past', `Past (${pastCount})`],
@@ -812,6 +880,18 @@ export function ExperimentAdminWorkflowMockupPage({
                 These events already have official dates. They stay here so next week does not
                 rediscover them. Parents see nothing until you assign a seasonal collection and
                 Deploy — then Worth a little drive only.
+              </p>
+            ) : null}
+            {eventsFilter === 'seasonalDraft' ? (
+              <p className="awm-unplaced-note">
+                Unpublished with a collection tag. Header Deploy puts core-city rows on Browse and
+                Hello Fall, and out-of-area rows on Worth a little drive only.
+              </p>
+            ) : null}
+            {eventsFilter === 'draft' ? (
+              <p className="awm-unplaced-note">
+                Core-city drafts with no collection. They go to Browse after Deploy. Check a
+                collection to move a row to Seasonal draft.
               </p>
             ) : null}
             {catalogRows.length === 0 ? (
@@ -1099,8 +1179,11 @@ function MockupEventEditModal({
             </div>
           </div>
           <p className="text-sm text-muted">
-            Preview: {formatEventDate(draft.date)} · {formatEventTimeRange(draft.startTime, draft.endTime)} ·{' '}
-            {draft.venue || '—'}
+            Preview: {formatEventDate(draft.date)}
+            {draft.closingDate.trim() && draft.closingDate !== draft.date
+              ? ` – ${formatEventDate(draft.closingDate)}`
+              : ''}{' '}
+            · {formatEventTimeRange(draft.startTime, draft.endTime)} · {draft.venue || '—'}
           </p>
         </div>
         <div className="awm-detail-overlay__foot">
@@ -1259,9 +1342,20 @@ function InboxRow({
   const geo = geoForCity(candidate.city)
   return (
     <>
-      <tr className={`admin-table-row-clickable${open ? ' admin-table-row-selected' : ''}${due ? ' awm-due' : ''}`}>
+      <tr
+        className={`admin-table-row-clickable${open ? ' admin-table-row-selected' : ''}${due ? ' awm-due' : ''}`}
+        onClick={onSelect}
+      >
         <td className="awm-col-title">
-          <button type="button" className="awm-title-btn" onClick={onSelect}>
+          <button
+            type="button"
+            className="awm-title-btn"
+            aria-expanded={open}
+            onClick={(event) => {
+              event.stopPropagation()
+              onSelect()
+            }}
+          >
             {candidate.title}
           </button>
           {due ? <div className="admin-event-meta">Due today · {candidate.watchReason}</div> : null}
@@ -1286,7 +1380,7 @@ function InboxRow({
         <td className="awm-col-status">
           <span className={`admin-badge ${statusBadgeClass(status)}`}>{statusLabel(status)}</span>
         </td>
-        <td className="awm-col-actions">
+        <td className="awm-col-actions" onClick={stopRowToggle}>
           <div className="awm-row-actions">
             <button type="button" className="admin-btn admin-btn-primary" onClick={onAdd} disabled={Boolean(candidate.match)}>
               Add
@@ -1317,6 +1411,7 @@ function InboxRow({
               onSeasonal={onSeasonal}
               onWatch={onWatch}
               onSkip={onSkip}
+              onFold={onSelect}
               onToggleCollection={onToggleCollection}
             />
           </td>
@@ -1334,6 +1429,7 @@ function CandidateDetail({
   onSeasonal,
   onWatch,
   onSkip,
+  onFold,
   onToggleCollection,
 }: {
   candidate: MockCandidate
@@ -1343,11 +1439,17 @@ function CandidateDetail({
   onSeasonal: () => void
   onWatch: () => void
   onSkip: () => void
+  onFold: () => void
   onToggleCollection: (id: MockCollectionId) => void
 }) {
   const core = isCoreCity(candidate.city)
   return (
     <div className="admin-table-expand-panel">
+      <div className="awm-expand-toolbar">
+        <button type="button" className="admin-btn admin-btn-secondary" onClick={onFold}>
+          Fold
+        </button>
+      </div>
       {candidate.match ? (
         <div className="awm-match">
           <p>
@@ -1439,6 +1541,9 @@ function CandidateDetail({
             <button type="button" className="admin-btn admin-btn-secondary" onClick={onSkip}>
               Skip
             </button>
+            <button type="button" className="admin-btn admin-btn-secondary" onClick={onFold}>
+              Fold
+            </button>
             <a className="admin-btn admin-btn-secondary" href={candidate.officialUrl} target="_blank" rel="noreferrer">
               Open source
             </a>
@@ -1470,9 +1575,20 @@ function EventRow({
   const waitingDeploy = canGoLiveEvent(event)
   return (
     <>
-      <tr className={`admin-table-row-clickable${open ? ' admin-table-row-selected' : ''}`}>
+      <tr
+        className={`admin-table-row-clickable${open ? ' admin-table-row-selected' : ''}`}
+        onClick={onSelect}
+      >
         <td className="awm-col-title">
-          <button type="button" className="awm-title-btn" onClick={onSelect}>
+          <button
+            type="button"
+            className="awm-title-btn"
+            aria-expanded={open}
+            onClick={(event) => {
+              event.stopPropagation()
+              onSelect()
+            }}
+          >
             {event.title}
           </button>
           {event.attention ? <div className="admin-event-meta">{event.attention}</div> : null}
@@ -1520,6 +1636,11 @@ function EventRow({
         <tr className="admin-table-expand-row">
           <td colSpan={8}>
             <div className="admin-table-expand-panel">
+              <div className="awm-expand-toolbar">
+                <button type="button" className="admin-btn admin-btn-secondary" onClick={onSelect}>
+                  Fold
+                </button>
+              </div>
               <div className="awm-detail">
                 <DetailSection title="Core event">
                   <DetailRow label="Venue" value={event.venue} />
@@ -1566,6 +1687,14 @@ function EventRow({
                     onClick={onOpen}
                   >
                     Open to Save
+                  </button>
+                  <button
+                    type="button"
+                    className="admin-btn admin-btn-secondary"
+                    style={{ marginTop: '0.75rem', marginLeft: '0.5rem' }}
+                    onClick={onSelect}
+                  >
+                    Fold
                   </button>
                 </div>
               </div>

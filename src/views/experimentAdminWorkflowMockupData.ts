@@ -19,6 +19,8 @@ import {
 import { getEventLifecycleStatus } from '../utils/eventLifecycle'
 import { formatSeasonalBrowseWhen } from '../utils/formatSeasonalSchedule'
 import { enrichPublishingFields } from '../utils/publishing'
+import { applyAdminScheduleDates } from '../utils/adminEventEdit'
+import { findOnSiteCatalogEvent } from '../utils/discoveryMatchEvents'
 
 export const CORE_CITIES = ['Palo Alto', 'Mountain View', 'Los Altos', 'Sunnyvale'] as const
 
@@ -99,6 +101,9 @@ export interface MockCatalogEvent {
   eventUrl?: string
   imageUrl?: string
   lastChecked?: string
+  openingDate?: string
+  closingDate?: string
+  scheduleKind?: Event['scheduleKind'] | ''
   /** Live row has saved edits that have not been Deployed. */
   pendingDeploy?: boolean
 }
@@ -645,6 +650,48 @@ export function isUnplacedEvent(event: MockCatalogEvent): boolean {
   return !isCoreCity(event.city) && event.collections.length === 0
 }
 
+/** Core-city Draft with no collection — Browse after Deploy. */
+export function isRegularDraftEvent(event: MockCatalogEvent): boolean {
+  return event.status === 'Draft' && !event.isPast && isCoreCity(event.city) && event.collections.length === 0
+}
+
+/** Draft with a collection tag — Hello Fall / Halloween / etc. until Deploy. */
+export function isSeasonalDraftEvent(event: MockCatalogEvent): boolean {
+  return event.status === 'Draft' && !event.isPast && event.collections.length > 0
+}
+
+const COLLECTION_CATEGORY_TAG: Record<MockCollectionId, string> = {
+  'hello-fall': 'Hello Fall',
+  halloween: 'Halloween',
+  holiday: 'Holiday',
+  'lunar-new-year': 'Lunar New Year',
+  spring: 'Spring',
+  summer: 'Summer',
+  'harvest-farms': 'Harvest farms',
+}
+
+export function categoryTagsForCollections(
+  tags: string[] | undefined,
+  collections: MockCollectionId[],
+): string[] {
+  const next = [...(tags || [])]
+  for (const id of collections) {
+    const label = COLLECTION_CATEGORY_TAG[id]
+    if (label && !next.some((tag) => tag.toLowerCase() === label.toLowerCase())) {
+      next.push(label)
+    }
+  }
+  return next
+}
+
+function mockCollectionsFromCategoryTags(tags: string[] | undefined): MockCollectionId[] {
+  if (!tags?.length) return []
+  const lower = tags.map((tag) => tag.toLowerCase())
+  return (Object.keys(COLLECTION_CATEGORY_TAG) as MockCollectionId[]).filter((id) =>
+    lower.includes(COLLECTION_CATEGORY_TAG[id].toLowerCase()),
+  )
+}
+
 const MOCK_COLLECTION_BY_SLUG: Record<string, MockCollectionId> = {
   'hello-fall': 'hello-fall',
   'halloween-with-little-ones': 'halloween',
@@ -681,6 +728,7 @@ export function eventToMockCatalogEvent(
   attention?: string,
 ): MockCatalogEvent {
   const fromLive = mockCollectionsForEventId(event.id)
+  const fromTags = mockCollectionsFromCategoryTags(event.categoryTags)
   const haystack = `${event.title} ${event.description || ''} ${event.tips || ''}`
   const fromDate = fitCollectionsForEvent(
     event.openingDate || event.date,
@@ -691,7 +739,7 @@ export function eventToMockCatalogEvent(
     if (id === 'holiday') return HOLIDAY_COPY.test(haystack)
     return true
   })
-  const collections = [...new Set([...fromLive, ...fromDate])]
+  const collections = [...new Set([...fromLive, ...fromDate, ...fromTags])]
   return {
     id: event.id,
     title: event.title,
@@ -715,6 +763,9 @@ export function eventToMockCatalogEvent(
     eventUrl: event.eventUrl,
     imageUrl: event.imageUrl,
     lastChecked: event.verifiedDate,
+    openingDate: event.openingDate,
+    closingDate: event.closingDate ?? '',
+    scheduleKind: event.scheduleKind ?? '',
   }
 }
 
@@ -800,6 +851,7 @@ export function loadLiveInboxCandidates(): DiscoveryCandidate[] {
     (candidate) =>
       candidate.reviewStatus === 'pending' &&
       !candidate.alreadyOnPuddles &&
+      !findOnSiteCatalogEvent(candidate) &&
       !isDiscoveryCandidateExpired(candidate),
   )
 }
@@ -812,7 +864,7 @@ export function findLiveDiscoveryCandidate(candidateId: string): DiscoveryCandid
 export function eventForLivePublish(event: MockCatalogEvent): Event {
   const live = findLiveMockupEvent(event.id)
   const base = live ?? eventFromMockCatalog(event)
-  return enrichPublishingFields({
+  const merged = enrichPublishingFields({
     ...base,
     title: event.title,
     description: event.description || base.description,
@@ -831,6 +883,11 @@ export function eventForLivePublish(event: MockCatalogEvent): Event {
     verifiedDate: event.lastChecked || base.verifiedDate,
     status: event.status,
   })
+  return applyAdminScheduleDates(merged, {
+    date: event.dateSort || merged.date,
+    closingDate: event.closingDate ?? merged.closingDate ?? '',
+    scheduleKind: event.scheduleKind ?? merged.scheduleKind ?? '',
+  })
 }
 
 /** Inbox-added mock rows are not in the live catalog — enough fields for Admin Events detail. */
@@ -848,6 +905,13 @@ export function eventFromMockCatalog(event: MockCatalogEvent): Event {
     date: event.dateSort,
     startTime: event.startTime || '10:00',
     endTime: event.endTime || '11:00',
+    ...(event.openingDate ? { openingDate: event.openingDate } : {}),
+    ...(event.closingDate ? { closingDate: event.closingDate } : {}),
+    ...(event.scheduleKind === 'seasonal-run' ||
+    event.scheduleKind === 'multi-day' ||
+    event.scheduleKind === 'one-time'
+      ? { scheduleKind: event.scheduleKind }
+      : {}),
     ageRange: event.ageGuidance || '',
     ageMin: 0,
     ageMax: 5,
