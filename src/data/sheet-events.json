@@ -9,7 +9,7 @@
     "date": "2001-09-24",
     "startTime": "17:00",
     "endTime": "20:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -41,7 +41,7 @@
     "date": "2026-06-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -73,7 +73,7 @@
     "date": "2026-06-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -106,7 +106,7 @@
     "date": "2026-06-30",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -137,7 +137,7 @@
     "date": "2026-07-01",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -229,7 +229,7 @@
     "date": "2026-07-01",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -259,7 +259,7 @@
     "date": "2026-07-01",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -290,7 +290,7 @@
     "date": "2026-07-01",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -382,7 +382,7 @@
     "date": "2026-07-05",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -414,7 +414,7 @@
     "date": "2026-07-05",
     "startTime": "14:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -478,7 +478,7 @@
     "date": "2026-07-07",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -510,7 +510,7 @@
     "date": "2026-07-07",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -543,7 +543,7 @@
     "date": "2026-07-07",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -574,7 +574,7 @@
     "date": "2026-07-08",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -666,7 +666,7 @@
     "date": "2026-07-08",
     "startTime": "15:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -698,7 +698,7 @@
     "date": "2026-07-08",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -729,7 +729,7 @@
     "date": "2026-07-09",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -762,7 +762,7 @@
     "date": "2026-07-09",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -826,7 +826,7 @@
     "date": "2026-07-09",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -887,7 +887,7 @@
     "date": "2026-07-09",
     "startTime": "18:30",
     "endTime": "18:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -920,7 +920,7 @@
     "date": "2026-07-09",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -982,7 +982,7 @@
     "date": "2026-07-10",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1012,7 +1012,7 @@
     "date": "2026-07-10",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1043,7 +1043,7 @@
     "date": "2026-07-10",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1073,7 +1073,7 @@
     "date": "2026-07-10",
     "startTime": "19:30",
     "endTime": "22:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1106,7 +1106,7 @@
     "date": "2026-07-10",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1138,7 +1138,7 @@
     "date": "2026-07-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1168,7 +1168,7 @@
     "date": "2026-07-11",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1198,7 +1198,7 @@
     "date": "2026-07-12",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1260,7 +1260,7 @@
     "date": "2026-07-12",
     "startTime": "11:30",
     "endTime": "12:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1290,7 +1290,7 @@
     "date": "2026-07-12",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1320,7 +1320,7 @@
     "date": "2026-07-14",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1382,7 +1382,7 @@
     "date": "2026-07-14",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1415,7 +1415,7 @@
     "date": "2026-07-14",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1475,7 +1475,7 @@
     "date": "2026-07-14",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1507,7 +1507,7 @@
     "date": "2026-07-15",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1630,7 +1630,7 @@
     "date": "2026-07-15",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1660,7 +1660,7 @@
     "date": "2026-07-15",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1690,7 +1690,7 @@
     "date": "2026-07-15",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1753,7 +1753,7 @@
     "date": "2026-07-15",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1783,7 +1783,7 @@
     "date": "2026-07-16",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1847,7 +1847,7 @@
     "date": "2026-07-16",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1908,7 +1908,7 @@
     "date": "2026-07-16",
     "startTime": "18:30",
     "endTime": "18:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -1971,7 +1971,7 @@
     "date": "2026-07-17",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2001,7 +2001,7 @@
     "date": "2026-07-17",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2032,7 +2032,7 @@
     "date": "2026-07-17",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2062,7 +2062,7 @@
     "date": "2026-07-17",
     "startTime": "19:30",
     "endTime": "22:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2095,7 +2095,7 @@
     "date": "2026-07-17",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2127,7 +2127,7 @@
     "date": "2026-07-18",
     "startTime": "10:00",
     "endTime": "20:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2157,7 +2157,7 @@
     "date": "2026-07-18",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2187,7 +2187,7 @@
     "date": "2026-07-18",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2218,7 +2218,7 @@
     "date": "2026-07-18",
     "startTime": "11:00",
     "endTime": "12:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2251,7 +2251,7 @@
     "date": "2026-07-18",
     "startTime": "13:30",
     "endTime": "14:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2313,7 +2313,7 @@
     "date": "2026-07-18",
     "startTime": "18:30",
     "endTime": "20:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2344,7 +2344,7 @@
     "date": "2026-07-19",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2376,7 +2376,7 @@
     "date": "2026-07-19",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2438,7 +2438,7 @@
     "date": "2026-07-19",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2503,7 +2503,7 @@
     "date": "2026-07-21",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2565,7 +2565,7 @@
     "date": "2026-07-21",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2598,7 +2598,7 @@
     "date": "2026-07-21",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2628,7 +2628,7 @@
     "date": "2026-07-21",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2660,7 +2660,7 @@
     "date": "2026-07-22",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2783,7 +2783,7 @@
     "date": "2026-07-22",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2814,7 +2814,7 @@
     "date": "2026-07-22",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2845,7 +2845,7 @@
     "date": "2026-07-22",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2876,7 +2876,7 @@
     "date": "2026-07-22",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2906,7 +2906,7 @@
     "date": "2026-07-23",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -2939,7 +2939,7 @@
     "date": "2026-07-23",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3003,7 +3003,7 @@
     "date": "2026-07-23",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3064,7 +3064,7 @@
     "date": "2026-07-23",
     "startTime": "18:30",
     "endTime": "18:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3097,7 +3097,7 @@
     "date": "2026-07-24",
     "startTime": "09:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3157,7 +3157,7 @@
     "date": "2026-07-24",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3188,7 +3188,7 @@
     "date": "2026-07-24",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3218,7 +3218,7 @@
     "date": "2026-07-24",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3248,7 +3248,7 @@
     "date": "2026-07-24",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3280,7 +3280,7 @@
     "date": "2026-07-25",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3310,7 +3310,7 @@
     "date": "2026-07-25",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3340,7 +3340,7 @@
     "date": "2026-07-25",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3370,7 +3370,7 @@
     "date": "2026-07-25",
     "startTime": "19:30",
     "endTime": "21:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3400,7 +3400,7 @@
     "date": "2026-07-26",
     "startTime": "10:00",
     "endTime": "14:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3433,7 +3433,7 @@
     "date": "2026-07-26",
     "startTime": "10:00",
     "endTime": "10:00",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 12,
     "types": [
@@ -3468,7 +3468,7 @@
     "date": "2026-07-26",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3500,7 +3500,7 @@
     "date": "2026-07-26",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3566,7 +3566,7 @@
     "date": "2026-07-26",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3597,7 +3597,7 @@
     "date": "2026-07-27",
     "startTime": "18:30",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3627,7 +3627,7 @@
     "date": "2026-07-28",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3689,7 +3689,7 @@
     "date": "2026-07-28",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3722,7 +3722,7 @@
     "date": "2026-07-28",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3752,7 +3752,7 @@
     "date": "2026-07-28",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3784,7 +3784,7 @@
     "date": "2026-07-29",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3907,7 +3907,7 @@
     "date": "2026-07-29",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3939,7 +3939,7 @@
     "date": "2026-07-29",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -3971,7 +3971,7 @@
     "date": "2026-07-29",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4035,7 +4035,7 @@
     "date": "2026-07-29",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4065,7 +4065,7 @@
     "date": "2026-07-30",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4130,7 +4130,7 @@
     "date": "2026-07-30",
     "startTime": "11:00",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4191,7 +4191,7 @@
     "date": "2026-07-30",
     "startTime": "17:00",
     "endTime": "20:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4223,7 +4223,7 @@
     "date": "2026-07-30",
     "startTime": "18:30",
     "endTime": "18:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4256,7 +4256,7 @@
     "date": "2026-07-30",
     "startTime": "18:30",
     "endTime": "19:30",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 8,
     "types": [
@@ -4318,7 +4318,7 @@
     "date": "2026-07-31",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4348,7 +4348,7 @@
     "date": "2026-07-31",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4379,7 +4379,7 @@
     "date": "2026-07-31",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4409,7 +4409,7 @@
     "date": "2026-07-31",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4441,7 +4441,7 @@
     "date": "2026-07-31",
     "startTime": "18:30",
     "endTime": "21:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4471,7 +4471,7 @@
     "date": "2026-07-31",
     "startTime": "18:30",
     "endTime": "21:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4501,7 +4501,7 @@
     "date": "2026-07-31",
     "startTime": "19:30",
     "endTime": "22:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4534,7 +4534,7 @@
     "date": "2026-07-31",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4597,7 +4597,7 @@
     "date": "2026-08-01",
     "startTime": "10:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4627,7 +4627,7 @@
     "date": "2026-08-01",
     "startTime": "10:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4753,7 +4753,7 @@
     "date": "2026-08-01",
     "startTime": "15:00",
     "endTime": "15:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4783,7 +4783,7 @@
     "date": "2026-08-01",
     "startTime": "16:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4815,7 +4815,7 @@
     "date": "2026-08-02",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4847,7 +4847,7 @@
     "date": "2026-08-02",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4877,7 +4877,7 @@
     "date": "2026-08-02",
     "startTime": "11:00",
     "endTime": "14:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4907,7 +4907,7 @@
     "date": "2026-08-02",
     "startTime": "11:00",
     "endTime": "14:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4937,7 +4937,7 @@
     "date": "2026-08-02",
     "startTime": "16:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -4999,7 +4999,7 @@
     "date": "2026-08-04",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5031,7 +5031,7 @@
     "date": "2026-08-04",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5064,7 +5064,7 @@
     "date": "2026-08-04",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5094,7 +5094,7 @@
     "date": "2026-08-04",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5125,7 +5125,7 @@
     "date": "2026-08-04",
     "startTime": "17:00",
     "endTime": "20:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5155,7 +5155,7 @@
     "date": "2026-08-04",
     "startTime": "17:30",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5252,7 +5252,7 @@
     "date": "2026-08-05",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5283,7 +5283,7 @@
     "date": "2026-08-05",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5412,7 +5412,7 @@
     "date": "2026-08-07",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5442,7 +5442,7 @@
     "date": "2026-08-07",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5473,7 +5473,7 @@
     "date": "2026-08-07",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5505,7 +5505,7 @@
     "date": "2026-08-07",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5535,7 +5535,7 @@
     "date": "2026-08-07",
     "startTime": "18:30",
     "endTime": "22:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5567,7 +5567,7 @@
     "date": "2026-08-07",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5599,7 +5599,7 @@
     "date": "2026-08-08",
     "startTime": "10:00",
     "endTime": "13:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5631,7 +5631,7 @@
     "date": "2026-08-08",
     "startTime": "10:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5722,7 +5722,7 @@
     "date": "2026-08-08",
     "startTime": "18:30",
     "endTime": "20:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5752,7 +5752,7 @@
     "date": "2026-08-09",
     "startTime": "10:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5782,7 +5782,7 @@
     "date": "2026-08-09",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5814,7 +5814,7 @@
     "date": "2026-08-09",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5844,7 +5844,7 @@
     "date": "2026-08-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5876,7 +5876,7 @@
     "date": "2026-08-11",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5909,7 +5909,7 @@
     "date": "2026-08-11",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -5939,7 +5939,7 @@
     "date": "2026-08-11",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6034,7 +6034,7 @@
     "date": "2026-08-12",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6097,7 +6097,7 @@
     "date": "2026-08-13",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6195,7 +6195,7 @@
     "date": "2026-08-14",
     "startTime": "15:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6225,7 +6225,7 @@
     "date": "2026-08-14",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6256,7 +6256,7 @@
     "date": "2026-08-14",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6286,7 +6286,7 @@
     "date": "2026-08-14",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6316,7 +6316,7 @@
     "date": "2026-08-14",
     "startTime": "19:30",
     "endTime": "22:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6349,7 +6349,7 @@
     "date": "2026-08-14",
     "startTime": "20:30",
     "endTime": "20:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6381,7 +6381,7 @@
     "date": "2026-08-15",
     "startTime": "10:00",
     "endTime": "20:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6442,7 +6442,7 @@
     "date": "2026-08-15",
     "startTime": "15:00",
     "endTime": "15:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6472,7 +6472,7 @@
     "date": "2026-08-16",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6504,7 +6504,7 @@
     "date": "2026-08-16",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6536,7 +6536,7 @@
     "date": "2026-08-18",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6567,7 +6567,7 @@
     "date": "2026-08-18",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6597,7 +6597,7 @@
     "date": "2026-08-18",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6692,7 +6692,7 @@
     "date": "2026-08-19",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6787,7 +6787,7 @@
     "date": "2026-08-21",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6818,7 +6818,7 @@
     "date": "2026-08-21",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6879,7 +6879,7 @@
     "date": "2026-08-23",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6912,7 +6912,7 @@
     "date": "2026-08-23",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6944,7 +6944,7 @@
     "date": "2026-08-24",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -6974,7 +6974,7 @@
     "date": "2026-08-25",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7006,7 +7006,7 @@
     "date": "2026-08-25",
     "startTime": "10:30",
     "endTime": "11:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7036,7 +7036,7 @@
     "date": "2026-08-25",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7068,7 +7068,7 @@
     "date": "2026-08-25",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7098,7 +7098,7 @@
     "date": "2026-08-25",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7131,7 +7131,7 @@
     "date": "2026-08-26",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7256,7 +7256,7 @@
     "date": "2026-08-26",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7318,7 +7318,7 @@
     "date": "2026-08-27",
     "startTime": "10:00",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7385,7 +7385,7 @@
     "date": "2026-08-27",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7449,7 +7449,7 @@
     "date": "2026-08-28",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7510,7 +7510,7 @@
     "date": "2026-08-28",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7541,7 +7541,7 @@
     "date": "2026-08-28",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7602,7 +7602,7 @@
     "date": "2026-08-30",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7635,7 +7635,7 @@
     "date": "2026-08-30",
     "startTime": "10:30",
     "endTime": "11:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7672,7 +7672,7 @@
     "date": "2026-08-30",
     "startTime": "11:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7730,7 +7730,7 @@
     "date": "2026-08-31",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7761,7 +7761,7 @@
     "date": "2026-08-31",
     "startTime": "16:00",
     "endTime": "16:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7854,7 +7854,7 @@
     "date": "2026-09-01",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7885,7 +7885,7 @@
     "date": "2026-09-01",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7917,7 +7917,7 @@
     "date": "2026-09-01",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7947,7 +7947,7 @@
     "date": "2026-09-01",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -7981,10 +7981,10 @@
     "venue": "Cuesta Park",
     "address": "615 Cuesta Drive, Mountain View, CA 94040",
     "city": "Mountain View",
-    "date": "2026-09-02",
+    "date": "2026-09-16",
     "startTime": "09:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8076,9 +8076,9 @@
     "venue": "Cuesta Park",
     "address": "615 Cuesta Drive, Mountain View, CA 94040",
     "city": "Mountain View",
-    "date": "2026-09-02",
+    "date": "2026-09-16",
     "startTime": "10:45",
-    "endTime": "11:45",
+    "endTime": "11:30",
     "ageRange": "0–2",
     "ageMin": 0,
     "ageMax": 2,
@@ -8139,7 +8139,7 @@
     "date": "2026-09-02",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 6,
     "types": [
@@ -8173,7 +8173,7 @@
     "date": "2026-09-02",
     "startTime": "16:00",
     "endTime": "19:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8198,7 +8198,7 @@
     "date": "2026-09-02",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8229,7 +8229,7 @@
     "date": "2026-09-02",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8263,10 +8263,10 @@
     "venue": "Mitchell Park",
     "address": "600 E Meadow Dr, Palo Alto, CA 94303",
     "city": "Palo Alto",
-    "date": "2026-09-03",
+    "date": "2026-09-17",
     "startTime": "10:00",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8292,7 +8292,7 @@
     "date": "2026-09-03",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8359,7 +8359,7 @@
     "date": "2026-09-03",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8424,10 +8424,10 @@
     "venue": "Cuesta Park",
     "address": "615 Cuesta Drive, Mountain View, CA 94040",
     "city": "Mountain View",
-    "date": "2026-09-04",
+    "date": "2026-09-18",
     "startTime": "09:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8455,7 +8455,7 @@
     "date": "2026-09-04",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8544,14 +8544,14 @@
     "id": "staging-sunnyvale-library-magical-bridge-storytime-series",
     "title": "Storytime at Magical Bridge Playground",
     "description": "Outdoor stories at Fair Oaks Park’s inclusive playground — sing, rhyme & explore.",
-    "tips": "Weekly · First Fridays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nUsually first Fridays (next after Sep 4: Oct 2, Nov 6) — check the kids calendar for extras.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "tips": "Weekly · First Fridays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early.\nGrown-ups stay with little ones the whole time.\nUsually first Fridays (next: Oct 2, Nov 6) — Magical Bridge calendar lists Oct 2, 11:00–11:25 AM.\nCheck the library kids calendar for extras and replacements.",
     "venue": "Magical Bridge Playground · Fair Oaks Park",
     "address": "540 N Fair Oaks Ave, Sunnyvale, CA 94085",
     "city": "Sunnyvale",
-    "date": "2026-09-04",
+    "date": "2026-10-02",
     "startTime": "11:00",
-    "endTime": "11:30",
-    "ageRange": "0–2, 2–5",
+    "endTime": "11:25",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8578,7 +8578,7 @@
     "date": "2026-09-04",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8608,7 +8608,7 @@
     "date": "2026-09-04",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8639,7 +8639,7 @@
     "date": "2026-09-04",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8736,10 +8736,10 @@
     "venue": "Cuesta Park",
     "address": "615 Cuesta Drive, Mountain View, CA 94040",
     "city": "Mountain View",
-    "date": "2026-09-05",
+    "date": "2026-09-19",
     "startTime": "09:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8800,7 +8800,7 @@
     "date": "2026-09-05",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8862,7 +8862,7 @@
     "date": "2026-09-06",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8931,10 +8931,10 @@
     "venue": "Las Palmas Park",
     "address": "850 Russet Dr, Sunnyvale, CA 94087",
     "city": "Sunnyvale",
-    "date": "2026-09-08",
+    "date": "2026-09-22",
     "startTime": "09:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -8991,7 +8991,7 @@
     "date": "2026-09-08",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9026,7 +9026,7 @@
     "date": "2026-09-08",
     "startTime": "11:00",
     "endTime": "11:25",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 1,
     "ageMax": 3,
     "types": [
@@ -9055,7 +9055,7 @@
     "venue": "Las Palmas Park",
     "address": "850 Russet Dr, Sunnyvale, CA 94087",
     "city": "Sunnyvale",
-    "date": "2026-09-08",
+    "date": "2026-09-15",
     "startTime": "11:15",
     "endTime": "12:15",
     "ageRange": "0–2",
@@ -9085,7 +9085,7 @@
     "date": "2026-09-08",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9118,7 +9118,7 @@
     "date": "2026-09-08",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9148,7 +9148,7 @@
     "date": "2026-09-08",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9180,7 +9180,7 @@
     "date": "2026-09-09",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9218,7 +9218,7 @@
     "date": "2026-09-09",
     "startTime": "09:30",
     "endTime": "",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9401,7 +9401,7 @@
     "date": "2026-09-09",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9432,7 +9432,7 @@
     "date": "2026-09-09",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9522,7 +9522,7 @@
     "date": "2026-09-10",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9590,7 +9590,7 @@
     "date": "2026-09-10",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9659,7 +9659,7 @@
     "date": "2026-09-10",
     "startTime": "19:00",
     "endTime": "19:25",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9686,7 +9686,7 @@
     "date": "2026-09-11",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9782,7 +9782,7 @@
     "date": "2026-09-11",
     "startTime": "11:00",
     "endTime": "12:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9807,7 +9807,7 @@
     "date": "2026-09-11",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9838,7 +9838,7 @@
     "date": "2026-09-11",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9901,7 +9901,7 @@
     "date": "2026-09-12",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9932,7 +9932,7 @@
     "date": "2026-09-12",
     "startTime": "11:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -9970,7 +9970,7 @@
     "date": "2026-09-12",
     "startTime": "11:00",
     "endTime": "11:25",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10131,7 +10131,7 @@
     "date": "2026-09-13",
     "startTime": "10:30",
     "endTime": "10:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10192,7 +10192,7 @@
     "date": "2026-09-13",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10230,7 +10230,7 @@
     "date": "2026-09-13",
     "startTime": "14:00",
     "endTime": "15:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10323,7 +10323,7 @@
     "date": "2026-09-14",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10360,7 +10360,7 @@
     "date": "2026-09-14",
     "startTime": "16:00",
     "endTime": "16:45",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10416,7 +10416,7 @@
     "date": "2026-09-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10445,7 +10445,7 @@
     "date": "2026-09-15",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10478,7 +10478,7 @@
     "date": "2026-09-15",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10508,7 +10508,7 @@
     "date": "2026-09-15",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10540,7 +10540,7 @@
     "date": "2026-09-16",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10663,7 +10663,7 @@
     "date": "2026-09-16",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10694,7 +10694,7 @@
     "date": "2026-09-16",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10724,7 +10724,7 @@
     "date": "2026-09-17",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10791,7 +10791,7 @@
     "date": "2026-09-17",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10859,7 +10859,7 @@
     "city": "Sunnyvale",
     "date": "2026-09-17",
     "startTime": "18:00",
-    "endTime": "20:00",
+    "endTime": "19:30",
     "ageRange": "All ages · Little ones welcome",
     "ageMin": 0,
     "ageMax": 5,
@@ -10874,7 +10874,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-03"
+    "verifiedDate": "2026-09-14"
   },
   {
     "id": "jeff-center-free-family-play-2026-09-18",
@@ -10888,7 +10888,7 @@
     "date": "2026-09-18",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -10984,7 +10984,7 @@
     "date": "2026-09-18",
     "startTime": "11:00",
     "endTime": "12:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11010,7 +11010,7 @@
     "date": "2026-09-18",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11041,7 +11041,7 @@
     "date": "2026-09-18",
     "startTime": "18:00",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11071,7 +11071,7 @@
     "date": "2026-09-19",
     "startTime": "10:00",
     "endTime": "20:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11134,7 +11134,7 @@
     "date": "2026-09-19",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11165,7 +11165,7 @@
     "date": "2026-09-20",
     "startTime": "10:30",
     "endTime": "12:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11228,7 +11228,7 @@
     "date": "2026-09-20",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11291,7 +11291,7 @@
     "date": "2026-09-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11320,7 +11320,7 @@
     "date": "2026-09-22",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11353,7 +11353,7 @@
     "date": "2026-09-22",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11383,7 +11383,7 @@
     "date": "2026-09-22",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11415,7 +11415,7 @@
     "date": "2026-09-23",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11574,7 +11574,7 @@
     "date": "2026-09-23",
     "startTime": "17:00",
     "endTime": "18:45",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11605,7 +11605,7 @@
     "date": "2026-09-23",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11635,7 +11635,7 @@
     "date": "2026-09-24",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11703,7 +11703,7 @@
     "date": "2026-09-24",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11831,7 +11831,7 @@
     "date": "2026-09-25",
     "startTime": "11:00",
     "endTime": "12:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11858,7 +11858,7 @@
     "date": "2026-09-25",
     "startTime": "12:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11895,7 +11895,7 @@
     "date": "2026-09-25",
     "startTime": "15:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -11920,7 +11920,7 @@
     "date": "2026-09-25",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12020,7 +12020,7 @@
     "date": "2026-09-26",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12122,7 +12122,7 @@
     "date": "2026-09-28",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12159,7 +12159,7 @@
     "date": "2026-09-28",
     "startTime": "11:00",
     "endTime": "12:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 1,
     "ageMax": 5,
     "types": [
@@ -12247,7 +12247,7 @@
     "date": "2026-09-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12276,7 +12276,7 @@
     "date": "2026-09-29",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12309,7 +12309,7 @@
     "date": "2026-09-29",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12339,7 +12339,7 @@
     "date": "2026-09-29",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12371,7 +12371,7 @@
     "date": "2026-09-30",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12523,7 +12523,7 @@
     "date": "2026-09-30",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12554,7 +12554,7 @@
     "date": "2026-10-01",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12620,7 +12620,7 @@
     "date": "2026-10-01",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12684,7 +12684,7 @@
     "date": "2026-10-02",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12747,7 +12747,7 @@
     "date": "2026-10-02",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12778,7 +12778,7 @@
     "date": "2026-10-02",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12873,7 +12873,7 @@
     "date": "2026-10-03",
     "startTime": "10:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12939,7 +12939,7 @@
     "date": "2026-10-03",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -12971,7 +12971,7 @@
     "date": "2026-10-03",
     "startTime": "11:30",
     "endTime": "19:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13037,7 +13037,7 @@
     "date": "2026-10-04",
     "startTime": "11:00",
     "endTime": "13:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13075,7 +13075,7 @@
     "date": "2026-10-04",
     "startTime": "14:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13103,7 +13103,7 @@
     "date": "2026-10-05",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13167,7 +13167,7 @@
     "date": "2026-10-06",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13196,7 +13196,7 @@
     "date": "2026-10-06",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13229,7 +13229,7 @@
     "date": "2026-10-06",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13261,7 +13261,7 @@
     "date": "2026-10-06",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13294,7 +13294,7 @@
     "date": "2026-10-07",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13418,7 +13418,7 @@
     "date": "2026-10-07",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13478,7 +13478,7 @@
     "date": "2026-10-08",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13544,7 +13544,7 @@
     "date": "2026-10-08",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13608,7 +13608,7 @@
     "date": "2026-10-09",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13732,7 +13732,7 @@
     "date": "2026-10-09",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13764,7 +13764,7 @@
     "date": "2026-10-10",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13797,7 +13797,7 @@
     "date": "2026-10-10",
     "startTime": "13:30",
     "endTime": "14:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13832,7 +13832,7 @@
     "date": "2026-10-10",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13923,7 +13923,7 @@
     "date": "2026-10-11",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13960,7 +13960,7 @@
     "date": "2026-10-11",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -13988,7 +13988,7 @@
     "date": "2026-10-12",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14086,7 +14086,7 @@
     "date": "2026-10-13",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14115,7 +14115,7 @@
     "date": "2026-10-13",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14148,7 +14148,7 @@
     "date": "2026-10-13",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14180,7 +14180,7 @@
     "date": "2026-10-13",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14213,7 +14213,7 @@
     "date": "2026-10-14",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14344,7 +14344,7 @@
     "date": "2026-10-14",
     "startTime": "15:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14369,7 +14369,7 @@
     "date": "2026-10-14",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14429,7 +14429,7 @@
     "date": "2026-10-15",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14495,7 +14495,7 @@
     "date": "2026-10-15",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14559,7 +14559,7 @@
     "date": "2026-10-16",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14657,7 +14657,7 @@
     "date": "2026-10-16",
     "startTime": "11:00",
     "endTime": "12:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14711,7 +14711,7 @@
     "date": "2026-10-16",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14742,7 +14742,7 @@
     "date": "2026-10-17",
     "startTime": "10:00",
     "endTime": "15:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14776,7 +14776,7 @@
     "date": "2026-10-17",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14814,7 +14814,7 @@
     "date": "2026-10-17",
     "startTime": "10:30",
     "endTime": "15:00",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 2,
     "ageMax": 5,
     "types": [
@@ -14841,7 +14841,7 @@
     "date": "2026-10-17",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14871,7 +14871,7 @@
     "date": "2026-10-17",
     "startTime": "18:00",
     "endTime": "21:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -14940,7 +14940,7 @@
     "date": "2026-10-19",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15036,7 +15036,7 @@
     "date": "2026-10-20",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15065,7 +15065,7 @@
     "date": "2026-10-20",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15098,7 +15098,7 @@
     "date": "2026-10-20",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15130,7 +15130,7 @@
     "date": "2026-10-20",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15162,7 +15162,7 @@
     "date": "2026-10-20",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15195,7 +15195,7 @@
     "date": "2026-10-21",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15319,7 +15319,7 @@
     "date": "2026-10-21",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15351,7 +15351,7 @@
     "date": "2026-10-22",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15417,7 +15417,7 @@
     "date": "2026-10-22",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15481,7 +15481,7 @@
     "date": "2026-10-23",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15573,7 +15573,7 @@
     "date": "2026-10-23",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15604,7 +15604,7 @@
     "date": "2026-10-24",
     "startTime": "10:00",
     "endTime": "13:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15636,7 +15636,7 @@
     "date": "2026-10-24",
     "startTime": "10:00",
     "endTime": "14:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15668,7 +15668,7 @@
     "date": "2026-10-24",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15700,7 +15700,7 @@
     "date": "2026-10-24",
     "startTime": "10:30",
     "endTime": "11:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15771,7 +15771,7 @@
     "date": "2026-10-25",
     "startTime": "14:00",
     "endTime": "16:00",
-    "ageRange": "2–5, 5+",
+    "ageRange": "2–5",
     "ageMin": 3,
     "ageMax": 5,
     "types": [
@@ -15798,7 +15798,7 @@
     "date": "2026-10-26",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15894,7 +15894,7 @@
     "date": "2026-10-27",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15923,7 +15923,7 @@
     "date": "2026-10-27",
     "startTime": "13:00",
     "endTime": "13:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15956,7 +15956,7 @@
     "date": "2026-10-27",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -15988,7 +15988,7 @@
     "date": "2026-10-27",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16021,7 +16021,7 @@
     "date": "2026-10-28",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16146,7 +16146,7 @@
     "date": "2026-10-28",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16184,7 +16184,7 @@
     "date": "2026-10-28",
     "startTime": "16:00",
     "endTime": "18:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16239,7 +16239,7 @@
     "date": "2026-10-28",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16271,7 +16271,7 @@
     "date": "2026-10-29",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16337,7 +16337,7 @@
     "date": "2026-10-29",
     "startTime": "13:00",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16401,7 +16401,7 @@
     "date": "2026-10-30",
     "startTime": "09:30",
     "endTime": "17:30",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16499,7 +16499,7 @@
     "date": "2026-10-30",
     "startTime": "11:00",
     "endTime": "12:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16525,7 +16525,7 @@
     "date": "2026-10-30",
     "startTime": "12:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16561,7 +16561,7 @@
     "date": "2026-10-30",
     "startTime": "15:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16587,7 +16587,7 @@
     "date": "2026-10-30",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16619,7 +16619,7 @@
     "date": "2026-10-31",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16715,7 +16715,7 @@
     "date": "2026-11-03",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16744,7 +16744,7 @@
     "date": "2026-11-03",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16776,7 +16776,7 @@
     "date": "2026-11-03",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16837,7 +16837,7 @@
     "date": "2026-11-04",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16896,7 +16896,7 @@
     "date": "2026-11-05",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16958,7 +16958,7 @@
     "date": "2026-11-06",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -16989,7 +16989,7 @@
     "date": "2026-11-06",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17052,7 +17052,7 @@
     "date": "2026-11-07",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17083,7 +17083,7 @@
     "date": "2026-11-08",
     "startTime": "14:00",
     "endTime": "15:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17144,7 +17144,7 @@
     "date": "2026-11-10",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17173,7 +17173,7 @@
     "date": "2026-11-10",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17232,7 +17232,7 @@
     "date": "2026-11-12",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17294,7 +17294,7 @@
     "date": "2026-11-13",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17325,7 +17325,7 @@
     "date": "2026-11-14",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17387,7 +17387,7 @@
     "date": "2026-11-17",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17416,7 +17416,7 @@
     "date": "2026-11-17",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17506,7 +17506,7 @@
     "date": "2026-11-18",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17537,7 +17537,7 @@
     "date": "2026-11-19",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17598,7 +17598,7 @@
     "date": "2026-11-21",
     "startTime": "10:00",
     "endTime": "15:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17630,7 +17630,7 @@
     "date": "2026-11-21",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17662,7 +17662,7 @@
     "date": "2026-11-21",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17691,7 +17691,7 @@
     "date": "2026-11-22",
     "startTime": "14:00",
     "endTime": "16:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17785,7 +17785,7 @@
     "date": "2026-11-24",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17814,7 +17814,7 @@
     "date": "2026-11-24",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17876,7 +17876,7 @@
     "date": "2026-11-27",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17907,7 +17907,7 @@
     "date": "2026-11-28",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17969,7 +17969,7 @@
     "date": "2026-12-01",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -17998,7 +17998,7 @@
     "date": "2026-12-01",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -18059,7 +18059,7 @@
     "date": "2026-12-02",
     "startTime": "18:30",
     "endTime": "19:15",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -18118,7 +18118,7 @@
     "date": "2026-12-03",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -18180,7 +18180,7 @@
     "date": "2026-12-04",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -18211,7 +18211,7 @@
     "date": "2026-12-04",
     "startTime": "16:00",
     "endTime": "17:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -18274,7 +18274,7 @@
     "date": "2026-12-05",
     "startTime": "10:30",
     "endTime": "11:00",
-    "ageRange": "0–2, 2–5",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -18305,7 +18305,7 @@
     "date": "2026-12-05",
     "startTime": "13:00",
     "endTime": "14:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 10,
     "types": [
@@ -18367,7 +18367,7 @@
     "date": "2026-12-07",
     "startTime": "17:30",
     "endTime": "20:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -18397,7 +18397,7 @@
     "date": "2026-12-12",
     "startTime": "10:00",
     "endTime": "13:00",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
@@ -18462,7 +18462,7 @@
     "date": "2027-01-08",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "0–2, 2–5, 5+",
+    "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
     "types": [

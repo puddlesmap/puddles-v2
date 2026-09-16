@@ -16,7 +16,7 @@ function hasSession(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  if (!isAdminAuthEnabled() || !hasSession(request)) {
+  if (isAdminAuthEnabled() && !hasSession(request)) {
     return NextResponse.json({ ok: false, error: 'Unauthorized' }, { status: 401 })
   }
 

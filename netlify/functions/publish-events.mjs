@@ -6,7 +6,7 @@ export async function handler(event) {
     return jsonResponse(405, { ok: false, error: 'Method not allowed' })
   }
 
-  if (!isAdminAuthEnabled() || !hasAdminSession(event)) {
+  if (isAdminAuthEnabled() && !hasAdminSession(event)) {
     return unauthorizedResponse()
   }
 
