@@ -320,6 +320,7 @@ export const HELLO_FALL_CURATION = {
   ],
   principles: [
     'Litmus: if it isn’t special because it’s fall / September, don’t make it a Fall Pick',
+    'Mix ~70% clearly fall (farms, harvest, pumpkins, apples, Mid-Autumn, fall festivals) and ~30% exceptional dated window events — not a second This Weekend feed',
     'Prioritize events genuinely good for ages 0–5',
     'Rotate time-sensitive festivals closer to their actual dates',
     'Keep the collection tight (~6–8) and featured at roughly 3–6 picks — not a September events dump',
@@ -460,6 +461,24 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         featuredUntil: '2026-10-05',
         note: 'Transition blend — early Halloween preview while module title stays Fall',
       },
+      {
+        eventId: 'regional-hidden-villa-weekend-farm-tour-2026-09-19',
+        featuredFrom: '2026-09-15',
+        featuredUntil: '2026-09-19',
+        note: '70% harvest · Hidden Villa weekend farm walk — this-weekend seasonal anchor',
+      },
+      {
+        eventId: 'national-day-of-play-popup-playdate-mitchell-park-2026-09-19',
+        featuredFrom: '2026-09-15',
+        featuredUntil: '2026-09-19',
+        note: '30% window · IPA pop-up playdate at Mitchell Park tot area',
+      },
+      {
+        eventId: 'core-weekend-palo-alto-airport-day-2026-09-20',
+        featuredFrom: '2026-09-15',
+        featuredUntil: '2026-09-20',
+        note: '30% window · Palo Alto Airport Day — special community outing',
+      },
     ],
     collectionEventIds: [
       'harvest-history-festival-heritage-park-2026-09-26-09-00',
@@ -475,6 +494,9 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'great-glass-pumpkin-patch-2026-09-26',
       'cantor-art-for-all-family-day-2026-10-11',
       'watchlist-sunnyvale-hands-on-the-arts-2026-10-17',
+      'regional-hidden-villa-weekend-farm-tour-2026-09-19',
+      'national-day-of-play-popup-playdate-mitchell-park-2026-09-19',
+      'core-weekend-palo-alto-airport-day-2026-09-20',
     ],
     driveEventIds: [
       'seasonal-drive-lemos-farm-pumpkin-patch-2026-09-05',

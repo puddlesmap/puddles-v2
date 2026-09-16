@@ -15,4 +15,6 @@ When setting or backfilling `imageUrl` for events:
 5. **Exception — Sunnyvale Public Library:** do not use the shared building host photo for every program. Leave `imageUrl` empty (or event-specific only) so cards resolve to activity-type fallbacks and different event types look distinct.
 6. **Exception — Linden Tree Books:** use the store **logo** as host image (not the Staff Picks face-collage homepage banner). Prefer event-specific flyer/book cover when available.
 
+Card media is a **fixed crop**. Portrait flyers are fine; do not size the card to the full poster. Prefer a landscape/square crop only when important artwork would be cut (title/art in the center is enough — date/venue text already lives on the card body).
+
 Resolution order in code (`getEventImageUrl`): event `imageUrl` → host image registry → activity-type fallback.

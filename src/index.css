@@ -1407,6 +1407,12 @@ textarea {
   border-radius: inherit;
 }
 
+.card-listing-image:not(.event-image--fallback) {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
 .card-listing-image.event-image--fallback {
   width: auto;
   height: auto;

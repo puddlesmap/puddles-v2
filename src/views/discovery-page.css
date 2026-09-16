@@ -426,7 +426,6 @@
 .discovery-page-shell .discovery-page .discovery-event-card .card-listing-media {
   width: 100%;
   aspect-ratio: 1 / 1;
-  height: auto;
   flex-shrink: 0;
 }
 

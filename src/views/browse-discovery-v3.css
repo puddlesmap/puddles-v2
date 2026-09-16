@@ -233,7 +233,6 @@
 .browse-map-preview-sheet .discovery-v3-event-card--map-sheet .discovery-v3-event-card__media--map-sheet {
   aspect-ratio: 1;
   width: 100%;
-  height: auto;
   min-height: 0;
   overflow: hidden;
   border-radius: var(--radius-xs);

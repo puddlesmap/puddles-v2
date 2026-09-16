@@ -27,7 +27,6 @@
 .home-experiment-page--refined .discovery-event-card .card-listing-media {
   border-radius: 0;
   aspect-ratio: 5 / 4;
-  height: auto;
   box-shadow: none;
 }
 
@@ -334,7 +333,6 @@
 .seasonal-discovery-module--home-band .discovery-event-card .card-listing-media {
   border-radius: 0;
   aspect-ratio: 5 / 4;
-  height: auto;
   box-shadow: none;
 }
 
