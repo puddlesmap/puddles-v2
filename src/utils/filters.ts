@@ -3,6 +3,7 @@ import type { DayFilter, Event, TimeFilter, ActivityType } from '../types/event'
 import type { TemporalTab } from './dates'
 import { getAnchorDate, dateInDayFilter, dateInTemporalTab, isEventVisibleForTodayFilter, timeInBucket } from './dates'
 import { isPublicEvent } from './publishing'
+import { matchesBrowseCityFilter } from './cityRegions'
 import { isDiscoverableLifecycleEvent } from './eventLifecycle'
 import { isOutOfAgeAudienceForPublic } from './eventAudienceAge'
 import {
@@ -37,8 +38,7 @@ function matchesAge(event: Event, age: AgeFilter): boolean {
 }
 
 function matchesCity(event: Event, city: string): boolean {
-  if (city === 'all' || city === 'nearby') return true
-  return event.city === city
+  return matchesBrowseCityFilter(event.city, city)
 }
 
 export type DiscoveryGate = 'public' | 'lifecycle-upcoming'

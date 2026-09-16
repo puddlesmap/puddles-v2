@@ -3,6 +3,7 @@ export type EventStatus = 'Draft' | 'Published' | 'Hidden' | 'Expired' | 'Cancel
 export type City =
   | 'Palo Alto'
   | 'Los Altos'
+  | 'Los Altos Hills'
   | 'Mountain View'
   | 'Cupertino'
   | 'Redwood City'
@@ -20,6 +21,9 @@ export type City =
   | 'Los Gatos'
   | 'Woodside'
   | 'Livermore'
+  | 'Millbrae'
+  | 'Portola Valley'
+  | 'Pacifica'
 export type CostLabel = 'Free' | 'Low-cost' | 'Paid' | (string & {})
 
 /** True when the activity is free to attend (not a dollar amount / paid tag). */
