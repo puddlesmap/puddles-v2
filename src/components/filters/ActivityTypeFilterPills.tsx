@@ -1,5 +1,5 @@
-import { ACTIVITY_TYPES, type ActivityType } from '../../types/event'
-import { isNewActivityTypeFilter } from '../../config/activityTypeLaunch'
+import { isNewActivityTypeFilter, publicActivityTypeFilterOrder } from '../../config/activityTypeLaunch'
+import type { ActivityType } from '../../types/event'
 
 interface ActivityTypeFilterPillsProps {
   selected: ActivityType[]
@@ -15,7 +15,7 @@ export function ActivityTypeFilterPills({
 }: ActivityTypeFilterPillsProps) {
   return (
     <div className="pill-wrap">
-      {ACTIVITY_TYPES.map((type) => {
+      {publicActivityTypeFilterOrder(true).map((type) => {
         const isSelected = selected.includes(type)
         const showNew = isNewActivityTypeFilter(type)
 

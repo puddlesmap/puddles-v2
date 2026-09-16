@@ -418,6 +418,7 @@
 /* —— Browse categories: Puddles clay circles, Airbnb category row spacing —— */
 .seasonal-browse-preview {
   width: 100%;
+  min-width: 0;
   margin-top: var(--seasonal-section-gap);
   padding-top: var(--seasonal-section-gap);
   border-top: 1px solid #ebebeb;
@@ -446,10 +447,34 @@
   color: var(--color-muted);
 }
 
+/* Wrapper holds the right-edge fade; the track is the inner scroller
+   (home shell overflow-x: clip does not block this).
+   Chip width is 6 full + half of the next: 6w + 6g + w/2 = inner width. */
+.seasonal-browse-preview__scroller {
+  --browse-chip-gap: 0.875rem;
+  --browse-chip-pad: calc(2 * var(--layout-padding-mobile));
+  position: relative;
+  min-width: 0;
+  margin-inline: calc(-1 * var(--layout-padding-mobile));
+  container-type: inline-size;
+}
+
+.seasonal-browse-preview__scroller::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.85rem;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to right, transparent, var(--color-surface, #ffffff));
+}
+
 .seasonal-browse-preview__track {
   display: flex;
-  gap: 0.875rem;
-  margin-inline: calc(-1 * var(--layout-padding-mobile));
+  flex-wrap: nowrap;
+  gap: var(--browse-chip-gap);
   padding-inline: var(--layout-padding-mobile);
   padding-bottom: 0.25rem;
   overflow-x: auto;
@@ -460,11 +485,21 @@
   scrollbar-width: none;
 }
 
+/* Flex spacer (not padding) so the last chip can scroll clear of the fade. */
+.seasonal-browse-preview__track::after {
+  content: '';
+  flex: 0 0 4.5rem;
+}
+
 @media (min-width: 768px) {
-  .seasonal-browse-preview__track {
+  .seasonal-browse-preview__scroller {
+    --browse-chip-gap: 1.125rem;
+    --browse-chip-pad: 0px;
     margin-inline: 0;
+  }
+
+  .seasonal-browse-preview__track {
     padding-inline: 0;
-    gap: 1.125rem;
   }
 }
 
@@ -476,7 +511,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 0 0 5.75rem;
+  flex: 0 0 auto;
+  width: max(
+    4.75rem,
+    calc((100cqi - var(--browse-chip-pad) - 6 * var(--browse-chip-gap)) * 2 / 13)
+  );
   gap: 0.625rem;
   padding: 0.125rem;
   border: none;
@@ -514,6 +553,15 @@
   object-fit: contain;
 }
 
+.seasonal-browse-preview__chip-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  min-width: 0;
+  width: 100%;
+}
+
 .seasonal-browse-preview__chip-label {
   max-width: 100%;
   font-family: var(--font-sans);
@@ -522,6 +570,18 @@
   line-height: 1.25;
   text-align: center;
   color: var(--color-charcoal);
+}
+
+.seasonal-browse-preview__chip-new {
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+  background: rgb(77 184 242 / 0.14);
+  padding: 0.1rem 0.35rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  color: var(--color-brand-dark, #4db8f2);
 }
 
 /* —— Collection page (Airbnb title hierarchy + Home/Browse cards) —— */

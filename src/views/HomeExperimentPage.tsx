@@ -59,10 +59,10 @@ type WhereMode =
   | { kind: 'city'; value: CityValue }
 
 const CITY_CHIPS: Array<{ value: CityValue; label: string }> = [
+  { value: 'Sunnyvale', label: 'Sunnyvale' },
   { value: 'Palo Alto', label: 'Palo Alto' },
   { value: 'Los Altos', label: 'Los Altos' },
   { value: 'Mountain View', label: 'Mountain View' },
-  { value: 'Sunnyvale', label: 'Sunnyvale' },
   { value: 'all', label: 'All Cities' },
 ]
 
