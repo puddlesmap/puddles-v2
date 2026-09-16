@@ -14,8 +14,6 @@ const nextConfig: NextConfig = {
     cpus: 1,
     workerThreads: false,
   },
-  // Avoid retaining prerender source maps in memory during large SSG runs.
-  enablePrerenderSourceMaps: false,
 }
 
 export default nextConfig
