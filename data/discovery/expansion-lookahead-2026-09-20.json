@@ -1,0 +1,162 @@
+{
+  "generatedAt": "2026-09-20T17:56:54.545Z",
+  "window": {
+    "start": "2026-09-20",
+    "end": "2026-12-19",
+    "days": 90
+  },
+  "launchTargets": {
+    "city": "Sunnyvale",
+    "activityTypes": [
+      "Parent & Me",
+      "Festivals & Community"
+    ]
+  },
+  "discoveryGeneratedAt": "2026-09-20T17:56:54.314Z",
+  "expansion": {
+    "sunnyvale": {
+      "inWindow": 3,
+      "pending": 0,
+      "onCatalog": 23
+    },
+    "parentAndMe": {
+      "inWindow": 2,
+      "pending": 0,
+      "onCatalog": 3
+    },
+    "festivals": {
+      "inWindow": 16,
+      "pending": 0,
+      "onCatalog": 17
+    },
+    "byCity": [
+      [
+        "Palo Alto",
+        {
+          "total": 110,
+          "pending": 12
+        }
+      ],
+      [
+        "Mountain View",
+        {
+          "total": 46,
+          "pending": 4
+        }
+      ],
+      [
+        "Los Altos",
+        {
+          "total": 20,
+          "pending": 1
+        }
+      ],
+      [
+        "Sunnyvale",
+        {
+          "total": 3,
+          "pending": 0
+        }
+      ],
+      [
+        "San Jose",
+        {
+          "total": 2,
+          "pending": 0
+        }
+      ],
+      [
+        "Nicasio",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "Gilroy",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "San Francisco",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "Redwood City",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "Half Moon Bay",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "Fremont",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ]
+    ],
+    "byType": [
+      [
+        "Stories",
+        122
+      ],
+      [
+        "Build & Explore",
+        29
+      ],
+      [
+        "Outdoor",
+        27
+      ],
+      [
+        "Festivals & Community",
+        16
+      ],
+      [
+        "Social & Play",
+        10
+      ],
+      [
+        "Arts & Crafts",
+        6
+      ],
+      [
+        "Other",
+        5
+      ],
+      [
+        "Music & Movement",
+        3
+      ],
+      [
+        "Parent & Me",
+        2
+      ]
+    ],
+    "sunnyvalePendingRows": [],
+    "parentAndMePendingRows": [],
+    "festivalsPendingRows": [],
+    "actions": [
+      "**Sunnyvale:** No pending library rows — Sunnyvale Public Library is watchlist-only until `discover-sunnyvale.mjs` exists; verify Mini Yoga Club + FIT4MOM Las Palmas + library seeds.",
+      "**Sunnyvale library:** No automated Sunnyvale branch scraper — add `discover-sunnyvale.mjs` or keep `build-launch-staging.mjs` series seeds current.",
+      "**Parent & Me:** Re-check FIT4MOM weekly graphic (Mondays), Marti Foster, Music Together semester row.",
+      "**Festivals & Community:** Manual pass on MV/LA city calendars, harvest weekends, Halloween fairs (Sep–Oct).",
+      "**Seasonal drive picks:** Editorial farms/haunts live in `seasonal*DriveEvents.ts` — not library scrapers.",
+      "**Core cities only in regular discovery:** Events outside Palo Alto / Los Altos / Mountain View belong in Seasonal → Worth a Little Drive until a city landing justifies a scraper."
+    ]
+  },
+  "watchlistUpdatedAt": "2026-09-02"
+}
