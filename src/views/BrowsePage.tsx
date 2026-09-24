@@ -115,6 +115,14 @@ interface BrowsePageProps {
   getEventsCatalog?: () => Event[]
   discoveryGate?: DiscoveryGate
   buildEventDetailPath?: (event: Event) => string
+  /** Card-only: append venue after the title. Live /browse stays off. */
+  appendVenueToTitle?: boolean
+  /** Card-only: append venue after date · time. Live /browse stays off. */
+  appendVenueToWhen?: boolean
+  /** Card-only: venue as its own line under the title. Live /browse stays off. */
+  showVenueBelowTitle?: boolean
+  /** Card-only: venue inline at 390px+, own line below 390. Live /browse stays off. */
+  venueResponsive?: boolean
 }
 
 function isBrowseHubPath(pathname: string): boolean {
@@ -131,6 +139,10 @@ export function BrowsePage({
   getEventsCatalog,
   discoveryGate = 'public',
   buildEventDetailPath,
+  appendVenueToTitle = false,
+  appendVenueToWhen = false,
+  showVenueBelowTitle = false,
+  venueResponsive = false,
 }: BrowsePageProps = {}) {
   const { browseFilters, setBrowseFilters } = useApp()
   const { getCatalog: getLaunchCatalog } = useLaunchStagingCatalog()
@@ -594,6 +606,7 @@ export function BrowsePage({
           restoreSnapshot={restoreSnapshot}
           onOpenEvent={handleOpenMapEvent}
           detachedViewToggle={viewToggleSeparated ? detachedViewToggle : null}
+          venueResponsive={venueResponsive}
         />
       ) : (
         <div className="browse-page-body">
@@ -626,6 +639,10 @@ export function BrowsePage({
                       key={event.id}
                       event={event}
                       onClick={() => handleOpenListEvent(event)}
+                      appendVenueToTitle={appendVenueToTitle}
+                      appendVenueToWhen={appendVenueToWhen}
+                      showVenueBelowTitle={showVenueBelowTitle}
+                      venueResponsive={venueResponsive}
                     />
                   ))}
                 </div>

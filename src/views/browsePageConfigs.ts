@@ -13,4 +13,5 @@ export const BROWSE_PAGE_PROPS = {
   resultsCountStyle: 'contextual' as const,
   mapInteractionMode: 'connected' as const,
   listLayout: 'compact-two-column' as const,
+  venueResponsive: true,
 }

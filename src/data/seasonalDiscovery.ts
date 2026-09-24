@@ -602,6 +602,7 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'seasonal-drive-grimm-manor-san-jose-2026-10-10',
       'seasonal-drive-spooktacular-lego-redwood-city-2026-10-12',
       'seasonal-drive-haunted-train-ardenwood-2026-10-18',
+      'seasonal-drive-ybg-halloween-hoopla-2026-10-31',
     ],
     closeToHome: {
       title: 'Close to home',

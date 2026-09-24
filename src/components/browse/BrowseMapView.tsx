@@ -15,6 +15,7 @@ interface BrowseMapViewProps {
   interactionMode?: MapInteractionMode
   restoreSnapshot?: BrowseReturnSnapshot | null
   detachedViewToggle?: ReactNode
+  venueResponsive?: boolean
 }
 
 export function BrowseMapView({ browseFilters, interactionMode = 'default', ...props }: BrowseMapViewProps) {

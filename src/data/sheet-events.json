@@ -18993,5 +18993,99 @@
     "tips": "$18 per person (adults and children). Register ahead — tours need at least 5 people or they cancel with a refund. Closed-toe shoes; dirt paths, gravel, and woodchips. More weekend times are on the official catalog page.",
     "isRegional": false,
     "isSeasonal": false
+  },
+  {
+    "id": "watchlist-sunnyvale-library-family-storytime-2026-09-26",
+    "title": "Family Storytime",
+    "description": "Storytime in the Program Room for children of all ages and their caregivers.",
+    "tips": "No registration. Doors close when the Program Room is full.",
+    "venue": "Sunnyvale Public Library",
+    "room": "Program Room",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-26",
+    "startTime": "11:00",
+    "endTime": "11:25",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "verifiedDate": "2026-09-24",
+    "lat": 37.3719,
+    "lng": -122.0391,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Stories"
+  },
+  {
+    "id": "core-weekend-elks-kid-family-yoga-2026-09-27",
+    "title": "Kid & Family Yoga",
+    "description": "The lodge’s first family yoga class — grown-ups and little ones practice together.",
+    "tips": "Tickets required. The lodge calendar does not list a price — check the official page.",
+    "venue": "Palo Alto Elks Lodge",
+    "address": "4249 El Camino Real, Palo Alto, CA 94306",
+    "city": "Palo Alto",
+    "date": "2026-09-27",
+    "startTime": "14:00",
+    "endTime": "15:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me"
+    ],
+    "categoryTags": [
+      "Parent & Me"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.paloaltoelks.org/rsvp",
+    "verifiedDate": "2026-09-24",
+    "lat": 37.4159,
+    "lng": -122.1294,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Parent & Me"
+  },
+  {
+    "id": "core-weekend-sunnyvale-baylands-drum-circle-2026-09-26",
+    "title": "Community Drum Circle",
+    "description": "A drop-in drum circle with a few drums and small percussion to share. No experience needed.",
+    "tips": "Rain cancels the circle. Parking at the park sometimes has a fee. Take off rings before you play, and bring a chair if you have one.",
+    "venue": "Baylands Park",
+    "address": "999 E Caribbean Dr, Sunnyvale, CA 94089",
+    "city": "Sunnyvale",
+    "date": "2026-09-26",
+    "startTime": "14:00",
+    "endTime": "",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://venunite.com/events/community-drum-circle-89",
+    "verifiedDate": "2026-09-24",
+    "lat": 37.4089,
+    "lng": -122.0005,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Music & Movement"
   }
 ]

@@ -68,6 +68,7 @@ function SeasonalEventGrid({
             key={event.id}
             event={event}
             seasonalEditorial={false}
+            venueResponsive
             onClick={() => onEventClick(event)}
           />
         ))}
@@ -289,6 +290,7 @@ export function ExperimentSeasonalCollectionPage() {
                     key={event.id}
                     event={event}
                     seasonalEditorial={false}
+                    venueResponsive
                     onClick={() => openEvent(event, 'home', { viewMode: 'list' })}
                   />
                 ))}

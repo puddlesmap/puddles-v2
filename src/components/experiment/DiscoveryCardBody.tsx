@@ -15,6 +15,7 @@ interface MetaRowProps extends Pick<DiscoveryV3CardData, 'age' | 'cost' | 'type'
   city?: string
   compact?: boolean
   cityMode?: 'outline' | 'soft' | 'none'
+  lockOverflow?: boolean
 }
 
 function MetaCityPinIcon() {
@@ -58,6 +59,7 @@ function MetaStyledPillars({
   city,
   compact = false,
   cityMode = 'none',
+  lockOverflow = false,
 }: MetaRowProps) {
   const priceTone = cost === 'Free' ? 'free' : cost === 'Low-cost' ? 'low' : 'paid'
   const typeLabel = compact ? formatDiscoveryTypePillarLabel(type) : type
@@ -65,7 +67,7 @@ function MetaStyledPillars({
 
   useEffect(() => {
     const el = scrollerRef.current
-    if (!el) return
+    if (!el || lockOverflow) return
 
     const updateOverflow = () => {
       const canScroll = el.scrollWidth > el.clientWidth + 1
@@ -91,7 +93,7 @@ function MetaStyledPillars({
       el.removeEventListener('scroll', updateOverflow)
       window.removeEventListener('resize', updateOverflow)
     }
-  }, [])
+  }, [lockOverflow])
 
   return (
     <div
@@ -99,6 +101,7 @@ function MetaStyledPillars({
       className={[
         'lem-disc-meta-pillars',
         compact ? 'lem-disc-meta-pillars--compact' : '',
+        lockOverflow ? 'lem-disc-meta-pillars--locked' : '',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -143,6 +146,14 @@ interface DiscoveryCardBodyProps extends Pick<
   compactPillars?: boolean
   showPillars?: boolean
   bodyClassName?: string
+  /** Optional ` · venue` after the title (card-only, same weight as the title). */
+  titleVenue?: string | null
+  /** Optional ` · venue` on the date/time line. */
+  datetimeVenue?: string | null
+  /** Dedicated venue row under the title. Card-only. Default off. */
+  showVenueBelowTitle?: boolean
+  venueLine?: string | null
+  venueResponsive?: boolean
 }
 
 export function DiscoveryCardBody({
@@ -157,6 +168,11 @@ export function DiscoveryCardBody({
   compactPillars = false,
   showPillars = true,
   bodyClassName,
+  titleVenue = null,
+  datetimeVenue = null,
+  showVenueBelowTitle = false,
+  venueLine = null,
+  venueResponsive = false,
 }: DiscoveryCardBodyProps) {
   const isCompactLayout =
     layout === 'city-pill' ||
@@ -167,6 +183,8 @@ export function DiscoveryCardBody({
     'discovery-event-card-body',
     bodyClassName,
     isCompactLayout ? 'discovery-card-body--compact' : '',
+    showVenueBelowTitle ? 'venue-line-fixed' : '',
+    venueResponsive ? 'venue-responsive' : '',
   ]
     .filter(Boolean)
     .join(' ')
@@ -176,6 +194,15 @@ export function DiscoveryCardBody({
       <div className="discovery-event-meta">
         <p className="discovery-event-datetime">
           {when}
+          {datetimeVenue ? (
+            <span className="discovery-event-datetime__venue-wrap">
+              <span className="discovery-event-datetime__sep" aria-hidden>
+                {' '}
+                ·{' '}
+              </span>
+              <span className="discovery-event-datetime__venue">{datetimeVenue}</span>
+            </span>
+          ) : null}
           {layout === 'city-inline' && city ? (
             <>
               <span className="discovery-event-datetime__sep" aria-hidden>
@@ -187,8 +214,18 @@ export function DiscoveryCardBody({
           ) : null}
         </p>
       </div>
-      <h3 className="discovery-event-title">{title}</h3>
-      {layout === 'venue-line' && location ? (
+      <h3 className="discovery-event-title">
+        {title}
+        {!showVenueBelowTitle && titleVenue ? (
+          <span className="discovery-event-title__place">
+            {' '}
+            · {titleVenue}
+          </span>
+        ) : null}
+      </h3>
+      {showVenueBelowTitle || venueResponsive ? (
+        <p className="discovery-event-venue-line">{venueLine?.trim() || '\u00a0'}</p>
+      ) : layout === 'venue-line' && location ? (
         <p className="discovery-event-location">{location}</p>
       ) : null}
       {showPillars && type ? (
@@ -207,6 +244,7 @@ export function DiscoveryCardBody({
             type={type}
             city={city}
             compact={compactPillars}
+            lockOverflow={showVenueBelowTitle}
             cityMode={
               layout === 'city-pill' ? 'outline' : layout === 'city-soft' ? 'soft' : 'none'
             }

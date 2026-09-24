@@ -1,0 +1,1334 @@
+/* Home + Seasonal density experiments */
+
+.home-seasonal-density-index {
+  min-height: 100dvh;
+  padding: 2rem 0 4.5rem;
+  background: #f8fafc;
+}
+
+.home-seasonal-density-index__inner {
+  max-width: 40rem;
+}
+
+.home-seasonal-density-index__eyebrow {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.home-seasonal-density-index__title {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-charcoal);
+}
+
+.home-seasonal-density-index__lede {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #686868;
+}
+
+.home-seasonal-density-index__note {
+  margin: 1rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #686868;
+}
+
+.home-seasonal-density-index__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-seasonal-density-index__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.125rem;
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-md);
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-seasonal-density-index__card:hover {
+  border-color: color-mix(in srgb, var(--color-charcoal) 18%, #ebebeb);
+}
+
+.home-seasonal-density-index__card-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.home-seasonal-density-index__card-title {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-charcoal);
+}
+
+.home-seasonal-density-index__card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: #686868;
+}
+
+.home-seasonal-density-index__card-path {
+  margin-top: 0.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.home-seasonal-density-note {
+  margin: 0;
+  padding: 0.55rem 1rem;
+  background: #fff7e8;
+  color: var(--color-charcoal);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.home-seasonal-density-note__link {
+  color: var(--color-brand);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Compact active-theme teaser (no featured carousel) */
+.home-seasonal-teaser {
+  width: 100%;
+}
+
+.home-seasonal-teaser--band {
+  background: var(--seasonal-accent-bg, #f6efe4);
+}
+
+.home-seasonal-teaser__hit {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-seasonal-teaser__hit:hover .home-seasonal-teaser__cta,
+.home-seasonal-teaser__hit:focus-visible .home-seasonal-teaser__cta {
+  color: #b45309;
+}
+
+.home-seasonal-teaser__hit:focus-visible {
+  outline: 2px solid var(--color-charcoal, #273034);
+  outline-offset: -2px;
+}
+
+.home-seasonal-teaser--band .home-seasonal-teaser__inner {
+  box-sizing: border-box;
+  padding-block: 0.85rem 1rem;
+}
+
+.home-seasonal-teaser--inline .home-seasonal-teaser__hit {
+  margin: 0 0 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--seasonal-accent-border, #ebebeb);
+  border-radius: var(--radius-md);
+  background: var(--seasonal-accent-bg, #fafafa);
+}
+
+.home-seasonal-teaser--halloween-night.home-seasonal-teaser--band,
+.home-seasonal-teaser--halloween-night.home-seasonal-teaser--inline .home-seasonal-teaser__hit {
+  background:
+    radial-gradient(ellipse 55% 80% at 92% 0%, rgba(240, 178, 122, 0.18) 0%, transparent 58%),
+    linear-gradient(180deg, #151a22 0%, #12161c 100%);
+  border-color: rgb(255 248 232 / 0.16);
+  color: #f4f1ea;
+}
+
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__hit {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__eyebrow {
+  color: #f0b27a;
+}
+
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__title {
+  color: #fff8e8;
+}
+
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__tagline,
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__cta,
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__cta--in-copy,
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__cta--proof {
+  color: rgba(244, 241, 234, 0.78);
+}
+
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__hit:hover .home-seasonal-teaser__cta,
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__hit:focus-visible .home-seasonal-teaser__cta {
+  color: #ffd09a;
+}
+
+.home-seasonal-teaser__sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.home-seasonal-teaser__sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff8e8;
+  box-shadow:
+    0 0 4px 1px rgba(255, 248, 232, 0.55),
+    0 0 10px 2px rgba(240, 178, 122, 0.28);
+  animation: home-seasonal-twinkle var(--sparkle-duration, 3s) ease-in-out var(--sparkle-delay, 0s)
+    infinite;
+  opacity: 0.7;
+}
+
+.home-seasonal-teaser__sparkle:nth-child(3n) {
+  background: #ffe4b8;
+}
+
+.home-seasonal-teaser__sparkle:nth-child(4n) {
+  background: #e8f4ff;
+}
+
+@keyframes home-seasonal-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.75);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  70% {
+    opacity: 0.55;
+    transform: scale(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-seasonal-teaser__sparkle {
+    animation: none;
+    opacity: 0.55;
+  }
+}
+
+.home-seasonal-teaser__eyebrow {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--seasonal-accent-eyebrow, var(--color-muted));
+}
+
+.home-seasonal-teaser__row,
+.home-seasonal-teaser__intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.65rem 1rem;
+}
+
+.home-seasonal-teaser__illustration {
+  flex-shrink: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(39, 48, 52, 0.1));
+}
+
+.home-seasonal-teaser__copy-col {
+  min-width: 0;
+}
+
+/* Band photo-strip: small clay beside Hello, Fall, aligned to the title. */
+.home-seasonal-teaser--band .home-seasonal-teaser__title-with-art {
+  position: relative;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding-right: 2.15rem;
+}
+
+.home-seasonal-teaser--band .home-seasonal-teaser__title-with-art .home-seasonal-teaser__title {
+  white-space: nowrap;
+}
+
+.home-seasonal-teaser--band .home-seasonal-teaser__title-art {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+  transform: translateY(-0.45rem);
+  filter: drop-shadow(0 2px 8px rgba(39, 48, 52, 0.1));
+  pointer-events: none;
+}
+
+/* Home B title copy — clay beside Hello, Fall; full module tagline; no large clay column. */
+.home-seasonal-teaser--inline.home-seasonal-teaser--title-copy .home-seasonal-teaser__title-with-art {
+  position: relative;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding-right: 2.15rem;
+}
+
+.home-seasonal-teaser--inline.home-seasonal-teaser--title-copy
+  .home-seasonal-teaser__title-with-art
+  .home-seasonal-teaser__title {
+  white-space: nowrap;
+}
+
+.home-seasonal-teaser--inline.home-seasonal-teaser--title-copy .home-seasonal-teaser__title-art {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+  transform: translateY(-0.45rem);
+  filter: drop-shadow(0 2px 8px rgba(39, 48, 52, 0.1));
+  pointer-events: none;
+}
+
+.home-seasonal-teaser--inline.home-seasonal-teaser--title-copy .home-seasonal-teaser__tagline--compact {
+  display: none;
+}
+
+.home-seasonal-teaser--inline.home-seasonal-teaser--title-copy .home-seasonal-teaser__tagline--full {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.home-seasonal-teaser--band .home-seasonal-teaser__tagline--compact {
+  display: none;
+}
+
+.home-seasonal-teaser--inline .home-seasonal-teaser__tagline {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.home-seasonal-teaser__inner--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'copy'
+    'proof'
+    'cta';
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.home-seasonal-teaser__inner--split .home-seasonal-teaser__copy-col {
+  grid-area: copy;
+}
+
+.home-seasonal-teaser__inner--split .home-seasonal-teaser__proof {
+  grid-area: proof;
+  margin-top: 0;
+}
+
+.home-seasonal-teaser__inner--split .home-seasonal-teaser__cta--proof {
+  grid-area: cta;
+  margin-top: 0;
+}
+
+.home-seasonal-teaser__copy {
+  min-width: 0;
+  flex: 1 1 10rem;
+}
+
+.home-seasonal-teaser__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-charcoal);
+}
+
+.home-seasonal-teaser__tagline {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: var(--color-muted);
+}
+
+.home-seasonal-teaser__cta {
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.home-seasonal-teaser__cta:hover {
+  color: #b45309;
+}
+
+.home-seasonal-teaser__cta--proof {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.55rem;
+  font-size: var(--type-meta, 13px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--type-supporting-color, #686868);
+  white-space: nowrap;
+}
+
+.home-seasonal-teaser__cta--in-copy {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: var(--type-meta, 13px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--type-supporting-color, #686868);
+  white-space: nowrap;
+}
+
+.home-seasonal-teaser__cta--proof:hover,
+.home-seasonal-teaser__cta--in-copy:hover {
+  color: var(--color-charcoal, #273034);
+}
+
+.home-experiment-page--refined .discovery-event-title__place {
+  font-weight: inherit;
+}
+
+.home-seasonal-teaser__photos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  text-decoration: none;
+}
+
+.home-seasonal-teaser--inline.home-seasonal-teaser--photo-strip .home-seasonal-teaser__photos {
+  margin-top: 0.65rem;
+}
+
+.home-seasonal-teaser--inline.home-seasonal-teaser--photo-strip .home-seasonal-teaser__photo {
+  height: 3.25rem;
+}
+
+.home-seasonal-teaser__proof {
+  min-width: 0;
+}
+
+.home-seasonal-teaser--photo-strip .home-seasonal-teaser__photo:nth-child(n + 4) {
+  display: none;
+}
+
+.home-seasonal-teaser__photo {
+  display: block;
+  width: 100%;
+  height: 4.75rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  background: #eee;
+}
+
+.home-seasonal-teaser__micros {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-seasonal-teaser__micro {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+}
+
+.home-seasonal-teaser__micro-photo {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: cover;
+  border-radius: 0.45rem;
+  background: #eee;
+}
+
+.home-seasonal-teaser__micro-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.home-seasonal-teaser__micro-title {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-charcoal);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+.home-seasonal-teaser__micro-meta {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-muted);
+}
+
+.home-seasonal-teaser__featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4.5rem;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+  align-items: start;
+}
+
+.home-seasonal-teaser__featured-lead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+}
+
+.home-seasonal-teaser__featured-photo {
+  display: block;
+  width: 100%;
+  height: 7.25rem;
+  object-fit: cover;
+  border-radius: 0.55rem;
+  background: #eee;
+}
+
+.home-seasonal-teaser__featured-title {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-charcoal);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.home-seasonal-teaser__featured-meta {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+.home-seasonal-teaser__featured-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.home-seasonal-teaser__featured-thumb {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.home-seasonal-teaser__featured-thumb img {
+  display: block;
+  width: 4.5rem;
+  height: 3.4rem;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  background: #eee;
+}
+
+/* Collection geo tabs — sticky under the header, overlays cards on scroll */
+.seasonal-density-tabs {
+  position: sticky;
+  top: 3.75rem;
+  z-index: 20;
+  margin: 0 calc(-1 * var(--layout-padding-mobile)) var(--seasonal-copy-cards-gap, 1.25rem);
+  padding: 0.5rem var(--layout-padding-mobile);
+  background: var(--page-background, #fff);
+}
+
+.seasonal-density-tabs__list {
+  display: flex;
+  width: 100%;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 999px;
+  background: #f4f4f4;
+}
+
+.seasonal-density-tabs__tab {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7em;
+  margin: 0;
+  padding: 0.45rem 0.55rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #6a6a6a;
+  cursor: pointer;
+  text-align: center;
+  white-space: normal;
+}
+
+.seasonal-density-tabs__tab[aria-selected='true'] {
+  background: #fff;
+  color: var(--color-charcoal);
+  box-shadow: 0 1px 3px rgb(39 48 52 / 0.1);
+}
+
+.seasonal-density-desktop-stack {
+  display: none;
+}
+
+.seasonal-density-group {
+  margin: 0;
+}
+
+.seasonal-density-group + .seasonal-density-group {
+  margin-top: 2rem;
+}
+
+.seasonal-density-group__title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-charcoal, #273034);
+}
+
+.seasonal-density-empty {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-muted);
+}
+
+.seasonal-collection-page--hello-fall .seasonal-collection-sections,
+.seasonal-collection-page--halloween .seasonal-collection-sections {
+  gap: 0;
+}
+
+.seasonal-density-group .browse-content.seasonal-collection-results {
+  padding-top: 0 !important;
+}
+
+.seasonal-collection-page--hello-fall .seasonal-density-tabs {
+  background: color-mix(in srgb, var(--seasonal-accent-bg, #ffd8a8) 70%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.seasonal-density-tabs--fall-frost .seasonal-density-tabs__list {
+  background: rgb(255 255 255 / 0.38);
+  border: 1px solid rgb(255 255 255 / 0.5);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.seasonal-density-tabs--fall-frost .seasonal-density-tabs__tab {
+  color: #8a4b24;
+}
+
+.seasonal-density-tabs--fall-frost .seasonal-density-tabs__tab[aria-selected='true'] {
+  background: #fff;
+  color: var(--color-charcoal, #273034);
+  box-shadow: 0 1px 4px rgb(124 45 18 / 0.12);
+}
+
+.seasonal-density-tabs--fall-harvest .seasonal-density-tabs__list {
+  background: color-mix(in srgb, #7c2d12 42%, rgb(255 216 168 / 0.35));
+  border: 1px solid rgb(255 255 255 / 0.22);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.seasonal-density-tabs--fall-harvest .seasonal-density-tabs__tab {
+  color: #f4e6d4;
+}
+
+.seasonal-density-tabs--fall-harvest .seasonal-density-tabs__tab[aria-selected='true'] {
+  background: #fff;
+  color: var(--color-charcoal, #273034);
+  box-shadow: 0 1px 4px rgb(124 45 18 / 0.2);
+}
+
+.seasonal-collection-page--hello-fall .seasonal-density-mobile-panel > .seasonal-collection-band__header,
+.seasonal-collection-page--hello-fall .seasonal-density-desktop-stack .seasonal-collection-band__header,
+.seasonal-collection-page--halloween .seasonal-density-mobile-panel > .seasonal-collection-band__header,
+.seasonal-collection-page--halloween .seasonal-density-desktop-stack .seasonal-collection-band__header {
+  margin-bottom: 0.875rem;
+  padding-bottom: 0;
+}
+
+.seasonal-density-tabs__sentinel {
+  height: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.seasonal-collection-page--halloween .seasonal-density-tabs {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.seasonal-collection-page--halloween .seasonal-density-tabs.is-stuck {
+  background: var(--page-background, #12161c);
+}
+
+.seasonal-collection-page--halloween .seasonal-density-tabs__list {
+  background: rgb(15 19 24 / 0.55);
+}
+
+.seasonal-collection-page--halloween .seasonal-density-tabs__tab {
+  color: #cfc8bc;
+}
+
+.seasonal-collection-page--halloween .seasonal-density-tabs--fall-frost .seasonal-density-tabs__list {
+  background: rgb(255 248 232 / 0.08);
+  border: 1px solid rgb(255 248 232 / 0.14);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.seasonal-collection-page--halloween .seasonal-density-tabs--fall-frost .seasonal-density-tabs__tab {
+  color: #f4e6d4;
+}
+
+.seasonal-collection-page--halloween
+  .seasonal-density-tabs--fall-frost
+  .seasonal-density-tabs__tab[aria-selected='true'] {
+  background: #fff;
+  color: var(--color-charcoal, #273034);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.28);
+}
+
+.seasonal-collection-page--halloween .seasonal-density-group__title,
+.seasonal-collection-page--halloween .seasonal-density-empty {
+  color: #cfc8bc;
+}
+
+@media (min-width: 768px) {
+  .seasonal-density-tabs {
+    top: 4rem;
+    margin-left: calc(-1 * var(--layout-padding-tablet));
+    margin-right: calc(-1 * var(--layout-padding-tablet));
+    padding-inline: var(--layout-padding-tablet);
+  }
+
+  .home-seasonal-teaser--band .home-seasonal-teaser__inner {
+    padding-block: 1rem 1.125rem;
+  }
+
+  .home-seasonal-teaser--band .home-seasonal-teaser__title-with-art {
+    padding-right: 2.4rem;
+  }
+
+  .home-seasonal-teaser--band .home-seasonal-teaser__title-art {
+    width: 2rem;
+    height: 2rem;
+    transform: translateY(-0.55rem);
+  }
+
+  .home-experiment-refined-main > .home-seasonal-teaser--inline .home-seasonal-teaser__hit {
+    margin-top: 1.25rem;
+  }
+
+  .home-seasonal-teaser--inline .home-seasonal-teaser__tagline br {
+    display: none;
+  }
+
+  .home-seasonal-teaser__inner--split {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+      'copy proof'
+      'cta proof';
+    gap: 1.25rem;
+  }
+
+  .home-seasonal-teaser__inner--split .home-seasonal-teaser__cta--proof {
+    align-self: start;
+  }
+
+  .home-seasonal-teaser__photo {
+    height: 6.25rem;
+  }
+
+  .home-seasonal-teaser--photo-strip .home-seasonal-teaser__photos {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.45rem;
+    width: 100%;
+    max-width: none;
+  }
+
+  .home-seasonal-teaser--photo-strip .home-seasonal-teaser__photo {
+    height: 5.25rem;
+  }
+
+  .home-seasonal-teaser--photo-strip .home-seasonal-teaser__photo:nth-child(n + 4) {
+    display: block;
+  }
+
+  .home-seasonal-teaser--inline.home-seasonal-teaser--photo-strip .home-seasonal-teaser__photos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-seasonal-teaser--inline.home-seasonal-teaser--photo-strip .home-seasonal-teaser__photo {
+    height: 3.5rem;
+  }
+
+  .home-seasonal-teaser--inline.home-seasonal-teaser--photo-strip .home-seasonal-teaser__photo:nth-child(n + 4) {
+    display: none;
+  }
+
+  .seasonal-density-tabs--mobile,
+  .seasonal-density-tabs__sentinel,
+  .seasonal-density-mobile-panel {
+    display: none;
+  }
+
+  .seasonal-density-desktop-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-seasonal-density--split-bp .home-seasonal-teaser--band {
+    display: none;
+  }
+
+  .home-seasonal-teaser--band .home-seasonal-teaser__tagline--full {
+    display: none;
+  }
+
+  .home-seasonal-teaser--band .home-seasonal-teaser__tagline--compact {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-seasonal-density--split-bp .home-experiment-refined-main > .home-seasonal-teaser--inline {
+    display: none;
+  }
+}
+
+.home-seasonal-dual-stack .home-seasonal-teaser--band + .home-seasonal-teaser--band {
+  margin-top: 0;
+}
+
+/* Stacked map sits in the same column as the seasonal cards. Match their edges. */
+@media (max-width: 768px) {
+  .home-seasonal-density--split-bp .home-experiment-refined-map--mobile.home-experiment-refined-panel {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-seasonal-dual-stack .home-experiment-refined-main > .home-seasonal-teaser--inline .home-seasonal-teaser__hit {
+    margin: 0;
+  }
+
+  /* Map panel already has 12px of padding under the map card. */
+  .home-seasonal-dual-stack .home-experiment-refined-main > .home-seasonal-teaser--inline:first-child {
+    margin-top: 0.25rem;
+  }
+
+  .home-seasonal-dual-stack .home-experiment-refined-main > .home-seasonal-teaser--inline + .home-seasonal-teaser--inline,
+  .home-seasonal-dual-stack .home-experiment-refined-main > .home-seasonal-teaser--inline + .home-experiment-content {
+    margin-top: 1rem;
+  }
+}
+
+.browse-content .discovery-event-datetime .discovery-event-datetime__venue,
+.discovery-event-datetime__venue {
+  text-transform: none;
+  font-weight: 600;
+}
+
+.seasonal-next-preview--compact {
+  margin: 2.5rem 0 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-md);
+  background: #fafafa;
+}
+
+@media (min-width: 768px) {
+  .seasonal-next-preview--compact {
+    margin-top: 3rem;
+  }
+}
+
+.seasonal-next-preview--compact .seasonal-next-preview__hit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.65rem 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.seasonal-next-preview--compact .seasonal-next-preview__hit:hover .seasonal-next-preview__cta,
+.seasonal-next-preview--compact .seasonal-next-preview__hit:focus-visible .seasonal-next-preview__cta {
+  color: #b45309;
+}
+
+.seasonal-next-preview--compact .seasonal-next-preview__cta--in-copy {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: var(--type-meta, 13px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--type-supporting-color, #686868);
+  white-space: nowrap;
+}
+
+.home-seasonal-phone-sizes {
+  padding-bottom: 3rem;
+}
+
+.home-seasonal-phone-sizes__frames {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  padding-bottom: 1rem;
+  overflow-x: auto;
+}
+
+.home-seasonal-phone-sizes__frame {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.home-seasonal-phone-sizes__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0 0 0.65rem;
+}
+
+.home-seasonal-phone-sizes__label {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+}
+
+.home-seasonal-phone-sizes__meta {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.home-seasonal-phone-sizes__iframe {
+  display: block;
+  height: 44rem;
+  border: 1px solid #ebebeb;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(39 48 52 / 0.08);
+}
+
+.venue-min-cards {
+  padding-bottom: 3rem;
+}
+
+.venue-min-cards__pair {
+  display: grid;
+  grid-template-columns: minmax(0, 23.5rem);
+  gap: 2rem;
+  margin-top: 1.75rem;
+}
+
+.venue-min-cards__heading {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-charcoal);
+}
+
+.venue-min-cards__heading--phones {
+  margin-top: 2.5rem;
+}
+
+.venue-min-cards__hint {
+  margin: 0.25rem 0 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-muted);
+}
+
+.venue-min-cards__phone {
+  width: 375px;
+  max-width: 100%;
+}
+
+.venue-min-cards__phone--360 {
+  width: 360px;
+}
+
+.venue-min-cards__phone--390 {
+  width: 390px;
+}
+
+.venue-min-cards__phone--414 {
+  width: 414px;
+}
+
+.venue-min-cards__phone--430 {
+  width: 430px;
+}
+
+.venue-min-cards__pair--ladder {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 1.75rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.venue-min-cards__pair--ladder .venue-min-cards__col {
+  flex: 0 0 auto;
+}
+
+.venue-min-cards__pair--ladder .venue-min-cards__phone,
+.venue-min-cards__pair--ladder .venue-min-cards__phone--360,
+.venue-min-cards__pair--ladder .venue-min-cards__phone--390,
+.venue-min-cards__pair--ladder .venue-min-cards__phone--414,
+.venue-min-cards__pair--ladder .venue-min-cards__phone--430 {
+  max-width: none;
+  flex: 0 0 auto;
+}
+
+.venue-min-cards__pair--ladder .venue-min-cards__one-up {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  width: 100%;
+}
+
+.venue-min-cards__pair--ladder .venue-min-cards__two-up {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  width: 100%;
+}
+
+.venue-min-cards__pair--ladder .venue-min-cards__one-up > *,
+.venue-min-cards__pair--ladder .venue-min-cards__two-up > *,
+.venue-min-cards__pair--ladder .browse-content .discovery-event-card {
+  width: 100%;
+  max-width: none !important;
+}
+
+.venue-min-cards__two-up {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.625rem !important;
+  width: 100%;
+}
+
+.venue-min-cards__one-up {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 0.625rem !important;
+  width: 100%;
+}
+
+.venue-min-cards__two-up > *,
+.venue-min-cards__one-up > * {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .venue-min-cards__pair {
+    grid-template-columns: repeat(2, minmax(0, 23.5rem));
+    gap: 2.5rem;
+  }
+
+  .venue-min-cards__pair--quad {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.venue-min-cards__desktop {
+  width: 100%;
+  max-width: 42rem;
+}
+
+/* Venue as own line — experiment only. Extra row, fixed height, no in-card scroll. */
+.venue-line-fixed .browse-content,
+.browse-content.venue-line-fixed,
+.browse-page-shell.venue-line-fixed .browse-content {
+  --discovery-v3-body-height: 9.125rem;
+}
+
+.browse-content .discovery-event-card.discovery-v3-event-card.venue-line-fixed .discovery-v3-event-card__body,
+.discovery-v3-event-card.venue-line-fixed .discovery-v3-event-card__body,
+.venue-line-fixed.discovery-event-card-body {
+  --discovery-v3-body-height: 9.125rem;
+  flex: 0 0 9.125rem;
+  height: 9.125rem;
+  min-height: 9.125rem;
+  max-height: 9.125rem;
+  overflow: hidden;
+}
+
+.venue-line-fixed .discovery-event-datetime,
+.discovery-v3-event-card.venue-line-fixed .discovery-event-datetime {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.venue-line-fixed h3.discovery-event-title,
+.discovery-v3-event-card.venue-line-fixed h3.discovery-event-title {
+  min-height: calc(2 * 1.35em);
+  max-height: calc(2 * 1.35em);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  text-overflow: ellipsis;
+}
+
+.discovery-event-venue-line {
+  margin: var(--discovery-copy-label-gap, 0.25rem) 0 0;
+  min-height: calc(1 * 1.3em);
+  max-height: calc(1 * 1.3em);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #717171;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.discovery-v3-event-card.venue-line-fixed .discovery-v3-event-card__body,
+.venue-line-fixed.discovery-event-card-body {
+  overflow: hidden;
+}
+
+.browse-content .discovery-v3-event-card.venue-line-fixed .lem-disc-meta-pillars,
+.browse-content .discovery-v3-event-card.venue-line-fixed .lem-disc-meta-pillars--compact,
+.discovery-v3-event-card.venue-line-fixed .lem-disc-meta-pillars,
+.discovery-v3-event-card.venue-line-fixed .lem-disc-meta-pillars--compact,
+.lem-disc-meta-pillars--locked {
+  overflow: hidden;
+  overflow-x: hidden;
+  pointer-events: none;
+  mask-image: none;
+}
+
+.browse-content .discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars,
+.browse-content .discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars--compact,
+.discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars,
+.discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars--compact {
+  overflow-x: auto;
+  overflow-y: hidden;
+  pointer-events: auto;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.browse-content .discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars.is-scrollable:not(.is-scrolled-end),
+.discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars.is-scrollable:not(.is-scrolled-end) {
+  mask-image: linear-gradient(to right, #000 78%, transparent);
+}
+
+.browse-content .discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars::-webkit-scrollbar,
+.browse-content .discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars--compact::-webkit-scrollbar,
+.discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars::-webkit-scrollbar,
+.discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars--compact::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive venue — switch on card width, not viewport. Uniform body per mode. */
+.venue-cq {
+  container-type: inline-size;
+  container-name: venue-card;
+  width: 100%;
+  min-width: 0;
+}
+
+.venue-responsive .browse-content,
+.browse-content.venue-responsive,
+.browse-page-shell.venue-responsive .browse-content {
+  --discovery-v3-body-height: 7.625rem;
+}
+
+.discovery-v3-event-card.venue-responsive .discovery-v3-event-card__body,
+.venue-responsive.discovery-event-card-body {
+  --discovery-v3-body-height: 7.625rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.browse-map-preview-sheet .discovery-v3-event-card--map-sheet.venue-responsive .discovery-v3-event-card__body,
+.browse-map-preview-sheet
+  .discovery-v3-event-card--map-sheet.venue-responsive
+  .discovery-v3-event-card__body--map-sheet {
+  --discovery-v3-body-height: auto;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  flex: 1 1 auto;
+}
+
+.venue-responsive .discovery-event-datetime,
+.discovery-v3-event-card.venue-responsive .discovery-event-datetime {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.venue-responsive h3.discovery-event-title,
+.discovery-v3-event-card.venue-responsive h3.discovery-event-title {
+  min-height: calc(2 * 1.35em);
+  max-height: calc(2 * 1.35em);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  text-overflow: ellipsis;
+}
+
+.discovery-v3-event-card.venue-responsive .discovery-event-venue-line {
+  display: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-overflow: clip;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+
+.discovery-v3-event-card.venue-responsive .discovery-event-venue-line::-webkit-scrollbar {
+  display: none;
+}
+
+.discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars,
+.discovery-v3-event-card.venue-responsive .lem-disc-meta-pillars--compact {
+  margin-top: auto;
+}
+
+@container venue-card (max-width: 279px) {
+  .discovery-v3-event-card.venue-responsive .discovery-event-datetime__venue-wrap,
+  .discovery-event-datetime__venue-wrap {
+    display: none;
+  }
+
+  .discovery-v3-event-card.venue-responsive .discovery-event-venue-line {
+    display: block;
+  }
+
+  .discovery-v3-event-card.venue-responsive .discovery-v3-event-card__body,
+  .venue-responsive.discovery-event-card-body {
+    --discovery-v3-body-height: 9.125rem;
+  }
+}

@@ -51,6 +51,15 @@ interface DiscoveryV3CardProps extends DiscoveryV3CardData {
   bodyLayout?: DiscoveryCardBodyLayout
   /** Compact horizontal layout for mobile map preview sheet. */
   density?: 'default' | 'map-sheet'
+  /** Unbolded venue suffix after the card title. */
+  titleVenue?: string | null
+  /** Optional ` · venue` after date · time. */
+  datetimeVenue?: string | null
+  /** Dedicated venue row under a 2-line reserved title. Card-only. */
+  showVenueBelowTitle?: boolean
+  venueLine?: string | null
+  /** Inline venue at 390px+, dedicated row below 390. Card-only. */
+  venueResponsive?: boolean
 }
 
 export function DiscoveryBadge({
@@ -85,6 +94,11 @@ function DiscoveryV3CardContent({
   compactPillars = false,
   bodyLayout = 'venue-line',
   density = 'default',
+  titleVenue = null,
+  datetimeVenue = null,
+  showVenueBelowTitle = false,
+  venueLine = null,
+  venueResponsive = false,
 }: DiscoveryV3CardProps) {
   const isMapSheet = density === 'map-sheet'
 
@@ -122,6 +136,11 @@ function DiscoveryV3CardContent({
         cost={cost}
         layout={bodyLayout}
         compactPillars={compactPillars}
+        titleVenue={titleVenue}
+        datetimeVenue={datetimeVenue}
+        showVenueBelowTitle={showVenueBelowTitle}
+        venueLine={venueLine}
+        venueResponsive={venueResponsive}
         bodyClassName={
           isMapSheet
             ? 'discovery-v3-event-card__body discovery-v3-event-card__body--map-sheet'
@@ -148,31 +167,35 @@ export function DiscoveryV3Card(props: DiscoveryV3CardProps) {
     'discovery-v3-event-card',
     density === 'map-sheet' ? 'discovery-v3-event-card--map-sheet card-listing--map-preview-sheet' : '',
     discoveryCardBodyLayoutClass(bodyLayout),
+    props.showVenueBelowTitle ? 'discovery-v3-event-card--venue-below-title venue-line-fixed' : '',
+    props.venueResponsive ? 'venue-responsive' : '',
     selected ? 'card-listing--selected' : '',
     hovered ? 'card-listing--hovered' : '',
   ]
     .filter(Boolean)
     .join(' ')
 
-  if (href) {
-    return (
-      <Link
-        to={href}
-        className={cardClass}
-        onClick={(clickEvent) => {
-          if (!onClick) return
-          clickEvent.preventDefault()
-          onClick()
-        }}
-      >
-        <DiscoveryV3CardContent {...props} />
-      </Link>
-    )
-  }
-
-  return (
-    <article className={cardClass}>
+  const card = href ? (
+    <Link
+      to={href}
+      className={cardClass}
+      onClick={(clickEvent) => {
+        if (!onClick) return
+        clickEvent.preventDefault()
+        onClick()
+      }}
+    >
+      <DiscoveryV3CardContent {...props} />
+    </Link>
+  ) : (
+    <article className={cardClass} onClick={onClick}>
       <DiscoveryV3CardContent {...props} />
     </article>
   )
+
+  if (props.venueResponsive) {
+    return <div className="venue-cq">{card}</div>
+  }
+
+  return card
 }

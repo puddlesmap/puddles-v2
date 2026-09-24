@@ -114,8 +114,16 @@ interface HomeExperimentPageProps {
   trailing?: ReactNode
   /** Renders after the main results feed, before share CTA. */
   afterResults?: ReactNode
+  /** Renders after Where/When + map, before the results list. */
+  beforeResults?: ReactNode
   /** Renders above Where/When filters, before map + results. */
   beforeFilters?: ReactNode
+  /** Append venue to result card titles when useful. Default off. */
+  appendVenueToTitle?: boolean
+  /** Append venue after date · time on result cards. Default off. */
+  appendVenueToWhen?: boolean
+  /** Venue after date · time on wide cards; own line when the card is under 280px. */
+  venueResponsive?: boolean
   /** Renders at the top of page content, below header. */
   leading?: ReactNode
   /** Renders flush under the nav inside the sticky header (e.g. promo bar). */
@@ -168,10 +176,14 @@ export function HomeExperimentPage({
   layout = 'default',
   trailing,
   afterResults,
+  beforeResults,
   beforeFilters,
   leading,
   headerBelow,
   topBand,
+  appendVenueToTitle = false,
+  appendVenueToWhen = false,
+  venueResponsive = false,
   refinedSummaryPlacement = 'with-results',
   logoOnly = false,
   logoSrc = PUDDLES_WORDMARK_LOGO_SRC,
@@ -467,6 +479,9 @@ export function HomeExperimentPage({
                 <BrowseEventCard
                   key={event.id}
                   event={event}
+                  appendVenueToTitle={appendVenueToTitle}
+                  appendVenueToWhen={appendVenueToWhen}
+                  venueResponsive={venueResponsive}
                   onClick={() => openEvent(event, 'home', { viewMode: 'list' })}
                 />
               ))}
@@ -530,6 +545,7 @@ export function HomeExperimentPage({
             {/* Sticky track ends with results so the aside parks on that grid line */}
             <div className="home-experiment-refined-sticky-track">
               <div className="home-experiment-refined-main">
+                {beforeResults}
                 {resultsSection}
                 {afterResults}
                 <div className="home-experiment-refined-cta home-experiment-refined-cta--inline home-experiment-refined-panel">
@@ -554,6 +570,7 @@ export function HomeExperimentPage({
               {beforeFilters}
               {filterSection}
             </section>
+            {beforeResults}
             {resultsSection}
             {afterResults}
             {shareCta}

@@ -36,6 +36,7 @@ interface BrowseGoogleMapViewProps {
   interactionMode?: 'default' | 'connected'
   restoreSnapshot?: BrowseReturnSnapshot | null
   detachedViewToggle?: ReactNode
+  venueResponsive?: boolean
 }
 
 export function BrowseGoogleMapView({
@@ -46,6 +47,7 @@ export function BrowseGoogleMapView({
   interactionMode = 'default',
   restoreSnapshot = null,
   detachedViewToggle = null,
+  venueResponsive = false,
 }: BrowseGoogleMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
@@ -307,6 +309,7 @@ export function BrowseGoogleMapView({
                   <BrowseEventCard
                     event={event}
                     density="map-sheet"
+                    venueResponsive={venueResponsive}
                     selected={isEventSelected(event.id)}
                     onClick={() => handleCardClick(event)}
                   />
@@ -345,6 +348,7 @@ export function BrowseGoogleMapView({
                   >
                     <BrowseEventCard
                       event={event}
+                      venueResponsive={venueResponsive}
                       selected={isEventSelected(event.id)}
                       hovered={hoveredEventId === event.id}
                       onClick={() => handleCardClick(event)}

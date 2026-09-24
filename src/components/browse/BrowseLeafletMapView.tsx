@@ -35,6 +35,7 @@ interface BrowseLeafletMapViewProps {
   interactionMode?: 'default' | 'connected'
   restoreSnapshot?: BrowseReturnSnapshot | null
   detachedViewToggle?: ReactNode
+  venueResponsive?: boolean
 }
 
 const MAP_BASEMAP = getLeafletBasemap()
@@ -120,6 +121,7 @@ export function BrowseLeafletMapView({
   interactionMode = 'default',
   restoreSnapshot = null,
   detachedViewToggle = null,
+  venueResponsive = false,
 }: BrowseLeafletMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
@@ -362,6 +364,7 @@ export function BrowseLeafletMapView({
                     <BrowseEventCard
                       event={event}
                       density="map-sheet"
+                      venueResponsive={venueResponsive}
                       selected={isEventSelected(event.id)}
                       onClick={() => handleCardClick(event)}
                     />
@@ -403,6 +406,7 @@ export function BrowseLeafletMapView({
                   >
                     <BrowseEventCard
                       event={event}
+                      venueResponsive={venueResponsive}
                       selected={isEventSelected(event.id)}
                       hovered={hoveredEventId === event.id}
                       onClick={() => handleCardClick(event)}
