@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { partitionSeasonalTiming } from '../utils/seasonalWeekendBuckets'
 import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
 import { PageContainer } from '../components/layout/PageContainer'
@@ -77,7 +78,50 @@ function SeasonalEventGrid({
   )
 }
 
-function HalloweenCollectionSections({
+type GeoTab = 'close' | 'drive'
+
+function TimingGroups({
+  events,
+  onEventClick,
+  geoLabel,
+}: {
+  events: Event[]
+  onEventClick: (event: Event) => void
+  geoLabel: string
+}) {
+  const { thisWeekend, later } = useMemo(() => partitionSeasonalTiming(events), [events])
+
+  if (events.length === 0) {
+    return <p className="seasonal-density-empty">No activities in this section right now.</p>
+  }
+
+  return (
+    <>
+      {thisWeekend.length > 0 ? (
+        <section className="seasonal-density-group" aria-label={`${geoLabel} · This weekend`}>
+          <h3 className="seasonal-density-group__title">This weekend</h3>
+          <SeasonalEventGrid
+            events={thisWeekend}
+            onEventClick={onEventClick}
+            label={`${geoLabel} this weekend`}
+          />
+        </section>
+      ) : null}
+      {later.length > 0 ? (
+        <section className="seasonal-density-group" aria-label={`${geoLabel} · Later`}>
+          <h3 className="seasonal-density-group__title">Later</h3>
+          <SeasonalEventGrid
+            events={later}
+            onEventClick={onEventClick}
+            label={`${geoLabel} later`}
+          />
+        </section>
+      ) : null}
+    </>
+  )
+}
+
+function CollectionGeoTabs({
   collection,
   closeToHomeEvents,
   driveEvents,
@@ -90,40 +134,111 @@ function HalloweenCollectionSections({
 }) {
   const closeToHome = collection.closeToHome!
   const worthADrive = collection.worthADrive!
+  const showDriveTab = driveEvents.length > 0
+  const [tab, setTab] = useState<GeoTab>('close')
+  const sentinelRef = useRef<HTMLDivElement>(null)
+  const [stuck, setStuck] = useState(false)
+  const activeTab = tab === 'drive' && showDriveTab ? 'drive' : 'close'
+  const events = activeTab === 'drive' ? driveEvents : closeToHomeEvents
+  const geoLabel = activeTab === 'drive' ? worthADrive.title : closeToHome.title
+  const subtitle = activeTab === 'drive' ? worthADrive.subtitle : closeToHome.subtitle
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current
+    if (!sentinel) return
+    const rootPx = Number.parseFloat(getComputedStyle(document.documentElement).fontSize) || 16
+    const offset = Math.round(rootPx * 3.75)
+    const observer = new IntersectionObserver(
+      ([entry]) => setStuck(!entry.isIntersecting),
+      { rootMargin: `-${offset}px 0px 0px 0px`, threshold: 0 },
+    )
+    observer.observe(sentinel)
+    return () => observer.disconnect()
+  }, [showDriveTab])
 
   return (
     <div className="seasonal-collection-sections">
-      <section className="seasonal-collection-band" aria-labelledby="seasonal-close-to-home-heading">
-        <header className="seasonal-collection-band__header">
-          <h2 id="seasonal-close-to-home-heading" className="seasonal-collection-band__title">
-            {closeToHome.title}
-          </h2>
-          <p className="seasonal-collection-band__subtitle">{closeToHome.subtitle}</p>
-        </header>
-        <SeasonalEventGrid
-          events={closeToHomeEvents}
-          onEventClick={onEventClick}
-          label={`${closeToHome.title} activities`}
-        />
-      </section>
+      {showDriveTab ? (
+        <>
+          <div ref={sentinelRef} className="seasonal-density-tabs__sentinel" aria-hidden="true" />
+          <div
+            className={`seasonal-density-tabs seasonal-density-tabs--mobile seasonal-density-tabs--fall-frost${stuck ? ' is-stuck' : ''}`}
+          >
+            <div className="seasonal-density-tabs__list" role="tablist" aria-label="Seasonal areas">
+              <button
+                type="button"
+                role="tab"
+                id="seasonal-density-tab-close"
+                aria-selected={activeTab === 'close'}
+                aria-controls="seasonal-density-tab-panel"
+                className="seasonal-density-tabs__tab"
+                onClick={() => setTab('close')}
+              >
+                {closeToHome.title}
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="seasonal-density-tab-drive"
+                aria-selected={activeTab === 'drive'}
+                aria-controls="seasonal-density-tab-panel"
+                className="seasonal-density-tabs__tab"
+                onClick={() => setTab('drive')}
+              >
+                {worthADrive.title}
+              </button>
+            </div>
+          </div>
+        </>
+      ) : null}
 
-      {driveEvents.length > 0 ? (
-        <section
-          className="seasonal-collection-band seasonal-collection-band--secondary"
-          aria-labelledby="seasonal-worth-a-drive-heading"
-        >
-          <header className="seasonal-collection-band__header">
-            <h2 id="seasonal-worth-a-drive-heading" className="seasonal-collection-band__title">
-              {worthADrive.title}
-            </h2>
-            <p className="seasonal-collection-band__subtitle">{worthADrive.subtitle}</p>
-          </header>
-          <SeasonalEventGrid
-            events={driveEvents}
-            onEventClick={onEventClick}
-            label={`${worthADrive.title} activities`}
-          />
-        </section>
+      <div
+        className="seasonal-density-mobile-panel"
+        id="seasonal-density-tab-panel"
+        role="tabpanel"
+        aria-labelledby={
+          activeTab === 'drive' ? 'seasonal-density-tab-drive' : 'seasonal-density-tab-close'
+        }
+      >
+        <header className="seasonal-collection-band__header">
+          <h2 className="seasonal-collection-band__title">{geoLabel}</h2>
+          <p className="seasonal-collection-band__subtitle">{subtitle}</p>
+        </header>
+        <TimingGroups events={events} onEventClick={onEventClick} geoLabel={geoLabel} />
+      </div>
+
+      {showDriveTab ? (
+        <div className="seasonal-density-desktop-stack">
+          <section className="seasonal-collection-band" aria-labelledby="seasonal-close-to-home-heading">
+            <header className="seasonal-collection-band__header">
+              <h2 id="seasonal-close-to-home-heading" className="seasonal-collection-band__title">
+                {closeToHome.title}
+              </h2>
+              <p className="seasonal-collection-band__subtitle">{closeToHome.subtitle}</p>
+            </header>
+            <TimingGroups
+              events={closeToHomeEvents}
+              onEventClick={onEventClick}
+              geoLabel={closeToHome.title}
+            />
+          </section>
+          <section
+            className="seasonal-collection-band seasonal-collection-band--secondary"
+            aria-labelledby="seasonal-worth-a-drive-heading"
+          >
+            <header className="seasonal-collection-band__header">
+              <h2 id="seasonal-worth-a-drive-heading" className="seasonal-collection-band__title">
+                {worthADrive.title}
+              </h2>
+              <p className="seasonal-collection-band__subtitle">{worthADrive.subtitle}</p>
+            </header>
+            <TimingGroups
+              events={driveEvents}
+              onEventClick={onEventClick}
+              geoLabel={worthADrive.title}
+            />
+          </section>
+        </div>
       ) : null}
     </div>
   )
@@ -268,34 +383,18 @@ export function ExperimentSeasonalCollectionPage() {
           </header>
 
           {hasGeographicSections ? (
-            <HalloweenCollectionSections
+            <CollectionGeoTabs
               collection={collection}
               closeToHomeEvents={closeToHomeEvents}
               driveEvents={driveEvents}
               onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
             />
           ) : (
-            <section
-              className="browse-content seasonal-collection-results"
-              aria-label={`${collection.subtitle} activities`}
-            >
-              <p className="seasonal-collection-results__count">
-                {closeToHomeEvents.length === 1
-                  ? '1 activity'
-                  : `${closeToHomeEvents.length} activities`}
-              </p>
-              <div className="seasonal-collection-grid browse-event-grid">
-                {closeToHomeEvents.map((event) => (
-                  <BrowseEventCard
-                    key={event.id}
-                    event={event}
-                    seasonalEditorial={false}
-                    venueResponsive
-                    onClick={() => openEvent(event, 'home', { viewMode: 'list' })}
-                  />
-                ))}
-              </div>
-            </section>
+            <TimingGroups
+              events={closeToHomeEvents}
+              onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
+              geoLabel={collection.subtitle}
+            />
           )}
         </div>
       </PageContainer>
