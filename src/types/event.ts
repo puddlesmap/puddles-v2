@@ -24,6 +24,11 @@ export type City =
   | 'Millbrae'
   | 'Portola Valley'
   | 'Pacifica'
+  | 'Berkeley'
+  | 'Pescadero'
+  | 'Sausalito'
+  | 'San Carlos'
+
 export type CostLabel = 'Free' | 'Low-cost' | 'Paid' | (string & {})
 
 /** True when the activity is free to attend (not a dollar amount / paid tag). */

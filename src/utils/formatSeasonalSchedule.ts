@@ -135,6 +135,7 @@ const WEEKDAY_ALIASES: Record<string, number> = {
   thur: 4,
   thurs: 4,
   thursday: 4,
+  thursdays: 4,
   fri: 5,
   friday: 5,
   sat: 6,

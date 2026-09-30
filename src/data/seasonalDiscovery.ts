@@ -281,7 +281,7 @@ export function getSeasonalIllustrationSrc(timing: string): string | undefined {
  * Themes transition with local activity patterns (Hello, Fall → Halloween / broader October).
  *
  * **Live themes:** Home bands use `getActiveSeasonalCollections()` (all overlapping windows).
- * Hello Fall runs through Oct 31, 2026; Halloween overlaps from Oct 5.
+ * Hello Fall runs through Oct 31, 2026; Halloween overlaps from Oct 1.
  *
  * **Dual themes (shipped):** Hello Fall stays live alongside Halloween — two Home modules + badge
  * rules via the plural helper. **Rename decision:** keep **Halloween with little ones** (slug
@@ -503,6 +503,7 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'regional-hidden-villa-weekend-farm-tour-2026-09-19',
       'national-day-of-play-popup-playdate-mitchell-park-2026-09-19',
       'core-weekend-palo-alto-airport-day-2026-09-20',
+      'andy-z-fall-harvest-jam-jcc-2026-10-15',
     ],
     driveEventIds: [
       'seasonal-drive-lemos-farm-pumpkin-patch-2026-09-05',
@@ -527,6 +528,9 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'seasonal-drive-pumpkins-in-the-park-2026-10-10',
       'seasonal-drive-woodside-day-of-the-horse-fair-2026-10-11',
       'seasonal-drive-day-on-the-bay-2026-10-17',
+      'seasonal-drive-rancho-siempre-verde-fall-fest-2026-09-26',
+      'seasonal-drive-berkeley-harvest-festival-2026-10-17',
+      'seasonal-drive-hmb-art-pumpkin-festival-2026-10-17',
     ],
     closeToHome: {
       title: 'Close to home',
@@ -537,17 +541,17 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       subtitle: 'Farm days & standout fall outings a little farther afield.',
     },
     // Hold Hello Fall through late October so mid-Oct festivals stay in one theme.
-    // Overlaps Halloween Oct 5–31 — dual Home bands via getActiveSeasonalCollections().
+    // Overlaps Halloween Oct 1–31 — dual Home bands via getActiveSeasonalCollections().
     activeFrom: '2026-09-01',
     activeUntil: '2026-10-31',
   },
   {
     slug: 'halloween-with-little-ones',
     title: 'Halloween with little ones',
-    subtitle: 'Halloween with little ones',
+    subtitle: 'Tiny trick-or-treaters welcome',
     timingLabel: 'October',
-    description: 'Sweet, spooky-season outings for ages 0–5.',
-    moduleTagline: 'Pumpkin patches, costumes & toddler-friendly Halloween',
+    description: 'Pumpkin patches, costume parades, and not-too-scary fun near you',
+    moduleTagline: 'Pumpkin patches, costume parades, and not-too-scary fun near you',
     ctaLabel: 'See all Halloween favorites',
     decor: ['🎃', '👻', '🍬'],
     illustrationSrc: '/seasonal/halloween-with-little-ones.png',
@@ -582,14 +586,33 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       },
       {
         eventId: 'disc-jack-o-lantern-jamboree-2026-10-28-698e5b7094297d3600abe212',
-        featuredFrom: '2026-10-20',
+        featuredFrom: '2026-10-15',
         featuredUntil: '2026-10-28',
+        note: 'Before Halloween — mid-October spotlight',
       },
       {
         eventId: 'disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30',
-        featuredFrom: '2026-10-25',
+        featuredFrom: '2026-10-15',
         featuredUntil: '2026-10-31',
-        note: 'Halloween week anchor',
+        note: 'Halloween weekend',
+      },
+      {
+        eventId: 'seasonal-drive-ybg-halloween-hoopla-2026-10-31',
+        featuredFrom: '2026-10-15',
+        featuredUntil: '2026-10-31',
+        note: 'Halloween weekend',
+      },
+      {
+        eventId: 'seasonal-drive-goblin-jamboree-2026-10-03',
+        featuredFrom: '2026-10-01',
+        featuredUntil: '2026-10-11',
+        note: 'Opening weekends',
+      },
+      {
+        eventId: 'seasonal-drive-hiller-paint-a-plane-2026-10-24',
+        featuredFrom: '2026-10-15',
+        featuredUntil: '2026-10-25',
+        note: 'Before Halloween',
       },
       {
         eventId: 'otto-family-club-spider-web-2026-10-08',
@@ -630,6 +653,10 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'seasonal-drive-spooktacular-lego-redwood-city-2026-10-12',
       'seasonal-drive-haunted-train-ardenwood-2026-10-18',
       'seasonal-drive-ybg-halloween-hoopla-2026-10-31',
+      'seasonal-drive-rancho-siempre-verde-fall-fest-2026-09-26',
+      'seasonal-drive-hmb-art-pumpkin-festival-2026-10-17',
+      'seasonal-drive-goblin-jamboree-2026-10-03',
+      'seasonal-drive-hiller-paint-a-plane-2026-10-24',
     ],
     closeToHome: {
       title: 'Close to home',
@@ -639,9 +666,9 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       title: 'Worth a little drive',
       subtitle: 'A few extra-special Halloween picks nearby.',
     },
-    // Overlaps Hello Fall from Oct 5 — Home shows both via getActiveSeasonalCollections().
+    // Overlaps Hello Fall from Oct 1 — Home shows both via getActiveSeasonalCollections().
     // Rename decision: keep Halloween with little ones (spooky-only curation); slug unchanged.
-    activeFrom: '2026-10-05',
+    activeFrom: '2026-10-01',
     activeUntil: '2026-10-31',
   },
 ]
@@ -768,7 +795,7 @@ export const SEASONAL_THEME_CALENDAR = SEASONAL_EYEBROW_PALETTE.map((entry) => (
   illustrationSrc: entry.illustrationSrc,
 }))
 
-/** Editorial schedule for product review. Dual live themes Oct 5–31, 2026. */
+/** Editorial schedule for product review. Dual live themes Oct 1–31, 2026. */
 export interface SeasonalThemeScheduleEntry {
   timing: string
   theme: string
@@ -805,9 +832,9 @@ export const SEASONAL_THEME_SCHEDULE: SeasonalThemeScheduleEntry[] = [
     illustrationSrc: '/seasonal/hello-fall.png',
     activeFrom: '2026-09-01',
     activeUntil: '2026-10-31',
-    transitionFrom: '2026-10-05',
+    transitionFrom: '2026-10-01',
     transitionNote:
-      'Dual themes: from Oct 5 Home shows Hello Fall + Halloween together (getActiveSeasonalCollections). Hello Fall stays through Oct 31.',
+      'Dual themes: from Oct 1 Home shows Hello Fall + Halloween together (getActiveSeasonalCollections). Hello Fall stays through Oct 31.',
     curated: true,
   },
   {
@@ -818,10 +845,10 @@ export const SEASONAL_THEME_SCHEDULE: SeasonalThemeScheduleEntry[] = [
     slug: 'halloween-with-little-ones',
     eyebrow: getSeasonalEyebrowColor('October'),
     illustrationSrc: '/seasonal/halloween-with-little-ones.png',
-    activeFrom: '2026-10-05',
+    activeFrom: '2026-10-01',
     activeUntil: '2026-10-31',
     transitionNote:
-      'DECIDED: keep name “Halloween with little ones” (slug stable). Broader “October with little ones” only if non-Halloween October curation expands. Shows alongside Hello Fall Oct 5–31.',
+      'DECIDED: keep name “Halloween with little ones” (slug stable). Broader “October with little ones” only if non-Halloween October curation expands. Shows alongside Hello Fall Oct 1–31.',
     curated: true,
   },
   {

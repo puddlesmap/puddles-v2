@@ -275,7 +275,10 @@ export function ExperimentSeasonalCollectionPage() {
   const isHalloween = collection.slug === 'halloween-with-little-ones'
   const isHelloFall = collection.slug === 'hello-fall'
   const hasGeographicSections = Boolean(collection.closeToHome && collection.worthADrive)
-  const supportingLine = collection.slug === 'hello-fall' ? undefined : collection.title
+  const supportingLine =
+    collection.slug === 'hello-fall' || collection.slug === 'halloween-with-little-ones'
+      ? undefined
+      : collection.title
   const showDescription = Boolean(collection.description)
 
   return (

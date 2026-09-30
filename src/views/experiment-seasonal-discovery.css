@@ -1455,10 +1455,37 @@
   color: rgba(244, 241, 234, 0.58);
 }
 
+.seasonal-collection-page--halloween .seasonal-collection-hero__title-row {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  gap: 0.5rem;
+  padding-right: 0;
+}
+
+.seasonal-collection-page--halloween .seasonal-collection-hero__title {
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: normal;
+}
+
 .seasonal-collection-page--halloween .seasonal-collection-hero__illustration {
+  position: static;
+  flex: 0 0 auto;
+  width: 3.25rem;
+  height: 3.25rem;
+  transform: none;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35))
     drop-shadow(0 0 18px rgba(240, 178, 122, 0.28));
   animation: halloween-float 4.5s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .seasonal-collection-page--halloween .seasonal-collection-hero__illustration {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
 }
 
 @keyframes halloween-float {
