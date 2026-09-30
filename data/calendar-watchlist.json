@@ -88,7 +88,7 @@
       "city": "Sunnyvale",
       "url": "https://www.library.sunnyvale.ca.gov/events/kids-events",
       "fitFor0to5": "strong",
-      "notes": "Baby Lapsit, Toddler, Preschool, Family, Night Owl + Magical Bridge (first Fridays). Site blocks scrapers (Akamai) — manual seeds in build-launch-staging.mjs until discover-sunnyvale.mjs. Sep 2026 specials queued: Sensory (9), bilingual Hebrew (11), Mid-Autumn storytime+craft (13), ASL for Babies (14), bilingual Spanish+craft (18). Re-bump weekly series dates so Browse stays live.",
+      "notes": "Baby Lapsit Thu 10:30, Night Owl Thu 7:00, Toddler Tue 11:00, Preschool Wed 11:00, Family Storytime Sat 11:00, Magical Bridge first Fridays. The kids calendar refuses the GitHub download. Wednesday browser pass opens this month and the next, re-bumps those series, and does not add a second row for the same storytime.",
       "alreadyOnPuddles": false,
       "checkCadence": "weekly"
     },
@@ -262,9 +262,20 @@
       "city": "Palo Alto",
       "url": "https://sunnyvale.fit4mom.com/schedule",
       "fitFor0to5": "strong",
-      "notes": "Weekly graphic on /schedule (not live Glofox text). Verified Aug 2026: Mon/Fri Stroller Strides Cuesta 9:30; Wed Stroller Barre Cuesta 9:30 + Fourth Trimester+ 10:45; Thu Stroller Barre Mitchell 10:00; Sat Family Strides Cuesta 9:30; Tue Las Palmas Stroller Strides 9:30 + Mommy & Baby Yoga 11:15. Next-week rows in Discovery for Aug 31–Sep 5. Re-check Mondays when September graphic posts. Skip Body Ignite / prenatal FIT4BABY.",
-      "alreadyOnPuddles": false,
-      "checkCadence": "weekly Mondays"
+      "notes": "Open the Glofox class list in a browser each Wednesday. Re-bump stroller classes and caregiver-and-baby classes. Skip virtual workouts, prenatal, run club, cancelled rows, and the pink community calendar. Week of Sep 29–Oct 6: Stroller Barre Cuesta Wed 10:00, Stroller Barre Mitchell Thu 10:00, Strides 360 Cuesta Fri 10:00, Stroller Strides Cuesta Mon 9:30, Mommy and Me Zumba and Mommy & Baby Yoga at Las Palmas Tue. Las Palmas Stroller Strides is not on that week. Fourth Trimester+ Wed Sep 30 is cancelled.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "weekly Wednesdays"
+    },
+    {
+      "id": "otto-family-club",
+      "name": "Otto Family Club",
+      "org": "Otto Family Club",
+      "city": "Sunnyvale",
+      "url": "https://luma.com/ottofamilyclub",
+      "fitFor0to5": "strong",
+      "notes": "Luma calendar. Wednesday pass adds a dated session that is still taking RSVPs and is not already on Puddles. Leave sold-out sessions off. Do not put seat counts, Near Capacity, or membership prices on the card. providerId otto-family-club, sourceType luma. No auto-publish.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "weekly Wednesdays"
     },
     {
       "id": "talo-yoga",

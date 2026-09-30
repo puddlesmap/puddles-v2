@@ -6,8 +6,8 @@ Puddles **Regular Browse** stays Palo Alto · Los Altos · Mountain View · Sunn
 
 | When | What |
 |------|------|
-| **Sundays @ 8:00 AM PT** | Library scrape (`discover-bay-area`) — four-city storytimes & classes (Approve → Go live required) |
-| **Fridays @ 8:00 AM PT** | Regional pass (`discover:regional-weekly`) — watchlist drive rows + inbox leads + report |
+| **Wednesdays @ 8:00 AM PT** | Library scrape (`discover-bay-area`) — Palo Alto, Los Altos, and Mountain View (Approve → Go live required). Sunnyvale library and FIT4MOM are a browser check. |
+| **Wednesdays @ 8:00 AM PT** | Regional pass (`discover:regional-weekly`) — watchlist drive rows + inbox leads + report |
 | Mid-week | Manual runs only |
 
 GitHub Actions: [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml) · [`.github/workflows/discover-bay-area.yml`](../.github/workflows/discover-bay-area.yml)
@@ -16,7 +16,7 @@ GitHub Actions: [`.github/workflows/discover-regional-weekly.yml`](../.github/wo
 
 小紅書 blocks scrapers, requires login, and posts are **curated roundups** — not authoritative event data. Puddles rule: [official host page first](../.cursor/rules/event-copy-fact-check.mdc).
 
-**Workflow:** you (or Cursor) search 小紅書 or the open web → paste **official URLs** into the inbox → Friday job queues **pending** rows for your review. Nothing auto-publishes.
+**Workflow:** you (or Cursor) search 小紅書 or the open web → paste **official URLs** into the inbox → the Wednesday job queues **pending** rows for your review. Nothing auto-publishes.
 
 **Ask in chat:** “幫我搜尋本週灣區大型活動” — the agent can web-search official pages and fill `regional-leads-inbox.json`, then run `discover:regional-weekly`.
 
@@ -49,7 +49,7 @@ GitHub Actions: [`.github/workflows/discover-regional-weekly.yml`](../.github/wo
 }
 ```
 
-5. **Run locally** (optional before Friday):
+5. **Run locally** (optional before Wednesday):
 
 ```bash
 npm run discover:regional-weekly

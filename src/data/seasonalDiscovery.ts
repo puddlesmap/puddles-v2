@@ -479,6 +479,12 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         featuredUntil: '2026-09-20',
         note: '30% window · Palo Alto Airport Day — special community outing',
       },
+      {
+        eventId: 'otto-family-club-monster-band-2026-10-01',
+        featuredFrom: '2026-09-29',
+        featuredUntil: '2026-10-03',
+        note: 'Halloween-named messy play and music while Hello Fall is still first',
+      },
     ],
     collectionEventIds: [
       'harvest-history-festival-heritage-park-2026-09-26-09-00',
@@ -585,6 +591,24 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         featuredUntil: '2026-10-31',
         note: 'Halloween week anchor',
       },
+      {
+        eventId: 'otto-family-club-spider-web-2026-10-08',
+        featuredFrom: '2026-10-06',
+        featuredUntil: '2026-10-10',
+        note: 'Close to home · spider-web process art',
+      },
+      {
+        eventId: 'otto-family-club-witches-potion-2026-10-15',
+        featuredFrom: '2026-10-13',
+        featuredUntil: '2026-10-17',
+        note: 'Close to home · witches potion messy play',
+      },
+      {
+        eventId: 'otto-family-club-jack-o-lantern-2026-10-29',
+        featuredFrom: '2026-10-27',
+        featuredUntil: '2026-10-31',
+        note: 'Close to home · jack-o-lantern messy play',
+      },
     ],
     collectionEventIds: [
       'disc-creepy-carrots-peninsula-youth-theatre-2026-10-10-watchlist-pyt-creepy-carrots-2026-10-10-',
@@ -593,6 +617,9 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'disc-halloween-magic-at-gamble-garden-2026-10-24-watchlist-gamble-halloween-magic-2026-10',
       'disc-jack-o-lantern-jamboree-2026-10-28-698e5b7094297d3600abe212',
       'disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30',
+      'otto-family-club-spider-web-2026-10-08',
+      'otto-family-club-witches-potion-2026-10-15',
+      'otto-family-club-jack-o-lantern-2026-10-29',
     ],
     driveEventIds: [
       // Spanning Fall → next theme: farms keep the seasonal badge under both modules

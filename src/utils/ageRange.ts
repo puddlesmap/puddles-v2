@@ -37,9 +37,9 @@ export function parseAgeBuckets(raw: string): Set<AgeBucket> {
   }
 
   if (buckets.size === 0) {
-    const ranges = [...text.matchAll(/(\d+)\s*[-–]\s*(\d+)/g)].map((match) => [
-      parseInt(match[1], 10),
-      parseInt(match[2], 10),
+    const ranges = [...text.matchAll(/(\d+(?:\.\d+)?)\s*[-–]\s*(\d+(?:\.\d+)?)/g)].map((match) => [
+      Number.parseFloat(match[1]),
+      Number.parseFloat(match[2]),
     ])
 
     if (ranges.length > 0) {
@@ -94,6 +94,10 @@ export function getBrowseAgeChipLabel(age: AgeFilter): string {
 export function getEventCardAgeLabel(ageRange: string): string {
   const text = ageRange.trim()
   if (!text || /all\s*ages?/i.test(text)) return 'All ages'
+
+  if (/^3[-–]5$/.test(normalizePart(text))) return 'Ages 3–5'
+  if (/^1[-–]3$/.test(normalizePart(text))) return 'Ages 1–3'
+  if (/^1\.5[-–]5$/.test(normalizePart(text))) return 'Ages 1.5–5'
 
   const buckets = parseAgeBuckets(text)
   if (isFullSiteAgeRange(buckets, text)) return 'All ages'

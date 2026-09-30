@@ -1,13 +1,13 @@
 # Refresh Admin Discovery queue from library calendars (PA + Los Altos + MV).
-# Sundays 8:00 AM Pacific: 2–3 month look-ahead for Admin → Discovery review (no auto-publish).
-# Manual FIT4MOM schedule check stays a Monday reminder in the job log when run via schedule.
+# Wednesdays 8:00 AM Pacific: 2–3 month look-ahead for Admin → Discovery review (no auto-publish).
+# FIT4MOM and Sunnyvale library stay a browser pass. This job only prints a reminder.
 
 name: Discover bay area libraries
 
 on:
   schedule:
-    # Sundays 15:00 UTC ≈ 8:00 AM Pacific (PDT); 7:00 AM during PST
-    - cron: '0 15 * * 0'
+    # Wednesdays 15:00 UTC ≈ 8:00 AM Pacific (PDT); 7:00 AM during PST
+    - cron: '0 15 * * 3'
   workflow_dispatch:
     inputs:
       days:
@@ -53,7 +53,7 @@ jobs:
       - name: Reminder — FIT4MOM schedule check
         if: github.event_name == 'schedule'
         run: |
-          echo "::notice title=FIT4MOM schedule check::Re-verify https://sunnyvale.fit4mom.com/schedule. Update Calendar Watchlist · FIT4MOM rows in Admin Discovery if times changed."
+          echo "::notice title=FIT4MOM and Sunnyvale library::Open these in a browser. GitHub cannot download them. FIT4MOM Glofox: https://sunnyvale.fit4mom.com/schedule. Sunnyvale kids calendar, this month and next. Re-bump standing series. Leave adult, virtual, prenatal, and cancelled classes off."
 
       - name: Expansion lookahead report
         run: npm run discover:expansion-lookahead -- --days=${{ inputs.days || '90' }}

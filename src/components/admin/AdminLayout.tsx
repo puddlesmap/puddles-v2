@@ -140,6 +140,35 @@ export function AdminLayout() {
             </div>
           </div>
 
+          <div className="admin-reminder-banner" role="status">
+            <PageContainer layout="wide" className="admin-reminder-banner__inner">
+              <div className="admin-reminder-banner__copy">
+                <strong>Still to check</strong>
+                <span>
+                  Sunnyvale Public Library kids calendar and FIT4MOM Glofox. Open both in a browser.
+                  GitHub cannot download them. A new special stays in Discovery until you Approve →
+                  Go live.
+                </span>
+              </div>
+              <a
+                className="admin-btn admin-btn-secondary"
+                href="https://www.library.sunnyvale.ca.gov/events/kids-events"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Library calendar
+              </a>
+              <a
+                className="admin-btn admin-btn-secondary"
+                href="https://sunnyvale.fit4mom.com/schedule"
+                target="_blank"
+                rel="noreferrer"
+              >
+                FIT4MOM schedule
+              </a>
+            </PageContainer>
+          </div>
+
           {howToOpen ? (
             <div id="admin-howto-panel" className="admin-howto-panel">
               <p className="admin-howto-panel__lead">
@@ -153,8 +182,9 @@ export function AdminLayout() {
                 </li>
                 <li>
                   <strong>Discovery</strong> — Approve library candidates, then{' '}
-                  <strong>Go live</strong>. Auto-refresh: Sundays 8:00 AM PT (queue); Fridays 8:00 AM
-                  PT (Worth a little drive). Mid-week = manual.
+                  <strong>Go live</strong>. Auto-refresh: Wednesdays 8:00 AM PT (library queue and
+                  Worth a little drive). Sunnyvale library and FIT4MOM are a browser check, listed
+                  above. Mid-week = manual.
                 </li>
                 <li>
                   <strong>Events</strong> — Monitor <strong>Live</strong>,{' '}

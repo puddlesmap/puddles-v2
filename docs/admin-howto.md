@@ -32,8 +32,7 @@ Prefer Admin Refresh over Sheet CSV — Sheet fallback can overwrite local revie
 
 | When | What |
 |------|------|
-| **Sundays @ 8:00 AM PT** | Weekly queue refresh — new finds added; Approve → Go live still required |
-| **Fridays @ 8:00 AM PT** | Regional pass for Worth a little drive highlights |
+| **Wednesdays @ 8:00 AM PT** | Library queue refresh and the Worth a little drive pass. Approve → Go live still required. Sunnyvale library and FIT4MOM are a browser check, shown on Admin as still to check. |
 | Mid-week | Manual runs only |
 
 See also [event-discovery.md](./event-discovery.md).
