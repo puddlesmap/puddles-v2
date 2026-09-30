@@ -16,11 +16,18 @@ import {
   type SeasonalCollection,
 } from '../data/seasonalDiscovery'
 import { HomeLaunchAnnouncement } from '../components/home/HomeLaunchAnnouncement'
+import { sortSeasonalDiscoveryEvents } from '../utils/formatSeasonalSchedule'
 
-function seasonalCollectionPickCount(collection: SeasonalCollection): number {
+/** Picks a parent can still open: same list as the collection page, after ended events drop off. */
+function seasonalCollectionPickCount(collection: SeasonalCollection, now: Date = new Date()): number {
   const driveIds = new Set(collection.driveEventIds ?? [])
-  const closeCount = collection.collectionEventIds.filter((id) => !driveIds.has(id)).length
-  return closeCount + driveIds.size
+  const closeIds = collection.collectionEventIds.filter((id) => !driveIds.has(id))
+  const close = sortSeasonalDiscoveryEvents(resolveSeasonalEvents(closeIds), now)
+  const drive = sortSeasonalDiscoveryEvents(
+    resolveSeasonalEvents(collection.driveEventIds ?? []),
+    now,
+  )
+  return close.length + drive.length
 }
 
 function bannerPhotoEvents(collection: SeasonalCollection): Event[] {
