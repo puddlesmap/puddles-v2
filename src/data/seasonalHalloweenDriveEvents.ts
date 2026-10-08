@@ -107,7 +107,7 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     types: ['Festivals & Community'],
     categoryTags: ['Seasonal', 'Halloween', 'Worth a Drive'],
     cost: 'Free',
-    imageUrl: '',
+    imageUrl: 'https://ybgfestival.org/wp-content/uploads/2024/03/110224_HalloweenHoopla_web_1.jpg',
     eventUrl: 'https://ybgfestival.org/event/halloween-hoopla-2026/',
     verifiedDate: '2026-09-24',
     lat: 37.7844,
@@ -202,7 +202,8 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     types: ['Festivals & Community'],
     categoryTags: ['Seasonal', 'Halloween', 'Worth a Drive'],
     cost: 'Free',
-    imageUrl: '',
+    imageUrl:
+      'https://www.menlopark.gov/files/sharedassets/public/v/1/library-and-community-services/images/events/children-in-costume-on-santa-cruz-avenue-sidewalk-for-halloween-hoopla-downtown-merchant-trick-or-treating-and-parade.jpg',
     eventUrl:
       'https://www.menlopark.gov/Government/Departments/Library-and-Community-Services/Events/Community-events/Halloweek',
     verifiedDate: '2026-10-07',
@@ -231,7 +232,8 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     types: ['Festivals & Community'],
     categoryTags: ['Seasonal', 'Halloween', 'Worth a Drive'],
     cost: 'Free',
-    imageUrl: '',
+    imageUrl:
+      'https://www.menlopark.gov/files/sharedassets/public/v/2/library-and-community-services/images/events/trunkortreat.png',
     eventUrl: 'https://www.menlopark.gov/Citywide-calendar/Community-events/20261028-Trunk-or-Treat',
     verifiedDate: '2026-10-07',
     lat: 37.4774,
@@ -259,7 +261,8 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     types: ['Festivals & Community'],
     categoryTags: ['Seasonal', 'Halloween', 'Worth a Drive'],
     cost: 'Free',
-    imageUrl: '',
+    imageUrl:
+      'https://www.downtowncampbell.com/sites/default/files/inline-images/creepy-crawly-halloween-sidebanner.png',
     eventUrl: 'https://www.downtowncampbell.com/event/2026/10/creepy-crawly-halloween-trick-or-treat',
     verifiedDate: '2026-10-07',
     lat: 37.2871,
@@ -288,7 +291,7 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     types: ['Festivals & Community'],
     categoryTags: ['Seasonal', 'Halloween', 'Worth a Drive'],
     cost: 'Paid · See official site for pricing',
-    imageUrl: '',
+    imageUrl: 'https://www.unioncityca.gov/ImageRepository/Document?documentID=1843',
     eventUrl: 'https://www.unioncityca.gov/DocumentCenter/View/15075/Activity-Guide_FA26_FINAL',
     verifiedDate: '2026-10-07',
     lat: 37.5958,
