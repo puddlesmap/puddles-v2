@@ -19691,5 +19691,31 @@
     "status": "Published",
     "isPast": false,
     "isLive": true
+  },
+  {
+    "id": "core-weekend-bing-charlie-tropicales-2026-10-10",
+    "title": "Charlie and the Tropicales",
+    "description": "A lively, interactive family concert with Charlie and the Tropicales, bringing Caribbean rhythms from New Orleans. Kids can listen, sing, and move along.",
+    "tips": "Infants in arms under 1 don’t need a ticket. Tickets are expected to sell out.\nWeekend parking on campus is free. A wheelchair-accessible restroom is inside the main entrance.",
+    "venue": "Dinkelspiel Auditorium",
+    "address": "471 Lagunita Drive, Stanford, CA 94305",
+    "city": "Palo Alto",
+    "date": "2026-10-10",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": ["Music & Movement"],
+    "categoryTags": ["Music & Movement"],
+    "cost": "$10 per person",
+    "imageUrl": "https://localist-images.azureedge.net/photos/54117174992384/square_300@2x/3a251841cac1a5443bcbb1b26126139dca96f6b1.jpg",
+    "eventUrl": "https://bingschool.stanford.edu/events/bing-nursery-school-performance-series-charlie-and-tropicales",
+    "verifiedDate": "2026-10-07",
+    "lat": 37.4267,
+    "lng": -122.1718,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
   }
 ]

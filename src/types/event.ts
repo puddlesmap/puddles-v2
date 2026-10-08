@@ -28,6 +28,9 @@ export type City =
   | 'Pescadero'
   | 'Sausalito'
   | 'San Carlos'
+  | 'Saratoga'
+  | 'Campbell'
+  | 'Union City'
 
 export type CostLabel = 'Free' | 'Low-cost' | 'Paid' | (string & {})
 

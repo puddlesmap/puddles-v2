@@ -531,6 +531,8 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'seasonal-drive-rancho-siempre-verde-fall-fest-2026-09-26',
       'seasonal-drive-berkeley-harvest-festival-2026-10-17',
       'seasonal-drive-hmb-art-pumpkin-festival-2026-10-17',
+      'seasonal-drive-dig-deep-farms-pumpkin-patch-2026-10-03',
+      'seasonal-drive-queens-pumpkin-patch-2026-10-01',
     ],
     closeToHome: {
       title: 'Close to home',
@@ -657,6 +659,12 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'seasonal-drive-hmb-art-pumpkin-festival-2026-10-17',
       'seasonal-drive-goblin-jamboree-2026-10-03',
       'seasonal-drive-hiller-paint-a-plane-2026-10-24',
+      'seasonal-drive-dig-deep-farms-pumpkin-patch-2026-10-03',
+      'seasonal-drive-queens-pumpkin-patch-2026-10-01',
+      'seasonal-drive-menlo-park-halloween-hoopla-2026-10-24',
+      'seasonal-drive-belle-haven-trunk-or-treat-2026-10-28',
+      'seasonal-drive-creepy-crawly-campbell-2026-10-25',
+      'seasonal-drive-hollyween-wonderland-2026-10-24',
     ],
     closeToHome: {
       title: 'Close to home',
