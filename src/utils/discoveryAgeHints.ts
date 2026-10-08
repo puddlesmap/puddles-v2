@@ -21,6 +21,14 @@ export interface InferredAge {
   ageMax: number
 }
 
+/** Pricing or supervision policy — not who the activity is designed for. */
+export function isNonTargetingAgeMention(around: string): boolean {
+  const hay = String(around || '').toLowerCase()
+  if (/\b(accompanied|accompany|with an adult|supervision)\b/.test(hay)) return true
+  if (/\b(admission|ticket|fee|cost|price|register|registration)\b/.test(hay)) return true
+  return false
+}
+
 function parseAgeToken(raw: string): number | null {
   const key = String(raw || '')
     .trim()
@@ -71,7 +79,7 @@ export function inferAgeRangeFromText(text: string): InferredAge | null {
   )
   if (under) {
     const around = hay.slice(Math.max(0, under.index! - 40), under.index! + under[0].length + 50)
-    if (!/\b(accompanied|accompany|with an adult|supervision)\b/.test(around)) {
+    if (!isNonTargetingAgeMention(around)) {
       const n = parseAgeToken(under[1])
       if (n != null && n > 0) {
         // Exclusive upper bound: under 2 → just below 2

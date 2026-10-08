@@ -1,4 +1,5 @@
 import type { Event } from '../types/event'
+import { isNonTargetingAgeMention } from './discoveryAgeHints'
 import {
   hasAllAgeBuckets,
   parseAgeBuckets,
@@ -97,7 +98,7 @@ export function extractSpecificAgeRecommendationFromText(text: string): string |
       Math.max(0, underYears.index! - 40),
       underYears.index! + underYears[0].length + 50,
     )
-    if (!/\b(accompanied|accompany|with an adult|supervision)\b/.test(around)) {
+    if (!isNonTargetingAgeMention(around)) {
       const n = parseAgeToken(underYears[1])
       if (n != null && n > 0) return `Best for under ${formatYears(n)}`
     }
