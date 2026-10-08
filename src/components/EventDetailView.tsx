@@ -33,6 +33,7 @@ import { getEventCategoryTags } from '../utils/eventImages'
 import { getEventModalAgeLabel } from '../utils/ageRange'
 import { getEventAgeRecommendation } from '../utils/eventAgeRecommendation'
 import { parseEventTips, stripLogisticsFromDescription } from '../utils/eventTips'
+import { BeforeYouGoTipItems } from './event-detail/BeforeYouGoIcon'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
@@ -252,11 +253,7 @@ function EventDetailTips({ tips }: { tips?: string }) {
         Before you go
       </h2>
       <ul className="event-detail-tips-list">
-        {items.map((item, index) => (
-          <li key={`${index}-${item}`} className="event-detail-tips-item">
-            {item}
-          </li>
-        ))}
+        <BeforeYouGoTipItems items={items} />
       </ul>
     </section>
   )

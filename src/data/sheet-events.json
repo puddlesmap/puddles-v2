@@ -19696,7 +19696,7 @@
     "id": "core-weekend-bing-charlie-tropicales-2026-10-10",
     "title": "Charlie and the Tropicales",
     "description": "A lively, interactive family concert with Charlie and the Tropicales, bringing Caribbean rhythms from New Orleans. Kids can listen, sing, and move along.",
-    "tips": "Infants in arms under 1 don’t need a ticket. Tickets are expected to sell out.\nWeekend parking on campus is free. A wheelchair-accessible restroom is inside the main entrance.",
+    "tips": "ticket|Infants in arms under 1 don’t need a ticket. Tickets are expected to sell out.\naccess|Weekend parking on campus is free. A wheelchair-accessible restroom is inside the main entrance.",
     "venue": "Dinkelspiel Auditorium",
     "address": "471 Lagunita Drive, Stanford, CA 94305",
     "city": "Palo Alto",

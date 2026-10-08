@@ -1,10 +1,43 @@
 /** Split sheet Tips into display bullets — one per non-empty line. */
-export function parseEventTips(tips?: string | null): string[] {
+/** Hidden tip prefix. Parents see the text only; the icon is chosen from the prefix. */
+export const TIP_ICON_PREFIXES = [
+  'ticket',
+  'baby',
+  'stroller',
+  'access',
+  'bath',
+  'food',
+  'sun',
+  'crowds',
+] as const
+
+export type TipIconKind = (typeof TIP_ICON_PREFIXES)[number]
+
+export type EventTipLine = {
+  icon: TipIconKind | null
+  text: string
+}
+
+const TIP_PREFIX_RE = /^(ticket|baby|stroller|access|bath|food|sun|crowds)\|\s*/
+
+/** Split one stored tip line. No prefix keeps the blue bullet. */
+export function parseEventTipLine(raw: string): EventTipLine {
+  const trimmed = raw.trim()
+  const match = trimmed.match(TIP_PREFIX_RE)
+  if (!match) return { icon: null, text: trimmed }
+  const icon = match[1] as TipIconKind
+  return { icon, text: trimmed.slice(match[0].length).trim() }
+}
+
+/** Split sheet Tips into display bullets — one per non-empty line. */
+export function parseEventTips(tips?: string | null): EventTipLine[] {
   if (!tips?.trim()) return []
   return tips
     .split(/\r?\n/)
     .map((item) => item.trim())
     .filter(Boolean)
+    .map(parseEventTipLine)
+    .filter((line) => line.text.length > 0)
 }
 
 export function hasEventTips(tips?: string | null): boolean {

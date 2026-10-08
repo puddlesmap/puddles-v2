@@ -192,6 +192,27 @@
   color: #66c5f9;
 }
 
+.event-detail-tips-item--icon {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  list-style: none;
+}
+
+.event-detail-tip-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 0.15rem;
+  color: #66c5f9;
+}
+
+.event-detail-tip-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
 .event-detail-tips-item + .event-detail-tips-item {
   margin-top: 0.5rem;
 }

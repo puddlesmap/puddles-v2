@@ -775,9 +775,9 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     description:
       'Pick out pumpkins and enjoy fall crafts, games, and family activities at Ardenwood Historic Farm.',
     tips: [
-      'Patch admission and pumpkin purchases are separate from Ardenwood admission. Drop in; no registration.',
-      'Paid. See the park page for this year’s price.',
-      'The farm has accessible restrooms and paved paths. Parking at Ardenwood is free.',
+      'ticket|Patch admission and pumpkin purchases are separate from Ardenwood admission. Drop in; no registration.',
+      'ticket|Paid. See the park page for this year’s price.',
+      'access|The farm has accessible restrooms and paved paths. Parking at Ardenwood is free.',
       'This is the daytime pumpkin patch, not the evening Haunted Train.',
     ].join('\n'),
     venue: 'Ardenwood Historic Farm',
@@ -812,7 +812,7 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     title: "Queen's Pumpkin Patch",
     description:
       'A fall outing with pumpkins, farm animals, a kids’ cow train, and hay rides. Plenty for kids to explore and enjoy.',
-    tips: 'Admission is $10 per person, plus a checkout fee. The petting zoo, cow train, hay rides, and other activities need separate tickets.',
+    tips: 'ticket|Admission is $10 per person, plus a checkout fee. The petting zoo, cow train, hay rides, and other activities need separate tickets.',
     venue: "Queen's Pumpkin Patch",
     address: '12985 Saratoga Ave, Saratoga, CA 95070',
     city: 'Saratoga',

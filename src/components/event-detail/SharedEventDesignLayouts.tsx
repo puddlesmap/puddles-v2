@@ -33,6 +33,7 @@ import { getEventCategoryTags } from '../../utils/eventImages'
 import { getEventModalAgeLabel } from '../../utils/ageRange'
 import { getEventAgeRecommendation } from '../../utils/eventAgeRecommendation'
 import { parseEventTips, stripLogisticsFromDescription } from '../../utils/eventTips'
+import { BeforeYouGoTipItems } from './BeforeYouGoIcon'
 import {
   getEventAddressLine,
   getEventDirectionsLabel,
@@ -471,13 +472,9 @@ function AirbnbLayout({
 
           {tipItems.length > 0 ? (
             <section className="sedl-section">
-              <h2 className="sedl-section-title">Good to know</h2>
+              <h2 className="sedl-section-title">Before you go</h2>
               <ul className="event-detail-tips-list sedl-tips-list">
-                {tipItems.map((item, index) => (
-                  <li key={`${index}-${item}`} className="event-detail-tips-item">
-                    {item}
-                  </li>
-                ))}
+                <BeforeYouGoTipItems items={tipItems} />
               </ul>
             </section>
           ) : null}
@@ -697,13 +694,9 @@ function EventbriteLayout({
             if (tipItems.length === 0) return null
             return (
               <section className="sedl-eb-block">
-                <h2 className="sedl-section-title">Tips for families</h2>
+                <h2 className="sedl-section-title">Before you go</h2>
                 <ul className="event-detail-tips-list sedl-tips-list">
-                  {tipItems.map((item, index) => (
-                    <li key={`${index}-${item}`} className="event-detail-tips-item">
-                      {item}
-                    </li>
-                  ))}
+                  <BeforeYouGoTipItems items={tipItems} />
                 </ul>
               </section>
             )
@@ -900,11 +893,7 @@ function AirbnbV2Layout({
                   Before you go
                 </h2>
                 <ul className="event-detail-tips-list">
-                  {tipItems.map((item, index) => (
-                    <li key={`${index}-${item}`} className="event-detail-tips-item">
-                      {item}
-                    </li>
-                  ))}
+                  <BeforeYouGoTipItems items={tipItems} />
                 </ul>
               </section>
             ) : null}
@@ -1091,13 +1080,9 @@ export function AirbnbV3DesktopContent({
 
           {tipItems.length > 0 ? (
             <section className="sedl-section">
-              <h2 className="sedl-section-title">Good to know</h2>
+              <h2 className="sedl-section-title">Before you go</h2>
               <ul className="event-detail-tips-list sedl-tips-list">
-                {tipItems.map((item, index) => (
-                  <li key={`${index}-${item}`} className="event-detail-tips-item">
-                    {item}
-                  </li>
-                ))}
+                <BeforeYouGoTipItems items={tipItems} />
               </ul>
             </section>
           ) : null}
@@ -1289,11 +1274,7 @@ function AirbnbV3Layout({
                   Before you go
                 </h2>
                 <ul className="event-detail-tips-list">
-                  {tipItems.map((item, index) => (
-                    <li key={`${index}-${item}`} className="event-detail-tips-item">
-                      {item}
-                    </li>
-                  ))}
+                  <BeforeYouGoTipItems items={tipItems} />
                 </ul>
               </section>
             ) : null}
