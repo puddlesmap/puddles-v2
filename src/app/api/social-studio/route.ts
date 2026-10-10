@@ -16,7 +16,6 @@ import {
   applyPause,
   applyReminders,
   publishDue,
-  readState,
   viewState,
 } from '../../../../netlify/lib/social-studio-store.mjs'
 
