@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>document.documentElement.dataset.slide = location.hash.slice(1) || '1'</script>
+    <style>
+      @font-face { font-family: "Nunito Sans"; src: url("file:///Users/schei/Documents/Projects/Puddles%20WIP/_Instagram/weekend-social-generator/assets/NunitoSans-400.woff2") format("woff2"); font-weight: 400; }
+      @font-face { font-family: "Nunito Sans"; src: url("file:///Users/schei/Documents/Projects/Puddles%20WIP/_Instagram/weekend-social-generator/assets/NunitoSans-600.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Nunito Sans"; src: url("file:///Users/schei/Documents/Projects/Puddles%20WIP/_Instagram/weekend-social-generator/assets/NunitoSans-800.ttf") format("truetype"); font-weight: 800; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1350px; overflow: hidden; background: #141414; }
+      .slide { display: none; position: relative; width: 1080px; height: 1350px; overflow: hidden; font-family: "Nunito Sans", sans-serif; background: #141414; color: #fff; }
+      html[data-slide='1'] .s1, html[data-slide='2'] .s2, html[data-slide='3'] .s3, html[data-slide='4'] .s4, html[data-slide='5'] .s5, html[data-slide='6'] .s6, html[data-slide='7'] .s7, html[data-slide='8'] .s8, html[data-slide='9'] .s9, html[data-slide='10'] .s10 { display: flex; }
+      .s1 { flex-direction: column; }
+      .cover-copy { position: relative; z-index: 2; flex: 0 0 auto; padding: 108px 108px 48px; }
+      .kicker { color: #ff8a3d; font-size: 30px; font-weight: 600; letter-spacing: -0.01em; }
+      .brand { margin-top: 22px; display: flex; align-items: center; gap: 14px; font-size: 32px; font-weight: 600; }
+      .brand img { width: 52px; height: 52px; border-radius: 50%; background: #fff; }
+      .cover-copy h1 { margin-top: 22px; color: #ff8a3d; font-size: 64px; line-height: 1.05; font-weight: 800; letter-spacing: -0.035em; max-width: 860px; }
+      .cover-themes { margin-top: 28px; color: #d7b4ff; font-size: 30px; line-height: 1.45; font-weight: 600; max-width: 820px; }
+      .bleed { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.72fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px; }
+      .bleed .tall { grid-row: 1 / span 2; overflow: hidden; }
+      .bleed .cell { overflow: hidden; min-height: 0; }
+      .bleed img, .hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .bleed .graphic, .hero.graphic { background: #f26b21; }
+      .bleed .graphic img, .hero.graphic img { object-fit: contain; }
+      .event { flex-direction: column; }
+      .hero { flex: 1; min-height: 0; overflow: hidden; }
+      .copy { flex: 0 0 auto; padding: 48px 90px 96px; }
+      .copy .kicker { font-size: 24px; letter-spacing: 0.04em; }
+      .name { margin-top: 14px; font-size: 52px; line-height: 1.08; font-weight: 800; letter-spacing: -0.035em; }
+      .meta { margin-top: 16px; color: rgba(255,255,255,0.7); font-size: 26px; font-weight: 400; line-height: 1.4; }
+      .blurb { margin-top: 14px; font-size: 28px; line-height: 1.45; font-weight: 400; color: rgba(255,255,255,0.88); }
+      .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 22px; }
+      .chip { height: 40px; padding: 0 14px; border-radius: 20px; font-size: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+      .chip.city { background: #f0f0f0; color: #333; }
+      .chip.free { background: #e2f5e7; color: #2b7a3d; }
+      .pin { width: 16px; height: 16px; }
+      .logo { position: absolute; top: 90px; right: 90px; z-index: 4; width: 76px; height: 76px; border-radius: 50%; background: #fff; }
+      .text-slide { flex-direction: column; justify-content: center; padding: 120px; }
+      .text-slide .logo { top: 90px; right: 90px; }
+      .text-slide h1 { margin-top: 28px; font-size: 64px; line-height: 1.08; font-weight: 800; letter-spacing: -0.035em; max-width: 820px; }
+      .points { margin-top: 48px; display: flex; flex-direction: column; gap: 36px; max-width: 820px; }
+      .point { display: grid; grid-template-columns: 36px 1fr; column-gap: 18px; align-items: start; }
+      .point .bygo { margin-top: 4px; color: #66c5f9; }
+      .point .bygo svg { width: 36px; height: 36px; display: block; }
+      .points h2 { font-size: 36px; line-height: 1.2; font-weight: 800; letter-spacing: -0.03em; }
+      .points p { margin-top: 8px; font-size: 30px; line-height: 1.4; font-weight: 400; color: rgba(255,255,255,0.78); }
+      .lede { margin-top: 48px; font-size: 30px; line-height: 1.35; font-weight: 600; color: rgba(255,255,255,0.88); }
+      .end-link { margin-top: 12px; font-size: 34px; font-weight: 600; color: #66c5f9; }
+    </style>
+  </head>
+  <body>
+    <article class="slide s1">
+      <div class="cover-copy">
+        <div class="kicker">OCT 24–31 · BAY AREA</div>
+        <div class="brand"><img src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />Puddles</div>
+        <h1>Costumes, Parades<br />&amp; Halloween Fun 🎃</h1>
+        <div class="cover-themes">Costume parties · Parades · Trick-or-treat</div>
+      </div>
+      <div class="bleed">
+        <div class="tall"><img style="object-position:center 30%" src="../../halloween-2026-oct-24/photos/los-altos-hoopla.jpg" alt="" /></div>
+        <div class="cell"><img style="object-position:center 40%" src="../../halloween-2026-oct-24/photos/menlo-parade.jpg" alt="" /></div>
+        <div class="cell"><img style="object-position:center 45%" src="../../halloween-2026-oct-24/photos/trunk.jpg" alt="" /></div>
+      </div>
+    </article>
+
+    <article class="slide s2 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 55%" src="../../halloween-2026-oct-24/photos/rengstorff.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">SAT, OCT 24 · CLOSE TO HOME</div>
+        <div class="name">Monster Bash</div>
+        <div class="meta">10:00 AM–2:00 PM · Rengstorff Park</div>
+        <div class="blurb">Treat Trail, inflatables, and a Little Boos Nook for babies and toddlers. Limited parking.</div>
+        <div class="chips"><span class="chip city"><svg class="pin" viewBox="0 0 14 14"><path fill="#333" d="M7 1.1a3.3 3.3 0 0 0-3.3 3.3C3.7 7.1 7 12.2 7 12.2s3.3-5.1 3.3-7.8A3.3 3.3 0 0 0 7 1.1zm0 4.4a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>Mountain View</span><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s3 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 20%" src="../../halloween-2026-oct-24/photos/los-altos-hoopla.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">SAT, OCT 24 · CLOSE TO HOME</div>
+        <div class="name">Los Altos Halloween Hoopla</div>
+        <div class="meta">10:00 AM–1:00 PM · Los Altos Community Center</div>
+        <div class="blurb">Costumes, crafts, games, and a scavenger hunt. No registration needed.</div>
+        <div class="chips"><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s4 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 40%" src="../../halloween-2026-oct-24/photos/menlo-parade.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">SAT, OCT 24 · WORTH A LITTLE DRIVE</div>
+        <div class="name">Menlo Park Halloween Parade</div>
+        <div class="meta">11:00 AM · Starts behind Cheeky Monkey</div>
+        <div class="blurb">Dress up for the parade, then games, jumpers, and crafts at Fremont Park. Children get a free bag.</div>
+        <div class="chips"><span class="chip city"><svg class="pin" viewBox="0 0 14 14"><path fill="#333" d="M7 1.1a3.3 3.3 0 0 0-3.3 3.3C3.7 7.1 7 12.2 7 12.2s3.3-5.1 3.3-7.8A3.3 3.3 0 0 0 7 1.1zm0 4.4a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>Menlo Park</span><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s6 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 22%" src="../../halloween-2026-oct-24/photos/childrens-library.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">WED, OCT 28 · CLOSE TO HOME</div>
+        <div class="name">Jack O’Lantern Jamboree</div>
+        <div class="meta">4:00–5:00 PM · Children’s Library, Secret Garden</div>
+        <div class="blurb">Costumes, dancing, and crafts. No registration. If it rains, it moves to the Treetop Room.</div>
+        <div class="chips"><span class="chip city"><svg class="pin" viewBox="0 0 14 14"><path fill="#333" d="M7 1.1a3.3 3.3 0 0 0-3.3 3.3C3.7 7.1 7 12.2 7 12.2s3.3-5.1 3.3-7.8A3.3 3.3 0 0 0 7 1.1zm0 4.4a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>Palo Alto</span><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s7 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 40%" src="../../halloween-2026-oct-24/photos/storywalk.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">WED, OCT 28 · CLOSE TO HOME</div>
+        <div class="name">Spooky StoryWalk</div>
+        <div class="meta">4:00–6:00 PM · Columbia Park</div>
+        <div class="blurb">A Halloween story, page by page, along the trail. Costumes welcome.</div>
+        <div class="chips"><span class="chip city"><svg class="pin" viewBox="0 0 14 14"><path fill="#333" d="M7 1.1a3.3 3.3 0 0 0-3.3 3.3C3.7 7.1 7 12.2 7 12.2s3.3-5.1 3.3-7.8A3.3 3.3 0 0 0 7 1.1zm0 4.4a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>Sunnyvale</span><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s8 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 45%" src="../../halloween-2026-oct-24/photos/trunk.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">WED, OCT 28 · WORTH A LITTLE DRIVE</div>
+        <div class="name">Trunk-or-Treat</div>
+        <div class="meta">4:30–6:00 PM · Belle Haven</div>
+        <div class="blurb">Decorated trunks, treats, and music. Each child gets a free bag.</div>
+        <div class="chips"><span class="chip city"><svg class="pin" viewBox="0 0 14 14"><path fill="#333" d="M7 1.1a3.3 3.3 0 0 0-3.3 3.3C3.7 7.1 7 12.2 7 12.2s3.3-5.1 3.3-7.8A3.3 3.3 0 0 0 7 1.1zm0 4.4a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>Menlo Park</span><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s9 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero graphic"><img src="../../halloween-2026-oct-24/photos/bootiful-full.png" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">FRI, OCT 30 · CLOSE TO HOME</div>
+        <div class="name">A BOO-tiful Downtown</div>
+        <div class="meta">12:00–4:00 PM · Downtown Los Altos</div>
+        <div class="blurb">Trick-or-treat at shops with an orange pumpkin sign. Bring a bag. Plaza games run 2:00–4:00 PM.</div>
+        <div class="chips"><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s5 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 45%" src="../../halloween-2026-oct-24/photos/ybg.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">SAT, OCT 31 · WORTH A LITTLE DRIVE</div>
+        <div class="name">Yerba Buena Hoopla</div>
+        <div class="meta">12:00–3:00 PM · Children’s Garden</div>
+        <div class="blurb">Circus Bella, a costume parade for kids under 10, pumpkin activities, and crafts. Free RSVP.</div>
+        <div class="chips"><span class="chip city"><svg class="pin" viewBox="0 0 14 14"><path fill="#333" d="M7 1.1a3.3 3.3 0 0 0-3.3 3.3C3.7 7.1 7 12.2 7 12.2s3.3-5.1 3.3-7.8A3.3 3.3 0 0 0 7 1.1zm0 4.4a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>San Francisco</span><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s10 text-slide">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="kicker">A note from Puddles</div>
+      <h1>Before you go</h1>
+      <div class="points">
+        <div class="point">
+          <span class="bygo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></svg></span>
+          <div>
+            <h2>Bringing a baby?</h2>
+            <p>Monster Bash has a Little Boos Nook for babies and toddlers.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="bygo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="2.25"/><path d="M4.75 18.25v-1.1a3.4 3.4 0 0 1 3.4-3.4h1.7a3.4 3.4 0 0 1 3.4 3.4v1.1"/><circle cx="16.25" cy="8.75" r="1.85"/><path d="M16 13.75a3.1 3.1 0 0 1 3.15 2.6v1.9"/></svg></span>
+          <div>
+            <h2>Saturday morning, pick one</h2>
+            <p>Monster Bash, Los Altos Hoopla, and the Menlo Park parade overlap. Monster Bash parking is limited.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="bygo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.25"/><path d="M12 3.75v1.75M12 18.5v1.75M3.75 12h1.75M18.5 12h1.75M6.1 6.1l1.25 1.25M16.65 16.65l1.25 1.25M17.9 6.1l-1.25 1.25M7.35 16.65l-1.25 1.25"/></svg></span>
+          <div>
+            <h2>Wednesday, pick one</h2>
+            <p>Jack O’Lantern Jamboree, Spooky StoryWalk, and Trunk-or-Treat overlap, in Palo Alto, Sunnyvale, and Menlo Park.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lede">More Halloween plans for little ones</div>
+      <div class="end-link">puddlesmap.com</div>
+    </article>
+  </body>
+</html>

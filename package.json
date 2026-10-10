@@ -30,6 +30,7 @@
     "verify-expansion-watch": "node scripts/verify-expansion-watch-submission.mjs"
   },
   "dependencies": {
+    "@netlify/blobs": "^11.1.4",
     "@netlify/plugin-nextjs": "^5.15.12",
     "@tailwindcss/postcss": "^4.3.2",
     "@vis.gl/react-google-maps": "^1.8.3",
@@ -39,7 +40,8 @@
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-leaflet": "^5.0.0",
-    "react-router-dom": "^7.17.0"
+    "react-router-dom": "^7.17.0",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

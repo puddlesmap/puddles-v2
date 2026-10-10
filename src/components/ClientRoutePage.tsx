@@ -72,6 +72,7 @@ import { AdminEventsPage } from '@/views/admin/AdminEventsPage'
 import { AdminDiscoveryPage } from '@/views/admin/AdminDiscoveryPage'
 import { AdminSubmissionsPage } from '@/views/admin/AdminSubmissionsPage'
 import { AdminSeasonalCalendarPage } from '@/views/admin/AdminSeasonalCalendarPage'
+import { AdminSocialStudioPage } from '@/views/admin/AdminSocialStudioPage'
 import { trackPageView } from '@/utils/analytics'
 import { applySiteMeta } from '@/utils/siteMeta'
 import { readEventDetailOverlayState } from '@/utils/nextEventDetailState'
@@ -224,6 +225,7 @@ function ClientRoutes() {
                 <Route path="discovery" element={<AdminDiscoveryPage />} />
                 <Route path="submissions" element={<AdminSubmissionsPage />} />
                 <Route path="seasonal-calendar" element={<AdminSeasonalCalendarPage />} />
+                <Route path="social" element={<AdminSocialStudioPage />} />
               </Route>
             </Route>
             <Route path="/Admin" element={<Navigate to="/admin/events" replace />} />

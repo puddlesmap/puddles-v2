@@ -3,6 +3,9 @@
   publish = ".next"
   functions = "netlify/functions"
 
+[functions."social-studio-tick"]
+  timeout = 60
+
 [build.environment]
   # SSG of hundreds of event pages OOMs Netlify's default Node heap (SIGKILL mid generate).
   # 4096 still died around ~151/604; give the build worker more headroom.
