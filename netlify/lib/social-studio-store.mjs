@@ -229,7 +229,7 @@ async function saveApproved(items, state) {
 
 export async function applyApproveItem(itemId) {
   const result = approveItem(await readState(), itemId)
-  if (result.error) return { ...(await viewState()), error: result.error, savedTo: [] }
+  if (result.error) return { ...(await viewState()), error: result.error, message: result.error, savedTo: [] }
   const saved = await saveApproved([result.item], result.state)
   await writeState(result.state)
   return { ...(await viewState()), error: saved.notionError ? saved.message : null, message: saved.message, savedTo: saved.savedTo }
