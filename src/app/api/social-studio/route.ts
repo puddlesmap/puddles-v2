@@ -32,10 +32,19 @@ function denied() {
   return NextResponse.json({ ok: false, error: 'Unauthorized' }, { status: 401 })
 }
 
+function failure(error: unknown) {
+  const message = error instanceof Error ? error.message : 'Social Studio could not load.'
+  return NextResponse.json({ ok: false, error: message }, { status: 500 })
+}
+
 export async function GET(request: NextRequest) {
   if (!adminOk(request)) return denied()
-  await seedStudio()
-  return NextResponse.json({ ok: true, studio: await viewState() })
+  try {
+    await seedStudio()
+    return NextResponse.json({ ok: true, studio: await viewState() })
+  } catch (error) {
+    return failure(error)
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -46,7 +55,11 @@ export async function POST(request: NextRequest) {
   } catch {
     return NextResponse.json({ ok: false, error: 'Invalid JSON body' }, { status: 400 })
   }
-  await seedStudio()
+  try {
+    await seedStudio()
+  } catch (error) {
+    return failure(error)
+  }
 
   const action = String(body.action || '')
   const itemId = String(body.itemId || '')

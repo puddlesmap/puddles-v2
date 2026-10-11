@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { TIME_ZONE } from '../../src/utils/socialStudioCore.mjs'
-import { readState, saveAsset, writeState } from './social-studio-store.mjs'
+import { readState, writeState } from './social-studio-store.mjs'
 
 const ROOT = process.cwd()
 
@@ -9,9 +9,14 @@ function readText(relativePath) {
   return fs.readFileSync(path.join(ROOT, relativePath), 'utf8').trim()
 }
 
-async function slide(relativePath) {
-  const bytes = fs.readFileSync(path.join(ROOT, relativePath))
-  return saveAsset(bytes, 'png')
+function slide(relativePath) {
+  const full = path.join(ROOT, relativePath)
+  if (!fs.existsSync(full)) throw new Error(`Missing slide ${relativePath}`)
+  // The page opens from these files. Copying every PNG into storage first was timing out the request.
+  return {
+    token: relativePath.split(path.sep).join('/'),
+    filename: path.basename(relativePath),
+  }
 }
 
 async function slides(directory, count) {

@@ -122,11 +122,21 @@ export function AdminSocialStudioPage() {
   const [view, setView] = useState<'calendar' | 'list'>('calendar')
   const [listGroup, setListGroup] = useState<'seasonal' | 'weekly'>('seasonal')
   const [viewerIndex, setViewerIndex] = useState<number | null>(null)
+  const [loadError, setLoadError] = useState('')
 
   const load = useCallback(async () => {
-    const response = await fetch('/api/social-studio', { credentials: 'include' })
-    const payload = (await response.json()) as { studio: Studio }
-    setStudio(payload.studio)
+    try {
+      const response = await fetch('/api/social-studio', { credentials: 'include' })
+      const payload = (await response.json()) as { studio?: Studio; error?: string }
+      if (!response.ok || !payload.studio) {
+        setLoadError(payload.error || 'Social Studio could not load.')
+        return
+      }
+      setLoadError('')
+      setStudio(payload.studio)
+    } catch (error) {
+      setLoadError(error instanceof Error ? error.message : 'Social Studio could not load.')
+    }
   }, [])
 
   useEffect(() => {
@@ -205,7 +215,16 @@ export function AdminSocialStudioPage() {
   }
 
   if (!studio || !selected) {
-    return <p className="text-sm text-muted">Loading Social Studio…</p>
+    return (
+      <div className="admin-social">
+        <p className="text-sm text-muted">{loadError || 'Loading Social Studio…'}</p>
+        {loadError ? (
+          <button type="button" className="admin-btn admin-btn-secondary mt-3" onClick={() => void load()}>
+            Try again
+          </button>
+        ) : null}
+      </div>
+    )
   }
 
   const folderExport = studio.folderExport !== false
@@ -401,7 +420,7 @@ export function AdminSocialStudioPage() {
                 aria-label={`Open slide ${index + 1} of ${previewSlides.length}`}
                 onClick={() => setViewerIndex(index)}
               >
-                <img src={`/api/social-studio/asset?token=${slide.token}`} alt="" />
+                <img src={`/api/social-studio/asset?token=${encodeURIComponent(slide.token)}`} alt="" />
               </button>
             ))}
           </div>
@@ -498,7 +517,7 @@ export function AdminSocialStudioPage() {
             Previous
           </button>
           <img
-            src={`/api/social-studio/asset?token=${previewSlides[viewerIndex].token}`}
+            src={`/api/social-studio/asset?token=${encodeURIComponent(previewSlides[viewerIndex].token)}`}
             alt=""
             onClick={(event) => event.stopPropagation()}
           />

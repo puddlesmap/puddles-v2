@@ -155,7 +155,24 @@ export async function saveAsset(bytes, extension = 'png') {
   return { token, filename }
 }
 
+function packagedSlidePath(token) {
+  if (!token || token.includes('\0')) return null
+  const normalized = path.posix.normalize(String(token)).replace(/^(\.\/)+/, '')
+  if (normalized.startsWith('/') || normalized.includes('..')) return null
+  if (!normalized.startsWith('social/instagram/')) return null
+  if (!/\.(png|jpe?g|webp)$/i.test(normalized)) return null
+  const root = path.resolve(process.cwd())
+  const full = path.resolve(root, normalized)
+  if (full !== root && !full.startsWith(root + path.sep)) return null
+  return full
+}
+
 export async function readAsset(token) {
+  const packaged = packagedSlidePath(token)
+  if (packaged) {
+    if (!fs.existsSync(packaged)) return null
+    return { filename: path.basename(packaged), bytes: fs.readFileSync(packaged) }
+  }
   if (!/^[a-f0-9]{32}$/.test(token || '')) return null
   if (!blobsEnabled()) return fileReadAsset(token)
   const store = await blobs()
