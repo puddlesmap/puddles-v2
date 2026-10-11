@@ -1,7 +1,7 @@
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
-import { folderExportEnabled, writeApprovedItem } from './social-studio-export.mjs'
+import { folderExportEnabled, onNetlifyRuntime, writeApprovedItem } from './social-studio-export.mjs'
 import {
   calendarPairKey,
   isCalendarItem,
@@ -26,7 +26,8 @@ import {
 } from '../../src/utils/socialStudioCore.mjs'
 
 function blobsEnabled() {
-  return process.env.SOCIAL_STUDIO_STORE === 'blobs' || process.env.NETLIFY === 'true'
+  if (process.env.SOCIAL_STUDIO_STORE === 'file') return false
+  return process.env.SOCIAL_STUDIO_STORE === 'blobs' || onNetlifyRuntime()
 }
 
 let blobStorePromise

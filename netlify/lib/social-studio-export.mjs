@@ -19,12 +19,20 @@ export function exportRoot() {
     || path.join(os.homedir(), 'Documents/Projects/Puddles WIP/_Instagram/2_weekly highllight')
 }
 
+/** Netlify’s Next server does not set NETLIFY=true. /var/task is that host. */
+export function onNetlifyRuntime() {
+  const cwd = process.cwd()
+  if (cwd === '/var/task' || cwd.startsWith('/var/task/')) return true
+  const env = process.env
+  return env.NETLIFY === 'true' || Boolean(env.AWS_LAMBDA_FUNCTION_NAME) || Boolean(env.LAMBDA_TASK_ROOT)
+}
+
 /** The weekly folder lives on this Mac. Netlify has no such path, so live approve skips it. */
 export function folderExportEnabled() {
   if (process.env.SOCIAL_STUDIO_FOLDER === 'off') return false
   if (process.env.SOCIAL_STUDIO_FOLDER === 'on') return true
   if (process.env.SOCIAL_STUDIO_EXPORT_DIR?.trim()) return true
-  if (process.env.NETLIFY === 'true') return false
+  if (onNetlifyRuntime()) return false
   return true
 }
 
