@@ -125,17 +125,22 @@ export function AdminSocialStudioPage() {
   const [loadError, setLoadError] = useState('')
 
   const load = useCallback(async () => {
+    const controller = new AbortController()
+    const timer = window.setTimeout(() => controller.abort(), 20000)
     try {
-      const response = await fetch('/api/social-studio', { credentials: 'include' })
+      const response = await fetch('/api/social-studio', { credentials: 'include', signal: controller.signal })
       const payload = (await response.json()) as { studio?: Studio; error?: string }
-      if (!response.ok || !payload.studio) {
+      if (!response.ok || !payload.studio?.items?.length) {
         setLoadError(payload.error || 'Social Studio could not load.')
         return
       }
       setLoadError('')
       setStudio(payload.studio)
     } catch (error) {
-      setLoadError(error instanceof Error ? error.message : 'Social Studio could not load.')
+      const aborted = error instanceof Error && error.name === 'AbortError'
+      setLoadError(aborted ? 'Social Studio took too long to answer. Try again.' : error instanceof Error ? error.message : 'Social Studio could not load.')
+    } finally {
+      window.clearTimeout(timer)
     }
   }, [])
 

@@ -6,13 +6,16 @@ import { readState, writeState } from './social-studio-store.mjs'
 const ROOT = process.cwd()
 
 function readText(relativePath) {
-  return fs.readFileSync(path.join(ROOT, relativePath), 'utf8').trim()
+  try {
+    return fs.readFileSync(path.join(ROOT, relativePath), 'utf8').trim()
+  } catch {
+    return ''
+  }
 }
 
 function slide(relativePath) {
   const full = path.join(ROOT, relativePath)
-  if (!fs.existsSync(full)) throw new Error(`Missing slide ${relativePath}`)
-  // The page opens from these files. Copying every PNG into storage first was timing out the request.
+  if (!fs.existsSync(full)) return null
   return {
     token: relativePath.split(path.sep).join('/'),
     filename: path.basename(relativePath),
@@ -21,10 +24,17 @@ function slide(relativePath) {
 
 async function slides(directory, count) {
   const saved = []
+  let names = []
+  try {
+    names = fs.readdirSync(path.join(ROOT, directory))
+  } catch {
+    return saved
+  }
   for (let index = 0; index < count; index += 1) {
-    const name = fs.readdirSync(path.join(ROOT, directory)).find((file) => file.startsWith(String(index + 1).padStart(2, '0')))
-    if (!name) throw new Error(`Missing slide ${index + 1} in ${directory}`)
-    saved.push(await slide(path.join(directory, name)))
+    const name = names.find((file) => file.startsWith(String(index + 1).padStart(2, '0')))
+    if (!name) continue
+    const savedSlide = slide(path.join(directory, name))
+    if (savedSlide) saved.push(savedSlide)
   }
   return saved
 }
@@ -32,7 +42,8 @@ async function slides(directory, count) {
 async function namedSlides(directory, names) {
   const saved = []
   for (const name of names) {
-    saved.push(await slide(path.join(directory, name)))
+    const savedSlide = slide(path.join(directory, name))
+    if (savedSlide) saved.push(savedSlide)
   }
   return saved
 }

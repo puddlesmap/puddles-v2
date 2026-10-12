@@ -1,6 +1,7 @@
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
+import { getStore } from '@netlify/blobs'
 import { folderExportEnabled, onNetlifyRuntime, writeApprovedItem } from './social-studio-export.mjs'
 import {
   calendarPairKey,
@@ -25,23 +26,47 @@ import {
   syncReminders,
 } from '../../src/utils/socialStudioCore.mjs'
 
-function blobsEnabled() {
+function blobsConfigured() {
   if (process.env.SOCIAL_STUDIO_STORE === 'file') return false
-  return process.env.SOCIAL_STUDIO_STORE === 'blobs' || onNetlifyRuntime()
+  if (process.env.SOCIAL_STUDIO_STORE === 'blobs') return true
+  if (!onNetlifyRuntime()) return false
+  const env = process.env
+  return Boolean(globalThis.netlifyBlobsContext || env.NETLIFY_BLOBS_CONTEXT)
 }
 
-let blobStorePromise
+let blobStore
 function blobs() {
-  if (!blobStorePromise) {
-    blobStorePromise = import('@netlify/blobs').then(({ getStore }) =>
-      getStore({ name: 'social-studio', consistency: 'strong' }),
-    )
+  if (!blobsConfigured()) return null
+  if (!blobStore) {
+    try {
+      blobStore = getStore({ name: 'social-studio', consistency: 'strong' })
+    } catch {
+      return null
+    }
   }
-  return blobStorePromise
+  return blobStore
+}
+
+function withTimeout(promise, ms) {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error('Social Studio storage timed out')), ms)
+    Promise.resolve(promise).then(
+      (value) => {
+        clearTimeout(timer)
+        resolve(value)
+      },
+      (error) => {
+        clearTimeout(timer)
+        reject(error)
+      },
+    )
+  })
 }
 
 function rootDir() {
-  return process.env.SOCIAL_STUDIO_DIR || path.join(process.cwd(), 'data/social-studio')
+  if (process.env.SOCIAL_STUDIO_DIR) return process.env.SOCIAL_STUDIO_DIR
+  if (onNetlifyRuntime()) return '/tmp/social-studio'
+  return path.join(process.cwd(), 'data/social-studio')
 }
 
 function statePath() {
@@ -115,45 +140,65 @@ function fileReadAsset(token) {
 }
 
 export async function readState() {
-  if (!blobsEnabled()) return fileReadState()
-  const store = await blobs()
-  const saved = await store.get('state', { type: 'json' })
-  return { ...emptyState(), ...(saved || {}) }
+  const store = blobs()
+  if (!store) return fileReadState()
+  try {
+    const saved = await withTimeout(store.get('state', { type: 'json' }), 8000)
+    return { ...emptyState(), ...(saved || {}) }
+  } catch {
+    return fileReadState()
+  }
 }
 
 export async function writeState(state) {
-  if (!blobsEnabled()) {
+  const store = blobs()
+  if (!store) {
     fileWriteState(state)
     return
   }
-  const store = await blobs()
-  await store.setJSON('state', state)
+  try {
+    await withTimeout(store.setJSON('state', state), 8000)
+  } catch {
+    fileWriteState(state)
+  }
 }
 
 /** Exclusive create. A second caller gets false until the winner releases. */
 export async function claimLock(itemId, token = crypto.randomUUID()) {
-  if (!blobsEnabled()) return fileClaimLock(itemId, token)
-  const store = await blobs()
-  const result = await store.set(`locks/${itemId}`, token, { onlyIfNew: true })
-  return result.modified ? { ok: true, token } : { ok: false, token: null }
+  const store = blobs()
+  if (!store) return fileClaimLock(itemId, token)
+  try {
+    const result = await withTimeout(store.set(`locks/${itemId}`, token, { onlyIfNew: true }), 8000)
+    return result.modified ? { ok: true, token } : { ok: false, token: null }
+  } catch {
+    return fileClaimLock(itemId, token)
+  }
 }
 
 export async function releaseLock(itemId, token) {
-  if (!blobsEnabled()) return fileReleaseLock(itemId, token)
-  const store = await blobs()
-  const current = await store.get(`locks/${itemId}`, { type: 'text' })
-  if (current !== token) return false
-  await store.delete(`locks/${itemId}`)
-  return true
+  const store = blobs()
+  if (!store) return fileReleaseLock(itemId, token)
+  try {
+    const current = await withTimeout(store.get(`locks/${itemId}`, { type: 'text' }), 8000)
+    if (current !== token) return false
+    await withTimeout(store.delete(`locks/${itemId}`), 8000)
+    return true
+  } catch {
+    return fileReleaseLock(itemId, token)
+  }
 }
 
 export async function saveAsset(bytes, extension = 'png') {
-  if (!blobsEnabled()) return fileSaveAsset(bytes, extension)
-  const store = await blobs()
+  const store = blobs()
+  if (!store) return fileSaveAsset(bytes, extension)
   const token = crypto.randomBytes(16).toString('hex')
   const filename = `${token}.${extension}`
-  await store.set(`assets/${filename}`, bytes)
-  return { token, filename }
+  try {
+    await withTimeout(store.set(`assets/${filename}`, bytes), 8000)
+    return { token, filename }
+  } catch {
+    return fileSaveAsset(bytes, extension)
+  }
 }
 
 function packagedSlidePath(token) {
@@ -175,8 +220,8 @@ export async function readAsset(token) {
     return { filename: path.basename(packaged), bytes: fs.readFileSync(packaged) }
   }
   if (!/^[a-f0-9]{32}$/.test(token || '')) return null
-  if (!blobsEnabled()) return fileReadAsset(token)
-  const store = await blobs()
+  const store = blobs()
+  if (!store) return fileReadAsset(token)
   try {
     const data = await store.get(`assets/${token}.png`, { type: 'arrayBuffer' })
     if (!data) return null
