@@ -37,33 +37,38 @@ const FIT4MOM_SERIES = [
     sampleId: 'watchlist-fit4mom-stroller-strides-laspalmas-2026-09-01',
     seriesId: 'watchlist-fit4mom-stroller-strides-laspalmas-series',
     requireCity: 'Sunnyvale',
-    nextDate: '2026-09-08',
+    nextDate: '2026-09-22',
   },
   {
     sampleId: 'watchlist-fit4mom-mommy-baby-yoga-laspalmas-2026-09-01',
     seriesId: 'watchlist-fit4mom-mommy-baby-yoga-laspalmas-series',
     requireCity: 'Sunnyvale',
-    nextDate: '2026-09-08',
+    nextDate: '2026-10-20',
   },
   {
     sampleId: 'watchlist-fit4mom-stroller-strides-cuesta-2026-09-04',
     seriesId: 'watchlist-fit4mom-stroller-strides-cuesta-series',
+    nextDate: '2026-10-16',
   },
   {
     sampleId: 'watchlist-fit4mom-stroller-barre-cuesta-2026-09-02',
     seriesId: 'watchlist-fit4mom-stroller-barre-cuesta-series',
+    nextDate: '2026-10-21',
   },
   {
     sampleId: 'watchlist-fit4mom-fourth-trimester-cuesta-2026-09-02',
     seriesId: 'watchlist-fit4mom-fourth-trimester-cuesta-series',
+    nextDate: '2026-10-21',
   },
   {
     sampleId: 'watchlist-fit4mom-family-strides-cuesta-2026-09-05',
     seriesId: 'watchlist-fit4mom-family-strides-cuesta-series',
+    nextDate: '2026-10-17',
   },
   {
     sampleId: 'watchlist-fit4mom-stroller-barre-mitchell-2026-09-03',
     seriesId: 'watchlist-fit4mom-stroller-barre-mitchell-series',
+    nextDate: '2026-10-22',
   },
 ]
 
@@ -157,7 +162,7 @@ const SUNNYVALE_LIBRARY_SERIES = [
     ageMin: 0,
     ageMax: 1,
     types: ['Stories'],
-    date: '2026-09-10',
+    date: '2026-10-22',
     tipExtras: ['For babies 0–12 months and their caregivers — no older siblings.'],
   },
   {
@@ -171,7 +176,7 @@ const SUNNYVALE_LIBRARY_SERIES = [
     ageMin: 1,
     ageMax: 3,
     types: ['Stories'],
-    date: '2026-09-08',
+    date: '2026-10-20',
     tipExtras: ['Best for ages 1–3.'],
   },
   {
@@ -185,7 +190,7 @@ const SUNNYVALE_LIBRARY_SERIES = [
     ageMin: 3,
     ageMax: 5,
     types: ['Stories'],
-    date: '2026-09-09',
+    date: '2026-10-21',
     tipExtras: ['Best for ages 3–5.'],
   },
   {
@@ -199,7 +204,7 @@ const SUNNYVALE_LIBRARY_SERIES = [
     ageMin: 0,
     ageMax: 5,
     types: ['Stories'],
-    date: '2026-09-12',
+    date: '2026-10-17',
   },
   {
     id: 'staging-sunnyvale-library-night-owl-storytime-series',
@@ -212,7 +217,7 @@ const SUNNYVALE_LIBRARY_SERIES = [
     ageMin: 0,
     ageMax: 5,
     types: ['Stories'],
-    date: '2026-09-10',
+    date: '2026-10-15',
   },
   {
     id: 'staging-sunnyvale-library-magical-bridge-storytime-series',
@@ -220,18 +225,18 @@ const SUNNYVALE_LIBRARY_SERIES = [
     description: 'Outdoor stories at Fair Oaks Park’s inclusive playground — sing, rhyme & explore.',
     dayLabel: 'First Fridays',
     startTime: '11:00',
-    endTime: '11:30',
+    endTime: '11:25',
     ageRange: '0–2, 2–5',
     ageMin: 0,
     ageMax: 5,
     types: ['Stories', 'Outdoor'],
-    date: '2026-09-04',
+    date: '2026-11-06',
     venue: 'Magical Bridge Playground · Fair Oaks Park',
     address: '540 N Fair Oaks Ave, Sunnyvale, CA 94085',
     lat: 37.3902,
     lng: -122.0085,
     tipExtras: [
-      'Usually first Fridays (next after Sep 4: Oct 2, Nov 6) — check the kids calendar for extras.',
+      'Usually first Fridays. Next on the library kids calendar: Fri Nov 6, 11:00–11:25 AM.',
     ],
   },
 ]
@@ -944,6 +949,9 @@ function buildFit4MomSeries(candidate, config) {
   event.title = candidate.title
   event.description = copy.description
   event.tips = copy.tips
+  if (config.seriesId === 'watchlist-fit4mom-fourth-trimester-cuesta-series') {
+    event.title = 'FIT4MOM Core & Restore · Cuesta Park'
+  }
   event.categoryTags = ['Parent & Me', 'Series · do not explode weekly']
   if (config.nextDate) event.date = config.nextDate
   if (IMAGE_OVERRIDES[event.id]) {

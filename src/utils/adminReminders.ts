@@ -1,27 +1,18 @@
-const SCHEDULED_DISCOVER_REMINDER_ID = 'scheduled-discover-2026-08-19'
-const STORAGE_KEY = `puddles-admin-reminder-${SCHEDULED_DISCOVER_REMINDER_ID}`
-/** First Pacific calendar day the reminder may appear. */
-export const SCHEDULED_DISCOVER_REMINDER_START = '2026-08-19'
+const WEEKLY_REVIEW_REMINDER_ID = 'weekly-discovery-review'
+const STORAGE_KEY = `puddles-admin-reminder-${WEEKLY_REVIEW_REMINDER_ID}`
 
 export interface AdminReminder {
   id: string
   title: string
+  phrase: string
   body: string
 }
 
 export const SCHEDULED_DISCOVER_REMINDER: AdminReminder = {
-  id: SCHEDULED_DISCOVER_REMINDER_ID,
-  title: 'Back from trip — set up Scheduled Discover',
-  body: 'When you’re ready, add the Scheduled Discover cron so the Discovery queue refreshes automatically (no manual redeploy just to review). Dismiss this when done or when you no longer need the reminder.',
-}
-
-function pacificTodayYmd(): string {
-  return new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'America/Los_Angeles',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).format(new Date())
+  id: WEEKLY_REVIEW_REMINDER_ID,
+  title: 'Weekly discovery is ready',
+  phrase: 'review this week’s queue.',
+  body: 'In chat, say “review this week’s queue.” I will help only with uncertain cards and skipped standing sources such as FIT4MOM and Sunnyvale Library.',
 }
 
 export function isScheduledDiscoverReminderDismissed(): boolean {
@@ -38,8 +29,7 @@ export function dismissScheduledDiscoverReminder() {
   window.localStorage.setItem(STORAGE_KEY, 'dismissed')
 }
 
-/** Visible on/after Aug 19, 2026 Pacific until the admin dismisses it. */
+/** Visible on Admin until dismissed. A new id replaces the old trip reminder. */
 export function shouldShowScheduledDiscoverReminder(): boolean {
-  if (pacificTodayYmd() < SCHEDULED_DISCOVER_REMINDER_START) return false
   return !isScheduledDiscoverReminderDismissed()
 }

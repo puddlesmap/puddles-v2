@@ -7981,9 +7981,9 @@
     "venue": "Cuesta Park",
     "address": "615 Cuesta Drive, Mountain View, CA 94040",
     "city": "Mountain View",
-    "date": "2026-09-30",
-    "startTime": "10:00",
-    "endTime": "11:00",
+    "date": "2026-10-21",
+    "startTime": "09:30",
+    "endTime": "10:30",
     "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
@@ -7997,8 +7997,8 @@
     "lng": -122.0785,
     "status": "Published",
     "isPast": false,
-    "isLive": false,
-    "verifiedDate": "2026-09-29"
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "puddles-fdb02a69-ad5",
@@ -8070,13 +8070,13 @@
     "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/e2defeaaf73f43e48de87d5adc0992f4/1/4SoifmQpDrHbZJ6W5XJrp/what-to-expect-in-class.jpg",
     "room": "",
     "id": "watchlist-fit4mom-fourth-trimester-cuesta-series",
-    "title": "FIT4MOM Fourth Trimester+ · Cuesta Park",
-    "description": "Postpartum movement class for caregivers, with babies welcome.",
+    "title": "FIT4MOM Core & Restore · Cuesta Park",
+    "description": "Shorter caregiver movement class at Cuesta Park.",
     "tips": "Weekly · Wednesdays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
     "venue": "Cuesta Park",
     "address": "615 Cuesta Drive, Mountain View, CA 94040",
     "city": "Mountain View",
-    "date": "2026-09-16",
+    "date": "2026-10-21",
     "startTime": "10:45",
     "endTime": "11:30",
     "ageRange": "0–2",
@@ -8091,9 +8091,9 @@
     "lat": 37.3745,
     "lng": -122.0785,
     "status": "Published",
-    "isPast": true,
-    "isLive": false,
-    "verifiedDate": "2026-09-03"
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "69b835bdb48451fc3c09441b",
@@ -8263,7 +8263,7 @@
     "venue": "Mitchell Park",
     "address": "600 E Meadow Dr, Palo Alto, CA 94303",
     "city": "Palo Alto",
-    "date": "2026-10-01",
+    "date": "2026-10-22",
     "startTime": "10:00",
     "endTime": "11:00",
     "ageRange": "0–5",
@@ -8279,8 +8279,8 @@
     "lng": -122.1095,
     "status": "Published",
     "isPast": false,
-    "isLive": false,
-    "verifiedDate": "2026-09-29"
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "69276b597eb3e430002638af",
@@ -8424,7 +8424,7 @@
     "venue": "Cuesta Park",
     "address": "615 Cuesta Drive, Mountain View, CA 94040",
     "city": "Mountain View",
-    "date": "2026-10-05",
+    "date": "2026-10-16",
     "startTime": "09:30",
     "endTime": "10:30",
     "ageRange": "0–5",
@@ -8441,7 +8441,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-29"
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "jeff-center-free-family-play-2026-09-04",
@@ -8544,11 +8544,11 @@
     "id": "staging-sunnyvale-library-magical-bridge-storytime-series",
     "title": "Storytime at Magical Bridge Playground",
     "description": "Outdoor stories at Fair Oaks Park’s inclusive playground — sing, rhyme & explore.",
-    "tips": "Weekly · First Fridays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early.\nGrown-ups stay with little ones the whole time.\nUsually first Fridays (next: Oct 2, Nov 6) — Magical Bridge calendar lists Oct 2, 11:00–11:25 AM.\nCheck the library kids calendar for extras and replacements.",
+    "tips": "Weekly · First Fridays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early.\nGrown-ups stay with little ones the whole time.\nUsually first Fridays. Next on the library kids calendar: Fri Nov 6, 11:00–11:25 AM.\nCheck the library kids calendar for extras and replacements.",
     "venue": "Magical Bridge Playground · Fair Oaks Park",
     "address": "540 N Fair Oaks Ave, Sunnyvale, CA 94085",
     "city": "Sunnyvale",
-    "date": "2026-10-02",
+    "date": "2026-11-06",
     "startTime": "11:00",
     "endTime": "11:25",
     "ageRange": "0–5",
@@ -8565,7 +8565,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-03"
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "pages-and-paws-reading-buddy-mountain-view-public-library-2026-09-04-15-30",
@@ -8732,13 +8732,13 @@
     "id": "watchlist-fit4mom-family-strides-cuesta-series",
     "title": "FIT4MOM Family Strides 360 · Cuesta Park",
     "description": "Family stroller fitness for caregivers with kids along — workout at Cuesta Park.",
-    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Fridays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
+    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Saturdays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
     "venue": "Cuesta Park",
     "address": "615 Cuesta Drive, Mountain View, CA 94040",
     "city": "Mountain View",
-    "date": "2026-10-02",
-    "startTime": "10:00",
-    "endTime": "11:00",
+    "date": "2026-10-17",
+    "startTime": "09:30",
+    "endTime": "10:30",
     "ageRange": "0–5",
     "ageMin": 0,
     "ageMax": 5,
@@ -8753,7 +8753,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-29"
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "696191ef992fc18a86dc9a3d",
@@ -8927,7 +8927,7 @@
     "id": "watchlist-fit4mom-stroller-strides-laspalmas-series",
     "title": "FIT4MOM Stroller Strides · Las Palmas Park",
     "description": "Stroller workout for caregivers with baby in tow — cardio & strength at Las Palmas Park.",
-    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Tuesdays at Las Palmas Park.\nThe Glofox week of Sep 29–Oct 6 does not list Stroller Strides here (Tue Oct 6 is Mommy and Me Zumba and Mommy & Baby Yoga). Check the schedule for the next class.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nPre-enroll for schedule updates and rainy-day location changes.",
+    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Tuesdays at Las Palmas Park.\nThe Glofox schedule checked Oct 15 does not list Stroller Strides at Las Palmas (Tue Oct 20 is Mommy and Me Zumba and Mommy and Baby Yoga). Check the schedule for the next class.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nPre-enroll for schedule updates and rainy-day location changes.",
     "venue": "Las Palmas Park",
     "address": "850 Russet Dr, Sunnyvale, CA 94087",
     "city": "Sunnyvale",
@@ -8946,9 +8946,9 @@
     "lat": 37.3515,
     "lng": -122.0255,
     "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-29"
+    "isPast": true,
+    "isLive": false,
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "699f624cb0595799c09f604c",
@@ -9023,7 +9023,7 @@
     "venue": "Sunnyvale Public Library",
     "address": "665 W Olive Ave, Sunnyvale, CA 94086",
     "city": "Sunnyvale",
-    "date": "2026-10-06",
+    "date": "2026-10-20",
     "startTime": "11:00",
     "endTime": "11:25",
     "ageRange": "0–5",
@@ -9039,7 +9039,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-29"
+    "verifiedDate": "2026-10-15"
   },
   {
     "categoryTags": [
@@ -9055,7 +9055,7 @@
     "venue": "Las Palmas Park",
     "address": "850 Russet Dr, Sunnyvale, CA 94087",
     "city": "Sunnyvale",
-    "date": "2026-10-06",
+    "date": "2026-10-20",
     "startTime": "11:15",
     "endTime": "12:15",
     "ageRange": "0–2",
@@ -9072,7 +9072,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-29"
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "disc-bilingual-mandarin-family-storytime-2026-09-08-6a56d18488e9bf280030f048",
@@ -9308,7 +9308,7 @@
     "venue": "Sunnyvale Public Library",
     "address": "665 W Olive Ave, Sunnyvale, CA 94086",
     "city": "Sunnyvale",
-    "date": "2026-10-07",
+    "date": "2026-10-21",
     "startTime": "11:00",
     "endTime": "11:25",
     "ageRange": "2–5",
@@ -9324,7 +9324,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-29"
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "disc-baby-storytime-stay-and-play-2026-09-09-6a68e77fcca66c2f00a6955a",
@@ -9494,7 +9494,7 @@
     "venue": "Sunnyvale Public Library",
     "address": "665 W Olive Ave, Sunnyvale, CA 94086",
     "city": "Sunnyvale",
-    "date": "2026-10-01",
+    "date": "2026-10-22",
     "startTime": "10:30",
     "endTime": "12:00",
     "ageRange": "0–2",
@@ -9510,7 +9510,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-29"
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "69276b597eb3e430002638b0",
@@ -9656,7 +9656,7 @@
     "venue": "Sunnyvale Public Library",
     "address": "665 W Olive Ave, Sunnyvale, CA 94086",
     "city": "Sunnyvale",
-    "date": "2026-10-01",
+    "date": "2026-10-15",
     "startTime": "19:00",
     "endTime": "19:25",
     "ageRange": "0–5",
@@ -9672,7 +9672,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-29"
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "jeff-center-free-family-play-2026-09-11",
@@ -9967,7 +9967,7 @@
     "venue": "Sunnyvale Public Library",
     "address": "665 W Olive Ave, Sunnyvale, CA 94086",
     "city": "Sunnyvale",
-    "date": "2026-10-03",
+    "date": "2026-10-17",
     "startTime": "11:00",
     "endTime": "11:25",
     "ageRange": "0–5",
@@ -9983,7 +9983,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-09-29"
+    "verifiedDate": "2026-10-15"
   },
   {
     "categoryTags": [

@@ -85,7 +85,7 @@ export const FIT4MOM_SERIES_COPY = {
     }),
   },
   'watchlist-fit4mom-fourth-trimester-cuesta-series': {
-    description: 'Postpartum movement class for caregivers, with babies welcome.',
+    description: 'Shorter caregiver movement class at Cuesta Park.',
     tips: [
       'Weekly · Wednesdays at Cuesta Park.',
       SCHEDULE_LINE,

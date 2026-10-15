@@ -9,10 +9,11 @@ import {
   shouldShowScheduledDiscoverReminder,
 } from '../../utils/adminReminders'
 import { AdminMarkInternalAnalytics } from './AdminMarkInternalAnalytics'
+import { AdminPublishControl } from './AdminPublishControl'
 
 const NAV_ITEMS = [
+  { to: '/admin', label: 'Review', end: true },
   { to: '/admin/events', label: 'Events' },
-  { to: '/admin/discovery', label: 'Discovery' },
   { to: '/admin/submissions', label: 'Submissions' },
   { to: '/admin/seasonal-calendar', label: 'Seasonal' },
   { to: '/admin/social', label: 'Social' },
@@ -86,6 +87,7 @@ export function AdminLayout() {
             <PageContainer layout="wide" className="admin-reminder-banner__inner">
               <div className="admin-reminder-banner__copy">
                 <strong>{SCHEDULED_DISCOVER_REMINDER.title}</strong>
+                <span>{SCHEDULED_DISCOVER_REMINDER.phrase}</span>
                 <span>{SCHEDULED_DISCOVER_REMINDER.body}</span>
               </div>
               <button
@@ -106,6 +108,7 @@ export function AdminLayout() {
               <h1 className="mt-1 font-display text-xl text-charcoal">Operations dashboard</h1>
             </div>
             <div className="flex flex-wrap items-center gap-3">
+              <AdminPublishControl />
               <button
                 type="button"
                 className="admin-btn admin-btn-secondary"
@@ -141,67 +144,40 @@ export function AdminLayout() {
             </div>
           </div>
 
-          <div className="admin-reminder-banner" role="status">
-            <PageContainer layout="wide" className="admin-reminder-banner__inner">
-              <div className="admin-reminder-banner__copy">
-                <strong>Still to check</strong>
-                <span>
-                  Sunnyvale Public Library kids calendar and FIT4MOM Glofox. Open both in a browser.
-                  GitHub cannot download them. A new special stays in Discovery until you Approve →
-                  Go live.
-                </span>
-              </div>
-              <a
-                className="admin-btn admin-btn-secondary"
-                href="https://www.library.sunnyvale.ca.gov/events/kids-events"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Library calendar
-              </a>
-              <a
-                className="admin-btn admin-btn-secondary"
-                href="https://sunnyvale.fit4mom.com/schedule"
-                target="_blank"
-                rel="noreferrer"
-              >
-                FIT4MOM schedule
-              </a>
-            </PageContainer>
-          </div>
-
           {howToOpen ? (
             <div id="admin-howto-panel" className="admin-howto-panel">
               <p className="admin-howto-panel__lead">
-                Form → Submissions → Go live. Discovery → Approve → Go live. Events monitors the
-                public catalog. Full guide: <code>docs/admin-howto.md</code>
+                Review each item with <strong>Approve</strong> or <strong>Remove</strong>, then use
+                the header <strong>Publish</strong> once for all approved changes. Full guide:{' '}
+                <code>docs/admin-howto.md</code>
               </p>
               <ol className="admin-howto-panel__list">
                 <li>
-                  <strong>Submissions</strong> — Refresh, review Share form items,{' '}
-                  <strong>Go live</strong> for Event submissions.
+                  <strong>Submissions</strong> — Refresh, review Share form items, then Approve or Remove.
                 </li>
                 <li>
-                  <strong>Discovery</strong> — Approve library candidates, then{' '}
-                  <strong>Go live</strong>. Auto-refresh: Wednesdays 8:00 AM PT (library queue and
-                  Worth a little drive). Sunnyvale library and FIT4MOM are a browser check, listed
-                  above. Mid-week = manual.
+                  <strong>Discovery</strong> — Review the prioritized queue. Approved candidates join
+                  the header Publish summary; unchanged events stay out of the queue.
                 </li>
                 <li>
-                  <strong>Events</strong> — Monitor <strong>Live</strong>,{' '}
+                  <strong>Events</strong> — Switch <strong>Regular</strong> or{' '}
+                  <strong>Regional / Seasonal</strong>, then monitor <strong>Live</strong>,{' '}
                   <strong>Needs attention</strong>, and <strong>Past</strong>. Expand a row to{' '}
-                  <strong>edit &amp; publish</strong>.
+                  <strong>edit &amp; approve</strong>.
                 </li>
               </ol>
               <p className="admin-howto-panel__note">
-                Google Sheet is optional. Go live updates the public site in ~2–4 minutes.
+                Google Sheet is optional. Publish updates the public site in ~2–4 minutes.
               </p>
             </div>
           ) : null}
 
           <nav className="admin-section-nav" aria-label="Admin sections">
             {NAV_ITEMS.map((item) => {
-              const isActive = location.pathname.startsWith(item.to)
+              const isActive =
+                item.to === '/admin'
+                  ? location.pathname === '/admin'
+                  : location.pathname.startsWith(item.to)
               return (
                 <Link
                   key={item.to}
