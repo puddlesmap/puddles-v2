@@ -5,6 +5,8 @@ export function normalizeUrl(url: unknown): string
 export function emptyInbox(): DiscoveryInboxFile
 export function candidateIdentityKey(candidate: object): string
 export function diffParentFields(event: object, candidate: object): string[]
+export function isCancelledNotice(row: object): boolean
+export function publishedTitleForUpdate(nextTitle: string, currentTitle: string): string
 export function findIdentityMatches(candidate: object, events: readonly object[]): object[]
 export function labelCandidate(candidate: object, events: readonly object[]): InboxLabel
 export function needsDecision(label: InboxLabel): boolean

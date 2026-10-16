@@ -6,6 +6,9 @@ export interface DiscoveryCandidate {
   date: string
   startTime: string
   endTime: string
+  /** Inclusive last day for multi-day festivals. Blank for a single day. */
+  closingDate?: string
+  scheduleKind?: 'one-time' | 'seasonal-run' | 'multi-day'
   venue: string
   room: string
   address: string
@@ -13,6 +16,7 @@ export interface DiscoveryCandidate {
   lat: number | null
   lng: number | null
   ageRange: string
+  bestFor?: string
   ageMin: number | null
   ageMax: number | null
   audiences: string
@@ -56,7 +60,9 @@ export type DiscoveryEditableFields = Pick<
   | 'date'
   | 'startTime'
   | 'endTime'
+  | 'closingDate'
   | 'ageRange'
+  | 'bestFor'
   | 'types'
   | 'cost'
   | 'eventUrl'

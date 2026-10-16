@@ -42,6 +42,19 @@ export function findMatchingEventsForCandidate(candidate: DiscoveryCandidate): E
   return byUrl
 }
 
+function isOnSiteCatalogStatus(status: Event['status'] | undefined): boolean {
+  return status === 'Published' || status === 'Hidden' || status === 'Cancelled'
+}
+
+/** Live Browse, Hidden, or Cancelled row already on Puddles. */
+export function findOnSiteCatalogEvent(candidate: DiscoveryCandidate): Event | undefined {
+  return findMatchingEventsForCandidate(candidate).find((event) => isOnSiteCatalogStatus(event.status))
+}
+
+export function findExistingDraftForCandidate(candidate: DiscoveryCandidate): Event | undefined {
+  return findMatchingEventsForCandidate(candidate).find((event) => event.status === 'Draft')
+}
+
 /** Resolve catalog/Sheet event IDs for a Discovery candidate already on Puddles. */
 export function findMatchingEventIdsForCandidate(candidate: DiscoveryCandidate): string[] {
   return findMatchingEventsForCandidate(candidate)

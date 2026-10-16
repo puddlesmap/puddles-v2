@@ -1,4 +1,7 @@
 export type AgeBucket = '0-2' | '2-5' | '5+'
+
+/** Default age tag when a listing does not name a narrower range. */
+export const FULL_SITE_AGE_TAG = '0–5'
 export type AgeFilter = 'all' | '0-2' | '2-5'
 
 export const PUBLIC_AGE_FILTER_OPTIONS: { key: AgeFilter; label: string }[] = [

@@ -40,6 +40,20 @@ export function saveDiscoveryReviewRecord(id: string, record: DiscoveryReviewRec
   writeStore(store)
 }
 
+export function markDiscoveryReviewsLive(ids: string[]) {
+  const wanted = new Set(ids)
+  if (wanted.size === 0) return
+  const store = readStore()
+  let changed = false
+  for (const id of wanted) {
+    const record = store[id]
+    if (!record) continue
+    store[id] = { ...record, reviewStatus: 'live', updatedAt: new Date().toISOString() }
+    changed = true
+  }
+  if (changed) writeStore(store)
+}
+
 export function clearDiscoveryEdits(id: string) {
   const store = readStore()
   const existing = store[id]

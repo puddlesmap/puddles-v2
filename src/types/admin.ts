@@ -3,6 +3,9 @@ import type { City, Event, EventStatus } from './event'
 /** Admin-facing event record — same as Event with room for future verification fields. */
 export type AdminEventRecord = Event
 
+/** Regular Browse vs Hello Fall / Halloween + Worth a little drive. */
+export type AdminEventCatalog = 'regular' | 'seasonal'
+
 export type AdminBooleanFilter = boolean | 'all'
 
 export interface AdminEventFilters {

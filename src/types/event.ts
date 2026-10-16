@@ -103,6 +103,8 @@ export interface Event {
    */
   scheduleWindowLabel?: string
   ageRange: string
+  /** Verified parent-facing recommendation from an official source, e.g. “Best for ages 2–5”. */
+  bestFor?: string
   ageMin: number
   ageMax: number
   types: ActivityType[]
@@ -124,6 +126,11 @@ export interface Event {
   isPast: boolean
   /** Computed: Status = Published AND Is Past = FALSE. Public website gate. Read-only in admin. */
   isLive: boolean
+  /**
+   * Previous date when an editor confirmed this same event moved.
+   * Shown until the new date has passed. A new occurrence does not set this.
+   */
+  rescheduledFrom?: string
 }
 
 export type DayFilter = 'today' | 'tomorrow' | 'weekend' | 'anytime'

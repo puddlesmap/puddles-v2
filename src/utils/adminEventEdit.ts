@@ -20,6 +20,52 @@ function asActivityTypes(values: string[]): ActivityType[] {
   return matched.length > 0 ? matched : ['Other']
 }
 
+
+function daySpanInclusive(start: string, end: string): number {
+  const from = Date.parse(`${start}T12:00:00`)
+  const to = Date.parse(`${end}T12:00:00`)
+  if (Number.isNaN(from) || Number.isNaN(to)) return 1
+  return Math.round((to - from) / 86_400_000) + 1
+}
+
+/** Apply date span fields the review form already collected. */
+export function applyAdminScheduleDates(
+  event: Event,
+  edits: { date: string; closingDate: string; scheduleKind: string },
+): Event {
+  const date = edits.date.trim()
+  const closingDate = edits.closingDate.trim()
+  const explicit = edits.scheduleKind.trim()
+  const next: Event = { ...event, date }
+
+  if (!closingDate || closingDate === date) {
+    const { closingDate: droppedClose, scheduleWindowLabel: droppedWindow, ...rest } = next
+    void droppedClose
+    void droppedWindow
+    return {
+      ...rest,
+      scheduleKind:
+        explicit === 'seasonal-run' || explicit === 'multi-day' ? 'one-time' : next.scheduleKind,
+    }
+  }
+
+  if (explicit === 'seasonal-run' || (!explicit && daySpanInclusive(date, closingDate) > 14)) {
+    return {
+      ...next,
+      scheduleKind: 'seasonal-run',
+      openingDate: date,
+      closingDate,
+    }
+  }
+
+  return {
+    ...next,
+    scheduleKind: 'multi-day',
+    openingDate: date,
+    closingDate,
+  }
+}
+
 export function editableFieldsFromEvent(event: Event): AdminEventEditableFields {
   return {
     title: event.title,

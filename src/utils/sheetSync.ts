@@ -466,6 +466,25 @@ export async function refreshEventsFromSheet(): Promise<{ events: Event[]; refre
 }
 
 export const ADMIN_REFRESH_STORAGE_KEY = 'puddles-admin-refresh'
+export const ADMIN_DISMISSED_EVENT_IDS_KEY = 'puddles-admin-dismissed-event-ids'
+
+export function loadDismissedAdminEventIds(): string[] {
+  try {
+    const raw = localStorage.getItem(ADMIN_DISMISSED_EVENT_IDS_KEY)
+    if (!raw) return []
+    const parsed = JSON.parse(raw) as unknown
+    return Array.isArray(parsed) ? parsed.filter((id): id is string => typeof id === 'string') : []
+  } catch {
+    return []
+  }
+}
+
+export function rememberDismissedAdminEventId(eventId: string) {
+  const id = eventId.trim()
+  if (!id) return
+  const next = Array.from(new Set([...loadDismissedAdminEventIds(), id]))
+  localStorage.setItem(ADMIN_DISMISSED_EVENT_IDS_KEY, JSON.stringify(next))
+}
 
 export function loadCachedAdminRefresh(): { events: Event[]; refreshedAt: string } | null {
   try {

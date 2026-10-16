@@ -2,6 +2,7 @@ import type { SeasonalCollectionSlug } from '../data/seasonalDiscovery'
 import { getActiveSeasonalCollection, getSeasonalCollection } from '../data/seasonalDiscovery'
 
 const STORAGE_KEY = 'puddles-admin-seasonal-curation-v1'
+export const SEASONAL_STAGING_CHANGED = 'puddles:seasonal-staging-changed'
 const LOCAL_PUBLISHED_KEY = 'puddles-admin-seasonal-curation-published-v1'
 
 export type SeasonalCurationSection = 'closeToHome' | 'worthADrive'
@@ -57,6 +58,7 @@ function readStore(): StagingStore {
 function writeStore(store: StagingStore) {
   if (typeof window === 'undefined') return
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(store))
+  window.dispatchEvent(new Event(SEASONAL_STAGING_CHANGED))
 }
 
 function readPublishedStore(): PublishedStore {
