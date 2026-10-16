@@ -225,9 +225,11 @@
       "discoveredAt": "2026-10-09T00:04:17.243Z",
       "identityKey": "id:bunnyhive-mv-145466",
       "id": "id:bunnyhive-mv-145466",
-      "decision": "pending",
+      "decision": "ready",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-09T00:04:17.269Z"
+      "updatedAt": "2026-10-16T06:42:56.362Z",
+      "imageUrl": "https://irp.cdn-website.com/45272f0c/dms3rep/multi/opt/prekKellyBullockPhotography-35-1920w.jpg",
+      "types": []
     },
     {
       "title": "Cuesta Park Storytime",
