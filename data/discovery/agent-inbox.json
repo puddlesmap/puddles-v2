@@ -155,7 +155,7 @@
       "discoveredAt": "2026-10-09T00:04:17.243Z",
       "identityKey": "id:bunnyhive-mv-149983",
       "id": "id:bunnyhive-mv-149983",
-      "decision": "ready",
+      "decision": "live",
       "occurrenceChoice": "",
       "updatedAt": "2026-10-16T00:16:39.300Z",
       "imageUrl": "https://irp.cdn-website.com/45272f0c/dms3rep/multi/opt/DSC07064-1920w.jpg",
@@ -342,7 +342,7 @@
       "discoveredAt": "2026-09-01",
       "identityKey": "id:17170831",
       "id": "id:17170831",
-      "decision": "ready",
+      "decision": "live",
       "occurrenceChoice": "replace",
       "updatedAt": "2026-10-16T00:15:01.036Z"
     },
@@ -577,7 +577,7 @@
       "discoveredAt": "2026-09-01",
       "identityKey": "id:6a3032c18ea300e2631dc5f1",
       "id": "id:6a3032c18ea300e2631dc5f1",
-      "decision": "ready",
+      "decision": "live",
       "occurrenceChoice": "",
       "updatedAt": "2026-10-16T00:17:44.435Z"
     },
@@ -4523,7 +4523,7 @@
       "discoveredAt": "2026-10-15",
       "identityKey": "id:barron-park-movie-night-2026-10-18",
       "id": "id:barron-park-movie-night-2026-10-18",
-      "decision": "ready",
+      "decision": "live",
       "occurrenceChoice": "",
       "updatedAt": "2026-10-16T02:33:18.634Z"
     },

@@ -7968,39 +7968,6 @@
     "sheetTypesRaw": "Build & Explore"
   },
   {
-    "categoryTags": [
-      "Parent & Me",
-      "Series · do not explode weekly"
-    ],
-    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/dc6450fd530c46908f3e38abeba487e1/1/4SoifmQpDrHbZJ6VybMjS/strollerbarre.jpeg",
-    "room": "",
-    "id": "watchlist-fit4mom-stroller-barre-cuesta-series",
-    "title": "FIT4MOM Stroller Barre · Cuesta Park",
-    "description": "Barre-style workout for caregivers with little ones in strollers at Cuesta Park.",
-    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Wednesdays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
-    "venue": "Cuesta Park",
-    "address": "615 Cuesta Drive, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-10-21",
-    "startTime": "09:30",
-    "endTime": "10:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Parent & Me",
-      "Outdoor"
-    ],
-    "cost": "Paid · First class free",
-    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
-    "lat": 37.3745,
-    "lng": -122.0785,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
-  },
-  {
     "id": "puddles-fdb02a69-ad5",
     "title": "Baby Storytime",
     "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months.\n\n Assisted Listening Devices available upon request.",
@@ -8061,39 +8028,6 @@
     "isLive": false,
     "sheetTypesRaw": "Stories",
     "tips": "This program is targeted to children under the age of two and their caregivers."
-  },
-  {
-    "categoryTags": [
-      "Parent & Me",
-      "Series · do not explode weekly"
-    ],
-    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/e2defeaaf73f43e48de87d5adc0992f4/1/4SoifmQpDrHbZJ6W5XJrp/what-to-expect-in-class.jpg",
-    "room": "",
-    "id": "watchlist-fit4mom-fourth-trimester-cuesta-series",
-    "title": "FIT4MOM Core & Restore · Cuesta Park",
-    "description": "Shorter caregiver movement class at Cuesta Park.",
-    "tips": "Weekly · Wednesdays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
-    "venue": "Cuesta Park",
-    "address": "615 Cuesta Drive, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-10-21",
-    "startTime": "10:45",
-    "endTime": "11:30",
-    "ageRange": "0–2",
-    "ageMin": 0,
-    "ageMax": 2,
-    "types": [
-      "Parent & Me",
-      "Outdoor"
-    ],
-    "cost": "Paid · First class free",
-    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
-    "lat": 37.3745,
-    "lng": -122.0785,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
   },
   {
     "id": "69b835bdb48451fc3c09441b",
@@ -8250,39 +8184,6 @@
     "sheetTypesRaw": "Music & Movement"
   },
   {
-    "categoryTags": [
-      "Parent & Me",
-      "Series · do not explode weekly"
-    ],
-    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/dc6450fd530c46908f3e38abeba487e1/1/4SoifmQpDrHbZJ6VybMjS/strollerbarre.jpeg",
-    "room": "",
-    "id": "watchlist-fit4mom-stroller-barre-mitchell-series",
-    "title": "FIT4MOM Stroller Barre · Mitchell Park",
-    "description": "Stroller Barre workout for caregivers with child in stroller at Mitchell Park.",
-    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Thursdays at Mitchell Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang by Mitchell Park Library / Ada's Cafe.",
-    "venue": "Mitchell Park",
-    "address": "600 E Meadow Dr, Palo Alto, CA 94303",
-    "city": "Palo Alto",
-    "date": "2026-10-22",
-    "startTime": "10:00",
-    "endTime": "11:00",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Parent & Me",
-      "Outdoor"
-    ],
-    "cost": "Paid · First class free",
-    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
-    "lat": 37.419,
-    "lng": -122.1095,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
-  },
-  {
     "id": "69276b597eb3e430002638af",
     "title": "Bilingual Family Storytime",
     "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y activi",
@@ -8411,39 +8312,6 @@
     "sheetTypesRaw": "Stories"
   },
   {
-    "categoryTags": [
-      "Parent & Me",
-      "Series · do not explode weekly"
-    ],
-    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/b1d4bba1caf446edaff553933886ce3a/1/4SoifmQpDrHbZJ6VybMjS/FIT4MOM%20Stroller%20Strides%20stroller%20workout%20for%20moms.jpg",
-    "room": "",
-    "id": "watchlist-fit4mom-stroller-strides-cuesta-series",
-    "title": "FIT4MOM Stroller Strides · Cuesta Park",
-    "description": "Stroller workout for caregivers with baby in tow — cardio & strength at Cuesta Park.",
-    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Mondays & Fridays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
-    "venue": "Cuesta Park",
-    "address": "615 Cuesta Drive, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-10-16",
-    "startTime": "09:30",
-    "endTime": "10:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Parent & Me",
-      "Outdoor"
-    ],
-    "cost": "Paid · First class free",
-    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
-    "lat": 37.3745,
-    "lng": -122.0785,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
-  },
-  {
     "id": "jeff-center-free-family-play-2026-09-04",
     "title": "Jeff Center Free Family Play",
     "description": "Families with young children are welcome at the Jeff Center for Families for free drop-in play. Enjoy toys, books, games, and arts and crafts in a cozy, climate-controlled space — a creation of the Oshman Family JCC and Blossom Birth & Family. Caregivers can socialize, nurse, and meet other local families while little ones explore.",
@@ -8533,39 +8401,6 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
-  },
-  {
-    "categoryTags": [
-      "Stories",
-      "Series · Sunnyvale library seed"
-    ],
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
-    "room": "",
-    "id": "staging-sunnyvale-library-magical-bridge-storytime-series",
-    "title": "Storytime at Magical Bridge Playground",
-    "description": "Outdoor stories at Fair Oaks Park’s inclusive playground — sing, rhyme & explore.",
-    "tips": "Weekly · First Fridays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early.\nGrown-ups stay with little ones the whole time.\nUsually first Fridays. Next on the library kids calendar: Fri Nov 6, 11:00–11:25 AM.\nCheck the library kids calendar for extras and replacements.",
-    "venue": "Magical Bridge Playground · Fair Oaks Park",
-    "address": "540 N Fair Oaks Ave, Sunnyvale, CA 94085",
-    "city": "Sunnyvale",
-    "date": "2026-11-06",
-    "startTime": "11:00",
-    "endTime": "11:25",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories",
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3902,
-    "lng": -122.0085,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
   },
   {
     "id": "pages-and-paws-reading-buddy-mountain-view-public-library-2026-09-04-15-30",
@@ -8723,39 +8558,6 @@
     "sheetTypesRaw": "Classes"
   },
   {
-    "categoryTags": [
-      "Parent & Me",
-      "Series · do not explode weekly"
-    ],
-    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/a253ff95ba7a49cd8adb94b7da4c66e5/1/4SoifmQpDrHbZJ6VybMjS/strides360.jpeg",
-    "room": "",
-    "id": "watchlist-fit4mom-family-strides-cuesta-series",
-    "title": "FIT4MOM Family Strides 360 · Cuesta Park",
-    "description": "Family stroller fitness for caregivers with kids along — workout at Cuesta Park.",
-    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Saturdays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
-    "venue": "Cuesta Park",
-    "address": "615 Cuesta Drive, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-10-17",
-    "startTime": "09:30",
-    "endTime": "10:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Parent & Me",
-      "Outdoor"
-    ],
-    "cost": "Paid · First class free",
-    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
-    "lat": 37.3745,
-    "lng": -122.0785,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
-  },
-  {
     "id": "696191ef992fc18a86dc9a3d",
     "title": "Baby Sign and Stay and Play",
     "description": "Calling all non-walking babies ages 0-12 months for a special storytime featuring American Sign Language along with songs and stories and fun! After storytime please stay or join us to play with age-appropriate toys! Enjoy this socialization for babies and their grownups. 10:30-11:00am Storytime 11:00-12:00pm Stay & Play",
@@ -8885,72 +8687,6 @@
     "sheetTypesRaw": "Stories, Outdoor"
   },
   {
-    "categoryTags": [
-      "Parent & Me",
-      "Series · do not explode weekly"
-    ],
-    "imageUrl": "",
-    "room": "",
-    "id": "disc-marti-parent-baby-yoga-series-2026",
-    "title": "Parent & Baby Yoga with Marti Foster",
-    "description": "Outdoor yoga at Pioneer Park — grown-up and baby practice together, with feeding & diaper breaks welcome.",
-    "tips": "Weekly classes — check martifosteryoga.com for current times.\nRainy day: Outdoor class — contact Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.",
-    "venue": "Pioneer Memorial Park",
-    "address": "1146 Church St, Mountain View, CA 94041",
-    "city": "Mountain View",
-    "date": "2026-10-03",
-    "startTime": "11:15",
-    "endTime": "12:15",
-    "ageRange": "0–2",
-    "ageMin": 0,
-    "ageMax": 2,
-    "types": [
-      "Parent & Me",
-      "Outdoor"
-    ],
-    "cost": "$32",
-    "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
-    "lat": 37.3896,
-    "lng": -122.0832,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-29"
-  },
-  {
-    "categoryTags": [
-      "Parent & Me",
-      "Series · do not explode weekly"
-    ],
-    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/b1d4bba1caf446edaff553933886ce3a/1/4SoifmQpDrHbZJ6VybMjS/FIT4MOM%20Stroller%20Strides%20stroller%20workout%20for%20moms.jpg",
-    "room": "",
-    "id": "watchlist-fit4mom-stroller-strides-laspalmas-series",
-    "title": "FIT4MOM Stroller Strides · Las Palmas Park",
-    "description": "Stroller workout for caregivers with baby in tow — cardio & strength at Las Palmas Park.",
-    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Tuesdays at Las Palmas Park.\nThe Glofox schedule checked Oct 15 does not list Stroller Strides at Las Palmas (Tue Oct 20 is Mommy and Me Zumba and Mommy and Baby Yoga). Check the schedule for the next class.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nPre-enroll for schedule updates and rainy-day location changes.",
-    "venue": "Las Palmas Park",
-    "address": "850 Russet Dr, Sunnyvale, CA 94087",
-    "city": "Sunnyvale",
-    "date": "2026-09-22",
-    "startTime": "09:30",
-    "endTime": "10:30",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Parent & Me",
-      "Outdoor"
-    ],
-    "cost": "Paid · First class free",
-    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
-    "lat": 37.3515,
-    "lng": -122.0255,
-    "status": "Published",
-    "isPast": true,
-    "isLive": false,
-    "verifiedDate": "2026-10-15"
-  },
-  {
     "id": "699f624cb0595799c09f604c",
     "title": "Family Storytime",
     "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Storytime will be held inside when the garden is unavailable. Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
@@ -9008,71 +8744,6 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
-  },
-  {
-    "categoryTags": [
-      "Stories",
-      "Series · Sunnyvale library seed"
-    ],
-    "imageUrl": "",
-    "room": "",
-    "id": "staging-sunnyvale-library-toddler-storytime-series",
-    "title": "Toddler Storytime",
-    "description": "Short stories, songs & movement for wiggly toddlers and their grown-ups.",
-    "tips": "Weekly · Tuesdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nBest for ages 1–3.\nCheck the library kids calendar for the next date and any themed replacements.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-20",
-    "startTime": "11:00",
-    "endTime": "11:25",
-    "ageRange": "0–5",
-    "ageMin": 1,
-    "ageMax": 3,
-    "types": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
-  },
-  {
-    "categoryTags": [
-      "Parent & Me",
-      "Series · do not explode weekly"
-    ],
-    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/ee462d0ca5bc4fe88d0d4863fceebe05/1/4SoifmQpDrHbZJ6W5XJrp/3V7A8901.jpg",
-    "room": "",
-    "id": "watchlist-fit4mom-mommy-baby-yoga-laspalmas-series",
-    "title": "FIT4MOM Mommy & Baby Yoga · Las Palmas Park",
-    "description": "Outdoor caregiver & baby yoga at Las Palmas Park, with gentle poses for grown-ups and little ones together. Check the official schedule for current class times.",
-    "tips": "Weekly · Tuesdays at Las Palmas Park.\nPre-enroll for schedule updates and rainy-day location changes.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nBring a yoga mat or blanket.",
-    "venue": "Las Palmas Park",
-    "address": "850 Russet Dr, Sunnyvale, CA 94087",
-    "city": "Sunnyvale",
-    "date": "2026-10-20",
-    "startTime": "11:15",
-    "endTime": "12:15",
-    "ageRange": "0–2",
-    "ageMin": 0,
-    "ageMax": 2,
-    "types": [
-      "Parent & Me",
-      "Outdoor"
-    ],
-    "cost": "Paid · First class free",
-    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
-    "lat": 37.3515,
-    "lng": -122.0255,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
   },
   {
     "id": "disc-bilingual-mandarin-family-storytime-2026-09-08-6a56d18488e9bf280030f048",
@@ -9295,38 +8966,6 @@
     "tips": "This program is targeted to children under the age of two and their caregivers."
   },
   {
-    "categoryTags": [
-      "Stories",
-      "Series · Sunnyvale library seed"
-    ],
-    "imageUrl": "",
-    "room": "",
-    "id": "staging-sunnyvale-library-preschool-storytime-series",
-    "title": "Preschool Storytime",
-    "description": "Picture books, songs & early-literacy play for preschoolers ready to sit & listen.",
-    "tips": "Weekly · Wednesdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nBest for ages 3–5.\nCheck the library kids calendar for the next date and any themed replacements.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-21",
-    "startTime": "11:00",
-    "endTime": "11:25",
-    "ageRange": "2–5",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
-  },
-  {
     "id": "disc-baby-storytime-stay-and-play-2026-09-09-6a68e77fcca66c2f00a6955a",
     "title": "Baby Storytime & Stay and Play",
     "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library! Catchy Songs & Silly Rhymes Gentle Movement & Baby Sign Language Short Books perfect for little eyes It’s the perfect weekly activity to boost early literacy, build community, and make some wonderful memories. When: Wednesdays, 1:00 PM – 2:00 PM Where: Los Altos Library, Orchard Room For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to t",
@@ -9481,38 +9120,6 @@
     "isLive": true
   },
   {
-    "categoryTags": [
-      "Stories",
-      "Series · Sunnyvale library seed"
-    ],
-    "imageUrl": "",
-    "room": "",
-    "id": "staging-sunnyvale-library-baby-lapsit-series",
-    "title": "Baby Lapsit & Playtime",
-    "description": "Rhymes, songs & lap bounces for babies — then stay & play with other families.",
-    "tips": "Weekly · Thursdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nFor babies 0–12 months and their caregivers — no older siblings.\nCheck the library kids calendar for the next date and any themed replacements.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-22",
-    "startTime": "10:30",
-    "endTime": "12:00",
-    "ageRange": "0–2",
-    "ageMin": 0,
-    "ageMax": 1,
-    "types": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
-  },
-  {
     "id": "69276b597eb3e430002638b0",
     "title": "Bilingual Family Storytime",
     "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English. Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y activi",
@@ -9641,38 +9248,6 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
-  },
-  {
-    "categoryTags": [
-      "Stories",
-      "Series · Sunnyvale library seed"
-    ],
-    "imageUrl": "",
-    "room": "",
-    "id": "staging-sunnyvale-library-night-owl-storytime-series",
-    "title": "Night Owl Storytime",
-    "description": "Pajama-friendly stories & songs before bed — a calm evening outing with little ones.",
-    "tips": "Weekly · Thursdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nCheck the library kids calendar for the next date and any themed replacements.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-15",
-    "startTime": "19:00",
-    "endTime": "19:25",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
   },
   {
     "id": "jeff-center-free-family-play-2026-09-11",
@@ -9952,38 +9527,6 @@
     "status": "Published",
     "isPast": false,
     "isLive": true
-  },
-  {
-    "categoryTags": [
-      "Stories",
-      "Series · Sunnyvale library seed"
-    ],
-    "imageUrl": "",
-    "room": "",
-    "id": "staging-sunnyvale-library-family-storytime-series",
-    "title": "Family Storytime",
-    "description": "Stories & songs for the whole family — siblings welcome on Saturday mornings.",
-    "tips": "Weekly · Saturdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nCheck the library kids calendar for the next date and any themed replacements.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-17",
-    "startTime": "11:00",
-    "endTime": "11:25",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-10-15"
   },
   {
     "categoryTags": [
@@ -10654,6 +10197,39 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "id": "core-weekend-magical-bridge-performance-series-2026-09-16",
+    "title": "Magical Bridge Performance Series",
+    "description": "Live music, puppets & face painting on the inclusive playground stage — a short afternoon show little ones can watch, then play.",
+    "venue": "Magical Bridge Playground at Rengstorff Park",
+    "address": "201 S. Rengstorff Ave, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-09-16",
+    "startTime": "16:00",
+    "endTime": "17:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Music & Movement",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.magicalbridge.org/event-details/newspell-california-kids-fun-and-hey-balloon-lady-mountain-views-magical-bridge-performance-series",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.4001,
+    "lng": -122.0986,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Music & Movement, Outdoor",
+    "tips": "Remaining named performances Sep 30 and Oct 14. This is not the 10:00 AM Bookmobile storytime."
+  },
+  {
     "id": "music-on-castro-downtown-castro-street-2026-09-16-17-00",
     "title": "Music on Castro",
     "description": "The 2026 Music on Castro series returns to Downtown Mountain View from April to October, featuring live performances every Wednesday. From 5 to 6:45 p.m., enjoy a dynamic lineup of local and regional talent while exploring Downtown shops and dining. Make it a midweek tradition and experience the perfect blend of music, community, and fun!",
@@ -11125,6 +10701,41 @@
     "sheetTypesRaw": "Social & Play, Outdoor"
   },
   {
+    "id": "regional-hidden-villa-weekend-farm-tour-2026-09-19",
+    "title": "Weekend Farm Tour",
+    "description": "Meet cows, pigs, chickens, goats & sheep on a guided farm walk — little ones can see and hear the animals up close.",
+    "venue": "Hidden Villa",
+    "address": "26870 Moody Road, Los Altos Hills, CA 94022",
+    "city": "Los Altos Hills",
+    "date": "2026-09-19",
+    "startTime": "10:00",
+    "endTime": "11:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor",
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Outdoor",
+      "Festivals & Community"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.hiddenvilla.org/programs/catalog/372-weekend-farm-tour/region-HV/",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.341,
+    "lng": -122.162,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Outdoor, Festivals & Community",
+    "tips": "$18 per person (adults and children). Register ahead — tours need at least 5 people or they cancel with a refund. Closed-toe shoes; dirt paths, gravel, and woodchips. More weekend times are on the official catalog page.",
+    "isRegional": false,
+    "isSeasonal": false
+  },
+  {
     "id": "698e125a2a787a47a5e73be2",
     "title": "Family Storytime",
     "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
@@ -11153,6 +10764,39 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
+  },
+  {
+    "id": "core-weekend-palo-alto-airport-day-2026-09-20",
+    "title": "Airport Day",
+    "description": "See real planes, helicopters & open cockpits up close — a short airport outing little ones can watch and wander.",
+    "venue": "Palo Alto Airport",
+    "address": "1925 Embarcadero Road, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-09-20",
+    "startTime": "10:00",
+    "endTime": "14:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor",
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Outdoor",
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://paloaltoairport.org/airport-day/",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.4611,
+    "lng": -122.1147,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Outdoor, Festivals & Community",
+    "tips": "Free admission. Outdoors on flat asphalt — wear walking shoes; it can be windy. Food trucks on site. Portable restrooms. Organizers suggest biking because of crowds."
   },
   {
     "id": "disc-happy-birds-presented-by-the-los-altos-l-2026-09-20-6a91c6a8660e510bf44050c0",
@@ -11249,6 +10893,70 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Arts & Crafts, Build & Explore"
+  },
+  {
+    "id": "core-weekend-sunnyvale-cunamacue-2026-09-21",
+    "title": "Cunamacue Afro-Peruvian Dance",
+    "description": "Interactive Afro-Peruvian music and dance — little ones can watch, move, and join in with their grown-ups.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-21",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12405/74?selcat=29",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Music & Movement",
+    "tips": "For children of all ages and their caregivers. No registration — arrive early; doors close when the Program Room is full."
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/b1d4bba1caf446edaff553933886ce3a/1/4SoifmQpDrHbZJ6VybMjS/FIT4MOM%20Stroller%20Strides%20stroller%20workout%20for%20moms.jpg",
+    "room": "",
+    "id": "watchlist-fit4mom-stroller-strides-laspalmas-series",
+    "title": "FIT4MOM Stroller Strides · Las Palmas Park",
+    "description": "Stroller workout for caregivers with baby in tow — cardio & strength at Las Palmas Park.",
+    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Tuesdays at Las Palmas Park.\nThe Glofox schedule checked Oct 15 does not list Stroller Strides at Las Palmas (Tue Oct 20 is Mommy and Me Zumba and Mommy and Baby Yoga). Check the schedule for the next class.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nPre-enroll for schedule updates and rainy-day location changes.",
+    "venue": "Las Palmas Park",
+    "address": "850 Russet Dr, Sunnyvale, CA 94087",
+    "city": "Sunnyvale",
+    "date": "2026-09-22",
+    "startTime": "09:30",
+    "endTime": "10:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid · First class free",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3515,
+    "lng": -122.0255,
+    "status": "Published",
+    "isPast": true,
+    "isLive": false,
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "699f624cb0595799c09f604e",
@@ -11942,6 +11650,37 @@
     "tips": "LEGOs will stay at the library, so be sure to snap a pic of your creation!"
   },
   {
+    "id": "core-weekend-my-gym-parents-night-out-2026-09-25",
+    "title": "Parents' Night Out",
+    "description": "Drop-off gym night — games, obstacles, ninjas, gymnastics, songs & dance relays. Pizza included.",
+    "venue": "My Gym Palo Alto",
+    "address": "2655 Middlefield Road, Palo Alto, CA 94306",
+    "city": "Palo Alto",
+    "date": "2026-09-25",
+    "startTime": "17:00",
+    "endTime": "20:00",
+    "ageRange": "2+",
+    "ageMin": 2,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.mygym.com/paloalto/articles/3240",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.4336,
+    "lng": -122.128,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Classes",
+    "tips": "Drop-off — grown-ups are not in the class. Ages 2 and up; potty training not required. $70 / $40 siblings. Payment collected at drop-off."
+  },
+  {
     "id": "harvest-history-festival-heritage-park-2026-09-26-09-00",
     "title": "Harvest History Festival",
     "description": "Family activities and a peek inside the historic Immigrant House — Mountain View’s agricultural heritage festival for little ones and grown-ups.",
@@ -11972,6 +11711,41 @@
     "isLive": true,
     "sheetTypesRaw": "Festivals & Community, Outdoor",
     "tips": "Very limited street parking — bike or walk if you can. Check the city page for this year’s kids lineup."
+  },
+  {
+    "id": "regional-lah-touch-a-truck-2026-09-26",
+    "title": "Touch a Truck",
+    "description": "See Town trucks and service vehicles up close — a short morning for little ones who love big machines.",
+    "venue": "Gardner Bullis School",
+    "address": "25890 Fremont Road, Los Altos Hills, CA 94022",
+    "city": "Los Altos Hills",
+    "date": "2026-09-26",
+    "startTime": "09:00",
+    "endTime": "11:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor",
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Outdoor",
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.losaltoshills.ca.gov/calendar.aspx",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.3715,
+    "lng": -122.1378,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Outdoor, Festivals & Community",
+    "tips": "Free drop-in at Gardner Bullis School. Confirm this year’s vehicle lineup on the official town calendar before you go.",
+    "isRegional": false,
+    "isSeasonal": false
   },
   {
     "id": "great-glass-pumpkin-patch-2026-09-26",
@@ -12041,6 +11815,38 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "id": "watchlist-sunnyvale-library-family-storytime-2026-09-26",
+    "title": "Family Storytime",
+    "description": "Storytime in the Program Room for children of all ages and their caregivers.",
+    "tips": "No registration. Doors close when the Program Room is full.",
+    "venue": "Sunnyvale Public Library",
+    "room": "Program Room",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-26",
+    "startTime": "11:00",
+    "endTime": "11:25",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "verifiedDate": "2026-09-24",
+    "lat": 37.3719,
+    "lng": -122.0391,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Stories"
+  },
+  {
     "categoryTags": [
       "Parent & Me",
       "Priority: add",
@@ -12077,6 +11883,68 @@
     "verifiedDate": "2026-09-03"
   },
   {
+    "id": "core-weekend-sunnyvale-baylands-drum-circle-2026-09-26",
+    "title": "Community Drum Circle",
+    "description": "A drop-in drum circle with a few drums and small percussion to share. No experience needed.",
+    "tips": "Rain cancels the circle. Parking at the park sometimes has a fee. Take off rings before you play, and bring a chair if you have one.",
+    "venue": "Baylands Park",
+    "address": "999 E Caribbean Dr, Sunnyvale, CA 94089",
+    "city": "Sunnyvale",
+    "date": "2026-09-26",
+    "startTime": "14:00",
+    "endTime": "",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://venunite.com/events/community-drum-circle-89",
+    "verifiedDate": "2026-09-24",
+    "lat": 37.4089,
+    "lng": -122.0005,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Music & Movement"
+  },
+  {
+    "id": "core-weekend-tlg-starlight-movie-psn-2026-09-26",
+    "title": "Parent Survival Night · Starlight Movie",
+    "description": "Drop-off gym night with dress-up, tumbling games & a movie-star theme — kids stay; grown-ups get the evening.",
+    "venue": "The Little Gym of Mountain View",
+    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-09-26",
+    "startTime": "17:30",
+    "endTime": "20:30",
+    "ageRange": "3–9",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-09-26",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.3972,
+    "lng": -122.1074,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Classes",
+    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
+  },
+  {
     "venue": "Linden Tree Books",
     "address": "265 State Street, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -12109,6 +11977,68 @@
     "description": "Illustrator Isabella Kung shares Jia Has a Dog Problem — a funny, bighearted picture book about overcoming fear to find friendship.",
     "tips": "In front of the store · picture books for little ones and their grown-ups.\nManresa Bread next door if you want a treat.",
     "date": "2026-09-27"
+  },
+  {
+    "id": "core-weekend-sunnyvale-family-movie-bad-guys-2-2026-09-27",
+    "title": "Family Movie: The Bad Guys 2",
+    "description": "Watch The Bad Guys 2 together in the Children’s Room — a drop-in family movie outing.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-09-27",
+    "startTime": "14:00",
+    "endTime": "",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Social & Play"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12417/74?selcat=29",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Social & Play",
+    "tips": "No registration — arrive early; doors close when the room is full. Check the official event page for rating and who the library recommends it for."
+  },
+  {
+    "id": "core-weekend-elks-kid-family-yoga-2026-09-27",
+    "title": "Kid & Family Yoga",
+    "description": "The lodge’s first family yoga class — grown-ups and little ones practice together.",
+    "tips": "Tickets required. The lodge calendar does not list a price — check the official page.",
+    "venue": "Palo Alto Elks Lodge",
+    "address": "4249 El Camino Real, Palo Alto, CA 94306",
+    "city": "Palo Alto",
+    "date": "2026-09-27",
+    "startTime": "14:00",
+    "endTime": "15:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me"
+    ],
+    "categoryTags": [
+      "Parent & Me"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.paloaltoelks.org/rsvp",
+    "verifiedDate": "2026-09-24",
+    "lat": 37.4159,
+    "lng": -122.1294,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Parent & Me"
   },
   {
     "id": "jeff-center-free-family-play-2026-09-28",
@@ -12673,6 +12603,41 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "id": "otto-family-club-monster-band-2026-10-01",
+    "title": "Monster Band · Messy Play & Music",
+    "description": "A music session with The Nest Music House, then messy play.",
+    "tips": "RSVP on the Otto page.\nDress for mess.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-01",
+    "startTime": "16:30",
+    "endTime": "17:30",
+    "ageRange": "3–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/p8/b2a87a24-615a-42c6-820b-dd2b03f43c63.jpg",
+    "eventUrl": "https://luma.com/r2ts1cc1",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/r2ts1cc1"
+  },
+  {
     "id": "jeff-center-free-family-play-2026-10-02",
     "title": "Jeff Center Free Family Play",
     "description": "Families with young children are welcome at the Jeff Center for Families for free drop-in play. Enjoy toys, books, games, and arts and crafts in a cozy, climate-controlled space — a creation of the Oshman Family JCC and Blossom Birth & Family. Caregivers can socialize, nurse, and meet other local families while little ones explore.",
@@ -12863,6 +12828,41 @@
     "tips": "Home Depot Kids Workshop — designed for ages 5–12 (outside Puddles 0–5)."
   },
   {
+    "id": "otto-family-club-monster-band-sensory-2026-10-03",
+    "title": "Monster Band · Sensory Play · Ages 1.5–5",
+    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
+    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-03",
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "ageRange": "1.5–5",
+    "ageMin": 1.5,
+    "ageMax": 5,
+    "types": [
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Social & Play"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
+    "eventUrl": "https://luma.com/gxrwfu6l",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/gxrwfu6l"
+  },
+  {
     "id": "watchlist-sunnyvale-mid-autumn-festival-2026-10-03",
     "title": "Sunnyvale Mid-Autumn Festival",
     "description": "Dance & music stages plus cultural activities downtown — a Mid-Autumn weekend outing little ones can watch, wander, and explore.",
@@ -12959,6 +12959,39 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "disc-marti-parent-baby-yoga-series-2026",
+    "title": "Parent & Baby Yoga with Marti Foster",
+    "description": "Outdoor yoga at Pioneer Park — grown-up and baby practice together, with feeding & diaper breaks welcome.",
+    "tips": "Weekly classes — check martifosteryoga.com for current times.\nRainy day: Outdoor class — contact Marti if rain is likely.\nBring a large blanket, yoga mat, long scarf, baby carrier, and water.\nLimited to about 8 moms with babies — register ahead.",
+    "venue": "Pioneer Memorial Park",
+    "address": "1146 Church St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-10-03",
+    "startTime": "11:15",
+    "endTime": "12:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "$32",
+    "eventUrl": "https://martifosteryoga.com/baby-yoga-outdoors",
+    "lat": 37.3896,
+    "lng": -122.0832,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-29"
   },
   {
     "id": "watchlist-sunnyvale-diwali-sacas-2026-10-03",
@@ -13122,6 +13155,37 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Social & Play"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "watchlist-fit4mom-mommy-me-zumba-laspalmas-series",
+    "title": "FIT4MOM Mommy and Me Zumba · Las Palmas Park",
+    "description": "Caregiver and little one dance together at Las Palmas Park.",
+    "tips": "Weekly · Tuesdays at Las Palmas Park.\nPre-enroll for schedule updates and rainy-day location changes.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nDress to move.",
+    "venue": "Las Palmas Park",
+    "address": "850 Russet Dr, Sunnyvale, CA 94087",
+    "city": "Sunnyvale",
+    "date": "2026-10-06",
+    "startTime": "09:30",
+    "endTime": "10:30",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me"
+    ],
+    "cost": "Paid · First class free",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3515,
+    "lng": -122.0255,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-09-29"
   },
   {
     "id": "disc-family-storytime-2026-10-06-699f624cb0595799c09f6050",
@@ -13597,6 +13661,41 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "id": "otto-family-club-spider-web-2026-10-08",
+    "title": "Spider Web · Process Art",
+    "description": "Messy process art. Younger siblings can come with a sibling pass. One sibling pass covers two children.",
+    "tips": "RSVP on the Otto page.\nDress for mess.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-08",
+    "startTime": "16:30",
+    "endTime": "17:30",
+    "ageRange": "3–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts"
+    ],
+    "categoryTags": [
+      "Arts & Crafts"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/p8/b2a87a24-615a-42c6-820b-dd2b03f43c63.jpg",
+    "eventUrl": "https://luma.com/1im6mfrz",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/1im6mfrz"
+  },
+  {
     "id": "jeff-center-free-family-play-2026-10-09",
     "title": "Jeff Center Free Family Play",
     "description": "Families with young children are welcome at the Jeff Center for Families for free drop-in play. Enjoy toys, books, games, and arts and crafts in a cozy, climate-controlled space — a creation of the Oshman Family JCC and Blossom Birth & Family. Caregivers can socialize, nurse, and meet other local families while little ones explore.",
@@ -13627,6 +13726,41 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Social & Play"
+  },
+  {
+    "id": "otto-family-club-spider-web-under-3-2026-10-09",
+    "title": "Spider Web · Sensory Play · Under 3",
+    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
+    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-09",
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "ageRange": "1–3",
+    "ageMin": 1,
+    "ageMax": 3,
+    "types": [
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Social & Play"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
+    "eventUrl": "https://luma.com/h9cyhxgx",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/h9cyhxgx"
   },
   {
     "id": "disc-baby-storytime-rerun-2026-10-09-17170830",
@@ -13754,6 +13888,74 @@
     "sheetTypesRaw": "Build & Explore"
   },
   {
+    "id": "core-weekend-gamble-second-saturday-2026-10-10",
+    "title": "Second Saturday at Gamble Garden",
+    "description": "Soil-by-feel station, pot-painting crafts, scavenger hunts & librarian storytime — a free garden morning for little ones to explore and make.",
+    "venue": "Elizabeth F. Gamble Garden",
+    "address": "1431 Waverley Street, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "date": "2026-10-10",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Festivals & Community",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.gamblegarden.org/event/octobersaturday/",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.4397,
+    "lng": -122.1481,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Festivals & Community, Outdoor",
+    "tips": "Register for a timed entry slot at 10:00, 10:30, or 11:00 AM, then check in at a Welcome Table. October theme is soil / Hispanic and Latinx Heritage Month."
+  },
+  {
+    "id": "otto-family-club-spider-web-sensory-2026-10-10",
+    "title": "Spider Web · Sensory Play · Ages 1.5–5",
+    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
+    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-10",
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "ageRange": "1.5–5",
+    "ageMin": 1.5,
+    "ageMax": 5,
+    "types": [
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Social & Play"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
+    "eventUrl": "https://luma.com/bgqp9asp",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/bgqp9asp"
+  },
+  {
     "id": "disc-family-storytime-2026-10-10-698e125a2a787a47a5e73be5",
     "title": "Family Storytime",
     "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
@@ -13784,6 +13986,36 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
+  },
+  {
+    "id": "core-weekend-bing-charlie-tropicales-2026-10-10",
+    "title": "Charlie and the Tropicales",
+    "description": "A lively, interactive family concert with Charlie and the Tropicales, bringing Caribbean rhythms from New Orleans. Kids can listen, sing, and move along.",
+    "tips": "ticket|Infants in arms under 1 don’t need a ticket. Tickets are expected to sell out.\naccess|Weekend parking on campus is free. A wheelchair-accessible restroom is inside the main entrance.",
+    "venue": "Dinkelspiel Auditorium",
+    "address": "471 Lagunita Drive, Stanford, CA 94305",
+    "city": "Palo Alto",
+    "date": "2026-10-10",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "$10 per person",
+    "imageUrl": "https://localist-images.azureedge.net/photos/54117174992384/square_300@2x/3a251841cac1a5443bcbb1b26126139dca96f6b1.jpg",
+    "eventUrl": "https://bingschool.stanford.edu/events/bing-nursery-school-performance-series-charlie-and-tropicales",
+    "verifiedDate": "2026-10-07",
+    "lat": 37.4267,
+    "lng": -122.1718,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
   },
   {
     "id": "disc-creepy-carrots-peninsula-youth-theatre-2026-10-10-watchlist-pyt-creepy-carrots-2026-10-10-",
@@ -13846,6 +14078,37 @@
     "isPast": false,
     "isLive": true,
     "verifiedDate": "2026-09-03"
+  },
+  {
+    "id": "core-weekend-tlg-pumpkin-patch-psn-2026-10-10",
+    "title": "Parent Survival Night · Pumpkin Patch Party",
+    "description": "Drop-off gym night with tumbling, cooperation games & a pumpkin-painting station.",
+    "venue": "The Little Gym of Mountain View",
+    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-10-10",
+    "startTime": "17:30",
+    "endTime": "20:30",
+    "ageRange": "3–9",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-10-10",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.3972,
+    "lng": -122.1074,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Classes",
+    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
   },
   {
     "id": "cantor-art-for-all-family-day-2026-10-11",
@@ -14548,6 +14811,135 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "id": "andy-z-fall-harvest-jam-jcc-2026-10-15",
+    "title": "Andy Z's Fall Harvest Jam",
+    "description": "Bring little ones to celebrate fall with Andy Z.",
+    "venue": "Jessica Lynn Saal Town Square",
+    "address": "3921 Fabian Way, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-10-15",
+    "startTime": "16:00",
+    "endTime": "16:40",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Music & Movement"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://paloaltojcc.org/events-programs/",
+    "verifiedDate": "2026-09-24",
+    "lat": 37.4419,
+    "lng": -122.143,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "otto-family-club-witches-potion-2026-10-15",
+    "title": "Witches Potion · Process Art",
+    "description": "Messy process art. Younger siblings can come with a sibling pass. One sibling pass covers two children.",
+    "tips": "RSVP on the Otto page.\nDress for mess.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-15",
+    "startTime": "16:30",
+    "endTime": "17:30",
+    "ageRange": "3–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts"
+    ],
+    "categoryTags": [
+      "Arts & Crafts"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/p8/b2a87a24-615a-42c6-820b-dd2b03f43c63.jpg",
+    "eventUrl": "https://luma.com/7g8sbuth",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/7g8sbuth"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-night-owl-storytime-series",
+    "title": "Night Owl Storytime",
+    "description": "Pajama-friendly stories & songs before bed — a calm evening outing with little ones.",
+    "tips": "Weekly · Thursdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-15",
+    "startTime": "19:00",
+    "endTime": "19:25",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/b1d4bba1caf446edaff553933886ce3a/1/4SoifmQpDrHbZJ6VybMjS/FIT4MOM%20Stroller%20Strides%20stroller%20workout%20for%20moms.jpg",
+    "room": "",
+    "id": "watchlist-fit4mom-stroller-strides-cuesta-series",
+    "title": "FIT4MOM Stroller Strides · Cuesta Park",
+    "description": "Stroller workout for caregivers with baby in tow — cardio & strength at Cuesta Park.",
+    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Mondays & Fridays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
+    "venue": "Cuesta Park",
+    "address": "615 Cuesta Drive, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-10-16",
+    "startTime": "09:30",
+    "endTime": "10:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid · First class free",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3745,
+    "lng": -122.0785,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
+  },
+  {
     "id": "jeff-center-free-family-play-2026-10-16",
     "title": "Jeff Center Free Family Play",
     "description": "Families with young children are welcome at the Jeff Center for Families for free drop-in play. Enjoy toys, books, games, and arts and crafts in a cozy, climate-controlled space — a creation of the Oshman Family JCC and Blossom Birth & Family. Caregivers can socialize, nurse, and meet other local families while little ones explore.",
@@ -14580,9 +14972,44 @@
     "sheetTypesRaw": "Social & Play"
   },
   {
+    "id": "otto-family-club-witches-potion-under-3-2026-10-16",
+    "title": "Witches Potion · Sensory Play · Under 3",
+    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
+    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-16",
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "ageRange": "1–3",
+    "ageMin": 1,
+    "ageMax": 3,
+    "types": [
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Social & Play"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
+    "eventUrl": "https://luma.com/93q4pm9p",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/93q4pm9p"
+  },
+  {
     "id": "disc-baby-storytime-rerun-2026-10-16-17170831",
     "title": "Baby Storytime: Rerun",
-    "description": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months.\n\n Assisted Listening Devices available upon request.",
+    "description": "This Friday's Baby Storytime Rerun is canceled because our Librarians will be presenting a special storytime with our friends at Deer Hollow Farm! We'll see you back next week.",
     "venue": "Mountain View Library",
     "room": "1st Floor Program Room",
     "address": "585 Franklin St, Mountain View, CA 94041",
@@ -14600,13 +15027,15 @@
     "cost": "Free",
     "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1763669051.png",
     "eventUrl": "https://mountainview.libcal.com/event/17170831",
-    "verifiedDate": "2026-08-24",
+    "verifiedDate": "2026-10-15",
     "lat": 37.3895,
     "lng": -122.0818,
-    "status": "Published",
+    "status": "Cancelled",
     "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Stories"
+    "isLive": false,
+    "sheetTypesRaw": "Stories",
+    "isSeasonal": false,
+    "isRegional": false
   },
   {
     "id": "disc-family-storytime-2026-10-16-6946005fea69de6e001069c7",
@@ -14701,6 +15130,36 @@
     "isLive": true
   },
   {
+    "id": "disc-bunny-hive-happy-hour-open-play-2026-10-16-id-bunnyhive-mv-149983",
+    "title": "Bunny Hive Happy Hour Open Play",
+    "description": "Unwind at the end of the day with your little one in tow. The Happy Hour Open Play is designed for parents who want a relaxed, social atmosphere while their kids of all ages enjoy free play in The Bunny Hive’s warm and welcoming space.",
+    "tips": "$40 per class, per family",
+    "venue": "The Bunny Hive",
+    "address": "",
+    "city": "Mountain View",
+    "date": "2026-10-16",
+    "startTime": "16:00",
+    "endTime": "16:30",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Other"
+    ],
+    "categoryTags": [],
+    "cost": "$40",
+    "imageUrl": "https://irp.cdn-website.com/45272f0c/dms3rep/multi/opt/DSC07064-1920w.jpg",
+    "eventUrl": "https://www.thebunnyhive.com/mountainview#Schedule",
+    "verifiedDate": "2026-10-15",
+    "lat": 0,
+    "lng": 0,
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "disc-lego-fridays-2026-10-16-6a25aace2ea730c17ab5048f",
     "title": "LEGO Fridays!",
     "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
@@ -14731,6 +15190,39 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Build & Explore"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/a253ff95ba7a49cd8adb94b7da4c66e5/1/4SoifmQpDrHbZJ6VybMjS/strides360.jpeg",
+    "room": "",
+    "id": "watchlist-fit4mom-family-strides-cuesta-series",
+    "title": "FIT4MOM Family Strides 360 · Cuesta Park",
+    "description": "Family stroller fitness for caregivers with kids along — workout at Cuesta Park.",
+    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Saturdays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
+    "venue": "Cuesta Park",
+    "address": "615 Cuesta Drive, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-10-17",
+    "startTime": "09:30",
+    "endTime": "10:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid · First class free",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3745,
+    "lng": -122.0785,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "spooky-times-at-deer-holloween-farm-deer-hollow-farm-2026-10-17-10-00",
@@ -14764,6 +15256,41 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Social & Play, Outdoor"
+  },
+  {
+    "id": "otto-family-club-witches-potion-sensory-2026-10-17",
+    "title": "Witches Potion · Sensory Play · Ages 1.5–5",
+    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
+    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-17",
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "ageRange": "1.5–5",
+    "ageMin": 1.5,
+    "ageMax": 5,
+    "types": [
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Social & Play"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
+    "eventUrl": "https://luma.com/nbp9zwov",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/nbp9zwov"
   },
   {
     "id": "disc-family-storytime-2026-10-17-698e125a2a787a47a5e73be6",
@@ -14831,35 +15358,67 @@
     "verifiedDate": "2026-09-03"
   },
   {
-    "id": "disc-concert-music-at-kohl-mansion-presents-e-2026-10-17-6a3032c18ea300e2631dc5f1",
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-family-storytime-series",
+    "title": "Family Storytime",
+    "description": "Stories & songs for the whole family — siblings welcome on Saturday mornings.",
+    "tips": "Weekly · Saturdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-17",
+    "startTime": "11:00",
+    "endTime": "11:25",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
+  },
+  {
+    "id": "disc-concert-music-at-kohl-mansion-presents-e-2026-10-17-id-6a3032c18ea300e2631dc5f1",
     "title": "Concert: Music at Kohl Mansion presents Escher String Quartet",
-    "description": "Now in our fourth year of partnership with Music at Kohl Mansion, we proudly present the Escher String Quartet. The Escher String Quartet has received acclaim for its profound musical insight and rare tonal beauty. A former BBC New Generation Artist and recipient of the Avery Fisher Career Grant, the quartet has performed at the BBC Proms at Cadogan Hall and is a regular guest at Wigmore Hall. In its home town of New York, the ensemble serves as season artists of the Chamber Music Society of Lin",
-    "tips": "A waitlist may be available.\nSpace is limited (125 seats) — check the official page for registration.",
-    "venue": "Art Center Auditorium",
-    "address": "1313 Newell Road, Palo Alto, CA 94303",
+    "description": "Now in our fourth year of partnership with Music at Kohl Mansion, we proudly present the Escher String Quartet. The Escher String Quartet has established itself as one of the most accomplished chamber ensembles of its generation. Formed in New York City in 2005, and named after the Dutch graphic artist M.C. Escher, the quartet is celebrated for performances that combine technical brilliance, interpretive insight, and a distinctive ensemble sound. The group serves as Artists of the Chamber Music Society of Lincoln Center and has earned international recognition for its commitment to both the core string quartet repertoire and contemporary music. The quartet has appeared at many of the world’s leading concert halls and festivals, including London’s Wigmore Hall, Amsterdam’s Concertgebouw, th",
+    "tips": "A waitlist may be available. Space is limited (125 seats) — check the official page for registration.",
+    "venue": "",
+    "address": "",
     "city": "Palo Alto",
     "date": "2026-10-17",
     "startTime": "15:00",
     "endTime": "16:00",
-    "ageRange": "0–5",
+    "ageRange": "0–2, 2–5, 5+",
     "ageMin": 0,
     "ageMax": 5,
     "types": [
       "Music & Movement"
     ],
-    "categoryTags": [
-      "Movies & Music"
-    ],
+    "categoryTags": [],
     "cost": "Free",
-    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/e656367bfb423e9ce644ec52d8e9f2b3/MAKM_logo_blk-200x259.jpg",
+    "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/efe620e143e41e0b1b17bcccd1516cbb/escherquartet4.960x540.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a3032c18ea300e2631dc5f1",
-    "verifiedDate": "2026-08-24",
-    "lat": 37.4443,
-    "lng": -122.1392,
+    "verifiedDate": "2026-10-15",
+    "lat": 0,
+    "lng": 0,
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "sheetTypesRaw": "Music & Movement"
+    "sheetTypesRaw": "Music & Movement",
+    "isSeasonal": false,
+    "isRegional": false
   },
   {
     "id": "halloween-costume-game-night-town-hall-council-chambers-2026-10-17-18-00",
@@ -14927,6 +15486,36 @@
     "description": "Join us every Sunday morning at 10:30am in front of the store as one of our booksellers (or perhaps a local author) shares some of their favorite read-alouds. (Grab a tasty treat from our neighbors at Manresa Bread while your kids enjoy the stories!) All storytimes feature picture books and are appropriate for all ages.",
     "tips": "Weekly · Sundays in front of the store — guest authors sometimes fill this slot; check the Linden Tree calendar.\nManresa Bread next door if you want a treat.",
     "date": "2026-10-18"
+  },
+  {
+    "id": "disc-movie-night-in-bol-park-2026-10-18-id-barron-park-movie-night-2026-10-18",
+    "title": "Movie Night in Bol Park",
+    "description": "Watch Shrek the Third outdoors with Barron Park neighbors.",
+    "tips": "info|Bring a blanket and picnic dinner.",
+    "venue": "Bol Park",
+    "address": "",
+    "city": "Palo Alto",
+    "date": "2026-10-18",
+    "startTime": "18:00",
+    "endTime": "21:00",
+    "ageRange": "0–2, 2–5, 5+",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [],
+    "cost": "Free",
+    "imageUrl": "https://bpapaloalto.org/wp-content/uploads/2026/09/Whimsical-Outdoor-Movie-Night-Poster-24-x-24-in-1.jpg",
+    "eventUrl": "https://bpapaloalto.org/event/movie-night-in-bol-park/",
+    "verifiedDate": "2026-10-15",
+    "lat": 0,
+    "lng": 0,
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "isPast": false,
+    "isLive": true
   },
   {
     "id": "jeff-center-free-family-play-2026-10-19",
@@ -15053,6 +15642,71 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-toddler-storytime-series",
+    "title": "Toddler Storytime",
+    "description": "Short stories, songs & movement for wiggly toddlers and their grown-ups.",
+    "tips": "Weekly · Tuesdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nBest for ages 1–3.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-20",
+    "startTime": "11:00",
+    "endTime": "11:25",
+    "ageRange": "0–5",
+    "ageMin": 1,
+    "ageMax": 3,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/ee462d0ca5bc4fe88d0d4863fceebe05/1/4SoifmQpDrHbZJ6W5XJrp/3V7A8901.jpg",
+    "room": "",
+    "id": "watchlist-fit4mom-mommy-baby-yoga-laspalmas-series",
+    "title": "FIT4MOM Mommy & Baby Yoga · Las Palmas Park",
+    "description": "Outdoor caregiver & baby yoga at Las Palmas Park, with gentle poses for grown-ups and little ones together. Check the official schedule for current class times.",
+    "tips": "Weekly · Tuesdays at Las Palmas Park.\nPre-enroll for schedule updates and rainy-day location changes.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nBring a yoga mat or blanket.",
+    "venue": "Las Palmas Park",
+    "address": "850 Russet Dr, Sunnyvale, CA 94087",
+    "city": "Sunnyvale",
+    "date": "2026-10-20",
+    "startTime": "11:15",
+    "endTime": "12:15",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid · First class free",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3515,
+    "lng": -122.0255,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "disc-bilingual-mandarin-family-storytime-2026-10-20-6a56d18488e9bf280030f04e",
@@ -15184,6 +15838,39 @@
     "sheetTypesRaw": "Build & Explore"
   },
   {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/dc6450fd530c46908f3e38abeba487e1/1/4SoifmQpDrHbZJ6VybMjS/strollerbarre.jpeg",
+    "room": "",
+    "id": "watchlist-fit4mom-stroller-barre-cuesta-series",
+    "title": "FIT4MOM Stroller Barre · Cuesta Park",
+    "description": "Barre-style workout for caregivers with little ones in strollers at Cuesta Park.",
+    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Wednesdays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
+    "venue": "Cuesta Park",
+    "address": "615 Cuesta Drive, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-10-21",
+    "startTime": "09:30",
+    "endTime": "10:30",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid · First class free",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3745,
+    "lng": -122.0785,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
+  },
+  {
     "id": "jeff-center-free-family-play-2026-10-21",
     "title": "Jeff Center Free Family Play",
     "description": "Families with young children are welcome at the Jeff Center for Families for free drop-in play. Enjoy toys, books, games, and arts and crafts in a cozy, climate-controlled space — a creation of the Oshman Family JCC and Blossom Birth & Family. Caregivers can socialize, nurse, and meet other local families while little ones explore.",
@@ -15277,6 +15964,71 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/e2defeaaf73f43e48de87d5adc0992f4/1/4SoifmQpDrHbZJ6W5XJrp/what-to-expect-in-class.jpg",
+    "room": "",
+    "id": "watchlist-fit4mom-fourth-trimester-cuesta-series",
+    "title": "FIT4MOM Core & Restore · Cuesta Park",
+    "description": "Shorter caregiver movement class at Cuesta Park.",
+    "tips": "Weekly · Wednesdays at Cuesta Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
+    "venue": "Cuesta Park",
+    "address": "615 Cuesta Drive, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-10-21",
+    "startTime": "10:45",
+    "endTime": "11:30",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid · First class free",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.3745,
+    "lng": -122.0785,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-preschool-storytime-series",
+    "title": "Preschool Storytime",
+    "description": "Picture books, songs & early-literacy play for preschoolers ready to sit & listen.",
+    "tips": "Weekly · Wednesdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nBest for ages 3–5.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-21",
+    "startTime": "11:00",
+    "endTime": "11:25",
+    "ageRange": "2–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
+  },
+  {
     "id": "disc-baby-storytime-stay-and-play-2026-10-21-6a68e77fcca66c2f00a69560",
     "title": "Baby Storytime & Stay and Play",
     "description": "Come join the fun every Wednesday for Baby Storytime & Stay and Play at the Los Altos Library! Catchy Songs & Silly Rhymes Gentle Movement & Baby Sign Language Short Books perfect for little eyes It’s the perfect weekly activity to boost early literacy, build community, and make some wonderful memories. When: Wednesdays, 1:00 PM – 2:00 PM Where: Los Altos Library, Orchard Room For accessibility accommodations (ex. ASL), please fill out the online form at sccld.org/accessibility 7+days prior to t",
@@ -15339,6 +16091,71 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
+  },
+  {
+    "categoryTags": [
+      "Parent & Me",
+      "Series · do not explode weekly"
+    ],
+    "imageUrl": "https://static.spacecrafted.com/dbfd6ca9d440403f89a29bb6ef274b92/i/dc6450fd530c46908f3e38abeba487e1/1/4SoifmQpDrHbZJ6VybMjS/strollerbarre.jpeg",
+    "room": "",
+    "id": "watchlist-fit4mom-stroller-barre-mitchell-series",
+    "title": "FIT4MOM Stroller Barre · Mitchell Park",
+    "description": "Stroller Barre workout for caregivers with child in stroller at Mitchell Park.",
+    "tips": "Stroller-aged little ones come along — in a stroller or baby carrier.\nWeekly · Thursdays at Mitchell Park.\nCheck the official schedule for current class times.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nRainy day: Meet under the overhang by Mitchell Park Library / Ada's Cafe.",
+    "venue": "Mitchell Park",
+    "address": "600 E Meadow Dr, Palo Alto, CA 94303",
+    "city": "Palo Alto",
+    "date": "2026-10-22",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me",
+      "Outdoor"
+    ],
+    "cost": "Paid · First class free",
+    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
+    "lat": 37.419,
+    "lng": -122.1095,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
+  },
+  {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "",
+    "room": "",
+    "id": "staging-sunnyvale-library-baby-lapsit-series",
+    "title": "Baby Lapsit & Playtime",
+    "description": "Rhymes, songs & lap bounces for babies — then stay & play with other families.",
+    "tips": "Weekly · Thursdays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early; doors close when the room is full.\nGrown-ups stay with little ones the whole time.\nFor babies 0–12 months and their caregivers — no older siblings.\nCheck the library kids calendar for the next date and any themed replacements.",
+    "venue": "Sunnyvale Public Library",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-22",
+    "startTime": "10:30",
+    "endTime": "12:00",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 1,
+    "types": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
   },
   {
     "id": "disc-bilingual-family-storytime-2026-10-22-69276b597eb3e430002638b6",
@@ -15470,6 +16287,78 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "id": "sunnyvale-library-hindi-english-storytime-craft-series",
+    "title": "Bilingual Hindi-English Storytime & Craft",
+    "description": "Bilingual Hindi and English stories, then a craft. The library lists this for ages 3 to 6.",
+    "tips": "Registration is not required.",
+    "venue": "Sunnyvale Public Library",
+    "room": "Program Room",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-22",
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "scheduleKind": "multi-day",
+    "openingDate": "2026-10-01",
+    "closingDate": "2026-10-22",
+    "recurringDaysLabel": "Thursdays",
+    "ageRange": "3–6",
+    "ageMin": 3,
+    "ageMax": 6,
+    "types": [
+      "Stories",
+      "Arts & Crafts"
+    ],
+    "categoryTags": [
+      "Stories",
+      "Series · do not explode weekly"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13222/74",
+    "verifiedDate": "2026-09-30",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "otto-family-club-autumn-senses-2026-10-22",
+    "title": "Autumn Senses · Process Art",
+    "description": "Messy process art. Younger siblings can come with a sibling pass. One sibling pass covers two children.",
+    "tips": "RSVP on the Otto page.\nDress for mess.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-22",
+    "startTime": "16:30",
+    "endTime": "17:30",
+    "ageRange": "3–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts"
+    ],
+    "categoryTags": [
+      "Arts & Crafts"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/p8/b2a87a24-615a-42c6-820b-dd2b03f43c63.jpg",
+    "eventUrl": "https://luma.com/z763aud5",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/z763aud5"
+  },
+  {
     "id": "jeff-center-free-family-play-2026-10-23",
     "title": "Jeff Center Free Family Play",
     "description": "Families with young children are welcome at the Jeff Center for Families for free drop-in play. Enjoy toys, books, games, and arts and crafts in a cozy, climate-controlled space — a creation of the Oshman Family JCC and Blossom Birth & Family. Caregivers can socialize, nurse, and meet other local families while little ones explore.",
@@ -15500,6 +16389,41 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Social & Play"
+  },
+  {
+    "id": "otto-family-club-autumn-senses-under-3-2026-10-23",
+    "title": "Autumn Senses · Sensory Play · Under 3",
+    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
+    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-23",
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "ageRange": "1–3",
+    "ageMin": 1,
+    "ageMax": 3,
+    "types": [
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Social & Play"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
+    "eventUrl": "https://luma.com/7aagu679",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/7aagu679"
   },
   {
     "id": "disc-baby-storytime-rerun-2026-10-23-17170832",
@@ -15593,6 +16517,41 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Build & Explore"
+  },
+  {
+    "id": "otto-family-club-autumn-senses-sensory-2026-10-24",
+    "title": "Autumn Senses · Sensory Play · Ages 1.5–5",
+    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
+    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-24",
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "ageRange": "1.5–5",
+    "ageMin": 1.5,
+    "ageMax": 5,
+    "types": [
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Social & Play"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
+    "eventUrl": "https://luma.com/xq27x9h2",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/xq27x9h2"
   },
   {
     "id": "family-fun-days-los-altos-community-center-2026-10-24-10-00",
@@ -15721,6 +16680,37 @@
     "sheetTypesRaw": "Social & Play, Arts & Crafts, Outdoor"
   },
   {
+    "id": "core-weekend-tlg-monster-mash-psn-2026-10-24",
+    "title": "Parent Survival Night · Monster Mash",
+    "description": "Drop-off gym night with imagination games, gymnastics skills & costumes welcome.",
+    "venue": "The Little Gym of Mountain View",
+    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-10-24",
+    "startTime": "17:30",
+    "endTime": "20:30",
+    "ageRange": "3–9",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-10-24",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.3972,
+    "lng": -122.1074,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Classes",
+    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Costumes welcome. Register on the official Little Gym page."
+  },
+  {
     "venue": "Linden Tree Books",
     "address": "265 State Street, Los Altos, CA 94022",
     "city": "Los Altos",
@@ -15817,6 +16807,38 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Social & Play"
+  },
+  {
+    "id": "sunnyvale-library-french-bilingual-storytime-2026-10-26",
+    "title": "French Bilingual Storytime",
+    "description": "A French and English storytime and craft for children of all ages and their caregivers.",
+    "tips": "Registration is not required, but space is limited. Doors close when the room is full.",
+    "venue": "Sunnyvale Public Library",
+    "room": "Library Program Room",
+    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-26",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Arts & Crafts"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13376/74",
+    "verifiedDate": "2026-09-30",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true
   },
   {
     "id": "smart-start-babytime-mountain-view-public-library-2026-10-26-18-00",
@@ -16390,6 +17412,41 @@
     "sheetTypesRaw": "Stories"
   },
   {
+    "id": "otto-family-club-jack-o-lantern-2026-10-29",
+    "title": "Jack-O-Lantern · Process Art",
+    "description": "Messy process art. Younger siblings can come with a sibling pass. One sibling pass covers two children.",
+    "tips": "RSVP on the Otto page.\nDress for mess.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-29",
+    "startTime": "16:30",
+    "endTime": "17:30",
+    "ageRange": "3–5",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts"
+    ],
+    "categoryTags": [
+      "Arts & Crafts"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/p8/b2a87a24-615a-42c6-820b-dd2b03f43c63.jpg",
+    "eventUrl": "https://luma.com/ravkogf2",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/ravkogf2"
+  },
+  {
     "id": "jeff-center-free-family-play-2026-10-30",
     "title": "Jeff Center Free Family Play",
     "description": "Families with young children are welcome at the Jeff Center for Families for free drop-in play. Enjoy toys, books, games, and arts and crafts in a cozy, climate-controlled space — a creation of the Oshman Family JCC and Blossom Birth & Family. Caregivers can socialize, nurse, and meet other local families while little ones explore.",
@@ -16420,6 +17477,41 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Social & Play"
+  },
+  {
+    "id": "otto-family-club-jack-o-lantern-under-3-2026-10-30",
+    "title": "Jack-O-Lantern · Sensory Play · Under 3",
+    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
+    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-30",
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "ageRange": "1–3",
+    "ageMin": 1,
+    "ageMax": 3,
+    "types": [
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Social & Play"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
+    "eventUrl": "https://luma.com/5taxo7ss",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/5taxo7ss"
   },
   {
     "id": "disc-baby-storytime-rerun-2026-10-30-17170833",
@@ -16607,6 +17699,41 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Build & Explore"
+  },
+  {
+    "id": "otto-family-club-jack-o-lantern-sensory-2026-10-31",
+    "title": "Jack-O-Lantern · Sensory Play · Ages 1.5–5",
+    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
+    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
+    "venue": "Otto Family Club",
+    "room": "Ste 12",
+    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-31",
+    "startTime": "10:00",
+    "endTime": "10:50",
+    "ageRange": "1.5–5",
+    "ageMin": 1.5,
+    "ageMax": 5,
+    "types": [
+      "Social & Play"
+    ],
+    "categoryTags": [
+      "Social & Play"
+    ],
+    "cost": "Paid",
+    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
+    "eventUrl": "https://luma.com/t7c29tkd",
+    "verifiedDate": "2026-09-29",
+    "lat": 37.371391,
+    "lng": -122.035855,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "providerId": "otto-family-club",
+    "providerName": "Otto Family Club",
+    "sourceType": "luma",
+    "sourceUrl": "https://luma.com/t7c29tkd"
   },
   {
     "id": "disc-family-storytime-celebrate-halloween-2026-10-31-698e125a2a787a47a5e73be8",
@@ -16948,6 +18075,39 @@
     "isLive": true
   },
   {
+    "categoryTags": [
+      "Stories",
+      "Series · Sunnyvale library seed"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Sunnyvale_Public_Library_%28January_2025%29.jpg",
+    "room": "",
+    "id": "staging-sunnyvale-library-magical-bridge-storytime-series",
+    "title": "Storytime at Magical Bridge Playground",
+    "description": "Outdoor stories at Fair Oaks Park’s inclusive playground — sing, rhyme & explore.",
+    "tips": "Weekly · First Fridays through mid-November (holiday closures & special replacements vary).\nNo registration — arrive early.\nGrown-ups stay with little ones the whole time.\nUsually first Fridays. Next on the library kids calendar: Fri Nov 6, 11:00–11:25 AM.\nCheck the library kids calendar for extras and replacements.",
+    "venue": "Magical Bridge Playground · Fair Oaks Park",
+    "address": "540 N Fair Oaks Ave, Sunnyvale, CA 94085",
+    "city": "Sunnyvale",
+    "date": "2026-11-06",
+    "startTime": "11:00",
+    "endTime": "11:25",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "lat": 37.3902,
+    "lng": -122.0085,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "verifiedDate": "2026-10-15"
+  },
+  {
     "id": "pages-and-paws-reading-buddy-mountain-view-public-library-2026-11-06-15-30",
     "title": "Pages and Paws Reading Buddy",
     "description": "Therapy reading dogs provide a comforting presence for children as they navigate the exciting realm of books. This initiative aims to build confidence, enhance literacy skills and instill a lifelong...",
@@ -17071,6 +18231,37 @@
     "status": "Published",
     "isPast": false,
     "isLive": true
+  },
+  {
+    "id": "core-weekend-tlg-turkey-trot-psn-2026-11-07",
+    "title": "Parent Survival Night · Turkey Trot",
+    "description": "Drop-off gym night with soccer, hoops, parachute games & crafts.",
+    "venue": "The Little Gym of Mountain View",
+    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-11-07",
+    "startTime": "17:30",
+    "endTime": "20:30",
+    "ageRange": "3–9",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-11-07",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.3972,
+    "lng": -122.1074,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Classes",
+    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
   },
   {
     "id": "disc-board-game-sunday-2026-11-08-6970253094297d3600a66ca3",
@@ -17313,6 +18504,39 @@
     "status": "Published",
     "isPast": false,
     "isLive": true
+  },
+  {
+    "id": "core-weekend-gamble-second-saturday-2026-11-14",
+    "title": "Second Saturday at Gamble Garden",
+    "description": "Storytime, scavenger hunts, crafts & a visit to Elizabeth’s house — a free November garden morning for little ones to explore.",
+    "venue": "Elizabeth F. Gamble Garden",
+    "address": "1431 Waverley Street, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "date": "2026-11-14",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Festivals & Community",
+      "Outdoor"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.gamblegarden.org/event/novembersaturday/",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.4397,
+    "lng": -122.1481,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Festivals & Community, Outdoor",
+    "tips": "Register for timed entry at 10:00, 10:30, or 11:00 AM. Check in at a Welcome Table. Activities subject to change per Gamble Garden."
   },
   {
     "id": "disc-family-storytime-2026-11-14-698e125a2a787a47a5e73bea",
@@ -17680,6 +18904,37 @@
     "status": "Published",
     "isPast": false,
     "isLive": true
+  },
+  {
+    "id": "core-weekend-tlg-friendsgiving-psn-2026-11-21",
+    "title": "Parent Survival Night · Friendsgiving",
+    "description": "Drop-off gym night with beanbag games, pretend pies & an after-dinner disco.",
+    "venue": "The Little Gym of Mountain View",
+    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-11-21",
+    "startTime": "17:30",
+    "endTime": "20:30",
+    "ageRange": "3–9",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-11-21",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.3972,
+    "lng": -122.1074,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Classes",
+    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
   },
   {
     "id": "disc-festival-of-lights-a-diwali-celebration-2026-11-22-6a8f395260ccaf01c0213e7c",
@@ -18325,6 +19580,37 @@
     "isLive": true
   },
   {
+    "id": "core-weekend-tlg-winter-bounce-psn-2026-12-05",
+    "title": "Parent Survival Night · Winter Bounce Blast",
+    "description": "Drop-off gym night with AirMat jumping, snowman crafting & tumbling.",
+    "venue": "The Little Gym of Mountain View",
+    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-12-05",
+    "startTime": "17:30",
+    "endTime": "20:30",
+    "ageRange": "3–9",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-12-05",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.3972,
+    "lng": -122.1074,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Classes",
+    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
+  },
+  {
     "id": "barn-lighting-westwind-community-barn-2026-12-06-14-00",
     "title": "Barn Lighting",
     "description": "Come together with friends and neighbors for a jolly afternoon filled with holiday cheer at the beautiful Westwind Community Barn. This magical celebration offers something for everyone. \n\nSip on hot chocolate or wine, savor cookies and Mister Softee’s, and enjoy warm conversations while the kids take part in holiday-themed fun like seasonal games, craft tables, face painting, pony rides, and a petting zoo. \n\nDon’t forget to visit Santa for that perfect holiday photo and a chance for little ones",
@@ -18420,6 +19706,37 @@
     "sheetTypesRaw": "Arts & Crafts, Build & Explore"
   },
   {
+    "id": "core-weekend-tlg-holiday-pajama-psn-2026-12-19",
+    "title": "Parent Survival Night · Holiday Pajama Party",
+    "description": "Drop-off gym night in pajamas — movement, penguin play & a North Pole craft.",
+    "venue": "The Little Gym of Mountain View",
+    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
+    "city": "Mountain View",
+    "date": "2026-12-19",
+    "startTime": "17:30",
+    "endTime": "20:30",
+    "ageRange": "3–9",
+    "ageMin": 3,
+    "ageMax": 5,
+    "types": [
+      "Classes"
+    ],
+    "categoryTags": [
+      "Classes"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-12-19",
+    "verifiedDate": "2026-09-15",
+    "lat": 37.3972,
+    "lng": -122.1074,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "sheetTypesRaw": "Classes",
+    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
+  },
+  {
     "id": "smart-start-babytime-mountain-view-public-library-2026-12-21-18-00",
     "title": "Smart Start Babytime",
     "description": "Smart Start Babytime is a special program for babies (0--2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford...",
@@ -18481,1241 +19798,5 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
-  },
-  {
-    "id": "core-weekend-magical-bridge-performance-series-2026-09-16",
-    "title": "Magical Bridge Performance Series",
-    "description": "Live music, puppets & face painting on the inclusive playground stage — a short afternoon show little ones can watch, then play.",
-    "venue": "Magical Bridge Playground at Rengstorff Park",
-    "address": "201 S. Rengstorff Ave, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-09-16",
-    "startTime": "16:00",
-    "endTime": "17:30",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement",
-      "Outdoor"
-    ],
-    "categoryTags": [
-      "Music & Movement",
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.magicalbridge.org/event-details/newspell-california-kids-fun-and-hey-balloon-lady-mountain-views-magical-bridge-performance-series",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.4001,
-    "lng": -122.0986,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Music & Movement, Outdoor",
-    "tips": "Remaining named performances Sep 30 and Oct 14. This is not the 10:00 AM Bookmobile storytime."
-  },
-  {
-    "id": "core-weekend-palo-alto-airport-day-2026-09-20",
-    "title": "Airport Day",
-    "description": "See real planes, helicopters & open cockpits up close — a short airport outing little ones can watch and wander.",
-    "venue": "Palo Alto Airport",
-    "address": "1925 Embarcadero Road, Palo Alto, CA 94303",
-    "city": "Palo Alto",
-    "date": "2026-09-20",
-    "startTime": "10:00",
-    "endTime": "14:00",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Outdoor",
-      "Festivals & Community"
-    ],
-    "categoryTags": [
-      "Outdoor",
-      "Festivals & Community"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://paloaltoairport.org/airport-day/",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.4611,
-    "lng": -122.1147,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Outdoor, Festivals & Community",
-    "tips": "Free admission. Outdoors on flat asphalt — wear walking shoes; it can be windy. Food trucks on site. Portable restrooms. Organizers suggest biking because of crowds."
-  },
-  {
-    "id": "core-weekend-sunnyvale-cunamacue-2026-09-21",
-    "title": "Cunamacue Afro-Peruvian Dance",
-    "description": "Interactive Afro-Peruvian music and dance — little ones can watch, move, and join in with their grown-ups.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-09-21",
-    "startTime": "11:00",
-    "endTime": "12:00",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12405/74?selcat=29",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Music & Movement",
-    "tips": "For children of all ages and their caregivers. No registration — arrive early; doors close when the Program Room is full."
-  },
-  {
-    "id": "core-weekend-my-gym-parents-night-out-2026-09-25",
-    "title": "Parents' Night Out",
-    "description": "Drop-off gym night — games, obstacles, ninjas, gymnastics, songs & dance relays. Pizza included.",
-    "venue": "My Gym Palo Alto",
-    "address": "2655 Middlefield Road, Palo Alto, CA 94306",
-    "city": "Palo Alto",
-    "date": "2026-09-25",
-    "startTime": "17:00",
-    "endTime": "20:00",
-    "ageRange": "2+",
-    "ageMin": 2,
-    "ageMax": 5,
-    "types": [
-      "Classes"
-    ],
-    "categoryTags": [
-      "Classes"
-    ],
-    "cost": "Paid",
-    "imageUrl": "",
-    "eventUrl": "https://www.mygym.com/paloalto/articles/3240",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.4336,
-    "lng": -122.128,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Classes",
-    "tips": "Drop-off — grown-ups are not in the class. Ages 2 and up; potty training not required. $70 / $40 siblings. Payment collected at drop-off."
-  },
-  {
-    "id": "regional-lah-touch-a-truck-2026-09-26",
-    "title": "Touch a Truck",
-    "description": "See Town trucks and service vehicles up close — a short morning for little ones who love big machines.",
-    "venue": "Gardner Bullis School",
-    "address": "25890 Fremont Road, Los Altos Hills, CA 94022",
-    "city": "Los Altos Hills",
-    "date": "2026-09-26",
-    "startTime": "09:00",
-    "endTime": "11:00",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Outdoor",
-      "Festivals & Community"
-    ],
-    "categoryTags": [
-      "Outdoor",
-      "Festivals & Community"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.losaltoshills.ca.gov/calendar.aspx",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.3715,
-    "lng": -122.1378,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Outdoor, Festivals & Community",
-    "tips": "Free drop-in at Gardner Bullis School. Confirm this year’s vehicle lineup on the official town calendar before you go.",
-    "isRegional": false,
-    "isSeasonal": false
-  },
-  {
-    "id": "core-weekend-tlg-starlight-movie-psn-2026-09-26",
-    "title": "Parent Survival Night · Starlight Movie",
-    "description": "Drop-off gym night with dress-up, tumbling games & a movie-star theme — kids stay; grown-ups get the evening.",
-    "venue": "The Little Gym of Mountain View",
-    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-09-26",
-    "startTime": "17:30",
-    "endTime": "20:30",
-    "ageRange": "3–9",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Classes"
-    ],
-    "categoryTags": [
-      "Classes"
-    ],
-    "cost": "Paid",
-    "imageUrl": "",
-    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-09-26",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.3972,
-    "lng": -122.1074,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Classes",
-    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
-  },
-  {
-    "id": "core-weekend-sunnyvale-family-movie-bad-guys-2-2026-09-27",
-    "title": "Family Movie: The Bad Guys 2",
-    "description": "Watch The Bad Guys 2 together in the Children’s Room — a drop-in family movie outing.",
-    "venue": "Sunnyvale Public Library",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-09-27",
-    "startTime": "14:00",
-    "endTime": "",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Social & Play"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/12417/74?selcat=29",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Social & Play",
-    "tips": "No registration — arrive early; doors close when the room is full. Check the official event page for rating and who the library recommends it for."
-  },
-  {
-    "id": "core-weekend-gamble-second-saturday-2026-10-10",
-    "title": "Second Saturday at Gamble Garden",
-    "description": "Soil-by-feel station, pot-painting crafts, scavenger hunts & librarian storytime — a free garden morning for little ones to explore and make.",
-    "venue": "Elizabeth F. Gamble Garden",
-    "address": "1431 Waverley Street, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-10-10",
-    "startTime": "10:00",
-    "endTime": "12:00",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Festivals & Community",
-      "Outdoor"
-    ],
-    "categoryTags": [
-      "Festivals & Community",
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.gamblegarden.org/event/octobersaturday/",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.4397,
-    "lng": -122.1481,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Festivals & Community, Outdoor",
-    "tips": "Register for a timed entry slot at 10:00, 10:30, or 11:00 AM, then check in at a Welcome Table. October theme is soil / Hispanic and Latinx Heritage Month."
-  },
-  {
-    "id": "core-weekend-tlg-pumpkin-patch-psn-2026-10-10",
-    "title": "Parent Survival Night · Pumpkin Patch Party",
-    "description": "Drop-off gym night with tumbling, cooperation games & a pumpkin-painting station.",
-    "venue": "The Little Gym of Mountain View",
-    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-10-10",
-    "startTime": "17:30",
-    "endTime": "20:30",
-    "ageRange": "3–9",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Classes"
-    ],
-    "categoryTags": [
-      "Classes"
-    ],
-    "cost": "Paid",
-    "imageUrl": "",
-    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-10-10",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.3972,
-    "lng": -122.1074,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Classes",
-    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
-  },
-  {
-    "id": "core-weekend-tlg-monster-mash-psn-2026-10-24",
-    "title": "Parent Survival Night · Monster Mash",
-    "description": "Drop-off gym night with imagination games, gymnastics skills & costumes welcome.",
-    "venue": "The Little Gym of Mountain View",
-    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-10-24",
-    "startTime": "17:30",
-    "endTime": "20:30",
-    "ageRange": "3–9",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Classes"
-    ],
-    "categoryTags": [
-      "Classes"
-    ],
-    "cost": "Paid",
-    "imageUrl": "",
-    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-10-24",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.3972,
-    "lng": -122.1074,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Classes",
-    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Costumes welcome. Register on the official Little Gym page."
-  },
-  {
-    "id": "core-weekend-tlg-turkey-trot-psn-2026-11-07",
-    "title": "Parent Survival Night · Turkey Trot",
-    "description": "Drop-off gym night with soccer, hoops, parachute games & crafts.",
-    "venue": "The Little Gym of Mountain View",
-    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-11-07",
-    "startTime": "17:30",
-    "endTime": "20:30",
-    "ageRange": "3–9",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Classes"
-    ],
-    "categoryTags": [
-      "Classes"
-    ],
-    "cost": "Paid",
-    "imageUrl": "",
-    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-11-07",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.3972,
-    "lng": -122.1074,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Classes",
-    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
-  },
-  {
-    "id": "core-weekend-gamble-second-saturday-2026-11-14",
-    "title": "Second Saturday at Gamble Garden",
-    "description": "Storytime, scavenger hunts, crafts & a visit to Elizabeth’s house — a free November garden morning for little ones to explore.",
-    "venue": "Elizabeth F. Gamble Garden",
-    "address": "1431 Waverley Street, Palo Alto, CA 94301",
-    "city": "Palo Alto",
-    "date": "2026-11-14",
-    "startTime": "10:00",
-    "endTime": "12:00",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Festivals & Community",
-      "Outdoor"
-    ],
-    "categoryTags": [
-      "Festivals & Community",
-      "Outdoor"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.gamblegarden.org/event/novembersaturday/",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.4397,
-    "lng": -122.1481,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Festivals & Community, Outdoor",
-    "tips": "Register for timed entry at 10:00, 10:30, or 11:00 AM. Check in at a Welcome Table. Activities subject to change per Gamble Garden."
-  },
-  {
-    "id": "core-weekend-tlg-friendsgiving-psn-2026-11-21",
-    "title": "Parent Survival Night · Friendsgiving",
-    "description": "Drop-off gym night with beanbag games, pretend pies & an after-dinner disco.",
-    "venue": "The Little Gym of Mountain View",
-    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-11-21",
-    "startTime": "17:30",
-    "endTime": "20:30",
-    "ageRange": "3–9",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Classes"
-    ],
-    "categoryTags": [
-      "Classes"
-    ],
-    "cost": "Paid",
-    "imageUrl": "",
-    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-11-21",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.3972,
-    "lng": -122.1074,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Classes",
-    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
-  },
-  {
-    "id": "core-weekend-tlg-winter-bounce-psn-2026-12-05",
-    "title": "Parent Survival Night · Winter Bounce Blast",
-    "description": "Drop-off gym night with AirMat jumping, snowman crafting & tumbling.",
-    "venue": "The Little Gym of Mountain View",
-    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-12-05",
-    "startTime": "17:30",
-    "endTime": "20:30",
-    "ageRange": "3–9",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Classes"
-    ],
-    "categoryTags": [
-      "Classes"
-    ],
-    "cost": "Paid",
-    "imageUrl": "",
-    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-12-05",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.3972,
-    "lng": -122.1074,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Classes",
-    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
-  },
-  {
-    "id": "core-weekend-tlg-holiday-pajama-psn-2026-12-19",
-    "title": "Parent Survival Night · Holiday Pajama Party",
-    "description": "Drop-off gym night in pajamas — movement, penguin play & a North Pole craft.",
-    "venue": "The Little Gym of Mountain View",
-    "address": "1910 W El Camino Real Suite F, Mountain View, CA 94040",
-    "city": "Mountain View",
-    "date": "2026-12-19",
-    "startTime": "17:30",
-    "endTime": "20:30",
-    "ageRange": "3–9",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Classes"
-    ],
-    "categoryTags": [
-      "Classes"
-    ],
-    "cost": "Paid",
-    "imageUrl": "",
-    "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-12-19",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.3972,
-    "lng": -122.1074,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Classes",
-    "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page."
-  },
-  {
-    "id": "regional-hidden-villa-weekend-farm-tour-2026-09-19",
-    "title": "Weekend Farm Tour",
-    "description": "Meet cows, pigs, chickens, goats & sheep on a guided farm walk — little ones can see and hear the animals up close.",
-    "venue": "Hidden Villa",
-    "address": "26870 Moody Road, Los Altos Hills, CA 94022",
-    "city": "Los Altos Hills",
-    "date": "2026-09-19",
-    "startTime": "10:00",
-    "endTime": "11:30",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Outdoor",
-      "Festivals & Community"
-    ],
-    "categoryTags": [
-      "Outdoor",
-      "Festivals & Community"
-    ],
-    "cost": "Paid",
-    "imageUrl": "",
-    "eventUrl": "https://www.hiddenvilla.org/programs/catalog/372-weekend-farm-tour/region-HV/",
-    "verifiedDate": "2026-09-15",
-    "lat": 37.341,
-    "lng": -122.162,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Outdoor, Festivals & Community",
-    "tips": "$18 per person (adults and children). Register ahead — tours need at least 5 people or they cancel with a refund. Closed-toe shoes; dirt paths, gravel, and woodchips. More weekend times are on the official catalog page.",
-    "isRegional": false,
-    "isSeasonal": false
-  },
-  {
-    "id": "watchlist-sunnyvale-library-family-storytime-2026-09-26",
-    "title": "Family Storytime",
-    "description": "Storytime in the Program Room for children of all ages and their caregivers.",
-    "tips": "No registration. Doors close when the Program Room is full.",
-    "venue": "Sunnyvale Public Library",
-    "room": "Program Room",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-09-26",
-    "startTime": "11:00",
-    "endTime": "11:25",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Stories"
-    ],
-    "categoryTags": [
-      "Stories"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
-    "verifiedDate": "2026-09-24",
-    "lat": 37.3719,
-    "lng": -122.0391,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Stories"
-  },
-  {
-    "id": "core-weekend-elks-kid-family-yoga-2026-09-27",
-    "title": "Kid & Family Yoga",
-    "description": "The lodge’s first family yoga class — grown-ups and little ones practice together.",
-    "tips": "Tickets required. The lodge calendar does not list a price — check the official page.",
-    "venue": "Palo Alto Elks Lodge",
-    "address": "4249 El Camino Real, Palo Alto, CA 94306",
-    "city": "Palo Alto",
-    "date": "2026-09-27",
-    "startTime": "14:00",
-    "endTime": "15:00",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Parent & Me"
-    ],
-    "categoryTags": [
-      "Parent & Me"
-    ],
-    "cost": "Paid",
-    "imageUrl": "",
-    "eventUrl": "https://www.paloaltoelks.org/rsvp",
-    "verifiedDate": "2026-09-24",
-    "lat": 37.4159,
-    "lng": -122.1294,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Parent & Me"
-  },
-  {
-    "id": "core-weekend-sunnyvale-baylands-drum-circle-2026-09-26",
-    "title": "Community Drum Circle",
-    "description": "A drop-in drum circle with a few drums and small percussion to share. No experience needed.",
-    "tips": "Rain cancels the circle. Parking at the park sometimes has a fee. Take off rings before you play, and bring a chair if you have one.",
-    "venue": "Baylands Park",
-    "address": "999 E Caribbean Dr, Sunnyvale, CA 94089",
-    "city": "Sunnyvale",
-    "date": "2026-09-26",
-    "startTime": "14:00",
-    "endTime": "",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Music & Movement"
-    ],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://venunite.com/events/community-drum-circle-89",
-    "verifiedDate": "2026-09-24",
-    "lat": 37.4089,
-    "lng": -122.0005,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "sheetTypesRaw": "Music & Movement"
-  },
-  {
-    "categoryTags": [
-      "Parent & Me"
-    ],
-    "imageUrl": "",
-    "room": "",
-    "id": "watchlist-fit4mom-mommy-me-zumba-laspalmas-series",
-    "title": "FIT4MOM Mommy and Me Zumba · Las Palmas Park",
-    "description": "Caregiver and little one dance together at Las Palmas Park.",
-    "tips": "Weekly · Tuesdays at Las Palmas Park.\nPre-enroll for schedule updates and rainy-day location changes.\nFirst class free. Pricing varies by class or package — check registration for the current rate.\nDress to move.",
-    "venue": "Las Palmas Park",
-    "address": "850 Russet Dr, Sunnyvale, CA 94087",
-    "city": "Sunnyvale",
-    "date": "2026-10-06",
-    "startTime": "09:30",
-    "endTime": "10:30",
-    "ageRange": "0–2",
-    "ageMin": 0,
-    "ageMax": 2,
-    "types": [
-      "Parent & Me"
-    ],
-    "cost": "Paid · First class free",
-    "eventUrl": "https://sunnyvale.fit4mom.com/schedule",
-    "lat": 37.3515,
-    "lng": -122.0255,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "verifiedDate": "2026-09-29"
-  },
-  {
-    "id": "otto-family-club-monster-band-2026-10-01",
-    "title": "Monster Band · Messy Play & Music",
-    "description": "A music session with The Nest Music House, then messy play.",
-    "tips": "RSVP on the Otto page.\nDress for mess.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-01",
-    "startTime": "16:30",
-    "endTime": "17:30",
-    "ageRange": "3–5",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Music & Movement"
-    ],
-    "categoryTags": [
-      "Music & Movement"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/p8/b2a87a24-615a-42c6-820b-dd2b03f43c63.jpg",
-    "eventUrl": "https://luma.com/r2ts1cc1",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/r2ts1cc1"
-  },
-  {
-    "id": "otto-family-club-spider-web-2026-10-08",
-    "title": "Spider Web · Process Art",
-    "description": "Messy process art. Younger siblings can come with a sibling pass. One sibling pass covers two children.",
-    "tips": "RSVP on the Otto page.\nDress for mess.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-08",
-    "startTime": "16:30",
-    "endTime": "17:30",
-    "ageRange": "3–5",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Arts & Crafts"
-    ],
-    "categoryTags": [
-      "Arts & Crafts"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/p8/b2a87a24-615a-42c6-820b-dd2b03f43c63.jpg",
-    "eventUrl": "https://luma.com/1im6mfrz",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/1im6mfrz"
-  },
-  {
-    "id": "otto-family-club-witches-potion-2026-10-15",
-    "title": "Witches Potion · Process Art",
-    "description": "Messy process art. Younger siblings can come with a sibling pass. One sibling pass covers two children.",
-    "tips": "RSVP on the Otto page.\nDress for mess.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-15",
-    "startTime": "16:30",
-    "endTime": "17:30",
-    "ageRange": "3–5",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Arts & Crafts"
-    ],
-    "categoryTags": [
-      "Arts & Crafts"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/p8/b2a87a24-615a-42c6-820b-dd2b03f43c63.jpg",
-    "eventUrl": "https://luma.com/7g8sbuth",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/7g8sbuth"
-  },
-  {
-    "id": "otto-family-club-autumn-senses-2026-10-22",
-    "title": "Autumn Senses · Process Art",
-    "description": "Messy process art. Younger siblings can come with a sibling pass. One sibling pass covers two children.",
-    "tips": "RSVP on the Otto page.\nDress for mess.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-22",
-    "startTime": "16:30",
-    "endTime": "17:30",
-    "ageRange": "3–5",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Arts & Crafts"
-    ],
-    "categoryTags": [
-      "Arts & Crafts"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/p8/b2a87a24-615a-42c6-820b-dd2b03f43c63.jpg",
-    "eventUrl": "https://luma.com/z763aud5",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/z763aud5"
-  },
-  {
-    "id": "otto-family-club-jack-o-lantern-2026-10-29",
-    "title": "Jack-O-Lantern · Process Art",
-    "description": "Messy process art. Younger siblings can come with a sibling pass. One sibling pass covers two children.",
-    "tips": "RSVP on the Otto page.\nDress for mess.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-29",
-    "startTime": "16:30",
-    "endTime": "17:30",
-    "ageRange": "3–5",
-    "ageMin": 3,
-    "ageMax": 5,
-    "types": [
-      "Arts & Crafts"
-    ],
-    "categoryTags": [
-      "Arts & Crafts"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/p8/b2a87a24-615a-42c6-820b-dd2b03f43c63.jpg",
-    "eventUrl": "https://luma.com/ravkogf2",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/ravkogf2"
-  },
-  {
-    "id": "otto-family-club-monster-band-sensory-2026-10-03",
-    "title": "Monster Band · Sensory Play · Ages 1.5–5",
-    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
-    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-03",
-    "startTime": "10:00",
-    "endTime": "10:50",
-    "ageRange": "1.5–5",
-    "ageMin": 1.5,
-    "ageMax": 5,
-    "types": [
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Social & Play"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
-    "eventUrl": "https://luma.com/gxrwfu6l",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/gxrwfu6l"
-  },
-  {
-    "id": "otto-family-club-spider-web-under-3-2026-10-09",
-    "title": "Spider Web · Sensory Play · Under 3",
-    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
-    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-09",
-    "startTime": "10:00",
-    "endTime": "10:50",
-    "ageRange": "1–3",
-    "ageMin": 1,
-    "ageMax": 3,
-    "types": [
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Social & Play"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
-    "eventUrl": "https://luma.com/h9cyhxgx",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/h9cyhxgx"
-  },
-  {
-    "id": "otto-family-club-spider-web-sensory-2026-10-10",
-    "title": "Spider Web · Sensory Play · Ages 1.5–5",
-    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
-    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-10",
-    "startTime": "10:00",
-    "endTime": "10:50",
-    "ageRange": "1.5–5",
-    "ageMin": 1.5,
-    "ageMax": 5,
-    "types": [
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Social & Play"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
-    "eventUrl": "https://luma.com/bgqp9asp",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/bgqp9asp"
-  },
-  {
-    "id": "otto-family-club-witches-potion-under-3-2026-10-16",
-    "title": "Witches Potion · Sensory Play · Under 3",
-    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
-    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-16",
-    "startTime": "10:00",
-    "endTime": "10:50",
-    "ageRange": "1–3",
-    "ageMin": 1,
-    "ageMax": 3,
-    "types": [
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Social & Play"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
-    "eventUrl": "https://luma.com/93q4pm9p",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/93q4pm9p"
-  },
-  {
-    "id": "otto-family-club-witches-potion-sensory-2026-10-17",
-    "title": "Witches Potion · Sensory Play · Ages 1.5–5",
-    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
-    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-17",
-    "startTime": "10:00",
-    "endTime": "10:50",
-    "ageRange": "1.5–5",
-    "ageMin": 1.5,
-    "ageMax": 5,
-    "types": [
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Social & Play"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
-    "eventUrl": "https://luma.com/nbp9zwov",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/nbp9zwov"
-  },
-  {
-    "id": "otto-family-club-autumn-senses-under-3-2026-10-23",
-    "title": "Autumn Senses · Sensory Play · Under 3",
-    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
-    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-23",
-    "startTime": "10:00",
-    "endTime": "10:50",
-    "ageRange": "1–3",
-    "ageMin": 1,
-    "ageMax": 3,
-    "types": [
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Social & Play"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
-    "eventUrl": "https://luma.com/7aagu679",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/7aagu679"
-  },
-  {
-    "id": "otto-family-club-autumn-senses-sensory-2026-10-24",
-    "title": "Autumn Senses · Sensory Play · Ages 1.5–5",
-    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
-    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-24",
-    "startTime": "10:00",
-    "endTime": "10:50",
-    "ageRange": "1.5–5",
-    "ageMin": 1.5,
-    "ageMax": 5,
-    "types": [
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Social & Play"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
-    "eventUrl": "https://luma.com/xq27x9h2",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/xq27x9h2"
-  },
-  {
-    "id": "otto-family-club-jack-o-lantern-under-3-2026-10-30",
-    "title": "Jack-O-Lantern · Sensory Play · Under 3",
-    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
-    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-30",
-    "startTime": "10:00",
-    "endTime": "10:50",
-    "ageRange": "1–3",
-    "ageMin": 1,
-    "ageMax": 3,
-    "types": [
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Social & Play"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
-    "eventUrl": "https://luma.com/5taxo7ss",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/5taxo7ss"
-  },
-  {
-    "id": "otto-family-club-jack-o-lantern-sensory-2026-10-31",
-    "title": "Jack-O-Lantern · Sensory Play · Ages 1.5–5",
-    "description": "Splashy, squishy sensory play. Little ones explore at their own pace.",
-    "tips": "RSVP on the Otto page.\nDress for mess, or bring an extra set of clothes.",
-    "venue": "Otto Family Club",
-    "room": "Ste 12",
-    "address": "510 S Mathilda Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-31",
-    "startTime": "10:00",
-    "endTime": "10:50",
-    "ageRange": "1.5–5",
-    "ageMin": 1.5,
-    "ageMax": 5,
-    "types": [
-      "Social & Play"
-    ],
-    "categoryTags": [
-      "Social & Play"
-    ],
-    "cost": "Paid",
-    "imageUrl": "https://images.lumacdn.com/event-covers/i6/cdddd350-508c-4a65-b005-f368dbf7aa19.jpg",
-    "eventUrl": "https://luma.com/t7c29tkd",
-    "verifiedDate": "2026-09-29",
-    "lat": 37.371391,
-    "lng": -122.035855,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
-    "providerId": "otto-family-club",
-    "providerName": "Otto Family Club",
-    "sourceType": "luma",
-    "sourceUrl": "https://luma.com/t7c29tkd"
-  },
-  {
-    "id": "andy-z-fall-harvest-jam-jcc-2026-10-15",
-    "title": "Andy Z's Fall Harvest Jam",
-    "description": "Bring little ones to celebrate fall with Andy Z.",
-    "venue": "Jessica Lynn Saal Town Square",
-    "address": "3921 Fabian Way, Palo Alto, CA 94303",
-    "city": "Palo Alto",
-    "date": "2026-10-15",
-    "startTime": "16:00",
-    "endTime": "16:40",
-    "ageRange": "0–5",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": ["Music & Movement"],
-    "categoryTags": ["Music & Movement"],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://paloaltojcc.org/events-programs/",
-    "verifiedDate": "2026-09-24",
-    "lat": 37.4419,
-    "lng": -122.143,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "sunnyvale-library-french-bilingual-storytime-2026-10-26",
-    "title": "French Bilingual Storytime",
-    "description": "A French and English storytime and craft for children of all ages and their caregivers.",
-    "tips": "Registration is not required, but space is limited. Doors close when the room is full.",
-    "venue": "Sunnyvale Public Library",
-    "room": "Library Program Room",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-26",
-    "startTime": "11:00",
-    "endTime": "12:00",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": ["Stories", "Arts & Crafts"],
-    "categoryTags": ["Stories"],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13376/74",
-    "verifiedDate": "2026-09-30",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "sunnyvale-library-hindi-english-storytime-craft-series",
-    "title": "Bilingual Hindi-English Storytime & Craft",
-    "description": "Bilingual Hindi and English stories, then a craft. The library lists this for ages 3 to 6.",
-    "tips": "Registration is not required.",
-    "venue": "Sunnyvale Public Library",
-    "room": "Program Room",
-    "address": "665 W Olive Ave, Sunnyvale, CA 94086",
-    "city": "Sunnyvale",
-    "date": "2026-10-22",
-    "startTime": "16:00",
-    "endTime": "17:00",
-    "scheduleKind": "multi-day",
-    "openingDate": "2026-10-01",
-    "closingDate": "2026-10-22",
-    "recurringDaysLabel": "Thursdays",
-    "ageRange": "3–6",
-    "ageMin": 3,
-    "ageMax": 6,
-    "types": ["Stories", "Arts & Crafts"],
-    "categoryTags": ["Stories", "Series · do not explode weekly"],
-    "cost": "Free",
-    "imageUrl": "",
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13222/74",
-    "verifiedDate": "2026-09-30",
-    "lat": 37.3688,
-    "lng": -122.0363,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
-  },
-  {
-    "id": "core-weekend-bing-charlie-tropicales-2026-10-10",
-    "title": "Charlie and the Tropicales",
-    "description": "A lively, interactive family concert with Charlie and the Tropicales, bringing Caribbean rhythms from New Orleans. Kids can listen, sing, and move along.",
-    "tips": "ticket|Infants in arms under 1 don’t need a ticket. Tickets are expected to sell out.\naccess|Weekend parking on campus is free. A wheelchair-accessible restroom is inside the main entrance.",
-    "venue": "Dinkelspiel Auditorium",
-    "address": "471 Lagunita Drive, Stanford, CA 94305",
-    "city": "Palo Alto",
-    "date": "2026-10-10",
-    "startTime": "11:00",
-    "endTime": "12:00",
-    "ageRange": "All ages · Little ones welcome",
-    "ageMin": 0,
-    "ageMax": 5,
-    "types": ["Music & Movement"],
-    "categoryTags": ["Music & Movement"],
-    "cost": "$10 per person",
-    "imageUrl": "https://localist-images.azureedge.net/photos/54117174992384/square_300@2x/3a251841cac1a5443bcbb1b26126139dca96f6b1.jpg",
-    "eventUrl": "https://bingschool.stanford.edu/events/bing-nursery-school-performance-series-charlie-and-tropicales",
-    "verifiedDate": "2026-10-07",
-    "lat": 37.4267,
-    "lng": -122.1718,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true
   }
 ]
