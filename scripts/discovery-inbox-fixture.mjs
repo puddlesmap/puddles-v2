@@ -313,4 +313,50 @@ assert.equal(
 )
 assert.equal(publishedTitleForUpdate('Canceled--Baby Storytime Rerun', 'Baby Storytime: Rerun'), 'Baby Storytime: Rerun')
 
+const meditation = {
+  id: 'disc-mindfulness-meditation-2026-12-05-68faeb383cbc052f00816108',
+  title: 'Mindfulness Meditation',
+  date: '2026-12-05',
+  startTime: '13:00',
+  endTime: '14:00',
+  venue: 'Palo Alto Art Center',
+  city: 'Palo Alto',
+  cost: 'Free',
+  ageRange: '0–5',
+  description: 'Sitting meditation at the library.',
+  status: 'Published',
+  eventUrl: 'https://paloalto.bibliocommons.com/events/68faeb383cbc052f00816108',
+}
+const locationChange = labelCandidate(
+  candidate({
+    title: 'LOCATION CHANGE: Mindfulness Meditation',
+    date: '2026-12-05',
+    startTime: '13:00',
+    endTime: '14:00',
+    venue: '',
+    city: 'Palo Alto',
+    ageRange: '0–5',
+    providerEventId: '68faeb383cbc052f00816108',
+    description: 'The December 5th meditation session will be at the Palo Alto Art Center.',
+    eventUrl: 'https://paloalto.bibliocommons.com/events/68faeb383cbc052f00816108',
+    sourceUrl: 'https://paloalto.bibliocommons.com/events/68faeb383cbc052f00816108',
+  }),
+  [meditation],
+)
+assert.equal(locationChange.status, 'Updated', `location change should update the published row, got ${locationChange.status}`)
+assert.equal(locationChange.matchedEventId, meditation.id)
+assert.ok(
+  locationChange.detectedChanges.includes('location changed'),
+  locationChange.detectedChanges.join('; '),
+)
+assert.equal(
+  locationChange.detectedChanges.includes('kid-fit changed'),
+  false,
+  'a location-change note is not a kid-fit change',
+)
+assert.equal(
+  publishedTitleForUpdate('LOCATION CHANGE: Mindfulness Meditation', 'Mindfulness Meditation'),
+  'Mindfulness Meditation',
+)
+
 console.log('discovery inbox fixture ok')

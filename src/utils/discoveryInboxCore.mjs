@@ -107,10 +107,22 @@ function stripCancelPrefix(value) {
   return String(value ?? '').replace(/^(?:cancel+ed|postponed)\s*[-–—:]+\s*/i, '')
 }
 
-/** Keep the published title when the library only prefixed it with Canceled--. */
+function isLocationChangeNotice(row) {
+  return /^location\s*change\b/i.test(String(row?.title || '').trim())
+}
+
+function stripLocationChangePrefix(value) {
+  return String(value ?? '').replace(/^location\s*change\s*[:\-–—]+\s*/i, '')
+}
+
+function stripNoticePrefix(value) {
+  return stripLocationChangePrefix(stripCancelPrefix(value))
+}
+
+/** Keep the published title when the library only prefixed it. */
 export function publishedTitleForUpdate(nextTitle, currentTitle) {
-  const next = normalizeCopy(stripCancelPrefix(nextTitle))
-  const current = normalizeCopy(stripCancelPrefix(currentTitle))
+  const next = normalizeCopy(stripNoticePrefix(nextTitle))
+  const current = normalizeCopy(stripNoticePrefix(currentTitle))
   if (next && current && next === current) return currentTitle || nextTitle
   return nextTitle || currentTitle || ''
 }
@@ -144,6 +156,23 @@ function sameCancellationTarget(event, candidate) {
   )
 }
 
+/** A "LOCATION CHANGE:" page for an occurrence already in the catalog. Venue may differ. */
+function sameLocationChangeTarget(event, candidate) {
+  if (!isLocationChangeNotice(candidate) || isLocationChangeNotice(event)) return false
+  if (candidate?.date && event?.date && candidate.date !== event.date) return false
+  const left = providerIds(candidate)
+  for (const id of providerIds(event)) {
+    if (left.has(id)) return true
+  }
+  const leftTitle = normalizeCopy(stripLocationChangePrefix(candidate?.title))
+  const rightTitle = normalizeCopy(event?.title)
+  const sameCity =
+    !normalizeCopy(candidate?.city) ||
+    !normalizeCopy(event?.city) ||
+    normalizeCopy(candidate.city) === normalizeCopy(event.city)
+  return Boolean(leftTitle && leftTitle === rightTitle && sameCity)
+}
+
 function kidFit(row) {
   return normalizeCopy(`${row?.description || ''} ${row?.tips || ''}`)
 }
@@ -172,6 +201,14 @@ export function diffParentFields(event, candidate) {
   }
   if (isCancelledRow(candidate) && !isCancelledRow(event)) {
     changes.push('cancelled or postponed')
+  } else if (isLocationChangeNotice(candidate) && !isLocationChangeNotice(event)) {
+    changes.push('location changed')
+    if (
+      normalizeCopy(candidate?.venue) &&
+      normalizeCopy(candidate.venue) !== normalizeCopy(event?.venue)
+    ) {
+      changes.push(`venue: ${event?.venue || '—'} → ${candidate.venue}`)
+    }
   } else {
     const beforeKid = kidFit(event)
     const afterKid = kidFit(candidate)
@@ -198,7 +235,9 @@ export function findIdentityMatches(candidate, events) {
     (event) =>
       event &&
       event.status !== 'Draft' &&
-      (sameIdentity(event, candidate) || sameCancellationTarget(event, candidate)),
+      (sameIdentity(event, candidate) ||
+        sameCancellationTarget(event, candidate) ||
+        sameLocationChangeTarget(event, candidate)),
   )
 }
 

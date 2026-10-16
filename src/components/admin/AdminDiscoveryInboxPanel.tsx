@@ -616,6 +616,7 @@ export function AdminDiscoveryInboxPanel({
   function flagLine(label: InboxLabel): string {
     if (label.needsChoice) return 'Needs a choice · new date or replace'
     if (label.detectedChanges.includes('cancelled or postponed')) return 'Updated · cancelled'
+    if (label.detectedChanges.includes('location changed')) return 'Updated · location changed'
     if (label.detectedChanges.some((line) => line.startsWith('date:'))) return 'Updated · date changed'
     if (label.reviewReasons.includes('missing_age')) return 'Needs review · missing age'
     if (label.flags.includes('possibleDuplicate')) return 'Possible duplicate'
