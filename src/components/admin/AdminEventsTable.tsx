@@ -8,6 +8,7 @@ import type { DuplicateCluster } from '../../utils/eventDuplicates'
 import { eventDetailScore } from '../../utils/eventDuplicates'
 import type { AdminReviewFlag } from '../../utils/adminReviewFlags'
 import { ADMIN_REVIEW_FLAG_LABELS } from '../../utils/adminReviewFlags'
+import { seasonalListingLabels } from '../../utils/adminSeasonalEvents'
 import { AdminEventDetailPanel } from './AdminEventDetail'
 
 function StatusBadge({ status }: { status: EventStatus }) {
@@ -50,7 +51,7 @@ interface AdminEventsTableProps {
   onClearChecked: () => void
   onBulkApproveVerified?: (events: AdminEventRecord[]) => void
   onHide: (event: AdminEventRecord) => void
-  /** Save edits and publish to the public catalog (~2–4 min). */
+  /** Approve edits for the shared Admin Publish queue. */
   onSaveAndPublish?: (event: AdminEventRecord, edits: AdminEventEditableFields) => void
   onCancel?: (event: AdminEventRecord) => void
   /** Stamp Last Checked / Approved on = today (Sheet + local Admin). */
@@ -320,6 +321,7 @@ export function AdminEventsTable({
               const canCancel = onCancel && event.status === 'Published' && !event.isPast
               const approvedLabel = formatVerifiedDate(event.verifiedDate)
               const reviewFlags = reviewFlagsByEventId?.get(event.id) ?? []
+              const listingLabels = seasonalListingLabels(event)
 
               return (
                 <Fragment key={event.id}>
@@ -366,6 +368,18 @@ export function AdminEventsTable({
                       <div className="admin-event-meta" title={event.venue}>
                         {event.venue}
                       </div>
+                      {listingLabels.length > 0 ? (
+                        <div className="admin-event-flag-tags">
+                          {listingLabels.map((label) => (
+                            <span
+                              key={label}
+                              className="admin-badge admin-badge-status admin-badge-status-draft"
+                            >
+                              {label}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
                       {reviewFlags.length > 0 ? (
                         <div className="admin-event-flag-tags">
                           {reviewFlags.map((flag) => (
@@ -430,7 +444,7 @@ export function AdminEventsTable({
                             disabled={isBusy || bulkBusy}
                             onClick={() => onHide(event)}
                           >
-                            {isBusy ? 'Hiding…' : 'Hide'}
+                            {isBusy ? 'Removing…' : 'Remove'}
                           </button>
                         ) : event.status === 'Cancelled' ? (
                           <span className="admin-badge admin-badge-status admin-badge-status-cancelled">

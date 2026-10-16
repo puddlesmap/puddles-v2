@@ -220,15 +220,15 @@ function ClientRoutes() {
             <Route path="/maintenance" element={<MaintenancePage />} />
             <Route path="/admin" element={<AdminAuthGate />}>
               <Route element={<AdminLayout />}>
-                <Route index element={<Navigate to="events" replace />} />
+                <Route index element={<AdminDiscoveryPage />} />
+                <Route path="discovery" element={<Navigate to="/admin" replace />} />
                 <Route path="events" element={<AdminEventsPage />} />
-                <Route path="discovery" element={<AdminDiscoveryPage />} />
                 <Route path="submissions" element={<AdminSubmissionsPage />} />
                 <Route path="seasonal-calendar" element={<AdminSeasonalCalendarPage />} />
                 <Route path="social" element={<AdminSocialStudioPage />} />
               </Route>
             </Route>
-            <Route path="/Admin" element={<Navigate to="/admin/events" replace />} />
+            <Route path="/Admin" element={<Navigate to="/admin" replace />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </ErrorBoundary>

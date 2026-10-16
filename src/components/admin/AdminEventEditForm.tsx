@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import type { AdminEventEditableFields } from '../../types/adminEventEdit'
 import type { EventStatus } from '../../types/event'
 import { ACTIVITY_TYPES } from '../../types/event'
+import { ageTagSelectOptions, formatPublicAgeRangeLabel } from '../../utils/ageRange'
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -19,6 +20,7 @@ interface AdminEventEditFormProps {
   busy?: boolean
   onChange: (draft: AdminEventEditableFields) => void
   showStatus?: boolean
+  twoColumn?: boolean
 }
 
 export function AdminEventEditForm({
@@ -26,6 +28,7 @@ export function AdminEventEditForm({
   busy = false,
   onChange,
   showStatus = true,
+  twoColumn = false,
 }: AdminEventEditFormProps) {
   function update<K extends keyof AdminEventEditableFields>(
     key: K,
@@ -42,8 +45,8 @@ export function AdminEventEditForm({
     })
   }
 
-  return (
-    <div className="admin-discovery-form">
+  const coreFields = (
+    <>
       {showStatus ? (
         <Field label="Status">
           <select
@@ -68,8 +71,8 @@ export function AdminEventEditForm({
           disabled={busy}
         />
       </Field>
-      <div className="admin-discovery-form__row">
-        <Field label="Date">
+      <div className="admin-discovery-form__row admin-discovery-form__row--2">
+        <Field label="Start date">
           <input
             type="date"
             className="admin-discovery-input"
@@ -78,7 +81,18 @@ export function AdminEventEditForm({
             disabled={busy}
           />
         </Field>
-        <Field label="Start">
+        <Field label="End date">
+          <input
+            type="date"
+            className="admin-discovery-input"
+            value={draft.closingDate}
+            onChange={(e) => update('closingDate', e.target.value)}
+            disabled={busy}
+          />
+        </Field>
+      </div>
+      <div className="admin-discovery-form__row admin-discovery-form__row--2">
+        <Field label="Start time">
           <input
             type="time"
             className="admin-discovery-input"
@@ -87,7 +101,7 @@ export function AdminEventEditForm({
             disabled={busy}
           />
         </Field>
-        <Field label="End">
+        <Field label="End time">
           <input
             type="time"
             className="admin-discovery-input"
@@ -97,6 +111,10 @@ export function AdminEventEditForm({
           />
         </Field>
       </div>
+      <p className="admin-discovery-fieldset__hint">
+        End date is for multi-day festivals and seasonal runs. Leave blank for a single day, or when
+        no closing date is listed.
+      </p>
       <div className="admin-discovery-form__row">
         <Field label="Venue">
           <input
@@ -123,23 +141,33 @@ export function AdminEventEditForm({
           disabled={busy}
         />
       </Field>
+      <Field label="City">
+        <input
+          className="admin-discovery-input"
+          value={draft.city}
+          onChange={(e) => update('city', e.target.value)}
+          disabled={busy}
+        />
+      </Field>
+    </>
+  )
+
+  const restFields = (
+    <>
       <div className="admin-discovery-form__row">
-        <Field label="City">
-          <input
-            className="admin-discovery-input"
-            value={draft.city}
-            onChange={(e) => update('city', e.target.value)}
-            disabled={busy}
-          />
-        </Field>
         <Field label="Ages">
-          <input
+          <select
             className="admin-discovery-input"
-            value={draft.ageRange}
+            value={formatPublicAgeRangeLabel(draft.ageRange)}
             onChange={(e) => update('ageRange', e.target.value)}
             disabled={busy}
-            placeholder="0–2, 2–5"
-          />
+          >
+            {ageTagSelectOptions(draft.ageRange).map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </Field>
         <Field label="Cost">
           <select
@@ -154,6 +182,18 @@ export function AdminEventEditForm({
           </select>
         </Field>
       </div>
+      <Field label="Best for">
+        <input
+          className="admin-discovery-input"
+          value={draft.bestFor ?? ''}
+          placeholder="Only when the official source names an age or audience"
+          onChange={(e) => update('bestFor', e.target.value)}
+          disabled={busy}
+        />
+      </Field>
+      <p className="admin-discovery-fieldset__hint">
+        Parent-facing and optional. Leave blank when the official source does not name a specific age.
+      </p>
       <Field label="Types">
         <div className="admin-discovery-types">
           {ACTIVITY_TYPES.map((type) => (
@@ -169,6 +209,33 @@ export function AdminEventEditForm({
           ))}
         </div>
       </Field>
+      <fieldset className="admin-discovery-fieldset">
+        <legend className="admin-discovery-field__label">Catalog placement</legend>
+        <p className="admin-discovery-fieldset__hint">
+          Checking either moves this listing from Live into the Seasonal events tab. Regional
+          stays out of regular Browse (Worth a little drive).
+        </p>
+        <div className="admin-discovery-types">
+          <label className="admin-discovery-type">
+            <input
+              type="checkbox"
+              checked={draft.isSeasonal}
+              onChange={(e) => update('isSeasonal', e.target.checked)}
+              disabled={busy}
+            />
+            <span>Seasonal event</span>
+          </label>
+          <label className="admin-discovery-type">
+            <input
+              type="checkbox"
+              checked={draft.isRegional}
+              onChange={(e) => update('isRegional', e.target.checked)}
+              disabled={busy}
+            />
+            <span>Regional event</span>
+          </label>
+        </div>
+      </fieldset>
       <Field label="Description">
         <textarea
           className="admin-discovery-input admin-discovery-textarea"
@@ -178,7 +245,7 @@ export function AdminEventEditForm({
           disabled={busy}
         />
       </Field>
-      <Field label="Good to know (tips)">
+      <Field label="Before you go">
         <textarea
           className="admin-discovery-input admin-discovery-textarea"
           rows={3}
@@ -213,6 +280,22 @@ export function AdminEventEditForm({
           disabled={busy}
         />
       </Field>
+    </>
+  )
+
+  if (twoColumn) {
+    return (
+      <div className="admin-discovery-form admin-discovery-form--two-col">
+        <div className="admin-discovery-form__col">{coreFields}</div>
+        <div className="admin-discovery-form__col">{restFields}</div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="admin-discovery-form">
+      {coreFields}
+      {restFields}
     </div>
   )
 }

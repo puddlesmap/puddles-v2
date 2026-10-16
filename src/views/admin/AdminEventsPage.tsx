@@ -3,7 +3,7 @@ import { AdminEventsTable } from '../../components/admin/AdminEventsTable'
 import { AdminNeedsAttentionFilters } from '../../components/admin/AdminNeedsAttentionInbox'
 import { AdminOverview } from '../../components/admin/AdminOverview'
 import { AdminSyncBar } from '../../components/admin/AdminSyncBar'
-import type { AdminEventViewId } from '../../types/admin'
+import type { AdminEventCatalog, AdminEventViewId } from '../../types/admin'
 import { ADMIN_EVENT_VIEWS } from '../../types/admin'
 import type { Event } from '../../types/event'
 import {
@@ -19,13 +19,18 @@ import {
   type AdminReviewFlag,
   type AdminReviewFlagType,
 } from '../../utils/adminReviewFlags'
+import {
+  eventMatchesCatalog,
+  reviewFlagsForCatalog,
+} from '../../utils/adminSeasonalEvents'
 import { findDuplicateClusters, type DuplicateCluster } from '../../utils/eventDuplicates'
 import { downloadRowsAsCsv } from '../../utils/exportCsv'
 import { EVENT_EXPORT_COLUMNS, exportFilename } from '../../utils/adminExport'
 import { enrichPublishingFields } from '../../utils/publishing'
 import { pacificTodayYmd } from '../../utils/discoveryReview'
 import { syncReadyDiscoveryIntoAdminCache } from '../../utils/discoveryApproveLocal'
-import { cancelAndPublishEvent, saveAndPublishEvent } from '../../utils/adminEventEdit'
+import { editableFieldsFromEvent, prepareEventForPublish } from '../../utils/adminEventEdit'
+import { stageAdminEvent } from '../../utils/adminPublishQueue'
 import type { AdminEventEditableFields } from '../../types/adminEventEdit'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
@@ -43,6 +48,16 @@ const EVENTS_MONITOR_VIEWS = ADMIN_EVENT_VIEWS.filter((view) =>
   view.id === 'needs-attention' ||
   view.id === 'past',
 )
+
+const LIVE_VIEW_COPY: Record<AdminEventCatalog, { description: string }> = {
+  regular: {
+    description: 'Published core-city events on the public website.',
+  },
+  seasonal: {
+    description:
+      'Current Hello Fall / Halloween close-to-home and Worth a little drive listings. Hidden regional stays off Browse.',
+  },
+}
 
 function getInitialAdminState(): {
   events: Event[]
@@ -92,6 +107,7 @@ export function AdminEventsPage() {
   const [checkedIds, setCheckedIds] = useState<string[]>([])
   const [bulkBusy, setBulkBusy] = useState(false)
   const [activeView, setActiveView] = useState<AdminEventViewId | 'all'>('live')
+  const [catalog, setCatalog] = useState<AdminEventCatalog>('regular')
   const [search, setSearch] = useState('')
   const [city, setCity] = useState<(typeof CITIES)[number]>('All cities')
   const [flagTypeFilter, setFlagTypeFilter] = useState<'all' | AdminReviewFlagType>('all')
@@ -143,22 +159,39 @@ export function AdminEventsPage() {
   useEffect(() => {
     setCheckedIds([])
     setSelectedId(null)
-  }, [activeView, search, city, flagTypeFilter])
+  }, [activeView, catalog, search, city, flagTypeFilter])
 
-  const counts = useMemo(() => summarizePublishingCounts(events), [events])
-  const viewMeta = activeView === 'all' ? null : getAdminEventView(activeView)
-  const liveEventIds = useMemo(
-    () => new Set(events.filter((event) => event.isLive).map((event) => event.id)),
-    [events],
+  const counts = useMemo(() => summarizePublishingCounts(events, catalog), [events, catalog])
+  const viewMeta = useMemo(() => {
+    if (activeView === 'all') return null
+    const base = getAdminEventView(activeView)
+    if (!base) return null
+    if (activeView === 'live') {
+      return { ...base, description: LIVE_VIEW_COPY[catalog].description }
+    }
+    return base
+  }, [activeView, catalog])
+  const catalogLiveEventIds = useMemo(
+    () =>
+      new Set(
+        events
+          .filter((event) => event.isLive && eventMatchesCatalog(event, catalog))
+          .map((event) => event.id),
+      ),
+    [events, catalog],
   )
   const allReviewFlags = useMemo(() => collectAdminReviewFlags(events), [events])
+  const catalogReviewFlags = useMemo(
+    () => reviewFlagsForCatalog(allReviewFlags, events, catalog),
+    [allReviewFlags, events, catalog],
+  )
   const openReviewFlags = useMemo(
     () =>
-      allReviewFlags.filter(
+      catalogReviewFlags.filter(
         (flag) =>
-          !dismissedFlagIds.has(flag.id) && flag.eventIds.some((id) => liveEventIds.has(id)),
+          !dismissedFlagIds.has(flag.id) && flag.eventIds.some((id) => catalogLiveEventIds.has(id)),
       ),
-    [allReviewFlags, dismissedFlagIds, liveEventIds],
+    [catalogReviewFlags, dismissedFlagIds, catalogLiveEventIds],
   )
   const openNeedsAttentionCount = openReviewFlags.length
 
@@ -182,13 +215,13 @@ export function AdminEventsPage() {
   const needsAttentionEvents = useMemo(() => {
     const ids = new Set(visibleNeedsAttentionFlags.flatMap((flag) => flag.eventIds))
     return filterAdminEvents(
-      events.filter((event) => event.isLive && ids.has(event.id)),
+      events.filter((event) => event.isLive && ids.has(event.id) && eventMatchesCatalog(event, catalog)),
       {
         search,
         city: city === 'All cities' ? 'all' : city,
       },
     ).sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title))
-  }, [events, visibleNeedsAttentionFlags, search, city])
+  }, [events, visibleNeedsAttentionFlags, search, city, catalog])
 
   const needsAttentionDuplicateClusters = useMemo(() => {
     if (flagTypeFilter !== 'duplicate') return undefined
@@ -208,15 +241,15 @@ export function AdminEventsPage() {
 
     let base: Event[]
     if (activeView === 'all') {
-      base = events
+      base = events.filter((event) => eventMatchesCatalog(event, catalog))
     } else {
-      base = filterAdminEventsByView(events, activeView)
+      base = filterAdminEventsByView(events, activeView, catalog)
     }
     return filterAdminEvents(base, {
       search,
       city: city === 'All cities' ? 'all' : city,
     }).sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title))
-  }, [events, activeView, search, city, needsAttentionEvents])
+  }, [events, activeView, catalog, search, city, needsAttentionEvents])
 
   const overviewCounts = useMemo(
     () => ({
@@ -294,8 +327,8 @@ export function AdminEventsPage() {
   async function handlePublish() {
     const ok = window.confirm(
       'Legacy import: this re-syncs the entire Google Sheet and deploys.\n\n' +
-        'It can overwrite Admin Go live edits (descriptions, types, tips).\n\n' +
-        'Use Discovery or Submissions → Go live for normal publishing.\n\nContinue?',
+        'It can overwrite approved Admin edits (descriptions, types, tips).\n\n' +
+        'Use the Admin header Publish for normal publishing.\n\nContinue?',
     )
     if (!ok) return
 
@@ -327,14 +360,18 @@ export function AdminEventsPage() {
     setBusyId(event.id)
     setActionMessage(null)
     try {
-      const { message, event: published } = await cancelAndPublishEvent(event)
+      const edits = editableFieldsFromEvent(event)
+      edits.status = 'Cancelled'
+      if (!edits.tips.trim()) edits.tips = 'This activity was cancelled.'
+      const published = prepareEventForPublish(event, edits)
+      stageAdminEvent(published, 'events', event.id)
       setEvents((current) => {
         const next = current.map((row) => (row.id === event.id ? published : row))
         saveCachedAdminRefresh({ events: next, refreshedAt: new Date().toISOString() })
         return next
       })
       setAdminRefreshedAt(new Date().toISOString())
-      setActionMessage(message)
+      setActionMessage('Cancellation approved. Use Publish in the Admin header to update the site.')
     } catch (error) {
       setActionMessage(error instanceof Error ? error.message : 'Could not cancel event.')
     } finally {
@@ -343,24 +380,20 @@ export function AdminEventsPage() {
   }
 
   async function handleSaveAndPublish(event: Event, edits: AdminEventEditableFields) {
-    const ok = window.confirm(
-      `Save & publish “${event.title}”?\n\nThis updates the public catalog in ~2–4 minutes.`,
-    )
-    if (!ok) return
-
     setBusyId(event.id)
     setActionMessage(null)
     try {
-      const { message, event: published } = await saveAndPublishEvent(event, edits)
+      const published = prepareEventForPublish(event, edits)
+      stageAdminEvent(published, 'events', event.id)
       setEvents((current) => {
         const next = current.map((row) => (row.id === event.id ? published : row))
         saveCachedAdminRefresh({ events: next, refreshedAt: new Date().toISOString() })
         return next
       })
       setAdminRefreshedAt(new Date().toISOString())
-      setActionMessage(message)
+      setActionMessage(`Approved changes to “${published.title}”. Use Publish in the Admin header when ready.`)
     } catch (error) {
-      setActionMessage(error instanceof Error ? error.message : 'Could not save and publish.')
+      setActionMessage(error instanceof Error ? error.message : 'Could not approve these changes.')
     } finally {
       setBusyId(null)
     }
@@ -473,16 +506,14 @@ export function AdminEventsPage() {
     setBusyId(event.id)
     setActionMessage(null)
     try {
-      await callSheetApi({
-        action: 'updateEventStatus',
-        payload: { id: event.id, status: 'Hidden' },
+      const hidden = enrichPublishingFields({ ...event, status: 'Hidden' })
+      stageAdminEvent(hidden, 'events', event.id)
+      setEvents((current) => {
+        const next = current.map((row) => (row.id === event.id ? hidden : row))
+        saveCachedAdminRefresh({ events: next, refreshedAt: new Date().toISOString() })
+        return next
       })
-      setEvents((current) =>
-        current.map((row) =>
-          row.id === event.id ? enrichPublishingFields({ ...row, status: 'Hidden' }) : row,
-        ),
-      )
-      setActionMessage(`“${event.title}” is now Hidden.`)
+      setActionMessage(`Removal approved for “${event.title}”. Use Publish to update the site.`)
     } catch (error) {
       setActionMessage(error instanceof Error ? error.message : 'Could not hide event.')
     } finally {
@@ -500,10 +531,7 @@ export function AdminEventsPage() {
     setActionMessage(null)
     try {
       for (const loser of cluster.losers) {
-        await callSheetApi({
-          action: 'updateEventStatus',
-          payload: { id: loser.id, status: 'Hidden' },
-        })
+        stageAdminEvent(enrichPublishingFields({ ...loser, status: 'Hidden' }), 'events', loser.id)
       }
       const loserIds = new Set(cluster.losers.map((event) => event.id))
       setEvents((current) =>
@@ -561,7 +589,44 @@ export function AdminEventsPage() {
         onPublish={() => void handlePublish()}
       />
 
-      <AdminOverview counts={overviewCounts} activeView={activeView} onSelectView={setActiveView} />
+
+      <div
+        className="admin-discovery-mode-toggle admin-events-catalog-toggle"
+        role="tablist"
+        aria-label="Event catalog"
+      >
+        <button
+          type="button"
+          role="tab"
+          aria-selected={catalog === 'regular'}
+          className={`admin-btn ${catalog === 'regular' ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
+          onClick={() => {
+            setCatalog('regular')
+            setFlagTypeFilter('all')
+          }}
+        >
+          Regular
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={catalog === 'seasonal'}
+          className={`admin-btn ${catalog === 'seasonal' ? 'admin-btn-primary' : 'admin-btn-secondary'}`}
+          onClick={() => {
+            setCatalog('seasonal')
+            setFlagTypeFilter('all')
+          }}
+        >
+          Regional / Seasonal
+        </button>
+      </div>
+
+      <AdminOverview
+        catalog={catalog}
+        counts={overviewCounts}
+        activeView={activeView}
+        onSelectView={setActiveView}
+      />
 
       {counts.draft > 0 && activeView !== 'draft' ? (
         <p className="admin-needs-attention-banner">
@@ -678,6 +743,7 @@ export function AdminEventsPage() {
               flags={openReviewFlags}
               typeFilter={flagTypeFilter}
               onTypeFilterChange={setFlagTypeFilter}
+              hideTypes={catalog === 'seasonal' ? ['out_of_area'] : undefined}
             />
             {filteredEvents.length === 0 ? (
               <div className="admin-empty">

@@ -1,14 +1,16 @@
 import type { AdminEventEditableFields } from '../types/adminEventEdit'
 import type { ActivityType, City, Event } from '../types/event'
 import { ACTIVITY_TYPES } from '../types/event'
+import { isRegionalListing, isSeasonalListing } from './adminSeasonalEvents'
 import { applyEventCopyEnrichment } from './applyEventCopyEnrichment'
+import { formatPublicAgeRangeLabel, ageBoundsFromRange } from './ageRange'
 import { resolveAgeFromSheetAndText } from './discoveryAgeHints'
 import { resolveEventCost } from './eventCost'
 import { publishEventsToSite } from './publishEvents'
 import { enrichPublishingFields } from './publishing'
 
 function asCity(raw: string): City {
-  const cities: City[] = ['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale']
+  const cities: City[] = ['Palo Alto', 'Los Altos', 'Los Altos Hills', 'Mountain View', 'Sunnyvale']
   const hit = cities.find((city) => city.toLowerCase() === raw.trim().toLowerCase())
   return hit ?? ((raw.trim() || 'Palo Alto') as City)
 }
@@ -20,7 +22,6 @@ function asActivityTypes(values: string[]): ActivityType[] {
   return matched.length > 0 ? matched : ['Other']
 }
 
-
 function daySpanInclusive(start: string, end: string): number {
   const from = Date.parse(`${start}T12:00:00`)
   const to = Date.parse(`${end}T12:00:00`)
@@ -28,42 +29,41 @@ function daySpanInclusive(start: string, end: string): number {
   return Math.round((to - from) / 86_400_000) + 1
 }
 
-/** Apply date span fields the review form already collected. */
+function inferScheduleKind(start: string, end: string): 'multi-day' | 'seasonal-run' {
+  return daySpanInclusive(start, end) > 7 ? 'seasonal-run' : 'multi-day'
+}
+
+/** Map admin start/end dates onto catalog schedule fields. */
 export function applyAdminScheduleDates(
   event: Event,
-  edits: { date: string; closingDate: string; scheduleKind: string },
+  edits: Pick<AdminEventEditableFields, 'date' | 'closingDate' | 'scheduleKind'>,
 ): Event {
-  const date = edits.date.trim()
-  const closingDate = edits.closingDate.trim()
-  const explicit = edits.scheduleKind.trim()
-  const next: Event = { ...event, date }
+  const start = edits.date.trim()
+  const end = edits.closingDate.trim()
+  const next: Event = { ...event, date: start }
+  const keepOpenEndedSeason = edits.scheduleKind === 'seasonal-run' && (!end || end === start)
 
-  if (!closingDate || closingDate === date) {
-    const { closingDate: droppedClose, scheduleWindowLabel: droppedWindow, ...rest } = next
-    void droppedClose
-    void droppedWindow
-    return {
-      ...rest,
-      scheduleKind:
-        explicit === 'seasonal-run' || explicit === 'multi-day' ? 'one-time' : next.scheduleKind,
-    }
+  if (end && end !== start) {
+    next.openingDate = start
+    next.closingDate = end
+    next.scheduleKind =
+      edits.scheduleKind === 'seasonal-run' || edits.scheduleKind === 'multi-day'
+        ? edits.scheduleKind
+        : inferScheduleKind(start, end)
+    return next
   }
 
-  if (explicit === 'seasonal-run' || (!explicit && daySpanInclusive(date, closingDate) > 14)) {
-    return {
-      ...next,
-      scheduleKind: 'seasonal-run',
-      openingDate: date,
-      closingDate,
-    }
+  if (keepOpenEndedSeason) {
+    next.openingDate = start
+    next.scheduleKind = 'seasonal-run'
+    delete next.closingDate
+    return next
   }
 
-  return {
-    ...next,
-    scheduleKind: 'multi-day',
-    openingDate: date,
-    closingDate,
-  }
+  delete next.openingDate
+  delete next.closingDate
+  delete next.scheduleKind
+  return next
 }
 
 export function editableFieldsFromEvent(event: Event): AdminEventEditableFields {
@@ -75,43 +75,54 @@ export function editableFieldsFromEvent(event: Event): AdminEventEditableFields 
     room: event.room ?? '',
     address: event.address,
     city: event.city,
-    date: event.date,
+    date: event.openingDate || event.date,
     startTime: event.startTime,
     endTime: event.endTime,
-    ageRange: event.ageRange,
+    ageRange: formatPublicAgeRangeLabel(event.ageRange),
+    bestFor: event.bestFor ?? '',
     types: [...event.types],
     cost: event.cost,
     eventUrl: event.eventUrl,
     imageUrl: event.imageUrl,
     lastChecked: event.verifiedDate,
     status: event.status === 'Expired' ? 'Published' : event.status,
+    isSeasonal: isSeasonalListing(event),
+    isRegional: isRegionalListing(event),
+    closingDate: event.closingDate ?? '',
+    scheduleKind: event.scheduleKind ?? '',
   }
 }
 
 export function mergeEditsIntoEvent(event: Event, edits: AdminEventEditableFields): Event {
   const inferredAge = resolveAgeFromSheetAndText(edits.description, edits.tips ?? '')
   const tips = edits.tips?.trim()
+  const age = ageBoundsFromRange(edits.ageRange.trim() || inferredAge?.ageRange || event.ageRange)
 
-  const merged: Event = {
-    ...event,
-    title: edits.title.trim(),
-    description: edits.description,
-    venue: edits.venue.trim(),
-    address: edits.address.trim(),
-    city: asCity(edits.city),
-    date: edits.date,
-    startTime: edits.startTime,
-    endTime: edits.endTime,
-    ageRange: inferredAge?.ageRange ?? edits.ageRange,
-    ageMin: inferredAge?.ageMin ?? event.ageMin,
-    ageMax: inferredAge?.ageMax ?? event.ageMax,
-    types: asActivityTypes(edits.types),
-    cost: resolveEventCost(edits.cost, edits.description, tips ?? ''),
-    eventUrl: edits.eventUrl.trim() || '#',
-    imageUrl: edits.imageUrl.trim(),
-    verifiedDate: edits.lastChecked.trim() || event.verifiedDate,
-    status: edits.status,
-  }
+  const merged: Event = applyAdminScheduleDates(
+    {
+      ...event,
+      title: edits.title.trim(),
+      description: edits.description,
+      venue: edits.venue.trim(),
+      address: edits.address.trim(),
+      city: asCity(edits.city),
+      startTime: edits.startTime,
+      endTime: edits.endTime,
+      ageRange: age.label,
+      bestFor: edits.bestFor?.trim() || undefined,
+      ageMin: age.min,
+      ageMax: age.max,
+      types: asActivityTypes(edits.types),
+      cost: resolveEventCost(edits.cost, edits.description, tips ?? ''),
+      eventUrl: edits.eventUrl.trim() || '#',
+      imageUrl: edits.imageUrl.trim(),
+      verifiedDate: edits.lastChecked.trim() || event.verifiedDate,
+      status: edits.status,
+      isSeasonal: edits.isSeasonal,
+      isRegional: edits.isRegional,
+    },
+    edits,
+  )
 
   if (tips) merged.tips = tips
   else delete merged.tips

@@ -1,6 +1,7 @@
-import type { AdminEventViewId } from '../../types/admin'
+import type { AdminEventCatalog, AdminEventViewId } from '../../types/admin'
 
 interface AdminOverviewProps {
+  catalog: AdminEventCatalog
   counts: {
     live: number
     past: number
@@ -15,25 +16,45 @@ const CARDS: {
   key: AdminEventViewId
   label: string
   countKey: keyof AdminOverviewProps['counts']
-  hint: string
+  regularHint: string
+  seasonalHint: string
 }[] = [
-  { key: 'live', label: 'Live', countKey: 'live', hint: 'On the public website' },
+  {
+    key: 'live',
+    label: 'Live',
+    countKey: 'live',
+    regularHint: 'Core-city public listings',
+    seasonalHint: 'Current seasonal & regional listings',
+  },
   {
     key: 'draft',
     label: 'Drafts',
     countKey: 'draft',
-    hint: 'Ready to review before publishing',
+    regularHint: 'Ready to review before publishing',
+    seasonalHint: 'Seasonal drafts before publishing',
   },
   {
     key: 'needs-attention',
     label: 'Needs attention',
     countKey: 'needsAttention',
-    hint: 'Live events that need review',
+    regularHint: 'Live events that need review',
+    seasonalHint: 'Seasonal & regional that need review',
   },
-  { key: 'past', label: 'Past', countKey: 'past', hint: 'Schedule has passed' },
+  {
+    key: 'past',
+    label: 'Past',
+    countKey: 'past',
+    regularHint: 'Schedule has passed',
+    seasonalHint: 'Seasonal & regional that have passed',
+  },
 ]
 
-export function AdminOverview({ counts, activeView, onSelectView }: AdminOverviewProps) {
+export function AdminOverview({
+  catalog,
+  counts,
+  activeView,
+  onSelectView,
+}: AdminOverviewProps) {
   return (
     <section aria-label="Overview">
       <div className="admin-stat-grid admin-stat-grid-compact">
@@ -49,7 +70,9 @@ export function AdminOverview({ counts, activeView, onSelectView }: AdminOvervie
             >
               <div className="admin-stat-value">{count}</div>
               <div className="admin-stat-label">{card.label}</div>
-              <div className="admin-stat-hint">{card.hint}</div>
+              <div className="admin-stat-hint">
+                {catalog === 'seasonal' ? card.seasonalHint : card.regularHint}
+              </div>
             </button>
           )
         })}

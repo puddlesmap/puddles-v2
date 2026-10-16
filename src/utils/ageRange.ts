@@ -2,6 +2,14 @@ export type AgeBucket = '0-2' | '2-5' | '5+'
 
 /** Default age tag when a listing does not name a narrower range. */
 export const FULL_SITE_AGE_TAG = '0–5'
+export const FESTIVAL_AGE_TAG = 'All ages · Little ones welcome'
+
+export const PUDDLES_AGE_TAG_OPTIONS: { value: string; label: string }[] = [
+  { value: '0–2', label: '0–2' },
+  { value: '2–5', label: '2–5' },
+  { value: FULL_SITE_AGE_TAG, label: '0–5' },
+  { value: FESTIVAL_AGE_TAG, label: 'All ages · Little ones welcome' },
+]
 export type AgeFilter = 'all' | '0-2' | '2-5'
 
 export const PUBLIC_AGE_FILTER_OPTIONS: { key: AgeFilter; label: string }[] = [
@@ -144,6 +152,14 @@ export function formatPublicAgeRangeLabel(ageRange: string): string {
   )
   if (labels.length === 0) return '0–2, 2–5, 5+'
   return labels.join(', ')
+}
+
+export function ageTagSelectOptions(current: string): { value: string; label: string }[] {
+  const value = formatPublicAgeRangeLabel(current)
+  if (PUDDLES_AGE_TAG_OPTIONS.some((option) => option.value === value)) {
+    return PUDDLES_AGE_TAG_OPTIONS
+  }
+  return [...PUDDLES_AGE_TAG_OPTIONS, { value, label: value }]
 }
 
 /**
