@@ -1,7 +1,13 @@
 import type { AdminEventCatalog } from '../types/admin'
-import { SEASONAL_COLLECTIONS, getSeasonalCollection } from '../data/seasonalDiscovery'
+import { ALL_EVENTS } from '../data/events'
+import {
+  SEASONAL_COLLECTIONS,
+  getActiveSeasonalCollections,
+  getSeasonalCollection,
+} from '../data/seasonalDiscovery'
 import type { Event } from '../types/event'
 import type { AdminReviewFlag } from './adminReviewFlags'
+import { enrichPublishingFields } from './publishing'
 
 function curatedSeasonalIds(): { collection: Set<string>; drive: Set<string> } {
   const collection = new Set<string>()
@@ -38,14 +44,65 @@ export function isSeasonalAdminListing(
   return isSeasonalListing(event) || isRegionalListing(event)
 }
 
-/** Current seasonal/regional rows for the Seasonal events monitor (not drafts or past). */
-export function isSeasonalMonitorEvent(event: Event): boolean {
-  if (!isSeasonalAdminListing(event)) return false
-  if (event.isPast) return false
-  if (event.status === 'Draft' || event.status === 'Expired' || event.status === 'Cancelled') {
-    return false
+function uniqueActiveCollectionIds(): string[] {
+  const seen = new Set<string>()
+  const ids: string[] = []
+  for (const collection of getActiveSeasonalCollections()) {
+    for (const id of [...collection.collectionEventIds, ...(collection.driveEventIds ?? [])]) {
+      if (seen.has(id)) continue
+      seen.add(id)
+      ids.push(id)
+    }
   }
-  return true
+  return ids
+}
+
+/** Collection titles this event belongs to, including themes that are no longer live. */
+export function collectionNamesForEvent(eventId: string): string[] {
+  const names: string[] = []
+  for (const base of SEASONAL_COLLECTIONS) {
+    const collection = base.slug ? (getSeasonalCollection(base.slug) ?? base) : base
+    const listed =
+      collection.collectionEventIds.includes(eventId) ||
+      Boolean(collection.driveEventIds?.includes(eventId))
+    if (listed) names.push(collection.title)
+  }
+  return names
+}
+
+/**
+ * Regional / Seasonal Live: every event on a collection that is on Home today.
+ * Looks in the admin cache first, then the public catalog. Past dates stay off.
+ * An id with no event is returned so the list can show it as missing.
+ */
+export function seasonalLiveMonitor(adminEvents: Event[]): {
+  events: Event[]
+  missingIds: string[]
+} {
+  const adminById = new Map(adminEvents.map((event) => [event.id, event]))
+  const catalogById = new Map(ALL_EVENTS.map((event) => [event.id, event]))
+  const events: Event[] = []
+  const missingIds: string[] = []
+
+  for (const id of uniqueActiveCollectionIds()) {
+    const found = adminById.get(id) ?? catalogById.get(id)
+    if (!found) {
+      missingIds.push(id)
+      continue
+    }
+    const event = enrichPublishingFields(found)
+    if (event.isPast) continue
+    if (
+      event.status === 'Draft' ||
+      event.status === 'Expired' ||
+      event.status === 'Cancelled'
+    ) {
+      continue
+    }
+    events.push(event)
+  }
+
+  return { events, missingIds }
 }
 
 export function seasonalListingLabels(event: Pick<Event, 'id' | 'isSeasonal' | 'isRegional'>): string[] {

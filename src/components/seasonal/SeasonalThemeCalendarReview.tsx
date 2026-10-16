@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import {
+  FALL_GATHERINGS_MOCKUP_PATH,
   formatSeasonalDateRange,
   getLiveSeasonalThemeScheduleEntries,
   getSeasonalThemeScheduleStatus,
   SEASONAL_THEME_SCHEDULE,
   seasonalCollectionPath,
+  shouldShowSeasonalMockupLink,
   type SeasonalThemeScheduleEntry,
   type SeasonalThemeScheduleStatus,
 } from '../../data/seasonalDiscovery'
@@ -30,9 +32,20 @@ function ScheduleStatusBadge({ status }: { status: SeasonalThemeScheduleStatus }
   )
 }
 
-function ScheduleRow({ entry, todayLabel }: { entry: SeasonalThemeScheduleEntry; todayLabel: string }) {
+function ScheduleRow({
+  entry,
+  today,
+  todayLabel,
+  adminLinks,
+}: {
+  entry: SeasonalThemeScheduleEntry
+  today: Date
+  todayLabel: string
+  adminLinks: boolean
+}) {
   const status = getSeasonalThemeScheduleStatus(entry, new Date(`${todayLabel}T12:00:00`))
   const isHighlighted = status === 'live' || status === 'transition'
+  const showMockup = adminLinks && shouldShowSeasonalMockupLink(entry, today)
 
   return (
     <tr
@@ -63,7 +76,14 @@ function ScheduleRow({ entry, todayLabel }: { entry: SeasonalThemeScheduleEntry;
                 to={seasonalCollectionPath(entry.slug)}
                 className="seasonal-theme-calendar__collection-link"
               >
-                View collection →
+                {adminLinks ? 'See the public page' : 'View collection →'}
+              </Link>
+            ) : showMockup ? (
+              <Link
+                to={FALL_GATHERINGS_MOCKUP_PATH}
+                className="seasonal-theme-calendar__collection-link"
+              >
+                See mockup
               </Link>
             ) : (
               <span className="seasonal-theme-calendar__collection-link seasonal-theme-calendar__collection-link--muted">
@@ -91,12 +111,15 @@ interface SeasonalThemeCalendarReviewProps {
   today?: Date
   showRules?: boolean
   compact?: boolean
+  /** Admin Seasonal page: public-page and mockup links instead of the experiment jump. */
+  adminLinks?: boolean
 }
 
 export function SeasonalThemeCalendarReview({
   today = new Date(),
   showRules = true,
   compact = false,
+  adminLinks = false,
 }: SeasonalThemeCalendarReviewProps) {
   const todayLabel = today.toISOString().slice(0, 10)
   const liveEntries = getLiveSeasonalThemeScheduleEntries(today)
@@ -171,7 +194,13 @@ export function SeasonalThemeCalendarReview({
           </thead>
           <tbody>
             {SEASONAL_THEME_SCHEDULE.map((entry) => (
-              <ScheduleRow key={entry.theme} entry={entry} todayLabel={todayLabel} />
+              <ScheduleRow
+                key={entry.theme}
+                entry={entry}
+                today={today}
+                todayLabel={todayLabel}
+                adminLinks={adminLinks}
+              />
             ))}
           </tbody>
         </table>

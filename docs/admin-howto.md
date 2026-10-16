@@ -1,51 +1,50 @@
-# Admin how-to (twice-a-week review)
+# Admin how-to (Wednesday review)
 
 Quick ops guide for `/admin`.
 
-**Rule of thumb:** Form → Admin Submissions → Go live. Discovery → Approve → Go live. Events monitors Live / Needs attention / Past. No Google Sheet required.
+**Rule of thumb:** Review each item → **Approve** or **Remove** → use the header **Publish** once for all approved Admin changes. No Google Sheet required.
 
 ## Typical session
 
-1. **Submissions** (`/admin/submissions`) — Refresh, review new Share form items, **Go live** for Events
-2. **Discovery** (`/admin/discovery`) — Approve library candidates, **Go live**
-3. **Events** (`/admin/events`) — Monitor Live / Needs attention / Past
-4. Wait ~2–4 min for Netlify after Go live
+1. **Review** (`/admin`) — new finds, plus **Needs a look** for drafts, field problems, and stale Last checked dates
+2. **Events / Submissions / Seasonal** — approve edits, submissions, and staged curation
+3. Open header **Publish (N)** and confirm the grouped change summary
+4. Publish once, then wait ~2–4 min for the single Netlify update
 
 ## Submissions
 
 1. Parents submit via Share form → lands in **Admin store** automatically (Sheet mirror optional).
 2. Open **Submissions** (auto-refreshes) or click **Refresh submissions**.
 3. Review details; set status if needed (local-first; syncs to Admin store).
-4. For Event submissions, click **Go live** to publish on Puddles (~2–4 min).
-5. Mark Ideas / Expansion Watch as **Solved** when done.
+4. For Event submissions, click **Approve**. It joins the header Publish summary.
+5. Use **Remove** for submissions that do not belong on Puddles.
 
 Prefer Admin Refresh over Sheet CSV — Sheet fallback can overwrite local review state.
 
 ## Discovery
 
-1. Edit if needed → **Approve** → Ready.
-2. **Go live** on Ready items → public catalog.
-3. Opening Discovery/Events **syncs lived duplicates** (Draft/Ready/Pending twins of Live are cleared or promoted).
-4. Toggle **Regular Discovery** (core cities) vs **Seasonal picks** (Close to home / Worth a little drive). Stage add/remove/move, then **Publish curation** to update the seasonal page (~2–4 min).
+1. Edit if needed, then choose **Approve** or **Remove**.
+2. Approved events join the shared header Publish summary; there is no item-level publish.
+3. Events 61–90 days away remain stored internally until review becomes timely. Registration or material updates can bring them into Review sooner.
+4. Seasonal add/remove/move actions remain staged and join the same Publish summary.
 
 **Automation schedule**
 
 | When | What |
 |------|------|
-| **Wednesdays @ 8:00 AM PT** | Library queue refresh and the Worth a little drive pass. Approve → Go live still required. Sunnyvale library and FIT4MOM are a browser check, shown on Admin as still to check. |
-| Mid-week | Manual runs only |
+| **Wednesdays @ 8:00 AM PT** | Library, core-city weekend, and Worth a little drive sources merge into the unified Discovery Inbox. |
+| Mid-week | Manual runs, or chat: “search this weekend and next” (core cities) / “fall within an hour” (drive) |
 
 See also [event-discovery.md](./event-discovery.md).
 
 ## Events
 
-Monitor and **edit live events** (expand a row → edit → **Save & publish**):
+Monitor live and past listings. Expand a row to edit; saving stages the change for the header Publish and sets Last checked to that day. Cancel or remove a live listing from the row. Drafts, field problems, and stale Last checked dates are on **Review**, under **Needs a look**.
 
 | View | Meaning |
 |------|---------|
-| **Live** | On the public website |
-| **Needs attention** | Live items with review flags |
-| **Past** | Schedule has passed |
+| **Live** | Already on the public site and not past |
+| **Past** | The date has passed |
 
 Sheet refresh / Legacy import are advanced only — they can overwrite Admin edits.
 
@@ -55,7 +54,12 @@ Sheet refresh / Legacy import are advanced only — they can overwrite Admin edi
 
 Halloween Part 1 lands in `halloween-1010-17/` (`01.png`…, `caption.txt`, `xiaohongshu.txt`). Halloween Part 2 lands in `halloween-1024-31/`. Other approved items get a folder named for that item.
 
-Starting Friday, Oct 16, 2026, the next weekend pack is created in Social Studio as drafts first. It is not copied into the weekly folder until you approve it. The first pack that cadence produces is the Oct 17–18 weekend. Auto-post is a later step.
+Starting Friday, Oct 16, 2026, the next weekend pack is created in Social Studio as drafts first. It is not copied into the weekly folder until you approve it. The first pack that cadence produces is the Oct 17–18 weekend. A weekday pack for the following week is drafted too. Times are Pacific.
+
+- **Weekend pack:** Weekend Highlights carousel (Thu 12pm), Planning the Weekend story (Thu 4pm), Xiaohongshu weekend post (Thu 7pm), Friday reminder (7pm), Saturday Today’s Picks (8:30am), and an optional Sunday story (8:30am).
+- **Weekday pack:** Weekday Highlights carousel (Sun 7pm), Xiaohongshu weekday post (Sun 8pm), Monday reminder (9am), and an optional Wednesday story (8:30am).
+
+Auto-post is a later step.
 
 Manual stories and 小紅書 stay with you. The publisher still only sends items whose status is Scheduled, and nothing in this review flow sets that status.
 

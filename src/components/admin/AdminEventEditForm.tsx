@@ -271,14 +271,10 @@ export function AdminEventEditForm({
           disabled={busy}
         />
       </Field>
-      <Field label="Approved on">
-        <input
-          type="date"
-          className="admin-discovery-input"
-          value={draft.lastChecked}
-          onChange={(e) => update('lastChecked', e.target.value)}
-          disabled={busy}
-        />
+      <Field label="Last checked">
+        <p className="text-sm text-muted">
+          Saving sets this to today. Parents see it after the header Publish.
+        </p>
       </Field>
     </>
   )

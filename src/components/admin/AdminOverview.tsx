@@ -5,8 +5,6 @@ interface AdminOverviewProps {
   counts: {
     live: number
     past: number
-    draft: number
-    needsAttention: number
   }
   activeView: AdminEventViewId | 'all'
   onSelectView: (view: AdminEventViewId | 'all') => void
@@ -15,7 +13,7 @@ interface AdminOverviewProps {
 const CARDS: {
   key: AdminEventViewId
   label: string
-  countKey: keyof AdminOverviewProps['counts']
+  countKey: 'live' | 'past'
   regularHint: string
   seasonalHint: string
 }[] = [
@@ -23,29 +21,15 @@ const CARDS: {
     key: 'live',
     label: 'Live',
     countKey: 'live',
-    regularHint: 'Core-city public listings',
-    seasonalHint: 'Current seasonal & regional listings',
-  },
-  {
-    key: 'draft',
-    label: 'Drafts',
-    countKey: 'draft',
-    regularHint: 'Ready to review before publishing',
-    seasonalHint: 'Seasonal drafts before publishing',
-  },
-  {
-    key: 'needs-attention',
-    label: 'Needs attention',
-    countKey: 'needsAttention',
-    regularHint: 'Live events that need review',
-    seasonalHint: 'Seasonal & regional that need review',
+    regularHint: 'Everyday Browse in Palo Alto, Los Altos, Mountain View, and Sunnyvale',
+    seasonalHint: 'Every collection on Home today, in one list',
   },
   {
     key: 'past',
     label: 'Past',
     countKey: 'past',
-    regularHint: 'Schedule has passed',
-    seasonalHint: 'Seasonal & regional that have passed',
+    regularHint: 'The date has passed',
+    seasonalHint: 'The date has passed',
   },
 ]
 

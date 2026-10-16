@@ -13,10 +13,11 @@ import { AdminPublishControl } from './AdminPublishControl'
 
 const NAV_ITEMS = [
   { to: '/admin', label: 'Review', end: true },
-  { to: '/admin/events', label: 'Events' },
-  { to: '/admin/submissions', label: 'Submissions' },
-  { to: '/admin/seasonal-calendar', label: 'Seasonal' },
-  { to: '/admin/social', label: 'Social' },
+  { to: '/admin/approved', label: 'Approved', end: true },
+  { to: '/admin/events', label: 'Events', end: false },
+  { to: '/admin/submissions', label: 'Submissions', end: false },
+  { to: '/admin/seasonal-calendar', label: 'Seasonal', end: false },
+  { to: '/admin/social', label: 'Social', end: false },
 ] as const
 
 const HOWTO_OPEN_KEY = 'puddles-admin-howto-open'
@@ -160,10 +161,15 @@ export function AdminLayout() {
                   the header Publish summary; unchanged events stay out of the queue.
                 </li>
                 <li>
-                  <strong>Events</strong> — Switch <strong>Regular</strong> or{' '}
-                  <strong>Regional / Seasonal</strong>, then monitor <strong>Live</strong>,{' '}
-                  <strong>Needs attention</strong>, and <strong>Past</strong>. Expand a row to{' '}
-                  <strong>edit &amp; approve</strong>.
+                  <strong>Approved</strong> — Last check and edit for items waiting on the header{' '}
+                  <strong>Publish</strong>. This is not Draft Events.
+                </li>
+                <li>
+                  <strong>Events</strong> — Switch <strong>Regular</strong> (everyday Browse in the
+                  core cities) or <strong>Regional / Seasonal</strong> (every collection on Home
+                  today). Monitor <strong>Live</strong> and <strong>Past</strong>. Cancel or remove
+                  a live listing from the row. Drafts and listings that need a look are on{' '}
+                  <strong>Review</strong>.
                 </li>
               </ol>
               <p className="admin-howto-panel__note">
@@ -174,10 +180,9 @@ export function AdminLayout() {
 
           <nav className="admin-section-nav" aria-label="Admin sections">
             {NAV_ITEMS.map((item) => {
-              const isActive =
-                item.to === '/admin'
-                  ? location.pathname === '/admin'
-                  : location.pathname.startsWith(item.to)
+              const isActive = item.end
+                ? location.pathname === item.to
+                : location.pathname.startsWith(item.to)
               return (
                 <Link
                   key={item.to}

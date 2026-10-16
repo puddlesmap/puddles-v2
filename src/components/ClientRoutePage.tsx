@@ -57,6 +57,7 @@ import { ExperimentSharedEventDetailPage } from '@/views/ExperimentSharedEventDe
 import { ExperimentWelcomePage } from '@/views/ExperimentWelcomePage'
 import { ExperimentSeasonalDiscoveryPage } from '@/views/ExperimentSeasonalDiscoveryPage'
 import { ExperimentSeasonalCollectionPage } from '@/views/ExperimentSeasonalCollectionPage'
+import { ExperimentFallGatheringsMockupPage } from '@/views/ExperimentFallGatheringsMockupPage'
 import { ExperimentSeasonalLaunchReviewPage } from '@/views/ExperimentSeasonalLaunchReviewPage'
 import { ExperimentCommunityEventsMockupPage } from '@/views/ExperimentCommunityEventsMockupPage'
 import { ExperimentLaunchExpandMockupPage } from '@/views/ExperimentLaunchExpandMockupPage'
@@ -69,6 +70,7 @@ import { ExperimentSeasonalThemeCalendarPage } from '@/views/ExperimentSeasonalT
 import { ExperimentSeasonalBackgroundDialPage } from '@/views/ExperimentSeasonalBackgroundDialPage'
 import { WelcomeOnboarding } from '@/components/welcome/WelcomeOnboarding'
 import { AdminEventsPage } from '@/views/admin/AdminEventsPage'
+import { AdminApprovedPage } from '@/views/admin/AdminApprovedPage'
 import { AdminDiscoveryPage } from '@/views/admin/AdminDiscoveryPage'
 import { AdminSubmissionsPage } from '@/views/admin/AdminSubmissionsPage'
 import { AdminSeasonalCalendarPage } from '@/views/admin/AdminSeasonalCalendarPage'
@@ -164,6 +166,10 @@ function ClientRoutes() {
               path="/experiment/seasonal-discovery/background"
               element={<Navigate to="/experiment/seasonal-bg-dial" replace />}
             />
+            <Route
+              path="/experiment/seasonal-discovery/preview/fall-gatherings"
+              element={<ExperimentFallGatheringsMockupPage />}
+            />
             <Route path="/experiment/seasonal-discovery/:slug" element={<ExperimentSeasonalCollectionPage />} />
             <Route
               path="/experiment/community-events-mockup"
@@ -222,6 +228,7 @@ function ClientRoutes() {
               <Route element={<AdminLayout />}>
                 <Route index element={<AdminDiscoveryPage />} />
                 <Route path="discovery" element={<Navigate to="/admin" replace />} />
+                <Route path="approved" element={<AdminApprovedPage />} />
                 <Route path="events" element={<AdminEventsPage />} />
                 <Route path="submissions" element={<AdminSubmissionsPage />} />
                 <Route path="seasonal-calendar" element={<AdminSeasonalCalendarPage />} />

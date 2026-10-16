@@ -8,6 +8,7 @@ import {
 import { getSeasonalCollection } from '../../data/seasonalDiscovery'
 import { AdminDiscoveryTable } from '../../components/admin/AdminDiscoveryTable'
 import { AdminDiscoveryInboxPanel } from '../../components/admin/AdminDiscoveryInboxPanel'
+import { AdminNeedsALook } from '../../components/admin/AdminNeedsALook'
 import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryViewFilter } from '../../types/discovery'
 import { findMatchingEventIdsForCandidate, enrichCandidatesWithSiteVerifiedDates } from '../../utils/discoveryMatchEvents'
 import {
@@ -699,10 +700,13 @@ export function AdminDiscoveryPage() {
         </button>
       </div>
       {surface === 'inbox' ? (
-        <AdminDiscoveryInboxPanel
-          libraryCandidates={[]}
-          onLibraryChange={refreshCandidatesFromStore}
-        />
+        <>
+          <AdminNeedsALook />
+          <AdminDiscoveryInboxPanel
+            libraryCandidates={[]}
+            onLibraryChange={refreshCandidatesFromStore}
+          />
+        </>
       ) : null}
       {surface === 'library' ? (
       <div>

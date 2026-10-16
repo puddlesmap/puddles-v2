@@ -1,14 +1,13 @@
-import { Fragment, useMemo } from 'react'
+import { Fragment } from 'react'
 import type { AdminEventRecord } from '../../types/admin'
 import type { AdminEventEditableFields } from '../../types/adminEventEdit'
 import type { EventStatus } from '../../types/event'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
-import { isVerificationStale } from '../../utils/adminEvents'
 import type { DuplicateCluster } from '../../utils/eventDuplicates'
 import { eventDetailScore } from '../../utils/eventDuplicates'
 import type { AdminReviewFlag } from '../../utils/adminReviewFlags'
 import { ADMIN_REVIEW_FLAG_LABELS } from '../../utils/adminReviewFlags'
-import { seasonalListingLabels } from '../../utils/adminSeasonalEvents'
+import { seasonalListingLabels, collectionNamesForEvent } from '../../utils/adminSeasonalEvents'
 import { AdminEventDetailPanel } from './AdminEventDetail'
 
 function StatusBadge({ status }: { status: EventStatus }) {
@@ -29,33 +28,18 @@ function LivePastBadge({ isLive, isPast }: { isLive: boolean; isPast: boolean })
   return <span className="admin-badge admin-badge-no">Not live</span>
 }
 
-function formatVerifiedDate(dateStr: string): string {
-  if (!dateStr?.trim()) return '—'
-  const d = new Date(`${dateStr}T12:00:00`)
-  if (Number.isNaN(d.getTime())) return dateStr
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-}
-
-const COLUMN_COUNT = 8
+const COLUMN_COUNT = 6
 
 interface AdminEventsTableProps {
   events: AdminEventRecord[]
   busyId: string | null
   selectedId: string | null
-  /** Checkbox multi-select ids (bulk actions). */
-  checkedIds: string[]
   bulkBusy?: boolean
   onSelect: (event: AdminEventRecord) => void
-  onToggleChecked: (eventId: string) => void
-  onToggleCheckAll: (checked: boolean) => void
-  onClearChecked: () => void
-  onBulkApproveVerified?: (events: AdminEventRecord[]) => void
   onHide: (event: AdminEventRecord) => void
   /** Approve edits for the shared Admin Publish queue. */
   onSaveAndPublish?: (event: AdminEventRecord, edits: AdminEventEditableFields) => void
   onCancel?: (event: AdminEventRecord) => void
-  /** Stamp Last Checked / Approved on = today (Sheet + local Admin). */
-  onApproveVerified?: (event: AdminEventRecord) => void
   /** When set, render events grouped by duplicate cluster with keep/hide actions. */
   duplicateClusters?: DuplicateCluster[]
   busyClusterId?: string | null
@@ -68,31 +52,17 @@ export function AdminEventsTable({
   events,
   busyId,
   selectedId,
-  checkedIds,
   bulkBusy = false,
   onSelect,
-  onToggleChecked,
-  onToggleCheckAll,
-  onClearChecked,
-  onBulkApproveVerified,
   onHide,
   onSaveAndPublish,
   onCancel,
-  onApproveVerified,
   duplicateClusters,
   busyClusterId = null,
   onKeepWinner,
   reviewFlagsByEventId,
   onDismissFlag,
 }: AdminEventsTableProps) {
-  const checkedSet = useMemo(() => new Set(checkedIds), [checkedIds])
-  const allVisibleChecked = events.length > 0 && events.every((event) => checkedSet.has(event.id))
-  const someVisibleChecked = events.some((event) => checkedSet.has(event.id))
-  const checkedEvents = useMemo(
-    () => events.filter((event) => checkedSet.has(event.id)),
-    [events, checkedSet],
-  )
-
   if (duplicateClusters) {
     if (duplicateClusters.length === 0) {
       return (
@@ -144,7 +114,6 @@ export function AdminEventsTable({
                       <th>Status</th>
                       <th>Site</th>
                       <th>Score</th>
-                      <th>Approved on</th>
                       <th>Role</th>
                     </tr>
                   </thead>
@@ -186,11 +155,6 @@ export function AdminEventsTable({
                               <LivePastBadge isLive={event.isLive} isPast={event.isPast} />
                             </td>
                             <td>{score}</td>
-                            <td className="whitespace-nowrap">
-                              {event.verifiedDate?.trim()
-                                ? `Approved on ${formatVerifiedDate(event.verifiedDate)}`
-                                : '—'}
-                            </td>
                             <td>
                               {isWinner ? (
                                 <span className="admin-badge admin-badge-yes">Keep</span>
@@ -201,7 +165,7 @@ export function AdminEventsTable({
                           </tr>
                           {isExpanded && (
                             <tr className="admin-table-expand-row">
-                              <td colSpan={8}>
+                              <td colSpan={7}>
                                 <AdminEventDetailPanel
                                   event={event}
                                   busy={busyId === event.id}
@@ -239,89 +203,37 @@ export function AdminEventsTable({
 
   return (
     <div className="admin-events-table-shell">
-      {checkedIds.length > 0 ? (
-        <div className="admin-discovery-bulk-bar" role="status">
-          <span className="admin-discovery-bulk-count">
-            {checkedIds.length} selected
-            <span className="admin-discovery-bulk-hint"> — check more rows for bulk actions</span>
-          </span>
-          <div className="admin-discovery-bulk-actions">
-            {onBulkApproveVerified ? (
-              <button
-                type="button"
-                className="admin-btn admin-btn-primary"
-                disabled={bulkBusy || checkedEvents.length === 0}
-                onClick={() => onBulkApproveVerified(checkedEvents)}
-              >
-                {bulkBusy ? 'Approving…' : `Approve selected (${checkedEvents.length})`}
-              </button>
-            ) : null}
-            <button
-              type="button"
-              className="admin-btn admin-btn-secondary"
-              disabled={bulkBusy}
-              onClick={onClearChecked}
-            >
-              Clear
-            </button>
-          </div>
-        </div>
-      ) : (
-        <p className="admin-events-select-hint">
-          Tip: use the checkboxes to select several events, then Approve selected.
-        </p>
-      )}
-
       <div className="admin-table-wrap">
         <table className="admin-table admin-table-events">
           <colgroup>
-            <col className="admin-col-check-col" />
             <col className="admin-col-event" />
             <col className="admin-col-city" />
             <col className="admin-col-when" />
             <col className="admin-col-status" />
             <col className="admin-col-site" />
-            <col className="admin-col-approved" />
             <col className="admin-col-actions" />
           </colgroup>
           <thead>
             <tr>
-              <th className="admin-col-check" scope="col">
-                <label className="admin-check">
-                  <span className="sr-only">Select all visible events</span>
-                  <input
-                    type="checkbox"
-                    checked={allVisibleChecked}
-                    ref={(el) => {
-                      if (el) el.indeterminate = someVisibleChecked && !allVisibleChecked
-                    }}
-                    onChange={(e) => onToggleCheckAll(e.target.checked)}
-                    disabled={bulkBusy}
-                  />
-                </label>
-              </th>
               <th className="admin-col-event">Event</th>
               <th className="admin-col-city">City</th>
               <th className="admin-col-when">When</th>
               <th className="admin-col-status">Status</th>
               <th className="admin-col-site">Site</th>
-              <th className="admin-col-approved" title="Same as Sheet Last Checked Date / Verified on Puddles">
-                Approved on
-              </th>
               <th className="admin-table-actions-col admin-col-actions">Actions</th>
             </tr>
           </thead>
           <tbody>
             {events.map((event) => {
-              const stale = isVerificationStale(event)
               const isExpanded = selectedId === event.id
               const isBusy = busyId === event.id
-              const isChecked = checkedSet.has(event.id)
               const canHide = event.status !== 'Hidden' && event.status !== 'Cancelled'
               const canCancel = onCancel && event.status === 'Published' && !event.isPast
-              const approvedLabel = formatVerifiedDate(event.verifiedDate)
               const reviewFlags = reviewFlagsByEventId?.get(event.id) ?? []
-              const listingLabels = seasonalListingLabels(event)
+              const listingLabels = [
+                ...collectionNamesForEvent(event.id),
+                ...seasonalListingLabels(event),
+              ]
 
               return (
                 <Fragment key={event.id}>
@@ -330,7 +242,6 @@ export function AdminEventsTable({
                       'admin-table-row-clickable',
                       'admin-events-row',
                       isExpanded ? 'admin-table-row-selected' : '',
-                      isChecked ? 'is-multi-selected' : '',
                     ]
                       .filter(Boolean)
                       .join(' ')}
@@ -346,21 +257,6 @@ export function AdminEventsTable({
                     aria-expanded={isExpanded}
                     aria-label={`${isExpanded ? 'Collapse' : 'Expand'} details for ${event.title}`}
                   >
-                    <td
-                      className="admin-col-check"
-                      onClick={(e) => e.stopPropagation()}
-                      onKeyDown={(e) => e.stopPropagation()}
-                    >
-                      <label className="admin-check">
-                        <span className="sr-only">Select {event.title}</span>
-                        <input
-                          type="checkbox"
-                          checked={isChecked}
-                          disabled={bulkBusy}
-                          onChange={() => onToggleChecked(event.id)}
-                        />
-                      </label>
-                    </td>
                     <td className="admin-col-event">
                       <div className="admin-event-title" title={event.title}>
                         {event.title}
@@ -407,26 +303,8 @@ export function AdminEventsTable({
                     <td className="admin-col-site">
                       <LivePastBadge isLive={event.isLive} isPast={event.isPast} />
                     </td>
-                    <td className="admin-table-last-checked admin-col-approved">
-                      <div className="admin-last-checked">
-                        <span className={stale ? 'admin-verified-stale' : ''}>
-                          {approvedLabel === '—' ? '—' : `Approved on ${approvedLabel}`}
-                        </span>
-                        {stale ? <span className="admin-stale-tag">Needs check</span> : null}
-                      </div>
-                    </td>
                     <td className="admin-table-actions-cell admin-table-actions-col" onClick={(e) => e.stopPropagation()}>
                       <div className="admin-table-actions">
-                        {onApproveVerified ? (
-                          <button
-                            type="button"
-                            className="admin-btn admin-btn-primary"
-                            disabled={isBusy || bulkBusy}
-                            onClick={() => onApproveVerified(event)}
-                          >
-                            {isBusy ? '…' : 'Approve'}
-                          </button>
-                        ) : null}
                         {canCancel ? (
                           <button
                             type="button"

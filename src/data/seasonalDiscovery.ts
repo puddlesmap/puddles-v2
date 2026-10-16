@@ -1043,6 +1043,23 @@ export function getUpcomingSeasonalCollectionForExperiment(): SeasonalCollection
 /** Days before the next theme's activeFrom when the Coming next teaser may appear. */
 export const COMING_NEXT_TEASER_DAYS = 14
 
+/** Preview route for Fall gatherings. The schedule slug stays null, so this does not go live. */
+export const FALL_GATHERINGS_MOCKUP_PATH =
+  '/experiment/seasonal-discovery/preview/fall-gatherings'
+
+/** Show See mockup from 14 days before launch through the theme window, only while it is not a public collection. */
+export function shouldShowSeasonalMockupLink(
+  entry: SeasonalThemeScheduleEntry,
+  now: Date = new Date(),
+): boolean {
+  if (entry.slug || entry.curated) return false
+  if (entry.theme !== 'Fall gatherings') return false
+  const today = pacificYmd(now)
+  if (today > entry.activeUntil) return false
+  return daysBetweenYmd(today, entry.activeFrom) <= COMING_NEXT_TEASER_DAYS
+}
+
+
 function pacificYmd(now: Date): string {
   return new Intl.DateTimeFormat('en-CA', {
     timeZone: 'America/Los_Angeles',

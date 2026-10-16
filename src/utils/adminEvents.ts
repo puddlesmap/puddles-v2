@@ -8,7 +8,7 @@ import { ADMIN_EVENT_VIEWS } from '../types/admin'
 import type { Event } from '../types/event'
 import { addDays, getAnchorDate, startOfDay } from './dates'
 import { collectAdminReviewFlags } from './adminReviewFlags'
-import { eventsForCatalog, isSeasonalMonitorEvent } from './adminSeasonalEvents'
+import { eventsForCatalog, seasonalLiveMonitor } from './adminSeasonalEvents'
 import { matchesBrowseCityFilter } from './cityRegions'
 import { eventsInDuplicateClusters, findDuplicateClusters } from './eventDuplicates'
 
@@ -80,7 +80,7 @@ export function filterAdminEventsByView(
   }
   if (viewId === 'live') {
     if (catalog === 'seasonal') {
-      return scoped.filter((event) => isSeasonalMonitorEvent(event))
+      return seasonalLiveMonitor(events).events
     }
     return filterAdminEvents(scoped, { isLive: true })
   }

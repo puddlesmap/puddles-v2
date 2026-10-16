@@ -8,6 +8,7 @@ import { resolveAgeFromSheetAndText } from './discoveryAgeHints'
 import { resolveEventCost } from './eventCost'
 import { publishEventsToSite } from './publishEvents'
 import { enrichPublishingFields } from './publishing'
+import { pacificTodayYmd } from './discoveryReview'
 
 function asCity(raw: string): City {
   const cities: City[] = ['Palo Alto', 'Los Altos', 'Los Altos Hills', 'Mountain View', 'Sunnyvale']
@@ -116,7 +117,7 @@ export function mergeEditsIntoEvent(event: Event, edits: AdminEventEditableField
       cost: resolveEventCost(edits.cost, edits.description, tips ?? ''),
       eventUrl: edits.eventUrl.trim() || '#',
       imageUrl: edits.imageUrl.trim(),
-      verifiedDate: edits.lastChecked.trim() || event.verifiedDate,
+      verifiedDate: pacificTodayYmd(),
       status: edits.status,
       isSeasonal: edits.isSeasonal,
       isRegional: edits.isRegional,

@@ -244,6 +244,21 @@ export function AdminSocialStudioPage() {
               ? 'Review a finished pack here. Approve saves the slides and captions into the weekly folder on this Mac and updates the Notion content calendar. It does not post to Instagram.'
               : 'Review a finished pack here. Approve updates the Notion content calendar. The weekly folder on this Mac updates when you approve from the local admin. It does not post to Instagram.'}
           </p>
+          <div className="admin-social__schedule">
+            <p>
+              Each Friday, starting Oct 16, a draft pack for the coming weekend is created here.
+              The first one is the Oct 17–18 weekend. A weekday pack for the following week is drafted too.
+              Times are Pacific. They stay drafts until you approve them.
+            </p>
+            <ul>
+              <li>
+                <strong>Weekend pack</strong> — Weekend Highlights carousel (Thu 12pm), Planning the Weekend story (Thu 4pm), Xiaohongshu weekend post (Thu 7pm), Friday reminder (7pm), Saturday Today’s Picks (8:30am), and an optional Sunday story (8:30am).
+              </li>
+              <li>
+                <strong>Weekday pack</strong> — Weekday Highlights carousel (Sun 7pm), Xiaohongshu weekday post (Sun 8pm), Monday reminder (9am), and an optional Wednesday story (8:30am).
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="admin-events-header-actions">
           {studio.publishMode === 'live' && studio.instagram.configured && !studio.instagram.connected ? (

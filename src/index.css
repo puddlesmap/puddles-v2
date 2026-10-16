@@ -4242,8 +4242,250 @@ select.input-field,
   color: var(--color-muted);
 }
 
+.admin-events-catalog-note {
+  margin: 0.75rem 0 0;
+  max-width: 42rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.admin-needs-look {
+  margin: 0 0 1.5rem;
+  padding: 1.25rem 1.25rem 1.5rem;
+  background: #fff;
+  border-radius: 1rem;
+}
+
+.admin-needs-look__empty,
+.admin-needs-look__hint {
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.admin-needs-look__group {
+  margin-top: 1.15rem;
+}
+
+.admin-needs-look__heading {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--color-charcoal);
+}
+
+.admin-needs-look__heading span {
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.admin-needs-look__list {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.admin-needs-look__row {
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+}
+
+.admin-needs-look__summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  align-items: flex-start;
+}
+
+.admin-needs-look__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
 .admin-events-section {
   margin-top: 2rem;
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-radius: var(--radius-card, 16px);
+  background: #fff;
+}
+
+.admin-events-section .admin-toolbar {
+  margin-top: 1.5rem;
+}
+
+.admin-events-section .admin-view-tabs {
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.admin-events-section .admin-needs-attention {
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.admin-events-section .admin-needs-attention__filters {
+  gap: 0.75rem;
+}
+
+.admin-seasonal-missing {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.admin-seasonal-missing:empty {
+  display: none;
+}
+
+.admin-seasonal-missing li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: baseline;
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--color-border);
+  border-radius: 0.75rem;
+  background: #fafafa;
+  font-size: 0.875rem;
+}
+
+.admin-seasonal-missing code {
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.admin-approved-list,
+.admin-seasonal-review {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.admin-approved-card,
+.admin-seasonal-review__card {
+  border: 1px solid var(--color-border);
+  border-radius: 0.875rem;
+  background: #fff;
+  padding: 1rem 1.1rem;
+}
+
+.admin-approved-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.admin-approved-card__title,
+.admin-seasonal-review__title,
+.admin-seasonal-review__heading {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+}
+
+.admin-seasonal-review__heading {
+  font-family: var(--font-display, inherit);
+  font-size: 1.25rem;
+}
+
+.admin-approved-card__meta,
+.admin-seasonal-review__lede,
+.admin-seasonal-review__empty {
+  margin: 0.35rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.admin-seasonal-review__band-title {
+  margin: 0.5rem 0 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.admin-seasonal-review__list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-seasonal-review__facts {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.75rem 0 0;
+}
+
+.admin-seasonal-review__facts div {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.admin-seasonal-review__facts dt {
+  color: var(--color-muted);
+}
+
+.admin-seasonal-review__facts dd {
+  margin: 0;
+  color: var(--color-charcoal);
+}
+
+.admin-seasonal-review__description {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-charcoal);
+}
+
+.admin-seasonal-review__tips {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.admin-seasonal-review__tips > span {
+  color: var(--color-muted);
+}
+
+.admin-approved-card__edit {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.75rem;
+  justify-items: start;
+}
+
+.seasonal-mockup-banner {
+  margin: 0 0 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #9a3412;
+}
+
+.seasonal-mockup-empty {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--color-muted);
 }
 
 .admin-events-header {
@@ -6095,6 +6337,31 @@ col.admin-col-check-col {
 th[aria-sort='ascending'] .admin-sort-header__indicator,
 th[aria-sort='descending'] .admin-sort-header__indicator {
   opacity: 1;
+}
+
+.admin-social__schedule {
+  margin-top: 0.85rem;
+  max-width: 42rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.admin-social__schedule p {
+  margin: 0;
+}
+
+.admin-social__schedule ul {
+  margin: 0.55rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.admin-social__schedule li + li {
+  margin-top: 0.35rem;
+}
+
+.admin-social__schedule strong {
+  color: var(--color-charcoal);
 }
 
 .admin-social__note,

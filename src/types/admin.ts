@@ -3,9 +3,6 @@ import type { City, Event, EventStatus } from './event'
 /** Admin-facing event record — same as Event with room for future verification fields. */
 export type AdminEventRecord = Event
 
-/** Regular Browse vs Hello Fall / Halloween + Worth a little drive. */
-export type AdminEventCatalog = 'regular' | 'seasonal'
-
 export type AdminBooleanFilter = boolean | 'all'
 
 export interface AdminEventFilters {
@@ -19,6 +16,9 @@ export interface AdminEventFilters {
   /** Reserved for verification MVP — optional until sheet column is wired. */
   verificationStatus?: string | 'all'
 }
+
+/** Regular Browse vs Hello Fall / Halloween + Worth a little drive. */
+export type AdminEventCatalog = 'regular' | 'seasonal'
 
 export type AdminEventViewId =
   | 'live'
@@ -42,26 +42,26 @@ export const ADMIN_EVENT_VIEWS: AdminEventView[] = [
   {
     id: 'live',
     label: 'Live',
-    description: 'Published and not yet past — visible on the public website.',
+    description: 'Already on the public site and not past.',
     filters: { isLive: true },
   },
   {
     id: 'needs-attention',
     label: 'Needs attention',
-    description: 'Live events that need review: duplicates, age, area, and field mismatches.',
+    description: 'Already live, and a field looks wrong: duplicate, age, area, or mismatch.',
     filters: {},
   },
   {
     id: 'past',
     label: 'Past',
-    description: 'Schedule has passed — may explain why Published events are not live.',
+    description: 'The date has passed.',
     filters: { isPast: true },
   },
   // Kept for filters/helpers; not shown as top-level Events cards.
   {
     id: 'draft',
     label: 'Draft Events',
-    description: 'Not ready for publishing.',
+    description: 'Saved in the catalog and not on the public site. This is not the approve-then-publish pile.',
     filters: { status: 'Draft' },
   },
   {
