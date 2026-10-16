@@ -1,14 +1,15 @@
-/** Split sheet Tips into display bullets — one per non-empty line. */
 /** Hidden tip prefix. Parents see the text only; the icon is chosen from the prefix. */
 export const TIP_ICON_PREFIXES = [
   'ticket',
   'baby',
   'stroller',
-  'access',
-  'bath',
+  'accessibility',
+  'restroom',
   'food',
-  'sun',
+  'weather',
   'crowds',
+  'sound',
+  'info',
 ] as const
 
 export type TipIconKind = (typeof TIP_ICON_PREFIXES)[number]
@@ -18,22 +19,39 @@ export type EventTipLine = {
   text: string
 }
 
-const TIP_PREFIX_RE = /^(ticket|baby|stroller|access|bath|food|sun|crowds)\|\s*/
+const LEGACY_TIP_ICON_ALIASES = {
+  access: 'accessibility',
+  bath: 'restroom',
+  sun: 'weather',
+  music: 'sound',
+} as const satisfies Record<string, TipIconKind>
 
-/** Split one stored tip line. No prefix keeps the blue bullet. */
+const TIP_PREFIX_NAME =
+  'ticket|baby|stroller|accessibility|restroom|food|weather|crowds|sound|info|access|bath|sun|music'
+
+const TIP_PREFIX_RE = new RegExp(`^(${TIP_PREFIX_NAME})\\|\\s*`)
+
+/** A later prefix on the same stored line starts another icon row. */
+const INLINE_TIP_PREFIX_RE = new RegExp(`\\s+(?=(?:${TIP_PREFIX_NAME})\\|)`)
+
+/** Split one stored tip line. Legacy aliases remain readable; unprefixed lines use Info. */
 export function parseEventTipLine(raw: string): EventTipLine {
   const trimmed = raw.trim()
   const match = trimmed.match(TIP_PREFIX_RE)
-  if (!match) return { icon: null, text: trimmed }
-  const icon = match[1] as TipIconKind
+  if (!match) return { icon: 'info', text: trimmed }
+  const prefix = match[1] as TipIconKind | keyof typeof LEGACY_TIP_ICON_ALIASES
+  const icon = prefix in LEGACY_TIP_ICON_ALIASES
+    ? LEGACY_TIP_ICON_ALIASES[prefix as keyof typeof LEGACY_TIP_ICON_ALIASES]
+    : prefix as TipIconKind
   return { icon, text: trimmed.slice(match[0].length).trim() }
 }
 
-/** Split sheet Tips into display bullets — one per non-empty line. */
+/** Split sheet Tips into display lines — one icon per prefix, even mid-line. */
 export function parseEventTips(tips?: string | null): EventTipLine[] {
   if (!tips?.trim()) return []
   return tips
     .split(/\r?\n/)
+    .flatMap((line) => line.split(INLINE_TIP_PREFIX_RE))
     .map((item) => item.trim())
     .filter(Boolean)
     .map(parseEventTipLine)

@@ -4577,7 +4577,7 @@
       "ageRange": "All ages · Little ones welcome",
       "bestFor": "",
       "description": "Explore a holiday village with festive trains through the redwoods by day, or walk glowing garden paths and a light tunnel after dark.",
-      "tips": "ticket|Advance tickets are limited; daytime and evening require separate admission. stroller|The house and garden are stroller accessible; wagons are not allowed. weather|Filoli is open rain or shine.",
+      "tips": "ticket|Advance tickets are limited; daytime and evening require separate admission.\nstroller|The house and garden are stroller accessible; wagons are not allowed.\nweather|Filoli is open rain or shine.",
       "types": [
         "Festivals & Community",
         "Outdoor"
@@ -4656,7 +4656,7 @@
       "ageRange": "Families",
       "bestFor": "",
       "description": "A winter-themed Family Fun Day with arts and crafts, games, movies, a scavenger hunt and more.",
-      "tips": "ticket|Free. No registration is required. info|Supplies are limited and available first come, first served.",
+      "tips": "ticket|Free. No registration is required.\ninfo|Supplies are limited and available first come, first served.",
       "types": [
         "Arts & Crafts"
       ],
