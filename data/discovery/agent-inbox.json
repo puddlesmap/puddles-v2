@@ -10,84 +10,84 @@
     "sourcesFailed": 0
   },
   "candidates": [
-  {
-    "title": "Stuffed Animal Tea Party",
-    "date": "2026-11-05",
-    "startTime": "16:00",
-    "endTime": "17:00",
-    "city": "Sunnyvale",
-    "venue": "Sunnyvale Public Library",
-    "cost": "Free",
-    "ageRange": "2–5",
-    "bestFor": "Ages 2 and up",
-    "description": "Afternoon snacks and crafts with a favorite stuffed animal.",
-    "tips": "info|For children ages 2 and up and their caregivers.\ninfo|Registration is not required, but space is limited.",
-    "types": [
-      "Arts & Crafts"
-    ],
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13380/129?curm=11&cury=2026",
-    "sourceUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13380/129?curm=11&cury=2026",
-    "sourceName": "Sunnyvale Public Library",
-    "sourceExcerpt": "Join us for afternoon snacks and crafts with your favorite stuffy! Audience: Children ages 2 and up and their caregivers. Registration is not required but space is limited.",
-    "sourceSnapshot": {
-      "titleText": "MAIN: Stuffed Animal Tea Party",
-      "dateText": "11/05/2026 4:00 PM - 5:00 PM",
-      "timeText": "4:00 PM–5:00 PM",
-      "locationText": "Sunnyvale Public Library, 665 W. Olive Ave, Sunnyvale",
-      "costText": "Free",
-      "ageText": "Children ages 2 and up and their caregivers"
+    {
+      "title": "Stuffed Animal Tea Party",
+      "date": "2026-11-05",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "city": "Sunnyvale",
+      "venue": "Sunnyvale Public Library",
+      "cost": "Free",
+      "ageRange": "2–5",
+      "bestFor": "Ages 2 and up",
+      "description": "Afternoon snacks and crafts with a favorite stuffed animal.",
+      "tips": "info|For children ages 2 and up and their caregivers.\ninfo|Registration is not required, but space is limited.",
+      "types": [
+        "Arts & Crafts"
+      ],
+      "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13380/129?curm=11&cury=2026",
+      "sourceUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13380/129?curm=11&cury=2026",
+      "sourceName": "Sunnyvale Public Library",
+      "sourceExcerpt": "Join us for afternoon snacks and crafts with your favorite stuffy! Audience: Children ages 2 and up and their caregivers. Registration is not required but space is limited.",
+      "sourceSnapshot": {
+        "titleText": "MAIN: Stuffed Animal Tea Party",
+        "dateText": "11/05/2026 4:00 PM - 5:00 PM",
+        "timeText": "4:00 PM–5:00 PM",
+        "locationText": "Sunnyvale Public Library, 665 W. Olive Ave, Sunnyvale",
+        "costText": "Free",
+        "ageText": "Children ages 2 and up and their caregivers"
+      },
+      "providerEventId": "",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-15T23:15:00.000Z",
+      "identityKey": "watchlist-sunnyvale-library-stuffed-animal-tea-party-2026-11-05",
+      "id": "watchlist-sunnyvale-library-stuffed-animal-tea-party-2026-11-05",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "placement": "browse",
+      "imageUrl": ""
     },
-    "providerEventId": "",
-    "isCancelled": false,
-    "needsReview": false,
-    "reviewReasons": [],
-    "discoveredAt": "2026-10-15T23:15:00.000Z",
-    "identityKey": "watchlist-sunnyvale-library-stuffed-animal-tea-party-2026-11-05",
-    "id": "watchlist-sunnyvale-library-stuffed-animal-tea-party-2026-11-05",
-    "decision": "pending",
-    "occurrenceChoice": "",
-    "placement": "browse",
-    "imageUrl": ""
-  },
-  {
-    "title": "Diwali Story and Dance",
-    "date": "2026-11-06",
-    "startTime": "16:00",
-    "endTime": "17:00",
-    "city": "Sunnyvale",
-    "venue": "Sunnyvale Public Library",
-    "cost": "Free",
-    "ageRange": "All ages · Little ones welcome",
-    "bestFor": "",
-    "description": "A Diwali storytime and dance workshop with Mudraas Dance Academy.",
-    "tips": "info|For children of all ages and their caregivers.\ninfo|Registration is not required, but space is limited.",
-    "types": [
-      "Stories"
-    ],
-    "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13382/129?curm=11&cury=2026",
-    "sourceUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13382/129?curm=11&cury=2026",
-    "sourceName": "Sunnyvale Public Library",
-    "sourceExcerpt": "Join us for a Diwali storytime and dance workshop with Mudraas Dance Academy! Audience: Children of all ages and their caregivers. Registration is not required but space is limited.",
-    "sourceSnapshot": {
-      "titleText": "MAIN: Diwali Story and Dance",
-      "dateText": "11/06/2026 4:00 PM - 5:00 PM",
-      "timeText": "4:00 PM–5:00 PM",
-      "locationText": "Sunnyvale Public Library, 665 W. Olive Ave, Sunnyvale",
-      "costText": "Free",
-      "ageText": "Children of all ages and their caregivers"
+    {
+      "title": "Diwali Story and Dance",
+      "date": "2026-11-06",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "city": "Sunnyvale",
+      "venue": "Sunnyvale Public Library",
+      "cost": "Free",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "A Diwali storytime and dance workshop with Mudraas Dance Academy.",
+      "tips": "info|For children of all ages and their caregivers.\ninfo|Registration is not required, but space is limited.",
+      "types": [
+        "Stories"
+      ],
+      "eventUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13382/129?curm=11&cury=2026",
+      "sourceUrl": "https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13382/129?curm=11&cury=2026",
+      "sourceName": "Sunnyvale Public Library",
+      "sourceExcerpt": "Join us for a Diwali storytime and dance workshop with Mudraas Dance Academy! Audience: Children of all ages and their caregivers. Registration is not required but space is limited.",
+      "sourceSnapshot": {
+        "titleText": "MAIN: Diwali Story and Dance",
+        "dateText": "11/06/2026 4:00 PM - 5:00 PM",
+        "timeText": "4:00 PM–5:00 PM",
+        "locationText": "Sunnyvale Public Library, 665 W. Olive Ave, Sunnyvale",
+        "costText": "Free",
+        "ageText": "Children of all ages and their caregivers"
+      },
+      "providerEventId": "",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-15T23:15:00.000Z",
+      "identityKey": "watchlist-sunnyvale-library-diwali-story-dance-2026-11-06",
+      "id": "watchlist-sunnyvale-library-diwali-story-dance-2026-11-06",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "placement": "browse",
+      "imageUrl": ""
     },
-    "providerEventId": "",
-    "isCancelled": false,
-    "needsReview": false,
-    "reviewReasons": [],
-    "discoveredAt": "2026-10-15T23:15:00.000Z",
-    "identityKey": "watchlist-sunnyvale-library-diwali-story-dance-2026-11-06",
-    "id": "watchlist-sunnyvale-library-diwali-story-dance-2026-11-06",
-    "decision": "pending",
-    "occurrenceChoice": "",
-    "placement": "browse",
-    "imageUrl": ""
-  },
     {
       "title": "Littles and Lattes Mountain View",
       "date": "2026-10-15",
@@ -263,9 +263,8 @@
       "identityKey": "id:17295775",
       "id": "id:17295775",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Bilingual Family Storytime",
@@ -303,9 +302,8 @@
       "identityKey": "id:69276b597eb3e430002638b5",
       "id": "id:69276b597eb3e430002638b5",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Canceled--Baby Storytime Rerun",
@@ -342,9 +340,9 @@
       "discoveredAt": "2026-09-01",
       "identityKey": "id:17170831",
       "id": "id:17170831",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "decision": "ready",
+      "occurrenceChoice": "replace",
+      "updatedAt": "2026-10-16T00:15:01.036Z"
     },
     {
       "title": "Family Storytime",
@@ -382,9 +380,8 @@
       "identityKey": "id:6946005fea69de6e001069c7",
       "id": "id:6946005fea69de6e001069c7",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Deer Hollow Spooky Storytime",
@@ -422,9 +419,8 @@
       "identityKey": "id:16984474",
       "id": "id:16984474",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Fridays!",
@@ -462,9 +458,8 @@
       "identityKey": "id:6a25aace2ea730c17ab5048f",
       "id": "id:6a25aace2ea730c17ab5048f",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Spooky Times at Deer Holloween Farm",
@@ -503,9 +498,8 @@
       "identityKey": "id:spooky-times-at-deer-holloween-farm-deer-hollow-farm-2026-10-17-10-00",
       "id": "id:spooky-times-at-deer-holloween-farm-deer-hollow-farm-2026-10-17-10-00",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -543,9 +537,8 @@
       "identityKey": "id:698e125a2a787a47a5e73be6",
       "id": "id:698e125a2a787a47a5e73be6",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Concert: Music at Kohl Mansion presents Escher String Quartet",
@@ -623,9 +616,8 @@
       "identityKey": "id:halloween-costume-game-night-town-hall-council-chambers-2026-10-17-18-00",
       "id": "id:halloween-costume-game-night-town-hall-council-chambers-2026-10-17-18-00",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Haunted Train at Ardenwood",
@@ -703,9 +695,8 @@
       "identityKey": "id:699f624cb0595799c09f6052",
       "id": "id:699f624cb0595799c09f6052",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Outdoor Storytime",
@@ -743,9 +734,8 @@
       "identityKey": "id:17142488",
       "id": "id:17142488",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Animal Friends: Rhea and her Rescue Dog",
@@ -783,9 +773,8 @@
       "identityKey": "id:6a88836846e4c80031cbf01c",
       "id": "id:6a88836846e4c80031cbf01c",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Tuesdays!",
@@ -823,9 +812,8 @@
       "identityKey": "id:68afa7b0022de53d00d2717d",
       "id": "id:68afa7b0022de53d00d2717d",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Baby Storytime",
@@ -863,9 +851,8 @@
       "identityKey": "id:17170816",
       "id": "id:17170816",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Little Ones Storytime",
@@ -903,9 +890,8 @@
       "identityKey": "id:6946001eea69de6e001069b4",
       "id": "id:6946001eea69de6e001069b4",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Music & Movement",
@@ -943,9 +929,8 @@
       "identityKey": "id:6a3dbc0bfddb082f00fe14a1",
       "id": "id:6a3dbc0bfddb082f00fe14a1",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Bilingual Family Storytime",
@@ -983,9 +968,8 @@
       "identityKey": "id:69276b597eb3e430002638b6",
       "id": "id:69276b597eb3e430002638b6",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Baby Storytime: Rerun",
@@ -1023,9 +1007,8 @@
       "identityKey": "id:17170832",
       "id": "id:17170832",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -1063,9 +1046,8 @@
       "identityKey": "id:6946005fea69de6e001069c8",
       "id": "id:6946005fea69de6e001069c8",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Fridays!",
@@ -1103,9 +1085,8 @@
       "identityKey": "id:6a25aace2ea730c17ab50490",
       "id": "id:6a25aace2ea730c17ab50490",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Monster Bash",
@@ -1143,9 +1124,8 @@
       "identityKey": "id:monster-bash-rengstorff-park-2026-10-24-10-00",
       "id": "id:monster-bash-rengstorff-park-2026-10-24-10-00",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -1183,9 +1163,8 @@
       "identityKey": "id:698e125a2a787a47a5e73be7",
       "id": "id:698e125a2a787a47a5e73be7",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Halloween Magic at Gamble Garden",
@@ -1225,9 +1204,8 @@
       "identityKey": "id:disc-halloween-magic-at-gamble-garden-2026-10-24-watchlist-gamble-halloween-magic-2026-10",
       "id": "id:disc-halloween-magic-at-gamble-garden-2026-10-24-watchlist-gamble-halloween-magic-2026-10",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Parent Survival Night · Monster Mash",
@@ -1265,9 +1243,8 @@
       "identityKey": "id:core-weekend-tlg-monster-mash-psn-2026-10-24",
       "id": "id:core-weekend-tlg-monster-mash-psn-2026-10-24",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Smart Start Babytime",
@@ -1344,9 +1321,8 @@
       "identityKey": "id:699f624cb0595799c09f6053",
       "id": "id:699f624cb0595799c09f6053",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Outdoor Storytime",
@@ -1384,9 +1360,8 @@
       "identityKey": "id:17142489",
       "id": "id:17142489",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Tuesdays!",
@@ -1424,9 +1399,8 @@
       "identityKey": "id:68afa7b0022de53d00d2717e",
       "id": "id:68afa7b0022de53d00d2717e",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Baby Storytime",
@@ -1464,9 +1438,8 @@
       "identityKey": "id:17170817",
       "id": "id:17170817",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Little Ones Storytime",
@@ -1504,9 +1477,8 @@
       "identityKey": "id:6946001eea69de6e001069b5",
       "id": "id:6946001eea69de6e001069b5",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Jack O'Lantern Jamboree!",
@@ -1544,9 +1516,8 @@
       "identityKey": "id:698e5b7094297d3600abe212",
       "id": "id:698e5b7094297d3600abe212",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Jack O'Lantern Jamboree!",
@@ -1584,9 +1555,8 @@
       "identityKey": "id:disc-jack-o-lantern-jamboree-2026-10-28-698e5b7094297d3600abe212",
       "id": "id:disc-jack-o-lantern-jamboree-2026-10-28-698e5b7094297d3600abe212",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO® Time",
@@ -1624,9 +1594,8 @@
       "identityKey": "id:17238200",
       "id": "id:17238200",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Music & Movement",
@@ -1664,9 +1633,8 @@
       "identityKey": "id:6a3dbc0bfddb082f00fe14a2",
       "id": "id:6a3dbc0bfddb082f00fe14a2",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Bilingual Family Storytime: Celebrate Día de Los Muertos!",
@@ -1704,9 +1672,8 @@
       "identityKey": "id:69276b597eb3e430002638b7",
       "id": "id:69276b597eb3e430002638b7",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Baby Storytime: Rerun",
@@ -1744,9 +1711,8 @@
       "identityKey": "id:17170833",
       "id": "id:17170833",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -1784,9 +1750,8 @@
       "identityKey": "id:6946005fea69de6e001069c9",
       "id": "id:6946005fea69de6e001069c9",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "A BOO-tiful Downtown Halloween",
@@ -1825,9 +1790,8 @@
       "identityKey": "id:watchlist-dtla-halloween-2026-10-30",
       "id": "id:watchlist-dtla-halloween-2026-10-30",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "A BOO-tiful Downtown Halloween",
@@ -1866,9 +1830,8 @@
       "identityKey": "id:disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30",
       "id": "id:disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Fridays!",
@@ -1906,9 +1869,8 @@
       "identityKey": "id:6a25aace2ea730c17ab50491",
       "id": "id:6a25aace2ea730c17ab50491",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Lakewood Branch Library Grand Opening",
@@ -1985,9 +1947,8 @@
       "identityKey": "id:698e125a2a787a47a5e73be8",
       "id": "id:698e125a2a787a47a5e73be8",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -2025,9 +1986,8 @@
       "identityKey": "id:699f624cb0595799c09f6054",
       "id": "id:699f624cb0595799c09f6054",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Outdoor Storytime",
@@ -2065,9 +2025,8 @@
       "identityKey": "id:17142490",
       "id": "id:17142490",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Animal Friends: Reptile Rescuer John Hale",
@@ -2105,9 +2064,8 @@
       "identityKey": "id:6a89d81336204e08fbb653fa",
       "id": "id:6a89d81336204e08fbb653fa",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Tuesdays!",
@@ -2145,9 +2103,8 @@
       "identityKey": "id:68afa7b0022de53d00d2717f",
       "id": "id:68afa7b0022de53d00d2717f",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Little Ones Storytime",
@@ -2185,9 +2142,8 @@
       "identityKey": "id:6946001eea69de6e001069b6",
       "id": "id:6946001eea69de6e001069b6",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Music & Movement",
@@ -2225,9 +2181,8 @@
       "identityKey": "id:6a3dbc0bfddb082f00fe14a3",
       "id": "id:6a3dbc0bfddb082f00fe14a3",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Magical Bridge Storytime",
@@ -2265,9 +2220,8 @@
       "identityKey": "id:17290232",
       "id": "id:17290232",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-15T22:39:45.405Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Bilingual Family Storytime",
@@ -2305,9 +2259,8 @@
       "identityKey": "id:69276b597eb3e430002638b8",
       "id": "id:69276b597eb3e430002638b8",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -2345,9 +2298,8 @@
       "identityKey": "id:6946005fea69de6e001069ca",
       "id": "id:6946005fea69de6e001069ca",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Fridays!",
@@ -2385,9 +2337,8 @@
       "identityKey": "id:6a25aace2ea730c17ab50492",
       "id": "id:6a25aace2ea730c17ab50492",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -2425,9 +2376,8 @@
       "identityKey": "id:698e125a2a787a47a5e73be9",
       "id": "id:698e125a2a787a47a5e73be9",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Parent Survival Night · Turkey Trot",
@@ -2465,9 +2415,8 @@
       "identityKey": "id:core-weekend-tlg-turkey-trot-psn-2026-11-07",
       "id": "id:core-weekend-tlg-turkey-trot-psn-2026-11-07",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Board Game Sunday!",
@@ -2505,9 +2454,8 @@
       "identityKey": "id:6970253094297d3600a66ca3",
       "id": "id:6970253094297d3600a66ca3",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -2545,9 +2493,8 @@
       "identityKey": "id:699f624cb0595799c09f6055",
       "id": "id:699f624cb0595799c09f6055",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Outdoor Storytime",
@@ -2585,9 +2532,8 @@
       "identityKey": "id:17142491",
       "id": "id:17142491",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Tuesdays!",
@@ -2625,9 +2571,8 @@
       "identityKey": "id:68afa7b0022de53d00d27180",
       "id": "id:68afa7b0022de53d00d27180",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Cuesta Park Storytime",
@@ -2665,9 +2610,8 @@
       "identityKey": "id:17295776",
       "id": "id:17295776",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Bilingual Family Storytime",
@@ -2705,9 +2649,8 @@
       "identityKey": "id:69276b597eb3e430002638b9",
       "id": "id:69276b597eb3e430002638b9",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -2745,9 +2688,8 @@
       "identityKey": "id:6946005fea69de6e001069cb",
       "id": "id:6946005fea69de6e001069cb",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Fridays!",
@@ -2785,9 +2727,8 @@
       "identityKey": "id:6a25aace2ea730c17ab50493",
       "id": "id:6a25aace2ea730c17ab50493",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Second Saturday at Gamble Garden",
@@ -2826,9 +2767,8 @@
       "identityKey": "id:core-weekend-gamble-second-saturday-2026-11-14",
       "id": "id:core-weekend-gamble-second-saturday-2026-11-14",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -2866,9 +2806,8 @@
       "identityKey": "id:698e125a2a787a47a5e73bea",
       "id": "id:698e125a2a787a47a5e73bea",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -2906,9 +2845,8 @@
       "identityKey": "id:699f624cb0595799c09f6056",
       "id": "id:699f624cb0595799c09f6056",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Outdoor Storytime",
@@ -2946,9 +2884,8 @@
       "identityKey": "id:17142492",
       "id": "id:17142492",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Tuesdays!",
@@ -2986,9 +2923,8 @@
       "identityKey": "id:68afa7b0022de53d00d27181",
       "id": "id:68afa7b0022de53d00d27181",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Little Ones Storytime",
@@ -3026,9 +2962,8 @@
       "identityKey": "id:6946001eea69de6e001069b8",
       "id": "id:6946001eea69de6e001069b8",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Bilingual Storytime: Mandarin/English",
@@ -3066,9 +3001,8 @@
       "identityKey": "id:17329164",
       "id": "id:17329164",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Music & Movement",
@@ -3106,9 +3040,8 @@
       "identityKey": "id:6a3dbc0bfddb082f00fe14a4",
       "id": "id:6a3dbc0bfddb082f00fe14a4",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Bilingual Family Storytime",
@@ -3146,9 +3079,8 @@
       "identityKey": "id:69276b597eb3e430002638ba",
       "id": "id:69276b597eb3e430002638ba",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -3186,9 +3118,8 @@
       "identityKey": "id:6946005fea69de6e001069cc",
       "id": "id:6946005fea69de6e001069cc",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -3226,9 +3157,8 @@
       "identityKey": "id:698e125a2a787a47a5e73beb",
       "id": "id:698e125a2a787a47a5e73beb",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Concert: Palo Alto School of Chamber Music",
@@ -3266,9 +3196,8 @@
       "identityKey": "id:6a6cf81ad23de82955c9bccc",
       "id": "id:6a6cf81ad23de82955c9bccc",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Parent Survival Night · Friendsgiving",
@@ -3306,9 +3235,8 @@
       "identityKey": "id:core-weekend-tlg-friendsgiving-psn-2026-11-21",
       "id": "id:core-weekend-tlg-friendsgiving-psn-2026-11-21",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Festival of Lights: A Diwali Celebration",
@@ -3346,9 +3274,8 @@
       "identityKey": "id:6a8f395260ccaf01c0213e7c",
       "id": "id:6a8f395260ccaf01c0213e7c",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Smart Start Babytime",
@@ -3425,9 +3352,8 @@
       "identityKey": "id:699f624cb0595799c09f6057",
       "id": "id:699f624cb0595799c09f6057",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Outdoor Storytime",
@@ -3465,9 +3391,8 @@
       "identityKey": "id:17142493",
       "id": "id:17142493",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Tuesdays!",
@@ -3505,9 +3430,8 @@
       "identityKey": "id:68afa7b0022de53d00d27182",
       "id": "id:68afa7b0022de53d00d27182",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Little Ones Storytime",
@@ -3545,9 +3469,8 @@
       "identityKey": "id:6946001eea69de6e001069b9",
       "id": "id:6946001eea69de6e001069b9",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Fridays!",
@@ -3585,9 +3508,8 @@
       "identityKey": "id:6a25aace2ea730c17ab50494",
       "id": "id:6a25aace2ea730c17ab50494",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -3625,9 +3547,8 @@
       "identityKey": "id:698e125a2a787a47a5e73bec",
       "id": "id:698e125a2a787a47a5e73bec",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -3665,9 +3586,8 @@
       "identityKey": "id:699f624cb0595799c09f6058",
       "id": "id:699f624cb0595799c09f6058",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Outdoor Storytime",
@@ -3705,9 +3625,8 @@
       "identityKey": "id:17142494",
       "id": "id:17142494",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Tuesdays!",
@@ -3745,9 +3664,8 @@
       "identityKey": "id:68afa7b0022de53d00d27183",
       "id": "id:68afa7b0022de53d00d27183",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Little Ones Storytime",
@@ -3785,9 +3703,8 @@
       "identityKey": "id:6946001eea69de6e001069ba",
       "id": "id:6946001eea69de6e001069ba",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Music & Movement",
@@ -3825,9 +3742,8 @@
       "identityKey": "id:6a3dbc0bfddb082f00fe14a6",
       "id": "id:6a3dbc0bfddb082f00fe14a6",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Magical Bridge Storytime",
@@ -3865,9 +3781,8 @@
       "identityKey": "id:17290233",
       "id": "id:17290233",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Bilingual Family Storytime",
@@ -3905,9 +3820,8 @@
       "identityKey": "id:69276b597eb3e430002638bc",
       "id": "id:69276b597eb3e430002638bc",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -3945,9 +3859,8 @@
       "identityKey": "id:6946005fea69de6e001069ce",
       "id": "id:6946005fea69de6e001069ce",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LEGO Fridays!",
@@ -3985,9 +3898,8 @@
       "identityKey": "id:6a25aace2ea730c17ab50495",
       "id": "id:6a25aace2ea730c17ab50495",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -4025,9 +3937,8 @@
       "identityKey": "id:698e125a2a787a47a5e73bed",
       "id": "id:698e125a2a787a47a5e73bed",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.406Z"
+      "updatedAt": "2026-10-15T22:39:45.406Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "LOCATION CHANGE: Mindfulness Meditation",
@@ -4104,9 +4015,8 @@
       "identityKey": "id:core-weekend-tlg-winter-bounce-psn-2026-12-05",
       "id": "id:core-weekend-tlg-winter-bounce-psn-2026-12-05",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.590Z"
+      "updatedAt": "2026-10-15T22:39:45.590Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Family Storytime",
@@ -4573,9 +4483,8 @@
       "identityKey": "id:core-weekend-tlg-holiday-pajama-psn-2026-12-19",
       "id": "id:core-weekend-tlg-holiday-pajama-psn-2026-12-19",
       "decision": "ignored",
-      "updatedAt": "2026-10-15T23:37:32.429Z",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.590Z"
+      "updatedAt": "2026-10-15T22:39:45.590Z",
+      "occurrenceChoice": ""
     },
     {
       "title": "Movie Night in Bol Park",
