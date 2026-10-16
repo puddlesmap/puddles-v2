@@ -5595,7 +5595,29 @@ select.input-field,
 }
 
 .admin-review-card__tips-preview .event-detail-tips-list {
+  width: 100%;
   margin-top: 0.55rem;
+}
+
+.admin-review-card__tips-preview .event-detail-tips-item,
+.admin-review-card__tips-preview .event-detail-tips-item--icon {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: none;
+}
+
+.admin-review-card__tips-preview .event-detail-tip-icon {
+  flex: 0 0 18px;
+}
+
+.admin-review-card__tips-preview .event-detail-tips-item > span:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .admin-review-card__actions {

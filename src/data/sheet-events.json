@@ -94,7 +94,7 @@
     "isPast": true,
     "isLive": false,
     "sheetTypesRaw": "Stories, Outdoor",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather."
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting."
   },
   {
     "id": "69b835d281b67dfe32acec78",
@@ -466,7 +466,7 @@
     "isPast": true,
     "isLive": false,
     "sheetTypesRaw": "Stories, Build & Explore",
-    "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School.\nCaregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning."
+    "tips": "baby|For babies 0–2 and their caregivers."
   },
   {
     "id": "69b835d42866a5b488426bfb",
@@ -531,7 +531,7 @@
     "isPast": true,
     "isLive": false,
     "sheetTypesRaw": "Stories, Outdoor",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather."
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting."
   },
   {
     "id": "69b835d281b67dfe32acec79",
@@ -1403,7 +1403,7 @@
     "isPast": true,
     "isLive": false,
     "sheetTypesRaw": "Stories, Outdoor",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather."
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting."
   },
   {
     "id": "69b835d281b67dfe32acec7a",
@@ -2586,7 +2586,7 @@
     "isPast": true,
     "isLive": false,
     "sheetTypesRaw": "Stories, Outdoor",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting."
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting."
   },
   {
     "id": "69b835d281b67dfe32acec7b",
@@ -3710,7 +3710,7 @@
     "isPast": true,
     "isLive": false,
     "sheetTypesRaw": "Stories, Outdoor",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather."
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting."
   },
   {
     "id": "69b835d281b67dfe32acec7c",
@@ -4987,7 +4987,7 @@
     "isPast": true,
     "isLive": false,
     "sheetTypesRaw": "Stories",
-    "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School.\nCaregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning."
+    "tips": "baby|For babies 0–2 and their caregivers."
   },
   {
     "id": "69b835d42866a5b488426bff",
@@ -5052,7 +5052,7 @@
     "isPast": true,
     "isLive": false,
     "sheetTypesRaw": "Stories, Outdoor",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather."
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting."
   },
   {
     "id": "69b835d281b67dfe32acec7d",
@@ -5897,7 +5897,7 @@
     "isPast": true,
     "isLive": false,
     "sheetTypesRaw": "Stories, Outdoor",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather."
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting."
   },
   {
     "id": "69b835d281b67dfe32acec7e",
@@ -7811,7 +7811,7 @@
     "isPast": true,
     "isLive": false,
     "sheetTypesRaw": "Stories",
-    "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School.\nCaregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning."
+    "tips": "baby|For babies 0–2 and their caregivers."
   },
   {
     "id": "699f624cb0595799c09f604b",
@@ -7847,7 +7847,7 @@
     "id": "puddles-d974e696-a67",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with our Children's Librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -8984,7 +8984,7 @@
     "id": "disc-outdoor-storytime-2026-09-08-17142482",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -10409,7 +10409,7 @@
     "id": "disc-outdoor-storytime-2026-09-15-17142483",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -11284,7 +11284,7 @@
     "id": "disc-outdoor-storytime-2026-09-22-17142484",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -12204,7 +12204,7 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories",
-    "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School.\nCaregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning."
+    "tips": "baby|For babies 0–2 and their caregivers."
   },
   {
     "id": "699f624cb0595799c09f604f",
@@ -12240,7 +12240,7 @@
     "id": "disc-outdoor-storytime-2026-09-29-17142485",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -13160,7 +13160,7 @@
     "id": "disc-outdoor-storytime-2026-10-06-17142486",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -14079,7 +14079,7 @@
     "id": "disc-outdoor-storytime-2026-10-13-17142487",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -15029,7 +15029,7 @@
     "id": "disc-outdoor-storytime-2026-10-20-17142488",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -15848,7 +15848,7 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories",
-    "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School.\nCaregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning."
+    "tips": "baby|For babies 0–2 and their caregivers."
   },
   {
     "id": "disc-family-storytime-2026-10-27-699f624cb0595799c09f6053",
@@ -15887,7 +15887,7 @@
     "id": "disc-outdoor-storytime-2026-10-27-17142489",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -16708,7 +16708,7 @@
     "id": "disc-outdoor-storytime-2026-11-03-17142490",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -17137,7 +17137,7 @@
     "id": "disc-outdoor-storytime-2026-11-10-17142491",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -17380,7 +17380,7 @@
     "id": "disc-outdoor-storytime-2026-11-17-17142492",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -17741,7 +17741,7 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories",
-    "tips": "Smart Start Babytime is a special program for babies (0--2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford.\nSmart Start Babytime is a special program for babies (0--2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford.."
+    "tips": "baby|For babies 0–2 and their caregivers."
   },
   {
     "id": "disc-family-storytime-2026-11-24-699f624cb0595799c09f6057",
@@ -17778,7 +17778,7 @@
     "id": "disc-outdoor-storytime-2026-11-24-17142493",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -17962,7 +17962,7 @@
     "id": "disc-outdoor-storytime-2026-12-01-17142494",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -18449,7 +18449,7 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories",
-    "tips": "Smart Start Babytime is a special program for babies (0--2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford.\nSmart Start Babytime is a special program for babies (0--2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford.."
+    "tips": "baby|For babies 0–2 and their caregivers."
   },
   {
     "id": "pages-and-paws-reading-buddy-mountain-view-public-library-2027-01-08-15-30",

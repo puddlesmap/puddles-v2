@@ -135,7 +135,7 @@
       "cost": "$40 per class",
       "ageRange": "0–5",
       "description": "Unwind at the end of the day with your little one in tow. The Happy Hour Open Play is designed for parents who want a relaxed, social atmosphere while their kids of all ages enjoy free play in The Bunny Hive’s warm and welcoming space.",
-      "tips": "$40 per class, per family",
+      "tips": "ticket|$40 per class, per family.",
       "eventUrl": "https://www.thebunnyhive.com/mountainview#Schedule",
       "sourceUrl": "https://www.thebunnyhive.com/mountainview#Schedule",
       "sourceName": "The Bunny Hive Mountain View",
@@ -171,7 +171,7 @@
       "cost": "$40 per class",
       "ageRange": "0–5",
       "description": "The littles may not be ready for being out after dark, knocking on doors for candy. But The Bunny Hive is here to save the day with a toddler-friendly trick or treating sensory extravaganza! Costumes highly encouraged.",
-      "tips": "$40 per class, per family",
+      "tips": "ticket|$40 per class, per family.",
       "eventUrl": "https://www.thebunnyhive.com/mountainview#Schedule",
       "sourceUrl": "https://www.thebunnyhive.com/mountainview#Schedule",
       "sourceName": "The Bunny Hive Mountain View",
@@ -205,7 +205,7 @@
       "cost": "Free",
       "ageRange": "0–5",
       "description": "Meet outside The Bunny Hive, walk around the block to Fayette playground to play with friends!",
-      "tips": "Complimentary",
+      "tips": "ticket|Complimentary.",
       "eventUrl": "https://www.thebunnyhive.com/mountainview#Schedule",
       "sourceUrl": "https://www.thebunnyhive.com/mountainview#Schedule",
       "sourceName": "The Bunny Hive Mountain View",
@@ -553,7 +553,7 @@
       "ageRange": "0–5",
       "bestFor": "",
       "description": "Now in our fourth year of partnership with Music at Kohl Mansion, we proudly present the Escher String Quartet. The Escher String Quartet has established itself as one of the most accomplished chamber ensembles of its generation. Formed in New York City in 2005, and named after the Dutch graphic artist M.C. Escher, the quartet is celebrated for performances that combine technical brilliance, interpretive insight, and a distinctive ensemble sound. The group serves as Artists of the Chamber Music Society of Lincoln Center and has earned international recognition for its commitment to both the core string quartet repertoire and contemporary music. The quartet has appeared at many of the world’s leading concert halls and festivals, including London’s Wigmore Hall, Amsterdam’s Concertgebouw, th",
-      "tips": "A waitlist may be available. Space is limited (125 seats) — check the official page for registration.",
+      "tips": "ticket|A waitlist may be available. Space is limited (125 seats) — check the official page for registration.",
       "types": [
         "Music & Movement"
       ],
@@ -632,7 +632,7 @@
       "ageRange": "0–5",
       "bestFor": "",
       "description": "",
-      "tips": "Book ahead; evening rides fill up. Dress warmly for outdoor seats.",
+      "tips": "ticket|Book ahead; evening rides fill up.\nweather|Dress warmly for outdoor seats.",
       "types": [
         "Outdoor",
         "Social & Play"
@@ -1259,7 +1259,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School. Caregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
-      "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School. Caregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
+      "tips": "baby|For babies 0–2 and their caregivers.",
       "types": [
         "Stories"
       ],
@@ -1885,7 +1885,7 @@
       "ageRange": "All ages · Little ones welcome",
       "bestFor": "",
       "description": "Grand opening of the new Lakewood branch — live music, a Maker Lab showcase, crafts, and giveaways.",
-      "tips": "Free. Halloween costumes encouraged.",
+      "tips": "info|Free. Halloween costumes encouraged.",
       "types": [
         "Festivals & Community"
       ],
@@ -3290,7 +3290,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School. Caregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
-      "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School. Caregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
+      "tips": "baby|For babies 0–2 and their caregivers.",
       "types": [
         "Stories"
       ],
@@ -3953,7 +3953,7 @@
       "ageRange": "0–5",
       "bestFor": "",
       "description": "**Note: The December 5th meditation session will be at the Palo Alto Art Center. This session is open to all ages. Come and improve your mental and physical health in mindfulness meditation sessions led by Phuong Pham. Each session is 30 minutes of sitting meditation and 15 minutes of releasing meditation followed by 15 minutes of group sharing and Q&A. Chairs are available for those who do not bring them. Phuong is a Buddhist nun experienced in leading mindfulness meditation. You can learn more about Phuong here and can watch her meditation videos on the library's YouTube channel here .",
-      "tips": "Kids under 10 need an adult with them.**. It is open to all levels of experience and no registration required. Bring yoga mats and/or meditation cushions.",
+      "tips": "baby|Kids under 10 need an adult with them.\nticket|No registration required.\ninfo|Bring yoga mats and/or meditation cushions.",
       "types": [
         "Other"
       ],
@@ -4070,7 +4070,7 @@
       "ageRange": "0–5",
       "bestFor": "",
       "description": "Tuesdays at 10:30 a.m.",
-      "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park. All ages welcome, no registration required. All events are weather permitting.",
+      "tips": "info|Bring a blanket.\nticket|No registration required.\nweather|Weather permitting.",
       "types": [
         "Stories"
       ],
@@ -4109,7 +4109,7 @@
       "ageRange": "0–5",
       "bestFor": "",
       "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-      "tips": "LEGOs stay at the library — snap a pic of creations!",
+      "tips": "info|LEGOs stay at the library — snap a pic of creations!",
       "types": [
         "Build & Explore"
       ],
@@ -4187,7 +4187,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Stories, rhymes and songs in Mandarin and English with Miss Renee in the Children's Room Octagon.",
-      "tips": "For ages 2-5, no registration required.",
+      "tips": "baby|For ages 2–5. No registration required.",
       "types": [
         "Stories"
       ],
@@ -4265,7 +4265,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Stop by the Bookmobile for stories, songs, and rhymes in the heart of Cuesta Park! Enjoy a fun-filled storytime at the playground, and take advantage of full library services available from 10:00–11:00 a.m. Find us at 615 Cuesta Drive, Mountain View, CA 94040",
-      "tips": "Events are weather permitting.",
+      "tips": "weather|Weather permitting.",
       "types": [
         "Stories"
       ],
@@ -4304,7 +4304,7 @@
       "ageRange": "0–5",
       "bestFor": "",
       "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
-      "tips": "Storytime may be held indoors or outdoors depending on the weather.",
+      "tips": "weather|May be held indoors or outdoors depending on the weather.",
       "types": [
         "Stories"
       ],
@@ -4382,7 +4382,7 @@
       "ageRange": "0–5",
       "bestFor": "",
       "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-      "tips": "LEGOs stay at the library — snap a pic of creations!",
+      "tips": "info|LEGOs stay at the library — snap a pic of creations!",
       "types": [
         "Build & Explore"
       ],
