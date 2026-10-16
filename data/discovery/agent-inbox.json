@@ -4503,7 +4503,7 @@
       "types": [
         "Festivals & Community"
       ],
-      "imageUrl": "",
+      "imageUrl": "https://bpapaloalto.org/wp-content/uploads/2026/09/Whimsical-Outdoor-Movie-Night-Poster-24-x-24-in-1.jpg",
       "eventUrl": "https://bpapaloalto.org/event/movie-night-in-bol-park/",
       "sourceUrl": "https://bpapaloalto.org/event/movie-night-in-bol-park/",
       "sourceName": "Core cities · Weekend search · watchlist",
@@ -4523,9 +4523,9 @@
       "discoveredAt": "2026-10-15",
       "identityKey": "id:barron-park-movie-night-2026-10-18",
       "id": "id:barron-park-movie-night-2026-10-18",
-      "decision": "pending",
+      "decision": "ready",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-15T22:39:45.405Z"
+      "updatedAt": "2026-10-16T02:33:18.634Z"
     },
     {
       "title": "Día de Muertos Celebration",
