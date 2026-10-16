@@ -155,9 +155,11 @@
       "discoveredAt": "2026-10-09T00:04:17.243Z",
       "identityKey": "id:bunnyhive-mv-149983",
       "id": "id:bunnyhive-mv-149983",
-      "decision": "pending",
+      "decision": "ready",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-09T00:04:17.269Z"
+      "updatedAt": "2026-10-16T00:16:39.300Z",
+      "imageUrl": "https://irp.cdn-website.com/45272f0c/dms3rep/multi/opt/DSC07064-1920w.jpg",
+      "types": []
     },
     {
       "title": "Trick or Treat Sensory Play at The Bunny Hive",
