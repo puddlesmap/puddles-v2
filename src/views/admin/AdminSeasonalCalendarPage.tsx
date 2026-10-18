@@ -12,8 +12,8 @@ export function AdminSeasonalCalendarPage() {
         <div>
           <h2 className="font-display text-xl text-charcoal">Seasonal calendar</h2>
           <p className="mt-1 max-w-2xl text-sm leading-relaxed text-muted">
-            Editorial schedule for home seasonal modules. Hello Fall and Halloween overlap Oct 5–31
-            (two Home bands); later months hand off in sequence.
+            Editorial schedule for home seasonal modules. Hello Fall closed Oct 17; Halloween with
+            little ones is the only Home band through Oct 31. Later months hand off in sequence.
           </p>
         </div>
         <div className="admin-events-header-actions">

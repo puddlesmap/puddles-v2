@@ -131,8 +131,8 @@ export function SeasonalThemeCalendarReview({
           Seasonal calendar
         </h2>
         <p className="seasonal-theme-calendar__lede">
-          Themes can overlap — from Oct 5–31 Home shows Hello Fall and Halloween with little ones
-          together. Later months still hand off in sequence (Fall gatherings → Holiday magic).
+          Hello Fall closed Oct 17. Home now shows Halloween with little ones only through Oct 31.
+          Later months still hand off in sequence (Fall gatherings → Holiday magic).
         </p>
         <p className="seasonal-theme-calendar__today">
           Review date:{' '}

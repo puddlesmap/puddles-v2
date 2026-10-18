@@ -280,12 +280,8 @@ export function getSeasonalIllustrationSrc(timing: string): string | undefined {
  * Editorial seasonal collections — not a new event taxonomy.
  * Themes transition with local activity patterns (Hello, Fall → Halloween / broader October).
  *
- * **Live themes:** Home bands use `getActiveSeasonalCollections()` (all overlapping windows).
- * Hello Fall runs through Oct 31, 2026; Halloween overlaps from Oct 1.
- *
- * **Dual themes (shipped):** Hello Fall stays live alongside Halloween — two Home modules + badge
- * rules via the plural helper. **Rename decision:** keep **Halloween with little ones** (slug
- * unchanged); broader “October with little ones” only if non-Halloween October curation expands.
+ * **Live themes:** Home bands use `getActiveSeasonalCollections()`. Hello Fall closed Oct 17, 2026;
+ * Halloween with little ones is the only Home band through Oct 31.
  *
  * **Browse window:** public discovery shows roughly the next **60 days** (`PUBLIC_DISPLAY_WINDOW_DAYS`).
  *
@@ -542,10 +538,9 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       title: 'Worth a little drive',
       subtitle: 'Farm days & standout fall outings a little farther afield.',
     },
-    // Hold Hello Fall through late October so mid-Oct festivals stay in one theme.
-    // Overlaps Halloween Oct 1–31 — dual Home bands via getActiveSeasonalCollections().
+    // Closed after the mid-October weekend. From Oct 18 Home is Halloween only.
     activeFrom: '2026-09-01',
-    activeUntil: '2026-10-31',
+    activeUntil: '2026-10-17',
   },
   {
     slug: 'halloween-with-little-ones',
@@ -634,17 +629,48 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         featuredUntil: '2026-10-31',
         note: 'Close to home · jack-o-lantern messy play',
       },
+      {
+        eventId: 'family-fun-days-los-altos-community-center-2026-10-24-10-00',
+        featuredFrom: '2026-10-18',
+        featuredUntil: '2026-10-24',
+        note: 'This weekend · Halloween Hoopla',
+      },
+      {
+        eventId: 'core-weekend-santa-rita-witches-delight-2026-10-24',
+        featuredFrom: '2026-10-18',
+        featuredUntil: '2026-10-24',
+        note: 'This weekend · Santa Rita carnival',
+      },
+      {
+        eventId: 'core-weekend-duveneck-harvest-carnival-2026-10-24',
+        featuredFrom: '2026-10-18',
+        featuredUntil: '2026-10-24',
+        note: 'This weekend · Duveneck carnival',
+      },
+      {
+        eventId: 'watchlist-sunnyvale-spooky-storywalk-2026-10-28',
+        featuredFrom: '2026-10-22',
+        featuredUntil: '2026-10-28',
+        note: 'Midweek Halloween walk',
+      },
+      {
+        eventId: 'core-weekend-cherry-chase-fall-festival-2026-10-30',
+        featuredFrom: '2026-10-24',
+        featuredUntil: '2026-10-30',
+        note: 'Halloween weekend · Cherry Chase',
+      },
     ],
     collectionEventIds: [
-      'disc-creepy-carrots-peninsula-youth-theatre-2026-10-10-watchlist-pyt-creepy-carrots-2026-10-10-',
-      'halloween-costume-game-night-town-hall-council-chambers-2026-10-17-18-00',
       'monster-bash-rengstorff-park-2026-10-24-10-00',
+      'family-fun-days-los-altos-community-center-2026-10-24-10-00',
       'disc-halloween-magic-at-gamble-garden-2026-10-24-watchlist-gamble-halloween-magic-2026-10',
+      'core-weekend-santa-rita-witches-delight-2026-10-24',
+      'core-weekend-duveneck-harvest-carnival-2026-10-24',
       'disc-jack-o-lantern-jamboree-2026-10-28-698e5b7094297d3600abe212',
-      'disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30',
-      'otto-family-club-spider-web-2026-10-08',
-      'otto-family-club-witches-potion-2026-10-15',
+      'watchlist-sunnyvale-spooky-storywalk-2026-10-28',
       'otto-family-club-jack-o-lantern-2026-10-29',
+      'disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30',
+      'core-weekend-cherry-chase-fall-festival-2026-10-30',
     ],
     driveEventIds: [
       // Spanning Fall → next theme: farms keep the seasonal badge under both modules
@@ -803,7 +829,7 @@ export const SEASONAL_THEME_CALENDAR = SEASONAL_EYEBROW_PALETTE.map((entry) => (
   illustrationSrc: entry.illustrationSrc,
 }))
 
-/** Editorial schedule for product review. Dual live themes Oct 1–31, 2026. */
+/** Editorial schedule for product review. Hello Fall through Oct 17; Halloween from Oct 1. */
 export interface SeasonalThemeScheduleEntry {
   timing: string
   theme: string
@@ -839,10 +865,10 @@ export const SEASONAL_THEME_SCHEDULE: SeasonalThemeScheduleEntry[] = [
     eyebrow: getSeasonalEyebrowColor('September'),
     illustrationSrc: '/seasonal/hello-fall.png',
     activeFrom: '2026-09-01',
-    activeUntil: '2026-10-31',
+    activeUntil: '2026-10-17',
     transitionFrom: '2026-10-01',
     transitionNote:
-      'Dual themes: from Oct 1 Home shows Hello Fall + Halloween together (getActiveSeasonalCollections). Hello Fall stays through Oct 31.',
+      'Halloween launched Oct 1 alongside Hello Fall; Hello Fall closed Oct 17 so Home is Halloween only through Oct 31.',
     curated: true,
   },
   {
@@ -856,7 +882,7 @@ export const SEASONAL_THEME_SCHEDULE: SeasonalThemeScheduleEntry[] = [
     activeFrom: '2026-10-01',
     activeUntil: '2026-10-31',
     transitionNote:
-      'DECIDED: keep name “Halloween with little ones” (slug stable). Broader “October with little ones” only if non-Halloween October curation expands. Shows alongside Hello Fall Oct 1–31.',
+      'DECIDED: keep name “Halloween with little ones” (slug stable). Hello Fall closed Oct 17 — this is the only Home seasonal band through Halloween.',
     curated: true,
   },
   {
@@ -1025,7 +1051,7 @@ export function getActiveSeasonalCollections(now: Date = new Date()): SeasonalCo
   ).map(withCurationOverrides)
 }
 
-/** Primary live theme — first matching window (Hello Fall while both overlap). */
+/** Primary live theme — first matching window. */
 export function getActiveSeasonalCollection(now: Date = new Date()): SeasonalCollection | undefined {
   return getActiveSeasonalCollections(now)[0]
 }
