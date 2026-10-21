@@ -10,7 +10,7 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     title: 'Grimm Manor (family-friendly)',
     description:
       'A gentle Halloween manor walk for little ones — pumpkin patch, crafts, and a family-friendly haunt timed for younger kids. Later evening scare hours are separate and not aimed at tots.',
-    tips: 'Go for the early family-friendly manor window. Confirm ticket times on the event page before you leave.',
+    tips: 'ticket|Go for the early family-friendly manor window. Confirm ticket times on the event page before you leave.',
     venue: 'Easterbrook Discovery School',
     address: '4835 Doyle Rd, San Jose, CA 95129',
     city: 'San Jose',
@@ -38,7 +38,7 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     title: 'Spooktacular Halloween LEGO Workshop',
     description:
       'Build spooky (not scary) Halloween creations with LEGO materials — a hands-on workshop for curious little makers and their grown-ups in Redwood City.',
-    tips: 'Best for older toddlers and preschoolers who like to build. Check age guidance and registration before you go.',
+    tips: 'ticket|Check age guidance and registration before you go.',
     venue: 'Sandpiper Community Center',
     address: '797 Redwood Shores Parkway, Redwood City, CA 94065',
     city: 'Redwood City',
@@ -67,7 +67,7 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     title: 'Haunted Train at Ardenwood',
     description:
       'A playful Halloween train ride through decorated woods — glowing pumpkins and friendly characters, not a fright night. A special outing a little farther afield.',
-    tips: 'Book ahead; evening rides fill up. Dress warmly for outdoor seats.',
+    tips: 'ticket|Book ahead; evening rides fill up.\ninfo|Dress warmly for outdoor seats.',
     venue: 'Ardenwood Historic Farm',
     address: 'Ardenwood Blvd, Fremont, CA 94555',
     city: 'Fremont',
@@ -94,7 +94,7 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     title: 'Halloween Hoopla at Yerba Buena Gardens',
     description:
       'Circus Bella, live music, and a costume parade for kids under 10 and their grown-ups in the Children’s Garden.',
-    tips: 'Free RSVP on the Yerba Buena Gardens Festival page.',
+    tips: 'ticket|Free RSVP on the Yerba Buena Gardens Festival page.',
     venue: 'Children’s Garden, Yerba Buena Gardens',
     address: '799 Howard St, San Francisco, CA 94103',
     city: 'San Francisco',
@@ -123,7 +123,7 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     title: 'Goblin Jamboree',
     description:
       'A just-spooky-enough Halloween day at the museum. Harvest Hall is a harvest play space for little ones 42 inches and under, with bug digs, creature-making, and Goblin Village.',
-    tips: 'General admission $30. Members $5, and free on October 3–4.\nEBT/SNAP/WIC $10 in person, up to 4 tickets.\nCostumes encouraged. Free parking. Rain or shine.',
+    tips: 'ticket|General admission $30. Members $5, and free on October 3–4.\nticket|EBT/SNAP/WIC $10 in person, up to 4 tickets.\ninfo|Costumes encouraged. Free parking.\nweather|Rain or shine.',
     venue: 'Bay Area Discovery Museum',
     address: '557 McReynolds Rd, Sausalito, CA 94965',
     city: 'Sausalito',
@@ -156,7 +156,7 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     title: 'Paint-a-Plane',
     description:
       'Halloween paint-a-plane, spooky crafts, and a jump house — special activities just for kids.',
-    tips: 'Included with museum admission. Members are free.',
+    tips: 'ticket|Included with museum admission. Members are free.',
     venue: 'Hiller Aviation Museum',
     address: '601 Skyway Rd, San Carlos, CA 94070',
     city: 'San Carlos',
@@ -189,7 +189,7 @@ export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
     title: 'Halloween Hoopla Parade & Carnival',
     description:
       'A costume parade through downtown, then carnival games, crafts, and entertainment at Fremont Park. Kids can trick-or-treat at participating stores.',
-    tips: 'ticket|The parade leaves at 11:00 AM from the lot behind Cheeky Monkey. Trick-or-treaters get a free bag for participating downtown stores.',
+    tips: 'ticket|Trick-or-treaters get a free bag for participating downtown stores.\ninfo|The parade starts from the lot behind Cheeky Monkey.',
     venue: 'Fremont Park',
     address: 'Santa Cruz Avenue, Menlo Park, CA 94025',
     city: 'Menlo Park',

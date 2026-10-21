@@ -89,7 +89,7 @@ function TimingGroups({
   onEventClick: (event: Event) => void
   geoLabel: string
 }) {
-  const { thisWeekend, later } = useMemo(() => partitionSeasonalTiming(events), [events])
+  const { thisWeek, later } = useMemo(() => partitionSeasonalTiming(events), [events])
 
   if (events.length === 0) {
     return <p className="seasonal-density-empty">No activities in this section right now.</p>
@@ -97,13 +97,13 @@ function TimingGroups({
 
   return (
     <>
-      {thisWeekend.length > 0 ? (
-        <section className="seasonal-density-group" aria-label={`${geoLabel} · This weekend`}>
-          <h3 className="seasonal-density-group__title">This weekend</h3>
+      {thisWeek.length > 0 ? (
+        <section className="seasonal-density-group" aria-label={`${geoLabel} · This week`}>
+          <h3 className="seasonal-density-group__title">This week</h3>
           <SeasonalEventGrid
-            events={thisWeekend}
+            events={thisWeek}
             onEventClick={onEventClick}
-            label={`${geoLabel} this weekend`}
+            label={`${geoLabel} this week`}
           />
         </section>
       ) : null}

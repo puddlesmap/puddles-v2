@@ -90,7 +90,10 @@
     "Lakewood Branch Library and Learning Center": { "city": "Sunnyvale", "lat": 37.4035, "lng": -122.006 },
     "Hidden Villa": { "city": "Los Altos Hills", "lat": 37.341, "lng": -122.162 },
     "Filoli": { "city": "Woodside", "lat": 37.4703, "lng": -122.3107 },
-    "Juana Briones Park": { "city": "Palo Alto", "lat": 37.413, "lng": -122.136 }
+    "Juana Briones Park": { "city": "Palo Alto", "lat": 37.413, "lng": -122.136 },
+    "Santa Rita Elementary School": { "city": "Los Altos", "lat": 37.3989, "lng": -122.1138 },
+    "Duveneck Elementary School": { "city": "Palo Alto", "lat": 37.44505, "lng": -122.1384 },
+    "Cherry Chase Elementary School": { "city": "Sunnyvale", "lat": 37.3516, "lng": -122.0328 }
   },
   "venueAddresses": {
     "Downtown Library": "270 Forest Ave, Palo Alto, CA 94301",
@@ -155,7 +158,10 @@
     "Lakewood Branch Library and Learning Center": "760 Lakechime Drive, Sunnyvale, CA 94089",
     "Hidden Villa": "26870 Moody Road, Los Altos Hills, CA 94022",
     "Filoli": "86 Cañada Road, Woodside, CA 94062",
-    "Juana Briones Park": "Maybell & Amaranta Avenues, Palo Alto, CA 94306"
+    "Juana Briones Park": "Maybell & Amaranta Avenues, Palo Alto, CA 94306",
+    "Santa Rita Elementary School": "700 Los Altos Avenue, Los Altos, CA 94022",
+    "Duveneck Elementary School": "705 Alester Avenue, Palo Alto, CA 94303",
+    "Cherry Chase Elementary School": "1138 Heatherstone Way, Sunnyvale, CA 94087"
   },
   "cityCenters": {
     "Palo Alto": { "lat": 37.4419, "lng": -122.143 },

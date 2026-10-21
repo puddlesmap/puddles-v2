@@ -11,10 +11,8 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     description:
       'U-pick pumpkins, hay rides & a vintage tractor on the coast — a calmer early-season farm outing for little explorers.',
     tips: [
-      'Opens Friday, September 4.',
-      'Hours 9am–6pm, 7 days a week — check farmerjohnspumpkins.com for day-of updates.',
-      'Seasonal operation; no closing date currently listed.',
-      'No entry or parking fees; no reservations required.',
+      'ticket|No entry or parking fees; no reservations required.',
+      'info|Hours can change — check farmerjohnspumpkins.com for the day you visit.',
     ].join('\n'),
     venue: "Farmer John's Pumpkin Farm",
     address: '850 N Cabrillo Hwy, Half Moon Bay, CA 94019',
@@ -46,9 +44,9 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     description:
       'Cow train, hay rides & a corn maze — a South Bay pumpkin patch with plenty for little ones to ride and explore.',
     tips: [
-      'Hours vary by day — check the farm calendar for the day you visit.',
-      'Patch admission is free; attraction tickets are sold on-site only (no online ticket sales).',
-      'Parking free Monday–Thursday; $30 cash only Friday–Sunday.',
+      'info|Hours vary by day — check the farm calendar for the day you visit.',
+      'ticket|Patch admission is free; attraction tickets are sold on-site only (no online ticket sales).',
+      'ticket|Parking free Monday–Thursday; $30 cash only Friday–Sunday.',
     ].join('\n'),
     venue: 'Spina Farms Pumpkin Patch',
     address: '225 Laguna Ave, Morgan Hill, CA 95037',
@@ -706,7 +704,7 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     title: 'Rancho Siempre Verde Fall Fest',
     description:
       'Open fields, giant tree swings, a big tube slide & tractor rides — a coastal pumpkin patch designed with kids in mind.',
-    tips: 'About $115 per car online (up to six guests; includes five pumpkins, flowers, apples, and parking).\nRain or shine unless a severe storm is posted on the farm page.',
+    tips: 'ticket|About $115 per car online (up to six guests; includes five pumpkins, flowers, apples, and parking).\nweather|Rain or shine unless a severe storm is posted on the farm page.',
     venue: 'Rancho Siempre Verde Family Farm',
     address: '2250 Cabrillo Hwy, Pescadero, CA 94060',
     city: 'Pescadero',
@@ -740,7 +738,7 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
     title: 'Half Moon Bay Art & Pumpkin Festival',
     description:
       'Kids Zone with sensory art, face painting & a kids stage, plus giant pumpkins and the Great Pumpkin Parade downtown.',
-    tips: 'Free admission. Expect crowds. Kids Zone is on site.',
+    tips: 'ticket|Free admission.\ncrowds|Expect crowds.\ninfo|Kids Zone is on site.',
     venue: 'Downtown Half Moon Bay',
     address: 'Main Street, Half Moon Bay, CA 94019',
     city: 'Half Moon Bay',
@@ -778,7 +776,7 @@ export const HELLO_FALL_DRIVE_EVENTS: Event[] = [
       'ticket|Patch admission and pumpkin purchases are separate from Ardenwood admission. Drop in; no registration.',
       'ticket|Paid. See the park page for this year’s price.',
       'access|The farm has accessible restrooms and paved paths. Parking at Ardenwood is free.',
-      'This is the daytime pumpkin patch, not the evening Haunted Train.',
+      'info|This is the daytime pumpkin patch, not the evening Haunted Train.',
     ].join('\n'),
     venue: 'Ardenwood Historic Farm',
     address: '34600 Ardenwood Blvd, Fremont, CA 94555',
