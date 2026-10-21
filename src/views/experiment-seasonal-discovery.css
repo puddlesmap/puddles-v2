@@ -1225,7 +1225,7 @@
 /* —— Coming next teaser (Halloween while Hello Fall is live) —— */
 .seasonal-next-preview {
   width: 100%;
-  margin-top: 1.25rem;
+  margin-top: 2.5rem;
   padding: 1.125rem 1.25rem;
   border: 1px solid #ebebeb;
   border-radius: var(--radius-md);
@@ -1294,8 +1294,14 @@
   color: #b45309;
 }
 
+@media (min-width: 768px) {
+  .seasonal-next-preview {
+    margin-top: 3rem;
+  }
+}
+
 /* —— Halloween night collection (playful dark mode + sparkles) —— */
-.home-experiment-shell--halloween-night {
+.home-experiment-shell.home-experiment-shell--halloween-night {
   --page-background: #12161c;
   position: relative;
   isolation: isolate;
@@ -1304,7 +1310,10 @@
     radial-gradient(ellipse 55% 40% at 18% 8%, rgba(102, 197, 249, 0.08) 0%, transparent 55%),
     linear-gradient(180deg, #151a22 0%, #12161c 42%, #0f1318 100%);
   color: #f4f1ea;
-  overflow: clip;
+  /* Longhands, not the overflow shorthand. overflow-x: clip on the shell
+     still wins in Safari and turns position: sticky off. */
+  overflow-x: visible;
+  overflow-y: visible;
 }
 
 .halloween-sparkles {
@@ -1372,14 +1381,64 @@
   }
 }
 
-.home-experiment-shell--halloween-night > :not(.halloween-sparkles) {
+.home-experiment-shell--halloween-night > :not(.halloween-sparkles):not(.app-header) {
   position: relative;
   z-index: 1;
 }
 
-.home-experiment-shell--halloween-night .app-header.page-header-sticky,
+/* Opaque fill belongs on the sticky header box, not only the inner nav row.
+   Shared header rules (including the mobile brand bar) must not win. */
+.home-experiment-shell.home-experiment-shell--halloween-night > header.app-header.page-header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  align-self: flex-start;
+  width: 100%;
+  background-color: #151a22;
+  background-image: none;
+}
+
+.home-experiment-shell.home-experiment-shell--halloween-night > header.app-header.page-header-sticky::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-color: #151a22;
+  pointer-events: none;
+}
+
 .home-experiment-shell--halloween-night .app-header-row {
-  background: transparent;
+  background-color: #151a22;
+  background-image: none;
+}
+
+@media (max-width: 767px) {
+  .home-experiment-shell.home-experiment-shell--halloween-night > header.app-header.page-header-sticky,
+  .home-experiment-shell.home-experiment-shell--halloween-night > header.app-header.page-header-sticky .app-header-row {
+    background-color: #151a22;
+    background-image: none;
+  }
+
+  /* iOS Safari drops position:sticky when an ancestor uses overflow-x: clip.
+     Pin the wordmark so it stays on screen while the collection scrolls. */
+  .home-experiment-shell.home-experiment-shell--halloween-night > header.app-header.page-header-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .home-experiment-shell.home-experiment-shell--halloween-night > .seasonal-collection-page {
+    padding-top: calc(3.75rem + env(safe-area-inset-top, 0px));
+  }
+
+  .home-experiment-shell.home-experiment-shell--halloween-night
+    > header.app-header.page-header-sticky:has(.seasonal-density-tabs--in-header)
+    + .seasonal-collection-page {
+    padding-top: calc(7.5rem + env(safe-area-inset-top, 0px));
+  }
 }
 
 .home-experiment-shell--halloween-night .logo-mark img,
@@ -1409,7 +1468,10 @@
   color: rgba(244, 241, 234, 0.72);
 }
 
-.seasonal-collection-page--halloween::before {
+.seasonal-collection-page.seasonal-collection-page--halloween::before {
+  left: 0;
+  width: 100%;
+  transform: none;
   background: radial-gradient(
     ellipse 80% 70% at 50% 0%,
     rgba(240, 178, 122, 0.12) 0%,
@@ -1435,8 +1497,14 @@
   color: rgba(244, 241, 234, 0.72);
 }
 
-.seasonal-collection-page--halloween .seasonal-collection-band__title {
+.seasonal-collection-page--halloween .seasonal-collection-band__title,
+.seasonal-collection-page--halloween .local-guide-teaser__label,
+.seasonal-collection-page--halloween .local-guide-feature__title {
   color: #fff8e8;
+}
+
+.seasonal-collection-page--halloween .lg-opt-label {
+  color: rgba(244, 241, 234, 0.55);
 }
 
 .seasonal-collection-page--halloween .seasonal-collection-band__subtitle {
@@ -1455,10 +1523,37 @@
   color: rgba(244, 241, 234, 0.58);
 }
 
+.seasonal-collection-page--halloween .seasonal-collection-hero__title-row {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  gap: 0.5rem;
+  padding-right: 0;
+}
+
+.seasonal-collection-page--halloween .seasonal-collection-hero__title {
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: normal;
+}
+
 .seasonal-collection-page--halloween .seasonal-collection-hero__illustration {
+  position: static;
+  flex: 0 0 auto;
+  width: 3.25rem;
+  height: 3.25rem;
+  transform: none;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.35))
     drop-shadow(0 0 18px rgba(240, 178, 122, 0.28));
   animation: halloween-float 4.5s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .seasonal-collection-page--halloween .seasonal-collection-hero__illustration {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
 }
 
 @keyframes halloween-float {

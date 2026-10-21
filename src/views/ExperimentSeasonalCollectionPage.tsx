@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
-import { useMemo } from 'react'
+import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom'
+import { useMemo, useState } from 'react'
 import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
 import { PageContainer } from '../components/layout/PageContainer'
@@ -14,40 +14,16 @@ import {
   type SeasonalCollection,
 } from '../data/seasonalDiscovery'
 import { sortSeasonalDiscoveryEvents } from '../utils/formatSeasonalSchedule'
+import { partitionSeasonalTiming } from '../utils/seasonalWeekendBuckets'
 import {
   PUDDLES_WORDMARK_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC_2X,
 } from './experimentShared'
+import { HalloweenNightSparkles } from '../components/seasonal/HalloweenNightSparkles'
+import { LocalGuideCardVariant, parseGuideCard } from '../components/guides/LocalGuideCard'
 import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
 import { useEventNavigation } from '../hooks/useEventNavigation'
-
-/** Soft night-sky sparkles for the Halloween collection page. */
-const HALLOWEEN_SPARKLES = [
-  { top: '8%', left: '6%', size: 2, delay: '0s', duration: '2.8s' },
-  { top: '12%', left: '22%', size: 3, delay: '0.4s', duration: '3.4s' },
-  { top: '5%', left: '41%', size: 2, delay: '1.1s', duration: '2.6s' },
-  { top: '18%', left: '58%', size: 4, delay: '0.2s', duration: '3.8s' },
-  { top: '9%', left: '74%', size: 2, delay: '1.6s', duration: '2.9s' },
-  { top: '14%', left: '88%', size: 3, delay: '0.8s', duration: '3.2s' },
-  { top: '28%', left: '12%', size: 2, delay: '1.3s', duration: '3.1s' },
-  { top: '34%', left: '33%', size: 3, delay: '0.6s', duration: '2.7s' },
-  { top: '26%', left: '49%', size: 2, delay: '2s', duration: '3.5s' },
-  { top: '38%', left: '67%', size: 4, delay: '0.9s', duration: '4s' },
-  { top: '31%', left: '84%', size: 2, delay: '1.8s', duration: '2.5s' },
-  { top: '48%', left: '8%', size: 3, delay: '0.3s', duration: '3.3s' },
-  { top: '52%', left: '27%', size: 2, delay: '1.4s', duration: '2.8s' },
-  { top: '56%', left: '46%', size: 3, delay: '0.7s', duration: '3.6s' },
-  { top: '44%', left: '71%', size: 2, delay: '1.9s', duration: '3s' },
-  { top: '60%', left: '91%', size: 4, delay: '0.5s', duration: '3.9s' },
-  { top: '72%', left: '15%', size: 2, delay: '1.2s', duration: '2.9s' },
-  { top: '78%', left: '38%', size: 3, delay: '0.1s', duration: '3.4s' },
-  { top: '68%', left: '55%', size: 2, delay: '1.7s', duration: '2.6s' },
-  { top: '82%', left: '76%', size: 3, delay: '0.95s', duration: '3.7s' },
-  { top: '88%', left: '4%', size: 2, delay: '1.5s', duration: '3.1s' },
-  { top: '91%', left: '63%', size: 4, delay: '0.35s', duration: '4.1s' },
-  { top: '86%', left: '94%', size: 2, delay: '2.1s', duration: '2.7s' },
-  { top: '42%', left: '18%', size: 2, delay: '2.3s', duration: '3.2s' },
-] as const
+import './guide-page.css'
 
 function SeasonalEventGrid({
   events,
@@ -68,9 +44,92 @@ function SeasonalEventGrid({
             key={event.id}
             event={event}
             seasonalEditorial={false}
+            venueResponsive
             onClick={() => onEventClick(event)}
           />
         ))}
+      </div>
+    </div>
+  )
+}
+
+function TimingGroups({
+  events,
+  onEventClick,
+  geoLabel,
+}: {
+  events: Event[]
+  onEventClick: (event: Event) => void
+  geoLabel: string
+}) {
+  const { thisWeek, later } = useMemo(() => partitionSeasonalTiming(events), [events])
+
+  if (events.length === 0) return null
+
+  return (
+    <>
+      {thisWeek.length > 0 ? (
+        <section className="seasonal-density-group" aria-label={`${geoLabel} · This week`}>
+          <h3 className="seasonal-density-group__title">This week</h3>
+          <SeasonalEventGrid
+            events={thisWeek}
+            onEventClick={onEventClick}
+            label={`${geoLabel} this week`}
+          />
+        </section>
+      ) : null}
+      {later.length > 0 ? (
+        <section className="seasonal-density-group" aria-label={`${geoLabel} · Later`}>
+          <h3 className="seasonal-density-group__title">Later</h3>
+          <SeasonalEventGrid
+            events={later}
+            onEventClick={onEventClick}
+            label={`${geoLabel} later`}
+          />
+        </section>
+      ) : null}
+    </>
+  )
+}
+
+type GeoTab = 'close' | 'drive'
+
+function SeasonalGeoPill({
+  closeTitle,
+  driveTitle,
+  activeTab,
+  onChange,
+}: {
+  closeTitle: string
+  driveTitle: string
+  activeTab: GeoTab
+  onChange: (tab: GeoTab) => void
+}) {
+  return (
+    <div className="seasonal-density-tabs seasonal-density-tabs--mobile seasonal-density-tabs--in-header seasonal-density-tabs--fall-frost">
+      <div className="seasonal-density-tabs__list" role="tablist" aria-label="Seasonal areas">
+        <button
+          type="button"
+          role="tab"
+          id="seasonal-density-tab-close"
+          aria-selected={activeTab === 'close'}
+          aria-controls="seasonal-density-tab-panel"
+          className="seasonal-density-tabs__tab"
+          onClick={() => onChange('close')}
+        >
+          {closeTitle}
+        </button>
+        <button
+          type="button"
+          role="tab"
+          id="seasonal-density-tab-drive"
+          aria-selected={activeTab === 'drive'}
+          aria-controls="seasonal-density-tab-panel"
+          className="seasonal-density-tabs__tab"
+          onClick={() => onChange('drive')}
+        >
+          {driveTitle}
+        </button>
       </div>
     </div>
   )
@@ -99,10 +158,10 @@ function HalloweenCollectionSections({
           </h2>
           <p className="seasonal-collection-band__subtitle">{closeToHome.subtitle}</p>
         </header>
-        <SeasonalEventGrid
+        <TimingGroups
           events={closeToHomeEvents}
           onEventClick={onEventClick}
-          label={`${closeToHome.title} activities`}
+          geoLabel={closeToHome.title}
         />
       </section>
 
@@ -117,10 +176,10 @@ function HalloweenCollectionSections({
             </h2>
             <p className="seasonal-collection-band__subtitle">{worthADrive.subtitle}</p>
           </header>
-          <SeasonalEventGrid
+          <TimingGroups
             events={driveEvents}
             onEventClick={onEventClick}
-            label={`${worthADrive.title} activities`}
+            geoLabel={worthADrive.title}
           />
         </section>
       ) : null}
@@ -130,6 +189,9 @@ function HalloweenCollectionSections({
 
 export function ExperimentSeasonalCollectionPage() {
   const { slug } = useParams()
+  const [searchParams] = useSearchParams()
+  const guideCard = parseGuideCard(searchParams.get('card'))
+  const [geoTab, setGeoTab] = useState<GeoTab>('close')
   const openEvent = useEventNavigation()
   const { getCatalog } = useLaunchStagingCatalog()
   const validSlug = isSeasonalCollectionSlug(slug) ? slug : null
@@ -159,8 +221,15 @@ export function ExperimentSeasonalCollectionPage() {
   const isHalloween = collection.slug === 'halloween-with-little-ones'
   const isHelloFall = collection.slug === 'hello-fall'
   const hasGeographicSections = Boolean(collection.closeToHome && collection.worthADrive)
-  const supportingLine = collection.slug === 'hello-fall' ? undefined : collection.title
+  const supportingLine =
+    collection.slug === 'hello-fall' || collection.slug === 'halloween-with-little-ones'
+      ? undefined
+      : collection.title
   const showDescription = Boolean(collection.description)
+  const showGeoToggle = isHalloween && driveEvents.length > 0
+  const activeGeoTab: GeoTab = geoTab === 'drive' && showGeoToggle ? 'drive' : 'close'
+  const activeGeo = activeGeoTab === 'drive' ? collection.worthADrive : collection.closeToHome
+  const activeGeoEvents = activeGeoTab === 'drive' ? driveEvents : closeToHomeEvents
 
   return (
     <div
@@ -186,31 +255,22 @@ export function ExperimentSeasonalCollectionPage() {
           : undefined
       }
     >
-      {isHalloween ? (
-        <div className="halloween-sparkles" aria-hidden>
-          {HALLOWEEN_SPARKLES.map((sparkle, index) => (
-            <span
-              key={index}
-              className="halloween-sparkles__star"
-              style={
-                {
-                  top: sparkle.top,
-                  left: sparkle.left,
-                  width: sparkle.size,
-                  height: sparkle.size,
-                  '--sparkle-delay': sparkle.delay,
-                  '--sparkle-duration': sparkle.duration,
-                } as CSSProperties
-              }
-            />
-          ))}
-        </div>
-      ) : null}
+      {isHalloween ? <HalloweenNightSparkles /> : null}
 
       <AppHeader
         logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
         logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
         showBrandName={false}
+        below={
+          showGeoToggle && activeGeo ? (
+            <SeasonalGeoPill
+              closeTitle={collection.closeToHome!.title}
+              driveTitle={collection.worthADrive!.title}
+              activeTab={activeGeoTab}
+              onChange={setGeoTab}
+            />
+          ) : null
+        }
       />
 
       <PageContainer
@@ -266,13 +326,41 @@ export function ExperimentSeasonalCollectionPage() {
             ) : null}
           </header>
 
+          {isHalloween ? <LocalGuideCardVariant variant={guideCard ?? 4} /> : null}
+
           {hasGeographicSections ? (
-            <HalloweenCollectionSections
-              collection={collection}
-              closeToHomeEvents={closeToHomeEvents}
-              driveEvents={driveEvents}
-              onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
-            />
+            <>
+              {showGeoToggle && activeGeo ? (
+                <div
+                  className="seasonal-density-mobile-panel"
+                  id="seasonal-density-tab-panel"
+                  role="tabpanel"
+                  aria-labelledby={
+                    activeGeoTab === 'drive'
+                      ? 'seasonal-density-tab-drive'
+                      : 'seasonal-density-tab-close'
+                  }
+                >
+                  <header className="seasonal-collection-band__header">
+                    <h2 className="seasonal-collection-band__title">{activeGeo.title}</h2>
+                    <p className="seasonal-collection-band__subtitle">{activeGeo.subtitle}</p>
+                  </header>
+                  <TimingGroups
+                    events={activeGeoEvents}
+                    onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
+                    geoLabel={activeGeo.title}
+                  />
+                </div>
+              ) : null}
+              <div className={showGeoToggle ? 'seasonal-density-desktop-stack' : undefined}>
+                <HalloweenCollectionSections
+                  collection={collection}
+                  closeToHomeEvents={closeToHomeEvents}
+                  driveEvents={driveEvents}
+                  onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
+                />
+              </div>
+            </>
           ) : (
             <section
               className="browse-content seasonal-collection-results"
