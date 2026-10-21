@@ -18,11 +18,7 @@ function LocationLabel({
   cityKey: LocationKey
   label: string
 }) {
-  const showNew =
-    cityKey !== 'nearby' &&
-    cityKey !== 'all' &&
-    cityKey !== 'other' &&
-    isNewCityFilter(cityKey)
+  const showNew = cityKey !== 'nearby' && cityKey !== 'all' && isNewCityFilter(cityKey)
 
   return (
     <span className="flex min-w-0 items-center gap-2">
