@@ -6,6 +6,7 @@ export const BROWSE_LOCATION_OPTIONS = [
   { key: 'Palo Alto', label: 'Palo Alto' },
   { key: 'Los Altos', label: 'Los Altos' },
   { key: 'Mountain View', label: 'Mountain View' },
+  { key: 'other', label: 'Other cities' },
   { key: 'all', label: 'All cities' },
 ] as const
 
@@ -40,5 +41,6 @@ export function BrandLockup({
 export function getBrowseLocationLabel(city: string): string {
   if (city === 'nearby') return 'Nearby'
   if (city === 'all') return 'All cities'
+  if (city === 'other') return 'Other cities'
   return city
 }

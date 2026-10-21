@@ -11,7 +11,7 @@ const STORAGE_KEY = 'puddles:home-return'
 const HOME_RETURN_EVENT = 'puddles:home-return'
 
 const TEMPORAL_TABS: TemporalTab[] = ['today', 'tomorrow', 'weekend']
-const CITY_VALUES = ['all', 'Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale'] as const
+const CITY_VALUES = ['all', 'other', 'Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale'] as const
 
 /** Latest Home chips while Home is mounted — used when opening an event (including seasonal band). */
 let liveHomeUi: Pick<HomeReturnSnapshot, 'temporalTab' | 'whereMode'> | null = null

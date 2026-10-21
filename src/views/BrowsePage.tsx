@@ -510,6 +510,18 @@ export function BrowsePage({
     <div ref={secondaryControlsRowRef} className="browse-secondary-controls-row">
       <div className="browse-filter-chips-scroll">
         <div className="browse-filter-chips">
+          <FilterChipButton
+            label="Seasonal"
+            active={browseFilters.seasonal}
+            onClick={() =>
+              setBrowseFilters({ ...browseFilters, seasonal: !browseFilters.seasonal })
+            }
+          />
+          <FilterChipButton
+            label="Free"
+            active={browseFilters.free}
+            onClick={() => setBrowseFilters({ ...browseFilters, free: !browseFilters.free })}
+          />
           {filterChips.map((chip) => (
             <FilterChipButton
               key={chip.key}

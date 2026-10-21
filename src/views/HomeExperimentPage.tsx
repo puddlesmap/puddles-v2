@@ -52,7 +52,7 @@ import {
   type HomeReturnSnapshot,
 } from '../utils/homeReturnState'
 
-type CityValue = 'all' | 'Palo Alto' | 'Los Altos' | 'Mountain View' | 'Sunnyvale'
+type CityValue = 'all' | 'other' | 'Palo Alto' | 'Los Altos' | 'Mountain View' | 'Sunnyvale'
 
 type WhereMode =
   | { kind: 'nearby' }
@@ -63,6 +63,7 @@ const CITY_CHIPS: Array<{ value: CityValue; label: string }> = [
   { value: 'Palo Alto', label: 'Palo Alto' },
   { value: 'Los Altos', label: 'Los Altos' },
   { value: 'Mountain View', label: 'Mountain View' },
+  { value: 'other', label: 'Other cities' },
   { value: 'all', label: 'All Cities' },
 ]
 
@@ -82,9 +83,9 @@ function getResultsSummary({
       return `No activities found within ${NEARBY_RADIUS_MILES} mi of you`
     }
 
-    return whereMode.value === 'all'
-      ? 'No activities found in all cities'
-      : `No activities found in ${whereMode.value}`
+    if (whereMode.value === 'all') return 'No activities found in all cities'
+    if (whereMode.value === 'other') return 'No activities found in other cities'
+    return `No activities found in ${whereMode.value}`
   }
 
   if (whereMode.kind === 'nearby') {
@@ -277,6 +278,7 @@ export function HomeExperimentPage({
     const base = filterEvents(resolveCatalog(), {
       city: whereMode.kind === 'city' && whereMode.value !== 'all' ? whereMode.value : 'all',
       temporalTab,
+      browse: { seasonal: browseFilters.seasonal, free: browseFilters.free },
     })
 
     if (whereMode.kind === 'nearby' && coords) {
@@ -287,12 +289,12 @@ export function HomeExperimentPage({
     }
 
     return sortEventsBySchedule(base)
-  }, [whereMode, temporalTab, coords, resolveCatalog])
+  }, [whereMode, temporalTab, coords, resolveCatalog, browseFilters.seasonal, browseFilters.free])
 
   const feedKey = useMemo(
     () =>
-      `${whereMode.kind}|${whereMode.kind === 'city' ? whereMode.value : 'nearby'}|${temporalTab}|${coords?.lat ?? ''}|${coords?.lng ?? ''}`,
-    [whereMode, temporalTab, coords],
+      `${whereMode.kind}|${whereMode.kind === 'city' ? whereMode.value : 'nearby'}|${temporalTab}|${browseFilters.seasonal ? 'seasonal' : ''}|${browseFilters.free ? 'free' : ''}|${coords?.lat ?? ''}|${coords?.lng ?? ''}`,
+    [whereMode, temporalTab, coords, browseFilters.seasonal, browseFilters.free],
   )
 
   const requestNearbyLocation = useCallback(async () => {
@@ -406,7 +408,11 @@ export function HomeExperimentPage({
             <DiscoveryFilterChip
               key={chip.value}
               label={chip.label}
-              badge={isNewCityFilter(chip.value) ? 'NEW' : undefined}
+              badge={
+                chip.value !== 'all' && chip.value !== 'other' && isNewCityFilter(chip.value)
+                  ? 'NEW'
+                  : undefined
+              }
               active={whereMode.kind === 'city' && whereMode.value === chip.value}
               onClick={() => handleCitySelect(chip.value)}
             />
@@ -431,6 +437,18 @@ export function HomeExperimentPage({
               onClick={() => handleDayChange(tab.key)}
             />
           ))}
+          <DiscoveryFilterChip
+            label="Seasonal"
+            active={browseFilters.seasonal}
+            onClick={() =>
+              setBrowseFilters({ ...browseFilters, seasonal: !browseFilters.seasonal })
+            }
+          />
+          <DiscoveryFilterChip
+            label="Free"
+            active={browseFilters.free}
+            onClick={() => setBrowseFilters({ ...browseFilters, free: !browseFilters.free })}
+          />
         </div>
       </div>
     </div>

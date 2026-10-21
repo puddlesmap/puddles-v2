@@ -18,7 +18,10 @@ import { projectLatLngToMapPercent } from './mapBounds'
 
 export type HomeWhereMode =
   | { kind: 'nearby' }
-  | { kind: 'city'; value: 'all' | 'Palo Alto' | 'Los Altos' | 'Mountain View' | 'Sunnyvale' }
+  | {
+      kind: 'city'
+      value: 'all' | 'other' | 'Palo Alto' | 'Los Altos' | 'Mountain View' | 'Sunnyvale'
+    }
 
 export interface HomeMapPreviewContext {
   whereMode: HomeWhereMode
@@ -40,6 +43,7 @@ export interface HomeMapPreviewFraming {
 function getNearLocationLabel(whereMode: HomeWhereMode): string {
   if (whereMode.kind === 'nearby') return 'you'
   if (whereMode.kind === 'city' && whereMode.value === 'all') return 'all cities'
+  if (whereMode.kind === 'city' && whereMode.value === 'other') return 'other cities'
   return whereMode.value
 }
 
@@ -73,6 +77,7 @@ export function getHomeMapPreviewStatus({
 export function getHomeMapPreviewLabelRefined(whereMode: HomeWhereMode): string {
   if (whereMode.kind === 'nearby') return 'Near you'
   if (whereMode.kind === 'city' && whereMode.value === 'all') return 'Explore nearby activities'
+  if (whereMode.kind === 'city' && whereMode.value === 'other') return 'Other cities'
   return whereMode.value
 }
 
@@ -99,7 +104,7 @@ export function resolveHomeMapPreviewFraming(
   _events: Event[],
   _userCoords?: { lat: number; lng: number } | null,
 ): HomeMapPreviewFraming {
-  if (whereMode.kind === 'nearby' || whereMode.value === 'all') {
+  if (whereMode.kind === 'nearby' || whereMode.value === 'all' || whereMode.value === 'other') {
     return {
       areaBounds: HOME_MAP_AREA_BOUNDS.all,
       boundsPadding: HOME_MAP_ALL_CITIES_BOUNDS_PADDING,
@@ -194,8 +199,9 @@ export function getHomeMapDecorativePinPositions(
   viewport: HomeMapViewport,
 ): HomeMapPinPosition[] {
   if (count <= 0) return []
+  if (whereMode.kind === 'city' && whereMode.value === 'other') return []
 
-  if (whereMode.kind === 'city' && whereMode.value !== 'all') {
+  if (whereMode.kind === 'city' && whereMode.value !== 'all' && whereMode.value !== 'other') {
     const center = HOME_MAP_CITY_CENTERS[whereMode.value]
     return [projectPointToPin(center.lat, center.lng, viewport, true)]
   }

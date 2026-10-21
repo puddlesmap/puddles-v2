@@ -42,5 +42,9 @@ export function getHomeFilterResultsSummary({
     return `All cities · ${countLabel}`
   }
 
+  if (whereMode.value === 'other') {
+    return `Other cities · ${countLabel}`
+  }
+
   return `${whereMode.value} · ${countLabel}`
 }

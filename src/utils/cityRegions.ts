@@ -17,9 +17,13 @@ export function isLaunchAreaCity(city: string): boolean {
   return (WELCOME_LAUNCH_CITIES as readonly string[]).includes(region)
 }
 
+/** Home and Browse location key for published events outside the four core cities. */
+export const OTHER_CITIES_FILTER = 'other'
+
 /** Browse / Admin city chips: Los Altos includes Los Altos Hills. */
 export function matchesBrowseCityFilter(eventCity: string, filterCity: string): boolean {
   if (!filterCity || filterCity === 'all' || filterCity === 'nearby') return true
+  if (filterCity === OTHER_CITIES_FILTER) return !isLaunchAreaCity(eventCity)
   if (eventCity === filterCity) return true
   return browseRegionForCity(eventCity) === browseRegionForCity(filterCity)
 }

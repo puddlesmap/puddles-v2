@@ -1,5 +1,6 @@
 import { getPublicEventsFromCatalog } from '../data/events'
-import type { DayFilter, Event, TimeFilter, ActivityType } from '../types/event'
+import { isFreeCost, type DayFilter, type Event, type TimeFilter, type ActivityType } from '../types/event'
+import { isSeasonalAdminListing } from './adminSeasonalEvents'
 import type { TemporalTab } from './dates'
 import { getAnchorDate } from './dates'
 import {
@@ -27,6 +28,10 @@ export interface BrowseFilters {
   age: AgeFilter
   types: ActivityType[]
   cityLocked: boolean
+  /** Current seasonal collection, including worth-a-drive picks. */
+  seasonal: boolean
+  /** Free admission. */
+  free: boolean
 }
 
 export const DEFAULT_BROWSE_FILTERS: BrowseFilters = {
@@ -36,6 +41,8 @@ export const DEFAULT_BROWSE_FILTERS: BrowseFilters = {
   age: 'all',
   types: [],
   cityLocked: false,
+  seasonal: false,
+  free: false,
 }
 
 function matchesAge(event: Event, age: AgeFilter): boolean {
@@ -83,6 +90,8 @@ export function filterEvents(
       if (!eventMatchesTimeFilter(event, f.time)) return false
       if (!matchesAge(event, f.age)) return false
       if (f.types.length > 0 && !f.types.some((t) => event.types.includes(t))) return false
+      if (f.seasonal && !isSeasonalAdminListing(event)) return false
+      if (f.free && !isFreeCost(event.cost)) return false
     }
 
     return true
@@ -109,7 +118,9 @@ export function hasActiveBrowseFilters(browse: BrowseFilters): boolean {
     browse.day !== 'anytime' ||
     browse.time !== 'any' ||
     browse.age !== 'all' ||
-    browse.types.length > 0
+    browse.types.length > 0 ||
+    browse.seasonal ||
+    browse.free
   )
 }
 
@@ -119,7 +130,9 @@ export function isBrowseFiltersDefault(browse: BrowseFilters): boolean {
     browse.day === 'anytime' &&
     browse.time === 'any' &&
     browse.age === 'all' &&
-    browse.types.length === 0
+    browse.types.length === 0 &&
+    !browse.seasonal &&
+    !browse.free
   )
 }
 
@@ -139,6 +152,8 @@ export function getResetBrowseFilters(_current: BrowseFilters): BrowseFilters {
     time: 'any',
     age: 'all',
     types: [],
+    seasonal: false,
+    free: false,
   }
 }
 
@@ -154,8 +169,8 @@ export function getBrowseSeeUpcomingFilters(
     if (countFor(next) > 0) return next
   }
 
-  if (next.age !== 'all' || next.types.length > 0) {
-    next = { ...next, age: 'all', types: [] }
+  if (next.age !== 'all' || next.types.length > 0 || next.seasonal || next.free) {
+    next = { ...next, age: 'all', types: [], seasonal: false, free: false }
     if (countFor(next) > 0) return next
   }
 
