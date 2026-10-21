@@ -1,6 +1,13 @@
 export type AgeBucket = '0-2' | '2-5' | '5+'
+export type AgeFilter = 'all' | '0-2' | '2-5'
 
-/** Default age tag when a listing does not name a narrower range. */
+export const PUBLIC_AGE_FILTER_OPTIONS: { key: AgeFilter; label: string }[] = [
+  { key: 'all', label: 'All' },
+  { key: '0-2', label: '0–2' },
+  { key: '2-5', label: '2–5' },
+]
+
+/** Puddles Age Tags on the event sheet — never 5+. */
 export const FULL_SITE_AGE_TAG = '0–5'
 export const FESTIVAL_AGE_TAG = 'All ages · Little ones welcome'
 
@@ -9,13 +16,6 @@ export const PUDDLES_AGE_TAG_OPTIONS: { value: string; label: string }[] = [
   { value: '2–5', label: '2–5' },
   { value: FULL_SITE_AGE_TAG, label: '0–5' },
   { value: FESTIVAL_AGE_TAG, label: 'All ages · Little ones welcome' },
-]
-export type AgeFilter = 'all' | '0-2' | '2-5'
-
-export const PUBLIC_AGE_FILTER_OPTIONS: { key: AgeFilter; label: string }[] = [
-  { key: 'all', label: 'All' },
-  { key: '0-2', label: '0–2' },
-  { key: '2-5', label: '2–5' },
 ]
 
 function normalizePart(value: string): string {
@@ -32,10 +32,9 @@ export function parseAgeBuckets(raw: string): Set<AgeBucket> {
     return buckets
   }
 
-  if (/all\s*ages?/i.test(text)) {
+  if (/all\s*ages?/i.test(text) || /^0[-–]5$/i.test(normalizePart(text))) {
     buckets.add('0-2')
     buckets.add('2-5')
-    buckets.add('5+')
     return buckets
   }
 
@@ -44,6 +43,10 @@ export function parseAgeBuckets(raw: string): Set<AgeBucket> {
     if (!normalized) continue
     if (normalized === '0-2' || normalized === '0–2') buckets.add('0-2')
     if (normalized === '2-5' || normalized === '2–5') buckets.add('2-5')
+    if (normalized === '0-5' || normalized === '0–5') {
+      buckets.add('0-2')
+      buckets.add('2-5')
+    }
     if (normalized === '5+') buckets.add('5+')
   }
 
@@ -56,9 +59,9 @@ export function parseAgeBuckets(raw: string): Set<AgeBucket> {
     if (ranges.length > 0) {
       const min = Math.min(...ranges.map(([low]) => low))
       const max = Math.max(...ranges.map(([, high]) => high))
-      if (min <= 2) buckets.add('0-2')
-      if (min <= 5 && max >= 2) buckets.add('2-5')
-      if (max > 5) buckets.add('5+')
+      if (min < 2) buckets.add('0-2')
+      if (min < 5 && max >= 2) buckets.add('2-5')
+      if (min >= 5) buckets.add('5+')
     } else if (/^5\+$/i.test(normalizePart(text))) {
       buckets.add('5+')
     } else {
@@ -70,8 +73,9 @@ export function parseAgeBuckets(raw: string): Set<AgeBucket> {
   return buckets
 }
 
+/** True when the listing covers the full Puddles 0–5 range. */
 export function hasAllAgeBuckets(buckets: Set<AgeBucket>): boolean {
-  return buckets.has('0-2') && buckets.has('2-5') && buckets.has('5+')
+  return buckets.has('0-2') && buckets.has('2-5')
 }
 
 /** Events suitable for the public 0–5 site. Excludes 5+ only. */
@@ -100,58 +104,48 @@ export function getBrowseAgeChipLabel(age: AgeFilter): string {
 
 /**
  * Puddles parent-facing age tags only: Ages 0–2 | Ages 2–5 | All ages.
- * 2–5 + 5+ (or 5+ only) maps to Ages 2–5 — never precise copy ranges like 2–8.
+ * Never show 5+ on cards.
  */
 export function getEventCardAgeLabel(ageRange: string): string {
   const text = ageRange.trim()
-  if (!text || /all\s*ages?/i.test(text)) return 'All ages'
+  if (!text || /all\s*ages?/i.test(text) || /^0[-–]5$/i.test(normalizePart(text))) {
+    return 'All ages'
+  }
 
   if (/^3[-–]5$/.test(normalizePart(text))) return 'Ages 3–5'
   if (/^1[-–]3$/.test(normalizePart(text))) return 'Ages 1–3'
   if (/^1\.5[-–]5$/.test(normalizePart(text))) return 'Ages 1.5–5'
 
   const buckets = parseAgeBuckets(text)
-  if (isFullSiteAgeRange(buckets, text)) return 'All ages'
+  if (hasAllAgeBuckets(buckets)) return 'All ages'
 
-  if (buckets.has('0-2') && !buckets.has('2-5') && !buckets.has('5+')) {
+  if (buckets.has('0-2') && !buckets.has('2-5')) {
     return 'Ages 0–2'
   }
 
-  // 2–5 only, 2–5 + 5+, or 5+ only → Ages 2–5
-  if (!buckets.has('0-2') && (buckets.has('2-5') || buckets.has('5+'))) {
+  if (!buckets.has('0-2') && buckets.has('2-5')) {
     return 'Ages 2–5'
   }
 
   return 'All ages'
 }
 
-const MODAL_AGE_BUCKET_ORDER: AgeBucket[] = ['0-2', '2-5', '5+']
-
-function formatAgeBucketLabel(bucket: AgeBucket): string {
-  if (bucket === '0-2') return '0–2'
-  if (bucket === '2-5') return '2–5'
-  return '5+'
+function isFestivalAgeCopy(text: string): boolean {
+  return /little ones welcome/i.test(text)
 }
 
-function isFullSiteAgeRange(buckets: Set<AgeBucket>, text: string): boolean {
-  if (hasAllAgeBuckets(buckets)) return true
-  if (buckets.has('0-2') && buckets.has('2-5') && !buckets.has('5+')) return true
-  return /^0[-–]5$/i.test(text.replace(/\s+/g, ''))
-}
-
-/** Canonical bucket label for display and synced event data. */
+/** Canonical Age Tags for the event sheet: 0–2 | 2–5 | 0–5. */
 export function formatPublicAgeRangeLabel(ageRange: string): string {
   const text = ageRange.trim()
-  if (!text || /all\s*ages?/i.test(text)) return '0–2, 2–5, 5+'
+  if (isFestivalAgeCopy(text)) return FESTIVAL_AGE_TAG
+  if (!text || /all\s*ages?/i.test(text)) return FULL_SITE_AGE_TAG
 
   const buckets = parseAgeBuckets(text)
-  if (isFullSiteAgeRange(buckets, text)) return '0–2, 2–5, 5+'
-
-  const labels = MODAL_AGE_BUCKET_ORDER.filter((bucket) => buckets.has(bucket)).map(
-    formatAgeBucketLabel,
-  )
-  if (labels.length === 0) return '0–2, 2–5, 5+'
-  return labels.join(', ')
+  if (buckets.has('5+') && !buckets.has('0-2') && !buckets.has('2-5')) return '5+'
+  if (hasAllAgeBuckets(buckets) || /^0[-–]5$/i.test(normalizePart(text))) return FULL_SITE_AGE_TAG
+  if (buckets.has('0-2') && !buckets.has('2-5')) return '0–2'
+  if (buckets.has('2-5')) return '2–5'
+  return FULL_SITE_AGE_TAG
 }
 
 export function ageTagSelectOptions(current: string): { value: string; label: string }[] {
@@ -184,5 +178,5 @@ export function ageBoundsFromRange(raw: string): { min: number; max: number; lab
     }
   }
 
-  return { min: 0, max: 5, label: '0–2, 2–5, 5+' }
+  return { min: 0, max: 5, label: FULL_SITE_AGE_TAG }
 }

@@ -1,9 +1,9 @@
 import type { Event } from '../types/event'
-import { isNonTargetingAgeMention } from './discoveryAgeHints'
 import {
   hasAllAgeBuckets,
   parseAgeBuckets,
 } from './ageRange'
+import { isNonTargetingAgeMention } from './discoveryAgeHints'
 
 const AGE_WORDS: Record<string, number> = {
   one: 1,
@@ -208,7 +208,7 @@ function recommendationFromStructured(
   if (!Number.isFinite(ageMin) || !Number.isFinite(ageMax) || ageMax < ageMin) return null
 
   // Only treat as All ages when the Age Tags field literally says so —
-  // multi-bucket “0–2, 2–5, 5+” is a filter encoding, not a card recommendation.
+  // multi-bucket “0–2, 2–5” / “0–5” is a filter encoding, not a card recommendation.
   if (isExplicitAllAgesLabel(ageRange)) return 'All ages'
 
   const coarse = coarseBoundsForAgeRange(ageRange)
@@ -246,20 +246,41 @@ function isAllAgesOnlyRecommendation(label: string): boolean {
   return /^all\s+ages\.?$/i.test(label.trim())
 }
 
+/**
+ * “Best for ages 0+” and “Best for ages 0–18” do not help a parent choose.
+ * A range that starts at 0 and runs through school age means everyone is welcome.
+ */
+function replaceUnhelpfulOpenAgeRecommendation(label: string): string {
+  const text = label.trim()
+  if (/^best for ages 0\+$/i.test(text)) return 'All ages welcome'
+  const wide = text.match(/^best for ages 0[–-](\d+(?:\.\d+)?)$/i)
+  if (wide && Number.parseFloat(wide[1]) >= 6) return 'All ages welcome'
+  return label
+}
+
 export function getEventAgeRecommendation(
-  event: Pick<Event, 'ageRange' | 'ageMin' | 'ageMax' | 'description' | 'tips' | 'title'>,
+  event: Pick<Event, 'ageRange' | 'bestFor' | 'ageMin' | 'ageMax' | 'description' | 'tips' | 'title'>,
 ): EventAgeRecommendation {
+  const explicit = event.bestFor?.trim()
+  if (explicit) {
+    return { label: replaceUnhelpfulOpenAgeRecommendation(explicit), hideBroadAgePill: true }
+  }
   const copy = [event.description, event.tips ?? '', event.title].filter(Boolean).join('\n')
 
   const fromStructured = recommendationFromStructured(event.ageMin, event.ageMax, event.ageRange)
   if (fromStructured && !isAllAgesOnlyRecommendation(fromStructured)) {
-    return { label: fromStructured, hideBroadAgePill: true }
+    return {
+      label: replaceUnhelpfulOpenAgeRecommendation(fromStructured),
+      hideBroadAgePill: true,
+    }
   }
 
   const fromText = extractSpecificAgeRecommendationFromText(copy)
-  // “All ages welcome” in tips must not echo under an Ages field that already says All Ages.
-  if (fromText && !isAllAgesOnlyRecommendation(fromText)) {
-    return { label: fromText, hideBroadAgePill: true }
+  // “All ages” in tips must not echo under an Ages field that already says All Ages.
+  // “Best for ages 0+” is replaced with All ages welcome before that check.
+  const specific = fromText ? replaceUnhelpfulOpenAgeRecommendation(fromText) : null
+  if (specific && !isAllAgesOnlyRecommendation(specific)) {
+    return { label: specific, hideBroadAgePill: true }
   }
 
   // No specific recommendation — keep existing broad age pill only.

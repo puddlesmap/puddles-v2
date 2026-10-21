@@ -20661,5 +20661,37 @@
     "verifiedDate": "2026-10-20",
     "isPast": false,
     "isLive": true
+  },
+  {
+    "id": "core-weekend-mv-library-halloween-trick-or-treat-2026-10-31",
+    "title": "Halloween Trick-or-Treat",
+    "description": "Collect non-food Halloween treats at stations around the library.",
+    "tips": "ticket|Free. Drop in during library hours on October 31.\ninfo|Non-food treats are in the Children's Room, Teen Zone, Second Floor Reference Desk, and Customer Service. The Friends gift shop participates when it is open.\ninfo|Costumes are optional. The library lists this for ages 0–18.",
+    "venue": "Mountain View Public Library",
+    "address": "585 Franklin St, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-10-31",
+    "startTime": "10:00",
+    "endTime": "18:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_09_28_11_43_54.png",
+    "eventUrl": "https://mountainview.libcal.com/event/17722185",
+    "lat": 37.3895,
+    "lng": -122.0818,
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-21",
+    "isPast": false,
+    "isLive": true
   }
 ]

@@ -713,6 +713,7 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'core-weekend-halloween-zoo-night-2026-10-29',
       'core-weekend-jack-o-jaunt-2026-10-30',
       'core-weekend-lakewood-library-opening-2026-10-31',
+      'core-weekend-mv-library-halloween-trick-or-treat-2026-10-31',
     ],
     driveEventIds: [
       // Spanning Fall → next theme: farms keep the seasonal badge under both modules
@@ -727,6 +728,7 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'seasonal-drive-hmb-art-pumpkin-festival-2026-10-17',
       'seasonal-drive-goblin-jamboree-2026-10-03',
       'seasonal-drive-hiller-paint-a-plane-2026-10-24',
+      'seasonal-drive-hiller-trunk-or-treat-2026-10-29',
       'seasonal-drive-dig-deep-farms-pumpkin-patch-2026-10-03',
       'seasonal-drive-queens-pumpkin-patch-2026-10-01',
       'seasonal-drive-menlo-park-halloween-hoopla-2026-10-24',
