@@ -659,6 +659,42 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         featuredUntil: '2026-10-30',
         note: 'Halloween weekend · Cherry Chase',
       },
+      {
+        eventId: 'core-weekend-lemurpalooza-2026-10-21',
+        featuredFrom: '2026-10-20',
+        featuredUntil: '2026-10-21',
+        note: 'JMZ lemur morning',
+      },
+      {
+        eventId: 'core-weekend-magical-bridge-halloween-costume-party-2026-10-25',
+        featuredFrom: '2026-10-20',
+        featuredUntil: '2026-10-25',
+        note: 'This weekend · Magical Bridge costume party',
+      },
+      {
+        eventId: 'core-weekend-sunnyvale-halloween-pet-parade-2026-10-25',
+        featuredFrom: '2026-10-20',
+        featuredUntil: '2026-10-25',
+        note: 'This weekend · Sunnyvale pet parade',
+      },
+      {
+        eventId: 'core-weekend-halloween-zoo-night-2026-10-29',
+        featuredFrom: '2026-10-22',
+        featuredUntil: '2026-10-29',
+        note: 'Members-only zoo night',
+      },
+      {
+        eventId: 'core-weekend-jack-o-jaunt-2026-10-30',
+        featuredFrom: '2026-10-24',
+        featuredUntil: '2026-10-30',
+        note: 'Halloween weekend · jack-o-lanterns',
+      },
+      {
+        eventId: 'core-weekend-lakewood-library-opening-2026-10-31',
+        featuredFrom: '2026-10-24',
+        featuredUntil: '2026-10-31',
+        note: 'Halloween · Lakewood library opening',
+      },
     ],
     collectionEventIds: [
       'monster-bash-rengstorff-park-2026-10-24-10-00',
@@ -671,6 +707,12 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'otto-family-club-jack-o-lantern-2026-10-29',
       'disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30',
       'core-weekend-cherry-chase-fall-festival-2026-10-30',
+      'core-weekend-lemurpalooza-2026-10-21',
+      'core-weekend-magical-bridge-halloween-costume-party-2026-10-25',
+      'core-weekend-sunnyvale-halloween-pet-parade-2026-10-25',
+      'core-weekend-halloween-zoo-night-2026-10-29',
+      'core-weekend-jack-o-jaunt-2026-10-30',
+      'core-weekend-lakewood-library-opening-2026-10-31',
     ],
     driveEventIds: [
       // Spanning Fall → next theme: farms keep the seasonal badge under both modules

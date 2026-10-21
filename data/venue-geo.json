@@ -82,7 +82,15 @@
     "AAH Smile Farm": { "city": "Sunnyvale", "lat": 37.4184, "lng": -122.0154 },
     "Ravenswood Historic Site": { "city": "Livermore", "lat": 37.652, "lng": -121.7699 },
     "Patchen Christmas Tree & Pumpkin Farm": { "city": "Los Gatos", "lat": 37.215, "lng": -121.98 },
-    "Meek Estate Park": { "city": "Hayward", "lat": 37.6838, "lng": -122.1134 }
+    "Meek Estate Park": { "city": "Hayward", "lat": 37.6838, "lng": -122.1134 },
+    "Palo Alto Junior Museum & Zoo": { "city": "Palo Alto", "lat": 37.4448, "lng": -122.1448 },
+    "Palo Alto Children's Theatre": { "city": "Palo Alto", "lat": 37.444752, "lng": -122.145844 },
+    "Magical Bridge Playground": { "city": "Palo Alto", "lat": 37.4203, "lng": -122.1134 },
+    "Lytton Plaza": { "city": "Palo Alto", "lat": 37.4444, "lng": -122.1617 },
+    "Lakewood Branch Library and Learning Center": { "city": "Sunnyvale", "lat": 37.4035, "lng": -122.006 },
+    "Hidden Villa": { "city": "Los Altos Hills", "lat": 37.341, "lng": -122.162 },
+    "Filoli": { "city": "Woodside", "lat": 37.4703, "lng": -122.3107 },
+    "Juana Briones Park": { "city": "Palo Alto", "lat": 37.413, "lng": -122.136 }
   },
   "venueAddresses": {
     "Downtown Library": "270 Forest Ave, Palo Alto, CA 94301",
@@ -139,7 +147,15 @@
     "AAH Smile Farm": "999 E Caribbean Dr, Sunnyvale, CA 94089",
     "Ravenswood Historic Site": "2647 Arroyo Rd, Livermore, CA 94550",
     "Patchen Christmas Tree & Pumpkin Farm": "22217 Old Santa Cruz Highway, Los Gatos, CA 95033",
-    "Meek Estate Park": "240 Hampton Road, Hayward, CA 94541"
+    "Meek Estate Park": "240 Hampton Road, Hayward, CA 94541",
+    "Palo Alto Junior Museum & Zoo": "1451 Middlefield Rd, Palo Alto, CA 94301",
+    "Palo Alto Children's Theatre": "1305 Middlefield Road, Palo Alto, CA 94301",
+    "Magical Bridge Playground": "3700 Middlefield Rd, Palo Alto, CA 94306",
+    "Lytton Plaza": "University Ave & Emerson St, Palo Alto, CA 94301",
+    "Lakewood Branch Library and Learning Center": "760 Lakechime Drive, Sunnyvale, CA 94089",
+    "Hidden Villa": "26870 Moody Road, Los Altos Hills, CA 94022",
+    "Filoli": "86 Cañada Road, Woodside, CA 94062",
+    "Juana Briones Park": "Maybell & Amaranta Avenues, Palo Alto, CA 94306"
   },
   "cityCenters": {
     "Palo Alto": { "lat": 37.4419, "lng": -122.143 },

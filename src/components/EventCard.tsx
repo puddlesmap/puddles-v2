@@ -6,6 +6,7 @@ import { getEventCardAgeLabel } from '../utils/ageRange'
 import { formatCostBadgeLabel } from '../utils/eventCost'
 import { formatActivityTypeMetaLabel } from '../utils/activityTypeMeta'
 import { formatCardDateTime } from '../utils/dates'
+import { formatMultiplePerformancesCardWhen } from '../utils/eventSessions'
 import { getEventDisplayCategory } from '../utils/eventImages'
 import { formatEventCardLocation } from '../utils/maps'
 import { eventDetailPath } from '../utils/eventPages'
@@ -220,7 +221,8 @@ export function EventCard({
   editorialBadge,
   showActivityTypeMeta,
 }: EventCardProps) {
-  const dateTime = formatCardDateTime(event.date, event.startTime)
+  const dateTime =
+    formatMultiplePerformancesCardWhen(event) ?? formatCardDateTime(event.date, event.startTime)
   const resolvedEditorialBadge =
     editorialBadge !== undefined
       ? editorialBadge

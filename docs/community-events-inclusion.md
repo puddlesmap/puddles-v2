@@ -104,6 +104,19 @@ Do not use **Festivals & Community** when:
 - Food festival with no family programming
 - Shopping event marketed as “all ages”
 
+### Review classification (not a new filter)
+
+Use this when scanning city calendars and grouped watchlist sources. It does **not** add a Family Friendly activity type.
+
+| Class | Include when | Example |
+| --- | --- | --- |
+| **Designed for kids** | The program is made for young children and the ages fit | Playhouse Series, preschool craft |
+| **Family-friendly participation** | Young children can reasonably join or watch | Outdoor music, community festival, farm open house |
+| **Intergenerational neighborhood celebration** | The official page invites neighbors of different cultures and generations **and** there is something to join (crafts, music, dance, food gathering) | Barron Park End-of-Year Celebration — copy should say crafts and Zumba, not “all generations welcome” |
+| **Adult-focused only** | Meetings, adult workshops, or “all generations” on a meeting or wine event | Skip |
+
+Uncertain rows stay Admin **Review needed** (`access: unknown` already blocks Approve).
+
 ### Classification rule
 
 > **Use Festivals & Community when a broader community event gives little ones something meaningful to do or experience—not simply because kids are welcome.**

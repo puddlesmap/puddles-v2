@@ -1372,14 +1372,47 @@
   }
 }
 
-.home-experiment-shell--halloween-night > :not(.halloween-sparkles) {
+.home-experiment-shell--halloween-night > :not(.halloween-sparkles):not(.app-header) {
   position: relative;
   z-index: 1;
 }
 
-.home-experiment-shell--halloween-night .app-header.page-header-sticky,
+.home-experiment-shell.home-experiment-shell--halloween-night > header.app-header.page-header-sticky {
+  background: transparent;
+}
+
+.home-experiment-shell.home-experiment-shell--halloween-night > header.app-header.page-header-sticky::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 10, 8, 0.72) 0%, rgba(18, 10, 8, 0.28) 70%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .home-experiment-shell--halloween-night .app-header-row {
   background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .home-experiment-shell.home-experiment-shell--halloween-night > header.app-header.page-header-sticky,
+  .home-experiment-shell.home-experiment-shell--halloween-night > header.app-header.page-header-sticky .app-header-row {
+    background: #120a08;
+  }
+
+  .home-experiment-shell.home-experiment-shell--halloween-night > header.app-header.page-header-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+  }
+
+  .home-experiment-shell.home-experiment-shell--halloween-night > .seasonal-collection-page {
+    padding-top: 4.25rem;
+  }
 }
 
 .home-experiment-shell--halloween-night .logo-mark img,

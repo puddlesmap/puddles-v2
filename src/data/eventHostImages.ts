@@ -56,6 +56,8 @@ export const EVENT_HOST_IMAGES: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/6/62/Ravenswood_%28Livermore%2C_CA%29.JPG',
   'Meek Estate Park':
     'https://upload.wikimedia.org/wikipedia/commons/9/90/Meek_Mansion_%28Hayward%2C_CA%29.JPG',
+  'Hidden Villa': 'https://www.hiddenvilla.org/wp-content/uploads/2026/03/hidden-villa-logo.jpg',
+  Filoli: 'https://filoli.org/media/xbcltkxd/filoli-holiday-lights-inmenlo-11-20-2022-0194-6.jpg',
 }
 
 /** Case-insensitive venue / host alias → canonical EVENT_HOST_IMAGES key */
@@ -92,6 +94,8 @@ const EVENT_HOST_IMAGE_ALIASES: Record<string, string> = {
   'ravenswood': 'Ravenswood Historic Site',
   'meek estate park': 'Meek Estate Park',
   'meek park': 'Meek Estate Park',
+  'hidden villa': 'Hidden Villa',
+  filoli: 'Filoli',
 }
 
 /** @deprecated Use getEventHostImageUrl */

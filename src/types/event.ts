@@ -1,3 +1,5 @@
+import type { EventSession } from './eventSession'
+
 export type EventStatus = 'Draft' | 'Published' | 'Hidden' | 'Expired' | 'Cancelled'
 
 export type City =
@@ -102,6 +104,11 @@ export interface Event {
    * Shown as “{label} · Sep 5–7” under hours — not in Good to know.
    */
   scheduleWindowLabel?: string
+  /**
+   * Individual showtimes or dated tour times. When more than one is set, Browse
+   * time/date chips match any session, and the card says Multiple performances.
+   */
+  sessions?: EventSession[]
   ageRange: string
   /** Verified parent-facing recommendation from an official source, e.g. “Best for ages 2–5”. */
   bestFor?: string
@@ -136,3 +143,4 @@ export interface Event {
 export type DayFilter = 'today' | 'tomorrow' | 'weekend' | 'anytime'
 export type TimeFilter = 'any' | 'morning' | 'after-lunch' | 'late-afternoon' | 'evening'
 export type { AgeFilter } from '../utils/ageRange'
+export type { EventSession } from './eventSession'

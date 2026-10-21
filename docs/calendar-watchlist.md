@@ -13,7 +13,23 @@ The saved list of **non-library calendars** Puddles checks for ages 0–5 activi
 - **Discovery** = automated library scrapers (BiblioCommons / LibCal → Admin queue)
 - **Calendar Watchlist** = manual/partner feeds you revisit on a cadence (`data/calendar-watchlist.json`)
 
-## Sources (Aug 2026 pass)
+## Groups (`kind` on each watchlist row)
+
+| kind | What belongs |
+|------|----------------|
+| `city-community` | City calendars, neighborhood associations, school community events, playgrounds |
+| `performances-theatre` | PYT / MVCPA family shows, Palo Alto Children’s Theatre, Stanford Live (watch; skip school matinees) |
+| `museums-attractions` | JMZ, CDM, The Tech — dated specials only; ordinary museum hours are not events |
+| `music-dance` | Symphony My Very First, SFJAZZ Family Matinees, CSMA family days |
+| `nature-seasonal` | Hidden Villa (Los Altos Hills / core), Filoli (Hidden regional), Deer Hollow Farm (**Cupertino**), farms |
+| `parent-me-providers` | Otto, FIT4MOM, Music Together, gyms — one series row |
+| `libraries-bookstores` | Existing library scrapers + Linden Tree |
+
+`lastCheck` on a source is `checked` | `no-new-events` | `extraction-failed` | `review-needed`, plus `eventsSeen` and `missedReason`. Wednesday writes this when a source is opened.
+
+JMZ **Amazing Animals / Preschool Discovery Science** stay on the watchlist and in Admin Discovery. Do not publish each class meeting as a drop-in.
+
+## Sources (Aug 2026 pass, kinds added Oct 2026)
 
 | Source | 0–5 fit | On Puddles? | Notes |
 |--------|---------|-------------|--------|

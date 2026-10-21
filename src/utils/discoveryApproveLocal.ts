@@ -384,6 +384,7 @@ export function appendDraftInAdminCache(
     date: edits.date || candidate.date,
     startTime: edits.startTime || candidate.startTime || '',
     endTime: edits.endTime || candidate.endTime || '',
+    ...(candidate.sessions?.length ? { sessions: candidate.sessions } : {}),
     ageRange: formatPublicAgeRangeLabel(
       edits.ageRange || inferred?.ageRange || candidate.ageRange || FULL_SITE_AGE_TAG,
     ),

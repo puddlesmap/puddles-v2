@@ -4,6 +4,7 @@ import { isFreeCost } from '../../types/event'
 import { getEventCardAgeLabel } from '../../utils/ageRange'
 import { formatCostBadgeLabel } from '../../utils/eventCost'
 import { formatCardDateTime } from '../../utils/dates'
+import { formatMultiplePerformancesCardWhen } from '../../utils/eventSessions'
 import { getEventDisplayCategory } from '../../utils/eventImages'
 import { formatEventCardLocation } from '../../utils/maps'
 import { eventDetailPath } from '../../utils/eventPages'
@@ -52,7 +53,8 @@ function LiveBrowseEventCardPills({ event }: { event: Event }) {
 }
 
 export function LiveBrowseEventCard({ event, onClick }: LiveBrowseEventCardProps) {
-  const dateTime = formatCardDateTime(event.date, event.startTime)
+  const dateTime =
+    formatMultiplePerformancesCardWhen(event) || formatCardDateTime(event.date, event.startTime)
 
   return (
     <Link

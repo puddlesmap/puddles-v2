@@ -18,7 +18,7 @@ const VENUE_CITY = {
   'Mountain View Library': { city: 'Mountain View', address: '585 Franklin St, Mountain View, CA', lat: 37.3895, lng: -122.0818 },
   'Mountain View Magical Bridge': { city: 'Mountain View', address: 'Rengstorff Park, Mountain View, CA', lat: 37.395, lng: -122.088 },
   'Pioneer Park': { city: 'Mountain View', address: '525 Church St, Mountain View, CA', lat: 37.3945, lng: -122.0786 },
-  'Deer Hollow Farm': { city: 'Mountain View', address: '22500 Cristo Rey Dr, Cupertino, CA', lat: 37.319, lng: -122.085 },
+  'Deer Hollow Farm': { city: 'Cupertino', address: '22500 Cristo Rey Dr, Cupertino, CA', lat: 37.319, lng: -122.085 },
   'Los Altos Library': { city: 'Los Altos', address: '13 S San Antonio Rd, Los Altos, CA', lat: 37.3791, lng: -122.1142 },
 }
 

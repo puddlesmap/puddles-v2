@@ -10727,9 +10727,9 @@
     "verifiedDate": "2026-09-15",
     "lat": 37.341,
     "lng": -122.162,
-    "status": "Published",
-    "isPast": false,
-    "isLive": true,
+    "status": "Expired",
+    "isPast": true,
+    "isLive": false,
     "sheetTypesRaw": "Outdoor, Festivals & Community",
     "tips": "$18 per person (adults and children). Register ahead — tours need at least 5 people or they cancel with a refund. Closed-toe shoes; dirt paths, gravel, and woodchips. More weekend times are on the official catalog page.",
     "isRegional": false,
@@ -19998,5 +19998,667 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Stories"
+  },
+  {
+    "id": "core-weekend-lemurpalooza-2026-10-21",
+    "title": "Lemurpalooza",
+    "description": "Make a lemur mask, play interactive games, and celebrate ring-tailed lemurs Val and Shug.",
+    "tips": "ticket|Free with Junior Museum & Zoo admission. No extra ticket.",
+    "venue": "Palo Alto Junior Museum & Zoo",
+    "address": "1451 Middlefield Rd, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "lat": 37.4448,
+    "lng": -122.1448,
+    "date": "2026-10-21",
+    "startTime": "11:00",
+    "endTime": "13:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloaltozoo.org/files/assets/jmz/v/1/home/events/lemurpalooza-1.png?w=1200",
+    "eventUrl": "https://www.paloaltozoo.org/Visit/Events/Lemurpalooza",
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "core-weekend-playhouse-sleeping-beauty-2026-10-24",
+    "title": "Playhouse Series: Sleeping Beauty",
+    "description": "Story-teller theatre with simple sets and costumes, and chances to get up and wiggle.",
+    "tips": "ticket|$20. About 55 minutes. Suggested ages two to six.",
+    "venue": "Palo Alto Children's Theatre",
+    "address": "1305 Middlefield Road, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "lat": 37.444752,
+    "lng": -122.145844,
+    "date": "2026-10-24",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "sessions": [
+      {
+        "date": "2026-10-24",
+        "startTime": "10:00",
+        "endTime": "11:00"
+      },
+      {
+        "date": "2026-10-24",
+        "startTime": "12:00",
+        "endTime": "13:00"
+      },
+      {
+        "date": "2026-10-25",
+        "startTime": "10:00",
+        "endTime": "11:00"
+      },
+      {
+        "date": "2026-10-25",
+        "startTime": "12:00",
+        "endTime": "13:00"
+      },
+      {
+        "date": "2026-10-25",
+        "startTime": "14:00",
+        "endTime": "15:00"
+      }
+    ],
+    "ageRange": "2–6",
+    "bestFor": "Best for ages 2–6",
+    "ageMin": 2,
+    "ageMax": 6,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "$20",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/childrens-theatre/production-pictures/111playhouse-web-poster.png?w=1200",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Playhouse-Series-Sleeping-Beauty",
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "core-weekend-magical-bridge-halloween-costume-party-2026-10-25",
+    "title": "Halloween Costume Party @ Magical Bridge",
+    "description": "Make a trick-or-treat bag, try sensory-friendly science, hear Tank! Jazz Band, and join a costume dance party.",
+    "tips": "ticket|Free. All ages and abilities are welcome.",
+    "venue": "Magical Bridge Playground",
+    "address": "3700 Middlefield Rd, Palo Alto, CA 94306",
+    "city": "Palo Alto",
+    "date": "2026-10-25",
+    "startTime": "10:00",
+    "endTime": "13:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/halloween-mb.jpg?w=1200",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Halloween-Costume-Party-Magical-Bridge",
+    "lat": 37.4202967,
+    "lng": -122.1133764,
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "core-weekend-sunnyvale-halloween-pet-parade-2026-10-25",
+    "title": "Sunnyvale Halloween Pet Parade",
+    "description": "Watch pets in costume parade down Murphy Avenue, then stay for the talent and costume contests.",
+    "tips": "ticket|Free and open to the public. Pets under 150 lbs.\ninfo|Check-in starts at 9:00 AM at Redwood Square (McKinley & Murphy).",
+    "venue": "Downtown Sunnyvale",
+    "address": "Murphy Ave, Sunnyvale, CA 94086",
+    "city": "Sunnyvale",
+    "date": "2026-10-25",
+    "startTime": "11:00",
+    "endTime": "14:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
+    "lat": 37.3789,
+    "lng": -122.0302,
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "core-weekend-halloween-zoo-night-2026-10-29",
+    "title": "Halloween Zoo Night",
+    "description": "After-hours Halloween at the zoo with face painting, animal encounters, and more.",
+    "tips": "ticket|Membership required. $30 per person. Tickets are not sold at the door, and guest passes are not valid.\ninfo|Arrive early for parking.",
+    "venue": "Palo Alto Junior Museum & Zoo",
+    "address": "1451 Middlefield Rd, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "lat": 37.4448,
+    "lng": -122.1448,
+    "date": "2026-10-29",
+    "startTime": "17:00",
+    "endTime": "19:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "$30",
+    "imageUrl": "https://www.paloaltozoo.org/files/assets/jmz/v/1/home/halloween-icon-image.png?w=1200",
+    "eventUrl": "https://www.paloaltozoo.org/Visit/Events/Halloween-Zoo-Night",
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "core-weekend-jack-o-jaunt-2026-10-30",
+    "title": "Jack-O-Jaunt",
+    "description": "Stroll through a jack-o-lantern display and vote for the scariest, cutest, and most creative pumpkins.",
+    "tips": "ticket|Free.\naccessibility|Contact csdaccommodations@paloalto.gov or (650) 617-3500 if your family needs accommodations.",
+    "venue": "Lytton Plaza",
+    "address": "University Ave & Emerson St, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "date": "2026-10-30",
+    "startTime": "18:30",
+    "endTime": "20:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/mostcreativejoj.jpg?w=1200",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Jack-O-Jaunt",
+    "lat": 37.4444,
+    "lng": -122.1617,
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "core-weekend-lakewood-library-opening-2026-10-31",
+    "title": "Lakewood Branch Library Grand Opening",
+    "description": "Explore the new branch — live music, a Maker Lab showcase, crafts, giveaways, and a treat for costumes.",
+    "tips": "ticket|Free. Halloween costumes encouraged. Costumed visitors can stop by for a special treat.",
+    "venue": "Lakewood Branch Library and Learning Center",
+    "address": "760 Lakechime Drive, Sunnyvale, CA 94089",
+    "city": "Sunnyvale",
+    "date": "2026-10-31",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.sunnyvale.ca.gov/business-and-development/projects-in-sunnyvale/infrastructure-projects/lakewood-branch-library",
+    "lat": 37.4035,
+    "lng": -122.006,
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "mountain-view-dia-de-muertos-2026-11-07",
+    "title": "Día de Muertos Celebration",
+    "description": "Try Catrina face painting, make flower headbands and sugar skulls, visit the photo booth, and watch live performances.",
+    "tips": "info|Confirm hours on the official page before you go. The city page currently prints 11:00 p.m.–4:00 p.m.",
+    "venue": "Civic Center Plaza",
+    "address": "500 Castro Street, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-11-07",
+    "startTime": "11:00",
+    "endTime": "16:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.mountainview.gov/our-city/departments/city-manager-s-office/multicultural-engagement-program/dia-de-muertos",
+    "lat": 37.39,
+    "lng": -122.0815,
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "core-weekend-hidden-villa-weekend-farm-tour-2026-11-08",
+    "title": "Weekend Farm Tour",
+    "description": "Meet cows, pigs, chickens, goats & sheep on a guided farm walk — little ones can see and hear the animals up close.",
+    "tips": "ticket|$18 per person (adults and children). Register ahead — tours need at least 5 people or they cancel with a refund.\ninfo|Closed-toe shoes; dirt paths, gravel, and woodchips. The walk is about 90 minutes.",
+    "venue": "Hidden Villa",
+    "address": "26870 Moody Road, Los Altos Hills, CA 94022",
+    "city": "Los Altos Hills",
+    "date": "2026-11-08",
+    "startTime": "10:00",
+    "endTime": "11:30",
+    "sessions": [
+      {
+        "date": "2026-11-08",
+        "startTime": "10:00",
+        "endTime": "11:30"
+      },
+      {
+        "date": "2026-11-15",
+        "startTime": "13:00",
+        "endTime": "14:30"
+      },
+      {
+        "date": "2026-11-21",
+        "startTime": "10:00",
+        "endTime": "11:30"
+      },
+      {
+        "date": "2026-12-12",
+        "startTime": "10:00",
+        "endTime": "11:30"
+      },
+      {
+        "date": "2026-12-12",
+        "startTime": "13:00",
+        "endTime": "14:30"
+      }
+    ],
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor",
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Outdoor",
+      "Festivals & Community"
+    ],
+    "cost": "$18",
+    "imageUrl": "",
+    "eventUrl": "https://www.hiddenvilla.org/programs/catalog/372-weekend-farm-tour/region-HV/",
+    "lat": 37.341,
+    "lng": -122.162,
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "regional-filoli-holidays-2026-11-14",
+    "title": "Holidays at Filoli",
+    "description": "Explore a festive village tucked beneath the redwoods, where model trains wind through miniature holiday scenes. During the day, families can discover Thistlewyck Village and the beautifully decorated House and gardens. After dark, Filoli transforms into a wonderland of glowing pathways and holiday lights.",
+    "tips": "ticket|Book tickets in advance; daytime and evening require separate admission. Members: free daytime with a reservation.\nstroller|Strollers welcome; wagons not allowed.\nweather|Open rain or shine.\ninfo|Thistlewyck Village is daytime-only and closes January 3. Visiting with a toddler or preschooler? Choose daytime for the trains and village. Save the evening experience for families who enjoy an outing after dark.",
+    "venue": "Filoli",
+    "address": "86 Cañada Road, Woodside, CA 94062",
+    "city": "Woodside",
+    "date": "2026-11-14",
+    "startTime": "10:00",
+    "endTime": "15:30",
+    "scheduleKind": "seasonal-run",
+    "openingDate": "2026-11-14",
+    "closingDate": "2027-01-10",
+    "scheduleNote": "Daytime 10:00 AM–3:30 PM (latest admission 1:30 PM). Holiday Lights 4:00–10:00 PM (latest admission 8:00 PM).",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Festivals & Community",
+      "Outdoor",
+      "Regional",
+      "Worth a Drive",
+      "Holiday"
+    ],
+    "cost": "Paid · See official site for pricing",
+    "imageUrl": "https://filoli.org/media/xbcltkxd/filoli-holiday-lights-inmenlo-11-20-2022-0194-6.jpg",
+    "eventUrl": "https://filoli.org/holidays/",
+    "lat": 37.4703,
+    "lng": -122.3107,
+    "status": "Hidden",
+    "isSeasonal": true,
+    "isRegional": true,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": false
+  },
+  {
+    "id": "barron-park-celebration-craft-fair-2026-11-15",
+    "title": "Barron Park Celebration and Craft Fair",
+    "description": "Make crafts, join Zumba, and celebrate with Barron Park neighbors.",
+    "tips": "",
+    "venue": "Juana Briones Park",
+    "address": "Maybell & Amaranta Avenues, Palo Alto, CA 94306",
+    "city": "Palo Alto",
+    "date": "2026-11-15",
+    "startTime": "13:30",
+    "endTime": "16:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "",
+    "imageUrl": "",
+    "eventUrl": "https://bpapaloalto.org/event/barron-park-celebration/",
+    "lat": 37.413,
+    "lng": -122.136,
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "core-weekend-playhouse-little-red-riding-hood-2026-11-21",
+    "title": "Playhouse Series: Little Red Riding Hood",
+    "description": "Story-teller theatre with simple sets and costumes, and chances to get up and wiggle.",
+    "tips": "ticket|$20. About 55 minutes. Suggested ages two to six.",
+    "venue": "Palo Alto Children's Theatre",
+    "address": "1305 Middlefield Road, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "lat": 37.444752,
+    "lng": -122.145844,
+    "date": "2026-11-21",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "sessions": [
+      {
+        "date": "2026-11-21",
+        "startTime": "10:00",
+        "endTime": "11:00"
+      },
+      {
+        "date": "2026-11-21",
+        "startTime": "12:00",
+        "endTime": "13:00"
+      },
+      {
+        "date": "2026-11-22",
+        "startTime": "10:00",
+        "endTime": "11:00"
+      },
+      {
+        "date": "2026-11-22",
+        "startTime": "12:00",
+        "endTime": "13:00"
+      },
+      {
+        "date": "2026-11-22",
+        "startTime": "14:00",
+        "endTime": "15:00"
+      }
+    ],
+    "ageRange": "2–6",
+    "bestFor": "Best for ages 2–6",
+    "ageMin": 2,
+    "ageMax": 6,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "$20",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/childrens-theatre/production-pictures/111playhouse-web-poster.png?w=1200",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Playhouse-Series-Little-Red-Riding-Hood",
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "core-weekend-frog-and-toad-2026-12-03",
+    "title": "A Year with Frog and Toad",
+    "description": "Watch Frog and Toad go through four seasons in this musical based on Arnold Lobel’s books.",
+    "tips": "ticket|$25.\ninfo|Wednesday Dec 9 at 6:00 PM is sensory-friendly (dim house lights, lower volume, smaller audience) and ASL-interpreted. Select ASL Best View at checkout.",
+    "venue": "Palo Alto Children's Theatre",
+    "address": "1305 Middlefield Road, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "lat": 37.444752,
+    "lng": -122.145844,
+    "date": "2026-12-03",
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "sessions": [
+      {
+        "date": "2026-12-03",
+        "startTime": "18:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "2026-12-04",
+        "startTime": "19:00",
+        "endTime": "20:00"
+      },
+      {
+        "date": "2026-12-05",
+        "startTime": "14:00",
+        "endTime": "15:00"
+      },
+      {
+        "date": "2026-12-05",
+        "startTime": "18:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "2026-12-06",
+        "startTime": "14:00",
+        "endTime": "15:00"
+      },
+      {
+        "date": "2026-12-09",
+        "startTime": "18:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "2026-12-11",
+        "startTime": "19:00",
+        "endTime": "20:00"
+      },
+      {
+        "date": "2026-12-12",
+        "startTime": "14:00",
+        "endTime": "15:00"
+      },
+      {
+        "date": "2026-12-12",
+        "startTime": "18:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "2026-12-13",
+        "startTime": "14:00",
+        "endTime": "15:00"
+      },
+      {
+        "date": "2026-12-17",
+        "startTime": "18:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "2026-12-18",
+        "startTime": "19:00",
+        "endTime": "20:00"
+      },
+      {
+        "date": "2026-12-19",
+        "startTime": "14:00",
+        "endTime": "15:00"
+      },
+      {
+        "date": "2026-12-19",
+        "startTime": "18:00",
+        "endTime": "19:00"
+      },
+      {
+        "date": "2026-12-20",
+        "startTime": "14:00",
+        "endTime": "15:00"
+      }
+    ],
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "$25",
+    "imageUrl": "",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Main-Stage-A-Year-with-Frog-and-Toad",
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "core-weekend-playhouse-gingerbread-man-2026-12-19",
+    "title": "Playhouse Series: The Gingerbread Man",
+    "description": "Story-teller theatre with simple sets and costumes, and chances to get up and wiggle.",
+    "tips": "ticket|$20. About 55 minutes. Suggested ages two to six.",
+    "venue": "Palo Alto Children's Theatre",
+    "address": "1305 Middlefield Road, Palo Alto, CA 94301",
+    "city": "Palo Alto",
+    "lat": 37.444752,
+    "lng": -122.145844,
+    "date": "2026-12-19",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "sessions": [
+      {
+        "date": "2026-12-19",
+        "startTime": "10:00",
+        "endTime": "11:00"
+      },
+      {
+        "date": "2026-12-19",
+        "startTime": "12:00",
+        "endTime": "13:00"
+      },
+      {
+        "date": "2026-12-20",
+        "startTime": "10:00",
+        "endTime": "11:00"
+      },
+      {
+        "date": "2026-12-20",
+        "startTime": "12:00",
+        "endTime": "13:00"
+      },
+      {
+        "date": "2026-12-20",
+        "startTime": "14:00",
+        "endTime": "15:00"
+      },
+      {
+        "date": "2026-12-21",
+        "startTime": "10:00",
+        "endTime": "11:00"
+      },
+      {
+        "date": "2026-12-21",
+        "startTime": "12:00",
+        "endTime": "13:00"
+      },
+      {
+        "date": "2026-12-21",
+        "startTime": "14:00",
+        "endTime": "15:00"
+      }
+    ],
+    "ageRange": "2–6",
+    "bestFor": "Best for ages 2–6",
+    "ageMin": 2,
+    "ageMax": 6,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Stories"
+    ],
+    "cost": "$20",
+    "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/childrens-theatre/production-pictures/111playhouse-web-poster.png?w=1200",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Playhouse-Series-The-Gingerbread",
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "verifiedDate": "2026-10-20",
+    "isPast": false,
+    "isLive": true
   }
 ]

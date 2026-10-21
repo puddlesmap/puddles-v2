@@ -7,6 +7,7 @@ import {
   parseEventDateTime,
   parseFlexibleDate,
 } from './dates'
+import { eventHasSessionInDisplayWindow, lastEventSession } from './eventSessions'
 import { computeIsPast, isPublicEvent, isWithinPublicDisplayWindow } from './publishing'
 import { EXPERIMENT_CANCELLED_EVENT_IDS } from '../data/experimentExpiredActivity'
 
@@ -22,8 +23,16 @@ export function isEventCancelledForLifecycle(event: Event): boolean {
 }
 
 export function getEventEffectiveEndTime(
-  event: Pick<Event, 'date' | 'startTime' | 'endTime' | 'scheduleKind' | 'closingDate' | 'openingDate'>,
+  event: Pick<Event, 'date' | 'startTime' | 'endTime' | 'scheduleKind' | 'closingDate' | 'openingDate' | 'sessions'>,
 ): Date | null {
+  const lastSession = lastEventSession(event)
+  if (event.sessions && event.sessions.length > 0 && lastSession) {
+    return getEventEffectiveEnd(
+      lastSession.date,
+      lastSession.startTime,
+      lastSession.endTime || lastSession.startTime,
+    )
+  }
   // Seasonal / multi-day runs last through closingDate (end of that calendar day).
   if (event.scheduleKind === 'seasonal-run' || event.scheduleKind === 'multi-day') {
     const closing = (event.closingDate || '').trim()
@@ -62,7 +71,7 @@ export function isDiscoverableLifecycleEvent(event: Event, now: Date = new Date(
   if (event.status !== 'Published') return false
   if (!isPublicAgeEligible(event.ageRange)) return false
   if (getEventLifecycleStatus(event, now) !== 'upcoming') return false
-  return isWithinPublicDisplayWindow(event.date)
+  return eventHasSessionInDisplayWindow(event, (date) => isWithinPublicDisplayWindow(date))
 }
 
 export function isLifecycleDetailAccessible(event: Event): boolean {

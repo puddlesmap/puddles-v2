@@ -1,7 +1,7 @@
 {
   "name": "Calendar Watchlist",
   "description": "Human-curated calendars and recurring feeds Puddles checks for ages 0–5 activities. Distinct from Discovery library scrapers (BiblioCommons / LibCal) and from the live Events catalog.",
-  "updatedAt": "2026-09-02",
+  "updatedAt": "2026-10-20",
   "sources": [
     {
       "id": "google-visitor-experience",
@@ -21,7 +21,8 @@
           "date": "2026-09-12",
           "alreadyOnPuddles": false
         }
-      ]
+      ],
+      "kind": "city-community"
     },
     {
       "id": "sunnyvale-special-events",
@@ -40,8 +41,21 @@
           "url": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
           "date": "2026-10-17",
           "alreadyOnPuddles": true
+        },
+        {
+          "slug": "halloween-pet-parade-2026-10-25",
+          "title": "Sunnyvale Halloween Pet Parade",
+          "url": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
+          "date": "2026-10-25",
+          "alreadyOnPuddles": true
         }
-      ]
+      ],
+      "kind": "city-community",
+      "lastCheck": {
+        "status": "checked",
+        "checkedAt": "2026-10-20",
+        "eventsSeen": 1
+      }
     },
     {
       "id": "sunnyvale-downtown",
@@ -68,7 +82,8 @@
           "date": "2026-10-03",
           "alreadyOnPuddles": false
         }
-      ]
+      ],
+      "kind": "city-community"
     },
     {
       "id": "sunnyvale-recreation-preschool",
@@ -79,7 +94,8 @@
       "fitFor0to5": "strong",
       "notes": "Super Safari Parent & Tot at Serra Park (ages 1.5–3.5; caregiver required). Fall 2026 sessions in Activities Guide — one semester row per session, not weekly spam. Registration: registration.sunnyvale.ca.gov (may require desk/phone during system transition).",
       "alreadyOnPuddles": false,
-      "checkCadence": "seasonal"
+      "checkCadence": "seasonal",
+      "kind": "parent-me-providers"
     },
     {
       "id": "sunnyvale-library",
@@ -90,7 +106,8 @@
       "fitFor0to5": "strong",
       "notes": "Baby Lapsit Thu 10:30, Night Owl Thu 7:00, Toddler Tue 11:00, Preschool Wed 11:00, Family Storytime Sat 11:00, Magical Bridge first Fridays. The kids calendar refuses the GitHub download. Wednesday browser pass opens this month and the next, re-bumps those series, and does not add a second row for the same storytime.",
       "alreadyOnPuddles": false,
-      "checkCadence": "weekly"
+      "checkCadence": "weekly",
+      "kind": "libraries-bookstores"
     },
     {
       "id": "mv-special-events",
@@ -111,7 +128,8 @@
         }
       ],
       "alreadyOnPuddles": true,
-      "checkCadence": "weekly in season"
+      "checkCadence": "weekly in season",
+      "kind": "city-community"
     },
     {
       "id": "la-family-fun-days",
@@ -122,7 +140,8 @@
       "fitFor0to5": "strong",
       "notes": "Free themed Saturdays 10am–1pm at Community Center with library partners. Aug 8 Pirate Palooza, Oct 24 Halloween Hoopla, Dec 12 Winter Wonderland — already Published.",
       "alreadyOnPuddles": true,
-      "checkCadence": "seasonal"
+      "checkCadence": "seasonal",
+      "kind": "city-community"
     },
     {
       "id": "dt-los-altos",
@@ -133,7 +152,8 @@
       "fitFor0to5": "sparse",
       "notes": "Most listings are adult. A BOO-tiful Downtown Halloween (Oct 30, ~12–4) is in Discovery.",
       "alreadyOnPuddles": false,
-      "checkCadence": "monthly"
+      "checkCadence": "monthly",
+      "kind": "city-community"
     },
     {
       "id": "csma-concerts",
@@ -144,7 +164,8 @@
       "fitFor0to5": "weak",
       "notes": "Evening concert series (jazz/classical) — not ages 0–5. Prefer CSMA family days / Community Arts Day style programs when posted elsewhere on arts4all.org.",
       "alreadyOnPuddles": false,
-      "checkCadence": "as needed"
+      "checkCadence": "as needed",
+      "kind": "music-dance"
     },
     {
       "id": "los-altos-history-museum",
@@ -165,7 +186,8 @@
         }
       ],
       "alreadyOnPuddles": true,
-      "checkCadence": "seasonal"
+      "checkCadence": "seasonal",
+      "kind": "museums-attractions"
     },
     {
       "id": "linden-tree",
@@ -176,7 +198,8 @@
       "fitFor0to5": "strong",
       "notes": "WEEKLY CHECK: scrape events-calendar for Sunday 10:30 Outdoor Storytime + named author picture-book storytimes (npm run discover:linden-tree). Skip YA/MG launches, book clubs, ages 7+ workshops.",
       "alreadyOnPuddles": true,
-      "checkCadence": "weekly"
+      "checkCadence": "weekly",
+      "kind": "libraries-bookstores"
     },
     {
       "id": "home-depot-kids",
@@ -187,7 +210,8 @@
       "fitFor0to5": "partial",
       "notes": "Monthly free build workshops — Ages 2–5. Sep 5 + Oct 3 already Published.",
       "alreadyOnPuddles": true,
-      "checkCadence": "monthly"
+      "checkCadence": "monthly",
+      "kind": "city-community"
     },
     {
       "id": "ofjcc-families",
@@ -198,18 +222,26 @@
       "fitFor0to5": "strong",
       "notes": "Free Family Play weekdays (Mon/Wed/Fri 9:30–5:30; Tue/Thu 1–5:30; check holiday/special hours). Doodle & Discover Wednesdays (free crafts ages 2–6). Skip Blossom paid prenatal/CPR for Browse.",
       "alreadyOnPuddles": true,
-      "checkCadence": "weekly"
+      "checkCadence": "weekly",
+      "kind": "parent-me-providers"
     },
     {
       "id": "pyt-stories-on-stage",
       "name": "Peninsula Youth Theatre · Stories on Stage",
       "org": "Peninsula Youth Theatre",
       "city": "Mountain View",
-      "url": "https://pytnet.org/boxoffice/creepy-carrots/",
+      "url": "https://pytnet.org/shows/",
       "fitFor0to5": "strong",
-      "notes": "Picture-book stage shows at MVCPA SecondStage. Creepy Carrots Oct 10 (11:30 & 1:30) in Discovery — Paid.",
+      "notes": "Picture-book Stories on Stage at MVCPA SecondStage. Use pytnet.org/shows/ (not a single production URL). MVCPA listings that are PYT family shows belong here. Skip Center Stage musicals aimed at older kids (Wizard of Oz). Ordinary MVCPA adult theatre is out.",
       "alreadyOnPuddles": false,
-      "checkCadence": "seasonal"
+      "checkCadence": "monthly",
+      "kind": "performances-theatre",
+      "lastCheck": {
+        "status": "checked",
+        "checkedAt": "2026-10-20",
+        "eventsSeen": 0,
+        "missedReason": ""
+      }
     },
     {
       "id": "gamble-garden",
@@ -220,7 +252,8 @@
       "fitFor0to5": "partial",
       "notes": "Halloween Magic Oct 24 + Parent & Me Yoga Sep 19 (ages 4–8 + grown-up) in Discovery. Skip adult-leaning Halloween Tea.",
       "alreadyOnPuddles": false,
-      "checkCadence": "seasonal"
+      "checkCadence": "seasonal",
+      "kind": "city-community"
     },
     {
       "id": "marti-foster-yoga",
@@ -231,7 +264,8 @@
       "fitFor0to5": "strong",
       "notes": "Sat 11:15am–12:15pm Parent & Baby at Pioneer Memorial Park (weather permitting). Do not list Sat 10–11 prenatal as Parent & Me.",
       "alreadyOnPuddles": false,
-      "checkCadence": "weekly"
+      "checkCadence": "weekly",
+      "kind": "parent-me-providers"
     },
     {
       "id": "music-together-mp-pa",
@@ -242,7 +276,8 @@
       "fitFor0to5": "strong",
       "notes": "Fall 2026 semester Sep 8–Nov 18. Represent as one series row (not weekly flood). Caregiver + child = Parent & Me / Music & Movement. Do not publish seat-level or waitlist-by-time in public tips — link to mt-mp.com for availability.",
       "alreadyOnPuddles": false,
-      "checkCadence": "semester"
+      "checkCadence": "semester",
+      "kind": "parent-me-providers"
     },
     {
       "id": "mini-yoga-club",
@@ -253,7 +288,8 @@
       "fitFor0to5": "strong",
       "notes": "Pop-up family yoga (e.g. Treehouse Silicon Valley Sep 26). Sunnyvale is a launch city as of Sep 2026.",
       "alreadyOnPuddles": false,
-      "checkCadence": "monthly"
+      "checkCadence": "monthly",
+      "kind": "parent-me-providers"
     },
     {
       "id": "fit4mom-sv-central",
@@ -264,18 +300,20 @@
       "fitFor0to5": "strong",
       "notes": "Open the Glofox class list in a browser each Wednesday. Re-bump stroller classes and caregiver-and-baby classes. Skip virtual workouts, prenatal, run club, cancelled rows, and the pink community calendar. Week of Sep 29–Oct 6: Stroller Barre Cuesta Wed 10:00, Stroller Barre Mitchell Thu 10:00, Strides 360 Cuesta Fri 10:00, Stroller Strides Cuesta Mon 9:30, Mommy and Me Zumba and Mommy & Baby Yoga at Las Palmas Tue. Las Palmas Stroller Strides is not on that week. Fourth Trimester+ Wed Sep 30 is cancelled.",
       "alreadyOnPuddles": true,
-      "checkCadence": "weekly Wednesdays"
+      "checkCadence": "weekly Wednesdays",
+      "kind": "parent-me-providers"
     },
     {
       "id": "otto-family-club",
       "name": "Otto Family Club",
       "org": "Otto Family Club",
       "city": "Sunnyvale",
-      "url": "https://luma.com/ottofamilyclub",
+      "url": "https://www.ottofamilyclub.com/",
       "fitFor0to5": "strong",
-      "notes": "Luma calendar. Wednesday pass adds a dated session that is still taking RSVPs and is not already on Puddles. Leave sold-out sessions off. Do not put seat counts, Near Capacity, or membership prices on the card. providerId otto-family-club, sourceType luma. No auto-publish.",
+      "notes": "Newsletter / Luma class list. One series row per standing class, not weekly spam. Check newsletters for Halloween and holiday pop-ups. No seat counts in public copy.",
       "alreadyOnPuddles": true,
-      "checkCadence": "weekly Wednesdays"
+      "checkCadence": "monthly",
+      "kind": "parent-me-providers"
     },
     {
       "id": "talo-yoga",
@@ -286,7 +324,8 @@
       "fitFor0to5": "partial",
       "notes": "Hosts CircleMoms newborn cohorts (not weekly drop-in Parent & Baby). Next PA cohort Oct 14. Adult/prenatal studio classes otherwise.",
       "alreadyOnPuddles": false,
-      "checkCadence": "semester"
+      "checkCadence": "semester",
+      "kind": "parent-me-providers"
     },
     {
       "id": "lemos-farm",
@@ -306,7 +345,8 @@
           "date": "2026-09-05",
           "alreadyOnPuddles": true
         }
-      ]
+      ],
+      "kind": "nature-seasonal"
     },
     {
       "id": "garin-apple-festival",
@@ -326,7 +366,8 @@
           "date": "2026-09-06",
           "alreadyOnPuddles": true
         }
-      ]
+      ],
+      "kind": "nature-seasonal"
     },
     {
       "id": "roaring-camp-railroads",
@@ -346,7 +387,130 @@
           "date": "2026-09-05",
           "alreadyOnPuddles": true
         }
+      ],
+      "kind": "nature-seasonal"
+    },
+    {
+      "id": "filoli",
+      "kind": "nature-seasonal",
+      "name": "Filoli · Seasonal Experiences",
+      "org": "Filoli Historic House & Garden",
+      "city": "Woodside",
+      "url": "https://filoli.org/holidays/",
+      "fitFor0to5": "partial",
+      "notes": "Worth a Drive only (Woodside). Autumn Days / Holidays / garden seasons can qualify when little ones have something to explore (trains, village, pumpkins). Skip Nightfall, wine, champagne, and adult previews. Hidden + isRegional — never Publish into Browse all-cities. Ordinary daytime admission is a place, not an event.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "seasonal",
+      "lastCheck": {
+        "status": "checked",
+        "checkedAt": "2026-10-20",
+        "eventsSeen": 1
+      },
+      "knownEventPages": [
+        {
+          "slug": "holidays-at-filoli-2026-11-14",
+          "title": "Holidays at Filoli",
+          "url": "https://filoli.org/holidays/",
+          "date": "2026-11-14",
+          "alreadyOnPuddles": true
+        }
       ]
+    },
+    {
+      "id": "childrens-discovery-museum",
+      "kind": "museums-attractions",
+      "name": "Children’s Discovery Museum of San Jose",
+      "org": "Children’s Discovery Museum of San Jose",
+      "city": "San Jose",
+      "url": "https://www.cdm.org/visit/calendar/",
+      "fitFor0to5": "strong",
+      "notes": "Regional inbox. Ordinary museum hours are a place, not an event. Dated specials (Daisy Day, holiday evenings) can queue. CDM Toddler Storytime (Wed–Sun 11:30, Wonder Cabinet) is designed for little ones and would be one Stories series row — hold until the city filter expands beyond the four core cities. Do not list it as Worth a Drive just to work around the city list. Skip Girl Scout badge days.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "seasonal",
+      "lastCheck": {
+        "status": "no-new-events",
+        "checkedAt": "2026-10-20",
+        "eventsSeen": 0,
+        "missedReason": "toddler-storytime-hold"
+      }
+    },
+    {
+      "id": "the-tech-interactive",
+      "kind": "museums-attractions",
+      "name": "The Tech Interactive",
+      "org": "The Tech Interactive",
+      "city": "San Jose",
+      "url": "https://www.thetech.org/visit/events/",
+      "fitFor0to5": "partial",
+      "notes": "Regional inbox. Ordinary museum hours are a place, not an event. Dated family specials (Tech or Treat) can queue as Hidden Worth a Drive. Skip lasers/21+ and adult after-hours.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "seasonal",
+      "lastCheck": {
+        "status": "review-needed",
+        "checkedAt": "2026-10-20",
+        "eventsSeen": 0,
+        "missedReason": "tech-or-treat-not-queued"
+      }
+    },
+    {
+      "id": "symphony-san-jose-my-very-first",
+      "kind": "music-dance",
+      "name": "Symphony San Jose · My Very First",
+      "org": "Symphony San Jose",
+      "city": "San Jose",
+      "url": "https://symphonysanjose.org/my-very-first/",
+      "fitFor0to5": "strong",
+      "notes": "Regional inbox. Concerts designed for young children. Capture series announcements; do not auto-publish early. Skip adult subscription concerts.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "seasonal"
+    },
+    {
+      "id": "sfjazz-family-matinees",
+      "kind": "music-dance",
+      "name": "SFJAZZ · Family Matinees",
+      "org": "SFJAZZ",
+      "city": "San Francisco",
+      "url": "https://www.sfjazz.org/events/series/family-matinee/",
+      "fitFor0to5": "partial",
+      "notes": "Regional inbox. Family matinees only. Skip evening adult concerts. Confirm age fit on the current official page before queuing.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "seasonal",
+      "lastCheck": {
+        "status": "no-new-events",
+        "checkedAt": "2026-10-20",
+        "eventsSeen": 0,
+        "missedReason": "oct-24-age-fit-unclear"
+      }
+    },
+    {
+      "id": "deer-hollow-farm",
+      "kind": "nature-seasonal",
+      "name": "Deer Hollow Farm",
+      "org": "City of Mountain View · Deer Hollow Farm",
+      "city": "Cupertino",
+      "url": "https://www.mountainview.gov/our-city/departments/community-services/deer-hollow-farm",
+      "fitFor0to5": "strong",
+      "notes": "Displays as Cupertino (22500 Cristo Rey Drive), not Mountain View. Regional / farm specials and dated storytimes belong; ordinary farm hours are a place, not an event. Hidden Villa stays Los Altos Hills — do not rename it Cupertino.",
+      "alreadyOnPuddles": true,
+      "checkCadence": "seasonal"
+    },
+    {
+      "id": "stanford-live",
+      "kind": "performances-theatre",
+      "name": "Stanford Live",
+      "org": "Stanford Live",
+      "city": "Palo Alto",
+      "url": "https://live.stanford.edu/",
+      "fitFor0to5": "partial",
+      "notes": "Watch as needed. Skip K–12 school matinees and the JS calendar when it is empty. Only dated public family performances with a clear 0–5 reason.",
+      "alreadyOnPuddles": false,
+      "checkCadence": "as needed",
+      "lastCheck": {
+        "status": "no-new-events",
+        "checkedAt": "2026-10-20",
+        "eventsSeen": 0,
+        "missedReason": "school-matinees-skip"
+      }
     }
   ]
 }

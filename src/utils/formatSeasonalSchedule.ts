@@ -15,6 +15,11 @@
  */
 import type { Event } from '../types/event'
 import {
+  eventHasMultiplePerformances,
+  formatMultiplePerformancesCardWhen,
+  formatSessionsDetailRows,
+} from './eventSessions'
+import {
   formatCardDateTime,
   formatEventTimeRange,
   formatTime,
@@ -74,13 +79,18 @@ type SeasonalFields = Pick<
   | 'recurringDaysLabel'
   | 'scheduleNote'
   | 'scheduleWindowLabel'
+  | 'sessions'
 >
 
 /** True when detail WHEN uses structured seasonal / multi-day rows (not one-time modal date). */
 export function eventUsesSeasonalWhen(
-  event: Pick<Event, 'scheduleKind'>,
+  event: Pick<Event, 'scheduleKind' | 'sessions'>,
 ): boolean {
-  return event.scheduleKind === 'seasonal-run' || event.scheduleKind === 'multi-day'
+  return (
+    event.scheduleKind === 'seasonal-run' ||
+    event.scheduleKind === 'multi-day' ||
+    eventHasMultiplePerformances(event)
+  )
 }
 
 function asWhenRows(texts: string[]): SeasonalWhenRow[] {
@@ -432,6 +442,11 @@ export function formatSeasonalBrowseWhen(
   event: SeasonalFields,
   now: Date = new Date(),
 ): DiscoveryWhenParts {
+  const performances = formatMultiplePerformancesCardWhen(event)
+  if (performances) {
+    return { primary: performances, line: performances }
+  }
+
   if (!eventUsesSeasonalWhen(event)) {
     const line = formatCardDateTime(event.date, event.startTime, now)
     return { primary: line, line }
@@ -492,6 +507,12 @@ export function formatSeasonalDetailWhen(
       rows: asWhenRows([line, hours !== '—' ? hours : '']),
       rail: [line, hours !== '—' ? hours : ''].filter(Boolean),
     }
+  }
+
+  if (eventHasMultiplePerformances(event)) {
+    const rows = asWhenRows(formatSessionsDetailRows(event))
+    const rail = rows.map((row) => row.text).slice(0, 3)
+    return { rows, rail }
   }
 
   const avail = getSeasonalAvailability(event, now)

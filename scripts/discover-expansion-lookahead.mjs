@@ -193,19 +193,40 @@ function buildMarkdownReport({
     }
   }
 
-  lines.push('', '## Calendar watchlist — manual checks', '')
-  lines.push('| Source | City | Cadence | Fit | On Puddles? |')
-  lines.push('|--------|------|---------|-----|-------------|')
+  lines.push('', '## Calendar watchlist — grouped sources', '')
+  const grouped = new Map()
   for (const source of watchlist.sources) {
-    lines.push(
-      formatTableRow([
-        source.name,
-        source.city,
-        source.checkCadence ?? '—',
-        source.fitFor0to5 ?? '—',
-        source.alreadyOnPuddles ? 'Yes' : 'No',
-      ]),
+    const kind = source.kind || 'ungrouped'
+    const list = grouped.get(kind) ?? []
+    list.push(source)
+    grouped.set(kind, list)
+  }
+  for (const [kind, sources] of grouped) {
+    const seen = sources.filter((source) => source.lastCheck?.status).length
+    const gaps = sources.filter(
+      (source) =>
+        source.lastCheck?.status === 'extraction-failed' ||
+        source.lastCheck?.status === 'review-needed',
     )
+    lines.push(`### ${kind}`, '')
+    lines.push(`Checked this pass: ${seen}/${sources.length}${gaps.length ? ` · gaps: ${gaps.length}` : ''}`, '')
+    lines.push('| Source | City | Cadence | Last check |')
+    lines.push('|--------|------|---------|------------|')
+    for (const source of sources) {
+      const check = source.lastCheck
+      const status = check
+        ? `${check.status}${check.eventsSeen != null ? ` (${check.eventsSeen})` : ''}`
+        : '—'
+      lines.push(
+        formatTableRow([
+          source.name,
+          source.city,
+          source.checkCadence ?? '—',
+          status,
+        ]),
+      )
+    }
+    lines.push('')
   }
 
   lines.push('', '## Gaps & next actions', '')

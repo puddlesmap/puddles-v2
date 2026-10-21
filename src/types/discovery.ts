@@ -9,6 +9,8 @@ export interface DiscoveryCandidate {
   /** Inclusive last day for multi-day festivals. Blank for a single day. */
   closingDate?: string
   scheduleKind?: 'one-time' | 'seasonal-run' | 'multi-day'
+  /** Discrete showtimes for productions; used by time filters and Multiple performances. */
+  sessions?: { date: string; startTime: string; endTime?: string }[]
   venue: string
   room: string
   address: string
@@ -61,6 +63,7 @@ export type DiscoveryEditableFields = Pick<
   | 'startTime'
   | 'endTime'
   | 'closingDate'
+  | 'sessions'
   | 'ageRange'
   | 'bestFor'
   | 'types'

@@ -1,7 +1,12 @@
 import { getPublicEventsFromCatalog } from '../data/events'
 import type { DayFilter, Event, TimeFilter, ActivityType } from '../types/event'
 import type { TemporalTab } from './dates'
-import { getAnchorDate, dateInDayFilter, dateInTemporalTab, isEventVisibleForTodayFilter, timeInBucket } from './dates'
+import { getAnchorDate } from './dates'
+import {
+  eventMatchesDayFilter,
+  eventMatchesTemporalTab,
+  eventMatchesTimeFilter,
+} from './eventSessions'
 import { isPublicEvent } from './publishing'
 import { matchesBrowseCityFilter } from './cityRegions'
 import { isDiscoverableLifecycleEvent } from './eventLifecycle'
@@ -67,25 +72,15 @@ export function filterEvents(
 
     if (!matchesCity(event, city)) return false
 
-    if (temporalTab === 'today') {
-      if (!isEventVisibleForTodayFilter(event.date, event.startTime, event.endTime, anchor, now)) {
-        return false
-      }
-    } else if (temporalTab && !dateInTemporalTab(event.date, temporalTab, anchor)) {
+    if (temporalTab && !eventMatchesTemporalTab(event, temporalTab, anchor, now)) {
       return false
     }
 
     if (browse) {
       const f = { ...DEFAULT_BROWSE_FILTERS, ...browse }
       if (!matchesCity(event, f.city)) return false
-      if (f.day === 'today') {
-        if (!isEventVisibleForTodayFilter(event.date, event.startTime, event.endTime, anchor, now)) {
-          return false
-        }
-      } else if (!dateInDayFilter(event.date, f.day, anchor)) {
-        return false
-      }
-      if (!timeInBucket(event.startTime, f.time)) return false
+      if (!eventMatchesDayFilter(event, f.day, anchor, now)) return false
+      if (!eventMatchesTimeFilter(event, f.time)) return false
       if (!matchesAge(event, f.age)) return false
       if (f.types.length > 0 && !f.types.some((t) => event.types.includes(t))) return false
     }

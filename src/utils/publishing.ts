@@ -7,6 +7,7 @@ import {
   parseFlexibleDate,
   startOfDay,
 } from './dates'
+import { eventHasSessionInDisplayWindow, lastEventSession } from './eventSessions'
 
 export const EVENT_STATUSES: EventStatus[] = ['Draft', 'Published', 'Hidden', 'Expired', 'Cancelled']
 
@@ -98,7 +99,12 @@ export function resolvePublishingFields(input: {
 export function enrichPublishingFields(
   event: Omit<Event, 'isPast' | 'isLive'> & Partial<Pick<Event, 'isPast' | 'isLive'>>,
 ): Event {
-  const isPast = computeIsPast(event.date, event.startTime, event.endTime)
+  const last = lastEventSession(event)
+  const isPast = computeIsPast(
+    last?.date ?? event.date,
+    last?.startTime ?? event.startTime,
+    last?.endTime ?? event.endTime,
+  )
   const isLive = computeIsLive(event.status, isPast)
   return { ...event, isPast, isLive }
 }
@@ -109,8 +115,18 @@ export function enrichPublishingFields(
  */
 export function isPublicEvent(event: Event, now: Date = new Date()): boolean {
   if (event.status !== 'Published') return false
-  if (computeIsPast(event.date, event.startTime, event.endTime, now)) return false
-  return isWithinPublicDisplayWindow(event.date)
+  const last = lastEventSession(event)
+  if (
+    computeIsPast(
+      last?.date ?? event.date,
+      last?.startTime ?? event.startTime,
+      last?.endTime ?? event.endTime,
+      now,
+    )
+  ) {
+    return false
+  }
+  return eventHasSessionInDisplayWindow(event, (date) => isWithinPublicDisplayWindow(date))
 }
 
 export function formatPublishingYesNo(value: boolean): string {
