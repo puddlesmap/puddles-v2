@@ -1100,6 +1100,23 @@ export function getActiveSeasonalCollection(now: Date = new Date()): SeasonalCol
   return getActiveSeasonalCollections(now)[0]
 }
 
+/**
+ * Upcoming events on the live seasonal page, including Hidden Worth a little drive rows.
+ * Ended rows are dropped the same way the seasonal page drops them.
+ */
+export function upcomingSeasonalPageEvents(now: Date = new Date()): Event[] {
+  const ids: string[] = []
+  const seen = new Set<string>()
+  for (const collection of getActiveSeasonalCollections(now)) {
+    for (const id of [...collection.collectionEventIds, ...(collection.driveEventIds ?? [])]) {
+      if (seen.has(id)) continue
+      seen.add(id)
+      ids.push(id)
+    }
+  }
+  return sortSeasonalDiscoveryEvents(resolveSeasonalEvents(ids), now)
+}
+
 /** Experiment / review tooling — Hello, Fall curated set (not date-gated). */
 export function getSeasonalCollectionForExperiment(): SeasonalCollection {
   return getSeasonalCollection('hello-fall')!

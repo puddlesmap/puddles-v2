@@ -278,7 +278,6 @@ export function HomeExperimentPage({
     const base = filterEvents(resolveCatalog(), {
       city: whereMode.kind === 'city' && whereMode.value !== 'all' ? whereMode.value : 'all',
       temporalTab,
-      browse: { seasonal: browseFilters.seasonal, free: browseFilters.free },
     })
 
     if (whereMode.kind === 'nearby' && coords) {
@@ -289,12 +288,12 @@ export function HomeExperimentPage({
     }
 
     return sortEventsBySchedule(base)
-  }, [whereMode, temporalTab, coords, resolveCatalog, browseFilters.seasonal, browseFilters.free])
+  }, [whereMode, temporalTab, coords, resolveCatalog])
 
   const feedKey = useMemo(
     () =>
-      `${whereMode.kind}|${whereMode.kind === 'city' ? whereMode.value : 'nearby'}|${temporalTab}|${browseFilters.seasonal ? 'seasonal' : ''}|${browseFilters.free ? 'free' : ''}|${coords?.lat ?? ''}|${coords?.lng ?? ''}`,
-    [whereMode, temporalTab, coords, browseFilters.seasonal, browseFilters.free],
+      `${whereMode.kind}|${whereMode.kind === 'city' ? whereMode.value : 'nearby'}|${temporalTab}|${coords?.lat ?? ''}|${coords?.lng ?? ''}`,
+    [whereMode, temporalTab, coords],
   )
 
   const requestNearbyLocation = useCallback(async () => {
@@ -437,18 +436,6 @@ export function HomeExperimentPage({
               onClick={() => handleDayChange(tab.key)}
             />
           ))}
-          <DiscoveryFilterChip
-            label="Seasonal"
-            active={browseFilters.seasonal}
-            onClick={() =>
-              setBrowseFilters({ ...browseFilters, seasonal: !browseFilters.seasonal })
-            }
-          />
-          <DiscoveryFilterChip
-            label="Free"
-            active={browseFilters.free}
-            onClick={() => setBrowseFilters({ ...browseFilters, free: !browseFilters.free })}
-          />
         </div>
       </div>
     </div>

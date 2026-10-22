@@ -1,4 +1,5 @@
 import { getPublicEventsFromCatalog } from '../data/events'
+import { upcomingSeasonalPageEvents } from '../data/seasonalDiscovery'
 import { isFreeCost, type DayFilter, type Event, type TimeFilter, type ActivityType } from '../types/event'
 import { isSeasonalAdminListing } from './adminSeasonalEvents'
 import type { TemporalTab } from './dates'
@@ -67,11 +68,18 @@ export function filterEvents(
   const { city = 'all', temporalTab, browse, discoveryGate = 'public' } = opts
   const anchor = getAnchorDate()
   const now = new Date()
+  const seasonalPageEvents = discoveryGate === 'public' ? upcomingSeasonalPageEvents(now) : []
+  const seasonalPageIds = new Set(seasonalPageEvents.map((event) => event.id))
+  const seen = new Set(events.map((event) => event.id))
+  const source = [
+    ...events,
+    ...seasonalPageEvents.filter((event) => !seen.has(event.id)),
+  ]
 
-  return events.filter((event) => {
+  return source.filter((event) => {
     if (discoveryGate === 'lifecycle-upcoming') {
       if (!isDiscoverableLifecycleEvent(event, now)) return false
-    } else if (!isPublicEvent(event, now)) {
+    } else if (!seasonalPageIds.has(event.id) && !isPublicEvent(event, now)) {
       return false
     }
     if (!isPublicAgeEligible(event.ageRange)) return false
