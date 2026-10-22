@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import type { Event } from '@/types/event'
+import { trackGuideEventLinkClicked } from '@/utils/analytics'
 import { eventDetailPath } from '@/utils/eventPages'
 import { saveBrowseReturnSnapshot } from '@/utils/browseReturnState'
 
@@ -10,6 +11,8 @@ interface EventDetailLinkProps {
   eventId: Event['id']
   className?: string
   children: ReactNode
+  /** When set, this link is a guide click. The detail view is tracked separately. */
+  guideSlug?: string
 }
 
 /**
@@ -18,16 +21,19 @@ interface EventDetailLinkProps {
  * hits the intercepting modal, which renders react-router <Link> without a
  * router — use a hard navigation to the standalone event page instead.
  */
-export function EventDetailLink({ eventId, className, children }: EventDetailLinkProps) {
+export function EventDetailLink({ eventId, className, children, guideSlug }: EventDetailLinkProps) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const href = eventDetailPath({ id: eventId })
+  const href = guideSlug
+    ? `${eventDetailPath({ id: eventId })}?from_guide=${encodeURIComponent(guideSlug)}`
+    : eventDetailPath({ id: eventId })
 
   return (
     <a
       href={href}
       className={className}
       onClick={(event) => {
+        if (guideSlug) trackGuideEventLinkClicked(guideSlug, eventId)
         if (
           event.defaultPrevented ||
           event.button !== 0 ||

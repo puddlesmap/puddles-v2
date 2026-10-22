@@ -10,7 +10,8 @@
   .event-detail-page-shell,
   .experiment-shared-event-shell,
   .shared-event-url-page,
-  .experiment-expired-activity-detail
+  .experiment-expired-activity-detail,
+  .guide-page
 ) .app-header.page-header-sticky {
   background: var(--page-background);
   border-bottom: none;
@@ -26,7 +27,8 @@
   .event-detail-page-shell,
   .experiment-shared-event-shell,
   .shared-event-url-page,
-  .experiment-expired-activity-detail
+  .experiment-expired-activity-detail,
+  .guide-page
 ) .app-header-row {
   background: var(--page-background);
   box-shadow: none;
@@ -42,7 +44,8 @@
   .event-detail-page-shell,
   .experiment-shared-event-shell,
   .shared-event-url-page,
-  .experiment-expired-activity-detail
+  .experiment-expired-activity-detail,
+  .guide-page
 ) .logo-mark {
   display: flex;
   align-items: center;
@@ -62,7 +65,8 @@
   .event-detail-page-shell,
   .experiment-shared-event-shell,
   .shared-event-url-page,
-  .experiment-expired-activity-detail
+  .experiment-expired-activity-detail,
+  .guide-page
 ) .logo-mark-img {
   width: auto;
   height: 100%;
@@ -81,7 +85,8 @@
   .event-detail-page-shell,
   .experiment-shared-event-shell,
   .shared-event-url-page,
-  .experiment-expired-activity-detail
+  .experiment-expired-activity-detail,
+  .guide-page
 ) .brand-lockup-subtitle {
   font-size: 15px;
 }
@@ -97,7 +102,8 @@
     .event-detail-page-shell,
     .experiment-shared-event-shell,
     .shared-event-url-page,
-    .experiment-expired-activity-detail
+    .experiment-expired-activity-detail,
+  .guide-page
   ) .brand-lockup--wordmark-only .logo-mark {
     transform: translateY(-2px);
   }
@@ -114,7 +120,8 @@
     .event-detail-page-shell,
     .experiment-shared-event-shell,
     .shared-event-url-page,
-    .experiment-expired-activity-detail
+    .experiment-expired-activity-detail,
+  .guide-page
   ) .app-header-row {
     justify-content: center;
   }
@@ -129,7 +136,8 @@
     .event-detail-page-shell,
     .experiment-shared-event-shell,
     .shared-event-url-page,
-    .experiment-expired-activity-detail
+    .experiment-expired-activity-detail,
+  .guide-page
   ) .app-header-brand-link {
     flex: 1;
     display: flex;
@@ -146,7 +154,8 @@
     .event-detail-page-shell,
     .experiment-shared-event-shell,
     .shared-event-url-page,
-    .experiment-expired-activity-detail
+    .experiment-expired-activity-detail,
+  .guide-page
   ) .brand-lockup-subtitle {
     display: none;
   }
@@ -162,7 +171,8 @@
     .event-detail-page-shell,
     .experiment-shared-event-shell,
     .shared-event-url-page,
-    .experiment-expired-activity-detail
+    .experiment-expired-activity-detail,
+  .guide-page
   ) .app-header.page-header-sticky,
   :is(
     .about-page-shell,
@@ -174,7 +184,8 @@
     .event-detail-page-shell,
     .experiment-shared-event-shell,
     .shared-event-url-page,
-    .experiment-expired-activity-detail
+    .experiment-expired-activity-detail,
+  .guide-page
   ) .app-header-row {
     background: var(--color-brand);
   }
@@ -189,7 +200,8 @@
     .event-detail-page-shell,
     .experiment-shared-event-shell,
     .shared-event-url-page,
-    .experiment-expired-activity-detail
+    .experiment-expired-activity-detail,
+  .guide-page
   ) .logo-mark-img {
     filter: brightness(0) invert(1);
   }

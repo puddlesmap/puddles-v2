@@ -1,10 +1,11 @@
 'use client'
 
-import { Suspense, useEffect, useRef } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import { MemoryRouter, useLocation } from 'react-router-dom'
 import { SharedEventUrlPage } from '@/components/event-detail/SharedEventUrlPage'
+import { guideSlugFromLocationSearch } from '@/utils/analytics'
 import { useCloseEventDetail } from '@/hooks/useCloseEventDetail'
 import { useEventDetailDocument } from '@/hooks/useEventDetailDocument'
 import {
@@ -63,8 +64,19 @@ function StandaloneEventNavBridge({ entry }: { entry: string }) {
 
 export function EventDetailPageClient() {
   const params = useParams<{ eventId: string }>()
+  const searchParams = useSearchParams()
+  const [guideSlug] = useState(() => guideSlugFromLocationSearch(`?${searchParams.toString()}`))
   const { close, hasInAppReturn } = useCloseEventDetail()
   const { event, lifecycleStatus, now } = useEventDetailDocument({ skipPageMeta: true })
+
+  useEffect(() => {
+    if (!guideSlug) return
+    const url = new URL(window.location.href)
+    if (!url.searchParams.has('from_guide')) return
+    url.searchParams.delete('from_guide')
+    const next = `${url.pathname}${url.search}${url.hash}`
+    window.history.replaceState(window.history.state, '', next)
+  }, [guideSlug])
 
   // Only treat this as a modal soft-open when it was opened in-app this session.
   // A hard load with stale sessionStorage must render the real standalone page.
@@ -86,7 +98,8 @@ export function EventDetailPageClient() {
           lifecycleNow={now}
           hasInAppReturn={hasInAppReturn}
           onClose={close}
-          analyticsSource="discovery"
+          analyticsSource={guideSlug ? 'guide' : 'discovery'}
+          guideSlug={guideSlug}
         />
       </MemoryRouter>
     </Suspense>

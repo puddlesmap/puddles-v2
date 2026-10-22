@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { SharedEventUrlPage } from '../components/event-detail/SharedEventUrlPage'
+import { guideSlugFromLocationSearch } from '../utils/analytics'
 import { parseEventDetailLocationState } from '../utils/eventDetailNavigation'
 import {
   getEventLifecycleStatus,
@@ -18,7 +19,10 @@ export function EventDetailPage() {
   const now = useMemo(() => new Date(), [])
   const event = eventId ? getLifecycleDetailEventById(eventId) : undefined
   const lifecycleStatus = event ? getEventLifecycleStatus(event, now) : null
-  const analyticsSource = parseEventDetailLocationState(location.state)?.eventOpenSource
+  const guideSlug = guideSlugFromLocationSearch(location.search)
+  const analyticsSource = guideSlug
+    ? 'guide'
+    : parseEventDetailLocationState(location.state)?.eventOpenSource
 
   const hasInAppReturn = Boolean(
     parseEventDetailLocationState(location.state) ||
@@ -36,6 +40,7 @@ export function EventDetailPage() {
         else navigate('/browse')
       }}
       analyticsSource={analyticsSource}
+      guideSlug={guideSlug}
     />
   )
 }

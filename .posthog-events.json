@@ -53,5 +53,20 @@
     "event_name": "seasonal_collection_event_opened",
     "event_description": "User opens an activity from the home seasonal banner carousel.",
     "file": "src/components/seasonal/SeasonalDiscoveryModule.tsx"
+  },
+  {
+    "event_name": "guide_event_link_clicked",
+    "event_description": "User clicks a Puddles event link in a local guide. Not an event-detail view. Attribute the later view with activity_opened source_context guide and the same guide_slug.",
+    "file": "src/utils/analytics.ts"
+  },
+  {
+    "event_name": "guide_section_viewed",
+    "event_description": "A local-guide section heading was opened from the index or scrolled into view. Once per section per visit. Properties are guide_slug and section_id only.",
+    "file": "src/utils/analytics.ts"
+  },
+  {
+    "event_name": "guide_shared",
+    "event_description": "User shares a local guide via the device share sheet or copies the clean guide URL. Property is guide_slug only.",
+    "file": "src/utils/analytics.ts"
   }
 ]

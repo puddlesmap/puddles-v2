@@ -22,6 +22,7 @@ interface SharedEventUrlPageProps {
   hasInAppReturn: boolean
   onClose: () => void
   analyticsSource?: EventOpenSource
+  guideSlug?: string
 }
 
 /** Production standalone /event/:id experience — Airbnb v3 shared-link layout. */
@@ -32,6 +33,7 @@ export function SharedEventUrlPage({
   hasInAppReturn,
   onClose,
   analyticsSource = 'discovery',
+  guideSlug,
 }: SharedEventUrlPageProps) {
   const now = useMemo(() => lifecycleNow ?? new Date(), [lifecycleNow])
   const nearbyEvents = useMemo(
@@ -41,9 +43,13 @@ export function SharedEventUrlPage({
 
   useEffect(() => {
     if (event) {
-      trackActivityOpened(event, analyticsSource)
+      trackActivityOpened(
+        event,
+        guideSlug ? 'guide' : analyticsSource,
+        guideSlug ? { guide_slug: guideSlug } : undefined,
+      )
     }
-  }, [analyticsSource, event])
+  }, [analyticsSource, event, guideSlug])
 
   return (
     <div className="shared-event-url-page">
