@@ -710,6 +710,7 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'core-weekend-lemurpalooza-2026-10-21',
       'core-weekend-magical-bridge-halloween-costume-party-2026-10-25',
       'core-weekend-sunnyvale-halloween-pet-parade-2026-10-25',
+      'luminest-mystery-of-spiders-2026-10-25',
       'core-weekend-halloween-zoo-night-2026-10-29',
       'core-weekend-jack-o-jaunt-2026-10-30',
       'core-weekend-lakewood-library-opening-2026-10-31',

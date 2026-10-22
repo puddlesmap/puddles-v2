@@ -20693,5 +20693,71 @@
     "verifiedDate": "2026-10-21",
     "isPast": false,
     "isLive": true
+  },
+  {
+    "id": "luminest-mystery-of-spiders-2026-10-25",
+    "title": "The Mystery of Spiders",
+    "description": "Look at real spiders and webs, learn how a spider is built and how it spins, and make a spider-web ornament.",
+    "tips": "ticket|Members are free. Non-members are $20 per family. Sign up on the form to confirm a spot.\ninfo|Costumes are welcome.",
+    "venue": "LumiNest Family Club",
+    "address": "Sunnyvale, CA",
+    "city": "Sunnyvale",
+    "date": "2026-10-25",
+    "startTime": "10:00",
+    "endTime": "11:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Parent & Me"
+    ],
+    "categoryTags": [
+      "Parent & Me"
+    ],
+    "cost": "Members free · $20/family",
+    "imageUrl": "/events/luminest-mystery-of-spiders-2026.jpg",
+    "eventUrl": "https://forms.gle/uNErGCLSvaCi7DFi6",
+    "lat": 37.3688,
+    "lng": -122.0363,
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-22",
+    "isPast": false,
+    "isLive": true,
+    "providerName": "LumiNest Family Club"
+  },
+  {
+    "id": "the-tech-national-stem-day-2026-11-08",
+    "title": "National STEM Day",
+    "description": "Explore the hands-on galleries, then stop by community booths and bonus activities.",
+    "tips": "ticket|Free. No code or coupon.\ninfo|The Tech asks that children under 10 come with a caregiver who is at least 14.\ninfo|The Tech validates parking to $5 at the Convention Center garage and the 2nd & San Carlos garage, except on city special-event parking days.",
+    "venue": "The Tech Interactive",
+    "address": "201 S Market St, San Jose, CA 95113",
+    "city": "San Jose",
+    "date": "2026-11-08",
+    "startTime": "11:00",
+    "endTime": "17:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore"
+    ],
+    "categoryTags": [
+      "Build & Explore"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/The_Tech_Museum_of_Innovation_in_Downtown_San_Jose_%28cropped%29.jpg",
+    "eventUrl": "https://www.thetech.org/explore/upcoming-events/",
+    "lat": 37.3314374,
+    "lng": -121.8907276,
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "verifiedDate": "2026-10-22",
+    "isPast": false,
+    "isLive": true,
+    "providerName": "The Tech Interactive"
   }
 ]

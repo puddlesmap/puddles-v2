@@ -114,20 +114,24 @@ export function HomePage() {
               proof="photo-strip"
               events={events}
               pickCount={count}
+              prominent
             />
           ))}
         </>
       }
       beforeResults={
         <>
-          {teasers.map(({ collection, count, href }) => (
+          {teasers.map(({ collection, events, count, href }) => (
             <HomeSeasonalTeaser
               key={collection.slug}
               collection={collection}
               href={href}
-              variant="inline"
-              proof="none"
+              variant="band"
+              proof="photo-strip"
+              events={events}
               pickCount={count}
+              prominent
+              idSuffix="-card"
             />
           ))}
         </>

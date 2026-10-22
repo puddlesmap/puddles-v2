@@ -878,7 +878,7 @@
 }
 
 @media (max-width: 767px) {
-  .home-seasonal-density--split-bp .home-seasonal-teaser--band {
+  .home-seasonal-density--split-bp > .home-seasonal-teaser--band {
     display: none;
   }
 
@@ -896,7 +896,8 @@
 }
 
 @media (min-width: 768px) {
-  .home-seasonal-density--split-bp .home-experiment-refined-main > .home-seasonal-teaser--inline {
+  .home-seasonal-density--split-bp .home-experiment-refined-main > .home-seasonal-teaser--inline,
+  .home-seasonal-density--split-bp .home-experiment-refined-main > .home-seasonal-teaser--prominent {
     display: none;
   }
 }
@@ -1330,5 +1331,124 @@
   .discovery-v3-event-card.venue-responsive .discovery-v3-event-card__body,
   .venue-responsive.discovery-event-card-body {
     --discovery-v3-body-height: 9.125rem;
+  }
+}
+
+/* October home band: seasonal image sits on the last line of the title. */
+.home-seasonal-teaser--prominent.home-seasonal-teaser--band .home-seasonal-teaser__inner {
+  padding-block: 1.15rem 1.35rem;
+}
+
+.home-seasonal-teaser--prominent.home-seasonal-teaser--band
+  .home-seasonal-teaser__title-with-art {
+  display: block;
+  width: auto;
+  max-width: none;
+  padding-right: 0;
+}
+
+.home-seasonal-teaser--prominent.home-seasonal-teaser--band
+  .home-seasonal-teaser__title-with-art
+  .home-seasonal-teaser__title {
+  display: inline;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  white-space: normal;
+}
+
+.home-seasonal-teaser--prominent.home-seasonal-teaser--band .home-seasonal-teaser__title-art {
+  position: static;
+  display: inline-block;
+  width: 2.15rem;
+  height: 2.15rem;
+  margin-left: 0.28rem;
+  vertical-align: -0.42rem;
+  transform: none;
+}
+
+.home-seasonal-teaser--prominent .home-seasonal-teaser__tagline--full {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.home-seasonal-teaser--prominent .home-seasonal-teaser__tagline--compact {
+  display: none;
+}
+
+.home-seasonal-teaser--prominent .home-seasonal-teaser__cta--proof {
+  margin-top: 0.65rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.home-seasonal-teaser--prominent .home-seasonal-teaser__photo {
+  height: 7.25rem;
+  border-radius: var(--radius-sm);
+}
+
+@media (min-width: 768px) {
+  .home-seasonal-teaser--prominent .home-seasonal-teaser__inner--split {
+    grid-template-columns: 22rem minmax(0, 1fr);
+    grid-template-areas:
+      'copy proof'
+      'cta proof';
+    align-items: center;
+    gap: 0.35rem 1.5rem;
+  }
+
+  .home-seasonal-teaser--prominent.home-seasonal-teaser--band
+    .home-seasonal-teaser__title-with-art
+    .home-seasonal-teaser__title {
+    font-size: 2rem;
+  }
+
+  .home-seasonal-teaser--prominent.home-seasonal-teaser--band .home-seasonal-teaser__title-art {
+    width: 2.55rem;
+    height: 2.55rem;
+    vertical-align: -0.5rem;
+  }
+
+  .home-seasonal-teaser--prominent .home-seasonal-teaser__photo {
+    height: 7.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-seasonal-density--split-bp .home-experiment-refined-main > .home-seasonal-teaser--prominent {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    background: transparent;
+    margin-top: 0.25rem;
+    margin-inline: 0;
+    padding: 0;
+  }
+
+  .home-seasonal-density--split-bp
+    .home-experiment-refined-main
+    > .home-seasonal-teaser--prominent
+    + .home-experiment-content {
+    margin-top: 1rem;
+  }
+
+  .home-seasonal-density--split-bp
+    .home-experiment-refined-main
+    > .home-seasonal-teaser--prominent.home-seasonal-teaser--halloween-night
+    .home-seasonal-teaser__hit {
+    border-radius: var(--radius-md);
+    background:
+      radial-gradient(ellipse 55% 80% at 92% 0%, rgba(240, 178, 122, 0.18) 0%, transparent 58%),
+      linear-gradient(180deg, #151a22 0%, #12161c 100%);
+    box-shadow: var(--shadow-elevation-light-3);
+  }
+
+  .home-seasonal-density--split-bp
+    .home-experiment-refined-main
+    > .home-seasonal-teaser--prominent
+    .home-seasonal-teaser__inner.layout-container {
+    max-width: none;
+    padding-inline: 1rem;
   }
 }

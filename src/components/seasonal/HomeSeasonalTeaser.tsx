@@ -19,6 +19,10 @@ interface HomeSeasonalTeaserProps {
   inlineCopy?: 'compact' | 'title'
   events?: Event[]
   pickCount?: number
+  /** Larger title, with the seasonal image on the last line of the title. */
+  prominent?: boolean
+  /** Keeps two copies of the same teaser from sharing one heading id. */
+  idSuffix?: string
 }
 
 function formatTeaserDate(ymd: string): string {
@@ -258,8 +262,10 @@ export function HomeSeasonalTeaser({
   inlineCopy = 'compact',
   events = [],
   pickCount = 0,
+  prominent = false,
+  idSuffix = '',
 }: HomeSeasonalTeaserProps) {
-  const headingId = `home-seasonal-teaser-heading-${collection.slug}`
+  const headingId = `home-seasonal-teaser-heading-${collection.slug}${idSuffix}`
   const titleCopy = variant === 'inline' && inlineCopy === 'title'
   const showClay = proof === 'none' && !titleCopy
   const ctaLabel = teaserCtaLabel(proof, collection, pickCount, variant, inlineCopy)
@@ -290,6 +296,7 @@ export function HomeSeasonalTeaser({
         proof !== 'none' ? `home-seasonal-teaser--${proof}` : '',
         titleCopy ? 'home-seasonal-teaser--title-copy' : '',
         halloweenNight ? 'home-seasonal-teaser--halloween-night' : '',
+        prominent ? 'home-seasonal-teaser--prominent' : '',
       ]
         .filter(Boolean)
         .join(' ')}
