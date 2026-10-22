@@ -4,6 +4,7 @@ export type EventOpenSource =
   | 'browse_map'
   | 'home'
   | 'city_landing'
+  | 'guide'
 
 export type FilterContext = 'home' | 'browse'
 

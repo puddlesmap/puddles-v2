@@ -9,6 +9,7 @@ import { AdminAuthGate } from './components/admin/AdminAuthGate'
 import { AdminLayout } from './components/admin/AdminLayout'
 import { DiscoveryPage } from './views/DiscoveryPage'
 import { HomePage } from './views/HomePage'
+import { HalloweenGuidePage } from './views/HalloweenGuidePage'
 import { HomeLaunchPreviewPage } from './views/HomeLaunchPreviewPage'
 import { ExperimentHallmarkHelloFallMockupPage } from './views/ExperimentHallmarkHelloFallMockupPage'
 import { ExperimentHallmarkHomeMockupPage } from './views/ExperimentHallmarkHomeMockupPage'
@@ -94,6 +95,7 @@ function AppShell() {
   const primaryRoutes = (
     <>
       <Route path="/" element={<HomePage />} />
+      <Route path="/guides/halloween-with-little-ones" element={<HalloweenGuidePage />} />
       <Route path="/experiment/home-launch-preview" element={<HomeLaunchPreviewPage />} />
       <Route path="/experiment/seasonal-launch-review" element={<ExperimentSeasonalLaunchReviewPage />} />
       <Route path="/experiment/hallmark-home-mockup" element={<ExperimentHallmarkHomeMockupPage />} />

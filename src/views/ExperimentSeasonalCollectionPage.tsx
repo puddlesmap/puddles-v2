@@ -19,7 +19,9 @@ import {
   PUDDLES_WORDMARK_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC_2X,
 } from './experimentShared'
+import { LocalGuideCardVariant } from '../components/guides/LocalGuideCard'
 import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
+import './guide-page.css'
 import { useEventNavigation } from '../hooks/useEventNavigation'
 
 /** Soft night-sky sparkles for the Halloween collection page. */
@@ -384,6 +386,8 @@ export function ExperimentSeasonalCollectionPage() {
               />
             ) : null}
           </header>
+
+          {isHalloween ? <LocalGuideCardVariant variant={4} /> : null}
 
           {hasGeographicSections ? (
             <CollectionGeoTabs

@@ -1,0 +1,1016 @@
+/* Layout studies only. The guide copy is unchanged. */
+
+.gsl,
+.gsl *,
+.gsl *::before,
+.gsl *::after {
+  box-sizing: border-box;
+}
+
+.gsl {
+  min-height: 100vh;
+  padding: 0 0 4rem;
+  color: #273034;
+  font-family: var(--font-sans);
+  background: #f3f3f3;
+}
+
+.gsl-top,
+.gsl-bar,
+.gsl-study {
+  max-width: 76rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.gsl-top {
+  padding-top: 1.5rem;
+}
+
+.gsl-kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9a6b4f;
+}
+
+.gsl h1 {
+  margin: 0.35rem 0 0;
+  max-width: 40rem;
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.gsl-lede,
+.gsl-why {
+  max-width: 42rem;
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.gsl-note {
+  max-width: 42rem;
+  margin: 0.65rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: #717171;
+}
+
+.gsl-note a,
+.gsl-top a {
+  color: inherit;
+  font-weight: 700;
+}
+
+.gsl-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background: #f3f3f3;
+}
+
+.gsl-bar div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.gsl-bar button {
+  min-height: 2.75rem;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  background: #fff;
+  color: #273034;
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gsl-bar button:focus-visible {
+  outline: 2px solid #273034;
+  outline-offset: 2px;
+}
+
+.gsl-bar button.is-on {
+  border-color: #273034;
+  background: #273034;
+  color: #fff;
+}
+
+.gsl-study {
+  margin-top: 2.5rem;
+  overflow-x: auto;
+  scroll-margin-top: 4.5rem;
+}
+
+.gsl-study h2 {
+  margin: 0.25rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.gsl-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.gsl-stage--desk,
+.gsl-stage--phone {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.gsl-stage--desk {
+  width: 1120px;
+}
+
+.gsl-stage--phone {
+  width: 390px;
+}
+
+.gsl-device {
+  margin: 0 0 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.gs-frame {
+  container-name: guide;
+  container-type: inline-size;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: var(--shadow-elevation-light-3);
+}
+
+/* Phone frame: keep type off the card edge. */
+
+.gsl-stage--phone .guide-page.skin {
+  padding: 1.25rem 1.25rem 2rem;
+}
+
+.guide-page.skin .lgg-dek,
+.guide-page.skin .lgg-chapter > p,
+.guide-page.skin .lgg-out > p:not(.lgg-iconline) {
+  margin: 0.4rem 0 0;
+  line-height: 1.5;
+}
+
+.gsl-stage--phone .guide-page.skin .lgg-copy,
+.gsl-stage--phone .guide-page.skin .lgg-chapter > p,
+.gsl-stage--phone .guide-page.skin .lgg-out > p:not(.lgg-iconline) {
+  line-height: 1.5;
+}
+
+.gsl-stage--phone .guide-page.skin .lgg-dek,
+.gsl-stage--phone .guide-page.skin .lgg-out > p:not(.lgg-iconline):not(.lgg-when) {
+  line-height: 1.32;
+}
+
+.gsl-stage--phone .guide-page.skin .lgg-hero h1 {
+  line-height: 1.15;
+}
+
+.guide-page.skin,
+.guide-page.skin .lgg-dek,
+.guide-page.skin .lgg-date,
+.guide-page.skin .lgg-chapter p,
+.guide-page.skin .lgg-out > p,
+.guide-page.skin .lgg-tips li {
+  color: #3d4a50;
+}
+
+.guide-page.skin .lgg-chapter p.lgg-disclaimer {
+  color: #717171;
+}
+
+.guide-page.skin a:any-link {
+  color: #1d4f6e;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.guide-page.skin a:any-link:hover {
+  color: #0d3a54;
+}
+
+.guide-page.skin a.guide-map__more:any-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.7rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: #66c5f9;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.guide-page.skin a.guide-map__more:any-link:hover {
+  background: #4db8f2;
+  color: #fff;
+}
+
+.guide-page.skin a:focus-visible {
+  outline: 2px solid #273034;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.guide-page.skin .lgg-chapter,
+.guide-page.skin .lgg-jumps {
+  scroll-margin-top: 8.5rem;
+}
+
+.guide-page.skin .lgg-jumps {
+  display: block;
+  margin: 0.85rem 0 0;
+  overflow: visible;
+}
+
+.guide-page.skin .lgg-jumps-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.guide-page.skin .lgg-jumps ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-page.skin .lgg-jumps a {
+  display: block;
+  width: auto;
+  padding: 0.4rem 0;
+  border-radius: 0;
+  background: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.guide-page.skin:not(.skin--film) .lgl-eyebrow {
+  color: #6f675f;
+}
+
+.guide-page.skin:not(.skin--film) .lgg-hero h1 {
+  color: #c86c38;
+}
+
+.guide-page.skin .lgg-read {
+  color: #717171;
+  font-weight: 700;
+}
+
+.gsl-totop {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 45;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.05rem;
+  box-sizing: border-box;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  border: 1px solid #ebebeb;
+  border-radius: 999px;
+  background: #fff;
+  color: #2a94d0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgb(34 34 34 / 0.1);
+}
+
+.gsl-totop:hover {
+  background: #fff;
+  color: #2a94d0;
+  box-shadow: 0 3px 12px rgb(34 34 34 / 0.14);
+}
+
+.gsl-totop:focus-visible {
+  outline: 2px solid #4db8f2;
+  outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .gsl-totop {
+    right: 0.85rem;
+    bottom: calc(6rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Shared: same sentences, label set apart from the rest. */
+
+.guide-page.skin .lgg-hero h1 {
+  max-width: none;
+}
+
+.guide-page.skin .lgg-fit-picks {
+  gap: 0;
+}
+
+.guide-page.skin .lgg-fit-picks li {
+  padding: 0.45rem 0;
+  border-top: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.guide-page.skin .lgg-fit-picks b {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.guide-page.skin .lgg-out {
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-page.skin .lgg-out .lgg-event {
+  order: -1;
+  display: block;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.guide-page.skin .lgg-out .lgg-event--text {
+  order: -1;
+  margin-top: 0;
+}
+
+.guide-page.skin .lgg-event img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 16px;
+  background: #f6f3ee;
+}
+
+.guide-page.skin .lgg-event strong {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.guide-page.skin .lgg-event > span {
+  display: block;
+  margin-top: 0.55rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1d4f6e;
+}
+
+.guide-page.skin .lgg-event > span > span {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.guide-page.skin .lgg-body h3 {
+  scroll-margin-top: 8.5rem;
+  margin: 2.25rem 0 0.4rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #3f3c39;
+}
+
+.guide-page.skin .lgg-out > h4 {
+  margin: 0 0 0.2rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: #3f3c39;
+}
+
+.guide-page.skin .lgg-iconline b {
+  display: block;
+  margin-bottom: 0.12rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+/* 1. Press story — title, then a photo wider than the words. */
+
+.guide-page.skin--press .lgg-out > h4 {
+  order: -3;
+}
+
+.guide-page.skin--press .lgg-out > .lgg-when {
+  order: -2;
+}
+
+.guide-page.skin--press .lgg-cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin: 1.15rem 0 0;
+  border-radius: 0;
+  object-position: center 38%;
+}
+
+@container guide (min-width: 760px) {
+  .guide-page.skin--press .lgg-hero,
+  .guide-page.skin--press .lgg-body {
+    max-width: 40rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .guide-page.skin--press .lgg-hero {
+    padding-top: 2.5rem;
+  }
+
+  .guide-page.skin--press .lgg-hero h1 {
+    font-size: 2.75rem;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+
+  .guide-page.skin--press .lgg-cover {
+    aspect-ratio: 16 / 8;
+    margin-top: 1.5rem;
+  }
+
+  .guide-page.skin--press .lgg-out .lgg-event:not(.lgg-event--text) {
+    width: 100cqi;
+    max-width: 100cqi;
+    margin-left: calc(50% - 50cqi);
+  }
+
+  .guide-page.skin--press .lgg-out .lgg-event:not(.lgg-event--text) > span {
+    width: min(40rem, 100%);
+    margin-top: 0.85rem;
+    margin-left: max(0px, calc(50cqi - 20rem));
+  }
+
+  .guide-page.skin--press .lgg-out .lgg-event img {
+    border-radius: 0;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* 2. Photo stays — picture beside the write-up. */
+
+.guide-page.skin--stays .lgg-cover {
+  width: 100%;
+  height: 240px;
+  margin: 0;
+  border-radius: 0;
+  object-position: center 38%;
+}
+
+.guide-page.skin--stays .lgg-out:has(img) {
+  margin-top: 1rem;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: var(--shadow-elevation-light-3);
+}
+
+.guide-page.skin--stays .lgg-out:has(img) .lgg-event img {
+  border-radius: 0;
+  min-height: 200px;
+}
+
+.guide-page.skin--stays .lgg-out:has(img) > :not(.lgg-event) {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.guide-page.skin--stays .lgg-out:has(img) > h4 {
+  padding-top: 0.95rem;
+}
+
+.guide-page.skin--stays .lgg-out:has(img) .lgg-event > span {
+  padding: 0 1rem 0.9rem;
+}
+
+.guide-page.skin--stays .lgg-fit-picks {
+  grid-template-columns: 1fr;
+}
+
+.guide-page.skin--stays .lgg-fit-picks li {
+  margin-top: 0.75rem;
+  padding: 0.95rem 1rem;
+  border-top: 0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow-elevation-light-3);
+}
+
+@container guide (min-width: 760px) {
+  .guide-page.skin--stays .lgg-hero {
+    padding-top: 1.5rem;
+  }
+
+  .guide-page.skin--stays .lgg-cover {
+    height: 420px;
+  }
+
+  .guide-page.skin--stays .lgg-fit-picks {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .guide-page.skin--stays .lgg-fit-picks li {
+    margin-top: 0;
+  }
+
+  .guide-page.skin--stays .lgg-out:has(img) {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: start;
+    min-height: 300px;
+  }
+
+  .guide-page.skin--stays .lgg-out:has(img) .lgg-event {
+    display: contents;
+  }
+
+  .guide-page.skin--stays .lgg-out:has(img) .lgg-event img {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 57.5%;
+    height: 100%;
+    aspect-ratio: auto;
+    border-radius: 18px 0 0 18px;
+  }
+
+  .guide-page.skin--stays .lgg-out:has(img) > :not(.lgg-event) {
+    grid-column: 2;
+    padding-right: 1.15rem;
+    padding-left: 0.15rem;
+  }
+
+  .guide-page.skin--stays .lgg-out:has(img) .lgg-event > span {
+    grid-column: 2;
+    align-self: end;
+    margin: 0;
+    padding: 0.35rem 1.15rem 1rem 0.15rem;
+  }
+}
+
+/* 3. Rate sheet — label, then the fact. */
+
+.guide-page.skin--rates .lgg-cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 8;
+  margin: 1.25rem 0 0;
+  border-radius: 16px;
+}
+
+.guide-page.skin--rates .lgg-out .lgg-event img {
+  border-radius: 16px 16px 0 0;
+  margin-bottom: 0;
+}
+
+.guide-page.skin--rates .lgg-iconline {
+  display: flex;
+  gap: 0.65rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0.7rem 0;
+  border-top: 1px solid #ebebeb;
+}
+
+.guide-page.skin--rates .lgg-iconline .event-detail-tip-icon {
+  display: none;
+}
+
+.guide-page.skin--rates .lgg-iconline > span {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 0.35rem 0.75rem;
+  align-items: baseline;
+  flex: 1;
+}
+
+.guide-page.skin--rates .lgg-iconline b {
+  margin: 0;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.875rem;
+  color: #273034;
+}
+
+@container guide (min-width: 760px) {
+  .guide-page.skin--rates .lgg-hero,
+  .guide-page.skin--rates .lgg-body {
+    padding-right: 2.25rem;
+    padding-left: 2.25rem;
+  }
+
+  .guide-page.skin--rates .lgg-hero {
+    padding-top: 2.5rem;
+  }
+
+  .guide-page.skin--rates .lgg-hero h1 {
+    max-width: 40rem;
+    font-size: 2.75rem;
+    line-height: 1.12;
+  }
+
+  .guide-page.skin--rates .lgg-iconline > span {
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+  }
+}
+
+/* 5. Rate column — rate sheet rows, press-story measure. */
+
+.guide-page.skin--column .lgg-cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 8;
+  margin: 1.25rem 0 0;
+  border-radius: 16px;
+}
+
+.guide-page.skin--column .lgg-out .lgg-event img {
+  border-radius: 16px;
+  margin-bottom: 0;
+}
+
+.guide-page.skin--column .lgg-out {
+  margin-top: 2.75rem;
+}
+
+.guide-page.skin--column .lgg-out .lgg-event--text {
+  order: 3;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  margin: 0.85rem 0 0;
+}
+
+.guide-page.skin--column .lgg-out .lgg-event--text > span {
+  margin-top: 0;
+}
+
+.guide-page.skin--column .lgg-out .lgg-iconline {
+  order: 2;
+}
+
+.guide-page.skin--column .lgg-chapter > p.lgg-tips-lead {
+  margin-top: 2rem;
+  margin-bottom: 0.65rem;
+}
+
+.guide-page.skin .lgg-tips {
+  margin: 0.15rem 0 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.guide-page.skin .lgg-tips li {
+  margin-top: 0.45rem;
+  padding: 0;
+  border: 0;
+  line-height: 1.5;
+}
+
+.guide-page.skin--column .lgg-more-follow {
+  margin-top: 0.75rem;
+}
+
+.guide-page.skin--column .lgg-more .lgg-related {
+  display: inline-block;
+  margin-top: 0.85rem;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.guide-page.skin--column .lgg-disclaimer {
+  margin-top: 0.85rem;
+}
+
+.guide-page.skin .lgg-end {
+  height: 5.5rem;
+}
+
+.guide-page.skin--column .lgg-expect {
+  margin-top: 1.75rem;
+}
+
+.guide-page.skin--column .lgg-body {
+  padding-bottom: 1rem;
+}
+
+.guide-page.skin .lgg-iconline,
+.guide-page.skin--rates .lgg-iconline,
+.guide-page.skin--column .lgg-iconline {
+  display: grid;
+  grid-template-columns: 8.75rem minmax(0, 1fr);
+  column-gap: 0.85rem;
+  align-items: start;
+  justify-items: start;
+  margin: 0;
+  padding: 0.4rem 0;
+  border-top: 0;
+  text-align: left;
+}
+
+.guide-page.skin .lgg-out > :not(.lgg-iconline) + .lgg-iconline,
+.guide-page.skin--column .lgg-out > :not(.lgg-iconline) + .lgg-iconline {
+  margin-top: 1.15rem;
+}
+
+.guide-page.skin .lgg-before .lgg-tips {
+  grid-column: 2;
+  margin: 0;
+}
+
+.guide-page.skin .lgg-before .lgg-tips li:first-child {
+  margin-top: 0;
+}
+
+.guide-page.skin .lgg-iconline .event-detail-tip-icon,
+.guide-page.skin--column .lgg-iconline .event-detail-tip-icon,
+.guide-page.skin--rates .lgg-iconline .event-detail-tip-icon {
+  display: none !important;
+}
+
+.guide-page.skin .lgg-iconline > b,
+.guide-page.skin--column .lgg-iconline > b,
+.guide-page.skin--rates .lgg-iconline > b {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #3d4a50;
+}
+
+.guide-page.skin .lgg-iconline > span,
+.guide-page.skin--column .lgg-iconline > span,
+.guide-page.skin--rates .lgg-iconline > span {
+  display: block;
+  grid-column: 2;
+  grid-template-columns: none;
+  min-width: 0;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.guide-page.skin .lgg-iconline--more > b,
+.guide-page.skin--column .lgg-iconline--more > b {
+  visibility: hidden;
+}
+
+.guide-page.skin .lgg-iconline--plain,
+.guide-page.skin--column .lgg-iconline--plain {
+  display: block;
+  grid-template-columns: none;
+}
+
+.guide-page.skin .lgg-iconline--plain > span,
+.guide-page.skin--column .lgg-iconline--plain > span {
+  display: block;
+  grid-column: auto;
+}
+
+.guide-page.skin--column .lgg-chapter > h4 {
+  margin: 2.25rem 0 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: #3f3c39;
+}
+
+.guide-page.skin--column .lgg-chapter > h4 + p {
+  margin-top: 0;
+}
+
+.gsl-stage--phone .guide-page.skin .lgg-tips li {
+  line-height: 1.45;
+}
+
+.guide-page.skin.skin--column {
+  container-name: guide;
+  container-type: inline-size;
+}
+
+.guide-page.skin--column .lgg-hero {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media (max-width: 759px) {
+  .guide-page.skin--column .lgg-dek,
+  .guide-page.skin--column .lgg-out > p:not(.lgg-iconline):not(.lgg-when) {
+    line-height: 1.32;
+  }
+
+  .guide-page.skin--column .lgg-hero h1 {
+    line-height: 1.15;
+  }
+
+  .guide-page.skin--column .lgg-tips li {
+    line-height: 1.45;
+  }
+}
+
+.guide-page.skin .lgg-date {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.85rem;
+}
+
+.guide-page.skin .lgg-share {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #1d4f6e;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.guide-page.skin .lgg-share:hover {
+  color: #0d3a54;
+}
+
+.guide-page.skin .lgg-share:focus-visible {
+  outline: 2px solid #273034;
+  outline-offset: 3px;
+}
+
+@container guide (min-width: 760px) {
+  .guide-page.skin--column .lgg-hero,
+  .guide-page.skin--column .lgg-body {
+    max-width: 40rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .guide-page.skin--column .lgg-hero {
+    padding-top: 2.5rem;
+  }
+
+  .guide-page.skin--column .lgg-hero h1 {
+    max-width: 40rem;
+    font-size: 2.75rem;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+
+  .guide-page.skin .lgg-iconline,
+  .guide-page.skin--column .lgg-iconline,
+  .guide-page.skin--rates .lgg-iconline {
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+  }
+}
+
+/* 4. Film — title on the cover, large event photos. */
+
+.guide-page.skin--film {
+  display: grid;
+}
+
+.guide-page.skin--film .lgg-hero,
+.guide-page.skin--film .lgg-cover {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.guide-page.skin--film .lgg-cover {
+  width: 100%;
+  height: 460px;
+  margin: 0;
+  border-radius: 0;
+  object-position: center 32%;
+}
+
+.guide-page.skin--film .lgg-hero {
+  z-index: 1;
+  align-self: end;
+  padding: 4.5rem 1.15rem 2.6rem;
+  background: linear-gradient(180deg, rgba(20, 16, 12, 0) 0%, rgba(20, 16, 12, 0.84) 100%);
+}
+
+.guide-page.skin--film .lgg-hero h1,
+.guide-page.skin--film .lgg-dek,
+.guide-page.skin--film .lgg-date,
+.guide-page.skin--film .lgl-eyebrow {
+  color: #fff;
+}
+
+.guide-page.skin--film .lgg-hero h1 {
+  max-width: 22rem;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.35);
+}
+
+.guide-page.skin--film .lgg-dek,
+.guide-page.skin--film .lgg-date {
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+}
+
+.guide-page.skin--film .lgg-body {
+  position: relative;
+  z-index: 1;
+  margin-top: -1.15rem;
+  padding-top: 1.35rem;
+  border-radius: 20px 20px 0 0;
+  background: #fff;
+}
+
+.guide-page.skin--film .lgg-event img {
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(39, 48, 52, 0.18);
+}
+
+@container guide (min-width: 760px) {
+  .guide-page.skin--film .lgg-cover {
+    height: 560px;
+  }
+
+  .guide-page.skin--film .lgg-hero {
+    padding: 6rem 2.5rem 3rem;
+  }
+
+  .guide-page.skin--film .lgg-hero h1 {
+    max-width: 36rem;
+    font-size: 3.25rem;
+    line-height: 1.08;
+  }
+
+  .guide-page.skin--film .lgg-body {
+    padding-right: 2.25rem;
+    padding-left: 2.25rem;
+  }
+
+  .guide-page.skin--film .lgg-event img {
+    aspect-ratio: 16 / 7.5;
+  }
+}

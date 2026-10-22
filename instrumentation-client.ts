@@ -20,11 +20,19 @@ if (shouldInitPostHog()) {
     capture_pageleave: true,
     // Product events are explicit; do not autocapture clicks/inputs.
     autocapture: false,
-    // Privacy: no session replay. Public visitors are never identified.
-    disable_session_recording: true,
+    // Heatmaps collect clicks and scrolls without autocapture.
+    capture_heatmaps: true,
+    // Masked replay. Public visitors are never identified.
+    disable_session_recording: false,
+    session_recording: {
+      maskAllInputs: true,
+      maskTextSelector: '.ph-mask',
+      blockSelector: '.ph-no-capture',
+    },
     capture_exceptions: true,
     debug: process.env.NODE_ENV === 'development' && allowLocalDebug,
   })
   // posthog-js ES module does not set window.posthog; analytics.ts captures via the global.
   window.posthog = posthog
+  if (window.location.pathname.startsWith('/admin')) posthog.stopSessionRecording()
 }

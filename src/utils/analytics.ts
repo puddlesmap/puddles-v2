@@ -54,6 +54,9 @@ export const ANALYTICS_EVENTS = {
   SEASONAL_BANNER_IMPRESSION: 'seasonal_banner_impression',
   SEASONAL_BANNER_CLICKED: 'seasonal_banner_clicked',
   SEASONAL_COLLECTION_EVENT_OPENED: 'seasonal_collection_event_opened',
+  GUIDE_EVENT_LINK_CLICKED: 'guide_event_link_clicked',
+  GUIDE_SECTION_VIEWED: 'guide_section_viewed',
+  GUIDE_SHARED: 'guide_shared',
 } as const
 
 type PlausibleInitOptions = {
@@ -78,6 +81,7 @@ declare global {
       capture: (event: string, properties?: Record<string, unknown>) => void
       captureException: (error: unknown) => void
       identify: (distinctId: string, properties?: Record<string, unknown>) => void
+      stopSessionRecording?: () => void
     }
   }
 }
@@ -255,10 +259,51 @@ export interface PageViewInfo {
   page: string
   path: string
   city?: string
+  guideSlug?: string
+  entryPoint?: string
 }
 
-export function resolvePageView(pathname: string): PageViewInfo | null {
+const GUIDE_ENTRY_POINTS = new Set(['home', 'browse', 'collection', 'instagram', 'xiaohongshu', 'google'])
+
+function guideEntryPoint(search: string): string {
+  const query = search.startsWith('?') ? search.slice(1) : search
+  const params = new URLSearchParams(query)
+  const utm = params.get('utm_source')?.trim().toLowerCase() ?? ''
+  const utmAlias =
+    utm === 'ig' ? 'instagram' : utm === 'xhs' || utm === 'redbook' ? 'xiaohongshu' : utm
+  if (GUIDE_ENTRY_POINTS.has(utmAlias)) return utmAlias
+
+  const entry = params.get('entry')?.trim().toLowerCase() ?? ''
+  if (entry === 'home' || entry === 'browse' || entry === 'collection') return entry
+
+  if (typeof window !== 'undefined' && document.referrer) {
+    try {
+      const ref = new URL(document.referrer)
+      if (ref.host === window.location.host) {
+        if (ref.pathname === '/') return 'home'
+        if (ref.pathname === '/browse') return 'browse'
+        if (ref.pathname.includes('/experiment/seasonal-discovery/')) return 'collection'
+      }
+    } catch {
+      // Ignore a referrer that is not a URL.
+    }
+  }
+
+  return 'direct'
+}
+
+export function resolvePageView(pathname: string, search = ''): PageViewInfo | null {
   if (isAdminPath(pathname)) return null
+
+  const guideMatch = pathname.match(/^\/guides\/([a-z0-9-]{1,80})$/)
+  if (guideMatch) {
+    return {
+      page: 'guide',
+      path: pathname,
+      guideSlug: guideMatch[1],
+      entryPoint: guideEntryPoint(search),
+    }
+  }
 
   const citySlug = localCitySlugFromPath(pathname)
   if (citySlug) {
@@ -281,15 +326,21 @@ export function pageNameFromPath(pathname: string): string | null {
 }
 
 export function trackPageView(pathname: string): void {
-  if (isAdminPath(pathname)) return
+  if (isAdminPath(pathname)) {
+    if (typeof window !== 'undefined') window.posthog?.stopSessionRecording?.()
+    return
+  }
 
-  const info = resolvePageView(pathname)
+  const search = typeof window !== 'undefined' ? window.location.search : ''
+  const info = resolvePageView(pathname, search)
   if (!info) return
 
   const props = sanitizeProps({
     page: info.page,
     path: info.path,
     ...(info.city ? { city: info.city } : {}),
+    ...(info.guideSlug ? { guide_slug: info.guideSlug } : {}),
+    ...(info.entryPoint ? { entry_point: info.entryPoint } : {}),
   })
 
   if (isAnalyticsEnabled()) {
@@ -327,12 +378,18 @@ export function trackEvent(eventName: string, props?: AnalyticsProps): void {
   track(eventName, props)
 }
 
+let lastOpenedEvent: { eventId: string; sourcePage: string; guideSlug?: string } | null = null
+
 function activityProps(event: Event): AnalyticsProps {
-  return {
+  const props: AnalyticsProps = {
     event_id: event.id,
     event_city: citySlug(event.city),
     event_category: primaryEventCategory(event),
   }
+  if (lastOpenedEvent?.eventId === event.id && lastOpenedEvent.guideSlug) {
+    props.guide_slug = lastOpenedEvent.guideSlug
+  }
+  return props
 }
 
 export function trackCitySelected(city: string, context: FilterContext): void {
@@ -374,10 +431,51 @@ export function trackViewModeChanged(viewMode: ViewMode): void {
   trackEvent(ANALYTICS_EVENTS.VIEW_MODE_CHANGED, { view_mode: viewMode })
 }
 
-export function trackActivityOpened(event: Event, source: EventOpenSource): void {
+export function guideSlugFromLocationSearch(search: string): string | undefined {
+  const query = search.startsWith('?') ? search.slice(1) : search
+  const value = new URLSearchParams(query).get('from_guide')?.trim() ?? ''
+  if (!/^[a-z0-9-]{1,80}$/.test(value)) return undefined
+  return value
+}
+
+export function trackGuideEventLinkClicked(guideSlug: string, eventId: string): void {
+  if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
+  if (!eventId.trim()) return
+  trackEvent(ANALYTICS_EVENTS.GUIDE_EVENT_LINK_CLICKED, {
+    guide_slug: guideSlug,
+    event_id: eventId,
+  })
+}
+
+export function trackGuideSectionViewed(guideSlug: string, sectionId: string): void {
+  if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
+  if (!/^[a-z0-9-]{1,80}$/.test(sectionId)) return
+  trackEvent(ANALYTICS_EVENTS.GUIDE_SECTION_VIEWED, {
+    guide_slug: guideSlug,
+    section_id: sectionId,
+  })
+}
+
+export function trackGuideShared(guideSlug: string): void {
+  if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
+  trackEvent(ANALYTICS_EVENTS.GUIDE_SHARED, { guide_slug: guideSlug })
+}
+
+export function trackActivityOpened(
+  event: Event,
+  source: EventOpenSource,
+  extras?: { guide_slug?: string },
+): void {
+  const sourcePage = sourceContextSlug(source)
+  lastOpenedEvent = {
+    eventId: event.id,
+    sourcePage,
+    ...(extras?.guide_slug ? { guideSlug: extras.guide_slug } : {}),
+  }
   trackEvent(ANALYTICS_EVENTS.ACTIVITY_OPENED, {
     ...activityProps(event),
-    source_context: sourceContextSlug(source),
+    source_context: sourcePage,
+    ...(extras?.guide_slug ? { guide_slug: extras.guide_slug } : {}),
   })
 }
 

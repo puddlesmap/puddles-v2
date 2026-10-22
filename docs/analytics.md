@@ -52,7 +52,7 @@ After changing env vars, **trigger a new deploy** so the public token is baked i
 
 - Canonical event names match Plausible / code (`activity_opened`, `add_to_calendar_clicked`, etc.) — **no alias duplicates**
 - Manual SPA `$pageview` via [`trackPageView()`](../src/utils/analytics.ts) only (`capture_pageview: false`)
-- Autocapture off; session replay off; no automatic `identify()` for public visitors
+- Autocapture off; masked session replay and heatmaps on for the public site; `/admin` does not record; no automatic `identify()` for public visitors
 - Optional admin-only control: “Mark this browser as internal” → `identify('schei_internal', { is_internal: true, user_type: 'owner' })` (no email/name)
 - No names, emails, form content, or precise location (existing prop sanitizer)
 - Production capture on `puddlesmap.com` only (unless `NEXT_PUBLIC_POSTHOG_DEBUG=true` on localhost)
@@ -81,6 +81,9 @@ Tracked on route change for public pages only. The `page` property identifies th
 | `/share` | `share` |
 | `/about` | `about` |
 | `/palo-alto`, `/los-altos`, `/mountain-view` | `city_page` (+ `city` prop) |
+| `/guides/:slug` | `guide` (+ `guide_slug`, `entry_point`) |
+
+A guide visit is this `$pageview`. There is no second `guide_viewed` event. `entry_point` is an allowlist: `utm_source` when it is `instagram`, `xiaohongshu`, or `google` (also `ig`, `xhs`, `redbook`); otherwise `entry=home`, `entry=browse`, or `entry=collection`; otherwise a same-site referrer; otherwise `direct`. The seasonal guide card uses `?entry=collection`. The shared URL has no tracking parameters.
 
 ### Discovery behavior
 
@@ -97,13 +100,13 @@ Tracked on route change for public pages only. The `page` property identifies th
 
 | Event | Properties |
 |-------|------------|
-| `activity_opened` | `event_id`, `event_city`, `event_category`, `source_context` |
+| `activity_opened` | `event_id`, `event_city`, `event_category`, `source_context`, optional `guide_slug` |
 | `visit_official_page_clicked` | `event_id`, `event_city`, `event_category` |
 | `add_to_calendar_clicked` | same |
 | `open_route_clicked` | same |
 | `activity_shared` | same |
 
-`source_context` values: `home`, `browse`, `map`, `city_page`
+`source_context` values: `home`, `browse`, `map`, `city_page`, `guide`
 
 `event_category` slugs: `stories`, `music_movement`, `arts_crafts`, `build_explore`, `outdoor`, `social_play`, `classes`, `other`
 
@@ -116,6 +119,29 @@ Tracked on route change for public pages only. The `page` property identifies th
 | `seasonal_collection_event_opened` | `event_id`, `event_city`, `event_category`, `theme_slug`, `placement`, `page` — card in the banner carousel |
 
 Wired on the Home Hello Fall band via [`SeasonalDiscoveryModule`](../src/components/seasonal/SeasonalDiscoveryModule.tsx). Opening a card still also fires `activity_opened` from the event detail view.
+
+### Local guides
+
+| Event | Properties |
+|-------|------------|
+| `$pageview` | `page` (`guide`), `guide_slug`, `entry_point` |
+| `guide_event_link_clicked` | `guide_slug`, `event_id` |
+| `guide_section_viewed` | `guide_slug`, `section_id` — once per section per visit |
+| `guide_shared` | `guide_slug` |
+
+After `activity_opened` includes `guide_slug`, later official-site, calendar, and directions clicks for that event carry the same `guide_slug`.
+
+## Local Guides — Halloween
+
+Create this in the PostHog UI, project `517281`. Name the dashboard **Local Guides — Halloween**.
+
+Funnel, within one session:
+
+1. `$pageview` where `page` = `guide` and `guide_slug` = `halloween-with-little-ones`
+2. `guide_event_link_clicked` with the same `guide_slug`
+3. `open_route_clicked` OR `visit_official_page_clicked` OR `add_to_calendar_clicked`, same `guide_slug`
+
+Replay filter: visited URL contains `/guides/halloween-with-little-ones`. Heatmaps: that guide, `/`, and `/browse`. Replay stays masked. Autocapture stays off.
 
 ### Community contribution
 
