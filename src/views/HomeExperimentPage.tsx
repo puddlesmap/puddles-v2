@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
-import { Link } from 'react-router-dom'
-import { CommunityCtaCard } from '../components/brand/CommunityCtaCard'
+import { PuddlesPicksCard } from '../components/picks/PuddlesPicksHome'
 import { getPublicEventsFromCatalog } from '../data/events'
 import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
 import { BrowseEventCard } from '../components/BrowseEventCard'
@@ -14,11 +13,8 @@ import { isNewCityFilter } from '../config/cityLaunch'
 import { PageContainer } from '../components/layout/PageContainer'
 import { Footer } from '../components/layout/Footer'
 import { AppHeader } from '../components/layout/AppHeader'
-import { ABOUT_SHARE_CTA_BODY } from './aboutShared'
 import { HomeMapPreview } from '../components/home/HomeMapPreview'
 import {
-  HOME_EXPERIMENT_REFINED_CTA_BODY,
-  HOME_EXPERIMENT_REFINED_CTA_TITLE,
   HOME_EXPERIMENT_REFINED_SUPPORTING_LINE,
   HOME_PAGE_HEADLINE,
 } from './homeExperimentAccentShared'
@@ -500,15 +496,7 @@ export function HomeExperimentPage({
   const shareCta = (
     <div className="about-lower-section">
       <div className="about-cta-group">
-        <CommunityCtaCard
-          className="about-cta-section"
-          title={isRefinedLayout ? HOME_EXPERIMENT_REFINED_CTA_TITLE : 'Know something we should add?'}
-          body={isRefinedLayout ? HOME_EXPERIMENT_REFINED_CTA_BODY : ABOUT_SHARE_CTA_BODY}
-        >
-          <Link to="/share" className="btn-primary">
-            Share with us
-          </Link>
-        </CommunityCtaCard>
+        <PuddlesPicksCard />
       </div>
     </div>
   )
@@ -551,6 +539,7 @@ export function HomeExperimentPage({
             <div className="home-experiment-refined-sticky-track">
               <div className="home-experiment-refined-main">
                 {beforeResults}
+                <div data-picks-intro-end aria-hidden="true" />
                 {resultsSection}
                 {afterResults}
                 <div className="home-experiment-refined-cta home-experiment-refined-cta--inline home-experiment-refined-panel">

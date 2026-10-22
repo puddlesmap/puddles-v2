@@ -89,6 +89,7 @@ export function WelcomeOnboarding({
   const [blockingDom, setBlockingDom] = useState(false)
   const [mobile, setMobile] = useState(false)
   const [successHold, setSuccessHold] = useState(false)
+  const picksSignupLive = true
 
   const welcomeCloseAtRef = useRef<number | null>(null)
   const welcomeShownTracked = useRef(false)
@@ -395,7 +396,7 @@ export function WelcomeOnboarding({
         />
       ) : null}
 
-      {showFab ? (
+      {showFab && !picksSignupLive ? (
         <BringPuddlesNearbyCta
           onOpen={() => openRequestSurface('floating_cta')}
           onDismiss={handleFabDismiss}

@@ -57,6 +57,8 @@ export const ANALYTICS_EVENTS = {
   GUIDE_EVENT_LINK_CLICKED: 'guide_event_link_clicked',
   GUIDE_SECTION_VIEWED: 'guide_section_viewed',
   GUIDE_SHARED: 'guide_shared',
+  NEWSLETTER_SUBSCRIBED: 'newsletter_subscribed',
+  NEWSLETTER_UNSUBSCRIBED: 'newsletter_unsubscribed',
 } as const
 
 type PlausibleInitOptions = {
@@ -640,4 +642,12 @@ export function trackBrowseFiltersApplied(prev: BrowseFilters, next: BrowseFilte
       trackActivityTypeSelected(type)
     }
   }
+}
+
+export function trackNewsletterSubscribed(signupSource: string): void {
+  trackEvent(ANALYTICS_EVENTS.NEWSLETTER_SUBSCRIBED, { signup_source: signupSource })
+}
+
+export function trackNewsletterUnsubscribed(): void {
+  trackEvent(ANALYTICS_EVENTS.NEWSLETTER_UNSUBSCRIBED)
 }

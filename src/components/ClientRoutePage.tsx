@@ -70,7 +70,10 @@ import { ExperimentBrowseLiveVsOption2Page } from '@/views/ExperimentBrowseLiveV
 import { ExperimentSeasonalThemeCalendarPage } from '@/views/ExperimentSeasonalThemeCalendarPage'
 import { ExperimentSeasonalBackgroundDialPage } from '@/views/ExperimentSeasonalBackgroundDialPage'
 import { WelcomeOnboarding } from '@/components/welcome/WelcomeOnboarding'
+import { PuddlesPicksPopup } from '@/components/picks/PuddlesPicksHome'
+import { PuddlesPicksMobilePill } from '@/components/picks/PuddlesPicksMobilePill'
 import { AdminEventsPage } from '@/views/admin/AdminEventsPage'
+import { AdminAudiencePage } from '@/views/admin/AdminAudiencePage'
 import { AdminApprovedPage } from '@/views/admin/AdminApprovedPage'
 import { AdminDiscoveryPage } from '@/views/admin/AdminDiscoveryPage'
 import { AdminSubmissionsPage } from '@/views/admin/AdminSubmissionsPage'
@@ -235,6 +238,7 @@ function ClientRoutes() {
                 <Route path="submissions" element={<AdminSubmissionsPage />} />
                 <Route path="seasonal-calendar" element={<AdminSeasonalCalendarPage />} />
                 <Route path="social" element={<AdminSocialStudioPage />} />
+                <Route path="audience" element={<AdminAudiencePage />} />
               </Route>
             </Route>
             <Route path="/Admin" element={<Navigate to="/admin" replace />} />
@@ -245,6 +249,8 @@ function ClientRoutes() {
       {!isAdminRoute && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
       {!isAdminRoute && <LocationBridge />}
       {!isAdminRoute && !isLogoLab && <WelcomeOnboarding />}
+      {!isAdminRoute && <PuddlesPicksPopup />}
+      {!isAdminRoute && <PuddlesPicksMobilePill />}
     </div>
   )
 }

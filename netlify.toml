@@ -75,3 +75,8 @@
   from = "/api/submissions"
   to = "/.netlify/functions/submissions"
   status = 200
+
+[[redirects]]
+  from = "/api/audience"
+  to = "/.netlify/functions/audience"
+  status = 200
