@@ -6,6 +6,7 @@ import {
   applySyncSaves,
   applyUnsubscribeNewsletter,
   applyVerifyParent,
+  bindAudienceRequest,
   readAudienceView,
   readParentSessionView,
 } from '../lib/audience-store.mjs'
@@ -41,6 +42,7 @@ function publicResult(result) {
 }
 
 export async function handler(event) {
+  bindAudienceRequest(event)
   if (event.httpMethod === 'OPTIONS') return jsonResponse(204, { ok: true })
 
   if (event.httpMethod === 'GET') {

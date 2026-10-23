@@ -322,7 +322,9 @@ export function AdminAudiencePage() {
                   <td colSpan={4} className="text-muted">
                     {loading
                       ? 'Loading audience…'
-                      : 'No audience records yet. Heart events, Continue with email, or join Puddles Picks.'}
+                      : error
+                        ? 'Audience list did not load.'
+                        : 'No audience records yet. Heart events, Continue with email, or join Puddles Picks.'}
                   </td>
                 </tr>
               ) : (

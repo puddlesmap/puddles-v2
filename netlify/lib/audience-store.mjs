@@ -1,7 +1,7 @@
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
-import { getStore } from '@netlify/blobs'
+import { connectLambda, getStore } from '@netlify/blobs'
 function onNetlifyRuntime() {
   const cwd = process.cwd()
   if (cwd === '/var/task' || cwd.startsWith('/var/task/')) return true
@@ -36,25 +36,29 @@ import {
  * @property {object} [state]
  */
 
-function blobsConfigured() {
-  if (process.env.AUDIENCE_STORE === 'file') return false
-  if (process.env.AUDIENCE_STORE === 'blobs') return true
-  if (!onNetlifyRuntime()) return false
-  const env = process.env
-  return Boolean(globalThis.netlifyBlobsContext || env.NETLIFY_BLOBS_CONTEXT)
+/** Call at the start of each Netlify function so Blobs works in Lambda compatibility mode. */
+export function bindAudienceRequest(event) {
+  if (!event || typeof event.blobs !== 'string' || !event.blobs) return
+  try {
+    connectLambda(event)
+  } catch (error) {
+    console.error('[audience] Could not connect blob storage', error)
+  }
 }
 
-let blobStore
-function blobs() {
-  if (!blobsConfigured()) return null
-  if (!blobStore) {
-    try {
-      blobStore = getStore({ name: 'audience', consistency: 'strong' })
-    } catch {
-      return null
-    }
+function useFileStore() {
+  if (process.env.AUDIENCE_STORE === 'file') return true
+  if (process.env.AUDIENCE_STORE === 'blobs') return false
+  return !onNetlifyRuntime()
+}
+
+function openBlobStore() {
+  try {
+    return getStore({ name: 'audience', consistency: 'strong' })
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Audience storage is not connected.'
+    throw new Error(message)
   }
-  return blobStore
 }
 
 function withTimeout(promise, ms) {
@@ -100,30 +104,42 @@ function fileWriteState(state) {
   fs.renameSync(temp, file)
 }
 
-async function readState() {
-  const store = blobs()
-  if (!store) return fileReadState()
-  try {
-    const saved = await withTimeout(store.get('state', { type: 'json' }), 8000)
-    return { ...emptyAudience(), ...(saved || {}) }
-  } catch {
-    return fileReadState()
-  }
-}
-
-async function writeState(state) {
-  const payload = {
+function audiencePayload(state) {
+  return {
     parents: state.parents || [],
     savedEvents: state.savedEvents || [],
     newsletter: state.newsletter || [],
     loginTokens: state.loginTokens || [],
   }
-  const store = blobs()
-  if (!store) {
-    fileWriteState(payload)
-    return
+}
+
+async function readState() {
+  if (useFileStore()) {
+    return { state: fileReadState(), etag: null, backend: 'file', store: null }
   }
-  await withTimeout(store.setJSON('state', payload), 8000)
+  const store = openBlobStore()
+  const saved = await withTimeout(
+    store.getWithMetadata('state', { type: 'json', consistency: 'strong' }),
+    8000,
+  )
+  if (!saved) return { state: emptyAudience(), etag: null, backend: 'blobs', store }
+  return {
+    state: { ...emptyAudience(), ...(saved.data || {}) },
+    etag: saved.etag || null,
+    backend: 'blobs',
+    store,
+  }
+}
+
+async function writeState(loaded, state) {
+  const payload = audiencePayload(state)
+  if (loaded.backend !== 'blobs') {
+    fileWriteState(payload)
+    return true
+  }
+  const options = loaded.etag ? { onlyIfMatch: loaded.etag } : { onlyIfNew: true }
+  const result = await withTimeout(loaded.store.setJSON('state', payload, options), 8000)
+  return Boolean(result?.modified)
 }
 
 let writeChain = Promise.resolve()
@@ -139,11 +155,19 @@ function withWriteLock(fn) {
 /** @param {(state: ReturnType<typeof emptyAudience>) => AudienceMutation} apply */
 async function mutate(apply) {
   return withWriteLock(async () => {
-    const current = await readState()
-    const result = apply(current)
-    if (!result?.ok) return result
-    if (result.state) await writeState(result.state)
-    return result
+    for (let attempt = 0; attempt < 4; attempt += 1) {
+      const loaded = await readState()
+      const result = apply(loaded.state)
+      if (!result?.ok) return result
+      if (!result.state) return result
+      const modified = await writeState(loaded, result.state)
+      if (modified) return result
+    }
+    return {
+      ok: false,
+      error: 'Audience list was updated at the same time. Try again.',
+      status: 503,
+    }
   })
 }
 
@@ -232,7 +256,7 @@ export async function applyConsumeLoginToken(input) {
 }
 
 export async function readParentSessionView(userId) {
-  const state = await readState()
+  const { state } = await readState()
   const parent = (state.parents || []).find((row) => row.userId === userId)
   if (!parent?.emailVerifiedAt) return { ok: false, error: 'Not signed in.', status: 401 }
   const saves = (state.savedEvents || [])
@@ -248,7 +272,7 @@ export async function readParentSessionView(userId) {
 }
 
 export async function readAudienceView() {
-  const state = await readState()
+  const { state } = await readState()
   const rows = buildAudienceRows(state)
   return {
     ok: true,
