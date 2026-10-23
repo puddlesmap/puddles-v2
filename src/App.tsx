@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import { AppProvider } from './context/AppContext'
 import { BottomNav } from './components/layout/BottomNav'
@@ -64,7 +64,11 @@ import { ExperimentBrowseCardLayoutMockupPage } from './views/ExperimentBrowseCa
 import { ExperimentBrowseCardDesignReferencePage } from './views/ExperimentBrowseCardDesignReferencePage'
 import { ExperimentBrowseLiveVsOption2Page } from './views/ExperimentBrowseLiveVsOption2Page'
 import { ExperimentSeasonalThemeCalendarPage } from './views/ExperimentSeasonalThemeCalendarPage'
-import { ExperimentSeasonalCollectionPage } from './views/ExperimentSeasonalCollectionPage'
+import {
+  ExperimentSeasonalCollectionPage,
+  SeasonalActivePage,
+} from './views/ExperimentSeasonalCollectionPage'
+import { GuidesIndexPage } from './views/GuidesIndexPage'
 import { ExperimentFallGatheringsMockupPage } from './views/ExperimentFallGatheringsMockupPage'
 import { ExperimentSeasonalLaunchReviewPage } from './views/ExperimentSeasonalLaunchReviewPage'
 import { ExperimentSeasonalBackgroundDialPage } from './views/ExperimentSeasonalBackgroundDialPage'
@@ -75,7 +79,7 @@ import { AdminDiscoveryPage } from './views/admin/AdminDiscoveryPage'
 import { AdminSubmissionsPage } from './views/admin/AdminSubmissionsPage'
 import { AdminSeasonalCalendarPage } from './views/admin/AdminSeasonalCalendarPage'
 import { AdminSocialStudioPage } from './views/admin/AdminSocialStudioPage'
-import { initAnalytics, trackPageView } from './utils/analytics'
+import { initAnalytics, pageViewIdentity, trackPageView } from './utils/analytics'
 import { applySiteMeta } from './utils/siteMeta'
 import { getEventDetailBackground } from './utils/eventDetailNavigation'
 
@@ -86,16 +90,24 @@ function AppShell() {
   const isLogoLab = location.pathname === '/logo-lab'
   const isStandaloneEventDetail =
     /^\/event\/[^/]+$/.test(location.pathname) && !backgroundLocation
+  const viewIdentity = pageViewIdentity(location.pathname, location.search)
+  const lastView = useRef<string | null>(null)
 
   useEffect(() => {
     applySiteMeta(location.pathname, location.search)
-    trackPageView(location.pathname)
-  }, [location.pathname, location.search])
+    if (viewIdentity === lastView.current) return
+    lastView.current = viewIdentity
+    if (!viewIdentity) return
+    trackPageView(location.pathname, location.search)
+  }, [location.pathname, location.search, viewIdentity])
 
   const primaryRoutes = (
     <>
       <Route path="/" element={<HomePage />} />
+      <Route path="/guides" element={<GuidesIndexPage />} />
       <Route path="/guides/halloween-with-little-ones" element={<HalloweenGuidePage />} />
+      <Route path="/seasonal" element={<SeasonalActivePage />} />
+      <Route path="/seasonal/:slug" element={<ExperimentSeasonalCollectionPage />} />
       <Route path="/experiment/home-launch-preview" element={<HomeLaunchPreviewPage />} />
       <Route path="/experiment/seasonal-launch-review" element={<ExperimentSeasonalLaunchReviewPage />} />
       <Route path="/experiment/hallmark-home-mockup" element={<ExperimentHallmarkHomeMockupPage />} />

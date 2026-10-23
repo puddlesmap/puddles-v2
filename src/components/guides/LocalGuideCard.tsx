@@ -18,13 +18,13 @@ function GuideCopy({ ctaClass = 'local-guide-card__cta' }: { ctaClass?: string }
   )
 }
 
-export function LocalGuideCard() {
+export function LocalGuideCard({ href = GUIDE_HREF }: { href?: string } = {}) {
   return (
     <section className="local-guide-teaser" aria-labelledby="local-guide-teaser-title">
       <h2 id="local-guide-teaser-title" className="local-guide-teaser__label">
         Local Guides
       </h2>
-      <Link className="local-guide-card" to={GUIDE_HREF}>
+      <Link className="local-guide-card" to={href}>
         <img src={HALLOWEEN_GUIDE_COVER} alt="" />
         <GuideCopy />
       </Link>

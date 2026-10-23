@@ -2,7 +2,7 @@ export const HALLOWEEN_GUIDE_SLUG = 'halloween-with-little-ones'
 
 export const HALLOWEEN_GUIDE_PATH = '/guides/halloween-with-little-ones'
 
-export const HALLOWEEN_COLLECTION_PATH = '/experiment/seasonal-discovery/halloween-with-little-ones'
+export const HALLOWEEN_COLLECTION_PATH = '/seasonal/halloween-with-little-ones'
 
 /** Menlo Park Halloween Hoopla — children in costume on Santa Cruz Avenue. */
 export const HALLOWEEN_GUIDE_COVER =

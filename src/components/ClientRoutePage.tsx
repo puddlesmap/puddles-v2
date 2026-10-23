@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, useEffect } from 'react'
+import { Suspense, useEffect, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { MemoryRouter } from 'react-router-dom'
@@ -13,6 +13,7 @@ import { AdminLayout } from '@/components/admin/AdminLayout'
 import { DiscoveryPage } from '@/views/DiscoveryPage'
 import { HomePage } from '@/views/HomePage'
 import { HalloweenGuidePage } from '@/views/HalloweenGuidePage'
+import { GuidesIndexPage } from '@/views/GuidesIndexPage'
 import { HomeLaunchPreviewPage } from '@/views/HomeLaunchPreviewPage'
 import { ExperimentHallmarkHelloFallMockupPage } from '@/views/ExperimentHallmarkHelloFallMockupPage'
 import { ExperimentHallmarkHomeMockupPage } from '@/views/ExperimentHallmarkHomeMockupPage'
@@ -57,7 +58,10 @@ import { ExperimentSharedEventPage } from '@/views/ExperimentSharedEventPage'
 import { ExperimentSharedEventDetailPage } from '@/views/ExperimentSharedEventDetailPage'
 import { ExperimentWelcomePage } from '@/views/ExperimentWelcomePage'
 import { ExperimentSeasonalDiscoveryPage } from '@/views/ExperimentSeasonalDiscoveryPage'
-import { ExperimentSeasonalCollectionPage } from '@/views/ExperimentSeasonalCollectionPage'
+import {
+  ExperimentSeasonalCollectionPage,
+  SeasonalActivePage,
+} from '@/views/ExperimentSeasonalCollectionPage'
 import { ExperimentFallGatheringsMockupPage } from '@/views/ExperimentFallGatheringsMockupPage'
 import { ExperimentSeasonalLaunchReviewPage } from '@/views/ExperimentSeasonalLaunchReviewPage'
 import { ExperimentCommunityEventsMockupPage } from '@/views/ExperimentCommunityEventsMockupPage'
@@ -79,7 +83,8 @@ import { AdminDiscoveryPage } from '@/views/admin/AdminDiscoveryPage'
 import { AdminSubmissionsPage } from '@/views/admin/AdminSubmissionsPage'
 import { AdminSeasonalCalendarPage } from '@/views/admin/AdminSeasonalCalendarPage'
 import { AdminSocialStudioPage } from '@/views/admin/AdminSocialStudioPage'
-import { trackPageView } from '@/utils/analytics'
+import { BrowserUrlBridge } from '@/components/BrowserUrlBridge'
+import { pageViewIdentity, trackPageView } from '@/utils/analytics'
 import { applySiteMeta } from '@/utils/siteMeta'
 import { readEventDetailOverlayState } from '@/utils/nextEventDetailState'
 
@@ -91,13 +96,19 @@ function ClientRoutes() {
   const isLogoLab = pathname === '/logo-lab'
   const isStandaloneEventDetail =
     /^\/event\/[^/]+$/.test(pathname) && !readEventDetailOverlayState()
+  const searchString = search ? `?${search}` : ''
+  const viewIdentity = pageViewIdentity(pathname, searchString)
+  const lastView = useRef<string | null>(null)
 
   useEffect(() => {
     if (!pathname.startsWith('/event/')) {
-      applySiteMeta(pathname, search ? `?${search}` : '')
+      applySiteMeta(pathname, searchString)
     }
-    trackPageView(pathname)
-  }, [pathname, search])
+    if (viewIdentity === lastView.current) return
+    lastView.current = viewIdentity
+    if (!viewIdentity) return
+    trackPageView(pathname, searchString)
+  }, [pathname, searchString, viewIdentity])
 
   return (
     <div className="layout-root min-h-dvh bg-white">
@@ -106,7 +117,10 @@ function ClientRoutes() {
         <ErrorBoundary title="Puddles failed to load">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/guides" element={<GuidesIndexPage />} />
             <Route path="/guides/halloween-with-little-ones" element={<HalloweenGuidePage />} />
+            <Route path="/seasonal" element={<SeasonalActivePage />} />
+            <Route path="/seasonal/:slug" element={<ExperimentSeasonalCollectionPage />} />
             <Route path="/experiment/home-launch-preview" element={<HomeLaunchPreviewPage />} />
             <Route path="/experiment/seasonal-launch-review" element={<ExperimentSeasonalLaunchReviewPage />} />
             <Route
@@ -283,7 +297,8 @@ export function ClientRoutePage({ pathname, search = '' }: ClientRoutePageProps)
 
   return (
     <Suspense fallback={<ClientRouteLoading />}>
-      <MemoryRouter key={initialEntry} initialEntries={[initialEntry]}>
+      <MemoryRouter key={pathname} initialEntries={[initialEntry]}>
+        <BrowserUrlBridge />
         <ClientRoutes />
       </MemoryRouter>
     </Suspense>

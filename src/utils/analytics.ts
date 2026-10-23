@@ -12,6 +12,7 @@ import type { AgeFilter } from './ageRange'
 import type { TemporalTab } from './dates'
 import type { BrowseFilters } from './filters'
 import { localCitySlugFromPath } from '../config/localRoutes'
+import { getActiveSeasonalCollection, isSeasonalCollectionSlug } from '../data/seasonalDiscovery'
 import {
   activityTypeSlug,
   ageFilterSlug,
@@ -263,6 +264,7 @@ export interface PageViewInfo {
   city?: string
   guideSlug?: string
   entryPoint?: string
+  collectionSlug?: string
 }
 
 const GUIDE_ENTRY_POINTS = new Set(['home', 'browse', 'collection', 'instagram', 'xiaohongshu', 'google'])
@@ -284,7 +286,13 @@ function guideEntryPoint(search: string): string {
       if (ref.host === window.location.host) {
         if (ref.pathname === '/') return 'home'
         if (ref.pathname === '/browse') return 'browse'
-        if (ref.pathname.includes('/experiment/seasonal-discovery/')) return 'collection'
+        if (
+          ref.pathname.includes('/experiment/seasonal-discovery/') ||
+          ref.pathname === '/seasonal' ||
+          ref.pathname.startsWith('/seasonal/')
+        ) {
+          return 'collection'
+        }
       }
     } catch {
       // Ignore a referrer that is not a URL.
@@ -292,6 +300,15 @@ function guideEntryPoint(search: string): string {
   }
 
   return 'direct'
+}
+
+function seasonalCollectionSlug(pathname: string): string | null {
+  const experiment = pathname.match(/^\/experiment\/seasonal-discovery\/([a-z0-9-]+)$/)
+  if (experiment && isSeasonalCollectionSlug(experiment[1])) return experiment[1]
+  const pub = pathname.match(/^\/seasonal\/([a-z0-9-]+)$/)
+  if (pub && isSeasonalCollectionSlug(pub[1])) return pub[1]
+  if (pathname === '/seasonal') return getActiveSeasonalCollection()?.slug ?? null
+  return null
 }
 
 export function resolvePageView(pathname: string, search = ''): PageViewInfo | null {
@@ -313,13 +330,31 @@ export function resolvePageView(pathname: string, search = ''): PageViewInfo | n
   }
 
   if (pathname === '/') return { page: 'home', path: pathname }
-  if (pathname === '/browse') return { page: 'browse', path: pathname }
+  if (pathname === '/guides') return { page: 'guides', path: pathname }
+  if (pathname === '/browse' || pathname === '/browse-v2') {
+    const view = new URLSearchParams(search.startsWith('?') ? search.slice(1) : search).get('view')
+    if (view === 'map') return { page: 'map', path: pathname }
+    return { page: 'browse', path: pathname }
+  }
   if (pathname === '/map') return { page: 'map', path: pathname }
   if (pathname === '/share') return { page: 'share', path: pathname }
   if (pathname === '/about') return { page: 'about', path: pathname }
+  if (pathname === '/saved') return { page: 'saved', path: pathname }
   if (pathname.startsWith('/event/')) return { page: 'event_detail', path: pathname }
 
+  const collectionSlug = seasonalCollectionSlug(pathname)
+  if (collectionSlug) {
+    return { page: 'seasonal_collection', path: pathname, collectionSlug }
+  }
+
   return null
+}
+
+/** Stable id for one pageview. Filter query changes do not change it; map view does. */
+export function pageViewIdentity(pathname: string, search = ''): string | null {
+  const info = resolvePageView(pathname, search)
+  if (!info) return null
+  return [info.page, info.path, info.city ?? '', info.guideSlug ?? '', info.collectionSlug ?? ''].join('|')
 }
 
 /** @deprecated Use resolvePageView */
@@ -327,14 +362,15 @@ export function pageNameFromPath(pathname: string): string | null {
   return resolvePageView(pathname)?.page ?? null
 }
 
-export function trackPageView(pathname: string): void {
+export function trackPageView(pathname: string, search?: string): void {
   if (isAdminPath(pathname)) {
     if (typeof window !== 'undefined') window.posthog?.stopSessionRecording?.()
     return
   }
 
-  const search = typeof window !== 'undefined' ? window.location.search : ''
-  const info = resolvePageView(pathname, search)
+  const query = search ?? (typeof window !== 'undefined' ? window.location.search : '')
+  const normalizedQuery = query && !query.startsWith('?') ? `?${query}` : query
+  const info = resolvePageView(pathname, normalizedQuery)
   if (!info) return
 
   const props = sanitizeProps({
@@ -343,6 +379,7 @@ export function trackPageView(pathname: string): void {
     ...(info.city ? { city: info.city } : {}),
     ...(info.guideSlug ? { guide_slug: info.guideSlug } : {}),
     ...(info.entryPoint ? { entry_point: info.entryPoint } : {}),
+    ...(info.collectionSlug ? { collection_slug: info.collectionSlug } : {}),
   })
 
   if (isAnalyticsEnabled()) {
@@ -355,8 +392,8 @@ export function trackPageView(pathname: string): void {
   // PostHog SPA pageviews need $current_url for Pages / path breakdowns.
   const currentUrl =
     typeof window !== 'undefined'
-      ? `${window.location.origin}${pathname}${window.location.search}`
-      : pathname
+      ? `${window.location.origin}${pathname}${normalizedQuery}`
+      : `${pathname}${normalizedQuery}`
   capturePostHog('$pageview', {
     ...(props ?? {}),
     $current_url: currentUrl,

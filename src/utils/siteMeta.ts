@@ -1,4 +1,12 @@
 import { absoluteUrl, canonicalUrl, SITE } from '../config/site'
+import { getActiveSeasonalCollection, getSeasonalCollection } from '../data/seasonalDiscovery'
+import {
+  publicCanonicalPath,
+  publicDescription,
+  publicOgImage,
+  publicRobots,
+  seasonalSlugFromPath,
+} from '../seo/publicPaths'
 import {
   cityDocumentTitle,
   cityMetaDescription,
@@ -69,6 +77,13 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   if (pathname === '/guides/halloween-with-little-ones') {
     return formatDocumentTitle('Halloween with Little Ones')
   }
+  if (pathname === '/guides') return formatDocumentTitle('Guides')
+  if (pathname === '/seasonal' || pathname.startsWith('/seasonal/')) {
+    const slug = seasonalSlugFromPath(pathname)
+    const collection = slug ? getSeasonalCollection(slug) : getActiveSeasonalCollection()
+    return formatDocumentTitle(collection?.title ?? 'Seasonal Picks')
+  }
+  if (pathname === '/saved') return formatDocumentTitle('Saved')
   if (pathname === '/experiment/community-events-mockup') {
     return formatDocumentTitle('Community Events Mockup')
   }
@@ -195,15 +210,18 @@ function applyMetaTags(
     socialDescription?: string
     ogImage?: string
     robots?: string
+    canonicalPath?: string
+    search?: string
   } = {},
 ): void {
-  const canonical = canonicalUrl(pathname)
+  const canonical = canonicalUrl(options.canonicalPath ?? publicCanonicalPath(pathname, options.search ?? ''))
   const citySlug = localCitySlugFromPath(pathname)
-  const description = options.description ?? (citySlug ? cityMetaDescription(citySlug) : SITE.description)
+  const pageDescription = options.description ?? publicDescription(pathname)
+  const description = pageDescription ?? (citySlug ? cityMetaDescription(citySlug) : SITE.description)
   const socialDescription =
-    options.socialDescription ?? (citySlug ? cityMetaDescription(citySlug) : SITE.ogDescription)
+    options.socialDescription ?? pageDescription ?? (citySlug ? cityMetaDescription(citySlug) : SITE.ogDescription)
   const ogTitle = pathname === '/' ? homeDocumentTitle() : title
-  const ogImage = options.ogImage ?? absoluteUrl(SITE.ogImagePath)
+  const ogImage = options.ogImage ?? absoluteUrl(publicOgImage(pathname) ?? SITE.ogImagePath)
 
   setCanonical(canonical)
   setMeta('name', 'description', description)
@@ -217,7 +235,7 @@ function applyMetaTags(
   setMeta('name', 'twitter:title', ogTitle)
   setMeta('name', 'twitter:description', socialDescription)
   setMeta('name', 'twitter:image', ogImage)
-  applyRobotsMeta(pathname, options.robots)
+  applyRobotsMeta(pathname, options.robots ?? publicRobots(pathname, options.search ?? ''))
 }
 
 export function applyEventPageMeta(event: Event): void {
@@ -257,16 +275,16 @@ export function applyUnavailableEventPageMeta(pathname: string, eventTitle?: str
   })
 }
 
-export function setPageTitle(title: string, pathname: string): void {
+export function setPageTitle(title: string, pathname: string, search = ''): void {
   if (typeof document !== 'undefined') {
     document.title = title
   }
-  applyMetaTags(title, pathname)
+  applyMetaTags(title, pathname, { search })
 }
 
 export function applySiteMeta(pathname: string, search = ''): void {
   if (eventIdFromPathname(pathname)) return
 
   const title = getDocumentTitle(pathname, search)
-  setPageTitle(title, pathname)
+  setPageTitle(title, pathname, search)
 }

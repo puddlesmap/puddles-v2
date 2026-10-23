@@ -76,12 +76,17 @@ Tracked on route change for public pages only. The `page` property identifies th
 |------|--------|
 | `/` | `home` |
 | `/browse` | `browse` |
-| `/map` | `map` |
+| `/browse?view=map`, `/map` | `map` |
 | `/event/:id` | `event_detail` |
 | `/share` | `share` |
 | `/about` | `about` |
-| `/palo-alto`, `/los-altos`, `/mountain-view` | `city_page` (+ `city` prop) |
+| `/saved` | `saved` |
+| `/guides` | `guides` |
+| `/palo-alto`, `/los-altos`, `/mountain-view`, `/sunnyvale` | `city_page` (+ `city` prop) |
 | `/guides/:slug` | `guide` (+ `guide_slug`, `entry_point`) |
+| `/seasonal`, `/seasonal/:slug`, `/experiment/seasonal-discovery/:slug` | `seasonal_collection` (+ `collection_slug`) |
+
+City, activity, and age query changes do not send another pageview. Those chips already have their own events. Switching to the map does, once.
 
 A guide visit is this `$pageview`. There is no second `guide_viewed` event. `entry_point` is an allowlist: `utm_source` when it is `instagram`, `xiaohongshu`, or `google` (also `ig`, `xhs`, `redbook`); otherwise `entry=home`, `entry=browse`, or `entry=collection`; otherwise a same-site referrer; otherwise `direct`. The seasonal guide card uses `?entry=collection`. The shared URL has no tracking parameters.
 

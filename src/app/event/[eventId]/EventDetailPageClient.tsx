@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import { MemoryRouter, useLocation } from 'react-router-dom'
 import { SharedEventUrlPage } from '@/components/event-detail/SharedEventUrlPage'
-import { guideSlugFromLocationSearch } from '@/utils/analytics'
+import { guideSlugFromLocationSearch, trackPageView } from '@/utils/analytics'
 import { useCloseEventDetail } from '@/hooks/useCloseEventDetail'
 import { useEventDetailDocument } from '@/hooks/useEventDetailDocument'
 import {
@@ -68,6 +68,12 @@ export function EventDetailPageClient() {
   const [guideSlug] = useState(() => guideSlugFromLocationSearch(`?${searchParams.toString()}`))
   const { close, hasInAppReturn } = useCloseEventDetail()
   const { event, lifecycleStatus, now } = useEventDetailDocument({ skipPageMeta: true })
+
+  useEffect(() => {
+    if (isEventDetailOverlayActive()) return
+    if (!params.eventId) return
+    trackPageView(`/event/${params.eventId}`)
+  }, [params.eventId])
 
   useEffect(() => {
     if (!guideSlug) return

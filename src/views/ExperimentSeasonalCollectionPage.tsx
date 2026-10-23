@@ -9,6 +9,7 @@ import { BrowseEventCard } from '../components/BrowseEventCard'
 import { SeasonalEmDashTagline } from '../components/seasonal/SeasonalDiscoveryModuleHeader'
 import type { Event } from '../types/event'
 import {
+  getActiveSeasonalCollection,
   getSeasonalCollection,
   isSeasonalCollectionSlug,
   resolveSeasonalEvents,
@@ -246,8 +247,15 @@ function CollectionGeoTabs({
   )
 }
 
-export function ExperimentSeasonalCollectionPage() {
-  const { slug } = useParams()
+export function SeasonalActivePage() {
+  const active = getActiveSeasonalCollection()
+  if (!active) return <Navigate to="/" replace />
+  return <ExperimentSeasonalCollectionPage slug={active.slug} />
+}
+
+export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: string } = {}) {
+  const params = useParams()
+  const slug = slugProp ?? params.slug
   const openEvent = useEventNavigation()
   const { getCatalog } = useLaunchStagingCatalog()
   const validSlug = isSeasonalCollectionSlug(slug) ? slug : null

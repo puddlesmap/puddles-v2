@@ -10,9 +10,15 @@ const STATIC_PATHS = [
   '/map',
   '/share',
   '/about',
+  '/guides',
+  '/guides/halloween-with-little-ones',
+  '/seasonal',
+  '/seasonal/hello-fall',
+  '/seasonal/halloween-with-little-ones',
   '/palo-alto',
   '/los-altos',
   '/mountain-view',
+  '/sunnyvale',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

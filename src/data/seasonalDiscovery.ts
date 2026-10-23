@@ -1201,7 +1201,7 @@ export function resolveSeasonalEvents(
 }
 
 export function seasonalCollectionPath(slug: SeasonalCollectionSlug): string {
-  return `/experiment/seasonal-discovery/${slug}`
+  return `/seasonal/${slug}`
 }
 
 export function isSeasonalCollectionSlug(value: string | undefined): value is SeasonalCollectionSlug {

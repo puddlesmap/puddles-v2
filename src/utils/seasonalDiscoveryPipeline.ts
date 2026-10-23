@@ -75,12 +75,32 @@ export function buildSeasonalDiscoveryPipeline(): SeasonalDiscoveryLink[] {
   return uniqueLinks(links)
 }
 
-export const SEASONAL_DISCOVERY_PIPELINE = buildSeasonalDiscoveryPipeline()
+let pipelineCache: SeasonalDiscoveryLink[] | null = null
+
+/**
+ * Built on first use. Importing this module must not read SEASONAL_COLLECTIONS
+ * while seasonalDiscovery.ts is still initializing.
+ */
+function seasonalDiscoveryPipeline(): SeasonalDiscoveryLink[] {
+  if (!pipelineCache) pipelineCache = buildSeasonalDiscoveryPipeline()
+  return pipelineCache
+}
+
+export const SEASONAL_DISCOVERY_PIPELINE: SeasonalDiscoveryLink[] = new Proxy(
+  [] as SeasonalDiscoveryLink[],
+  {
+    get(_target, prop) {
+      const list = seasonalDiscoveryPipeline()
+      const value = Reflect.get(list, prop)
+      return typeof value === 'function' ? value.bind(list) : value
+    },
+  },
+)
 
 /** Discovery row ids that belong in Admin → Seasonal picks (one row per curated pick). */
 export function getSeasonalPipelineDiscoveryIds(): Set<string> {
   const ids = new Set<string>()
-  for (const link of SEASONAL_DISCOVERY_PIPELINE) {
+  for (const link of seasonalDiscoveryPipeline()) {
     ids.add(discoveryIdForSeasonalEvent(link.eventId))
     if (link.discoveryId) ids.add(link.discoveryId)
   }
@@ -90,7 +110,7 @@ export function getSeasonalPipelineDiscoveryIds(): Set<string> {
 export function getSeasonalDiscoveryLink(
   eventOrDiscoveryId: string,
 ): SeasonalDiscoveryLink | undefined {
-  return SEASONAL_DISCOVERY_PIPELINE.find(
+  return seasonalDiscoveryPipeline().find(
     (link) =>
       link.eventId === eventOrDiscoveryId ||
       link.discoveryId === eventOrDiscoveryId ||

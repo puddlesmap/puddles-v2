@@ -48,6 +48,7 @@ import {
 } from './experimentShared'
 import { useEventNavigation } from '../hooks/useEventNavigation'
 import { resolveCitySlugParam } from '../config/localRoutes'
+import { browseShareParams, searchParamsEqual } from '../utils/browseShareParams'
 import { formatDocumentTitle, setPageTitle } from '../utils/siteMeta'
 import {
   consumeBrowseReturnSnapshot,
@@ -154,6 +155,10 @@ export function BrowsePage({
   const openEvent = useEventNavigation()
   const location = useLocation()
   const [searchParams, setSearchParams] = useSearchParams()
+  const searchParamsRef = useRef(searchParams)
+  searchParamsRef.current = searchParams
+  const shareWriteRef = useRef(false)
+  const [shareReady, setShareReady] = useState(false)
   const [openPopover, setOpenPopover] = useState<FilterPopoverType>(null)
   const [openSheet, setOpenSheet] = useState<FilterSheetType>(null)
   const [viewMode, setViewMode] = useState<'list' | 'map'>(() => {
@@ -182,6 +187,11 @@ export function BrowsePage({
   }, [isExperimentBrowse3])
 
   useEffect(() => {
+    if (shareWriteRef.current) {
+      shareWriteRef.current = false
+      return
+    }
+
     const cityFromQuery = resolveCitySlugParam(searchParams.get('city'))
     const activityFromQuery = searchParams.get('activity')
     const activityType = ACTIVITY_TYPES.find((type) => type === activityFromQuery)
@@ -190,14 +200,15 @@ export function BrowsePage({
 
     // Deep links (home announcement, seasonal chips, city landings) should land on a
     // clean filtered state — not inherit leftover day/time/type filters from prior browsing.
-    if (!cityFromQuery && !activityType && !age) return
-
-    setBrowseFilters({
-      ...DEFAULT_BROWSE_FILTERS,
-      ...(cityFromQuery ? { city: cityFromQuery, cityLocked: true } : null),
-      ...(activityType ? { types: [activityType] } : null),
-      ...(age ? { age } : null),
-    })
+    if (cityFromQuery || activityType || age) {
+      setBrowseFilters({
+        ...DEFAULT_BROWSE_FILTERS,
+        ...(cityFromQuery ? { city: cityFromQuery, cityLocked: true } : null),
+        ...(activityType ? { types: [activityType] } : null),
+        ...(age ? { age } : null),
+      })
+    }
+    setShareReady(true)
   }, [searchParams, setBrowseFilters])
 
   useEffect(() => {
@@ -234,8 +245,34 @@ export function BrowsePage({
   }, [location.pathname, searchParams])
 
   useEffect(() => {
+    if (!shareReady || !isBrowseHubPath(location.pathname)) return
+
+    const current = searchParamsRef.current
+    const next = browseShareParams({
+      pathname: location.pathname,
+      city: browseFilters.city,
+      age: browseFilters.age,
+      types: browseFilters.types,
+      viewMode,
+      current,
+    })
+    if (searchParamsEqual(next, current)) return
+
+    shareWriteRef.current = true
+    setSearchParams(next, { replace: true })
+  }, [
+    browseFilters.age,
+    browseFilters.city,
+    browseFilters.types,
+    location.pathname,
+    setSearchParams,
+    shareReady,
+    viewMode,
+  ])
+
+  useEffect(() => {
     if (location.pathname === '/map') {
-      setPageTitle(formatDocumentTitle('Map'), '/map')
+      setPageTitle(formatDocumentTitle('Map'), '/map', location.search)
       return
     }
 
@@ -245,6 +282,7 @@ export function BrowsePage({
           ? formatDocumentTitle('Map')
           : formatDocumentTitle('Browse Bay Area Activities'),
         '/browse-v2',
+        location.search,
       )
       return
     }
@@ -256,8 +294,9 @@ export function BrowsePage({
         ? formatDocumentTitle('Map')
         : formatDocumentTitle('Browse Bay Area Activities'),
       '/browse',
+      location.search,
     )
-  }, [location.pathname, viewMode])
+  }, [location.pathname, location.search, viewMode])
 
   const requestNearbyLocation = useCallback(async () => {
     const nextCoords = await requestLocation()
@@ -409,16 +448,6 @@ export function BrowsePage({
       trackViewModeChanged(mode)
     }
     setViewMode(mode)
-
-    if (!isBrowseHubPath(location.pathname)) return
-
-    const next = new URLSearchParams(searchParams)
-    if (mode === 'map') {
-      next.set('view', 'map')
-    } else {
-      next.delete('view')
-    }
-    setSearchParams(next, { replace: true })
   }
 
   const handleOpenListEvent = useCallback(
