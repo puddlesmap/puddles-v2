@@ -44,7 +44,6 @@ function SeasonalEventGrid({
             key={event.id}
             event={event}
             seasonalEditorial={false}
-            venueResponsive
             onClick={() => onEventClick(event)}
           />
         ))}
