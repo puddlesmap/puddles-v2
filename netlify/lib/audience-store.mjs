@@ -1,7 +1,7 @@
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
-import { connectLambda, getStore } from '@netlify/blobs'
+import { connectLambda, getStore, setEnvironmentContext } from '@netlify/blobs'
 function onNetlifyRuntime() {
   const cwd = process.cwd()
   if (cwd === '/var/task' || cwd.startsWith('/var/task/')) return true
@@ -36,11 +36,63 @@ import {
  * @property {object} [state]
  */
 
-/** Call at the start of each Netlify function so Blobs works in Lambda compatibility mode. */
+function readBlobContext() {
+  const raw = globalThis.netlifyBlobsContext || process.env.NETLIFY_BLOBS_CONTEXT
+  if (typeof raw !== 'string' || !raw) return null
+  try {
+    return JSON.parse(Buffer.from(raw, 'base64').toString('utf8'))
+  } catch {
+    return null
+  }
+}
+
+function lambdaBlobPayload(event) {
+  if (!event || typeof event.blobs !== 'string' || !event.blobs) return null
+  try {
+    return JSON.parse(Buffer.from(event.blobs, 'base64').toString('utf8'))
+  } catch {
+    return null
+  }
+}
+
+function uncachedEdgeURLFromPayload(payload) {
+  if (!payload || typeof payload !== 'object') return ''
+  const value = payload.uncached_url || payload.uncachedURL || payload.uncachedEdgeURL
+  return typeof value === 'string' ? value : ''
+}
+
+/** Strong reads need an uncached edge URL. Edge-only Lambda context cannot do them. */
+export function audienceConsistency(context) {
+  if (context?.edgeURL && !context?.uncachedEdgeURL) return 'eventual'
+  return 'strong'
+}
+
+/**
+ * Connect Blobs only when Netlify has not already configured them.
+ * connectLambda() keeps the edge URL and drops uncachedEdgeURL, which makes
+ * strong reads fail and the admin list look empty.
+ */
 export function bindAudienceRequest(event) {
-  if (!event || typeof event.blobs !== 'string' || !event.blobs) return
+  const existing = readBlobContext()
+  const payload = lambdaBlobPayload(event)
+  const uncached = uncachedEdgeURLFromPayload(payload)
+  const alreadyConfigured = Boolean(existing?.siteID && existing?.token)
+
+  if (alreadyConfigured && (existing.uncachedEdgeURL || existing.apiURL || !existing.edgeURL)) return
+
+  if (alreadyConfigured && existing.edgeURL && uncached) {
+    setEnvironmentContext({ ...existing, uncachedEdgeURL: uncached })
+    return
+  }
+
+  if (alreadyConfigured) return
+
+  if (!payload) return
   try {
     connectLambda(event)
+    if (!uncached) return
+    const current = readBlobContext() || {}
+    setEnvironmentContext({ ...current, uncachedEdgeURL: uncached })
   } catch (error) {
     console.error('[audience] Could not connect blob storage', error)
   }
@@ -53,8 +105,9 @@ function useFileStore() {
 }
 
 function openBlobStore() {
+  const consistency = audienceConsistency(readBlobContext())
   try {
-    return getStore({ name: 'audience', consistency: 'strong' })
+    return { store: getStore({ name: 'audience', consistency }), consistency }
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Audience storage is not connected.'
     throw new Error(message)
@@ -117,9 +170,9 @@ async function readState() {
   if (useFileStore()) {
     return { state: fileReadState(), etag: null, backend: 'file', store: null }
   }
-  const store = openBlobStore()
+  const { store, consistency } = openBlobStore()
   const saved = await withTimeout(
-    store.getWithMetadata('state', { type: 'json', consistency: 'strong' }),
+    store.getWithMetadata('state', { type: 'json', consistency }),
     8000,
   )
   if (!saved) return { state: emptyAudience(), etag: null, backend: 'blobs', store }

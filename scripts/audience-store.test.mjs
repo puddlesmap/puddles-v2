@@ -8,9 +8,23 @@ const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'audience-store-'))
 process.env.AUDIENCE_STORE = 'file'
 process.env.AUDIENCE_PATH = path.join(dir, 'audience.json')
 
-const { applyContinue, applySubscribeNewsletter, readAudienceView } = await import(
+const { applyContinue, applySubscribeNewsletter, audienceConsistency, readAudienceView } = await import(
   '../netlify/lib/audience-store.mjs'
 )
+
+test('edge-only blob context does not request a strong read', () => {
+  assert.equal(audienceConsistency({ edgeURL: 'https://edge.example', siteID: 's', token: 't' }), 'eventual')
+  assert.equal(
+    audienceConsistency({
+      edgeURL: 'https://edge.example',
+      uncachedEdgeURL: 'https://uncached.example',
+      siteID: 's',
+      token: 't',
+    }),
+    'strong',
+  )
+  assert.equal(audienceConsistency({ apiURL: 'https://api.netlify.com', siteID: 's', token: 't' }), 'strong')
+})
 
 test('file store keeps a parent and a newsletter signup', async () => {
   const parent = await applyContinue({
