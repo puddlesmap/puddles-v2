@@ -68,7 +68,7 @@ export const HALLOWEEN_GUIDE_PLACES: GuidePlace[] = [
     group: 'tradition',
     lat: 37.4441,
     lng: -122.1516,
-    status: 'Homeowner participation and any street closure must be confirmed for 2026.',
+    status: 'Individual household participation and street closures have not been confirmed.',
   },
   {
     slug: 'addison',
@@ -85,6 +85,22 @@ export const HALLOWEEN_GUIDE_PLACES: GuidePlace[] = [
     lat: 37.3796,
     lng: -122.1134,
     status: 'This year’s opening dates and hours have not been verified.',
+  },
+  {
+    slug: 'professorville',
+    name: 'Professorville',
+    group: 'neighborhood',
+    lat: 37.4415,
+    lng: -122.1522,
+    status: 'Historic homes and neighborhood trick-or-treating. Participation varies by year.',
+  },
+  {
+    slug: 'crescent-park',
+    name: 'Crescent Park',
+    group: 'neighborhood',
+    lat: 37.4531,
+    lng: -122.149,
+    status: 'Historic homes and neighborhood trick-or-treating. Participation varies by year.',
   },
   {
     slug: 'orange',

@@ -264,9 +264,9 @@ export function HalloweenGuideDraft({
         <p className="lgl-eyebrow">October guide</p>
         <Title>Halloween with Little Ones: Your 2026 South Peninsula Guide</Title>
         <p className="lgg-dek">
-          Halloween falls on a Saturday this year, but the fun starts well before October 31. From
-          neighborhood parades and pumpkin patches to costume parties and beloved trick-or-treat
-          streets, discover the best ways to celebrate with little ones ages 0–5 in Palo Alto, Los
+          Halloween falls on Saturday, October 31 this year, but the fun starts well before! From
+          neighborhood parades and pumpkin patches to costume parties and beloved trick-or-treating
+          streets, discover ways to celebrate with little ones ages 0–5 around Palo Alto, Los
           Altos, Mountain View, Sunnyvale, and beyond.
         </p>
         <p className="lgg-date">
@@ -454,8 +454,8 @@ export function HalloweenGuideDraft({
               <Outing
                 title="Fall Festival — Cherry Chase Elementary, Sunnyvale"
                 when="Friday, October 30 · 2:30–4:30 PM"
-                cost="Buy tickets ahead on the Cherry Chase PTA store to save, or $1 each at the Friday booth from 2:15–4:30 PM."
-                before="Pre-sale pickup is Monday–Thursday, October 26–29, 8:00–8:30 AM at the blue tables outside the multi. No Friday morning ticket sales. Online sales end Thursday, October 29 at 5 PM. The page does not list a campus parking plan."
+                cost="Save by purchasing tickets in advance through the Cherry Chase PTA store, or buy them for $1 each at the Friday booth (2:15–4:30 PM)."
+                before="Pre-sale pickup is Monday–Thursday, October 26–29, 8:00–8:30 AM at the blue tables outside the multi. No Friday morning ticket sales. Online sales end Thursday, October 29 at 5 PM."
                 puddlesHref="/event/core-weekend-cherry-chase-fall-festival-2026-10-30"
                 links={[
                   {
@@ -580,7 +580,7 @@ export function HalloweenGuideDraft({
                 title="Farmer John’s Pumpkin Farm — Half Moon Bay"
                 when="Daily · 9 AM–6 PM"
                 cost="Free admission and parking. Pumpkins are purchased separately."
-                why="A flexible outing for families who want to pick pumpkins without a large amusement-style experience."
+                why="Perfect for families who want to pick pumpkins, take fall photos, and enjoy a classic farm setting without the rides and carnival attractions."
                 image="https://www.farmerjohnspumpkins.com/sites/default/files/backgrounds/fj_0.jpg"
                 puddlesHref="/event/seasonal-drive-farmer-johns-pumpkin-farm-2026-09-04"
                 links={[{ href: 'https://www.farmerjohnspumpkins.com/node/1', label: 'Official website' }]}
@@ -672,7 +672,7 @@ export function HalloweenGuideDraft({
               <Outing
                 title="Mountain View Public Library Halloween Trick-or-Treat"
                 when="Saturday, October 31 · 10 AM–6 PM · Free · 585 Franklin Street"
-                before="Drop in during library hours; this is self-paced treat pickup, not a scheduled performance. Costumes are optional. The library lists this for ages 0–18."
+                before="Drop in during library hours; this is self-paced treat pickup, not a scheduled performance. Costumes are optional."
                 puddlesHref="/event/core-weekend-mv-library-halloween-trick-or-treat-2026-10-31"
               >
                 <p>
@@ -699,24 +699,21 @@ export function HalloweenGuideDraft({
               </p>
 
               <article className="lgg-out">
-                <h4 id={id('old-palo-alto')}>Old Palo Alto — the Steve Jobs Halloween tradition</h4>
-                <p className="lgg-when">Area: Waverley Street and Santa Rita Avenue</p>
-                <p>Old Palo Alto has long been one of the region’s best-known Halloween destinations.</p>
+                <h4 id={id('old-palo-alto')}>Old Palo Alto — The Steve Jobs Halloween Tradition</h4>
+                <p className="lgg-when">Area: Waverley Street & Santa Rita Avenue</p>
                 <p>
-                  The late Steve Jobs was known for celebrating Halloween, and accounts from former
-                  neighbors describe elaborate displays, carved pumpkins, and long lines of
-                  trick-or-treaters. His family’s Halloween tradition continued after his death in
-                  2011.
+                  One of Palo Alto’s most beloved Halloween traditions. Steve Jobs and his family
+                  were known for elaborate decorations, carved pumpkins, and long lines of
+                  trick-or-treaters. The family continued the tradition after his passing, helping
+                  make Old Palo Alto a favorite Halloween destination.
                 </p>
-                <p>Today, the surrounding historic streets remain part of Palo Alto’s Halloween folklore.</p>
                 <p className="lgg-expect">
                   <b>What to expect: </b>
-                  Historic homes, seasonal decorations, and potentially very large crowds.
+                  Beautiful historic homes, festive decorations, and lively crowds.
                 </p>
                 <p>
                   <b>2026 status: </b>
-                  The neighborhood’s reputation is well documented, but individual homeowner
-                  participation and any street closure must be confirmed separately.
+                  Individual household participation and street closures have not been confirmed.
                 </p>
               </article>
 
@@ -773,8 +770,12 @@ export function HalloweenGuideDraft({
                 Famous for festive homes and large crowds; some blocks have historically been closed
                 to cars.
               </p>
-              <p>
-                <b>Professorville and Crescent Park: </b>
+              <p id={id('professorville')}>
+                <b>Professorville: </b>
+                Historic homes and traditional neighborhood trick-or-treating.
+              </p>
+              <p id={id('crescent-park')}>
+                <b>Crescent Park: </b>
                 Historic homes and traditional neighborhood trick-or-treating.
               </p>
 
@@ -862,11 +863,11 @@ export function HalloweenGuideDraft({
 
             <section className="lgg-chapter lgg-more" id={id('more')}>
               <h3>More Halloween adventures on Puddles</h3>
-              <p>There are many ways to celebrate Halloween with little ones.</p>
-              <p>From a morning in costume to an evening walk through a decorated neighborhood.</p>
-              <p className="lgg-more-follow">
-                Puddles — The Tot Map brings together local activities for families with children ages
-                0–5 around Palo Alto, Los Altos, Mountain View, Sunnyvale, and nearby communities.
+              <p>
+                There are many ways to celebrate Halloween with little ones, from a morning in costume
+                to an evening walk through a decorated neighborhood. Puddles — The Tot Map brings
+                together local activities for families with children ages 0–5 around Palo Alto, Los
+                Altos, Mountain View, Sunnyvale, and nearby communities.
               </p>
               <Link className="lgg-related" to="/">
                 <b>Discover more family activities on Puddles</b>

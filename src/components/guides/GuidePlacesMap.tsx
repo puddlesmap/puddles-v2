@@ -20,6 +20,20 @@ function pinUrl(fill: string) {
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`
 }
 
+const PIN_SPREAD = 24
+
+/** Pixel shift so nearby pins stay visible at the Bay Area zoom. */
+function tipShiftX(place: GuidePlace) {
+  const index = HALLOWEEN_GUIDE_PLACES.indexOf(place)
+  const earlier = HALLOWEEN_GUIDE_PLACES.filter((other, otherIndex) => {
+    if (otherIndex >= index) return false
+    return Math.abs(other.lat - place.lat) < 0.008 && Math.abs(other.lng - place.lng) < 0.008
+  })
+  if (earlier.length === 0) return 0
+  if (place.group === 'tradition') return -PIN_SPREAD * earlier.length
+  return PIN_SPREAD
+}
+
 function mapBounds() {
   const lats = HALLOWEEN_GUIDE_PLACES.map((place) => place.lat)
   const lngs = HALLOWEEN_GUIDE_PLACES.map((place) => place.lng)
@@ -61,15 +75,23 @@ function GuidePlacesMapCanvas({ idPrefix }: { idPrefix: string }) {
     >
       <GoogleMapStyles styles={MUTED_GOOGLE_MAP_STYLES} />
       {icons
-        ? HALLOWEEN_GUIDE_PLACES.map((place) => (
-            <Marker
-              key={place.slug}
-              position={{ lat: place.lat, lng: place.lng }}
-              icon={place.group === 'tradition' ? icons.tradition : icons.neighborhood}
-              zIndex={selectedSlug === place.slug ? 1000 : 0}
-              onClick={() => setSelectedSlug(place.slug)}
-            />
-          ))
+        ? [...HALLOWEEN_GUIDE_PLACES]
+            .sort((a, b) => Number(a.group === 'tradition') - Number(b.group === 'tradition'))
+            .map((place) => {
+              const base = place.group === 'tradition' ? icons.tradition : icons.neighborhood
+              const shiftX = tipShiftX(place)
+              const icon =
+                shiftX === 0 ? base : { ...base, anchor: new google.maps.Point(14 - shiftX, 44) }
+              return (
+                <Marker
+                  key={place.slug}
+                  position={{ lat: place.lat, lng: place.lng }}
+                  icon={icon}
+                  zIndex={selectedSlug === place.slug ? 1000 : place.group === 'tradition' ? 5 : 1}
+                  onClick={() => setSelectedSlug(place.slug)}
+                />
+              )
+            })
         : null}
       {selected ? (
         <InfoWindow
