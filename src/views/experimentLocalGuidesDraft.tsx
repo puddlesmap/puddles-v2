@@ -1,27 +1,64 @@
-import type { ReactNode } from 'react'
+import { lazy, Suspense, useEffect, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { BeforeYouGoIcon } from '../components/event-detail/BeforeYouGoIcon'
-import { GuidePlacesMap } from '../components/guides/GuidePlacesMap'
+import { EventDetailLink } from '../components/EventDetailLink'
+import { trackGuideSectionViewed, trackGuideShared } from '../utils/analytics'
+
+const GuidePlacesMap = lazy(() =>
+  import('../components/guides/GuidePlacesMap').then((mod) => ({
+    default: mod.GuidePlacesMap,
+  })),
+)
 import {
   HALLOWEEN_COLLECTION_PATH,
-  HALLOWEEN_GUIDE_CHART,
   HALLOWEEN_GUIDE_POSTED,
+  HALLOWEEN_GUIDE_READ,
+  HALLOWEEN_GUIDE_SLUG,
 } from '../data/halloweenGuide'
-import type { TipIconKind } from '../utils/eventTips'
-
 const COLLECTION = HALLOWEEN_COLLECTION_PATH
+const GUIDE_SHARE_URL = 'https://puddlesmap.com/guides/halloween-with-little-ones'
+const GUIDE_SHARE_TITLE = 'Halloween with Little Ones: Your 2026 South Peninsula Guide'
+
+function GuideShare() {
+  const [copied, setCopied] = useState(false)
+
+  async function share() {
+    trackGuideShared(HALLOWEEN_GUIDE_SLUG)
+    if (typeof navigator !== 'undefined' && 'share' in navigator) {
+      try {
+        await navigator.share({ title: GUIDE_SHARE_TITLE, url: GUIDE_SHARE_URL })
+        return
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') return
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(GUIDE_SHARE_URL)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 2000)
+    } catch {
+      // Clipboard unavailable.
+    }
+  }
+
+  return (
+    <button type="button" className="lgg-share" onClick={() => void share()}>
+      {copied ? 'Link copied' : 'Share'}
+    </button>
+  )
+}
 
 const JUMPS = [
-  ['free', 'Free events'],
-  ['schools', 'Carnivals'],
-  ['parades', 'Downtown'],
-  ['stories', 'Stories'],
-  ['patches', 'Patches'],
-  ['daytime', 'Daytime treats'],
-  ['traditions', 'Traditions'],
-  ['neighborhoods', 'Neighborhoods'],
-  ['before', 'Before you go'],
-  ['fit', 'Which plan'],
+  ['kind', 'Find your kind of Halloween outing'],
+  ['free', '1. Free Halloween celebrations close to home'],
+  ['schools', '2. School carnivals and costume parties'],
+  ['parades', '3. Costume parades and downtown Halloween fun'],
+  ['stories', '4. Stories, crafts, and Halloween creativity'],
+  ['patches', '5. Pumpkin patches worth a little drive'],
+  ['daytime', '6. Trick-or-treat before Halloween night'],
+  ['traditions', '7. Famous Halloween traditions in Silicon Valley'],
+  ['neighborhoods', '8. Neighborhoods known for trick-or-treating'],
+  ['before', '9. What to know before trick-or-treating with little ones'],
 ] as const
 
 function Ext({ href, children }: { href: string; children: ReactNode }) {
@@ -32,54 +69,89 @@ function Ext({ href, children }: { href: string; children: ReactNode }) {
   )
 }
 
-function OnPuddles({ href, image, label }: { href: string; image?: string; label: string }) {
+function eventIdFromHref(href: string): string {
+  return href.replace(/^\/event\//, '')
+}
+
+function GuideEventLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <Link className={image ? 'lgg-event' : 'lgg-event lgg-event--text'} to={href}>
-      {image ? <img src={image} alt="" /> : null}
-      <span>
-        <strong>{label}</strong>
-        <span>Open on Puddles</span>
-      </span>
-    </Link>
+    <EventDetailLink
+      eventId={eventIdFromHref(href)}
+      guideSlug={HALLOWEEN_GUIDE_SLUG}
+      className="lgl-textlink"
+    >
+      {children}
+    </EventDetailLink>
   )
 }
 
-function iconFor(text: string): TipIconKind {
-  const value = text.toLowerCase()
-  if (value.includes('food') || value.includes('candy')) return 'food'
-  if (value.includes('crowd') || value.includes('busy') || value.includes('line')) return 'crowds'
-  if (value.includes('weather') || value.includes('coast') || value.includes('cool')) return 'weather'
-  if (value.includes('stroller')) return 'stroller'
-  if (value.includes('noise') || value.includes('loud') || value.includes('sound')) return 'sound'
-  if (
-    value.includes('toddler') ||
-    value.includes('baby') ||
-    value.includes('preschool') ||
-    value.includes('ages')
-  ) {
-    return 'baby'
-  }
-  if (
-    value.includes('ticket') ||
-    value.includes('wristband') ||
-    value.includes('admission') ||
-    value.includes('paid') ||
-    value.includes('$')
-  ) {
-    return 'ticket'
-  }
-  return 'info'
+function OnPuddles({ href, image, label }: { href: string; image?: string; label: string }) {
+  return (
+    <>
+      {image ? (
+        <EventDetailLink
+          eventId={eventIdFromHref(href)}
+          guideSlug={HALLOWEEN_GUIDE_SLUG}
+          className="lgg-event"
+        >
+          <img src={image} alt={label} />
+        </EventDetailLink>
+      ) : null}
+      <EventDetailLink
+        eventId={eventIdFromHref(href)}
+        guideSlug={HALLOWEEN_GUIDE_SLUG}
+        className="lgg-event lgg-event--text"
+      >
+        <span>
+          <strong>{label}</strong>
+          <span>Open on Puddles</span>
+        </span>
+      </EventDetailLink>
+    </>
+  )
 }
 
-function IconLine({ kind, label, text }: { kind: TipIconKind; label: string; text: string }) {
+function IconLine({
+  label,
+  text,
+  continued = false,
+}: {
+  label: string
+  text: string
+  continued?: boolean
+}) {
+  if (!label) {
+    return (
+      <p className={continued ? 'lgg-iconline lgg-iconline--more' : 'lgg-iconline lgg-iconline--plain'}>
+        {continued ? <b aria-hidden="true">Before you go:</b> : null}
+        <span>{text}</span>
+      </p>
+    )
+  }
+
   return (
     <p className="lgg-iconline">
-      <BeforeYouGoIcon kind={kind} />
-      <span>
-        {label ? <b>{label} </b> : null}
-        {text}
-      </span>
+      <b>{label}</b>
+      <span>{text}</span>
     </p>
+  )
+}
+
+function BeforeYouGo({ text }: { text: string }) {
+  const lines = text.split(/(?<=\.)\s+/).filter(Boolean)
+  if (lines.length < 2) {
+    return <IconLine label="Before you go:" text={text} />
+  }
+
+  return (
+    <div className="lgg-iconline lgg-before">
+      <b>Before you go:</b>
+      <ul className="lgg-tips">
+        {lines.map((line) => (
+          <li key={line}>{line}</li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
@@ -111,21 +183,19 @@ function Outing({
       <h4>{title}</h4>
       <p className="lgg-when">{when}</p>
       {children}
-      {why ? <IconLine kind={iconFor(why)} label="Why go:" text={why} /> : null}
-      {cost ? <IconLine kind="ticket" label="Cost:" text={cost} /> : null}
-      {before
-        ? before
-            .split(/(?<=\.)\s+/)
-            .filter(Boolean)
-            .map((line) => <IconLine key={line} kind={iconFor(line)} label="Before you go:" text={line} />)
-        : null}
-      {important ? <IconLine kind="info" label="Important:" text={important} /> : null}
-      {links?.map((link) => (
-        <Ext key={link.href} href={link.href}>
-          {link.label}
-        </Ext>
-      ))}
-      {puddlesHref ? <OnPuddles href={puddlesHref} image={image} label={title} /> : null}
+      {why ? <IconLine label="Why go:" text={why} /> : null}
+      {cost ? <IconLine label="Cost:" text={cost} /> : null}
+      {before ? <BeforeYouGo text={before} /> : null}
+      {important ? <IconLine label="Important:" text={important} /> : null}
+      {puddlesHref ? (
+        <OnPuddles href={puddlesHref} image={image} label={title} />
+      ) : (
+        links?.map((link) => (
+          <Ext key={link.href} href={link.href}>
+            {link.label}
+          </Ext>
+        ))
+      )}
     </article>
   )
 }
@@ -137,6 +207,7 @@ export function HalloweenGuideDraft({
   cover,
   showMap = false,
   heading = 'h2',
+  share = false,
 }: {
   idPrefix: string
   jumps: boolean
@@ -144,9 +215,48 @@ export function HalloweenGuideDraft({
   cover: string
   showMap?: boolean
   heading?: 'h1' | 'h2'
+  share?: boolean
 }) {
   const id = (slug: string) => `${idPrefix}-${slug}`
   const Title = heading
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (!window.location.pathname.startsWith('/guides/')) return
+
+    const seen = new Set<string>()
+    function view(sectionId: string) {
+      if (!sectionId || seen.has(sectionId)) return
+      seen.add(sectionId)
+      trackGuideSectionViewed(HALLOWEEN_GUIDE_SLUG, sectionId)
+    }
+
+    const nodes = document.querySelectorAll<HTMLElement>('[data-guide-section]')
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue
+          const sectionId = (entry.target as HTMLElement).dataset.guideSection
+          if (sectionId) view(sectionId)
+        }
+      },
+      { threshold: 0.6 },
+    )
+    nodes.forEach((node) => observer.observe(node))
+
+    function onClick(event: MouseEvent) {
+      const link = (event.target as Element | null)?.closest?.('a[href^="#"]')
+      if (!link || !link.closest('.lgg-jumps')) return
+      const hash = link.getAttribute('href')?.slice(1) ?? ''
+      const prefix = `${idPrefix}-`
+      if (hash.startsWith(prefix)) view(hash.slice(prefix.length))
+    }
+    document.addEventListener('click', onClick)
+    return () => {
+      observer.disconnect()
+      document.removeEventListener('click', onClick)
+    }
+  }, [idPrefix])
 
   return (
     <>
@@ -154,82 +264,108 @@ export function HalloweenGuideDraft({
         <p className="lgl-eyebrow">October guide</p>
         <Title>Halloween with Little Ones: Your 2026 South Peninsula Guide</Title>
         <p className="lgg-dek">
-          From community costume parties to famous Halloween streets, here is how to celebrate with
-          little ones around Palo Alto, Los Altos, Mountain View, Sunnyvale, and beyond.
+          Halloween falls on Saturday, October 31 this year, but the fun starts well before! From
+          neighborhood parades and pumpkin patches to costume parties and beloved trick-or-treating
+          streets, discover ways to celebrate with little ones ages 0–5 around Palo Alto, Los
+          Altos, Mountain View, Sunnyvale, and beyond.
         </p>
-        <p className="lgg-date">{HALLOWEEN_GUIDE_POSTED}</p>
+        <p className="lgg-date">
+          {HALLOWEEN_GUIDE_POSTED}
+          <span className="lgg-read"> · {HALLOWEEN_GUIDE_READ}</span>
+          {share ? <GuideShare /> : null}
+        </p>
       </div>
       <img className="lgg-cover" src={cover} alt="" />
       <div className="lgg-body">
         {jumps ? (
-          <nav className="lgg-jumps" aria-label="On this guide">
-            {JUMPS.map(([slug, label]) => (
-              <a key={slug} href={`#${id(slug)}`}>
-                {label}
-              </a>
-            ))}
+          <nav className="lgg-jumps" id={id('index')} aria-label="On this guide">
+            <p className="lgg-jumps-label">Sections</p>
+            <ol>
+              {JUMPS.map(([slug, label]) => (
+                <li key={slug}>
+                  <a href={`#${id(slug)}`}>{label}</a>
+                </li>
+              ))}
+            </ol>
           </nav>
         ) : null}
         <div className={rail ? 'lgg-layout lgg-layout--rail' : 'lgg-layout'}>
           <div>
-            <p className="lgg-copy">
-              Halloween lands on a Saturday this year, giving families a whole weekend to celebrate.
-              Around the South Peninsula, the festivities start long before October 31.
-            </p>
-            <p className="lgg-copy">
-              There are neighborhood parades, school carnivals, pumpkin patches, library crafts, and
-              a few long-running Silicon Valley Halloween traditions.
-            </p>
-            <p className="lgg-copy">
-              Whether you are planning a toddler’s first trick-or-treat outing or a festive weekend
-              with a preschooler, this guide is for families with children ages 0–5.
-            </p>
+            <h3 id={id('kind')} data-guide-section="kind">Find your kind of Halloween outing</h3>
             <ul className="lgg-fit-picks">
               <li>
-                <b>Babies and young toddlers.</b> Pumpkin picking, a short outdoor celebration, a
-                library visit, or a daytime costume event.
+                <b>For kids who love making things: </b>{' '}
+                <GuideEventLink href="/event/family-fun-days-los-altos-community-center-2026-10-24-10-00">
+                  Halloween Hoopla in Los Altos
+                </GuideEventLink>{' '}
+                (Oct 24) offers crafts, games, and a scavenger hunt. For ages 3–5,{' '}
+                <GuideEventLink href="/event/otto-family-club-jack-o-lantern-2026-10-29">
+                  Jack-O-Lantern Process Art
+                </GuideEventLink>{' '}
+                (Oct 29) is another hands-on option.
               </li>
               <li>
-                <b>Children around 2–3.</b> One community party or a short trick-or-treat outing. A
-                few houses can be enough.
+                <b>For a first taste of trick-or-treating: </b>{' '}
+                <GuideEventLink href="/event/seasonal-drive-belle-haven-trunk-or-treat-2026-10-28">
+                  Menlo Park Trunk-or-Treat
+                </GuideEventLink>{' '}
+                (Oct 28, 4:30–6 PM) and{' '}
+                <GuideEventLink href="/event/disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30">
+                  A BOO-tiful Downtown Halloween in Los Altos
+                </GuideEventLink>{' '}
+                (Oct 30, noon–4 PM) have a set place and time before Halloween night.
               </li>
               <li>
-                <b>Preschoolers around 4–5.</b> Carnival games, crafts, costume parades, and a
-                pumpkin patch.
+                <b>For a big costume celebration: </b>{' '}
+                <GuideEventLink href="/event/monster-bash-rengstorff-park-2026-10-24-10-00">
+                  Monster Bash in Mountain View
+                </GuideEventLink>{' '}
+                or{' '}
+                <GuideEventLink href="/event/seasonal-drive-menlo-park-halloween-hoopla-2026-10-24">
+                  Menlo Park Halloween Hoopla
+                </GuideEventLink>
+                , both on Oct 24, bring lots of activities. Plan for parking and crowds.
               </li>
               <li>
-                <b>Sensitive to crowds or noise.</b> Quieter times, non-food treats, or a familiar
-                neighborhood. Famous streets can become very busy.
+                <b>For outdoor fun at your own pace: </b>{' '}
+                <GuideEventLink href="/event/seasonal-drive-farmer-johns-pumpkin-farm-2026-09-04">
+                  Farmer John&apos;s Pumpkin Farm
+                </GuideEventLink>{' '}
+                is a pumpkin-picking outing;{' '}
+                <GuideEventLink href="/event/watchlist-sunnyvale-spooky-storywalk-2026-10-28">
+                  Sunnyvale&apos;s Spooky StoryWalk
+                </GuideEventLink>{' '}
+                (Oct 28) combines a Halloween story and a park walk. Neither is guaranteed quiet, but
+                you can keep the visit short.
               </li>
             </ul>
-            <div className="lgg-chart-wrap">
-              <table className="lgg-chart">
-                <caption>Ways to spend the month</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Plan</th>
-                    <th scope="col">When</th>
-                    <th scope="col">Cost</th>
-                    <th scope="col">Best for</th>
-                    <th scope="col">Crowd</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {HALLOWEEN_GUIDE_CHART.map((row) => (
-                    <tr key={row.plan}>
-                      <th scope="row">{row.plan}</th>
-                      <td>{row.when}</td>
-                      <td>{row.cost}</td>
-                      <td>{row.bestFor}</td>
-                      <td>{row.crowd}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <h3 id={id('prep')}>Before you go</h3>
+            <ul className="lgg-fit-picks">
+              <li>
+                <b>Admission: </b>Free entry does not always mean free games. Many school carnivals
+                sell tickets or wristbands.
+              </li>
+              <li>
+                <b>Parking: </b>Allow extra time for walking at large park festivals, school
+                campuses, and downtown parades. Check each organizer&apos;s latest arrival
+                instructions.
+              </li>
+              <li>
+                <b>Registration and supplies: </b>Some crafts are first come, first served; ticketed
+                and member-only activities have separate entry rules.
+              </li>
+              <li>
+                <b>Timing: </b>Downtown and trunk-or-treat events have set hours. Residential
+                trick-or-treating does not follow a universal schedule.
+              </li>
+              <li>
+                <b>Pumpkin-patch costs: </b>Check admission, parking, pumpkins, and ride tickets
+                separately.
+              </li>
+            </ul>
 
             <section className="lgg-chapter" id={id('free')}>
-              <h3>1. Free Halloween celebrations close to home</h3>
+              <h3 data-guide-section="free">1. Free Halloween celebrations close to home</h3>
               <Outing
                 title="Monster Bash — Mountain View"
                 when="Saturday, October 24 · 10 AM–2 PM · Free"
@@ -251,20 +387,18 @@ export function HalloweenGuideDraft({
               <Outing
                 title="Halloween Hoopla — Los Altos"
                 when="Saturday, October 24 · 10 AM–1 PM · Free"
-                why="A nearby, flexible Halloween outing with hands-on activities."
+                why="A hands-on Halloween morning for children who like crafts, games, movies, and scavenger hunts."
+                before="No registration required. Craft supplies are first come, first served, so arrive earlier if making things is the main attraction."
                 image="https://www.losaltosca.gov/ImageRepository/Document?documentID=2763"
                 puddlesHref="/event/family-fun-days-los-altos-community-center-2026-10-24-10-00"
               >
-                <p>
-                  A community Halloween morning at the Los Altos Community Center with crafts, games,
-                  movies, and scavenger hunts.
-                </p>
+                <p>Los Altos Community Center, 97 Hillview Avenue.</p>
               </Outing>
               <Outing
                 title="Magical Bridge Costume Party — Palo Alto"
                 when="Sunday, October 25 · 10 AM–1 PM · Free"
                 why="An inclusive celebration welcoming children of all ages and abilities."
-                links={[{ href: 'https://www.magicalbridge.org/', label: 'Event details' }]}
+                puddlesHref="/event/core-weekend-magical-bridge-halloween-costume-party-2026-10-25"
               >
                 <p>
                   Dress up for music, sensory-friendly science play, trick-or-treat bag decorating,
@@ -274,18 +408,19 @@ export function HalloweenGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('schools')}>
-              <h3>2. School carnivals and costume parties</h3>
+              <h3 data-guide-section="schools">2. School carnivals and costume parties</h3>
               <p>
-                Some of the area’s most memorable Halloween celebrations happen in the school
-                community. These events offer rides, games, crafts, and traditions families look
-                forward to every fall.
+                School carnivals offer rides, games, crafts, and local traditions, but many
+                activities use paid tickets or wristbands. <b>Before you go: </b>Campus parking
+                arrangements and visitor-entry policies vary. Published event details don&apos;t
+                consistently specify parking or crowd levels, so check with the organizers, allow time
+                to walk from legal parking, and expect lines for popular games.
               </p>
               <Outing
                 title="Witches’ Delight — Santa Rita Elementary, Los Altos"
                 when="Saturday, October 24 · 2–7 PM"
-                cost="Free to enter. Games, activities, and food require tickets. Wristbands cover unlimited eligible rides and games, excluding Cake Jam, food, and merchandise."
-                why="An afternoon carnival with a festive neighborhood-school atmosphere."
-                before="The LASD community is welcome. Purchase tickets or wristbands ahead of time to simplify your visit."
+                cost="Free entry; activities and food use tickets. Wristbands cover eligible rides and games, excluding Cake Jam, food, and merchandise."
+                before="The Los Altos School District community is welcome. Buying tickets or wristbands ahead can simplify arrival. Allow extra time for parking and popular activity lines; a dedicated event-parking plan was not confirmed."
                 image="/events/witches-delight-2026.png"
                 puddlesHref="/event/core-weekend-santa-rita-witches-delight-2026-10-24"
                 links={[
@@ -296,15 +431,15 @@ export function HalloweenGuideDraft({
                 ]}
               >
                 <p>
-                  A 65-year Santa Rita tradition featuring carnival rides, games, bounce houses, a
-                  dunk tank, costume contests, and Cake Jam.
+                  This long-running Santa Rita celebration includes rides, bounce houses, a dunk
+                  tank, costume contests, and Cake Jam.
                 </p>
               </Outing>
               <Outing
                 title="Harvest Carnival — Duveneck Elementary, Palo Alto"
                 when="Saturday, October 24 · 2:30–5 PM"
-                cost="$20 advance child’s wristband for ages 4 and up."
-                before="Purchase the wristband through the Duveneck PTA in advance. Check the school’s information for younger children’s activity arrangements."
+                cost="$20 advance child's wristband for ages 4 and up."
+                before="Buy the wristband in advance on the Duveneck PTA page. That page prices ages 4 and up, and it does not list a younger-child wristband or a campus parking plan."
                 image="/events/duveneck-harvest-carnival-2026.jpg"
                 puddlesHref="/event/core-weekend-duveneck-harvest-carnival-2026-10-24"
                 links={[
@@ -314,13 +449,13 @@ export function HalloweenGuideDraft({
                   },
                 ]}
               >
-                <p>A fall carnival with games, a petting zoo, crafts, face painting, and a haunted house.</p>
+                <p>Games, a petting zoo, crafts, face painting, and a haunted house.</p>
               </Outing>
               <Outing
                 title="Fall Festival — Cherry Chase Elementary, Sunnyvale"
                 when="Friday, October 30 · 2:30–4:30 PM"
-                cost="Paid activities. Check the PTA for ticket options."
-                before="Buy through the PTA store, or purchase at the Friday booth for $1 per ticket, according to the event listing. Check participation and ticket details with the organizer."
+                cost="Save by purchasing tickets in advance through the Cherry Chase PTA store, or buy them for $1 each at the Friday booth (2:15–4:30 PM)."
+                before="Pre-sale pickup is Monday–Thursday, October 26–29, 8:00–8:30 AM at the blue tables outside the multi. No Friday morning ticket sales. Online sales end Thursday, October 29 at 5 PM."
                 puddlesHref="/event/core-weekend-cherry-chase-fall-festival-2026-10-30"
                 links={[
                   {
@@ -329,7 +464,7 @@ export function HalloweenGuideDraft({
                   },
                 ]}
               >
-                <p>A community school festival with games, crafts, face painting, pumpkins, and family activities.</p>
+                <p>Games, crafts, face painting, balloon art, photos, food, and pumpkins.</p>
               </Outing>
               <Outing
                 title="Halloween Magic — Gamble Garden, Palo Alto"
@@ -350,7 +485,7 @@ export function HalloweenGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('parades')}>
-              <h3>3. Costume parades and downtown Halloween fun</h3>
+              <h3 data-guide-section="parades">3. Costume parades and downtown Halloween fun</h3>
               <Outing
                 title="Halloween Hoopla Parade & Carnival — Menlo Park"
                 when="Saturday, October 24 · Parade at 11 AM · Free"
@@ -391,7 +526,7 @@ export function HalloweenGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('stories')}>
-              <h3>4. Stories, crafts, and Halloween creativity</h3>
+              <h3 data-guide-section="stories">4. Stories, crafts, and Halloween creativity</h3>
               <p>Looking for something besides a busy costume parade? These are a different way to celebrate.</p>
               <Outing
                 title="Jack O’Lantern Jamboree! — Palo Alto"
@@ -402,7 +537,7 @@ export function HalloweenGuideDraft({
                 <p>A children’s Halloween dance party with crafts at the Palo Alto Children’s Library Secret Garden.</p>
               </Outing>
               <Outing
-                title="Spooky StoryWalk® — Sunnyvale"
+                title="Spooky StoryWalk — Sunnyvale"
                 when="Wednesday, October 28 · 4–6 PM · Free"
                 why="A combination of outdoor movement, reading, and seasonal play."
                 puddlesHref="/event/watchlist-sunnyvale-spooky-storywalk-2026-10-28"
@@ -439,13 +574,13 @@ export function HalloweenGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('patches')}>
-              <h3>5. Pumpkin patches worth a little drive</h3>
+              <h3 data-guide-section="patches">5. Pumpkin patches worth a little drive</h3>
               <p>For families who want an outdoor fall adventure, a pumpkin patch can be the main event.</p>
               <Outing
                 title="Farmer John’s Pumpkin Farm — Half Moon Bay"
                 when="Daily · 9 AM–6 PM"
                 cost="Free admission and parking. Pumpkins are purchased separately."
-                why="A flexible outing for families who want to pick pumpkins without a large amusement-style experience."
+                why="Perfect for families who want to pick pumpkins, take fall photos, and enjoy a classic farm setting without the rides and carnival attractions."
                 image="https://www.farmerjohnspumpkins.com/sites/default/files/backgrounds/fj_0.jpg"
                 puddlesHref="/event/seasonal-drive-farmer-johns-pumpkin-farm-2026-09-04"
                 links={[{ href: 'https://www.farmerjohnspumpkins.com/node/1', label: 'Official website' }]}
@@ -477,14 +612,15 @@ export function HalloweenGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('daytime')}>
-              <h3>6. Trick-or-treat before Halloween night</h3>
+              <h3 data-guide-section="daytime">6. Trick-or-treat before Halloween night</h3>
               <p>
-                You do not have to wait until after sunset on October 31. These organized activities
-                are useful when a family wants a set place and time.
+                Trick-or-treating doesn&apos;t have to happen after dark. These daytime and
+                early-evening events make it easier to celebrate at a set place and time, especially
+                for a first Halloween outing.
               </p>
               <Outing
                 title="Menlo Park Trunk-or-Treat"
-                when="Wednesday, October 28 · 4:30–6 PM · Belle Haven Community Campus"
+                when="Wednesday, October 28 · 4:30–6 PM · Free · Belle Haven Community Campus"
                 image="https://www.menlopark.gov/files/sharedassets/public/v/2/library-and-community-services/images/events/trunkortreat.png"
                 puddlesHref="/event/seasonal-drive-belle-haven-trunk-or-treat-2026-10-28"
                 links={[
@@ -494,15 +630,15 @@ export function HalloweenGuideDraft({
                   },
                 ]}
               >
-                <p>Decorated cars, costumes, and community trick-or-treating.</p>
+                <p>Walk between decorated cars, enjoy costumes, and collect treats at an early-evening event.</p>
               </Outing>
               <Outing
-                title="Hiller Aviation Museum Trunk or Treat"
-                when="Thursday, October 29 · 5–7 PM · Free · 601 Skyway Road, San Carlos"
-                before="Trunk-or-Treat is free. The indoor Haunted Hangar requires separate paid museum admission."
-                links={[{ href: 'https://www.hiller.org/event/trunk-or-treat/', label: 'Official event details' }]}
+                title="Hiller Aviation Museum Trunk-or-Treat — San Carlos"
+                when="Thursday, October 29 · 5–7 PM · Free · 601 Skyway Road"
+                before="Trunk-or-treat is free and does not need registration. The museum's indoor Haunted Hangar has a separate admission charge."
+                puddlesHref="/event/seasonal-drive-hiller-trunk-or-treat-2026-10-29"
               >
-                <p>Collect treats from decorated cars and airplanes at the museum.</p>
+                <p>Collect treats beside decorated airplanes and cars. Costumes are encouraged.</p>
               </Outing>
               <Outing
                 title="A BOO-tiful Downtown Halloween"
@@ -523,51 +659,61 @@ export function HalloweenGuideDraft({
                   afternoon.
                 </p>
               </Outing>
-              <Outing title="Rancho Shopping Center Trick-or-Treat" when="Saturday, October 31 · 10:30 AM–12:30 PM · Free · Los Altos">
-                <p>A daytime shopping-center trick-or-treat celebration with activities for families.</p>
+              <Outing
+                title="Rancho Shopping Center Trick-or-Treat — Los Altos"
+                when="Saturday, October 31 · 10:30 AM–12:30 PM · Free · 600 Foothill Expressway"
+                before="This is a two-hour morning event, not an all-day trick-or-treat destination."
+              >
+                <p>
+                  Go trick-or-treating around the shopping center, make Halloween crafts, and look for
+                  the pet costume parade.
+                </p>
               </Outing>
               <Outing
-                title="Mountain View Public Library Trick-or-Treat"
-                when="Saturday, October 31 · 10 AM–6 PM · Free"
-                why="An indoor alternative for younger children, or for families who prefer non-candy treats."
+                title="Mountain View Public Library Halloween Trick-or-Treat"
+                when="Saturday, October 31 · 10 AM–6 PM · Free · 585 Franklin Street"
+                before="Drop in during library hours; this is self-paced treat pickup, not a scheduled performance. Costumes are optional."
+                puddlesHref="/event/core-weekend-mv-library-halloween-trick-or-treat-2026-10-31"
               >
-                <p>Stop by the library for non-food treats during opening hours.</p>
+                <p>
+                  Children can collect <b>non-food Halloween treats from several stations inside the library</b>{' '}
+                  instead of going door to door. Visit the Children&apos;s Room, Teen Zone,
+                  Second Floor Reference Desk, or Customer Service; the Friends of the Library shop
+                  participates when open.
+                </p>
               </Outing>
             </section>
 
             <section className="lgg-chapter" id={id('traditions')}>
-              <h3>7. Famous Halloween traditions in Silicon Valley</h3>
-              {showMap ? <GuidePlacesMap idPrefix={idPrefix} /> : null}
-              <p>Halloween in Silicon Valley has its own local folklore.</p>
+              <h3 data-guide-section="traditions">7. Famous Halloween traditions in Silicon Valley</h3>
+              {showMap ? (
+                <Suspense fallback={<div className="guide-map__canvas" aria-hidden="true" />}>
+                  <GuidePlacesMap idPrefix={idPrefix} />
+                </Suspense>
+              ) : null}
               <p>
-                Some streets have become known for elaborate decorations, neighborhood gatherings, and
-                traditions passed down over many years.
-              </p>
-              <p>
-                These places are worth knowing about, and they are different from formally scheduled
-                public events. A tradition’s past popularity does not guarantee that a particular
-                display or household will participate in 2026.
+                From Old Palo Alto&apos;s legendary displays to Los Altos&apos;s Pirate Manor, some
+                neighborhoods have become Halloween landmarks. These are{' '}
+                <b>residential traditions, not scheduled public events</b>; individual displays and
+                hours for 2026 are not guaranteed.
               </p>
 
               <article className="lgg-out">
-                <h4 id={id('old-palo-alto')}>Old Palo Alto — the Steve Jobs Halloween tradition</h4>
-                <p className="lgg-when">Area: Waverley Street and Santa Rita Avenue</p>
-                <p>Old Palo Alto has long been one of the region’s best-known Halloween destinations.</p>
+                <h4 id={id('old-palo-alto')}>Old Palo Alto — The Steve Jobs Halloween Tradition</h4>
+                <p className="lgg-when">Area: Waverley Street & Santa Rita Avenue</p>
                 <p>
-                  The late Steve Jobs was known for celebrating Halloween, and accounts from former
-                  neighbors describe elaborate displays, carved pumpkins, and long lines of
-                  trick-or-treaters. His family’s Halloween tradition continued after his death in
-                  2011.
+                  One of Palo Alto’s most beloved Halloween traditions. Steve Jobs and his family
+                  were known for elaborate decorations, carved pumpkins, and long lines of
+                  trick-or-treaters. The family continued the tradition after his passing, helping
+                  make Old Palo Alto a favorite Halloween destination.
                 </p>
-                <p>Today, the surrounding historic streets remain part of Palo Alto’s Halloween folklore.</p>
-                <p>
+                <p className="lgg-expect">
                   <b>What to expect: </b>
-                  Historic homes, seasonal decorations, and potentially very large crowds.
+                  Beautiful historic homes, festive decorations, and lively crowds.
                 </p>
                 <p>
                   <b>2026 status: </b>
-                  The neighborhood’s reputation is well documented, but individual homeowner
-                  participation and any street closure must be confirmed separately.
+                  Individual household participation and street closures have not been confirmed.
                 </p>
               </article>
 
@@ -578,7 +724,7 @@ export function HalloweenGuideDraft({
                   Another street associated with elaborate Halloween celebrations and notable Silicon
                   Valley residents, including past festivities linked to former Yahoo CEO Marissa Mayer.
                 </p>
-                <p>
+                <p className="lgg-expect">
                   <b>What to expect: </b>
                   A residential setting with a history of creative holiday displays.
                 </p>
@@ -597,7 +743,7 @@ export function HalloweenGuideDraft({
                   created by a group of Bay Area enthusiasts. It is one example of the creativity
                   behind neighborhood Halloween celebrations.
                 </p>
-                <p>
+                <p className="lgg-expect">
                   <b>2026 status: </b>
                   Historical displays are documented, but this year’s opening dates and hours have not
                   been verified. The website’s schedule contains older event years.
@@ -607,119 +753,88 @@ export function HalloweenGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('neighborhoods')}>
-              <h3>8. Best neighborhoods for trick-or-treating</h3>
+              <h3 data-guide-section="neighborhoods">8. Neighborhoods known for trick-or-treating</h3>
               <p>
-                If you are hoping for a more traditional Halloween night, these neighborhoods have a
-                history of decorated homes or strong community participation.
+                These neighborhoods are local favorites based on past celebrations, not confirmed 2026
+                events. <b>Before you go: </b>Participating homes, decorations, hours, parking, and
+                street closures can vary. Check local notices and don&apos;t assume a block is
+                car-free.
               </p>
-              <p className="lgg-when">Halloween night: Saturday, October 31, 2026</p>
+              <p className="lgg-when">
+                <b>Halloween night: </b>Saturday, October 31, 2026.
+              </p>
 
               <h4>Palo Alto</h4>
-              <h5>Old Palo Alto — Waverley Street</h5>
               <p>
-                One of the region’s most famous Halloween areas. Historically, certain blocks have been
-                closed to vehicles for large pedestrian crowds.
+                <b>Old Palo Alto — Waverley Street: </b>
+                Famous for festive homes and large crowds; some blocks have historically been closed
+                to cars.
               </p>
-              <p>
-                <b>Best for: </b>
-                Families interested in a lively Halloween atmosphere.
+              <p id={id('professorville')}>
+                <b>Professorville: </b>
+                Historic homes and traditional neighborhood trick-or-treating.
               </p>
-              <p>
-                <b>2026 status: </b>
-                Current closure limits and household participation require confirmation.
-              </p>
-              <h5>Professorville and Crescent Park</h5>
-              <p>Known for historic houses and neighborhood Halloween decorations.</p>
-              <p>
-                <b>Best for: </b>
-                A residential trick-or-treat stroll with a traditional Palo Alto neighborhood feel.
-              </p>
-              <p>
-                <b>2026 status: </b>
-                No uniform neighborhood-wide hours or street closures confirmed.
+              <p id={id('crescent-park')}>
+                <b>Crescent Park: </b>
+                Historic homes and traditional neighborhood trick-or-treating.
               </p>
 
               <h4>Los Altos</h4>
-              <h5 id={id('orange')}>Orange Avenue and surrounding streets</h5>
-              <p>
-                Old Los Altos has a history of neighborhood Halloween celebrations, including past
-                street-closure efforts.
+              <p id={id('orange')}>
+                <b>Orange Avenue and nearby streets: </b>
+                Old Los Altos streets with a history of decorations and community celebrations.
               </p>
               <p>
-                <b>Best for: </b>
-                Families who want to explore historic residential streets.
-              </p>
-              <p>
-                <b>2026 status: </b>
-                No confirmed current closure schedule. Do not assume the area is car-free.
-              </p>
-              <h5>Manor Way</h5>
-              <p>Known for the historic Pirate Manor display.</p>
-              <p>
-                <b>Best for: </b>
-                Families interested in unusual Halloween decorations.
-              </p>
-              <p>
-                <b>2026 status: </b>
-                Display opening unconfirmed.
+                <b>Manor Way: </b>
+                Known for Pirate Manor, but this year&apos;s display schedule is unconfirmed.
               </p>
 
               <h4>Mountain View</h4>
-              <h5 id={id('mercy-bush')}>Old Mountain View — Mercy-Bush Park area</h5>
-              <p>
-                A frequently mentioned local favorite for neighborhood trick-or-treating, with many
-                homes close enough for a relatively short walk.
+              <p id={id('mercy-bush')}>
+                <b>Old Mountain View — Mercy-Bush Park area: </b>
+                Often recommended for a walkable neighborhood outing.
               </p>
-              <p>
-                <b>Best for: </b>
-                Families seeking a nearby residential Halloween experience.
+              <p id={id('shoreline-west')}>
+                <b>Shoreline West: </b>
+                A neighborhood mentioned by local families for Halloween decorations.
               </p>
-              <h5 id={id('shoreline-west')}>Shoreline West</h5>
-              <p>Another neighborhood local residents have recommended for festive decorations and trick-or-treating.</p>
-              <p>
-                <b>Best for: </b>
-                Families who prefer staying within Mountain View.
+              <p id={id('whisman')}>
+                <b>Whisman Station: </b>
+                Close-set homes and pedestrian paths may make a shorter walk easier with children.
               </p>
-              <h5 id={id('whisman')}>Whisman Station</h5>
-              <p>
-                With closely spaced homes and some pedestrian-only paths, Whisman Station may be
-                convenient for younger children walking from door to door.
-              </p>
-              <p>
-                <b>Best for: </b>
-                Families who value a shorter, easier walking route over elaborate displays.
-              </p>
-              <p>All three are community recommendations, rather than officially scheduled Halloween events.</p>
 
               <h4>Los Gatos</h4>
-              <h5 id={id('tait')}>Tait Avenue — Almond Grove</h5>
-              <p>A long-standing Halloween destination with decorated homes, large crowds, and a tradition of street closures.</p>
-              <h5 id={id('johnson')}>Johnson Avenue</h5>
-              <p>Another popular Halloween street with a history of vehicle restrictions during peak trick-or-treat hours.</p>
-              <p>
-                <b>2026 status: </b>
-                Los Gatos has arranged traffic-control services for Halloween, including the Tait and
-                Johnson areas. Check the town’s final closure notices for the exact blocks and times.
+              <p id={id('tait')}>
+                <b>Tait Avenue — Almond Grove: </b>
+                A long-standing destination for decorated homes and lively trick-or-treating.
               </p>
-              <Ext href="https://www.losgatosca.gov/">Los Gatos official website</Ext>
+              <p id={id('johnson')}>
+                <b>Johnson Avenue: </b>
+                Another popular Halloween street. The town has planned traffic control in the area;
+                check final notices for exact closures.
+              </p>
 
               <h4>More Bay Area neighborhood traditions</h4>
-              <h5 id={id('pope')}>Pope Street — Menlo Park</h5>
-              <p>A residential neighborhood in The Willows known locally for Halloween trick-or-treating.</p>
-              <h5 id={id('cabrillo')}>Cabrillo Avenue — Burlingame</h5>
-              <p>A traditional residential Halloween area in Easton Addition. Do not assume the street is closed to vehicles.</p>
-              <h5 id={id('belvedere')}>Belvedere Street — Cole Valley, San Francisco</h5>
-              <p>A well-known Halloween destination with decorated homes and large crowds. Expect hills and a busy evening.</p>
-              <h5 id={id('fair-oaks')}>Fair Oaks Street — San Francisco</h5>
-              <p>A neighborhood Halloween tradition with a relatively flat walking environment.</p>
-              <p>
-                These are historical and community-based recommendations. Exact 2026 closure
-                information and participation vary.
+              <p id={id('pope')}>
+                <b>Pope Street — Menlo Park: </b>
+                A locally known trick-or-treating spot in The Willows.
+              </p>
+              <p id={id('cabrillo')}>
+                <b>Cabrillo Avenue — Burlingame: </b>
+                A residential tradition in Easton Addition.
+              </p>
+              <p id={id('belvedere')}>
+                <b>Belvedere Street — Cole Valley, San Francisco: </b>
+                Decorations, crowds, and hills.
+              </p>
+              <p id={id('fair-oaks')}>
+                <b>Fair Oaks Street — San Francisco: </b>
+                A relatively flat residential Halloween stroll.
               </p>
             </section>
 
             <section className="lgg-chapter" id={id('before')}>
-              <h3>9. What to know before trick-or-treating with little ones</h3>
+              <h3 data-guide-section="before">9. What to know before trick-or-treating with little ones</h3>
               <p>
                 Traditional door-to-door trick-or-treating takes place on <b>Saturday, October 31, 2026</b>.
               </p>
@@ -728,75 +843,41 @@ export function HalloweenGuideDraft({
                 For families with toddlers or preschoolers, starting around 5:30–6 PM may help you
                 finish before the evening gets too late.
               </p>
-              <p>
+              <p className="lgg-tips-lead">
                 <b>A few planning tips:</b>
               </p>
-              <div className="lgg-tips">
-                <IconLine kind="stroller" label="" text="Pick one walkable neighborhood rather than traveling between several crowded streets." />
-                <IconLine kind="info" label="" text="Visit houses that clearly welcome trick-or-treaters." />
-                <IconLine kind="info" label="" text="Bring a flashlight or reflective accessories for visibility." />
-                <IconLine kind="crowds" label="" text="Expect long lines in famous Halloween neighborhoods." />
-                <IconLine kind="info" label="" text="Avoid blocking driveways or entering private property outside the invited route." />
-                <IconLine kind="baby" label="" text="Check candy and small treats for age-appropriate choking hazards." />
-                <IconLine kind="baby" label="" text="Let your child’s comfort determine how long you stay." />
-              </div>
+              <ul className="lgg-tips">
+                <li>Pick one walkable neighborhood rather than traveling between several crowded streets.</li>
+                <li>Visit houses that clearly welcome trick-or-treaters.</li>
+                <li>Bring a flashlight or reflective accessories for visibility.</li>
+                <li>Expect long lines in famous Halloween neighborhoods.</li>
+                <li>Avoid blocking driveways or entering private property outside the invited route.</li>
+                <li>Check candy and small treats for age-appropriate choking hazards.</li>
+                <li>Let your child’s comfort determine how long you stay.</li>
+              </ul>
               <p>
                 If your child is not ready for door-to-door trick-or-treating, daytime downtown
                 celebrations and library activities are strong alternatives.
               </p>
-              <p>
-                You can also check <Ext href="https://nextdoor.com/treat_map/">Nextdoor’s Treat Map</Ext> for
-                voluntarily participating homes. Listings are not guaranteed.
-              </p>
             </section>
 
-            <section className="lgg-chapter" id={id('fit')}>
-              <h3>10. Which Halloween plan fits your family?</h3>
-              <h4>For babies and young toddlers</h4>
-              <p>
-                Consider pumpkin picking, a short outdoor celebration, a library visit, or a daytime
-                costume event. These offer seasonal fun without a long evening.
-              </p>
-              <h4>For children around 2–3</h4>
-              <p>
-                Try one main activity, such as a community party or a short trick-or-treat outing. A
-                few houses may be more enjoyable than an entire crowded neighborhood.
-              </p>
-              <h4>For preschoolers around 4–5</h4>
-              <p>
-                Carnival games, interactive crafts, costume parades, and a more involved pumpkin patch
-                may be especially engaging.
-              </p>
-              <h4>For children sensitive to crowds or noise</h4>
-              <p>
-                Consider quieter times, non-food trick-or-treat options, or a familiar neighborhood.
-                Famous Halloween streets can become very busy.
-              </p>
-              <p>The best Halloween experience is the one your family enjoys together.</p>
-            </section>
-
-            <section className="lgg-chapter" id={id('more')}>
+            <section className="lgg-chapter lgg-more" id={id('more')}>
               <h3>More Halloween adventures on Puddles</h3>
               <p>
                 There are many ways to celebrate Halloween with little ones, from a morning in costume
-                to an evening walk through a decorated neighborhood.
+                to an evening walk through a decorated neighborhood. Puddles — The Tot Map brings
+                together local activities for families with children ages 0–5 around Palo Alto, Los
+                Altos, Mountain View, Sunnyvale, and nearby communities.
               </p>
-              <p>
-                Puddles — The Tot Map brings together local activities for families with children ages
-                0–5 around Palo Alto, Los Altos, Mountain View, Sunnyvale, and nearby communities.
-              </p>
-              <Link className="lgg-related" to={COLLECTION}>
-                <span className="lgl-eyebrow">On Puddles</span>
-                <b>Explore more Halloween activities</b>
-                <p className="lgg-dek">The seasonal collection, with this month’s events.</p>
+              <Link className="lgg-related" to="/">
+                <b>Discover more family activities on Puddles</b>
               </Link>
               <p className="lgg-disclaimer">
                 Event times, admission prices, neighborhood participation, and street-closure details may
-                change. Verify organizer information before visiting. References to famous residential
-                Halloween traditions describe historical public accounts, not guaranteed homeowner
-                participation this year.
+                change. Verify organizer information before visiting.
               </p>
             </section>
+            <div className="lgg-end" aria-hidden="true" />
           </div>
           {rail ? (
             <aside className="lgg-rail" aria-label="Plan this">
