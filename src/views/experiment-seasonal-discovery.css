@@ -1454,6 +1454,10 @@
   color: #f0b27a;
 }
 
+.seasonal-collection-events {
+  scroll-margin-top: 5.5rem;
+}
+
 .seasonal-collection-page--halloween .seasonal-collection-back:hover {
   color: #ffd09a;
 }

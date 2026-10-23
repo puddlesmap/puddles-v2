@@ -10,13 +10,14 @@ const GuidePlacesMap = lazy(() =>
 )
 import {
   HALLOWEEN_COLLECTION_PATH,
+  HALLOWEEN_EVENTS_HREF,
   HALLOWEEN_GUIDE_POSTED,
   HALLOWEEN_GUIDE_READ,
   HALLOWEEN_GUIDE_SLUG,
 } from '../data/halloweenGuide'
 const COLLECTION = HALLOWEEN_COLLECTION_PATH
 const GUIDE_SHARE_URL = 'https://puddlesmap.com/guides/halloween-with-little-ones'
-const GUIDE_SHARE_TITLE = 'Halloween with Little Ones: Your 2026 South Peninsula Guide'
+const GUIDE_SHARE_TITLE = 'Halloween with Little Ones'
 
 function GuideShare() {
   const [copied, setCopied] = useState(false)
@@ -261,8 +262,8 @@ export function HalloweenGuideDraft({
   return (
     <>
       <div className="lgg-hero">
-        <p className="lgl-eyebrow">October guide</p>
-        <Title>Halloween with Little Ones: Your 2026 South Peninsula Guide</Title>
+        <p className="lgl-eyebrow">October guide · South Peninsula 2026</p>
+        <Title>Halloween with Little Ones</Title>
         <p className="lgg-dek">
           Halloween falls on Saturday, October 31 this year, but the fun starts well before! From
           neighborhood parades and pumpkin patches to costume parties and beloved trick-or-treating
@@ -277,6 +278,13 @@ export function HalloweenGuideDraft({
       </div>
       <img className="lgg-cover" src={cover} alt="" />
       <div className="lgg-body">
+        <Link className="guide-events-cta" to={HALLOWEEN_EVENTS_HREF}>
+          <span className="guide-events-cta__title">Looking for Halloween plans? 🎃</span>
+          <span className="guide-events-cta__body">
+            Explore upcoming events, dates, and details for little ones nearby.
+          </span>
+          <span className="guide-events-cta__action">Browse Halloween events →</span>
+        </Link>
         {jumps ? (
           <nav className="lgg-jumps" id={id('index')} aria-label="On this guide">
             <p className="lgg-jumps-label">Sections</p>

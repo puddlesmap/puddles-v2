@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { partitionSeasonalTiming } from '../utils/seasonalWeekendBuckets'
 import { AppHeader } from '../components/layout/AppHeader'
@@ -129,11 +129,13 @@ function CollectionGeoTabs({
   closeToHomeEvents,
   driveEvents,
   onEventClick,
+  id,
 }: {
   collection: SeasonalCollection
   closeToHomeEvents: Event[]
   driveEvents: Event[]
   onEventClick: (event: Event) => void
+  id?: string
 }) {
   const closeToHome = collection.closeToHome!
   const worthADrive = collection.worthADrive!
@@ -160,7 +162,7 @@ function CollectionGeoTabs({
   }, [showDriveTab])
 
   return (
-    <div className="seasonal-collection-sections">
+    <div id={id} className="seasonal-collection-sections seasonal-collection-events">
       {showDriveTab ? (
         <>
           <div ref={sentinelRef} className="seasonal-density-tabs__sentinel" aria-hidden="true" />
@@ -255,6 +257,7 @@ export function SeasonalActivePage() {
 
 export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: string } = {}) {
   const params = useParams()
+  const location = useLocation()
   const slug = slugProp ?? params.slug
   const openEvent = useEventNavigation()
   const { getCatalog } = useLaunchStagingCatalog()
@@ -277,6 +280,12 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
         : [],
     [collection, getCatalog],
   )
+
+  useEffect(() => {
+    const hash = location.hash || window.location.hash
+    if (hash !== '#events') return
+    document.getElementById('events')?.scrollIntoView({ block: 'start' })
+  }, [location.hash, collection])
 
   if (!validSlug || !collection) {
     return <Navigate to="/" replace />
@@ -399,6 +408,7 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
 
           {hasGeographicSections ? (
             <CollectionGeoTabs
+              id={isHalloween ? 'events' : undefined}
               collection={collection}
               closeToHomeEvents={closeToHomeEvents}
               driveEvents={driveEvents}

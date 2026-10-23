@@ -4,6 +4,11 @@ export const HALLOWEEN_GUIDE_PATH = '/guides/halloween-with-little-ones'
 
 export const HALLOWEEN_COLLECTION_PATH = '/seasonal/halloween-with-little-ones'
 
+/** Seasonal page event list. Guide CTA scrolls here. */
+export const HALLOWEEN_EVENTS_ANCHOR = 'events'
+
+export const HALLOWEEN_EVENTS_HREF = `${HALLOWEEN_COLLECTION_PATH}#${HALLOWEEN_EVENTS_ANCHOR}`
+
 /** Menlo Park Halloween Hoopla — children in costume on Santa Cruz Avenue. */
 export const HALLOWEEN_GUIDE_COVER =
   'https://www.menlopark.gov/files/sharedassets/public/v/1/library-and-community-services/images/events/children-in-costume-on-santa-cruz-avenue-sidewalk-for-halloween-hoopla-downtown-merchant-trick-or-treating-and-parade.jpg'

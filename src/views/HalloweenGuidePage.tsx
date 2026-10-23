@@ -19,7 +19,7 @@ export function HalloweenGuidePage() {
       />
       <PageContainer className="guide-page__wrap layout-container">
         <Link className="guide-page__back" to={HALLOWEEN_COLLECTION_PATH}>
-          ← Halloween with little ones
+          ← Explore Halloween events
         </Link>
         <article className="guide-page skin skin--column">
           <HalloweenGuideDraft

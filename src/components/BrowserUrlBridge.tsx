@@ -42,15 +42,15 @@ export function BrowserUrlBridge() {
     // Initial MemoryRouter entry is POP. Only user navigations should write history.
     if (navigationType === 'POP') return
 
-    const href = `${location.pathname}${location.search}`
+    const href = `${location.pathname}${location.search}${location.hash}`
     if (lastWrittenHref.current === href) return
     lastWrittenHref.current = href
     if (navigationType === 'REPLACE') {
       nextRouter.replace(href, { scroll: false })
       return
     }
-    nextRouter.push(href)
-  }, [location.pathname, location.search, memoryUrl, navigationType, nextRouter])
+    nextRouter.push(href, { scroll: location.hash ? false : undefined })
+  }, [location.hash, location.pathname, location.search, memoryUrl, navigationType, nextRouter])
 
   useEffect(() => {
     if (EVENT_PATH.test(nextPathname)) return

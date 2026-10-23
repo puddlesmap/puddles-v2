@@ -72,7 +72,7 @@ export function getDocumentTitle(pathname: string, search = ''): string {
     return formatDocumentTitle('Hello, Fall')
   }
   if (pathname === '/experiment/seasonal-discovery/halloween-with-little-ones') {
-    return formatDocumentTitle('Halloween with little ones')
+    return formatDocumentTitle('Halloween fun for little ones')
   }
   if (pathname === '/guides/halloween-with-little-ones') {
     return formatDocumentTitle('Halloween with Little Ones')
