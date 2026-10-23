@@ -252,13 +252,17 @@
   padding-bottom: 5.5rem;
 }
 
-.guide-page__back {
+.guide-page__back:any-link {
   display: inline-block;
   margin-bottom: 1.25rem;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #1d4f6e;
+  color: #273034;
   text-decoration: none;
+}
+
+.guide-page__back:any-link:hover {
+  color: #273034;
 }
 
 .guide-page__article {

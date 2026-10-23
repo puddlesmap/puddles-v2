@@ -692,8 +692,8 @@ export function HalloweenGuideDraft({
                 </Suspense>
               ) : null}
               <p>
-                From Old Palo Alto&apos;s legendary displays to Los Altos&apos;s Pirate Manor, some
-                neighborhoods have become Halloween landmarks. These are{' '}
+                From Old Palo Alto&apos;s legendary displays to other decorated neighborhood streets,
+                some neighborhoods have become Halloween landmarks. These are{' '}
                 <b>residential traditions, not scheduled public events</b>; individual displays and
                 hours for 2026 are not guaranteed.
               </p>
@@ -735,21 +735,6 @@ export function HalloweenGuideDraft({
                 </p>
               </article>
 
-              <article className="lgg-out">
-                <h4 id={id('pirate-manor')}>Pirate Manor — Los Altos</h4>
-                <p className="lgg-when">Area: Manor Way, Los Altos</p>
-                <p>
-                  Pirate Manor is a local Halloween creation known for its pirate-themed display,
-                  created by a group of Bay Area enthusiasts. It is one example of the creativity
-                  behind neighborhood Halloween celebrations.
-                </p>
-                <p className="lgg-expect">
-                  <b>2026 status: </b>
-                  Historical displays are documented, but this year’s opening dates and hours have not
-                  been verified. The website’s schedule contains older event years.
-                </p>
-                <Ext href="https://www.piratemanor.com/">Visit Pirate Manor’s website</Ext>
-              </article>
             </section>
 
             <section className="lgg-chapter" id={id('neighborhoods')}>
@@ -783,10 +768,6 @@ export function HalloweenGuideDraft({
               <p id={id('orange')}>
                 <b>Orange Avenue and nearby streets: </b>
                 Old Los Altos streets with a history of decorations and community celebrations.
-              </p>
-              <p>
-                <b>Manor Way: </b>
-                Known for Pirate Manor, but this year&apos;s display schedule is unconfirmed.
               </p>
 
               <h4>Mountain View</h4>

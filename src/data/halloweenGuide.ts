@@ -79,14 +79,6 @@ export const HALLOWEEN_GUIDE_PLACES: GuidePlace[] = [
     status: 'A neighborhood tradition. Specific homeowners’ participation is not confirmed for 2026.',
   },
   {
-    slug: 'pirate-manor',
-    name: 'Pirate Manor, Manor Way',
-    group: 'tradition',
-    lat: 37.3796,
-    lng: -122.1134,
-    status: 'This year’s opening dates and hours have not been verified.',
-  },
-  {
     slug: 'professorville',
     name: 'Professorville',
     group: 'neighborhood',
