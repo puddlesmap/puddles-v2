@@ -55,6 +55,8 @@ export const ANALYTICS_EVENTS = {
   SEASONAL_BANNER_IMPRESSION: 'seasonal_banner_impression',
   SEASONAL_BANNER_CLICKED: 'seasonal_banner_clicked',
   SEASONAL_COLLECTION_EVENT_OPENED: 'seasonal_collection_event_opened',
+  GUIDE_SECTION_VIEWED: 'guide_section_viewed',
+  GUIDE_SHARED: 'guide_shared',
 } as const
 
 type PlausibleInitOptions = {
@@ -389,6 +391,20 @@ function eventDetailAnalyticsProps(extras?: EventDetailAnalyticsContext): Analyt
   if (extras.open_mode) props.open_mode = extras.open_mode
   if (extras.desc_placement) props.desc_placement = extras.desc_placement
   return props
+}
+
+export function trackGuideSectionViewed(guideSlug: string, sectionId: string): void {
+  if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
+  if (!/^[a-z0-9-]{1,80}$/.test(sectionId)) return
+  trackEvent(ANALYTICS_EVENTS.GUIDE_SECTION_VIEWED, {
+    guide_slug: guideSlug,
+    section_id: sectionId,
+  })
+}
+
+export function trackGuideShared(guideSlug: string): void {
+  if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
+  trackEvent(ANALYTICS_EVENTS.GUIDE_SHARED, { guide_slug: guideSlug })
 }
 
 export function trackActivityOpened(
