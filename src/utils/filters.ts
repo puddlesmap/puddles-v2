@@ -9,10 +9,11 @@ import {
   eventMatchesTemporalTab,
   eventMatchesTimeFilter,
 } from './eventSessions'
-import { isPublicEvent } from './publishing'
 import { matchesBrowseCityFilter } from './cityRegions'
+import { scheduleSortYmd, spannedScheduleMatchesWhen } from './formatSeasonalSchedule'
 import { isDiscoverableLifecycleEvent } from './eventLifecycle'
 import { isOutOfAgeAudienceForPublic } from './eventAudienceAge'
+import { isPublicEvent } from './publishing'
 import {
   getBrowseAgeChipLabel,
   isPublicAgeEligible,
@@ -87,14 +88,23 @@ export function filterEvents(
 
     if (!matchesCity(event, city)) return false
 
-    if (temporalTab && !eventMatchesTemporalTab(event, temporalTab, anchor, now)) {
+    if (
+      temporalTab &&
+      !eventMatchesTemporalTab(event, temporalTab, anchor, now) &&
+      !spannedScheduleMatchesWhen(event, temporalTab, anchor, now)
+    ) {
       return false
     }
 
     if (browse) {
       const f = { ...DEFAULT_BROWSE_FILTERS, ...browse }
       if (!matchesCity(event, f.city)) return false
-      if (!eventMatchesDayFilter(event, f.day, anchor, now)) return false
+      if (
+        !eventMatchesDayFilter(event, f.day, anchor, now) &&
+        !spannedScheduleMatchesWhen(event, f.day, anchor, now)
+      ) {
+        return false
+      }
       if (!eventMatchesTimeFilter(event, f.time)) return false
       if (!matchesAge(event, f.age)) return false
       if (f.types.length > 0 && !f.types.some((t) => event.types.includes(t))) return false
@@ -106,10 +116,10 @@ export function filterEvents(
   })
 }
 
-/** Chronological feed order — date, then start time, then title. */
-export function sortEventsBySchedule(events: Event[]): Event[] {
+/** Chronological feed order — next open day, then start time, then title. */
+export function sortEventsBySchedule(events: Event[], now: Date = new Date()): Event[] {
   return [...events].sort((a, b) => {
-    const byDate = a.date.localeCompare(b.date)
+    const byDate = scheduleSortYmd(a, now).localeCompare(scheduleSortYmd(b, now))
     if (byDate !== 0) return byDate
     const byTime = (a.startTime || '').localeCompare(b.startTime || '')
     if (byTime !== 0) return byTime

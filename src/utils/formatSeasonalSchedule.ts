@@ -24,6 +24,9 @@ import {
   formatEventTimeRange,
   formatTime,
   getEventEffectiveEnd,
+  getThisWeekendRange,
+  isEventStillActive,
+  PUBLIC_DISPLAY_WINDOW_DAYS,
   zonedCalendarDate,
 } from './dates'
 
@@ -269,6 +272,84 @@ export function parseRecurringWeekdays(label: string): Set<number> {
 
 function isOpenOnYmd(openDays: Set<number>, ymd: string): boolean {
   return openDays.has(weekdayIndexFromYmd(ymd))
+}
+
+type SpannedScheduleEvent = Pick<
+  Event,
+  | 'scheduleKind'
+  | 'date'
+  | 'openingDate'
+  | 'closingDate'
+  | 'recurringDaysLabel'
+  | 'startTime'
+  | 'endTime'
+>
+
+/**
+ * True when a seasonal-run or multi-day listing is scheduled on this calendar day.
+ * One-time events stay on their session dates.
+ */
+function isSpannedScheduleOpenOnYmd(event: SpannedScheduleEvent, ymd: string): boolean {
+  if (event.scheduleKind !== 'seasonal-run' && event.scheduleKind !== 'multi-day') return false
+  const opening = (event.openingDate || event.date || '').trim()
+  const closing = (event.closingDate || '').trim()
+  if (!opening || ymd < opening) return false
+  if (closing && ymd > closing) return false
+  const recurring = (event.recurringDaysLabel || 'Daily').trim() || 'Daily'
+  return isOpenOnYmd(parseRecurringWeekdays(recurring), ymd)
+}
+
+function ymdsFrom(startYmd: string, endYmd: string): string[] {
+  const days: string[] = []
+  let cursor = startYmd
+  for (let i = 0; i < PUBLIC_DISPLAY_WINDOW_DAYS + 2 && cursor <= endYmd; i += 1) {
+    days.push(cursor)
+    cursor = addDaysYmd(cursor, 1)
+  }
+  return days
+}
+
+/** Days a Home tab or Browse day filter is asking about. */
+function ymdsForDiscoveryWhen(
+  when: 'today' | 'tomorrow' | 'weekend' | 'anytime',
+  anchor: Date,
+): string[] {
+  const today = zonedCalendarDate(anchor)
+  if (when === 'today') return [today]
+  if (when === 'tomorrow') return [addDaysYmd(today, 1)]
+  if (when === 'weekend') {
+    const range = getThisWeekendRange(anchor)
+    return ymdsFrom(zonedCalendarDate(range.start), zonedCalendarDate(range.end))
+  }
+  return ymdsFrom(today, addDaysYmd(today, PUBLIC_DISPLAY_WINDOW_DAYS))
+}
+
+function spannedDayStillCounts(event: SpannedScheduleEvent, ymd: string, now: Date): boolean {
+  if (!isSpannedScheduleOpenOnYmd(event, ymd)) return false
+  if (ymd !== zonedCalendarDate(now)) return true
+  return isEventStillActive(ymd, event.startTime, event.endTime, now)
+}
+
+/**
+ * Home and Browse date filters only see `event.date` (the opening day) unless this
+ * says the season or festival is still open on a day in that filter.
+ */
+export function spannedScheduleMatchesWhen(
+  event: SpannedScheduleEvent,
+  when: 'today' | 'tomorrow' | 'weekend' | 'anytime',
+  anchor: Date = new Date(),
+  now: Date = new Date(),
+): boolean {
+  if (event.scheduleKind !== 'seasonal-run' && event.scheduleKind !== 'multi-day') return false
+  return ymdsForDiscoveryWhen(when, anchor).some((ymd) => spannedDayStillCounts(event, ymd, now))
+}
+
+/** Sort key so an open farm lines up with today, not its opening date. */
+export function scheduleSortYmd(event: Event, now: Date = new Date()): string {
+  if (event.scheduleKind !== 'seasonal-run' && event.scheduleKind !== 'multi-day') {
+    return event.date
+  }
+  return getSeasonalAvailability(event, now).nextRelevantYmd || event.date
 }
 
 /** Next calendar day on/after `fromYmd` that is an operating day, within optional close. */

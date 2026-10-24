@@ -2,7 +2,7 @@ import type { Event } from '../types/event'
 
 /**
  * Editorial Halloween picks outside core launch cities.
- * Hidden from Browse/Home; available on the seasonal collection page + detail links.
+ * Status stays Hidden. Home and Browse still list them on days they are open, with the seasonal page.
  */
 export const HALLOWEEN_DRIVE_EVENTS: Event[] = [
   {
