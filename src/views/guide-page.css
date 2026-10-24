@@ -252,6 +252,12 @@
   padding-bottom: 5.5rem;
 }
 
+@media (max-width: 767px) {
+  html[data-picks-pill] .guide-page__wrap {
+    padding-bottom: calc(8.75rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 .guide-page__back:any-link {
   display: inline-block;
   margin-bottom: 1.25rem;

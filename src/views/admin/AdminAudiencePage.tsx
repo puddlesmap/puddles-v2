@@ -29,6 +29,10 @@ function newsletterLabel(status: AudienceRow['newsletterStatus']): string {
 function sourceLabel(source: AudienceRow['signupSource']): string {
   if (source === 'puddles_picks_card') return 'Homepage card'
   if (source === 'puddles_picks_pill') return 'Mobile pill'
+  if (source === 'puddles_picks_pill_home') return 'Mobile pill · Home'
+  if (source === 'puddles_picks_pill_browse') return 'Mobile pill · Browse'
+  if (source === 'puddles_picks_pill_seasonal') return 'Mobile pill · Seasonal'
+  if (source === 'puddles_picks_pill_guide') return 'Mobile pill · Guide'
   if (source === 'puddles_picks_popup') return 'Popup'
   if (source === 'puddles_picks') return 'Puddles Picks'
   if (source === 'homepage') return 'Homepage'

@@ -12,9 +12,7 @@ const DISMISSED_KEY = 'puddles_picks_popup_dismissed'
 const OPEN_EVENT = 'puddles-picks-open'
 export const PUDDLES_PICKS_JOINED_EVENT = 'puddles-picks-joined'
 
-export function openPuddlesPicksSignup(
-  source: 'puddles_picks_pill' | 'puddles_picks_popup' = 'puddles_picks_popup',
-) {
+export function openPuddlesPicksSignup(source: NewsletterSignupSource = 'puddles_picks_popup') {
   if (typeof window === 'undefined') return
   window.dispatchEvent(new CustomEvent(OPEN_EVENT, { detail: source }))
 }
@@ -219,7 +217,7 @@ export function PuddlesPicksBanner() {
 }
 
 export function PuddlesPicksPopup() {
-  const [source, setSource] = useState<'puddles_picks_pill' | 'puddles_picks_popup'>('puddles_picks_popup')
+  const [source, setSource] = useState<NewsletterSignupSource>('puddles_picks_popup')
   const signup = usePicksSignup(source)
   const id = useId()
   const [visible, setVisible] = useState(false)
@@ -237,7 +235,15 @@ export function PuddlesPicksPopup() {
     function onOpen(event: Event) {
       if (readFlag(JOINED_KEY)) return
       const detail = event instanceof CustomEvent ? event.detail : null
-      setSource(detail === 'puddles_picks_pill' ? 'puddles_picks_pill' : 'puddles_picks_popup')
+      setSource(
+        detail === 'puddles_picks_pill_home' ||
+          detail === 'puddles_picks_pill_browse' ||
+          detail === 'puddles_picks_pill_seasonal' ||
+          detail === 'puddles_picks_pill_guide' ||
+          detail === 'puddles_picks_pill'
+          ? detail
+          : 'puddles_picks_popup',
+      )
       setVisible(true)
     }
     window.addEventListener(OPEN_EVENT, onOpen)
