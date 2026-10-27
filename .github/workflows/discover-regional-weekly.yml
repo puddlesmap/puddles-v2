@@ -1,6 +1,7 @@
 # Weekly Bay Area regional / destination events for Admin review.
 # Wednesdays 8:00 AM Pacific: re-ingest watchlist drive rows + regional-leads-inbox.json + report.
-# 小紅書 search stays human/agent-assisted — paste official URLs into the inbox.
+# Same morning as core-city weekend ingest. Web/social (~1 hour) + 小紅書 search stays
+# human/agent-assisted — paste official URLs into the inbox.
 
 name: Discover regional (weekly)
 
@@ -33,8 +34,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Discovery windows due
+        run: node scripts/plan-discovery-window.mjs --print
+
       - name: Regional weekly pass
         run: npm run discover:regional-weekly
+
+      - name: Merge candidates into unified Discovery Inbox
+        run: node scripts/merge-discovery-candidates-into-inbox.mjs
+
+      - name: Reminder — weekend Worth a Drive web & social (~1 hour)
+        if: github.event_name == 'schedule'
+        run: |
+          echo "::notice title=Weekend Worth a Drive search::This weekend + next, within ~1 hour of Palo Alto / Los Altos / Mountain View / Sunnyvale: pumpkin patches, apple days, harvest festivals. Follow docs/regional-weekend-drive-search.md. Paste official URLs into data/discovery/regional-leads-inbox.json, then re-run this workflow or npm run discover:regional-weekly."
 
       - name: Reminder — 小紅書 lead pass
         if: github.event_name == 'schedule'
@@ -48,7 +60,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/discovery-candidates.json data/discovery/regional-leads-inbox.json data/discovery/regional-weekly-*.md data/calendar-watchlist.json
+          git add src/data/discovery-candidates.json data/discovery/agent-inbox.json data/discovery/regional-leads-inbox.json data/discovery/regional-weekly-*.md data/calendar-watchlist.json
           if git diff --staged --quiet; then
             echo "No regional discovery changes — skipping commit."
           else
