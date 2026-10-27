@@ -30,6 +30,7 @@ export type City =
   | 'Pescadero'
   | 'Sausalito'
   | 'San Carlos'
+  | 'San Mateo'
   | 'Saratoga'
   | 'Campbell'
   | 'Union City'
