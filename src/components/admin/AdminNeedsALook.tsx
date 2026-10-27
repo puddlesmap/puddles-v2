@@ -1,8 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { AdminEventEditableFields } from '../../types/adminEventEdit'
 import type { Event } from '../../types/event'
-import { editableFieldsFromEvent, prepareEventForPublish } from '../../utils/adminEventEdit'
-import { isVerificationStale } from '../../utils/adminEvents'
+import { prepareEventForPublish } from '../../utils/adminEventEdit'
 import { stageAdminEvent } from '../../utils/adminPublishQueue'
 import {
   ADMIN_REVIEW_FLAG_LABELS,
@@ -15,7 +14,7 @@ import { enrichPublishingFields } from '../../utils/publishing'
 import { saveCachedAdminRefresh } from '../../utils/sheetSync'
 import { AdminEventDetailPanel } from './AdminEventDetail'
 
-type LookKind = 'draft' | 'attention' | 'stale'
+type LookKind = 'draft' | 'attention'
 
 interface LookRow {
   event: Event
@@ -26,13 +25,11 @@ interface LookRow {
 const KIND_LABEL: Record<LookKind, string> = {
   draft: 'Drafts',
   attention: 'Needs attention',
-  stale: 'Stale',
 }
 
 const KIND_HINT: Record<LookKind, string> = {
   draft: 'Saved in the catalog and not on the public site.',
   attention: 'Already live, and a field looks wrong.',
-  stale: 'Last checked is missing or older than 30 days.',
 }
 
 function classify(events: Event[]): LookRow[] {
@@ -57,10 +54,6 @@ function classify(events: Event[]): LookRow[] {
     const eventFlags = flagsByEvent.get(event.id) ?? []
     if (eventFlags.length > 0) {
       rows.push({ event, kind: 'attention', flags: eventFlags })
-      continue
-    }
-    if (isVerificationStale(event)) {
-      rows.push({ event, kind: 'stale', flags: [] })
     }
   }
   return rows.sort((a, b) => a.event.date.localeCompare(b.event.date) || a.event.title.localeCompare(b.event.title))
@@ -110,31 +103,14 @@ export function AdminNeedsALook() {
     }
   }
 
-  async function markStillAccurate(event: Event) {
-    setBusyId(event.id)
-    setMessage(null)
-    try {
-      const published = prepareEventForPublish(event, editableFieldsFromEvent(event))
-      stageAdminEvent(published, 'events', event.id)
-      remember(
-        published,
-        `“${published.title}” is still accurate. Use Publish in the Admin header to update Last checked.`,
-      )
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : 'Could not update Last checked.')
-    } finally {
-      setBusyId(null)
-    }
-  }
-
   if (!ready) return null
 
   return (
     <section className="admin-needs-look" aria-label="Needs a look">
       <h2 className="font-display text-lg text-charcoal">Needs a look</h2>
       <p className="mt-1 text-sm text-muted">
-        Drafts, live listings with a bad field, and listings whose Last checked date is missing or
-        older than 30 days. Saving stages the same event for the header Publish.
+        Drafts, and live listings with a field that looks wrong. Saving stages the same event for
+        the header Publish.
       </p>
       {message ? (
         <p className="admin-action-alert admin-action-alert--success" role="status">
@@ -144,7 +120,7 @@ export function AdminNeedsALook() {
       {rows.length === 0 ? (
         <p className="admin-needs-look__empty">Nothing needs a look.</p>
       ) : (
-        (['draft', 'attention', 'stale'] as const).map((kind) => {
+        (['draft', 'attention'] as const).map((kind) => {
           const group = rows.filter((row) => row.kind === kind)
           if (group.length === 0) return null
           return (
@@ -156,12 +132,7 @@ export function AdminNeedsALook() {
               <ul className="admin-needs-look__list">
                 {group.map(({ event, flags }) => {
                   const open = openId === event.id
-                  const reason =
-                    kind === 'stale'
-                      ? event.verifiedDate?.trim()
-                        ? `Last checked ${event.verifiedDate}`
-                        : 'Last checked is missing'
-                      : flags.map((flag) => ADMIN_REVIEW_FLAG_LABELS[flag.type]).join(' · ')
+                  const reason = flags.map((flag) => ADMIN_REVIEW_FLAG_LABELS[flag.type]).join(' · ')
                   return (
                     <li key={event.id} className="admin-needs-look__row">
                       <div className="admin-needs-look__summary">
@@ -174,16 +145,6 @@ export function AdminNeedsALook() {
                           </div>
                         </div>
                         <div className="admin-needs-look__actions">
-                          {kind === 'stale' ? (
-                            <button
-                              type="button"
-                              className="admin-btn admin-btn-secondary"
-                              disabled={busyId === event.id}
-                              onClick={() => void markStillAccurate(event)}
-                            >
-                              {busyId === event.id ? 'Saving…' : 'Still accurate'}
-                            </button>
-                          ) : null}
                           <button
                             type="button"
                             className="admin-btn admin-btn-secondary"

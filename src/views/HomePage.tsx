@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import { Link } from 'react-router-dom'
 import { HomeExperimentPage } from './HomeExperimentPage'
 import { HomeSeasonalTeaser } from '../components/seasonal/HomeSeasonalTeaser'
 import { SeasonalBrowseCategoriesPreview } from '../components/seasonal/SeasonalBrowseCategoriesPreview'
@@ -79,7 +78,7 @@ export function HomePage() {
           aria-label="Next seasonal theme"
         >
           <p className="seasonal-next-preview__eyebrow">Coming next</p>
-          <Link to={seasonalCollectionPath(comingNext.slug)} className="seasonal-next-preview__row">
+          <div className="seasonal-next-preview__row">
             <img
               src={comingNext.illustrationSrc}
               alt=""
@@ -91,9 +90,8 @@ export function HomePage() {
             <div className="seasonal-next-preview__copy">
               <h2 className="seasonal-next-preview__title">{comingNext.subtitle}</h2>
               <p className="seasonal-next-preview__tagline">{comingNext.moduleTagline}</p>
-              <span className="seasonal-next-preview__cta">{comingNext.ctaLabel} →</span>
             </div>
-          </Link>
+          </div>
         </aside>
       ) : null}
 

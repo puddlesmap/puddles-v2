@@ -212,8 +212,8 @@ export function AdminEventEditForm({
       <fieldset className="admin-discovery-fieldset">
         <legend className="admin-discovery-field__label">Catalog placement</legend>
         <p className="admin-discovery-fieldset__hint">
-          Checking either moves this listing from Live into the Seasonal events tab. Regional
-          stays out of regular Browse (Worth a little drive).
+          Seasonal moves this listing into the Seasonal events tab. Regional means Worth a little
+          drive. Leave both unchecked to show the event on Home and Browse, including Other cities.
         </p>
         <div className="admin-discovery-types">
           <label className="admin-discovery-type">

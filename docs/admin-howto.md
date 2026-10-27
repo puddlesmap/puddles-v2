@@ -6,7 +6,7 @@ Quick ops guide for `/admin`.
 
 ## Typical session
 
-1. **Review** (`/admin`) — new finds, plus **Needs a look** for drafts, field problems, and stale Last checked dates
+1. **Review** (`/admin`) — new finds, plus **Needs a look** for drafts and field problems
 2. **Events / Submissions / Seasonal** — approve edits, submissions, and staged curation
 3. Open header **Publish (N)** and confirm the grouped change summary
 4. Publish once, then wait ~2–4 min for the single Netlify update
@@ -48,7 +48,7 @@ See also [event-discovery.md](./event-discovery.md).
 
 ## Events
 
-Monitor live and past listings. Expand a row to edit; saving stages the change for the header Publish and sets Last checked to that day. Cancel or remove a live listing from the row. Drafts, field problems, and stale Last checked dates are on **Review**, under **Needs a look**.
+Monitor live and past listings. Expand a row to edit; saving stages the change for the header Publish and sets Last checked to that day. Cancel or remove a live listing from the row. Drafts and field problems are on **Review**, under **Needs a look**.
 
 | View | Meaning |
 |------|---------|

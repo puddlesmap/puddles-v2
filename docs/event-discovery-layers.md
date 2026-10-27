@@ -143,16 +143,14 @@ Because San Jose is outside the core Puddles cities, the event should only surfa
 
 ### Geographic rule
 
-> **Regular Discovery stays focused on Palo Alto · Los Altos · Mountain View · Sunnyvale.**
+> **Everyday Browse stays focused on Palo Alto · Los Altos (including Los Altos Hills) · Mountain View · Sunnyvale.**
 
-Events outside these four core cities should **not** enter the normal Browse feed just because they are strong outings.
+Events outside these four cities do not enter Home or Browse on their own. An editor can place one on Home and Browse by choosing **Home and Browse**. That listing is not seasonal and not Worth a little drive. It shows under **All** and **Other cities**. The four city chips stay the core cities.
 
-Surface them only when intentionally curated into:
+Otherwise surface an out-of-area outing only when it is intentionally curated into:
 
 - **Seasonal Discovery**
 - **Worth a little drive**
-
-This keeps everyday Browse local while still recommending exceptional regional farms, festivals, and trains through editorial layers.
 
 **Hello Fall** stays live through Oct 31, 2026. From **Oct 5**, Home shows **two seasonal themes at once** (Hello Fall + Halloween) via `getActiveSeasonalCollections()` — dual Home modules + badge rules. **Rename decision:** keep **Halloween with little ones** (slug unchanged); consider a broader “October with little ones” name only if non-Halloween October curation expands.
 

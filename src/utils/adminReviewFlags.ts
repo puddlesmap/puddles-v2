@@ -101,6 +101,14 @@ function collectOutOfAreaFlags(events: Event[]): AdminReviewFlag[] {
   const flags: AdminReviewFlag[] = []
   for (const event of events) {
     if (!isCandidateStatus(event)) continue
+    if (
+      event.status === 'Published' &&
+      event.isSeasonal !== true &&
+      event.isRegional !== true &&
+      !event.id.startsWith('seasonal-drive-')
+    ) {
+      continue
+    }
 
     const cityOk = (LAUNCH_CITIES as readonly string[]).includes(event.city)
     const addressOutside = addressLooksOutsideLaunchArea(event.address || '')

@@ -39,7 +39,7 @@ import { findIdentityMatches, isCancelledNotice, publishedTitleForUpdate } from 
 export const OUTSIDE_PUDDLES_AGE_MESSAGE = 'Outside Puddles ages 0–5 — cannot approve.'
 
 export const OUTSIDE_CORE_CITY_MESSAGE =
-  'Outside Puddles core cities (Palo Alto · Los Altos / Los Altos Hills · Mountain View · Sunnyvale). Do not Go live into regular Browse — use Seasonal Discovery / Worth a little drive only.'
+  'Outside Puddles core cities (Palo Alto · Los Altos / Los Altos Hills · Mountain View · Sunnyvale). Choose Home and Browse to list it on Home and Browse without making it seasonal. Otherwise use Seasonal Discovery / Worth a little drive.'
 
 /** Merge candidate + edits (and fresh copy inference) then block out-of-scope ages. */
 export function assertDiscoveryAgeInScope(
@@ -346,8 +346,14 @@ export function applyVerifiedDateInAdminCache(
 export type DiscoveryApproveOptions = {
   /** Inbox Add / Seasonal Drafts may be out of the core four (Worth a little drive). */
   allowRegional?: boolean
+  /** Editor chose Home and Browse for a non-seasonal event outside the core cities. */
+  allowOtherCityBrowse?: boolean
   isSeasonal?: boolean
   isRegional?: boolean
+}
+
+function skipsCoreCityBlock(options?: DiscoveryApproveOptions): boolean {
+  return Boolean(options?.allowRegional || options?.allowOtherCityBrowse)
 }
 
 /** Add a local Draft into the Admin Events cache (no Sheet write). */
@@ -358,7 +364,7 @@ export function appendDraftInAdminCache(
   options?: DiscoveryApproveOptions,
 ): { eventId: string } {
   assertDiscoveryAgeInScope(candidate, edits)
-  if (!options?.allowRegional) {
+  if (!skipsCoreCityBlock(options)) {
     assertDiscoveryCityInScope(candidate, edits)
   }
   const eventId = localDraftId(candidate, edits)
@@ -437,7 +443,7 @@ export function approveDiscoveryLocally(
   options?: DiscoveryApproveOptions,
 ): { eventId: string; mode: 'existing' | 'draft' } {
   assertDiscoveryAgeInScope(candidate, edits)
-  if (!options?.allowRegional) {
+  if (!skipsCoreCityBlock(options)) {
     assertDiscoveryCityInScope(candidate, edits)
   }
   const merged = { ...candidate, ...edits }
@@ -599,13 +605,18 @@ export function syncReadyDiscoveryIntoAdminCache(): {
 
     if (alreadyPresent) continue
 
-    // Ready Regional / Worth-a-drive rows must not crash Admin when syncing drafts.
-    // Approve / Go live still hard-block via assertDiscoveryCityInScope.
+    // Worth-a-drive rows stay out of the draft sync. Home and Browse is an explicit placement.
     const city = String(edits.city ?? candidate.city ?? '').trim()
-    if (!isLaunchAreaCity(city)) continue
+    const browsePlacement = (candidate as DiscoveryCandidate & { placement?: string }).placement === 'browse'
+    if (!isLaunchAreaCity(city) && !browsePlacement) continue
 
     try {
-      appendDraftInAdminCache(candidate, edits, verifiedDate)
+      appendDraftInAdminCache(
+        candidate,
+        edits,
+        verifiedDate,
+        browsePlacement ? { allowOtherCityBrowse: true, isSeasonal: false, isRegional: false } : undefined,
+      )
       draftsAdded += 1
     } catch {
       // Age/city asserts or corrupt rows — skip; do not take down Admin Events.
@@ -637,20 +648,24 @@ export function prepareGoLiveEvents(
   for (const candidate of candidates) {
     const edits = editableFieldsFromCandidate(candidate)
     assertDiscoveryAgeInScope(candidate, edits)
-    assertDiscoveryCityInScope(candidate, edits)
+    const browsePlacement = (candidate as DiscoveryCandidate & { placement?: string }).placement === 'browse'
+    if (!browsePlacement) assertDiscoveryCityInScope(candidate, edits)
     const stamped = { ...edits, lastChecked: verifiedDate }
 
     let eventId = ''
+    const browseOptions = browsePlacement
+      ? { allowOtherCityBrowse: true, isSeasonal: false as const, isRegional: false as const }
+      : undefined
     if (candidate.alreadyOnPuddles) {
       try {
         const result = applyVerifiedDateInAdminCache(candidate, stamped, verifiedDate)
         eventId = result.eventId
       } catch {
-        const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate)
+        const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate, browseOptions)
         eventId = draft.eventId
       }
     } else {
-      const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate)
+      const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate, browseOptions)
       eventId = draft.eventId
     }
 
@@ -669,10 +684,14 @@ export function prepareGoLiveEvents(
       status: 'Published',
       verifiedDate,
       isSeasonal: candidate
-        ? isSeasonalDiscoveryCandidate(candidate) || isSeasonalListing(event)
+        ? (candidate as DiscoveryCandidate & { placement?: string }).placement === 'browse'
+          ? false
+          : isSeasonalDiscoveryCandidate(candidate) || isSeasonalListing(event)
         : isSeasonalListing(event),
       isRegional: candidate
-        ? String(candidate.source ?? '').startsWith('Regional ·') || isRegionalListing(event)
+        ? (candidate as DiscoveryCandidate & { placement?: string }).placement === 'browse'
+          ? false
+          : String(candidate.source ?? '').startsWith('Regional ·') || isRegionalListing(event)
         : isRegionalListing(event),
     })
   })
@@ -700,6 +719,8 @@ export interface InboxChoiceInput {
   imageUrl: string
   eventUrl: string
   matchedEventId?: string | null
+  /** Home and Browse keeps the event off Seasonal and Worth a little drive. */
+  placement?: 'browse' | 'seasonal' | 'drive'
 }
 
 function inboxStub(input: InboxChoiceInput): DiscoveryCandidate {
@@ -756,7 +777,8 @@ export function applyInboxChoice(input: InboxChoiceInput, verifiedDate: string):
   const stub = inboxStub(input)
   const edits = editableFieldsFromCandidate(stub)
   assertDiscoveryAgeInScope(stub, edits)
-  assertDiscoveryCityInScope(stub, edits)
+  const browsePlacement = input.placement === 'browse'
+  if (!browsePlacement) assertDiscoveryCityInScope(stub, edits)
   ensureAdminEventsCacheSeeded()
 
   if (input.choice === 'replace') {
@@ -790,6 +812,7 @@ export function applyInboxChoice(input: InboxChoiceInput, verifiedDate: string):
         imageUrl: input.imageUrl,
         eventUrl: input.eventUrl || event.eventUrl,
         ...(cancelling ? { status: 'Cancelled' as const } : {}),
+        ...(browsePlacement ? { isSeasonal: false, isRegional: false } : {}),
         verifiedDate,
         ...(rescheduledFrom && rescheduledFrom !== input.date ? { rescheduledFrom } : {}),
       })
@@ -798,7 +821,12 @@ export function applyInboxChoice(input: InboxChoiceInput, verifiedDate: string):
     return { eventId: target.id }
   }
 
-  const created = appendDraftInAdminCache(stub, edits, verifiedDate)
+  const created = appendDraftInAdminCache(
+    stub,
+    edits,
+    verifiedDate,
+    browsePlacement ? { allowOtherCityBrowse: true, isSeasonal: false, isRegional: false } : undefined,
+  )
   return { eventId: created.eventId }
 }
 

@@ -73,6 +73,7 @@ function toChoiceInput(row: InboxCandidate, label: InboxLabel): InboxChoiceInput
     imageUrl: row.imageUrl,
     eventUrl: row.eventUrl || row.sourceUrl,
     matchedEventId: label.matchedEventId,
+    placement: placementValue(row),
   }
 }
 
@@ -94,10 +95,10 @@ function sourceFacts(candidate: InboxCandidate) {
 }
 
 function placementLabel(candidate: InboxCandidate): string {
-  if (candidate.placement === 'seasonal') return 'Seasonal · close to home'
-  if (candidate.placement === 'drive') return 'Seasonal · worth a little drive'
-  const coreCities = new Set(['Palo Alto', 'Mountain View', 'Los Altos', 'Sunnyvale'])
-  return coreCities.has(candidate.city) ? 'Browse · core city' : 'Placement review needed'
+  const placement = placementValue(candidate)
+  if (placement === 'seasonal') return 'Seasonal · close to home'
+  if (placement === 'drive') return 'Seasonal · worth a little drive'
+  return 'Home and Browse'
 }
 
 function eventIdentity(candidate: { id?: string; title?: string; date?: string; venue?: string; city?: string }) {
@@ -411,7 +412,7 @@ const DiscoveryReviewCard = memo(function DiscoveryReviewCard({
                               })
                             }
                           >
-                            <option value="browse">Browse · core city</option>
+                            <option value="browse">Home and Browse</option>
                             <option value="seasonal">Seasonal · close to home</option>
                             <option value="drive">Seasonal · worth a little drive</option>
                           </select>
@@ -656,7 +657,14 @@ export function AdminDiscoveryInboxPanel({
         } else if (candidate.occurrenceChoice === 'new') {
           eventId = applyInboxChoice({ ...toChoiceInput(candidate, label), choice: 'new' }, verifiedDate).eventId
         } else {
-          eventId = approveDiscoveryLocally(row.library, edits, verifiedDate).eventId
+          eventId = approveDiscoveryLocally(
+            row.library,
+            edits,
+            verifiedDate,
+            placementValue(candidate) === 'browse'
+              ? { allowOtherCityBrowse: true, isSeasonal: false, isRegional: false }
+              : undefined,
+          ).eventId
         }
         stageCandidateEvent(candidate, getAdminEventForPublish(eventId))
         saveDiscoveryReviewRecord(row.library.id, {

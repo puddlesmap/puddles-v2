@@ -57,7 +57,7 @@ npm run discover:regional-weekly
 
 6. **Review** `/admin/discovery` — filter Source for `Regional ·`.
 7. **Review** `/admin/discovery` — filter Source for `Regional ·`.
-8. **Do not Approve → Go live** into regular Browse (blocked for non-core cities). Instead add a Hidden row under `seasonalHelloFallDriveEvents.ts` / Halloween drive + `driveEventIds` when it earns Seasonal / Worth a little drive.
+8. Other-city leads default to **Worth a little drive**. They stay out of Home and Browse unless an editor sets Placement to **Home and Browse** (not seasonal). A drive-worthy seasonal outing can still be a Hidden row under the seasonal drive lists plus `driveEventIds`.
 
 ## Inbox rules
 
