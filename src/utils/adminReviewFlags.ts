@@ -6,6 +6,7 @@ import {
 } from './eventDuplicates'
 import { findOutOfAgeAudienceMatch } from './eventAudienceAge'
 import { WELCOME_LAUNCH_CITIES } from './welcomeOnboarding'
+import { isLaunchAreaCity } from './cityRegions'
 
 export type AdminReviewFlagType = 'duplicate' | 'out_of_age' | 'out_of_area' | 'field_mismatch'
 
@@ -94,6 +95,7 @@ function addressLooksOutsideLaunchArea(address: string): boolean {
   if (!lower.trim()) return false
   // If address mentions a launch city, treat as in-area.
   if (LAUNCH_CITIES.some((city) => lower.includes(city.toLowerCase()))) return false
+  if (lower.includes('los altos hills')) return false
   return OUTSIDE_CITY_HINTS.some((hint) => lower.includes(hint))
 }
 
@@ -110,7 +112,7 @@ function collectOutOfAreaFlags(events: Event[]): AdminReviewFlag[] {
       continue
     }
 
-    const cityOk = (LAUNCH_CITIES as readonly string[]).includes(event.city)
+    const cityOk = isLaunchAreaCity(event.city)
     const addressOutside = addressLooksOutsideLaunchArea(event.address || '')
 
     if (cityOk && !addressOutside) continue

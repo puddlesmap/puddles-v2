@@ -28,7 +28,10 @@ function matchesBooleanFilter(value: boolean, filter: AdminEventFilters['isPast'
   return value === filter
 }
 
-/** Last checked older than threshold — used until Verification Status column exists. */
+/**
+ * Older than a fixed window. Admin → Review does not use this.
+ * Due dates live in verificationSchedule and the maintenance run.
+ */
 export function isVerificationStale(
   event: Event,
   referenceDate: Date = getAnchorDate(),
@@ -54,7 +57,6 @@ export function filterAdminEvents(
     if (filters.dateFrom && event.date < filters.dateFrom) return false
     if (filters.dateTo && event.date > filters.dateTo) return false
     if (filters.search && !matchesSearch(event, filters.search)) return false
-    if (filters.verificationStatus === 'Needs Review' && !isVerificationStale(event)) return false
     return true
   })
 }
@@ -108,7 +110,6 @@ export function summarizePublishingCounts(
     expired: countAdminEvents(scoped, { status: 'Expired' }),
     live: filterAdminEventsByView(events, 'live', catalog).length,
     past: countAdminEvents(scoped, { isPast: true }),
-    needsVerification: countAdminEvents(scoped, { verificationStatus: 'Needs Review' }),
     duplicates: eventsInDuplicateClusters(scoped).length,
     duplicateGroups: duplicateClusters.length,
     needsAttention: reviewFlags.length,

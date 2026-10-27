@@ -1,0 +1,552 @@
+/* Guide article mockups — Airbnb News article + SF Ballet production */
+
+.gct-lab {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  padding: 0.85rem 1rem;
+  background: #1b1b1b;
+  color: #fff;
+}
+
+.gct-lab__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.gct-lab__tag {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffd6a8;
+}
+
+.gct-lab__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.gct-lab__buttons button {
+  min-height: 2.5rem;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gct-lab__buttons button.is-on {
+  border-color: #fff;
+  background: #fff;
+  color: #1b1b1b;
+}
+
+.gct-page {
+  overflow-x: clip;
+  background: #fff;
+}
+
+.gct-page .guide-page__back {
+  display: none;
+}
+
+.gct-gutter {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 2.5rem 80px 0;
+}
+
+@media (max-width: 767px) {
+  .gct-gutter {
+    padding: 1.5rem 1.25rem 0;
+  }
+}
+
+/* 1 · Airbnb article */
+
+.gct-abn-head {
+  max-width: 40rem;
+}
+
+.gct-abn-head time {
+  display: block;
+  font-size: 0.875rem;
+  color: #717171;
+}
+
+.gct-abn-read {
+  color: inherit;
+}
+
+.gct-abn-head h1 {
+  margin: 0.65rem 0 0;
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #222;
+}
+
+.gct-abn-head p {
+  margin: 1rem 0 0;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #484848;
+}
+
+.gct-abn-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0 1.35rem;
+  border-radius: 999px;
+  background: #e61e4d;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+}
+
+.guide-page.skin.gct-page--abn-index a.gct-abn-pill:any-link,
+.gct-page--abn-index a.gct-abn-pill:any-link {
+  background: var(--color-brand, #66c5f9);
+  color: #173044;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.guide-page.skin.gct-page--abn-index a.gct-abn-pill:any-link:hover,
+.gct-page--abn-index a.gct-abn-pill:any-link:hover {
+  background: var(--color-brand-dark, #4db8f2);
+  color: #173044;
+  text-decoration: none;
+}
+
+.gct-abn-cover {
+  display: block;
+  width: 100%;
+  max-height: 32rem;
+  margin: 2rem 0 0;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 24px;
+  background: #f3f3f3;
+}
+
+.gct-page--abn-article .lgg-body,
+.gct-page--abn-index .lgg-body,
+.gct-page--hybrid .lgg-body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.gct-page--abn-article .guide-page.skin a.guide-events-cta:any-link,
+.gct-page--abn-index .guide-page.skin a.guide-events-cta:any-link {
+  display: none;
+}
+
+/* 2 · In this guide — compact row, titles carry the card */
+
+.gct-index {
+  padding: 2rem 0 0;
+}
+
+.gct-index h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal, #273034);
+}
+
+.gct-index ul {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.85rem 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gct-index a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 7.25rem;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #1c1c1c;
+  text-decoration: none;
+  color: #fff;
+}
+
+.guide-page.skin .gct-index a:any-link,
+.guide-page.skin .gct-index a:any-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.gct-index a:focus-visible {
+  outline: 2px solid var(--color-brand, #66c5f9);
+  outline-offset: 3px;
+  border-radius: 16px;
+}
+
+.gct-index img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gct-index a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0.2) 0%, rgb(0 0 0 / 0.55) 100%);
+}
+
+.gct-index span {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  width: auto;
+  min-width: 0;
+  margin: 0.4rem;
+  padding: 0.45rem 0.5rem 0.4rem;
+  border-radius: 10px;
+  background: rgb(0 0 0 / 0.72);
+}
+
+.gct-index time {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  color: rgb(255 255 255 / 0.88);
+}
+
+.gct-index h3 {
+  order: -1;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.gct-index a:hover h3,
+.gct-index a:hover time {
+  color: #fff;
+}
+
+/* 1 · short strip, event photo, dark plate */
+.gct-index--titles a {
+  min-height: 5.75rem;
+}
+
+.gct-index--titles h3 {
+  font-size: 0.9rem;
+}
+
+/* 2 · no plate; the dimmed photo is the only background */
+.gct-index--thumbs a {
+  min-height: 5.75rem;
+}
+
+.gct-index--thumbs a::after {
+  background: rgb(0 0 0 / 0.48);
+}
+
+.gct-index--thumbs span {
+  margin: 0;
+  padding: 0.7rem 0.65rem 0.55rem;
+  border-radius: 0;
+  background: transparent;
+}
+
+.gct-index--thumbs h3,
+.gct-index--thumbs time {
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.45);
+}
+
+/* Review mockup: dim the photo itself. No plate and no color overlay. */
+.halloween-guide-dimmed .gct-index--thumbs a::after {
+  content: none;
+}
+
+.halloween-guide-dimmed .gct-index--thumbs img {
+  filter: brightness(0.42);
+}
+
+.halloween-guide-dimmed .gct-gutter {
+  padding-top: 1.25rem;
+}
+
+.halloween-guide-dimmed.gct-page a.guide-page__back:any-link,
+.halloween-guide-dimmed.gct-page a.guide-page__back:any-link:hover {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #273034;
+  text-decoration: none;
+}
+
+/* 3 · slightly transparent white veil, white type */
+.gct-index--dense a {
+  min-height: 5.75rem;
+}
+
+.gct-index--dense a::after {
+  background: rgb(0 0 0 / 0.28);
+}
+
+.gct-index--dense span {
+  background: rgb(255 255 255 / 0.28);
+}
+
+.gct-index--dense h3,
+.gct-index--dense time {
+  color: #fff;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.55);
+}
+
+.gct-index--dense h3 {
+  font-size: 0.84rem;
+  line-height: 1.2;
+}
+
+.gct-index--dense time {
+  font-size: 0.68rem;
+}
+
+@media (max-width: 1100px) and (min-width: 768px) {
+  .gct-index ul {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .gct-index li {
+    flex: 0 0 11rem;
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 767px) {
+  .gct-index ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .gct-index--dense ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
+
+  .gct-index--titles a,
+  .gct-index--thumbs a,
+  .gct-index--dense a {
+    min-height: 6.25rem;
+  }
+
+  .gct-index--titles h3,
+  .gct-index--thumbs h3 {
+    font-size: 0.95rem;
+  }
+
+  .gct-index--dense h3 {
+    font-size: 0.8125rem;
+    -webkit-line-clamp: 4;
+  }
+}
+
+/* 3 · Ballet production */
+
+.gct-ballet-hero {
+  position: relative;
+  min-height: min(78vh, 40rem);
+  background: #111;
+}
+
+.gct-ballet-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gct-ballet-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.62));
+}
+
+.gct-ballet-hero__copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: inherit;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 3rem 80px;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .gct-ballet-hero__copy {
+    padding: 2rem 1.25rem;
+  }
+}
+
+.gct-ballet-hero__copy p {
+  margin: 0;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gct-ballet-hero__copy h1 {
+  margin: 0.4rem 0 0;
+  max-width: 16ch;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.gct-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.15rem;
+}
+
+.gct-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0 1rem;
+  border: 1px solid #fff;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #172121;
+}
+
+.gct-pill--ghost {
+  background: transparent;
+  color: #fff;
+}
+
+.gct-page--ballet .lgg-body,
+.gct-page--visit .lgg-body {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2rem 80px 4rem;
+}
+
+@media (max-width: 767px) {
+  .gct-page--ballet .lgg-body,
+  .gct-page--visit .lgg-body {
+    padding: 1.5rem 1.25rem 3rem;
+  }
+}
+
+.gct-page--ballet .guide-page.skin a.guide-events-cta:any-link,
+.gct-page--visit .guide-page.skin a.guide-events-cta:any-link {
+  display: none;
+}
+
+/* 5 · Hybrid */
+
+.gct-hybrid-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 2.5rem 80px 0;
+}
+
+@media (max-width: 900px) {
+  .gct-hybrid-hero {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1.25rem 0;
+  }
+}
+
+.gct-hybrid-hero time {
+  font-size: 0.875rem;
+  color: #717171;
+}
+
+.gct-hybrid-hero h1 {
+  margin: 0.5rem 0 0;
+  font-size: clamp(2rem, 3.4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.gct-hybrid-hero p {
+  margin: 0.85rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: #484848;
+}
+
+.gct-hybrid-hero__media {
+  overflow: hidden;
+  border-radius: 200px 0 0 200px;
+}
+
+@media (max-width: 900px) {
+  .gct-hybrid-hero__media {
+    border-radius: 24px;
+  }
+}
+
+.gct-hybrid-hero img {
+  display: block;
+  width: 100%;
+  height: 22rem;
+  object-fit: cover;
+}

@@ -1,38 +1,37 @@
-import { Link } from 'react-router-dom'
 import { AppHeader } from '../components/layout/AppHeader'
+import { HomeLaunchAnnouncement } from '../components/home/HomeLaunchAnnouncement'
 import { Footer } from '../components/layout/Footer'
-import { PageContainer } from '../components/layout/PageContainer'
-import { HALLOWEEN_COLLECTION_PATH, HALLOWEEN_GUIDE_COVER } from '../data/halloweenGuide'
+import { HALLOWEEN_GUIDE_COVER } from '../data/halloweenGuide'
 import { HalloweenGuideDraft } from './experimentLocalGuidesDraft'
+import { HalloweenGuideIntro } from './HalloweenGuideIntro'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
-import './experiment-local-guides-layouts.css'
 import './guide-page.css'
 import './experiment-guide-layout-studies.css'
+import './experiment-guide-content-mockups.css'
 
 export function HalloweenGuidePage() {
   return (
-    <div className="guide-page">
+    <div className="guide-page gct-page gct-page--abn-index halloween-guide-dimmed">
       <AppHeader
         logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
         logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
         showBrandName={false}
+        below={<HomeLaunchAnnouncement />}
       />
-      <PageContainer className="guide-page__wrap layout-container">
-        <Link className="guide-page__back" to={HALLOWEEN_COLLECTION_PATH}>
-          ← Explore Halloween events
-        </Link>
-        <article className="guide-page skin skin--column">
-          <HalloweenGuideDraft
-            idPrefix="guide"
-            jumps
-            rail={false}
-            cover={HALLOWEEN_GUIDE_COVER}
-            showMap
-            heading="h1"
-            share
-          />
-        </article>
-      </PageContainer>
+      <article className="guide-page skin skin--column">
+        <HalloweenGuideIntro idPrefix="guide" indexId="guide-index" />
+        <HalloweenGuideDraft
+          idPrefix="guide"
+          jumps={false}
+          rail={false}
+          cover={HALLOWEEN_GUIDE_COVER}
+          showMap
+          heading="h1"
+          suppressHero
+          suppressCover
+          hideEventsCta
+        />
+      </article>
       <Footer fullBleed className="mt-0" />
       <a className="gsl-totop" href="#guide-index" aria-label="Back to sections">
         <svg width="18" height="12" viewBox="0 5.5 20 8.5" aria-hidden="true">

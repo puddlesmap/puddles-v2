@@ -209,6 +209,13 @@ export function HalloweenGuideDraft({
   showMap = false,
   heading = 'h2',
   share = false,
+  afterCover,
+  afterHero,
+  afterBody,
+  railAside,
+  suppressHero = false,
+  suppressCover = false,
+  hideEventsCta = false,
 }: {
   idPrefix: string
   jumps: boolean
@@ -217,7 +224,16 @@ export function HalloweenGuideDraft({
   showMap?: boolean
   heading?: 'h1' | 'h2'
   share?: boolean
+  afterCover?: ReactNode
+  afterHero?: ReactNode
+  afterBody?: ReactNode
+  railAside?: ReactNode
+  suppressHero?: boolean
+  suppressCover?: boolean
+  /** Review mockup replaces this box with the article header button. */
+  hideEventsCta?: boolean
 }) {
+  const showRail = rail || Boolean(railAside)
   const id = (slug: string) => `${idPrefix}-${slug}`
   const Title = heading
 
@@ -247,7 +263,7 @@ export function HalloweenGuideDraft({
 
     function onClick(event: MouseEvent) {
       const link = (event.target as Element | null)?.closest?.('a[href^="#"]')
-      if (!link || !link.closest('.lgg-jumps')) return
+      if (!link || !(link.closest('.lgg-jumps') || link.closest('.gct-index'))) return
       const hash = link.getAttribute('href')?.slice(1) ?? ''
       const prefix = `${idPrefix}-`
       if (hash.startsWith(prefix)) view(hash.slice(prefix.length))
@@ -261,30 +277,36 @@ export function HalloweenGuideDraft({
 
   return (
     <>
-      <div className="lgg-hero">
-        <p className="lgl-eyebrow">October guide · South Peninsula 2026</p>
-        <Title>Halloween with Little Ones</Title>
-        <p className="lgg-dek">
-          Halloween falls on Saturday, October 31 this year, but the fun starts well before! From
-          neighborhood parades and pumpkin patches to costume parties and beloved trick-or-treating
-          streets, discover ways to celebrate with little ones ages 0–5 around Palo Alto, Los
-          Altos, Mountain View, Sunnyvale, and beyond.
-        </p>
-        <p className="lgg-date">
-          {HALLOWEEN_GUIDE_POSTED}
-          <span className="lgg-read"> · {HALLOWEEN_GUIDE_READ}</span>
-          {share ? <GuideShare /> : null}
-        </p>
-      </div>
-      <img className="lgg-cover" src={cover} alt="" />
+      {suppressHero ? null : (
+        <div className="lgg-hero">
+          <p className="lgl-eyebrow">October guide · South Peninsula 2026</p>
+          <Title>Halloween with Little Ones</Title>
+          <p className="lgg-dek">
+            Halloween falls on Saturday, October 31 this year, but the fun starts well before! From
+            neighborhood parades and pumpkin patches to costume parties and beloved trick-or-treating
+            streets, discover ways to celebrate with little ones ages 0–5 around Palo Alto, Los
+            Altos, Mountain View, Sunnyvale, and beyond.
+          </p>
+          <p className="lgg-date">
+            {HALLOWEEN_GUIDE_POSTED}
+            <span className="lgg-read"> · {HALLOWEEN_GUIDE_READ}</span>
+            {share ? <GuideShare /> : null}
+          </p>
+        </div>
+      )}
+      {afterHero}
+      {suppressCover ? null : <img className="lgg-cover" src={cover} alt="" />}
+      {afterCover}
       <div className="lgg-body">
-        <Link className="guide-events-cta" to={HALLOWEEN_EVENTS_HREF}>
-          <span className="guide-events-cta__title">Looking for Halloween plans? 🎃</span>
-          <span className="guide-events-cta__body">
-            Explore upcoming events, dates, and details for little ones nearby.
-          </span>
-          <span className="guide-events-cta__action">Browse Halloween events →</span>
-        </Link>
+        {hideEventsCta ? null : (
+          <Link className="guide-events-cta" to={HALLOWEEN_EVENTS_HREF}>
+            <span className="guide-events-cta__title">Looking for Halloween plans? 🎃</span>
+            <span className="guide-events-cta__body">
+              Explore upcoming events, dates, and details for little ones nearby.
+            </span>
+            <span className="guide-events-cta__action">Browse Halloween events →</span>
+          </Link>
+        )}
         {jumps ? (
           <nav className="lgg-jumps" id={id('index')} aria-label="On this guide">
             <p className="lgg-jumps-label">Sections</p>
@@ -297,7 +319,7 @@ export function HalloweenGuideDraft({
             </ol>
           </nav>
         ) : null}
-        <div className={rail ? 'lgg-layout lgg-layout--rail' : 'lgg-layout'}>
+        <div className={showRail ? 'lgg-layout lgg-layout--rail' : 'lgg-layout'}>
           <div>
             <h3 id={id('kind')} data-guide-section="kind">Find your kind of Halloween outing</h3>
             <ul className="lgg-fit-picks">
@@ -868,22 +890,27 @@ export function HalloweenGuideDraft({
             </section>
             <div className="lgg-end" aria-hidden="true" />
           </div>
-          {rail ? (
+          {showRail ? (
             <aside className="lgg-rail" aria-label="Plan this">
-              <h3>Plan this month</h3>
-              <ul>
-                <li>October 24–31, 2026</li>
-                <li>Ages 0–5</li>
-                <li>Halloween night is Saturday</li>
-                <li>One neighborhood is enough</li>
-                <li>Open each event for this year’s hours</li>
-              </ul>
-              <Link className="lgl-textlink" to={COLLECTION}>
-                Halloween picks →
-              </Link>
+              {railAside ?? (
+                <>
+                  <h3>Plan this month</h3>
+                  <ul>
+                    <li>October 24–31, 2026</li>
+                    <li>Ages 0–5</li>
+                    <li>Halloween night is Saturday</li>
+                    <li>One neighborhood is enough</li>
+                    <li>Open each event for this year’s hours</li>
+                  </ul>
+                  <Link className="lgl-textlink" to={COLLECTION}>
+                    Halloween picks →
+                  </Link>
+                </>
+              )}
             </aside>
           ) : null}
         </div>
+        {afterBody}
       </div>
     </>
   )
