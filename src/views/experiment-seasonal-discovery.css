@@ -1802,3 +1802,6 @@
   }
 
   .home-experiment-shell--holiday-magic .logo-mark-img {
+    filter: none;
+  }
+}
