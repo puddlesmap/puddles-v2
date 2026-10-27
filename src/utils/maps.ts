@@ -129,6 +129,7 @@ function isTrustedEventCoordinates(event: Event): boolean {
   return (
     Number.isFinite(event.lat) &&
     Number.isFinite(event.lng) &&
+    !(event.lat === 0 && event.lng === 0) &&
     !isPlaceholderMapCoordinates(event.lat, event.lng)
   )
 }

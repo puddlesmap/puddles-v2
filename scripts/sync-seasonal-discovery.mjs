@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Align every seasonal pick (Hello Fall / Halloween) with a row in Admin Discovery.
+ * Align every seasonal pick (Hello Fall / Halloween / Holiday magic) with a row in Admin Discovery.
  *
  * Usage: node scripts/sync-seasonal-discovery.mjs
  */
@@ -28,20 +28,38 @@ const SEASONAL_DISCOVERY_ID_ALIASES = {
 const THEME_LABEL = {
   'hello-fall': 'Hello Fall',
   'halloween-with-little-ones': 'Halloween',
+  'holiday-magic': 'Holiday magic',
+}
+
+function loadConstIdArray(name, text) {
+  const match = text.match(new RegExp(`export const ${name} = \\[([\\s\\S]*?)\\] as const`))
+  return extractQuotedIds(match?.[1] ?? '')
+}
+
+function resolveEventIdBlock(block, text) {
+  if (block.includes('HOLIDAY_MAGIC_CLOSE_EVENT_IDS')) {
+    return loadConstIdArray('HOLIDAY_MAGIC_CLOSE_EVENT_IDS', text)
+  }
+  if (block.includes('HOLIDAY_MAGIC_DRIVE_EVENT_IDS')) {
+    return loadConstIdArray('HOLIDAY_MAGIC_DRIVE_EVENT_IDS', text)
+  }
+  return extractQuotedIds(block)
 }
 
 function loadSeasonalCollections() {
   const text = readFileSync(join(rootDir, 'src/data/seasonalDiscovery.ts'), 'utf8')
   const collections = []
-  const slugMatches = [...text.matchAll(/slug: '(hello-fall|halloween-with-little-ones)'/g)]
+  const slugMatches = [
+    ...text.matchAll(/slug: '(hello-fall|halloween-with-little-ones|holiday-magic)'/g),
+  ]
   for (const slugMatch of slugMatches) {
     const slug = slugMatch[1]
     const start = slugMatch.index
     const slice = text.slice(start, start + 8000)
-    const collectionIds = extractQuotedIds(
-      slice.match(/collectionEventIds: \[([\s\S]*?)\],/)?.[1] ?? '',
-    )
-    const driveIds = extractQuotedIds(slice.match(/driveEventIds: \[([\s\S]*?)\],/)?.[1] ?? '')
+    const collectionBlock = slice.match(/collectionEventIds: \[([\s\S]*?)\],/)?.[1] ?? ''
+    const driveBlock = slice.match(/driveEventIds: \[([\s\S]*?)\],/)?.[1] ?? ''
+    const collectionIds = resolveEventIdBlock(collectionBlock, text)
+    const driveIds = resolveEventIdBlock(driveBlock, text)
     const featuredBlock = slice.match(/featuredWindows: \[([\s\S]*?)\],\s*\n\s*collectionEventIds/)?.[1] ?? ''
     const featuredIds = [...featuredBlock.matchAll(/eventId: '([^']+)'/g)].map((m) => m[1])
     collections.push({ slug, collectionIds, driveIds, featuredIds })
@@ -86,9 +104,12 @@ function loadDriveEvents() {
   for (const file of [
     'src/data/seasonalHelloFallDriveEvents.ts',
     'src/data/seasonalHalloweenDriveEvents.ts',
+    'src/data/seasonalHolidayMagicEvents.ts',
   ]) {
     const text = readFileSync(join(rootDir, file), 'utf8')
-    const block = text.match(/export const \w+_DRIVE_EVENTS: Event\[\] = \[([\s\S]*?)\n\]/)?.[1]
+    const block =
+      text.match(/export const \w+_DRIVE_EVENTS: Event\[\] = \[([\s\S]*?)\n\]/)?.[1] ??
+      text.match(/export const HOLIDAY_MAGIC_EDITORIAL_EVENTS: Event\[\] = \[([\s\S]*?)\n\]/)?.[1]
     if (!block) continue
     for (const obj of block.split(/\n  \},\n/)) {
       const id = obj.match(/id: '([^']+)'/)?.[1]

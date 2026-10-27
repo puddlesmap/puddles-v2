@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { HomeExperimentPage } from './HomeExperimentPage'
 import { HomeSeasonalTeaser } from '../components/seasonal/HomeSeasonalTeaser'
 import { SeasonalBrowseCategoriesPreview } from '../components/seasonal/SeasonalBrowseCategoriesPreview'
@@ -68,9 +69,17 @@ export function HomePage() {
   const afterResults = (
     <>
       {comingNext ? (
-        <aside className="seasonal-next-preview" aria-label="Next seasonal theme">
+        <aside
+          className={[
+            'seasonal-next-preview',
+            comingNext.slug === 'holiday-magic' ? 'seasonal-next-preview--holiday' : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+          aria-label="Next seasonal theme"
+        >
           <p className="seasonal-next-preview__eyebrow">Coming next</p>
-          <div className="seasonal-next-preview__row">
+          <Link to={seasonalCollectionPath(comingNext.slug)} className="seasonal-next-preview__row">
             <img
               src={comingNext.illustrationSrc}
               alt=""
@@ -82,8 +91,9 @@ export function HomePage() {
             <div className="seasonal-next-preview__copy">
               <h2 className="seasonal-next-preview__title">{comingNext.subtitle}</h2>
               <p className="seasonal-next-preview__tagline">{comingNext.moduleTagline}</p>
+              <span className="seasonal-next-preview__cta">{comingNext.ctaLabel} →</span>
             </div>
-          </div>
+          </Link>
         </aside>
       ) : null}
 

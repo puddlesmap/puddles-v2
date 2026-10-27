@@ -338,6 +338,8 @@ export const HOLIDAY_MAGIC_CLOSE_EVENT_IDS = [
   'barn-lighting-westwind-community-barn-2026-12-06-14-00',
   'community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30',
   'core-weekend-playhouse-gingerbread-man-2026-12-19',
+  'disc-celebrating-yalda-night-2026-12-19-6abc44f5295b3b0033ca0dd7',
+  'disc-noon-year-s-eve-celebration-2026-12-31-6a750a3788e9bf28003613ac',
 ] as const
 
 export const HOLIDAY_MAGIC_DRIVE_EVENT_IDS = [
@@ -718,6 +720,12 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         featuredUntil: '2026-10-31',
         note: 'Halloween · Lakewood library opening',
       },
+      {
+        eventId: 'halloween-bray-parade-bol-park-2026-10-31',
+        featuredFrom: '2026-10-27',
+        featuredUntil: '2026-10-31',
+        note: 'Halloween · Barron Park parade',
+      },
     ],
     collectionEventIds: [
       'monster-bash-rengstorff-park-2026-10-24-10-00',
@@ -736,6 +744,7 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'luminest-mystery-of-spiders-2026-10-25',
       'core-weekend-halloween-zoo-night-2026-10-29',
       'core-weekend-jack-o-jaunt-2026-10-30',
+      'halloween-bray-parade-bol-park-2026-10-31',
       'core-weekend-lakewood-library-opening-2026-10-31',
       'core-weekend-mv-library-halloween-trick-or-treat-2026-10-31',
     ],
@@ -1235,7 +1244,7 @@ export function getComingNextSeasonalTeaser(
       entry.slug != null &&
       entry.activeFrom > today,
   )
-  if (!next?.slug || next.theme === 'Holiday magic') return undefined
+  if (!next?.slug) return undefined
 
   const daysUntilStart = daysBetweenYmd(today, next.activeFrom)
   if (daysUntilStart < 1 || daysUntilStart > COMING_NEXT_TEASER_DAYS) {

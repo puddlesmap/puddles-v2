@@ -28,6 +28,15 @@ Prefer Admin Refresh over Sheet CSV — Sheet fallback can overwrite local revie
 3. Events 61–90 days away remain stored internally until review becomes timely. Registration or material updates can bring them into Review sooner.
 4. Seasonal add/remove/move actions remain staged and join the same Publish summary.
 
+**Seasonal picks**
+
+1. Curate ids in `src/data/seasonalDiscovery.ts` (close to home / worth a drive / featured windows).
+2. Run `npm run discover:sync-seasonal` so Discovery rows pick up `Seasonal · …` tags.
+3. Filter Discovery by **Seasonal picks**, or open **Seasonal calendar → Review events** (Hello Fall, Halloween, Holiday magic).
+4. Include seasonal + catalog changes in the same **Publish (N)** when ready.
+
+**Street lead or tradition (no event page)** — fact-check the current occurrence, edit `sheet-events.json` + watchlist, add to seasonal lists if earned, sync seasonal Discovery, then Publish. Details: [discovery-and-seasonal-workflow.md](./discovery-and-seasonal-workflow.md).
+
 **Automation schedule**
 
 | When | What |
@@ -68,6 +77,7 @@ Instagram keys, when auto-post is built later, stay out of the repo: `INSTAGRAM_
 ## Related docs
 
 - [Submissions pipeline](./submissions-pipeline.md)
+- [Discovery and seasonal workflow](./discovery-and-seasonal-workflow.md) — decisions, find paths, seasonal sync
 - [Event discovery](./event-discovery.md)
 - [Sheet publishing](./sheet-publishing.md)
 - [Scheduled sync](./scheduled-sync.md)

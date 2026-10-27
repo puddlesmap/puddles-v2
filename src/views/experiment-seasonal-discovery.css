@@ -1294,6 +1294,35 @@
   color: #b45309;
 }
 
+.seasonal-next-preview--holiday {
+  background: #17382a;
+  border-color: #cdc744;
+}
+
+.seasonal-next-preview--holiday .seasonal-next-preview__eyebrow {
+  color: #cdc744;
+}
+
+.seasonal-next-preview--holiday .seasonal-next-preview__title {
+  color: #eef58a;
+}
+
+.seasonal-next-preview__copy .seasonal-next-preview__cta {
+  display: inline-block;
+  margin-top: 0.45rem;
+}
+
+.seasonal-next-preview--holiday .seasonal-next-preview__cta,
+.seasonal-next-preview--holiday .seasonal-next-preview__tagline {
+  color: #f5efde;
+}
+
+.seasonal-next-preview--holiday .seasonal-next-preview__cta:hover,
+.seasonal-next-preview--holiday .seasonal-next-preview__row:hover .seasonal-next-preview__cta,
+.seasonal-next-preview--holiday .seasonal-next-preview__row:focus-visible .seasonal-next-preview__cta {
+  color: #eef58a;
+}
+
 /* —— Halloween night collection (playful dark mode + sparkles) —— */
 .home-experiment-shell--halloween-night {
   --page-background: #12161c;
