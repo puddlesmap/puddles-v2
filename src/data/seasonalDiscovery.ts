@@ -4,7 +4,7 @@ import seasonalCurationOverrides from './seasonal-curation-overrides.json'
 import { zonedCalendarDate } from '../utils/dates'
 import { sortSeasonalDiscoveryEvents } from '../utils/formatSeasonalSchedule'
 
-export type SeasonalCollectionSlug = 'hello-fall' | 'halloween-with-little-ones'
+export type SeasonalCollectionSlug = 'hello-fall' | 'halloween-with-little-ones' | 'holiday-magic'
 
 export interface SeasonalAccent {
   /** Month / theme eyebrow label color */
@@ -323,6 +323,29 @@ export const HELLO_FALL_CURATION = {
     'Recurring Parent & Me / Stories / Music classes belong in regular browse — not Hello, Fall editorial',
   ],
 } as const
+
+export const HOLIDAY_MAGIC_DESCRIPTION =
+  'Holiday lights, festive shows, and family outings, from November through early January.'
+
+export const HOLIDAY_MAGIC_CLOSE_EVENT_IDS = [
+  'seasonal-friendsgiving-palo-alto-2026-11-21',
+  'seasonal-los-altos-festival-of-lights-parade-2026-11-29',
+  'seasonal-cityline-winter-ice-rink-2026-11-24',
+  'seasonal-lytton-tree-lighting-2026-12-04',
+  'seasonal-los-altos-holiday-tree-celebration-2026-12-04',
+  'seasonal-once-upon-a-garden-2026-12-04',
+  'seasonal-breakfast-with-santa-2026-12-05',
+  'barn-lighting-westwind-community-barn-2026-12-06-14-00',
+  'community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30',
+  'core-weekend-playhouse-gingerbread-man-2026-12-19',
+] as const
+
+export const HOLIDAY_MAGIC_DRIVE_EVENT_IDS = [
+  'regional-filoli-holidays-2026-11-14',
+  'seasonal-illuminodyssey-2026-11-14',
+  'seasonal-hiller-santa-helicopter-2026-12-05',
+  'seasonal-sf-ballet-sensory-nutcracker-2026-12-27',
+] as const
 
 export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
   {
@@ -750,6 +773,39 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
     activeFrom: '2026-10-01',
     activeUntil: '2026-10-31',
   },
+  {
+    slug: 'holiday-magic',
+    title: 'Holiday magic',
+    subtitle: 'Holiday magic',
+    timingLabel: 'November – January',
+    description: HOLIDAY_MAGIC_DESCRIPTION,
+    moduleTagline: HOLIDAY_MAGIC_DESCRIPTION,
+    ctaLabel: 'See Holiday magic',
+    decor: ['✨', '✨', '✨'],
+    illustrationSrc: '/seasonal/holiday-magic.png',
+    accent: {
+      eyebrow: '#cdc744',
+      background: '#17382a',
+      border: '#cdc744',
+      glow: 'rgba(205, 199, 68, 0.28)',
+      title: '#eef58a',
+      description: '#f5efde',
+      cta: '#f5efde',
+    },
+    featuredWindows: [],
+    collectionEventIds: [...HOLIDAY_MAGIC_CLOSE_EVENT_IDS],
+    driveEventIds: [...HOLIDAY_MAGIC_DRIVE_EVENT_IDS],
+    closeToHome: {
+      title: 'Close to home',
+      subtitle: 'Palo Alto · Los Altos · Mountain View · Sunnyvale',
+    },
+    worthADrive: {
+      title: 'Worth a little drive',
+      subtitle: 'Holiday lights and shows a little farther afield.',
+    },
+    activeFrom: '2026-11-05',
+    activeUntil: '2027-01-07',
+  },
 ]
 
 /** Hello Fall — discovery candidates not yet in the catalog. Approve in Admin → Discovery, then add IDs here. */
@@ -945,17 +1001,18 @@ export const SEASONAL_THEME_SCHEDULE: SeasonalThemeScheduleEntry[] = [
     curated: false,
   },
   {
-    timing: 'December',
+    timing: 'November–January',
     theme: 'Holiday magic',
-    moduleTitle: 'Holiday magic with little ones',
+    moduleTitle: 'Holiday magic',
     emoji: '✨',
-    slug: null,
+    slug: 'holiday-magic',
     eyebrow: getSeasonalEyebrowColor('December'),
     illustrationSrc: '/seasonal/holiday-magic.png',
-    activeFrom: '2026-11-24',
-    activeUntil: '2026-12-31',
-    transitionNote: 'Holiday module replaces Fall gatherings Nov 24.',
-    curated: false,
+    activeFrom: '2026-11-05',
+    activeUntil: '2027-01-07',
+    transitionNote:
+      'One holiday theme from November 5 through the first week of January.',
+    curated: true,
   },
   {
     timing: 'January',
@@ -965,7 +1022,7 @@ export const SEASONAL_THEME_SCHEDULE: SeasonalThemeScheduleEntry[] = [
     slug: null,
     eyebrow: getSeasonalEyebrowColor('January'),
     illustrationSrc: '/seasonal/rainy-day-favorites.png',
-    activeFrom: '2027-01-01',
+    activeFrom: '2027-01-08',
     activeUntil: '2027-02-14',
     curated: false,
   },
@@ -1178,7 +1235,7 @@ export function getComingNextSeasonalTeaser(
       entry.slug != null &&
       entry.activeFrom > today,
   )
-  if (!next?.slug) return undefined
+  if (!next?.slug || next.theme === 'Holiday magic') return undefined
 
   const daysUntilStart = daysBetweenYmd(today, next.activeFrom)
   if (daysUntilStart < 1 || daysUntilStart > COMING_NEXT_TEASER_DAYS) {
@@ -1205,5 +1262,5 @@ export function seasonalCollectionPath(slug: SeasonalCollectionSlug): string {
 }
 
 export function isSeasonalCollectionSlug(value: string | undefined): value is SeasonalCollectionSlug {
-  return value === 'hello-fall' || value === 'halloween-with-little-ones'
+  return value === 'hello-fall' || value === 'halloween-with-little-ones' || value === 'holiday-magic'
 }

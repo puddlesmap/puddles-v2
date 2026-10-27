@@ -1,0 +1,23 @@
+{
+  "today": "2026-10-24",
+  "sourceCatalogGeneratedAt": "2026-10-24T22:06:42.905Z",
+  "freshReadings": 178,
+  "report": {
+    "checked": 105,
+    "verified": 64,
+    "updated": 0,
+    "escalated": 0,
+    "failed": 41,
+    "retriesScheduled": 41,
+    "skippedNotDue": 16,
+    "skippedPast": 296,
+    "skippedNotPublished": 230,
+    "seriesLeftUnchanged": 0,
+    "attention": [],
+    "failuresByReason": {
+      "No official reading matched this listing.": 33,
+      "Official reading is older than this event’s check interval.": 8
+    },
+    "updates": []
+  }
+}

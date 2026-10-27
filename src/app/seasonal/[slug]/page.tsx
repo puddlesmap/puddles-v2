@@ -6,7 +6,7 @@ export const dynamic = 'force-static'
 export const dynamicParams = true
 
 export function generateStaticParams() {
-  return [{ slug: 'hello-fall' }, { slug: 'halloween-with-little-ones' }]
+  return [{ slug: 'hello-fall' }, { slug: 'halloween-with-little-ones' }, { slug: 'holiday-magic' }]
 }
 
 export async function generateMetadata({

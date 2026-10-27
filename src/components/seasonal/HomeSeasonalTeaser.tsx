@@ -192,7 +192,7 @@ function TeaserCopy({
           className="home-seasonal-teaser__tagline home-seasonal-teaser__tagline--full"
         />
         <p className="home-seasonal-teaser__tagline home-seasonal-teaser__tagline--compact">
-          {COMPACT_SEASONAL_TAGLINE}
+          {collection.slug === 'holiday-magic' ? collection.moduleTagline : COMPACT_SEASONAL_TAGLINE}
         </p>
         {cta}
       </div>
@@ -272,7 +272,8 @@ export function HomeSeasonalTeaser({
   const inlinePhotoStrip = proof === 'photo-strip' && variant === 'inline'
   const split = (proof === 'photo-strip' || proof === 'micro') && variant === 'band'
   const halloweenNight = collection.slug === 'halloween-with-little-ones'
-  const compactTagline = halloweenNight ? collection.moduleTagline : COMPACT_SEASONAL_TAGLINE
+  const holidayMagic = collection.slug === 'holiday-magic'
+  const compactTagline = halloweenNight || holidayMagic ? collection.moduleTagline : COMPACT_SEASONAL_TAGLINE
   const innerClass = [
     'home-seasonal-teaser__inner',
     variant === 'band' ? 'layout-container' : '',
@@ -296,6 +297,7 @@ export function HomeSeasonalTeaser({
         proof !== 'none' ? `home-seasonal-teaser--${proof}` : '',
         titleCopy ? 'home-seasonal-teaser--title-copy' : '',
         halloweenNight ? 'home-seasonal-teaser--halloween-night' : '',
+        holidayMagic ? 'home-seasonal-teaser--holiday-magic' : '',
         prominent ? 'home-seasonal-teaser--prominent' : '',
       ]
         .filter(Boolean)

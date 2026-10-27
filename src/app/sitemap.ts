@@ -15,6 +15,7 @@ const STATIC_PATHS = [
   '/seasonal',
   '/seasonal/hello-fall',
   '/seasonal/halloween-with-little-ones',
+  '/seasonal/holiday-magic',
   '/palo-alto',
   '/los-altos',
   '/mountain-view',

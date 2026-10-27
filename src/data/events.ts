@@ -4,6 +4,7 @@ import launchStagingEvents from './launch-staging-events.json'
 import { getShowcaseEvents } from './showcase-events'
 import { HALLOWEEN_DRIVE_EVENTS } from './seasonalHalloweenDriveEvents'
 import { HELLO_FALL_DRIVE_EVENTS } from './seasonalHelloFallDriveEvents'
+import { HOLIDAY_MAGIC_EDITORIAL_EVENTS } from './seasonalHolidayMagicEvents'
 import { isPublicAgeEligible } from '../utils/ageRange'
 import { enrichEventsFromCopy } from '../utils/enrichEventFromCopy'
 import { getUnaddedDiscoveryReviewEvents } from '../utils/launchReviewDiscovery'
@@ -30,6 +31,7 @@ export const ALL_SHOWCASE_EVENTS: Event[] = includeShowcaseEvents
 export const ALL_SEASONAL_DRIVE_EVENTS: Event[] = withPublishing([
   ...HELLO_FALL_DRIVE_EVENTS,
   ...HALLOWEEN_DRIVE_EVENTS,
+  ...HOLIDAY_MAGIC_EDITORIAL_EVENTS,
 ])
 
 /**

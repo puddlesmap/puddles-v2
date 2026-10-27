@@ -19180,12 +19180,12 @@
     "eventUrl": "https://filoli.org/holidays/",
     "lat": 37.4703,
     "lng": -122.3107,
-    "status": "Hidden",
+    "status": "Published",
     "isSeasonal": true,
     "isRegional": true,
     "verifiedDate": "2026-10-20",
     "isPast": false,
-    "isLive": false
+    "isLive": true
   },
   {
     "id": "core-weekend-gamble-second-saturday-2026-11-14",

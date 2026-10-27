@@ -291,11 +291,24 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
     return <Navigate to="/" replace />
   }
 
+  const todayPacific = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Los_Angeles',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date())
+  if (collection.slug === 'holiday-magic' && todayPacific < collection.activeFrom) {
+    return <Navigate to="/" replace />
+  }
+
   const isHalloween = collection.slug === 'halloween-with-little-ones'
   const isHelloFall = collection.slug === 'hello-fall'
+  const isHoliday = collection.slug === 'holiday-magic'
   const hasGeographicSections = Boolean(collection.closeToHome && collection.worthADrive)
   const supportingLine =
-    collection.slug === 'hello-fall' || collection.slug === 'halloween-with-little-ones'
+    collection.slug === 'hello-fall' ||
+    collection.slug === 'halloween-with-little-ones' ||
+    collection.slug === 'holiday-magic'
       ? undefined
       : collection.title
   const showDescription = Boolean(collection.description)
@@ -307,6 +320,7 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
         'home-experiment-shell--refined',
         isHelloFall ? 'home-experiment-shell--hello-fall-collection home-experiment-shell--seasonal-puddles-aligned' : '',
         isHalloween ? 'home-experiment-shell--halloween-night' : '',
+        isHoliday ? 'home-experiment-shell--holiday-magic home-experiment-shell--holiday-magic-reverse' : '',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -358,6 +372,7 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
           'layout-container',
           isHelloFall ? 'seasonal-collection-page--hello-fall' : '',
           isHalloween ? 'seasonal-collection-page--halloween' : '',
+          isHoliday ? 'seasonal-collection-page--holiday-magic seasonal-collection-page--holiday-magic-reverse' : '',
           hasGeographicSections ? 'seasonal-collection-page--split' : '',
         ]
           .filter(Boolean)
@@ -405,6 +420,21 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
           </header>
 
           {isHalloween ? <LocalGuideCardVariant variant={4} /> : null}
+          {isHoliday ? (
+            <div className="local-guide-teaser local-guide-teaser--solo">
+              <div className="local-guide-card local-guide-card--poster" aria-label="Holiday guide, coming soon">
+                <span className="holiday-guide-placeholder__media" aria-hidden />
+                <span className="local-guide-card__copy">
+                  <span className="local-guide-card__eyebrow">Holiday guide</span>
+                  <span className="local-guide-card__title">Holiday magic with little ones</span>
+                  <span className="local-guide-card__dek">
+                    Lights, shows, and family outings from November through early January.
+                  </span>
+                  <span className="local-guide-card__pill">Coming soon</span>
+                </span>
+              </div>
+            </div>
+          ) : null}
 
           {hasGeographicSections ? (
             <CollectionGeoTabs

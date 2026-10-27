@@ -195,6 +195,32 @@
   color: #ffd09a;
 }
 
+.home-seasonal-teaser--holiday-magic.home-seasonal-teaser--band,
+.home-seasonal-teaser--holiday-magic.home-seasonal-teaser--inline .home-seasonal-teaser__hit {
+  background: #17382a;
+  border-color: #cdc744;
+}
+
+.home-seasonal-teaser--holiday-magic .home-seasonal-teaser__eyebrow {
+  color: #cdc744;
+}
+
+.home-seasonal-teaser--holiday-magic .home-seasonal-teaser__title {
+  color: #eef58a;
+}
+
+.home-seasonal-teaser--holiday-magic .home-seasonal-teaser__tagline,
+.home-seasonal-teaser--holiday-magic .home-seasonal-teaser__cta,
+.home-seasonal-teaser--holiday-magic .home-seasonal-teaser__cta--in-copy,
+.home-seasonal-teaser--holiday-magic .home-seasonal-teaser__cta--proof {
+  color: #f5efde;
+}
+
+.home-seasonal-teaser--holiday-magic .home-seasonal-teaser__hit:hover .home-seasonal-teaser__cta,
+.home-seasonal-teaser--holiday-magic .home-seasonal-teaser__hit:focus-visible .home-seasonal-teaser__cta {
+  color: #eef58a;
+}
+
 .home-seasonal-teaser__sparkles {
   position: absolute;
   inset: 0;

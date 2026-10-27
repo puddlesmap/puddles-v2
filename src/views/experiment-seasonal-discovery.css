@@ -1599,3 +1599,177 @@
     0 2px 8px rgba(0, 0, 0, 0.18),
     0 12px 28px rgba(0, 0, 0, 0.16);
 }
+.home-experiment-shell.home-experiment-shell--holiday-magic {
+  --seasonal-accent-bg: #f5efde;
+  --page-background: #f5efde;
+  background: #f5efde;
+}
+
+.home-experiment-shell--holiday-magic .seasonal-mockup-banner,
+.seasonal-collection-page--holiday-magic .seasonal-mockup-banner {
+  color: #b23824;
+}
+
+.seasonal-collection-page--holiday-magic .seasonal-collection-back,
+.seasonal-collection-page--holiday-magic .seasonal-collection-hero__eyebrow,
+.seasonal-collection-page--holiday-magic .seasonal-collection-hero__title,
+.seasonal-collection-page--holiday-magic .seasonal-collection-hero__description {
+  color: #17382a;
+}
+
+.seasonal-collection-page--holiday-magic .seasonal-collection-hero__title-row {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  gap: 0.5rem;
+  padding-right: 0;
+}
+
+.seasonal-collection-page--holiday-magic .seasonal-collection-hero__title {
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: normal;
+}
+
+.seasonal-collection-page--holiday-magic .seasonal-collection-hero__illustration {
+  position: static;
+  flex: 0 0 auto;
+  width: 3.25rem;
+  height: 3.25rem;
+  transform: none;
+}
+
+@media (min-width: 768px) {
+  .seasonal-collection-page--holiday-magic .seasonal-collection-hero__illustration {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+}
+
+.holiday-guide-placeholder__media {
+  display: block;
+  height: 168px;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 78% 22%, #cdc744 0 18%, transparent 19%),
+    #f5efde;
+}
+
+/* Mockup 1 — cream and dark green swapped. Same type and layout. */
+.home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse {
+  --page-background: #17382a;
+  background: #17382a;
+}
+
+.home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse
+  > header.app-header.page-header-sticky,
+.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse .app-header-row {
+  background: #17382a;
+  background-image: none;
+}
+
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-reverse
+  .seasonal-mockup-banner,
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-reverse
+  .seasonal-collection-hero__eyebrow {
+  color: #cdc744;
+}
+
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-reverse
+  .seasonal-collection-hero__title,
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-reverse
+  .seasonal-collection-band__title {
+  color: #eef58a;
+}
+
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-reverse
+  .seasonal-collection-back,
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-reverse
+  .seasonal-collection-hero__description,
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-reverse
+  .seasonal-collection-band__subtitle {
+  color: #f5efde;
+}
+
+.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse .logo-mark-img,
+.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse .brand-lockup img {
+  filter: brightness(0) invert(1);
+}
+
+.home-experiment-shell--holiday-magic-reverse .top-nav-link,
+.home-experiment-shell--holiday-magic-reverse .top-nav-link-active {
+  color: #f5efde;
+}
+
+/* Mockup 2 — deep green, mint, and white from the giver card. */
+.home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-card {
+  --page-background: #186343;
+  background: #186343;
+}
+
+.home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-card
+  > header.app-header.page-header-sticky,
+.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-card .app-header-row {
+  background: #186343;
+  background-image: none;
+}
+
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-card
+  .seasonal-mockup-banner,
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-card
+  .seasonal-collection-hero__eyebrow,
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-card
+  .seasonal-collection-hero__title,
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-card
+  .seasonal-collection-band__title {
+  color: #4ecc9b;
+}
+
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-card
+  .seasonal-collection-back,
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-card
+  .seasonal-collection-hero__description,
+.seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-card
+  .seasonal-collection-band__subtitle {
+  color: #ffffff;
+}
+
+.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-card .logo-mark-img,
+.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-card .brand-lockup img {
+  filter: brightness(0) invert(1);
+}
+
+.home-experiment-shell--holiday-magic-card .top-nav-link,
+.home-experiment-shell--holiday-magic-card .top-nav-link-active {
+  color: #ffffff;
+}
+
+.home-experiment-shell--holiday-magic-reverse .site-footer-lead,
+.home-experiment-shell--holiday-magic-reverse .site-footer-copy,
+.home-experiment-shell--holiday-magic-reverse .site-footer a {
+  color: #f5efde;
+}
+
+.home-experiment-shell--holiday-magic-card .site-footer-lead,
+.home-experiment-shell--holiday-magic-card .site-footer-copy,
+.home-experiment-shell--holiday-magic-card .site-footer a {
+  color: #ffffff;
+}
+
+/* Site header matches the page only here. Home, Browse, and other shells stay on the shared header. */
+.home-experiment-shell.home-experiment-shell--holiday-magic > header.app-header.page-header-sticky,
+.home-experiment-shell--holiday-magic .app-header-row {
+  background: #f5efde;
+  background-image: none;
+  border-bottom-color: transparent;
+}
+
+@media (max-width: 767px) {
+  .home-experiment-shell.home-experiment-shell--holiday-magic > header.app-header.page-header-sticky,
+  .home-experiment-shell.home-experiment-shell--holiday-magic > header.app-header.page-header-sticky .app-header-row {
+    background: #f5efde;
+    background-image: none;
+  }
+
+  .home-experiment-shell--holiday-magic .logo-mark-img {
