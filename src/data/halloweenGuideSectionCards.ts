@@ -47,7 +47,7 @@ export const HALLOWEEN_GUIDE_SECTION_CARDS = [
   {
     slug: 'daytime',
     title: 'Trick-or-treat before Halloween night',
-    date: 'Oct 28–30',
+    date: 'Oct 28–31',
     image:
       'https://www.menlopark.gov/files/sharedassets/public/v/2/library-and-community-services/images/events/trunkortreat.png',
     focus: 'center',

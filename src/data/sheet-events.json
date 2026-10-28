@@ -20824,6 +20824,135 @@
     "isLive": true
   },
   {
+    "id": "halloween-on-cal-ave-2026-10-31",
+    "title": "Halloween on Cal Ave",
+    "description": "Listen to children’s music, get a face painted or a balloon, and see a police vehicle and a horse on the car-free blocks.",
+    "tips": "ticket|Free. No ticket.\ninfo|This Saturday is the Halloween edition of Thursday Live.\ninfo|Parking is in the Cal Ave lots and the garage at 350 Sherman.",
+    "venue": "California Avenue",
+    "address": "California Avenue between El Camino Real and Birch Street, Palo Alto, CA",
+    "city": "Palo Alto",
+    "date": "2026-10-31",
+    "startTime": "10:00",
+    "endTime": "13:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "Free",
+    "imageUrl": "/events/halloween-on-cal-ave-2026.jpg",
+    "eventUrl": "https://www.paloalto.gov/Events-Directory/City-Manager/Thursday-Live-on-Cal-Ave.-October-31",
+    "lat": 37.4262659,
+    "lng": -122.1417963,
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-28",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "rancho-shopping-center-howloween-2026-10-31",
+    "title": "Howl'Oween Fun",
+    "description": "Trick-or-treat at the shopping center and watch the pet costume contest.",
+    "tips": "",
+    "venue": "Rancho Shopping Center",
+    "address": "600 Foothill Expressway, Los Altos, CA",
+    "city": "Los Altos",
+    "date": "2026-10-31",
+    "startTime": "10:30",
+    "endTime": "12:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "",
+    "imageUrl": "",
+    "eventUrl": "https://www.visitrancho.com/events.html",
+    "lat": 37.3614037,
+    "lng": -122.0979502,
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-28",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "trick-or-treat-castro-street-2026-10-31",
+    "title": "Trick or Treat on Castro Street",
+    "description": "Collect treats from the downtown shops on the trick-or-treat map.",
+    "tips": "info|Monte Carlo’s haunted house is a separate signup.",
+    "venue": "Castro Street",
+    "address": "Castro Street, Mountain View, CA 94041",
+    "city": "Mountain View",
+    "date": "2026-10-31",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "",
+    "imageUrl": "/events/trick-or-treat-castro-street-2026.jpg",
+    "eventUrl": "https://chambermv.org/seasonal-events/",
+    "lat": 37.392168,
+    "lng": -122.079783,
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-28",
+    "isPast": false,
+    "isLive": true
+  },
+  {
+    "id": "stanford-shopping-center-halloween-spooktacular-2026-10-31",
+    "title": "Halloween Spooktacular",
+    "description": "Collect candy from stores with pumpkins outside, and stop at Center Pavilion for activities, giveaways, and sweet surprises.",
+    "tips": "info|Start at Center Pavilion, near Tiffany & Co. and Macy’s.",
+    "venue": "Stanford Shopping Center",
+    "room": "Center Pavilion",
+    "address": "660 Stanford Shopping Center, Palo Alto, CA 94304",
+    "city": "Palo Alto",
+    "date": "2026-10-31",
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Festivals & Community"
+    ],
+    "cost": "See the mall page",
+    "imageUrl": "/events/stanford-shopping-center-halloween-spooktacular-2026.jpg",
+    "eventUrl": "https://www.simon.com/mall/stanford-shopping-center/stream/halloween-spooktacular-6290412",
+    "lat": 37.4431921,
+    "lng": -122.1709163,
+    "status": "Published",
+    "isSeasonal": true,
+    "isRegional": false,
+    "verifiedDate": "2026-10-28",
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "tips": "ticket|Free. A ticket is not required.\ninfo|Artist studios are in the E, F and U wings at the north end of Cubberley.\ninfo|A children’s book sale is also on site until 4:00 PM.",
     "room": "",
     "address": "4000 Middlefield Road, Palo Alto, CA 94303",

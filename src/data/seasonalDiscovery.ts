@@ -726,6 +726,30 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
         featuredUntil: '2026-10-31',
         note: 'Halloween · Barron Park parade',
       },
+      {
+        eventId: 'halloween-on-cal-ave-2026-10-31',
+        featuredFrom: '2026-10-28',
+        featuredUntil: '2026-10-31',
+        note: 'Halloween · Cal Ave',
+      },
+      {
+        eventId: 'rancho-shopping-center-howloween-2026-10-31',
+        featuredFrom: '2026-10-28',
+        featuredUntil: '2026-10-31',
+        note: 'Halloween · Rancho trick-or-treat',
+      },
+      {
+        eventId: 'trick-or-treat-castro-street-2026-10-31',
+        featuredFrom: '2026-10-28',
+        featuredUntil: '2026-10-31',
+        note: 'Halloween · Castro Street',
+      },
+      {
+        eventId: 'stanford-shopping-center-halloween-spooktacular-2026-10-31',
+        featuredFrom: '2026-10-28',
+        featuredUntil: '2026-10-31',
+        note: 'Halloween · Stanford Shopping Center',
+      },
     ],
     collectionEventIds: [
       'monster-bash-rengstorff-park-2026-10-24-10-00',
@@ -747,6 +771,10 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
       'halloween-bray-parade-bol-park-2026-10-31',
       'core-weekend-lakewood-library-opening-2026-10-31',
       'core-weekend-mv-library-halloween-trick-or-treat-2026-10-31',
+      'halloween-on-cal-ave-2026-10-31',
+      'rancho-shopping-center-howloween-2026-10-31',
+      'trick-or-treat-castro-street-2026-10-31',
+      'stanford-shopping-center-halloween-spooktacular-2026-10-31',
     ],
     driveEventIds: [
       // Spanning Fall → next theme: farms keep the seasonal badge under both modules

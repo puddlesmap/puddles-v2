@@ -690,13 +690,29 @@ export function HalloweenGuideDraft({
                 </p>
               </Outing>
               <Outing
-                title="Rancho Shopping Center Trick-or-Treat — Los Altos"
-                when="Saturday, October 31 · 10:30 AM–12:30 PM · Free · 600 Foothill Expressway"
-                before="This is a two-hour morning event, not an all-day trick-or-treat destination."
+                title="Howl'Oween Fun — Rancho Shopping Center"
+                when="Saturday, October 31 · 10:30 AM–12:30 PM · 600 Foothill Expressway"
+                puddlesHref="/event/rancho-shopping-center-howloween-2026-10-31"
+                links={[{ href: 'https://www.visitrancho.com/events.html', label: 'Official event details' }]}
+              >
+                <p>Trick-or-treat at the shopping center and watch the pet costume contest.</p>
+              </Outing>
+              <Outing
+                title="Halloween on Cal Ave"
+                when="Saturday, October 31 · 10:00 AM–1:00 PM · Free · California Avenue"
+                before="No ticket. Parking is in the Cal Ave lots and the garage at 350 Sherman."
+                image="/events/halloween-on-cal-ave-2026.jpg"
+                puddlesHref="/event/halloween-on-cal-ave-2026-10-31"
+                links={[
+                  {
+                    href: 'https://www.paloalto.gov/Events-Directory/City-Manager/Thursday-Live-on-Cal-Ave.-October-31',
+                    label: 'Official event details',
+                  },
+                ]}
               >
                 <p>
-                  Go trick-or-treating around the shopping center, make Halloween crafts, and look for
-                  the pet costume parade.
+                  Children’s music, face painting, balloon twisting, a police vehicle, and a horse
+                  are on the car-free blocks.
                 </p>
               </Outing>
               <Outing
@@ -711,6 +727,44 @@ export function HalloweenGuideDraft({
                   Second Floor Reference Desk, or Customer Service; the Friends of the Library shop
                   participates when open.
                 </p>
+              </Outing>
+              <Outing
+                title="Trick or Treat on Castro Street"
+                when="Saturday, October 31 · 2:00–4:00 PM · Castro Street, Mountain View"
+                before="Monte Carlo’s haunted house is a separate signup."
+                image="/events/trick-or-treat-castro-street-2026.jpg"
+                puddlesHref="/event/trick-or-treat-castro-street-2026-10-31"
+                links={[{ href: 'https://chambermv.org/seasonal-events/', label: 'Official event details' }]}
+              >
+                <p>Collect treats from the downtown shops on the trick-or-treat map.</p>
+              </Outing>
+              <Outing
+                title="Halloween Spooktacular — Stanford Shopping Center"
+                when="Saturday, October 31 · 2:00–4:00 PM · Center Pavilion"
+                before="Start at Center Pavilion, near Tiffany & Co. and Macy’s. Look for pumpkins outside participating stores."
+                image="/events/stanford-shopping-center-halloween-spooktacular-2026.jpg"
+                puddlesHref="/event/stanford-shopping-center-halloween-spooktacular-2026-10-31"
+                links={[
+                  {
+                    href: 'https://www.simon.com/mall/stanford-shopping-center/stream/halloween-spooktacular-6290412',
+                    label: 'Official event details',
+                  },
+                ]}
+              >
+                <p>
+                  Collect candy from stores with pumpkins outside, and stop at the pavilion for
+                  activities, giveaways, and sweet surprises.
+                </p>
+              </Outing>
+              <Outing
+                title="Halloween Bray Parade"
+                when="Saturday, October 31 · Meet at Bol Park at 3:30 PM"
+                before="Questions go to the Barron Park Association. The site does not have a separate 2026 event page."
+                image="/events/halloween-bray-parade-2026.jpg"
+                puddlesHref="/event/halloween-bray-parade-bol-park-2026-10-31"
+                links={[{ href: 'https://bpapaloalto.org/', label: 'Barron Park Association' }]}
+              >
+                <p>Meet in Bol Park for the neighborhood Halloween parade.</p>
               </Outing>
             </section>
 
