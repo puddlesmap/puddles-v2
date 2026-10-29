@@ -401,6 +401,7 @@ export function sanitizeCandidate(raw) {
     ageRange: plainText(raw.age || raw.ageRange, LIMITS.age),
     bestFor: plainText(raw.bestFor, LIMITS.age),
     placement: ['browse', 'seasonal', 'drive'].includes(raw.placement) ? raw.placement : undefined,
+    includeInSeasonal: typeof raw.includeInSeasonal === 'boolean' ? raw.includeInSeasonal : undefined,
     description: plainText(raw.description, LIMITS.text),
     tips: plainText(raw.tips, LIMITS.text),
     types: Array.isArray(raw.types)
@@ -543,6 +544,9 @@ export function applyDecision(inbox, input) {
   if (input?.bestFor !== undefined) row.bestFor = plainText(input.bestFor, LIMITS.age)
   if (input?.placement !== undefined && ['browse', 'seasonal', 'drive'].includes(input.placement)) {
     row.placement = input.placement
+  }
+  if (typeof input?.includeInSeasonal === 'boolean') {
+    row.includeInSeasonal = input.includeInSeasonal
   }
   if (input?.cost !== undefined) row.cost = plainText(input.cost, LIMITS.cost)
   if (input?.sourceExcerpt !== undefined) row.sourceExcerpt = plainText(input.sourceExcerpt, LIMITS.excerpt)

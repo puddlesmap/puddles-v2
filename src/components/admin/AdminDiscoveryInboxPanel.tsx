@@ -21,6 +21,13 @@ import {
   addToSeasonalSection,
   getActiveThemeSlugForAdmin,
 } from '../../utils/seasonalCurationStaging'
+import {
+  browsePlacementLabel,
+  catalogFlagsFromCandidate,
+  includeInSeasonalFromCandidate,
+  seasonalSectionForCandidate,
+  suggestIncludeInSeasonal,
+} from '../../utils/adminCatalogPlacement.mjs'
 import { editableFieldsFromCandidate, pacificTodayYmd, saveDiscoveryReviewRecord } from '../../utils/discoveryReview'
 import { parseEventTips } from '../../utils/eventTips'
 import { extractSpecificAgeRecommendationFromText } from '../../utils/eventAgeRecommendation'
@@ -73,7 +80,6 @@ function toChoiceInput(row: InboxCandidate, label: InboxLabel): InboxChoiceInput
     imageUrl: row.imageUrl,
     eventUrl: row.eventUrl || row.sourceUrl,
     matchedEventId: label.matchedEventId,
-    placement: placementValue(row),
   }
 }
 
@@ -95,10 +101,8 @@ function sourceFacts(candidate: InboxCandidate) {
 }
 
 function placementLabel(candidate: InboxCandidate): string {
-  const placement = placementValue(candidate)
-  if (placement === 'seasonal') return 'Seasonal · close to home'
-  if (placement === 'drive') return 'Seasonal · worth a little drive'
-  return 'Home and Browse'
+  const browse = browsePlacementLabel(candidate.city)
+  return includeInSeasonalFromCandidate(candidate) ? `${browse} · Seasonal collection` : browse
 }
 
 function eventIdentity(candidate: { id?: string; title?: string; date?: string; venue?: string; city?: string }) {
@@ -106,28 +110,17 @@ function eventIdentity(candidate: { id?: string; title?: string; date?: string; 
   return `${norm(candidate.title)}|${candidate.date || ''}|${norm(candidate.venue || candidate.city)}`
 }
 
-function placementValue(candidate: InboxCandidate): 'browse' | 'seasonal' | 'drive' {
-  if (candidate.placement) return candidate.placement
-  return new Set(['Palo Alto', 'Mountain View', 'Los Altos', 'Sunnyvale']).has(candidate.city)
-    ? 'browse'
-    : 'drive'
-}
-
 function stageCandidateEvent(candidate: InboxCandidate, event: ReturnType<typeof getAdminEventForPublish>) {
   if (!event) return
-  const placement = placementValue(candidate)
+  const include = includeInSeasonalFromCandidate(candidate)
+  const flags = catalogFlagsFromCandidate(candidate, include)
   const prepared = {
     ...event,
-    isSeasonal: placement !== 'browse',
-    isRegional: placement === 'drive',
+    ...flags,
   }
   stageAdminEvent(prepared, 'discovery', candidate.id)
-  if (placement !== 'browse') {
-    addToSeasonalSection(
-      event.id,
-      placement === 'drive' ? 'worthADrive' : 'closeToHome',
-      getActiveThemeSlugForAdmin(),
-    )
+  if (include) {
+    addToSeasonalSection(event.id, seasonalSectionForCandidate(candidate), getActiveThemeSlugForAdmin())
   }
 }
 
@@ -401,22 +394,42 @@ const DiscoveryReviewCard = memo(function DiscoveryReviewCard({
                             ))}
                           </select>
                         </label>
-                        <label className="admin-discovery-field">
-                          <span className="admin-discovery-field__label">Placement</span>
-                          <select
-                            className="admin-discovery-input"
-                            value={placementValue(candidate)}
-                            onChange={(event) =>
-                              updateCandidate({
-                                placement: event.target.value as 'browse' | 'seasonal' | 'drive',
-                              })
-                            }
-                          >
-                            <option value="browse">Home and Browse</option>
-                            <option value="seasonal">Seasonal · close to home</option>
-                            <option value="drive">Seasonal · worth a little drive</option>
-                          </select>
-                        </label>
+                        <div className="admin-discovery-field">
+                          <span className="admin-discovery-field__label">Home & Browse</span>
+                          <p className="text-sm text-charcoal">{browsePlacementLabel(candidate.city)}</p>
+                          <label className="admin-discovery-type">
+                            <input
+                              type="checkbox"
+                              checked={includeInSeasonalFromCandidate(candidate)}
+                              onChange={(event) =>
+                                updateCandidate({ includeInSeasonal: event.target.checked })
+                              }
+                            />
+                            <span>Include in seasonal collection</span>
+                          </label>
+                          {suggestIncludeInSeasonal(candidate) !==
+                          includeInSeasonalFromCandidate(candidate) ? (
+                            <p className="admin-discovery-fieldset__hint">
+                              Suggested: {suggestIncludeInSeasonal(candidate) ? 'include' : 'leave off'} seasonal
+                              collection.
+                              <button
+                                type="button"
+                                className="admin-btn admin-btn-text"
+                                onClick={() =>
+                                  updateCandidate({
+                                    includeInSeasonal: suggestIncludeInSeasonal(candidate),
+                                  })
+                                }
+                              >
+                                Use suggestion
+                              </button>
+                            </p>
+                          ) : suggestIncludeInSeasonal(candidate) ? (
+                            <p className="admin-discovery-fieldset__hint">
+                              Suggested from the source: include in the seasonal collection.
+                            </p>
+                          ) : null}
+                        </div>
                       </div>
 
                       <div className="admin-review-card__tips-preview">
@@ -657,13 +670,12 @@ export function AdminDiscoveryInboxPanel({
         } else if (candidate.occurrenceChoice === 'new') {
           eventId = applyInboxChoice({ ...toChoiceInput(candidate, label), choice: 'new' }, verifiedDate).eventId
         } else {
+          const browseOnly = !includeInSeasonalFromCandidate(candidate)
           eventId = approveDiscoveryLocally(
             row.library,
             edits,
             verifiedDate,
-            placementValue(candidate) === 'browse'
-              ? { allowOtherCityBrowse: true, isSeasonal: false, isRegional: false }
-              : undefined,
+            browseOnly ? { allowOtherCityBrowse: true, isSeasonal: false, isRegional: false } : undefined,
           ).eventId
         }
         stageCandidateEvent(candidate, getAdminEventForPublish(eventId))

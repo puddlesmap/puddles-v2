@@ -34,9 +34,11 @@ Discovery still has a **Go live** action on Ready rows; prefer **Approve → hea
 
 ## Find paths
 
-### Library scrape (automated)
+### Weekly discovery (automated ingest — one job)
 
-Wednesdays @ 8:00 AM PT: `discover:plan-window` picks the horizon prefix (0–30 weekly, 31–60 every two weeks, 61–90 about monthly), then `discover:bay-area` (+ Linden Tree), `discover:core-weekend`, `discover:regional-weekly`. See [event-discovery.md](./event-discovery.md).
+**Wednesdays @ 8:00 AM PT:** [`.github/workflows/discover-wednesday.yml`](../.github/workflows/discover-wednesday.yml) runs `npm run discover:wednesday` (default **90-day** horizon): library scrape + Linden + **core inbox** + **regional inbox** + merge + verify + **one** git commit. Legacy workflows (`discover-bay-area`, `discover-core-weekend`, `discover-regional-weekly`) remain for manual `workflow_dispatch` only.
+
+**Browse vs seasonal** is not chosen by cron — it is chosen in **Admin** (core city → Browse; regional drive → Seasonal collection). Seasonal **picks** still come from `seasonalDiscovery.ts` + `npm run discover:sync-seasonal` when you curate.
 
 ### Core cities — weekend search (agent-assisted)
 

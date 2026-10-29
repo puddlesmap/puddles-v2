@@ -1,0 +1,89 @@
+# One weekly discovery pass (Wednesdays ~8:00 AM Pacific).
+# Libraries + Linden + core inbox + regional + merge + verify — single commit.
+#
+# Browse vs seasonal is still decided in Admin (placement / seasonal collection),
+# not by separate cron jobs. Web/social hunting fills the inbox JSON files;
+# this workflow ingests whatever is in repo at run time.
+
+name: Discover weekly (unified)
+
+on:
+  schedule:
+    # Wednesdays 15:00 UTC ≈ 8:00 AM Pacific (PDT); 7:00 AM during PST
+    - cron: '0 15 * * 3'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Look-ahead window (days)'
+        required: false
+        default: '90'
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: discover-weekly
+  cancel-in-progress: true
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Weekly discovery pass
+        run: npm run discover:wednesday -- --days=${{ inputs.days || '90' }}
+
+      - name: Reminder — watchlist & roundups (agent-assisted)
+        if: github.event_name == 'schedule'
+        run: |
+          echo "::notice title=Watchlist + roundups::Before or after this run: open due Calendar Watchlist sources and roundups (e.g. Mommy Poppins Bay Area). Paste official URLs into data/discovery/core-cities-weekend-inbox.json (core Browse) or regional-leads-inbox.json (Seasonal · Worth a drive). Re-run this workflow or npm run discover:wednesday to ingest new rows."
+
+      - name: Verify build
+        run: npm run build
+
+      - name: Commit discovery updates
+        env:
+          DISCOVERY_DAYS: ${{ inputs.days || '90' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          shopt -s nullglob
+          paths=(
+            src/data/discovery-candidates.json
+            src/data/verification-state.json
+            data/discovery/agent-inbox.json
+            data/discovery/bay-area-*.json
+            data/discovery/linden-tree-*.json
+            data/discovery/linden-tree-*.csv
+            data/discovery/latest-scrape-meta.json
+            data/discovery/cadence-state.json
+            data/discovery/weekly-summary.md
+            data/discovery/expansion-lookahead-*.json
+            data/discovery/core-cities-weekend-inbox.json
+            data/discovery/core-weekend-*.md
+            data/discovery/regional-leads-inbox.json
+            data/discovery/regional-weekly-*.md
+            data/verification/latest-run.json
+            data/calendar-watchlist.json
+            docs/calendar-watchlist-next-2-months.md
+          )
+          git add "${paths[@]}"
+          if git diff --staged --quiet; then
+            echo "No discovery changes — skipping commit."
+            exit 0
+          fi
+          git commit -m "chore: weekly discovery pass (${DISCOVERY_DAYS}-day horizon)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push
