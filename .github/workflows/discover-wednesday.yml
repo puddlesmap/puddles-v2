@@ -79,7 +79,7 @@ jobs:
             data/calendar-watchlist.json
             docs/calendar-watchlist-next-2-months.md
           )
-          git add "${paths[@]}"
+          git add --ignore-missing "${paths[@]}"
           if git diff --staged --quiet; then
             echo "No discovery changes — skipping commit."
             exit 0
