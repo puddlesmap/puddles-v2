@@ -79,15 +79,15 @@ jobs:
             data/calendar-watchlist.json
             docs/calendar-watchlist-next-2-months.md
           )
-          for p in "${paths[@]}"; do
+ for p in "${paths[@]}"; do
   if [ -e "$p" ]; then
     git add -- "$p"
   fi
 done
-          if git diff --staged --quiet; then
-            echo "No discovery changes — skipping commit."
-            exit 0
-          fi
-          git commit -m "chore: weekly discovery pass (${DISCOVERY_DAYS}-day horizon)"
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push
+if git diff --staged --quiet; then
+  echo "No discovery changes — skipping commit."
+  exit 0
+fi
+git commit -m "chore: weekly discovery pass (${DISCOVERY_DAYS}-day horizon)"
+git pull --rebase origin "${GITHUB_REF_NAME}"
+git push
