@@ -192,9 +192,9 @@
       "cost": "Paid",
       "description": "Sensory-friendly inclusive holiday dance with DJ, games, Santa, and refreshments (Magical Bridge + SF Autism Society).",
       "tips": "Verify ticket pricing on the official event page before publish.",
-      "eventUrl": "https://www.magicalbridge.org/calendar",
+      "eventUrl": "https://www.magicalbridge.org/event/magical-santa-dance-party/",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22 · Holiday magic seasonal"
+      "leadNotes": "ChatGPT Oct 22 · Holiday magic seasonal · verify 2026 page"
     },
     {
       "id": "core-weekend-holiday-craft-cafe-palo-alto-2026-12-08",
@@ -209,9 +209,9 @@
       "cost": "Not stated",
       "description": "Inclusive holiday crafts and hot chocolate bar (Magical Bridge at the Art Center).",
       "tips": "Verify whether hours are drop-in all day or scheduled sessions before publish.",
-      "eventUrl": "https://www.magicalbridge.org/calendar",
+      "eventUrl": "https://www.paloalto.gov/Departments/Community-Services/Arts-Sciences/Palo-Art-Center",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22 · verify session shape · Holiday seasonal"
+      "leadNotes": "ChatGPT Oct 22 · verify session shape · use Palo Alto Art Center / Magical Bridge official event URL before publish"
     },
     {
       "id": "core-weekend-sunnyvale-breakfast-with-santa-2026-12-05",
