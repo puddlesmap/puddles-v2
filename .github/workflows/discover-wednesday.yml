@@ -56,38 +56,4 @@ jobs:
       - name: Commit discovery updates
         env:
           DISCOVERY_DAYS: ${{ inputs.days || '90' }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          shopt -s nullglob
-          paths=(
-            src/data/discovery-candidates.json
-            src/data/verification-state.json
-            data/discovery/agent-inbox.json
-            data/discovery/bay-area-*.json
-            data/discovery/linden-tree-*.json
-            data/discovery/linden-tree-*.csv
-            data/discovery/latest-scrape-meta.json
-            data/discovery/cadence-state.json
-            data/discovery/weekly-summary.md
-            data/discovery/expansion-lookahead-*.json
-            data/discovery/core-cities-weekend-inbox.json
-            data/discovery/core-weekend-*.md
-            data/discovery/regional-leads-inbox.json
-            data/discovery/regional-weekly-*.md
-            data/verification/latest-run.json
-            data/calendar-watchlist.json
-            docs/calendar-watchlist-next-2-months.md
-          )
- for p in "${paths[@]}"; do
-  if [ -e "$p" ]; then
-    git add -- "$p"
-  fi
-done
-if git diff --staged --quiet; then
-  echo "No discovery changes — skipping commit."
-  exit 0
-fi
-git commit -m "chore: weekly discovery pass (${DISCOVERY_DAYS}-day horizon)"
-git pull --rebase origin "${GITHUB_REF_NAME}"
-git push
+        run: bash scripts/commit-weekly-discovery.sh
