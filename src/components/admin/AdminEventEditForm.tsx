@@ -3,6 +3,7 @@ import type { AdminEventEditableFields } from '../../types/adminEventEdit'
 import type { EventStatus } from '../../types/event'
 import { ACTIVITY_TYPES } from '../../types/event'
 import { ageTagSelectOptions, formatPublicAgeRangeLabel } from '../../utils/ageRange'
+import { browseCityBucket, browsePlacementLabel } from '../../utils/adminCatalogPlacement.mjs'
 
 function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -43,6 +44,23 @@ export function AdminEventEditForm({
       ...draft,
       types: has ? draft.types.filter((t) => t !== type) : [...draft.types, type],
     })
+  }
+
+  const browseLabel = browsePlacementLabel(draft.city)
+  const isCoreCity = browseCityBucket(draft.city) === 'core'
+  const includeInSeasonal = draft.isSeasonal
+  const worthADrive = draft.isRegional
+
+  function setIncludeInSeasonal(checked: boolean) {
+    onChange({
+      ...draft,
+      isSeasonal: checked,
+      isRegional: checked && !isCoreCity ? draft.isRegional : false,
+    })
+  }
+
+  function setWorthADrive(checked: boolean) {
+    onChange({ ...draft, isRegional: checked, isSeasonal: checked ? true : draft.isSeasonal })
   }
 
   const coreFields = (
@@ -212,28 +230,31 @@ export function AdminEventEditForm({
       <fieldset className="admin-discovery-fieldset">
         <legend className="admin-discovery-field__label">Catalog placement</legend>
         <p className="admin-discovery-fieldset__hint">
-          Seasonal moves this listing into the Seasonal events tab. Regional means Worth a little
-          drive. Leave both unchecked to show the event on Home and Browse, including Other cities.
+          <strong>{browseLabel}</strong> — core listings stay on Home &amp; Browse unless Hidden.
+          Seasonal collection adds the holiday page; Worth a little drive hides from Browse
+          (destinations outside core cities).
         </p>
         <div className="admin-discovery-types">
           <label className="admin-discovery-type">
             <input
               type="checkbox"
-              checked={draft.isSeasonal}
-              onChange={(e) => update('isSeasonal', e.target.checked)}
+              checked={includeInSeasonal}
+              onChange={(e) => setIncludeInSeasonal(e.target.checked)}
               disabled={busy}
             />
-            <span>Seasonal event</span>
+            <span>Include in seasonal collection</span>
           </label>
-          <label className="admin-discovery-type">
-            <input
-              type="checkbox"
-              checked={draft.isRegional}
-              onChange={(e) => update('isRegional', e.target.checked)}
-              disabled={busy}
-            />
-            <span>Regional event</span>
-          </label>
+          {!isCoreCity && includeInSeasonal ? (
+            <label className="admin-discovery-type">
+              <input
+                type="checkbox"
+                checked={worthADrive}
+                onChange={(e) => setWorthADrive(e.target.checked)}
+                disabled={busy}
+              />
+              <span>Worth a little drive (hidden from Browse)</span>
+            </label>
+          ) : null}
         </div>
       </fieldset>
       <Field label="Description">
