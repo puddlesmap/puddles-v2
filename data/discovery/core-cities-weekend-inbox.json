@@ -152,14 +152,20 @@
       "venue": "Sunnyvale Recreation (multiple sites)",
       "city": "Sunnyvale",
       "ageRange": "0–5",
-      "types": ["Parent & Me", "Build & Explore"],
+      "types": [
+        "Parent & Me",
+        "Build & Explore"
+      ],
       "cost": "Paid",
       "description": "City Fall 2026 guide: Music Together (Creative Arts Center), Kidz Love Soccer Parent & Me, Youth Evolution Baby Ballers, Mini Makers (3–4, potty-trained). Caregiver participation or enrollment series — not library storytimes.",
       "tips": "One Puddles row per program after review. Link each series to the official registration page. Do not list open seats in public copy.",
       "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/classes-and-activities/preschool/preschool-parent-and-tot",
       "leadSource": "agent",
       "leadNotes": "ChatGPT Oct 22 discovery · Fall 2026 Activities Guide (Issuu). Split into series rows: Music Together, Kidz Love Soccer, Baby Ballers, Mini Makers.",
-      "watchlistSourceId": "sunnyvale-recreation-preschool"
+      "watchlistSourceId": "sunnyvale-recreation-preschool",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "core-weekend-sunnyvale-fall-2026-enrollment-parent-me"
     },
     {
       "id": "core-weekend-fall-family-fun-trunk-or-treat-2026-10-30",
@@ -171,13 +177,18 @@
       "address": "Los Altos, CA",
       "city": "Los Altos",
       "ageRange": "All ages · Little ones welcome",
-      "types": ["Festivals & Community"],
+      "types": [
+        "Festivals & Community"
+      ],
       "cost": "Free",
       "description": "Decorated cars, treats, toys, and candy — a simple trunk-or-treat for younger kids.",
       "tips": "Costumes encouraged, optional. Rain or shine.",
       "eventUrl": "https://www.bridges.church/events",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22 · confirm 2026 Fall Family Fun page on host site before publish · Halloween seasonal"
+      "leadNotes": "ChatGPT Oct 22 · confirm 2026 Fall Family Fun page on host site before publish · Halloween seasonal",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "core-weekend-fall-family-fun-trunk-or-treat-2026-10-30"
     },
     {
       "id": "core-weekend-magical-santa-dance-party-2026-12-05",
@@ -188,13 +199,19 @@
       "venue": "Lucie Stern Community Center",
       "city": "Palo Alto",
       "ageRange": "All ages and abilities",
-      "types": ["Festivals & Community", "Music & Movement"],
+      "types": [
+        "Festivals & Community",
+        "Music & Movement"
+      ],
       "cost": "Paid",
       "description": "Sensory-friendly inclusive holiday dance with DJ, games, Santa, and refreshments (Magical Bridge + SF Autism Society).",
       "tips": "Verify ticket pricing on the official event page before publish.",
       "eventUrl": "https://www.magicalbridge.org/event/magical-santa-dance-party/",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22 · Holiday magic seasonal · verify 2026 page"
+      "leadNotes": "ChatGPT Oct 22 · Holiday magic seasonal · verify 2026 page",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "core-weekend-magical-santa-dance-party-2026-12-05"
     },
     {
       "id": "core-weekend-holiday-craft-cafe-palo-alto-2026-12-08",
@@ -205,13 +222,18 @@
       "venue": "Palo Alto Art Center",
       "city": "Palo Alto",
       "ageRange": "All ages and abilities",
-      "types": ["Arts & Crafts"],
+      "types": [
+        "Arts & Crafts"
+      ],
       "cost": "Not stated",
       "description": "Inclusive holiday crafts and hot chocolate bar (Magical Bridge at the Art Center).",
       "tips": "Verify whether hours are drop-in all day or scheduled sessions before publish.",
       "eventUrl": "https://www.paloalto.gov/Departments/Community-Services/Arts-Sciences/Palo-Art-Center",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22 · verify session shape · use Palo Alto Art Center / Magical Bridge official event URL before publish"
+      "leadNotes": "ChatGPT Oct 22 · verify session shape · use Palo Alto Art Center / Magical Bridge official event URL before publish",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "core-weekend-holiday-craft-cafe-palo-alto-2026-12-08"
     },
     {
       "id": "core-weekend-sunnyvale-breakfast-with-santa-2026-12-05",
@@ -222,13 +244,18 @@
       "venue": "Sunnyvale Senior Center, Orchard Pavilion",
       "city": "Sunnyvale",
       "ageRange": "All ages welcome",
-      "types": ["Festivals & Community"],
+      "types": [
+        "Festivals & Community"
+      ],
       "cost": "Paid",
       "description": "Breakfast and photos with Santa — daytime holiday outing for families with young children.",
       "tips": "Confirm ticket price and availability on the city activities guide before publish.",
       "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22 · Fall 2026 Activities Guide"
+      "leadNotes": "ChatGPT Oct 22 · Fall 2026 Activities Guide",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "skipReason": "duplicate url in queue"
     },
     {
       "id": "core-weekend-sunnyvale-noon-years-eve-2026-12-30",
@@ -239,13 +266,19 @@
       "venue": "Sunnyvale Recreation Center Ballroom",
       "city": "Sunnyvale",
       "ageRange": "All ages and caregivers",
-      "types": ["Festivals & Community", "Music & Movement"],
+      "types": [
+        "Festivals & Community",
+        "Music & Movement"
+      ],
       "cost": "Free",
       "description": "Music, dancing, crafts, balloon drop, and juice-box toast for little ones.",
       "tips": "Space limited; doors close at capacity.",
       "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22 · duplicate-check catalog before publish"
+      "leadNotes": "ChatGPT Oct 22 · duplicate-check catalog before publish",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "skipReason": "duplicate url in queue"
     },
     {
       "id": "core-weekend-wag-along-storybook-party-2026-11-15",
@@ -256,13 +289,18 @@
       "venue": "Oshman Family JCC, Arrillaga Pavilion",
       "city": "Palo Alto",
       "ageRange": "3–8 years",
-      "types": ["Stories"],
+      "types": [
+        "Stories"
+      ],
       "cost": "Paid",
       "description": "Author reading and interactive activity; each family receives a signed book.",
       "tips": "Best for preschool segment (3–5). Ticket required.",
       "eventUrl": "https://www.paloaltojcc.org/events",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 29 · verify event URL on JCC calendar"
+      "leadNotes": "ChatGPT Oct 29 · verify event URL on JCC calendar",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "core-weekend-wag-along-storybook-party-2026-11-15"
     },
     {
       "id": "core-weekend-mv-library-halloween-trick-or-treat-2026-10-31",
@@ -273,13 +311,18 @@
       "venue": "Mountain View Public Library",
       "city": "Mountain View",
       "ageRange": "All ages · Little ones welcome",
-      "types": ["Festivals & Community"],
+      "types": [
+        "Festivals & Community"
+      ],
       "cost": "Free",
       "description": "Collect non-food Halloween treats at participating library areas.",
       "tips": "Confirm treat locations on the official library calendar before publish.",
       "eventUrl": "https://library.mountainview.gov/events",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 29 · Halloween seasonal"
+      "leadNotes": "ChatGPT Oct 29 · Halloween seasonal",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "core-weekend-mv-library-halloween-trick-or-treat-2026-10-31"
     },
     {
       "id": "core-weekend-pa-halloween-family-storytime-2026-10-31",
@@ -289,12 +332,17 @@
       "endTime": "11:00",
       "venue": "Mitchell Park Library",
       "city": "Palo Alto",
-      "types": ["Stories"],
+      "types": [
+        "Stories"
+      ],
       "cost": "Free",
       "description": "Special Halloween edition of family storytime.",
       "eventUrl": "https://library.cityofpaloalto.org/events",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 29 · dedupe vs library scrape · Halloween"
+      "leadNotes": "ChatGPT Oct 29 · dedupe vs library scrape · Halloween",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "core-weekend-pa-halloween-family-storytime-2026-10-31"
     }
   ]
 }

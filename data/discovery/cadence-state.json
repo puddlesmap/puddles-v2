@@ -1,17 +1,17 @@
 {
   "windows": {
     "0-30": {
-      "lastSuccess": "2026-10-24"
+      "lastSuccess": "2026-10-29"
     },
     "31-60": {
-      "lastSuccess": "2026-10-24"
+      "lastSuccess": "2026-10-29"
     },
     "61-90": {
-      "lastSuccess": "2026-10-24"
+      "lastSuccess": "2026-10-29"
     }
   },
   "lastRun": {
-    "date": "2026-10-24",
+    "date": "2026-10-29",
     "days": 90,
     "full": true,
     "scanned": [

@@ -204,14 +204,23 @@
       "address": "557 McReynolds Rd, Sausalito, CA 94965",
       "city": "Sausalito",
       "ageRange": "All ages · Little ones welcome",
-      "types": ["Build & Explore"],
-      "categoryTags": ["Regional", "Worth a Drive", "Holiday magic"],
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Holiday magic"
+      ],
       "cost": "Paid",
       "description": "Iceless skating rink, giant gingerbread playhouses, Toy Makers Studio — hands-on winter exhibit.",
       "tips": "Museum hours Wed–Sun; verify holiday closures on official site.",
       "eventUrl": "https://bayareadiscoverymuseum.org/exhibits/winter-wonderlab/",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22 · Holiday magic drive pick candidate"
+      "leadNotes": "ChatGPT Oct 22 · Holiday magic drive pick candidate",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "regional-badm-winter-wonderlab-2026-11-21"
     },
     {
       "id": "regional-fairyland-fairy-winterland-2026-12-12",
@@ -223,14 +232,24 @@
       "venue": "Children's Fairyland",
       "address": "699 Bellevue Ave, Oakland, CA 94610",
       "city": "Oakland",
-      "types": ["Festivals & Community", "Arts & Crafts"],
-      "categoryTags": ["Regional", "Worth a Drive", "Holiday magic"],
+      "types": [
+        "Festivals & Community",
+        "Arts & Crafts"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Holiday magic"
+      ],
       "cost": "Paid",
       "description": "Holiday crafts, puppet shows, multicultural stories, Santa visits — toddler-oriented venue.",
       "tips": "Tickets on sale Nov 1; Dec 19 member free day per official site.",
       "eventUrl": "https://www.fairyland.org/fairy-winterland",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22 · publish early for ticket planning"
+      "leadNotes": "ChatGPT Oct 22 · publish early for ticket planning",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "regional-fairyland-fairy-winterland-2026-12-12"
     },
     {
       "id": "regional-fairyland-countdown-wonderland-2026-12-31",
@@ -240,13 +259,22 @@
       "endTime": "16:00",
       "venue": "Children's Fairyland",
       "city": "Oakland",
-      "types": ["Festivals & Community"],
-      "categoryTags": ["Regional", "Worth a Drive", "Holiday magic"],
+      "types": [
+        "Festivals & Community"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Holiday magic"
+      ],
       "cost": "Paid",
       "description": "Alice-themed daytime New Year's with crafts, puppet shows, bubbles, and noon ball drop.",
       "eventUrl": "https://www.fairyland.org/countdown-in-wonderland",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22"
+      "leadNotes": "ChatGPT Oct 22",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "regional-fairyland-countdown-wonderland-2026-12-31"
     },
     {
       "id": "regional-crucible-gifty-2026-12-05",
@@ -255,14 +283,24 @@
       "closingDate": "2026-12-06",
       "venue": "The Crucible",
       "city": "Oakland",
-      "types": ["Build & Explore", "Festivals & Community"],
-      "categoryTags": ["Regional", "Worth a Drive", "Holiday magic"],
+      "types": [
+        "Build & Explore",
+        "Festivals & Community"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Holiday magic"
+      ],
       "cost": "Free",
       "description": "Artist demos plus free hands-on kids' activities; optional paid workshops.",
       "tips": "Confirm which workshops fit preschoolers before recommending specific sessions.",
       "eventUrl": "https://www.thecrucible.org/events/gifty/",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22"
+      "leadNotes": "ChatGPT Oct 22",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "regional-crucible-gifty-2026-12-05"
     },
     {
       "id": "regional-hiller-glider-discovery-2026-11-29",
@@ -273,13 +311,22 @@
       "venue": "Hiller Aviation Museum",
       "address": "601 Skyway Rd, San Carlos, CA 94070",
       "city": "San Carlos",
-      "types": ["Build & Explore"],
-      "categoryTags": ["Regional", "Worth a Drive", "Holiday magic"],
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Holiday magic"
+      ],
       "cost": "Paid",
       "description": "Build balsa gliders and help assemble a full-size model airplane; each child takes home a glider.",
       "eventUrl": "https://www.hiller.org/event/glider-discovery/",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 29 · also Dec 20 session — separate row or series after review"
+      "leadNotes": "ChatGPT Oct 29 · also Dec 20 session — separate row or series after review",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "regional-hiller-glider-discovery-2026-11-29"
     },
     {
       "id": "regional-hiller-robot-roundup-beebots-2026-12-27",
@@ -289,14 +336,22 @@
       "endTime": "12:00",
       "venue": "Hiller Aviation Museum",
       "city": "San Carlos",
-      "types": ["Build & Explore"],
-      "categoryTags": ["Regional", "Worth a Drive"],
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive"
+      ],
       "cost": "Paid",
       "description": "Preschool-friendly Bee-Bot sequencing and coding intro (Dec 27 session).",
       "tips": "Nov 22 session uses Ozobots — different age fit; do not merge descriptions.",
       "eventUrl": "https://www.hiller.org/event/robot-roundup/",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 29"
+      "leadNotes": "ChatGPT Oct 29",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "regional-hiller-robot-roundup-beebots-2026-12-27"
     },
     {
       "id": "regional-hiller-open-cockpit-day-2026-12-26",
@@ -306,13 +361,22 @@
       "endTime": "12:00",
       "venue": "Hiller Aviation Museum",
       "city": "San Carlos",
-      "types": ["Build & Explore"],
-      "categoryTags": ["Regional", "Worth a Drive", "Holiday magic"],
+      "types": [
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Holiday magic"
+      ],
       "cost": "Paid",
       "description": "Sit in aircraft cockpits and explore controls — extra aircraft open on this date.",
       "eventUrl": "https://www.hiller.org/event/open-cockpit-day/",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 29"
+      "leadNotes": "ChatGPT Oct 29",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "regional-hiller-open-cockpit-day-2026-12-26"
     },
     {
       "id": "regional-badm-noon-years-eve-2026-12-31",
@@ -322,14 +386,23 @@
       "endTime": "14:00",
       "venue": "Bay Area Discovery Museum",
       "city": "Sausalito",
-      "types": ["Festivals & Community"],
-      "categoryTags": ["Regional", "Worth a Drive", "Holiday magic"],
+      "types": [
+        "Festivals & Community"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive",
+        "Holiday magic"
+      ],
       "cost": "Paid",
       "description": "Countdown crafts, noon ball drop, blacklight sensory experience for babies.",
       "tips": "Confirm 2026 tickets; ignore 2025 sold-out page.",
       "eventUrl": "https://bayareadiscoverymuseum.org/events/noon-years-eve/",
       "leadSource": "agent",
-      "leadNotes": "ChatGPT Oct 22/29 · update existing discovery row if present"
+      "leadNotes": "ChatGPT Oct 22/29 · update existing discovery row if present",
+      "processed": true,
+      "processedAt": "2026-10-29",
+      "queuedId": "regional-badm-noon-years-eve-2026-12-31"
     }
   ]
 }
