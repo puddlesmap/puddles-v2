@@ -1,12 +1,12 @@
 export function pacificTodayYmd(reference?: Date): string
+export function isCancelledNotice(row: object): boolean
+export function publishedTitleForUpdate(nextTitle: string, currentTitle: string): string
 export function plainText(value: unknown, max: number): string
 export function normalizeCopy(value: unknown): string
 export function normalizeUrl(url: unknown): string
 export function emptyInbox(): DiscoveryInboxFile
 export function candidateIdentityKey(candidate: object): string
 export function diffParentFields(event: object, candidate: object): string[]
-export function isCancelledNotice(row: object): boolean
-export function publishedTitleForUpdate(nextTitle: string, currentTitle: string): string
 export function findIdentityMatches(candidate: object, events: readonly object[]): object[]
 export function labelCandidate(candidate: object, events: readonly object[]): InboxLabel
 export function needsDecision(label: InboxLabel): boolean
@@ -52,6 +52,8 @@ export interface InboxCandidate {
   ageRange: string
   bestFor: string
   placement?: 'browse' | 'seasonal' | 'drive'
+  /** Extra listing on the active seasonal collection. Home & Browse stays on either way. */
+  includeInSeasonal?: boolean
   description: string
   tips: string
   types: string[]

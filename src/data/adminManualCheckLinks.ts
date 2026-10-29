@@ -138,6 +138,38 @@ export const ADMIN_MANUAL_CHECK_LINKS: AdminManualCheckLink[] = [
     active: true,
     sourceType: 'calendar',
   },
+  {
+    id: 'mommypoppins-bay-area',
+    name: 'Mommy Poppins · Bay Area (roundup)',
+    why: 'Leads only — open the events calendar for a date, then fact-check on the host’s official page.',
+    url: 'https://mommypoppins.com/events/2462/san-francisco-bay-area/all/tag/all/age/all/all/all/type/0/deals/0/near/all',
+    active: true,
+    sourceType: 'calendar',
+  },
+  {
+    id: 'palo-alto-calendar',
+    name: 'Palo Alto city calendar',
+    why: 'Full dated grid — not only Events Directory.',
+    url: 'https://www.paloalto.gov/Home/Calendar',
+    active: true,
+    sourceType: 'calendar',
+  },
+  {
+    id: 'los-altos-community',
+    name: 'Los Altos community events',
+    why: 'City hub for parades, Family Fun Days, and seasonal celebrations.',
+    url: 'https://www.losaltosca.gov/324/Community-Events',
+    active: true,
+    sourceType: 'city-page',
+  },
+  {
+    id: 'downtown-los-altos',
+    name: 'Downtown Los Altos events',
+    why: 'Trick-or-treat and merchant events (skip wine-only listings).',
+    url: 'https://downtownlosaltos.org/events/',
+    active: true,
+    sourceType: 'city-page',
+  },
 ]
 
 /** ISO week of today’s Pacific calendar date, so checks clear when the week changes. */

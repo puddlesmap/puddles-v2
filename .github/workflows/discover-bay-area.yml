@@ -1,22 +1,18 @@
 # Refresh Admin Discovery queue from library calendars (PA + Los Altos + MV).
-# Wednesdays 8:00 AM Pacific: scrape only the discovery windows that are due (0–30 weekly,
-# 31–60 every two weeks, 61–90 monthly). Manual dispatch can force the full 90-day horizon.
-# Verifies due published listings after the scrape. No auto-publish of new events.
-# Same morning as core-city weekend and regional ingest. FIT4MOM stays a reminder in the job log.
+# Sundays 8:00 AM Pacific: 2–3 month look-ahead for Admin → Discovery review (no auto-publish).
+# Manual FIT4MOM schedule check stays a Monday reminder in the job log when run via schedule.
 
 name: Discover bay area libraries
 
 on:
-  schedule:
-    # Wednesdays 15:00 UTC ≈ 8:00 AM Pacific (PDT); 7:00 AM during PST
-    - cron: '0 15 * * 3'
+  # Scheduled pass moved to discover-wednesday.yml (Wednesdays, unified).
   workflow_dispatch:
     inputs:
-      full_horizon:
-        description: 'Scan the full 90-day horizon'
+      days:
+        description: 'Look-ahead window (days) — use 90 for 2–3 months'
         required: false
-        default: false
-        type: boolean
+        default: '90'
+        type: string
 
 permissions:
   contents: write
@@ -41,22 +37,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Choose discovery horizon
-        id: horizon
-        run: |
-          if [ "${{ inputs.full_horizon }}" = "true" ]; then
-            node scripts/plan-discovery-window.mjs --print --full
-          else
-            node scripts/plan-discovery-window.mjs --print
-          fi
-
       - name: Scrape library calendars
-        if: steps.horizon.outputs.days != '0'
-        run: npm run discover:bay-area -- --days=${{ steps.horizon.outputs.days }}
+        run: npm run discover:bay-area -- --days=${{ inputs.days || '90' }}
 
       - name: Scrape Linden Tree Books calendar
-        if: steps.horizon.outputs.days != '0'
-        run: npm run discover:linden-tree -- --days=${{ steps.horizon.outputs.days }}
+        run: npm run discover:linden-tree -- --days=${{ inputs.days || '90' }}
 
       - name: Reminder — Linden Tree weekly check
         if: github.event_name == 'schedule'
@@ -71,24 +56,10 @@ jobs:
       - name: Reminder — core-city weekend web & social search
         if: github.event_name == 'schedule'
         run: |
-          echo "::notice title=Core cities weekend search::This weekend + next (days 0–30): search official calendars and Instagram for Palo Alto / Los Altos / Mountain View / Sunnyvale. If the horizon step also scanned 31–60 or 61–90, include those windows for community events, seasonal outings, and registration-dependent programs. Follow docs/core-cities-weekend-search.md."
+          echo "::notice title=Core cities weekend search::This weekend + next: search official calendars and Instagram for Palo Alto / Los Altos / Mountain View / Sunnyvale. Follow docs/core-cities-weekend-search.md. Paste official URLs into data/discovery/core-cities-weekend-inbox.json and run npm run discover:core-weekend (also Thursday cron)."
 
       - name: Expansion lookahead report
-        if: steps.horizon.outputs.days != '0'
-        run: npm run discover:expansion-lookahead -- --days=${{ steps.horizon.outputs.days }}
-
-      - name: Merge candidates into unified Discovery Inbox
-        run: node scripts/merge-discovery-candidates-into-inbox.mjs
-
-      - name: Record discovery windows
-        if: steps.horizon.outputs.days != '0'
-        run: node scripts/plan-discovery-window.mjs --commit --days=${{ steps.horizon.outputs.days }} --scanned=${{ steps.horizon.outputs.scanned }} --skipped=${{ steps.horizon.outputs.skipped }}
-
-      - name: Verify published listings that are due
-        run: npm run verify:events
-
-      - name: Write weekly discovery summary
-        run: npm run discover:weekly-summary
+        run: npm run discover:expansion-lookahead -- --days=${{ inputs.days || '90' }}
 
       - name: Verify build
         run: npm run build
@@ -97,10 +68,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/discovery-candidates.json src/data/verification-state.json data/verification/latest-run.json data/discovery/agent-inbox.json data/discovery/bay-area-*.json data/discovery/linden-tree-*.json data/discovery/linden-tree-*.csv data/discovery/latest-scrape-meta.json data/discovery/cadence-state.json data/discovery/weekly-summary.md data/discovery/expansion-lookahead-*.json data/calendar-watchlist.json docs/calendar-watchlist-next-2-months.md
+          git add src/data/discovery-candidates.json data/discovery/bay-area-*.json data/discovery/linden-tree-*.json data/discovery/linden-tree-*.csv data/discovery/expansion-lookahead-*.json data/calendar-watchlist.json docs/calendar-watchlist-next-2-months.md
           if git diff --staged --quiet; then
             echo "No discovery changes — skipping commit."
           else
-            git commit -m "chore: refresh discovery queue (bay area + Linden Tree, ${{ steps.horizon.outputs.days }} days)"
+            git commit -m "chore: refresh discovery queue (bay area + Linden Tree, ${{ inputs.days || '90' }} days)"
             git push
           fi

@@ -7,22 +7,20 @@ import {
 } from '../../data/discovery'
 import { getSeasonalCollection } from '../../data/seasonalDiscovery'
 import { AdminDiscoveryTable } from '../../components/admin/AdminDiscoveryTable'
-import { AdminDiscoveryInboxPanel } from '../../components/admin/AdminDiscoveryInboxPanel'
-import { AdminNeedsALook } from '../../components/admin/AdminNeedsALook'
+import { AdminManualCheckList } from '../../components/admin/AdminManualCheckList'
 import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryViewFilter } from '../../types/discovery'
 import { findMatchingEventIdsForCandidate, enrichCandidatesWithSiteVerifiedDates } from '../../utils/discoveryMatchEvents'
 import {
   approveDiscoveryLocally,
   assertDiscoveryAgeInScope,
   ensureAdminEventsCacheSeeded,
-  getAdminEventForPublish,
   loadWriteSheetPreference,
   prepareGoLiveEvents,
   reconcileAdminWithLivedCatalog,
   saveWriteSheetPreference,
 } from '../../utils/discoveryApproveLocal'
-import { removeStagedAdminEvent, stageAdminEvent } from '../../utils/adminPublishQueue'
 import { publishEventsToSite } from '../../utils/publishEvents'
+import { publishSeasonalCurationToSite } from '../../utils/publishSeasonalCuration'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
   applyDiscoveryReviewOverrides,
@@ -35,6 +33,7 @@ import { summarizeDiscoveryThisWeek } from '../../utils/discoveryThisWeek'
 import {
   addToSeasonalSection,
   clearSeasonalThemeStaging,
+  commitSeasonalCurationPublish,
   getActiveThemeSlugForAdmin,
   getEffectiveSeasonalSectionIds,
   moveSeasonalSection,
@@ -177,13 +176,13 @@ async function writeNewDraftToSheet(
 export function AdminDiscoveryPage() {
   const [candidates, setCandidates] = useState<DiscoveryCandidate[]>(() => reloadDiscoveryCandidates())
   const [discoveryMode, setDiscoveryMode] = useState<DiscoveryMode>('regular')
-  const [surface, setSurface] = useState<'inbox' | 'library'>('inbox')
   const [view, setView] = useState<DiscoveryViewFilter>('thisWeek')
   const [search, setSearch] = useState('')
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
   const [bulkBusy, setBulkBusy] = useState(false)
   const [goLiveBusy, setGoLiveBusy] = useState(false)
+  const [publishCurationBusy, setPublishCurationBusy] = useState(false)
   const [writeSheet, setWriteSheet] = useState(() => loadWriteSheetPreference())
   const [actionMessage, setActionMessage] = useState<ActionMessage | null>(null)
   const [curationTick, setCurationTick] = useState(0)
@@ -293,7 +292,7 @@ export function AdminDiscoveryPage() {
       type: 'success',
       text: `Staged “${candidate.title}” for ${
         section === 'closeToHome' ? 'Close to home' : 'Worth a little drive'
-      }. It is included in the Admin Publish summary.`,
+      }. Publish curation to update the site.`,
     })
     setAddQuery('')
   }
@@ -321,6 +320,32 @@ export function AdminDiscoveryPage() {
         to === 'closeToHome' ? 'Close to home' : 'Worth a little drive'
       }.`,
     })
+  }
+
+  async function handlePublishCuration() {
+    setPublishCurationBusy(true)
+    setActionMessage(null)
+    try {
+      const message = await publishSeasonalCurationToSite({
+        themeSlug,
+        collectionEventIds: seasonalSections.closeIds,
+        driveEventIds: seasonalSections.driveIds,
+      })
+      commitSeasonalCurationPublish(
+        themeSlug,
+        seasonalSections.closeIds,
+        seasonalSections.driveIds,
+      )
+      bumpCuration()
+      setActionMessage({ type: 'success', text: message })
+    } catch (error) {
+      setActionMessage({
+        type: 'error',
+        text: error instanceof Error ? error.message : 'Could not publish seasonal curation.',
+      })
+    } finally {
+      setPublishCurationBusy(false)
+    }
   }
 
   function persistCandidate(
@@ -395,8 +420,6 @@ export function AdminDiscoveryPage() {
     try {
       ensureAdminEventsCacheSeeded()
       const local = approveDiscoveryLocally(candidate, payloadEdits, lastChecked)
-      const event = getAdminEventForPublish(local.eventId)
-      if (event) stageAdminEvent(event, 'discovery', candidate.id)
 
       const next = mergeCandidate(candidate, payloadEdits, {
         reviewStatus: 'approved',
@@ -476,8 +499,6 @@ export function AdminDiscoveryPage() {
       try {
         const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
         const local = approveDiscoveryLocally(candidate, payloadEdits, lastChecked)
-        const event = getAdminEventForPublish(local.eventId)
-        if (event) stageAdminEvent(event, 'discovery', candidate.id)
         localEventIds.set(candidate.id, local.eventId)
         const next = mergeCandidate(candidate, payloadEdits, {
           reviewStatus: 'approved',
@@ -500,8 +521,6 @@ export function AdminDiscoveryPage() {
         try {
           const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
           const local = approveDiscoveryLocally(candidate, payloadEdits, lastChecked)
-          const event = getAdminEventForPublish(local.eventId)
-          if (event) stageAdminEvent(event, 'discovery', candidate.id)
           localEventIds.set(candidate.id, local.eventId)
           const next = mergeCandidate(candidate, payloadEdits, {
             reviewStatus: 'approved',
@@ -609,7 +628,6 @@ export function AdminDiscoveryPage() {
   }
 
   function handleDismiss(candidate: DiscoveryCandidate) {
-    removeStagedAdminEvent('discovery', candidate.id)
     const next = { ...candidate, reviewStatus: 'dismissed' as const }
     updateCandidate(candidate.id, () => next)
     persistCandidate(next)
@@ -690,26 +708,6 @@ export function AdminDiscoveryPage() {
 
   return (
     <>
-      <div className="admin-sync-bar" role="tablist" aria-label="Discovery surfaces">
-        <button
-          type="button"
-          className="admin-btn admin-btn-primary"
-          onClick={() => setSurface('inbox')}
-        >
-          Review
-        </button>
-      </div>
-      {surface === 'inbox' ? (
-        <>
-          <AdminNeedsALook />
-          <AdminDiscoveryInboxPanel
-            libraryCandidates={[]}
-            onLibraryChange={refreshCandidatesFromStore}
-          />
-        </>
-      ) : null}
-      {surface === 'library' ? (
-      <div>
       <section className="admin-sync-bar" aria-label="Discovery overview">
         <p className="admin-submissions-intro">
           Review library candidates here. <strong>Approve</strong> → <strong>Ready</strong>, then{' '}
@@ -721,18 +719,17 @@ export function AdminDiscoveryPage() {
           <h2 className="admin-discovery-schedule-note__title">Automation schedule</h2>
           <ul className="admin-discovery-schedule-note__list">
             <li>
-              <strong>Wednesdays @ 8:00 AM PT:</strong> Library queue refresh. New finds stay pending
-              until you Approve and Go live.
-            </li>
-            <li>
-              <strong>Wednesdays @ 8:00 AM PT:</strong> Browser agent files the Discovery Inbox.
-              Worth a little drive rows stay Hidden seasonal — do not Go live into Browse.
+              <strong>Wednesdays @ 8:00 AM PT:</strong> Unified ingest (libraries, Linden, core +
+              regional inboxes, merge). You open the links below first; cron imports what is in the
+              inbox files.
             </li>
           </ul>
           <p className="admin-discovery-schedule-note__foot">
-            Mid-week updates are manual runs.
+            Libraries scrape automatically. City calendars, social, and roundups need you (or chat)
+            first — then Approve → Publish.
           </p>
         </aside>
+        <AdminManualCheckList />
         <label className="admin-discovery-sheet-toggle">
           <input
             type="checkbox"
@@ -985,6 +982,7 @@ export function AdminDiscoveryPage() {
                   <button
                     type="button"
                     className="admin-btn admin-btn-secondary"
+                    disabled={publishCurationBusy}
                     onClick={() => {
                       clearSeasonalThemeStaging(themeSlug)
                       bumpCuration()
@@ -994,6 +992,14 @@ export function AdminDiscoveryPage() {
                     Discard staging
                   </button>
                 ) : null}
+                <button
+                  type="button"
+                  className="admin-btn admin-btn-primary"
+                  disabled={publishCurationBusy || !stagingHasChanges(seasonalSections.staging)}
+                  onClick={() => void handlePublishCuration()}
+                >
+                  {publishCurationBusy ? 'Publishing…' : 'Publish curation'}
+                </button>
               </div>
             </div>
 
@@ -1101,8 +1107,6 @@ export function AdminDiscoveryPage() {
           </div>
         )}
       </section>
-      </div>
-      ) : null}
     </>
   )
 }
