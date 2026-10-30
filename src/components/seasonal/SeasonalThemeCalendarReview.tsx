@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { AdminSeasonalCollectionReview } from '../admin/AdminSeasonalCollectionReview'
 import {
   FALL_GATHERINGS_MOCKUP_PATH,
   formatSeasonalDateRange,
@@ -7,6 +9,7 @@ import {
   SEASONAL_THEME_SCHEDULE,
   seasonalCollectionPath,
   shouldShowSeasonalMockupLink,
+  type SeasonalCollectionSlug,
   type SeasonalThemeScheduleEntry,
   type SeasonalThemeScheduleStatus,
 } from '../../data/seasonalDiscovery'
@@ -37,73 +40,103 @@ function ScheduleRow({
   today,
   todayLabel,
   adminLinks,
+  compact,
+  eventsOpen,
+  onToggleEvents,
 }: {
   entry: SeasonalThemeScheduleEntry
   today: Date
   todayLabel: string
   adminLinks: boolean
+  compact: boolean
+  eventsOpen: boolean
+  onToggleEvents: (slug: SeasonalCollectionSlug) => void
 }) {
   const status = getSeasonalThemeScheduleStatus(entry, new Date(`${todayLabel}T12:00:00`))
   const isHighlighted = status === 'live' || status === 'transition'
   const showMockup = adminLinks && shouldShowSeasonalMockupLink(entry, today)
+  const columnCount = compact ? 4 : 5
 
   return (
-    <tr
-      className={[
-        'seasonal-theme-calendar__row',
-        isHighlighted ? 'seasonal-theme-calendar__row--active' : '',
-      ]
-        .filter(Boolean)
-        .join(' ')}
-    >
-      <td className="seasonal-theme-calendar__cell seasonal-theme-calendar__cell--theme">
-        <div className="seasonal-theme-calendar__theme-cell">
-          <img
-            src={entry.illustrationSrc}
-            alt=""
-            className="seasonal-theme-calendar__illustration"
-            width={40}
-            height={40}
-            decoding="async"
-          />
-          <div>
-            <p className="seasonal-theme-calendar__module-title">{entry.moduleTitle}</p>
-            <p className="seasonal-theme-calendar__eyebrow-label">
-              {entry.emoji} {entry.theme}
-            </p>
-            {entry.slug ? (
-              <Link
-                to={seasonalCollectionPath(entry.slug)}
-                className="seasonal-theme-calendar__collection-link"
-              >
-                {adminLinks ? 'See the public page' : 'View collection →'}
-              </Link>
-            ) : showMockup ? (
-              <Link
-                to={FALL_GATHERINGS_MOCKUP_PATH}
-                className="seasonal-theme-calendar__collection-link"
-              >
-                See mockup
-              </Link>
-            ) : (
-              <span className="seasonal-theme-calendar__collection-link seasonal-theme-calendar__collection-link--muted">
-                Collection not built yet
-              </span>
-            )}
+    <>
+      <tr
+        className={[
+          'seasonal-theme-calendar__row',
+          isHighlighted ? 'seasonal-theme-calendar__row--active' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <td className="seasonal-theme-calendar__cell seasonal-theme-calendar__cell--theme">
+          <div className="seasonal-theme-calendar__theme-cell">
+            <img
+              src={entry.illustrationSrc}
+              alt=""
+              className="seasonal-theme-calendar__illustration"
+              width={40}
+              height={40}
+              decoding="async"
+            />
+            <div>
+              <p className="seasonal-theme-calendar__module-title">{entry.moduleTitle}</p>
+              <p className="seasonal-theme-calendar__eyebrow-label">
+                {entry.emoji} {entry.theme}
+              </p>
+              {entry.slug ? (
+                <div className="seasonal-theme-calendar__links">
+                  <Link
+                    to={seasonalCollectionPath(entry.slug)}
+                    className="seasonal-theme-calendar__collection-link"
+                  >
+                    {adminLinks ? 'See the public page' : 'View collection →'}
+                  </Link>
+                  {adminLinks ? (
+                    <button
+                      type="button"
+                      className="seasonal-theme-calendar__collection-link seasonal-theme-calendar__view-events"
+                      aria-expanded={eventsOpen}
+                      onClick={() => onToggleEvents(entry.slug as SeasonalCollectionSlug)}
+                    >
+                      {eventsOpen ? 'Hide events' : 'View events'}
+                    </button>
+                  ) : null}
+                </div>
+              ) : showMockup ? (
+                <Link
+                  to={FALL_GATHERINGS_MOCKUP_PATH}
+                  className="seasonal-theme-calendar__collection-link"
+                >
+                  See mockup
+                </Link>
+              ) : (
+                <span className="seasonal-theme-calendar__collection-link seasonal-theme-calendar__collection-link--muted">
+                  Collection not built yet
+                </span>
+              )}
+            </div>
           </div>
-        </div>
-      </td>
-      <td className="seasonal-theme-calendar__cell">{entry.timing}</td>
-      <td className="seasonal-theme-calendar__cell seasonal-theme-calendar__cell--dates">
-        {formatSeasonalDateRange(entry.activeFrom, entry.activeUntil)}
-      </td>
-      <td className="seasonal-theme-calendar__cell">
-        <ScheduleStatusBadge status={status} />
-      </td>
-      <td className="seasonal-theme-calendar__cell seasonal-theme-calendar__cell--note">
-        {entry.transitionNote ?? '—'}
-      </td>
-    </tr>
+        </td>
+        <td className="seasonal-theme-calendar__cell">{entry.timing}</td>
+        <td className="seasonal-theme-calendar__cell seasonal-theme-calendar__cell--dates">
+          {formatSeasonalDateRange(entry.activeFrom, entry.activeUntil)}
+        </td>
+        <td className="seasonal-theme-calendar__cell">
+          <ScheduleStatusBadge status={status} />
+        </td>
+        {compact ? null : (
+          <td className="seasonal-theme-calendar__cell seasonal-theme-calendar__cell--note">
+            {entry.transitionNote ?? '—'}
+          </td>
+        )}
+      </tr>
+      {adminLinks && eventsOpen && entry.slug ? (
+        <tr className="seasonal-theme-calendar__events-row">
+          <td className="seasonal-theme-calendar__events" colSpan={columnCount}>
+            <AdminSeasonalCollectionReview slug={entry.slug} />
+          </td>
+        </tr>
+      ) : null}
+    </>
   )
 }
 
@@ -123,6 +156,11 @@ export function SeasonalThemeCalendarReview({
 }: SeasonalThemeCalendarReviewProps) {
   const todayLabel = today.toISOString().slice(0, 10)
   const liveEntries = getLiveSeasonalThemeScheduleEntries(today)
+  const [openSlug, setOpenSlug] = useState<SeasonalCollectionSlug | null>(null)
+
+  function toggleEvents(slug: SeasonalCollectionSlug) {
+    setOpenSlug((current) => (current === slug ? null : slug))
+  }
 
   return (
     <section className="seasonal-theme-calendar" aria-labelledby="seasonal-theme-calendar-heading">
@@ -200,6 +238,9 @@ export function SeasonalThemeCalendarReview({
                 today={today}
                 todayLabel={todayLabel}
                 adminLinks={adminLinks}
+                compact={compact}
+                eventsOpen={entry.slug != null && openSlug === entry.slug}
+                onToggleEvents={toggleEvents}
               />
             ))}
           </tbody>

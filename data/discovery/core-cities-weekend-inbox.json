@@ -1,6 +1,6 @@
 {
   "description": "Core-city weekend leads (web / Instagram / Facebook) for Palo Alto · Los Altos · Mountain View · Sunnyvale. Add rows here; run npm run discover:core-weekend to queue them in Admin Discovery. eventUrl must be the official host page (Instagram post OK when that is the announcement).",
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-10-30",
   "leads": [
     {
       "id": "core-weekend-gamble-second-saturday-2026-09-12",
@@ -343,6 +343,32 @@
       "processed": true,
       "processedAt": "2026-10-29",
       "queuedId": "core-weekend-pa-halloween-family-storytime-2026-10-31"
+    },
+    {
+      "id": "core-weekend-moah-halloween-night-2026-10-31",
+      "title": "Halloween Night at the Museum",
+      "date": "2026-10-31",
+      "startTime": "17:00",
+      "endTime": "21:00",
+      "venue": "Museum of American Heritage",
+      "address": "351 Homer Avenue, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4445217,
+      "lng": -122.1574343,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Festivals & Community"
+      ],
+      "cost": "Free",
+      "description": "Free family evening with Halloween candy, a flashlight ghost hunt, artifacts, and a mad scientist demo.",
+      "tips": "ticket|Free. RSVP on the official page.\ninfo|Costumes welcome. Flashlight ghost hunt, Halloween candy, artifacts, and a mad scientist demo. Tarot readings are also offered.",
+      "imageUrl": "https://static1.squarespace.com/static/6585c8452396d55e5a7b989d/67d5234d42eb7719a168e3ea/6abefa72181f8e06d10dd273/1792085073552/stereoscopic-ghost-photo.webp?format=1500w",
+      "eventUrl": "https://www.moah.org/moahevents/halloween-night-at-the-museum-1",
+      "leadSource": "web",
+      "leadNotes": "Official MOAH page checked 2026-10-30. Free family fun: candy, flashlight ghost hunt, artifacts, mad scientist demo. Tarot readings are also listed and are not the reason for little ones. Evening ends at 9 PM. Pending review only — do not approve from this note.",
+      "processed": true,
+      "processedAt": "2026-10-30",
+      "queuedId": "core-weekend-moah-halloween-night-2026-10-31"
     }
   ]
 }

@@ -15,9 +15,17 @@ function adminEventPool(): Event[] {
   return resolveAdminEventsSource(ALL_EVENTS, SYNC_META.syncedAt).events
 }
 
+/**
+ * Pending discovery rows are copied into the catalog as Hidden previews
+ * (same id, for the launch-review page). Those copies are not on the public site.
+ */
+function isSyntheticDiscoveryPreview(event: Event, candidate: DiscoveryCandidate): boolean {
+  return event.status === 'Hidden' && event.id === candidate.id
+}
+
 /** Matching Events rows for a Discovery candidate (by converted id, then URL + date). */
 export function findMatchingEventsForCandidate(candidate: DiscoveryCandidate): Event[] {
-  const events = adminEventPool()
+  const events = adminEventPool().filter((event) => !isSyntheticDiscoveryPreview(event, candidate))
 
   if (candidate.convertedEventId?.trim()) {
     const id = candidate.convertedEventId.trim()

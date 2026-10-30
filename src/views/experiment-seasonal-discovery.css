@@ -1150,6 +1150,13 @@
   color: var(--color-muted);
 }
 
+.seasonal-theme-calendar__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  margin-top: 0.35rem;
+}
+
 .seasonal-theme-calendar__collection-link {
   display: inline-block;
   margin-top: 0.35rem;
@@ -1157,6 +1164,27 @@
   font-weight: 600;
   color: var(--color-brand-dark, #4db8f2);
   text-decoration: none;
+}
+
+.seasonal-theme-calendar__links .seasonal-theme-calendar__collection-link {
+  margin-top: 0;
+}
+
+.seasonal-theme-calendar__view-events {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.seasonal-theme-calendar__events {
+  padding: 0.25rem 0.75rem 1rem;
+  background: #faf9f7;
+}
+
+.seasonal-theme-calendar__events .admin-seasonal-review {
+  margin-top: 0;
 }
 
 .seasonal-theme-calendar__collection-link:hover {

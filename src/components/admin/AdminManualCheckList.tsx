@@ -47,13 +47,17 @@ export function AdminManualCheckList() {
 
   return (
     <section className="admin-needs-attention admin-manual-checks" aria-labelledby="admin-manual-checks-title">
-      <h2 id="admin-manual-checks-title">Open these this week</h2>
-      <p className="admin-review-flag__evidence">
-        {looked} of {ADMIN_MANUAL_CHECK_LINKS.length} looked. GitHub does not open these pages. Check
-        the box after you look. A new date or a new event still needs a note in chat — the box does
-        not add it.
-      </p>
-      <ul className="admin-needs-attention__list">
+      <details className="admin-manual-checks__details">
+        <summary className="admin-manual-checks__summary">
+          <h2 id="admin-manual-checks-title">
+            Open these this week · {looked} of {ADMIN_MANUAL_CHECK_LINKS.length} looked
+          </h2>
+        </summary>
+        <p className="admin-review-flag__evidence">
+          GitHub does not open these pages. Check the box after you look. A new date or a new event
+          still needs a note in chat — the box does not add it.
+        </p>
+        <ul className="admin-needs-attention__list">
         {ADMIN_MANUAL_CHECK_LINKS.map((link) => {
           const isLooked = Boolean(checked[link.id])
           return (
@@ -83,7 +87,8 @@ export function AdminManualCheckList() {
             </li>
           )
         })}
-      </ul>
+        </ul>
+      </details>
     </section>
   )
 }

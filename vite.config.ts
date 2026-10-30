@@ -138,6 +138,75 @@ export default defineConfig(({ mode }) => {
             sendJson(res, 200, { ok: true }, { 'Set-Cookie': sessionCookieHeader(token, event) })
           })
 
+          server.middlewares.use('/api/admin/event-images', async (req, res) => {
+            if (req.method !== 'POST') {
+              sendJson(res, 405, { ok: false, error: 'Method not allowed' })
+              return
+            }
+            let body: { sourceUrls?: string[] }
+            try {
+              body = JSON.parse(await readBody(req))
+            } catch {
+              sendJson(res, 400, { ok: false, error: 'Invalid JSON body' })
+              return
+            }
+            const sourceUrl = String(body.sourceUrls?.[0] ?? '').trim()
+            if (!/^https?:\/\//i.test(sourceUrl)) {
+              sendJson(res, 400, { ok: false, error: 'Add an official event URL.' })
+              return
+            }
+            try {
+              const response = await fetch(sourceUrl, {
+                headers: { 'User-Agent': 'Puddles image review/1.0' },
+                signal: AbortSignal.timeout(8000),
+              })
+              if (!response.ok) {
+                sendJson(res, 200, { ok: true, candidates: [], errors: [`Official source returned ${response.status}.`] })
+                return
+              }
+              const html = (await response.text()).slice(0, 1_500_000)
+              const pageUrl = new URL(response.url || sourceUrl)
+              const seen = new Set<string>()
+              const candidates: Array<{ imageUrl: string; reason: string }> = []
+              function addPhoto(raw: string, reason: string) {
+                if (candidates.length >= 3 || !raw) return
+                let imageUrl: string
+                try {
+                  imageUrl = new URL(raw.replaceAll('&amp;', '&'), pageUrl).href
+                } catch {
+                  return
+                }
+                if (!/^https?:\/\//i.test(imageUrl) || seen.has(imageUrl)) return
+                if (/\.(?:svg|gif)(?:$|[?#])/i.test(imageUrl)) return
+                if (/(favicon|sprite|logo|icon|avatar|pixel|placeholder|spinner|transparent|all-white|wordmark|lockup|brand|badge)/i.test(imageUrl)) return
+                const sized = imageUrl.match(/-(\d+)x(\d+)\.(?:jpe?g|png|webp)(?:$|[?#])/i)
+                if (sized && (Number(sized[1]) < 240 || Number(sized[2]) < 180)) return
+                seen.add(imageUrl)
+                candidates.push({ imageUrl, reason })
+              }
+              for (const tag of html.match(/<meta\b[^>]*>/gi) || []) {
+                const key = (tag.match(/\b(?:property|name)\s*=\s*["']([^"']+)["']/i)?.[1] || '').toLowerCase()
+                const content = tag.match(/\bcontent\s*=\s*["']([^"']+)["']/i)?.[1] || ''
+                if (['og:image', 'og:image:url', 'twitter:image', 'twitter:image:src'].includes(key)) {
+                  addPhoto(content, key.startsWith('og:') ? 'Official page featured image' : 'Official page social image')
+                }
+              }
+              for (const tag of html.match(/<img\b[^>]*>/gi) || []) {
+                const src = tag.match(/\b(?:data-src|data-lazy-src|src)\s*=\s*["']([^"']+)["']/i)?.[1] || ''
+                const width = Number(tag.match(/\bwidth\s*=\s*["']?(\d+)/i)?.[1] || 0)
+                if (width && width < 200) continue
+                addPhoto(src, 'Photo on the official page')
+              }
+              sendJson(res, 200, { ok: true, candidates, errors: [] })
+            } catch (error) {
+              sendJson(res, 200, {
+                ok: true,
+                candidates: [],
+                errors: [error instanceof Error ? error.message : 'Could not inspect the official page.'],
+              })
+            }
+          })
+
           server.middlewares.use('/api/sheet-csv', async (req, res) => {
             const event = mockEvent(req)
             if (isAdminAuthEnabled() && !hasAdminSession(event)) {

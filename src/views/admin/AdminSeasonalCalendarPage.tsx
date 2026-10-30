@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { AdminSeasonalCollectionReview } from '../../components/admin/AdminSeasonalCollectionReview'
 import { SeasonalThemeCalendarReview } from '../../components/seasonal/SeasonalThemeCalendarReview'
 import { getLiveSeasonalThemeScheduleEntries } from '../../data/seasonalDiscovery'
 
@@ -36,9 +35,6 @@ export function AdminSeasonalCalendarPage() {
           No seasonal module is scheduled for today.
         </p>
       )}
-
-      <AdminSeasonalCollectionReview slug="hello-fall" />
-      <AdminSeasonalCollectionReview slug="halloween-with-little-ones" />
 
       <SeasonalThemeCalendarReview adminLinks />
 

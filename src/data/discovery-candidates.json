@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T23:52:04.412Z",
+  "generatedAt": "2026-10-30T19:20:17.495Z",
   "libraries": [
     "linden-tree"
   ],
@@ -2895,6 +2895,42 @@
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": "2026-10-29"
+    },
+    {
+      "id": "core-weekend-moah-halloween-night-2026-10-31",
+      "title": "Halloween Night at the Museum",
+      "date": "2026-10-31",
+      "startTime": "17:00",
+      "endTime": "21:00",
+      "venue": "Museum of American Heritage",
+      "room": "",
+      "address": "351 Homer Avenue, Palo Alto, CA 94301",
+      "city": "Palo Alto",
+      "lat": 37.4445217,
+      "lng": -122.1574343,
+      "ageRange": "All ages · Little ones welcome",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "",
+      "types": [
+        "Festivals & Community"
+      ],
+      "categoryTags": [
+        "Weekend search"
+      ],
+      "cost": "Free",
+      "description": "Free family evening with Halloween candy, a flashlight ghost hunt, artifacts, and a mad scientist demo.",
+      "tips": "ticket|Free. RSVP on the official page.\ninfo|Costumes welcome. Flashlight ghost hunt, Halloween candy, artifacts, and a mad scientist demo. Tarot readings are also offered.",
+      "imageUrl": "https://static1.squarespace.com/static/6585c8452396d55e5a7b989d/67d5234d42eb7719a168e3ea/6abefa72181f8e06d10dd273/1792085073552/stereoscopic-ghost-photo.webp?format=1500w",
+      "eventUrl": "https://www.moah.org/moahevents/halloween-night-at-the-museum-1",
+      "source": "Core cities · Weekend search · web",
+      "watchlistSourceId": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "alreadyOnPuddles": false,
+      "reviewStatus": "pending",
+      "convertedEventId": "",
+      "lastChecked": "2026-10-30"
     },
     {
       "id": "watchlist-linden-2026-11-01-1030-storytime-with-julia-moss-wanderers",
@@ -7819,6 +7855,7 @@
   ],
   "sources": [
     "Core cities · Weekend search · agent",
+    "Core cities · Weekend search · web",
     "Regional · Lead · agent"
   ]
 }
