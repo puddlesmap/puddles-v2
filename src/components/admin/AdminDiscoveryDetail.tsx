@@ -1,25 +1,13 @@
-import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useState, type ReactNode } from 'react'
+import { getEventHostImageUrl } from '../../data/eventHostImages'
 import type { DiscoveryCandidate, DiscoveryEditableFields } from '../../types/discovery'
-import type { TipSuggestion } from '../../types/tipKnowledge'
-import { ACTIVITY_TYPES } from '../../types/event'
-import {
-  discoveryImageCacheKey,
-  isIrrelevantEventImageUrl,
-} from '../../utils/eventImageDiscovery'
+import { ACTIVITY_TYPES, type ActivityType } from '../../types/event'
+import { EVENT_FALLBACK_IMAGES } from '../../utils/eventImages'
+import { BeforeYouGoTipItems } from '../event-detail/BeforeYouGoIcon'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
 import { latestApprovedOnForCandidate } from '../../utils/discoveryMatchEvents'
 import { editableFieldsFromCandidate } from '../../utils/discoveryReview'
-import { otherCityDestinationWarning } from '../../utils/discoveryApproveLocal'
-import { parentTipWarnings, stripInternalNotesForPublish } from '../../utils/discoveryInternalNotes'
 import { parseEventTips } from '../../utils/eventTips'
-import {
-  appendTipLine,
-  composeTipSuggestions,
-  removeTipLineByText,
-} from '../../utils/tipKnowledgeCompose'
-import { loadFactsWithOverrides } from '../../utils/tipKnowledgeBrowserStore'
-import { BeforeYouGoTipItems } from '../event-detail/BeforeYouGoIcon'
-import { AdminTipKnowledgePanel } from './AdminTipKnowledgePanel'
 import { DetailSection } from './AdminDetailGrid'
 
 const ACTIVITY_TYPE_OPTIONS = ACTIVITY_TYPES
@@ -29,10 +17,31 @@ type ImagePick = {
   label: string
 }
 
-const imageDiscoveryCache = new Map<string, ImagePick[]>()
+function primaryActivityType(types: string[]): ActivityType {
+  return types.find((type): type is ActivityType => ACTIVITY_TYPES.includes(type as ActivityType)) ?? 'Other'
+}
+
+function isClayFallback(url: string): boolean {
+  return url.startsWith('/event-fallbacks/')
+}
+
+function isUsefulPhoto(url: string): boolean {
+  if (/(favicon|sprite|logo|icon|avatar|pixel|placeholder|spinner|transparent|all-white|wordmark|lockup|brand|badge)/i.test(url)) {
+    return false
+  }
+  const sized = url.match(/-(\d+)x(\d+)\.(?:jpe?g|png|webp)(?:$|[?#])/i)
+  if (sized && (Number(sized[1]) < 240 || Number(sized[2]) < 180)) return false
+  return true
+}
 
 function photoKey(url: string): string {
   return url.replace(/-\d+x\d+(?=\.(?:jpe?g|png|webp))/i, '').split('?')[0]
+}
+
+function hostImagePick(venue: string): ImagePick | null {
+  const hostImage = getEventHostImageUrl(venue)
+  if (!hostImage) return null
+  return { url: hostImage, label: `Host photo · ${venue}` }
 }
 
 interface AdminDiscoveryDetailProps {
@@ -40,6 +49,7 @@ interface AdminDiscoveryDetailProps {
   busy: boolean
   onSaveEdits: (edits: DiscoveryEditableFields) => void
   onApprove: (edits: DiscoveryEditableFields) => void
+  onGoLive: () => void
   onDismiss: () => void
   onRestore: () => void
 }
@@ -64,6 +74,7 @@ export function AdminDiscoveryDetailPanel({
   busy,
   onSaveEdits,
   onApprove,
+  onGoLive,
   onDismiss,
   onRestore,
 }: AdminDiscoveryDetailProps) {
@@ -90,87 +101,20 @@ export function AdminDiscoveryDetailPanel({
   }
 
   const canApprove = candidate.reviewStatus === 'pending'
+  const canGoLive = candidate.reviewStatus === 'approved'
   const approveDisabled = busy || !canApprove || !draft.title.trim() || !draft.date.trim()
   const approvedOnDisplay = latestApprovedOnForCandidate({ ...candidate, ...draft })
-  const tipWarnings = useMemo(() => parentTipWarnings(draft.tips), [draft.tips])
-  const cityWarning = useMemo(
-    () => otherCityDestinationWarning(candidate, draft),
-    [candidate, draft],
-  )
-  const tipLines = useMemo(
-    () => parseEventTips(stripInternalNotesForPublish(draft.tips)),
-    [draft.tips],
-  )
-  const knowledge = useMemo(
-    () =>
-      composeTipSuggestions(
-        {
-          title: draft.title,
-          venue: draft.venue,
-          city: draft.city,
-          description: draft.description,
-          tips: draft.tips,
-          eventUrl: draft.eventUrl,
-          eventId: candidate.id,
-        },
-        { facts: loadFactsWithOverrides() },
-      ),
-    [
-      draft.title,
-      draft.venue,
-      draft.city,
-      draft.description,
-      draft.tips,
-      draft.eventUrl,
-      candidate.id,
-    ],
-  )
-  const imageUrl = (draft.imageUrl ?? '').trim()
+  const imageUrl = draft.imageUrl.trim()
+  const tipLines = parseEventTips(draft.tips)
+  const activityType = primaryActivityType(draft.types)
+  const clayImage = EVENT_FALLBACK_IMAGES[activityType]
   const [officialPicks, setOfficialPicks] = useState<ImagePick[]>([])
   const [lookingForImage, setLookingForImage] = useState(false)
 
-  function acceptKnowledgeTip(suggestion: TipSuggestion) {
-    setDraft((current) => ({
-      ...current,
-      tips: appendTipLine(current.tips, suggestion.prefixedLine),
-    }))
-  }
-
-  function removeKnowledgeTip(suggestion: TipSuggestion) {
-    setDraft((current) => ({
-      ...current,
-      tips: removeTipLineByText(current.tips, suggestion.text),
-    }))
-  }
-
-  function acceptAllSafeTips() {
-    setDraft((current) => {
-      let tips = current.tips
-      for (const suggestion of knowledge.suggestions) {
-        if (!suggestion.reuseSafe || suggestion.stale) continue
-        tips = appendTipLine(tips, suggestion.prefixedLine)
-      }
-      return { ...current, tips }
-    })
-  }
-
   useEffect(() => {
     const sourceUrl = candidate.eventUrl.trim()
-    // Preserve any manually chosen / already-saved image — do not rediscover over it.
     if (imageUrl || !/^https?:\/\//i.test(sourceUrl)) {
       setOfficialPicks([])
-      setLookingForImage(false)
-      return
-    }
-
-    const cacheKey = discoveryImageCacheKey(sourceUrl, {
-      title: draft.title,
-      venue: draft.venue,
-      types: draft.types,
-    })
-    const cached = imageDiscoveryCache.get(cacheKey)
-    if (cached) {
-      setOfficialPicks(cached)
       setLookingForImage(false)
       return
     }
@@ -183,18 +127,12 @@ export function AdminDiscoveryDetailPanel({
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        sourceUrls: [sourceUrl],
-        title: draft.title,
-        description: draft.description,
-        venue: draft.venue,
-        types: draft.types,
-      }),
+      body: JSON.stringify({ sourceUrls: [sourceUrl] }),
     })
       .then(async (response) => {
         const data = (await response.json()) as {
           ok?: boolean
-          candidates?: Array<{ imageUrl?: string; reason?: string; sourceLabel?: string }>
+          candidates?: Array<{ imageUrl?: string; reason?: string }>
           error?: string
         }
         if (!response.ok || data.ok === false) {
@@ -203,20 +141,17 @@ export function AdminDiscoveryDetailPanel({
         return (data.candidates ?? [])
           .map((item) => ({
             url: String(item.imageUrl ?? '').trim(),
-            label: [item.reason?.trim(), item.sourceLabel?.trim()].filter(Boolean).join(' · ') || 'Official page',
+            label: item.reason?.trim() || 'Official page',
           }))
-          .filter((item) => item.url.length > 0 && !isIrrelevantEventImageUrl(item.url))
+          .filter((item) => item.url.length > 0 && isUsefulPhoto(item.url))
           .filter((item, index, all) => all.findIndex((other) => photoKey(other.url) === photoKey(item.url)) === index)
-          .slice(0, 3)
       })
       .then((picks) => {
         if (cancelled) return
-        imageDiscoveryCache.set(cacheKey, picks)
-        setOfficialPicks(picks)
+        setOfficialPicks(picks.slice(0, 3))
       })
       .catch(() => {
         if (cancelled) return
-        imageDiscoveryCache.set(cacheKey, [])
         setOfficialPicks([])
       })
       .finally(() => {
@@ -226,18 +161,14 @@ export function AdminDiscoveryDetailPanel({
     return () => {
       cancelled = true
     }
-  }, [
-    candidate.id,
-    candidate.eventUrl,
-    draft.title,
-    draft.description,
-    draft.venue,
-    draft.types,
-    imageUrl,
-  ])
+  }, [candidate.id, candidate.eventUrl, imageUrl])
 
-  // Recommendations only — never pad with host/stock. Empty → clay fallback on public site.
-  const imageChoices = imageUrl ? [] : officialPicks
+  const hostPick = hostImagePick(draft.venue)
+  const imageChoices = imageUrl
+    ? []
+    : [...officialPicks, ...(hostPick ? [hostPick] : [])]
+        .filter((pick, index, all) => all.findIndex((item) => item.url === pick.url) === index)
+        .slice(0, 3)
   const showImagePicker = !lookingForImage && imageChoices.length > 1
 
   return (
@@ -257,11 +188,6 @@ export function AdminDiscoveryDetailPanel({
           <span className="text-sm text-muted">Approved on {approvedOnDisplay}</span>
         ) : null}
       </div>
-      {cityWarning ? (
-        <div className="admin-discovery-tip-warnings" role="status">
-          <p>{cityWarning}</p>
-        </div>
-      ) : null}
 
       <div className="admin-discovery-detail-layout">
       <DetailSection title="Edit before approve">
@@ -384,55 +310,16 @@ export function AdminDiscoveryDetailPanel({
               disabled={busy}
             />
           </Field>
-          <Field label="Internal review notes (Admin only — not published)">
-            <textarea
-              className="admin-discovery-input admin-discovery-textarea admin-discovery-input--internal"
-              rows={3}
-              value={draft.internalReviewNotes ?? ''}
-              onChange={(e) => update('internalReviewNotes', e.target.value)}
-              disabled={busy}
-              placeholder="Verify pricing on official page · one row per series · editorial reminders…"
-            />
-          </Field>
-          <Field label="Good to know (parents see this on Puddles)">
+          <Field label="Good to know (tips)">
             <textarea
               className="admin-discovery-input admin-discovery-textarea"
               rows={3}
               value={draft.tips}
               onChange={(e) => update('tips', e.target.value)}
               disabled={busy}
-              placeholder="Advance registration required · strollers welcome · what to bring…"
+              placeholder="Bring a blanket… registration notes…"
             />
           </Field>
-          {knowledge.suggestions.some((s) => s.reuseSafe && !s.stale) ? (
-            <div className="admin-tip-knowledge__accept-all">
-              <button
-                type="button"
-                className="admin-btn admin-btn-secondary"
-                disabled={busy}
-                onClick={acceptAllSafeTips}
-              >
-                Accept all safe library tips
-              </button>
-            </div>
-          ) : null}
-          {tipWarnings.length > 0 ? (
-            <div className="admin-discovery-tip-warnings" role="status">
-              {tipWarnings.map((warning) => (
-                <p key={warning}>{warning}</p>
-              ))}
-            </div>
-          ) : null}
-          <AdminTipKnowledgePanel
-            eventId={candidate.id}
-            suggestions={knowledge.suggestions}
-            needsReview={knowledge.needsReview}
-            venueId={knowledge.venueId}
-            programId={knowledge.programId}
-            busy={busy}
-            onAccept={acceptKnowledgeTip}
-            onRemoveFromTips={removeKnowledgeTip}
-          />
           <Field label="Official URL">
             <input
               className="admin-discovery-input"
@@ -449,45 +336,6 @@ export function AdminDiscoveryDetailPanel({
               disabled={busy}
             />
           </Field>
-          {!imageUrl && lookingForImage ? (
-            <p className="admin-discovery-parent-preview__empty">Looking on the official page for photos…</p>
-          ) : null}
-          {showImagePicker ? (
-            <div className="admin-discovery-image-picks">
-              <p className="admin-discovery-image-picks__note">
-                {imageChoices.length} relevant photos from the official page. Pick one, then save edits.
-              </p>
-              <ul className="admin-discovery-image-picks__list">
-                {imageChoices.map((pick) => (
-                  <li key={pick.url} className="admin-discovery-image-picks__item">
-                    <img src={pick.url} alt="" />
-                    <span>{pick.label}</span>
-                    <button
-                      type="button"
-                      className="admin-btn admin-btn-secondary"
-                      disabled={busy}
-                      onClick={() => update('imageUrl', pick.url)}
-                    >
-                      Use this
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-          {!imageUrl && !lookingForImage && imageChoices.length === 1 ? (
-            <div className="admin-discovery-image-picks">
-              <p className="admin-discovery-image-picks__note">{imageChoices[0].label}</p>
-              <button
-                type="button"
-                className="admin-btn admin-btn-secondary"
-                disabled={busy}
-                onClick={() => update('imageUrl', imageChoices[0].url)}
-              >
-                Use suggested photo
-              </button>
-            </div>
-          ) : null}
           {candidate.reviewStatus === 'live' && approvedOnDisplay ? (
             <p className="text-sm text-muted">
               <strong>Live on the public site</strong> (Approved on {approvedOnDisplay}). Check Events
@@ -495,19 +343,19 @@ export function AdminDiscoveryDetailPanel({
             </p>
           ) : candidate.reviewStatus === 'approved' && approvedOnDisplay ? (
             <p className="text-sm text-muted">
-              <strong>Approved on {approvedOnDisplay}</strong> — in header <strong>Publish</strong>.
-              Edit on <strong>Approved</strong> nav before you publish (~2–4 min).
+              <strong>Ready — Approved on {approvedOnDisplay}</strong>. Click <strong>Go live</strong>{' '}
+              to publish on the public site (~2–4 min).
             </p>
           ) : candidate.alreadyOnPuddles ? (
             <p className="text-sm text-muted">
               Already on Puddles
               {approvedOnDisplay ? ` (last verified ${approvedOnDisplay})` : ''}.{' '}
-              <strong>Approve</strong> updates Last checked to <em>today</em> and adds the row to
-              header <strong>Publish</strong>.
+              <strong>Approve</strong> updates Last checked to <em>today</em>, then{' '}
+              <strong>Go live</strong> refreshes the public catalog.
             </p>
           ) : (
             <p className="text-sm text-muted">
-              <strong>Approve</strong> adds this row to header <strong>Publish</strong> for the public
+              <strong>Approve</strong> marks Ready. <strong>Go live</strong> publishes to the public
               site.
             </p>
           )}
@@ -515,37 +363,80 @@ export function AdminDiscoveryDetailPanel({
       </DetailSection>
 
       <aside className="admin-discovery-parent-preview" aria-label="Parent view">
-        <p className="admin-discovery-parent-preview__kicker">Parent preview</p>
         {imageUrl ? (
-          <img className="admin-discovery-parent-preview__image" src={imageUrl} alt="" />
-        ) : lookingForImage ? (
-          <p className="admin-discovery-parent-preview__empty">Looking on the official page…</p>
-        ) : imageChoices.length === 1 ? (
           <img
-            className="admin-discovery-parent-preview__image"
-            src={imageChoices[0].url}
+            className={[
+              'admin-discovery-parent-preview__image',
+              isClayFallback(imageUrl) ? 'admin-discovery-parent-preview__image--fallback' : '',
+            ]
+              .filter(Boolean)
+              .join(' ')}
+            src={imageUrl}
             alt=""
           />
+        ) : lookingForImage ? (
+          <p className="admin-discovery-parent-preview__empty">Looking on the official page…</p>
+        ) : showImagePicker ? (
+          <div className="admin-discovery-image-picks">
+            <p className="admin-discovery-image-picks__note">
+              {imageChoices.length} photos. Pick one, then save edits.
+            </p>
+            <ul className="admin-discovery-image-picks__list">
+              {imageChoices.map((pick) => (
+                <li key={pick.url} className="admin-discovery-image-picks__item">
+                  <img src={pick.url} alt="" />
+                  <span>{pick.label}</span>
+                  <button
+                    type="button"
+                    className="admin-btn admin-btn-secondary"
+                    disabled={busy}
+                    onClick={() => update('imageUrl', pick.url)}
+                  >
+                    Use this
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : imageChoices.length === 1 ? (
+          <div className="admin-discovery-image-picks">
+            <img
+              className="admin-discovery-parent-preview__image"
+              src={imageChoices[0].url}
+              alt=""
+            />
+            <p className="admin-discovery-image-picks__note">{imageChoices[0].label}</p>
+            <button
+              type="button"
+              className="admin-btn admin-btn-secondary"
+              disabled={busy}
+              onClick={() => update('imageUrl', imageChoices[0].url)}
+            >
+              Use this
+            </button>
+          </div>
         ) : (
-          <p className="admin-discovery-parent-preview__empty">
-            No event photo yet — Puddles default image will be used.
-          </p>
+          <div className="admin-discovery-image-picks">
+            <img
+              className="admin-discovery-parent-preview__image admin-discovery-parent-preview__image--fallback"
+              src={clayImage}
+              alt=""
+            />
+            <p className="admin-discovery-image-picks__note">
+              Puddles clay · {activityType}. This is the card image. Nothing else to choose.
+            </p>
+          </div>
         )}
-        {tipLines.length > 0 ? (
-          <section
-            className="event-detail-tips"
-            aria-labelledby={`discovery-tips-${candidate.id}`}
-          >
-            <h2 id={`discovery-tips-${candidate.id}`} className="event-detail-tips-label">
-              Before you go
-            </h2>
+        <div className="admin-review-card__tips-preview">
+          <span>Good to know</span>
+          {tipLines.length > 0 ? (
             <ul className="event-detail-tips-list">
               <BeforeYouGoTipItems items={tipLines} />
             </ul>
-          </section>
-        ) : (
-          <p className="admin-discovery-parent-preview__empty">No Before you go yet.</p>
-        )}
+          ) : (
+            <p>No Good to know yet.</p>
+          )}
+        </div>
       </aside>
       </div>
 
@@ -584,14 +475,24 @@ export function AdminDiscoveryDetailPanel({
             </button>
           </Fragment>
         ) : null}
-        {candidate.reviewStatus === 'dismissed' || candidate.reviewStatus === 'approved' ? (
+        {canGoLive ? (
+          <button
+            type="button"
+            className="admin-btn admin-btn-primary"
+            disabled={busy}
+            onClick={onGoLive}
+          >
+            {busy ? 'Going live…' : 'Go live'}
+          </button>
+        ) : null}
+        {!canApprove && !canGoLive ? (
           <button
             type="button"
             className="admin-btn admin-btn-secondary"
             disabled={busy}
             onClick={onRestore}
           >
-            {candidate.reviewStatus === 'approved' ? 'Back to pending' : 'Restore to pending'}
+            Restore to pending
           </button>
         ) : null}
         {candidate.eventUrl ? (

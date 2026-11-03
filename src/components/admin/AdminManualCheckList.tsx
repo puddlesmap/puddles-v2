@@ -21,14 +21,10 @@ function readChecked(storageKey: string): Record<string, boolean> {
   }
 }
 
-const OPEN_ALL_STAGGER_MS = 200
-
 export function AdminManualCheckList() {
   const weekKey = pacificIsoWeekKey()
   const storageKey = storageKeyForWeek(weekKey)
   const [checked, setChecked] = useState<Record<string, boolean>>({})
-  const [openAllNote, setOpenAllNote] = useState('')
-  const [openingAll, setOpeningAll] = useState(false)
 
   useEffect(() => {
     setChecked(readChecked(storageKey))
@@ -47,34 +43,6 @@ export function AdminManualCheckList() {
     })
   }
 
-  async function openAllThisWeek() {
-    setOpenAllNote('')
-    setOpeningAll(true)
-    const urls = ADMIN_MANUAL_CHECK_LINKS.map((link) => link.url.trim()).filter((url) =>
-      /^https?:\/\//i.test(url),
-    )
-    let opened = 0
-    let blocked = 0
-    for (let index = 0; index < urls.length; index += 1) {
-      const handle = window.open(urls[index], '_blank', 'noopener,noreferrer')
-      if (handle) opened += 1
-      else blocked += 1
-      if (index < urls.length - 1) {
-        await new Promise((resolve) => setTimeout(resolve, OPEN_ALL_STAGGER_MS))
-      }
-    }
-    setOpeningAll(false)
-    if (blocked > 0) {
-      setOpenAllNote(
-        opened > 0
-          ? `Opened ${opened}. ${blocked} blocked — allow pop-ups for this site, then try again.`
-          : 'Pop-ups were blocked. Allow pop-ups for this site, then try Open all again.',
-      )
-    } else {
-      setOpenAllNote(`Opened ${opened} tabs. Check the boxes after you look — this does not mark them looked.`)
-    }
-  }
-
   const looked = ADMIN_MANUAL_CHECK_LINKS.filter((link) => checked[link.id]).length
 
   return (
@@ -85,25 +53,10 @@ export function AdminManualCheckList() {
             Open these this week · {looked} of {ADMIN_MANUAL_CHECK_LINKS.length} looked
           </h2>
         </summary>
-        <div className="admin-manual-checks__toolbar">
-          <p className="admin-review-flag__evidence">
-            GitHub does not open these pages. Check the box after you look. A new date or a new event
-            still needs a note in chat — the box does not add it.
-          </p>
-          <button
-            type="button"
-            className="admin-btn admin-btn-secondary"
-            disabled={openingAll}
-            onClick={() => void openAllThisWeek()}
-          >
-            {openingAll ? 'Opening…' : 'Open all this week'}
-          </button>
-        </div>
-        {openAllNote ? (
-          <p className="admin-manual-checks__open-note" role="status">
-            {openAllNote}
-          </p>
-        ) : null}
+        <p className="admin-review-flag__evidence">
+          GitHub does not open these pages. Check the box after you look. A new date or a new event
+          still needs a note in chat — the box does not add it.
+        </p>
         <ul className="admin-needs-attention__list">
         {ADMIN_MANUAL_CHECK_LINKS.map((link) => {
           const isLooked = Boolean(checked[link.id])
@@ -134,7 +87,7 @@ export function AdminManualCheckList() {
             </li>
           )
         })}
-      </ul>
+        </ul>
       </details>
     </section>
   )

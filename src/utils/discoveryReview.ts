@@ -1,8 +1,4 @@
 import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryReviewStatus } from '../types/discovery'
-import type { ComposeResult } from '../types/tipKnowledge'
-import { joinInternalReviewNotes, splitTipsForAdmin } from './discoveryInternalNotes'
-import { composeTipSuggestions } from './tipKnowledgeCompose'
-import { loadFactsWithOverrides } from './tipKnowledgeBrowserStore'
 
 const STORAGE_KEY = 'puddles-admin-discovery-review-v1'
 
@@ -93,15 +89,10 @@ export function applyDiscoveryReviewOverrides(
 }
 
 export function editableFieldsFromCandidate(candidate: DiscoveryCandidate): DiscoveryEditableFields {
-  const { parentTips, internalNotes } = splitTipsForAdmin(
-    candidate.tips,
-    candidate.internalReviewNotes,
-  )
   return {
     title: candidate.title,
     description: candidate.description,
-    tips: parentTips,
-    internalReviewNotes: joinInternalReviewNotes(internalNotes),
+    tips: candidate.tips,
     venue: candidate.venue,
     room: candidate.room,
     address: candidate.address,
@@ -125,25 +116,4 @@ export function pacificTodayYmd(): string {
     month: '2-digit',
     day: '2-digit',
   }).format(new Date())
-}
-
-/** Compose reusable venue/program tip suggestions for a discovery candidate. */
-export function composeKnowledgeForCandidate(
-  candidate: Pick<
-    DiscoveryCandidate,
-    'id' | 'title' | 'venue' | 'city' | 'description' | 'tips' | 'eventUrl'
-  >,
-): ComposeResult {
-  return composeTipSuggestions(
-    {
-      title: candidate.title,
-      venue: candidate.venue,
-      city: candidate.city,
-      description: candidate.description,
-      tips: candidate.tips,
-      eventUrl: candidate.eventUrl,
-      eventId: candidate.id,
-    },
-    { facts: typeof window !== 'undefined' ? loadFactsWithOverrides() : undefined },
-  )
 }

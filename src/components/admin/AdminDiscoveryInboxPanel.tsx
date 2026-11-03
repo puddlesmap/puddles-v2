@@ -13,14 +13,19 @@ import { ACTIVITY_TYPES } from '../../types/event'
 import {
   applyInboxChoice,
   approveDiscoveryLocally,
-  isOutsideCoreDiscoveryCity,
+  getAdminEventForPublish,
   type InboxChoiceInput,
 } from '../../utils/discoveryApproveLocal'
-import { removeStagedAdminEvent } from '../../utils/adminPublishQueue'
-import { stageDiscoveryCandidateForPublish } from '../../utils/discoveryPublishStaging'
+import { removeStagedAdminEvent, stageAdminEvent } from '../../utils/adminPublishQueue'
+import {
+  addToSeasonalSection,
+  getActiveThemeSlugForAdmin,
+} from '../../utils/seasonalCurationStaging'
 import {
   browsePlacementLabel,
+  catalogFlagsFromCandidate,
   includeInSeasonalFromCandidate,
+  seasonalSectionForCandidate,
   suggestIncludeInSeasonal,
 } from '../../utils/adminCatalogPlacement.mjs'
 import { editableFieldsFromCandidate, pacificTodayYmd, saveDiscoveryReviewRecord } from '../../utils/discoveryReview'
@@ -103,6 +108,20 @@ function placementLabel(candidate: InboxCandidate): string {
 function eventIdentity(candidate: { id?: string; title?: string; date?: string; venue?: string; city?: string }) {
   const norm = (value?: string) => String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
   return `${norm(candidate.title)}|${candidate.date || ''}|${norm(candidate.venue || candidate.city)}`
+}
+
+function stageCandidateEvent(candidate: InboxCandidate, event: ReturnType<typeof getAdminEventForPublish>) {
+  if (!event) return
+  const include = includeInSeasonalFromCandidate(candidate)
+  const flags = catalogFlagsFromCandidate(candidate, include)
+  const prepared = {
+    ...event,
+    ...flags,
+  }
+  stageAdminEvent(prepared, 'discovery', candidate.id)
+  if (include) {
+    addToSeasonalSection(event.id, seasonalSectionForCandidate(candidate), getActiveThemeSlugForAdmin())
+  }
 }
 
 async function postInbox(body: Record<string, unknown>) {
@@ -439,7 +458,6 @@ const DiscoveryReviewCard = memo(function DiscoveryReviewCard({
                         venue={candidate.venue}
                         eventUrl={candidate.eventUrl || candidate.sourceUrl}
                         types={candidate.types || []}
-                        description={candidate.description}
                         imageUrl={candidate.imageUrl}
                         busy={busy}
                         onChange={(imageUrl) => updateCandidate({ imageUrl })}
@@ -653,13 +671,14 @@ export function AdminDiscoveryInboxPanel({
           eventId = applyInboxChoice({ ...toChoiceInput(candidate, label), choice: 'new' }, verifiedDate).eventId
         } else {
           const browseOnly = !includeInSeasonalFromCandidate(candidate)
-          eventId = approveDiscoveryLocally(row.library, edits, verifiedDate, {
-            allowOtherCityBrowse: true,
-            isSeasonal: browseOnly ? false : undefined,
-            isRegional: isOutsideCoreDiscoveryCity(row.library, edits),
-          }).eventId
+          eventId = approveDiscoveryLocally(
+            row.library,
+            edits,
+            verifiedDate,
+            browseOnly ? { allowOtherCityBrowse: true, isSeasonal: false, isRegional: false } : undefined,
+          ).eventId
         }
-        stageDiscoveryCandidateForPublish(candidate as DiscoveryCandidate, eventId)
+        stageCandidateEvent(candidate, getAdminEventForPublish(eventId))
         saveDiscoveryReviewRecord(row.library.id, {
           reviewStatus: 'approved',
           edits,
@@ -676,7 +695,7 @@ export function AdminDiscoveryInboxPanel({
               ? 'replace'
               : 'create'
         const applied = applyInboxChoice({ ...toChoiceInput(candidate, label), choice }, pacificTodayYmd())
-        stageDiscoveryCandidateForPublish(candidate as DiscoveryCandidate, applied.eventId)
+        stageCandidateEvent(candidate, getAdminEventForPublish(applied.eventId))
         await postInbox({
           action: 'decide',
           ...candidate,
