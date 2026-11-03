@@ -1,0 +1,650 @@
+[
+  {
+    "id": "mv-lib-parking",
+    "scope": "venue",
+    "venueId": "mountain-view-library",
+    "category": "parking",
+    "icon": "info",
+    "text": "Free parking at the Mountain View Library lots.",
+    "sourceUrl": "https://library.mountainview.gov/",
+    "sourceType": "venue",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "stable",
+    "appliesWhen": [
+      "indoor"
+    ],
+    "usedByEventIds": [
+      "disc-baby-storytime-2026-11-18-17170875",
+      "disc-baby-storytime-2026-11-25-17170876",
+      "disc-baby-storytime-2026-12-02-17170877",
+      "disc-baby-storytime-2026-12-09-17170878",
+      "disc-baby-storytime-2026-12-16-17170879",
+      "disc-baby-storytime-rerun-2026-11-20-17170902",
+      "disc-baby-storytime-rerun-2026-12-04-17170904",
+      "disc-baby-storytime-rerun-2026-12-11-17170905",
+      "disc-baby-storytime-rerun-2026-12-18-17170906",
+      "disc-bilingual-storytime-mandarin-english-2026-11-18-17329164",
+      "disc-cuesta-park-storytime-2026-11-12-17295776",
+      "disc-fratello-marionettes-the-north-pole-revi-2026-12-19-17788741",
+      "disc-western-ballet-presents-the-nutcracker-2026-11-28-17762592",
+      "pages-and-paws-reading-buddy-mountain-view-public-library-2026-11-06-15-30",
+      "pages-and-paws-reading-buddy-mountain-view-public-library-2026-12-04-15-30",
+      "smart-start-babytime-mountain-view-public-library-2026-11-23-18-00",
+      "smart-start-babytime-mountain-view-public-library-2026-12-21-18-00"
+    ]
+  },
+  {
+    "id": "mv-lib-restroom",
+    "scope": "venue",
+    "venueId": "mountain-view-library",
+    "category": "restroom",
+    "icon": "restroom",
+    "text": "Restrooms are inside the library.",
+    "sourceUrl": "https://library.mountainview.gov/",
+    "sourceType": "venue",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "stable",
+    "appliesWhen": [
+      "indoor"
+    ],
+    "usedByEventIds": [
+      "disc-baby-storytime-2026-11-18-17170875",
+      "disc-baby-storytime-2026-11-25-17170876",
+      "disc-baby-storytime-2026-12-02-17170877",
+      "disc-baby-storytime-2026-12-09-17170878",
+      "disc-baby-storytime-2026-12-16-17170879",
+      "disc-baby-storytime-rerun-2026-11-20-17170902",
+      "disc-baby-storytime-rerun-2026-12-04-17170904",
+      "disc-baby-storytime-rerun-2026-12-11-17170905",
+      "disc-baby-storytime-rerun-2026-12-18-17170906",
+      "disc-bilingual-storytime-mandarin-english-2026-11-18-17329164",
+      "disc-cuesta-park-storytime-2026-11-12-17295776",
+      "disc-fratello-marionettes-the-north-pole-revi-2026-12-19-17788741",
+      "disc-western-ballet-presents-the-nutcracker-2026-11-28-17762592",
+      "pages-and-paws-reading-buddy-mountain-view-public-library-2026-11-06-15-30",
+      "pages-and-paws-reading-buddy-mountain-view-public-library-2026-12-04-15-30",
+      "smart-start-babytime-mountain-view-public-library-2026-11-23-18-00",
+      "smart-start-babytime-mountain-view-public-library-2026-12-21-18-00"
+    ]
+  },
+  {
+    "id": "pa-childrens-indoor",
+    "scope": "venue",
+    "venueId": "palo-alto-childrens-library",
+    "category": "indoorOutdoor",
+    "icon": "info",
+    "text": "Programs are indoors at the Children’s Library unless the listing says otherwise.",
+    "sourceUrl": "https://library.cityofpaloalto.org/locations/childrens/",
+    "sourceType": "venue",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "indoor",
+      "storytime"
+    ],
+    "usedByEventIds": [
+      "disc-animal-friends-reptile-rescuer-john-hale-2026-11-03-6a89d81336204e08fbb653fa",
+      "disc-family-storytime-2026-11-10-699f624cb0595799c09f6055",
+      "disc-family-storytime-2026-11-17-699f624cb0595799c09f6056",
+      "disc-family-storytime-2026-11-24-699f624cb0595799c09f6057",
+      "disc-family-storytime-2026-12-01-699f624cb0595799c09f6058",
+      "disc-family-storytime-2026-12-08-699f624cb0595799c09f6059",
+      "disc-little-ones-storytime-2026-11-04-6946001eea69de6e001069b6",
+      "disc-little-ones-storytime-2026-11-18-6946001eea69de6e001069b8",
+      "disc-little-ones-storytime-2026-11-25-6946001eea69de6e001069b9",
+      "disc-little-ones-storytime-2026-12-02-6946001eea69de6e001069ba"
+    ]
+  },
+  {
+    "id": "pa-childrens-grownups",
+    "scope": "venue",
+    "venueId": "palo-alto-childrens-library",
+    "category": "ages",
+    "icon": "baby",
+    "text": "Grown-ups stay with little ones for the whole program.",
+    "sourceUrl": "https://library.cityofpaloalto.org/locations/childrens/",
+    "sourceType": "venue",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "storytime",
+      "indoor"
+    ],
+    "usedByEventIds": [
+      "disc-animal-friends-reptile-rescuer-john-hale-2026-11-03-6a89d81336204e08fbb653fa"
+    ]
+  },
+  {
+    "id": "los-altos-lib-lego-stay",
+    "scope": "program",
+    "programId": "sccl-lego-tuesdays",
+    "venueId": "los-altos-library",
+    "category": "bring",
+    "icon": "info",
+    "text": "LEGOs stay at the library — snap a pic of creations!",
+    "sourceUrl": "https://sccl.bibliocommons.com/",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "usedByEventIds": [
+      "disc-lego-tuesdays-2026-11-03-68afa7b0022de53d00d2717f",
+      "disc-lego-tuesdays-2026-11-10-68afa7b0022de53d00d27180",
+      "disc-lego-tuesdays-2026-11-17-68afa7b0022de53d00d27181",
+      "disc-lego-tuesdays-2026-11-24-68afa7b0022de53d00d27182",
+      "disc-lego-tuesdays-2026-12-01-68afa7b0022de53d00d27183"
+    ]
+  },
+  {
+    "id": "los-altos-lib-lego-fridays-stay",
+    "scope": "program",
+    "programId": "sccl-lego-fridays",
+    "venueId": "los-altos-library",
+    "category": "bring",
+    "icon": "info",
+    "text": "LEGOs stay at the library — snap a pic of creations!",
+    "sourceUrl": "https://sccl.bibliocommons.com/",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "usedByEventIds": [
+      "disc-lego-fridays-2026-11-06-6a25aace2ea730c17ab50492",
+      "disc-lego-fridays-2026-11-13-6a25aace2ea730c17ab50493",
+      "disc-lego-fridays-2026-11-27-6a25aace2ea730c17ab50494",
+      "disc-lego-fridays-2026-12-04-6a25aace2ea730c17ab50495"
+    ]
+  },
+  {
+    "id": "mv-outdoor-storytime-weather",
+    "scope": "program",
+    "programId": "mv-outdoor-storytime-pioneer",
+    "venueId": "pioneer-park-mountain-view",
+    "category": "weather",
+    "icon": "weather",
+    "text": "Outdoors at Pioneer Park. Weather permitting — check before you leave.",
+    "sourceUrl": "https://mountainview.libcal.com/",
+    "sourceType": "event",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "storytime"
+    ],
+    "usedByEventIds": [
+      "disc-outdoor-storytime-2026-11-10-17142491",
+      "disc-outdoor-storytime-2026-11-17-17142492",
+      "disc-outdoor-storytime-2026-11-24-17142493",
+      "disc-outdoor-storytime-2026-12-01-17142494"
+    ]
+  },
+  {
+    "id": "mv-outdoor-storytime-blanket",
+    "scope": "program",
+    "programId": "mv-outdoor-storytime-pioneer",
+    "venueId": "pioneer-park-mountain-view",
+    "category": "bring",
+    "icon": "info",
+    "text": "Bring a blanket for stories and songs.",
+    "sourceUrl": "https://mountainview.libcal.com/",
+    "sourceType": "event",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "storytime"
+    ],
+    "usedByEventIds": [
+      "disc-outdoor-storytime-2026-11-10-17142491",
+      "disc-outdoor-storytime-2026-11-17-17142492",
+      "disc-outdoor-storytime-2026-11-24-17142493",
+      "disc-outdoor-storytime-2026-12-01-17142494"
+    ]
+  },
+  {
+    "id": "mv-outdoor-storytime-dropin",
+    "scope": "program",
+    "programId": "mv-outdoor-storytime-pioneer",
+    "venueId": "pioneer-park-mountain-view",
+    "category": "registration",
+    "icon": "ticket",
+    "text": "No registration. Drop-in.",
+    "sourceUrl": "https://mountainview.libcal.com/",
+    "sourceType": "event",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "dynamic",
+    "appliesWhen": [
+      "outdoor",
+      "storytime"
+    ],
+    "usedByEventIds": [
+      "disc-outdoor-storytime-2026-11-10-17142491",
+      "disc-outdoor-storytime-2026-11-17-17142492",
+      "disc-outdoor-storytime-2026-11-24-17142493",
+      "disc-outdoor-storytime-2026-12-01-17142494"
+    ]
+  },
+  {
+    "id": "pa-family-storytime-grownups",
+    "scope": "program",
+    "programId": "pa-family-storytime",
+    "category": "ages",
+    "icon": "baby",
+    "text": "Grown-ups stay with little ones for the whole program.",
+    "sourceUrl": "https://paloalto.bibliocommons.com/",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "storytime",
+      "indoor"
+    ],
+    "usedByEventIds": [
+      "disc-bilingual-family-storytime-2026-11-05-69276b597eb3e430002638b8",
+      "disc-bilingual-family-storytime-2026-11-12-69276b597eb3e430002638b9",
+      "disc-bilingual-family-storytime-2026-11-19-69276b597eb3e430002638ba",
+      "disc-bilingual-family-storytime-2026-12-03-69276b597eb3e430002638bc",
+      "disc-family-storytime-2026-11-06-6946005fea69de6e001069ca",
+      "disc-family-storytime-2026-11-07-698e125a2a787a47a5e73be9",
+      "disc-family-storytime-2026-11-10-699f624cb0595799c09f6055",
+      "disc-family-storytime-2026-11-13-6946005fea69de6e001069cb",
+      "disc-family-storytime-2026-11-14-698e125a2a787a47a5e73bea",
+      "disc-family-storytime-2026-11-17-699f624cb0595799c09f6056",
+      "disc-family-storytime-2026-11-20-6946005fea69de6e001069cc",
+      "disc-family-storytime-2026-11-21-698e125a2a787a47a5e73beb",
+      "disc-family-storytime-2026-11-24-699f624cb0595799c09f6057",
+      "disc-family-storytime-2026-11-28-698e125a2a787a47a5e73bec",
+      "disc-family-storytime-2026-12-01-699f624cb0595799c09f6058",
+      "disc-family-storytime-2026-12-04-6946005fea69de6e001069ce",
+      "disc-family-storytime-2026-12-05-698e125a2a787a47a5e73bed",
+      "disc-family-storytime-2026-12-08-699f624cb0595799c09f6059",
+      "disc-family-storytime-2026-12-11-6946005fea69de6e001069cf"
+    ]
+  },
+  {
+    "id": "pa-family-storytime-dropin",
+    "scope": "program",
+    "programId": "pa-family-storytime",
+    "category": "registration",
+    "icon": "ticket",
+    "text": "Library storytime — check the listing for registration or drop-in.",
+    "sourceUrl": "https://paloalto.bibliocommons.com/",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "inferred",
+    "reuseSafe": false,
+    "volatility": "dynamic",
+    "appliesWhen": [
+      "storytime",
+      "indoor"
+    ]
+  },
+  {
+    "id": "pa-little-ones-storytime-ages",
+    "scope": "program",
+    "programId": "pa-little-ones-storytime",
+    "venueId": "palo-alto-childrens-library",
+    "category": "ages",
+    "icon": "baby",
+    "text": "Designed for the littlest listeners with a grown-up.",
+    "sourceUrl": "https://paloalto.bibliocommons.com/",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "storytime",
+      "indoor"
+    ],
+    "usedByEventIds": [
+      "disc-little-ones-storytime-2026-11-04-6946001eea69de6e001069b6",
+      "disc-little-ones-storytime-2026-11-18-6946001eea69de6e001069b8",
+      "disc-little-ones-storytime-2026-11-25-6946001eea69de6e001069b9",
+      "disc-little-ones-storytime-2026-12-02-6946001eea69de6e001069ba"
+    ]
+  },
+  {
+    "id": "pa-music-movement-format",
+    "scope": "program",
+    "programId": "pa-music-movement",
+    "category": "bring",
+    "icon": "info",
+    "text": "Songs and movement indoors — grown-ups stay with little ones.",
+    "sourceUrl": "https://paloalto.bibliocommons.com/",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "indoor"
+    ],
+    "usedByEventIds": [
+      "disc-music-movement-2026-11-04-6a3dbc0bfddb082f00fe14a3",
+      "disc-music-movement-2026-11-18-6a3dbc0bfddb082f00fe14a4",
+      "disc-music-movement-2026-12-02-6a3dbc0bfddb082f00fe14a6",
+      "disc-music-movement-2026-12-09-6a3dbc0bfddb082f00fe14a7"
+    ]
+  },
+  {
+    "id": "pa-mitchell-lib-indoor",
+    "scope": "venue",
+    "venueId": "palo-alto-mitchell-park-library",
+    "category": "indoorOutdoor",
+    "icon": "info",
+    "text": "Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
+    "sourceUrl": "https://library.cityofpaloalto.org/",
+    "sourceType": "venue",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "indoor"
+    ],
+    "usedByEventIds": [
+      "disc-family-storytime-2026-11-07-698e125a2a787a47a5e73be9",
+      "disc-family-storytime-2026-11-14-698e125a2a787a47a5e73bea",
+      "disc-family-storytime-2026-11-21-698e125a2a787a47a5e73beb",
+      "disc-family-storytime-2026-11-28-698e125a2a787a47a5e73bec",
+      "disc-family-storytime-2026-12-05-698e125a2a787a47a5e73bed",
+      "disc-music-movement-2026-11-04-6a3dbc0bfddb082f00fe14a3",
+      "disc-music-movement-2026-11-18-6a3dbc0bfddb082f00fe14a4",
+      "disc-music-movement-2026-12-02-6a3dbc0bfddb082f00fe14a6",
+      "disc-music-movement-2026-12-09-6a3dbc0bfddb082f00fe14a7"
+    ]
+  },
+  {
+    "id": "pa-downtown-lib-indoor",
+    "scope": "venue",
+    "venueId": "palo-alto-downtown-library",
+    "category": "indoorOutdoor",
+    "icon": "info",
+    "text": "Programs are indoors at Downtown Library unless the listing says otherwise.",
+    "sourceUrl": "https://library.cityofpaloalto.org/",
+    "sourceType": "venue",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "indoor"
+    ],
+    "usedByEventIds": [
+      "disc-concert-palo-alto-school-of-chamber-musi-2026-11-21-6a6cf81ad23de82955c9bccc",
+      "disc-family-storytime-2026-11-06-6946005fea69de6e001069ca",
+      "disc-family-storytime-2026-11-13-6946005fea69de6e001069cb",
+      "disc-family-storytime-2026-11-20-6946005fea69de6e001069cc",
+      "disc-family-storytime-2026-12-04-6946005fea69de6e001069ce",
+      "disc-family-storytime-2026-12-11-6946005fea69de6e001069cf",
+      "disc-lego-tuesdays-2026-11-03-68afa7b0022de53d00d2717f",
+      "disc-lego-tuesdays-2026-11-10-68afa7b0022de53d00d27180",
+      "disc-lego-tuesdays-2026-11-17-68afa7b0022de53d00d27181",
+      "disc-lego-tuesdays-2026-11-24-68afa7b0022de53d00d27182",
+      "disc-lego-tuesdays-2026-12-01-68afa7b0022de53d00d27183"
+    ]
+  },
+  {
+    "id": "mv-pages-paws-format",
+    "scope": "program",
+    "programId": "mv-pages-and-paws",
+    "venueId": "mountain-view-library",
+    "category": "ages",
+    "icon": "baby",
+    "text": "Read with a trained therapy dog buddy — check the listing for ages and signup.",
+    "sourceUrl": "https://mountainview.libcal.com/",
+    "sourceType": "event",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": false,
+    "volatility": "dynamic",
+    "appliesWhen": [
+      "indoor"
+    ]
+  },
+  {
+    "id": "fit4mom-stroller-who",
+    "scope": "program",
+    "programId": "fit4mom-stroller-strides-cuesta",
+    "venueId": "cuesta-park",
+    "category": "stroller",
+    "icon": "stroller",
+    "text": "Stroller-aged little ones come along — in a stroller or baby carrier.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-pricing",
+    "scope": "program",
+    "programId": "fit4mom-stroller-strides-cuesta",
+    "venueId": "cuesta-park",
+    "category": "tickets",
+    "icon": "ticket",
+    "text": "First class free. Pricing varies by class or package — check registration for the current rate.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": false,
+    "volatility": "dynamic",
+    "appliesWhen": [
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-schedule-check",
+    "scope": "program",
+    "programId": "fit4mom-stroller-strides-cuesta",
+    "venueId": "cuesta-park",
+    "category": "registration",
+    "icon": "ticket",
+    "text": "Check the official schedule for current class times.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "dynamic",
+    "appliesWhen": [
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-cuesta-rain",
+    "scope": "program",
+    "programId": "fit4mom-stroller-strides-cuesta",
+    "venueId": "cuesta-park",
+    "category": "weather",
+    "icon": "weather",
+    "text": "Rainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/faqs",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-barre-cuesta-stroller",
+    "scope": "program",
+    "programId": "fit4mom-stroller-barre-cuesta",
+    "venueId": "cuesta-park",
+    "category": "stroller",
+    "icon": "stroller",
+    "text": "Stroller-aged little ones come along — in a stroller or baby carrier.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-barre-cuesta-rain",
+    "scope": "program",
+    "programId": "fit4mom-stroller-barre-cuesta",
+    "venueId": "cuesta-park",
+    "category": "weather",
+    "icon": "weather",
+    "text": "Rainy day: Meet under the overhang at St. Timothy’s, 2094 Grant Rd.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/faqs",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-family-strides-stroller",
+    "scope": "program",
+    "programId": "fit4mom-family-strides-cuesta",
+    "venueId": "cuesta-park",
+    "category": "stroller",
+    "icon": "stroller",
+    "text": "Stroller-aged little ones come along — in a stroller or baby carrier.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-laspalmas-preenroll",
+    "scope": "program",
+    "programId": "fit4mom-stroller-strides-laspalmas",
+    "venueId": "las-palmas-park",
+    "category": "registration",
+    "icon": "ticket",
+    "text": "Pre-enroll for schedule updates and rainy-day location changes.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "dynamic",
+    "appliesWhen": [
+      "outdoor",
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-laspalmas-stroller",
+    "scope": "program",
+    "programId": "fit4mom-stroller-strides-laspalmas",
+    "venueId": "las-palmas-park",
+    "category": "stroller",
+    "icon": "stroller",
+    "text": "Stroller-aged little ones come along — in a stroller or baby carrier.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-yoga-laspalmas-bring",
+    "scope": "program",
+    "programId": "fit4mom-mommy-baby-yoga-laspalmas",
+    "venueId": "las-palmas-park",
+    "category": "bring",
+    "icon": "info",
+    "text": "Bring a yoga mat or blanket.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-mitchell-rain",
+    "scope": "program",
+    "programId": "fit4mom-stroller-barre-mitchell",
+    "venueId": "mitchell-park",
+    "category": "weather",
+    "icon": "weather",
+    "text": "Rainy day: Meet under the overhang by Mitchell Park Library / Ada's Cafe.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/faqs",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "class"
+    ]
+  },
+  {
+    "id": "fit4mom-mitchell-stroller",
+    "scope": "program",
+    "programId": "fit4mom-stroller-barre-mitchell",
+    "venueId": "mitchell-park",
+    "category": "stroller",
+    "icon": "stroller",
+    "text": "Stroller-aged little ones come along — in a stroller or baby carrier.",
+    "sourceUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-01",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "class"
+    ]
+  }
+]

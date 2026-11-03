@@ -27,6 +27,8 @@ export interface DiscoveryCandidate {
   cost: string
   description: string
   tips: string
+  /** Admin-only review / editorial notes — never on the public site. */
+  internalReviewNotes?: string
   imageUrl: string
   eventUrl: string
   source: string
@@ -55,6 +57,7 @@ export type DiscoveryEditableFields = Pick<
   | 'title'
   | 'description'
   | 'tips'
+  | 'internalReviewNotes'
   | 'venue'
   | 'room'
   | 'address'

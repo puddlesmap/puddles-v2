@@ -19,6 +19,8 @@ export type DiscoverySortKey =
 
 type SortDir = 'asc' | 'desc'
 
+export type SeasonalRecommendationRowMode = 'suggestedAdd' | 'suggestedFeature'
+
 interface AdminDiscoveryTableProps {
   candidates: DiscoveryCandidate[]
   selectedId: string | null
@@ -28,13 +30,25 @@ interface AdminDiscoveryTableProps {
   onSaveEdits: (candidate: DiscoveryCandidate, edits: DiscoveryEditableFields) => void
   onApprove: (candidate: DiscoveryCandidate, edits: DiscoveryEditableFields) => void
   onBulkApprove: (candidates: DiscoveryCandidate[]) => void
-  onGoLive: (candidates: DiscoveryCandidate[]) => void
   onDismiss: (candidate: DiscoveryCandidate) => void
   onRestore: (candidate: DiscoveryCandidate) => void
-  /** Seasonal curation actions (Seasonal Discovery mode). */
+  /** Seasonal curation actions (manage-current expand). */
   curationSection?: 'closeToHome' | 'worthADrive'
   onRemoveFromSeasonal?: (candidate: DiscoveryCandidate) => void
   onMoveSeasonal?: (candidate: DiscoveryCandidate) => void
+  /** Recommendation queues on Seasonal picks. */
+  recommendationMode?: SeasonalRecommendationRowMode
+  suggestedSectionById?: Record<string, 'closeToHome' | 'worthADrive'>
+  onApproveAndStage?: (
+    candidate: DiscoveryCandidate,
+    section: 'closeToHome' | 'worthADrive',
+  ) => void
+  onApproveOnly?: (candidate: DiscoveryCandidate) => void
+  onStageFeature?: (
+    candidate: DiscoveryCandidate,
+    section: 'closeToHome' | 'worthADrive',
+  ) => void
+  onNotForTheme?: (candidate: DiscoveryCandidate) => void
 }
 
 const SORTABLE_COLUMNS: { key: DiscoverySortKey; label: string; className?: string }[] = [
@@ -171,12 +185,17 @@ export function AdminDiscoveryTable({
   onSaveEdits,
   onApprove,
   onBulkApprove,
-  onGoLive,
   onDismiss,
   onRestore,
   curationSection,
   onRemoveFromSeasonal,
   onMoveSeasonal,
+  recommendationMode,
+  suggestedSectionById,
+  onApproveAndStage,
+  onApproveOnly,
+  onStageFeature,
+  onNotForTheme,
 }: AdminDiscoveryTableProps) {
   const [sortKey, setSortKey] = useState<DiscoverySortKey>('when')
   const [sortDir, setSortDir] = useState<SortDir>('asc')
@@ -285,16 +304,6 @@ export function AdminDiscoveryTable({
     clearMulti()
   }
 
-  function handleBulkGoLiveClick() {
-    const targets = multiCandidates.filter((row) => row.reviewStatus === 'approved')
-    if (targets.length === 0) {
-      window.alert('No Ready events in the selection to Go live.')
-      return
-    }
-    onGoLive(targets)
-    clearMulti()
-  }
-
   if (candidates.length === 0) {
     return (
       <div className="admin-empty">
@@ -325,14 +334,6 @@ export function AdminDiscoveryTable({
             </button>
             <button
               type="button"
-              className="admin-btn admin-btn-primary"
-              disabled={bulkBusy}
-              onClick={handleBulkGoLiveClick}
-            >
-              {bulkBusy ? 'Working…' : 'Go live'}
-            </button>
-            <button
-              type="button"
               className="admin-btn admin-btn-text"
               disabled={bulkBusy}
               onClick={clearMulti}
@@ -358,7 +359,7 @@ export function AdminDiscoveryTable({
             <col />
             <col />
             <col />
-            <col />
+            <col className="admin-discovery-actions-col" />
           </colgroup>
           <thead>
             <tr>
@@ -407,7 +408,6 @@ export function AdminDiscoveryTable({
               const isMulti = multiSet.has(candidate.id)
               const isBusy = busyId === candidate.id
               const canApprove = candidate.reviewStatus === 'pending'
-              const canGoLive = candidate.reviewStatus === 'approved'
               const approvedOnRaw = latestApprovedOnForCandidate(candidate)
               const approvedOn = formatApprovedOn(approvedOnRaw)
               return (
@@ -494,7 +494,120 @@ export function AdminDiscoveryTable({
                       </span>
                     </td>
                     <td className="admin-discovery-sticky-actions admin-discovery-col-actions">
-                      {canApprove ? (
+                      {recommendationMode === 'suggestedAdd' && onApproveAndStage ? (
+                        <div className="admin-discovery-row-actions">
+                          <button
+                            type="button"
+                            className="admin-btn admin-btn-primary"
+                            disabled={isBusy || bulkBusy}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              const section =
+                                suggestedSectionById?.[candidate.id] ?? 'closeToHome'
+                              onApproveAndStage(candidate, section)
+                            }}
+                            onPointerDown={(e) => e.stopPropagation()}
+                            title={
+                              (suggestedSectionById?.[candidate.id] ?? 'closeToHome') ===
+                              'worthADrive'
+                                ? 'Approve and stage for Worth a little drive'
+                                : 'Approve and stage for Close to home'
+                            }
+                          >
+                            {isBusy
+                              ? '…'
+                              : (suggestedSectionById?.[candidate.id] ?? 'closeToHome') ===
+                                  'worthADrive'
+                                ? '+ Drive'
+                                : '+ Close'}
+                          </button>
+                          <button
+                            type="button"
+                            className="admin-btn admin-btn-secondary"
+                            disabled={isBusy || bulkBusy}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              const other =
+                                (suggestedSectionById?.[candidate.id] ?? 'closeToHome') ===
+                                'closeToHome'
+                                  ? 'worthADrive'
+                                  : 'closeToHome'
+                              onApproveAndStage(candidate, other)
+                            }}
+                            onPointerDown={(e) => e.stopPropagation()}
+                            title={
+                              (suggestedSectionById?.[candidate.id] ?? 'closeToHome') ===
+                              'closeToHome'
+                                ? 'Approve and stage for Worth a little drive'
+                                : 'Approve and stage for Close to home'
+                            }
+                          >
+                            {(suggestedSectionById?.[candidate.id] ?? 'closeToHome') ===
+                            'closeToHome'
+                              ? '+ Drive'
+                              : '+ Close'}
+                          </button>
+                          {onApproveOnly ? (
+                            <button
+                              type="button"
+                              className="admin-btn admin-btn-secondary"
+                              disabled={isBusy || bulkBusy}
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                onApproveOnly(candidate)
+                              }}
+                              onPointerDown={(e) => e.stopPropagation()}
+                              title="Approve onto Puddles without staging for this theme"
+                            >
+                              Approve
+                            </button>
+                          ) : null}
+                        </div>
+                      ) : null}
+                      {recommendationMode === 'suggestedFeature' && onStageFeature ? (
+                        <div className="admin-discovery-row-actions">
+                          <button
+                            type="button"
+                            className="admin-btn admin-btn-primary"
+                            disabled={isBusy || bulkBusy}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              onStageFeature(candidate, 'closeToHome')
+                            }}
+                            onPointerDown={(e) => e.stopPropagation()}
+                          >
+                            → Close
+                          </button>
+                          <button
+                            type="button"
+                            className="admin-btn admin-btn-secondary"
+                            disabled={isBusy || bulkBusy}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              onStageFeature(candidate, 'worthADrive')
+                            }}
+                            onPointerDown={(e) => e.stopPropagation()}
+                          >
+                            → Drive
+                          </button>
+                          {onNotForTheme ? (
+                            <button
+                              type="button"
+                              className="admin-btn admin-btn-secondary"
+                              disabled={isBusy || bulkBusy}
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                onNotForTheme(candidate)
+                              }}
+                              onPointerDown={(e) => e.stopPropagation()}
+                              title="Dismiss as not a fit for this seasonal theme"
+                            >
+                              Skip
+                            </button>
+                          ) : null}
+                        </div>
+                      ) : null}
+                      {!recommendationMode && canApprove ? (
                         <button
                           type="button"
                           className="admin-btn admin-btn-primary"
@@ -506,20 +619,6 @@ export function AdminDiscoveryTable({
                           onPointerDown={(e) => e.stopPropagation()}
                         >
                           {isBusy ? '…' : 'Approve'}
-                        </button>
-                      ) : null}
-                      {canGoLive ? (
-                        <button
-                          type="button"
-                          className="admin-btn admin-btn-primary"
-                          disabled={isBusy || bulkBusy}
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            onGoLive([candidate])
-                          }}
-                          onPointerDown={(e) => e.stopPropagation()}
-                        >
-                          {isBusy ? '…' : 'Go live'}
                         </button>
                       ) : null}
                       {curationSection && onRemoveFromSeasonal ? (
@@ -565,7 +664,6 @@ export function AdminDiscoveryTable({
                           busy={isBusy || bulkBusy}
                           onSaveEdits={(edits) => onSaveEdits(candidate, edits)}
                           onApprove={(edits) => onApprove(candidate, edits)}
-                          onGoLive={() => onGoLive([candidate])}
                           onDismiss={() => onDismiss(candidate)}
                           onRestore={() => onRestore(candidate)}
                         />

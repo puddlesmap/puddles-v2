@@ -14,7 +14,7 @@ Decided October 27, 2026 after the Bray Parade miss and holiday source audit. Th
 | **Browse stays 60 days** | Public listings still use the existing display window | Stretch Browse because research looks farther |
 | **Watchlist is a planner** | Report due / failed / overdue sources and current-year search queries | Invent an occurrence or mark a source checked without opening it |
 | **Seasonal is editorial** | Curate in `seasonalDiscovery.ts`, then `npm run discover:sync-seasonal` | Dump every good activity onto a seasonal page |
-| **Core vs drive** | Core cities can Approve → Browse; regional stays Hidden drive | Publish out-of-area farms into regular Browse |
+| **Core vs other cities** | Core cities: everyday finds → Browse. Other cities: destination / once-in-a-while / worth-the-drive → Browse (Other cities). Optional seasonal feature when a theme fits | Approve routine weekly out-of-area programs (e.g. another city’s regular storytime) |
 
 Limits: this improves planning and review. It is not a general web crawler. It does not prove the local branch is deployed.
 
@@ -46,9 +46,9 @@ Paste keepers into `data/discovery/core-cities-weekend-inbox.json`, run `npm run
 
 The report lists pending weekend-search rows **and** community source checks due. Opening sources and writing `lastCheck` is a separate human step. Neighborhood traditions (Bray Parade, school carnivals) live here — library scrapers miss them.
 
-### Regional / Worth a little drive
+### Regional / other cities (Worth a little drive)
 
-`data/discovery/regional-leads-inbox.json` + `discover:regional-weekly`. Do **not** publish to Browse — Hidden seasonal drive only. [Regional discovery weekly](./regional-discovery-weekly.md).
+`data/discovery/regional-leads-inbox.json` + `discover:regional-weekly`. Queue destination-worthy Bay Area outings (farms, festivals, special one-offs). **Approve → Publish** puts them on Browse/Home under **Other cities** (tagged Worth a Drive). Optionally also feature in a seasonal collection. Do **not** Approve routine weekly out-of-area programs. [Regional discovery weekly](./regional-discovery-weekly.md).
 
 ### Agent discovery inbox
 

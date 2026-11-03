@@ -10,6 +10,7 @@ import {
   addDaysYmd,
   descriptionWithoutTips,
   extractTipsFromText,
+  attachKnowledgeTipsToCandidates,
   finalizeTips,
   isUrlAlreadyOnPuddles,
   loadCatalogUrls,
@@ -281,6 +282,9 @@ export async function discoverLosAltos({ days = 30, writeAdmin = true } = {}) {
   }
 
   sortCandidates(candidates)
+  const withKnowledge = await attachKnowledgeTipsToCandidates(candidates)
+  candidates.length = 0
+  candidates.push(...withKnowledge)
   const newOnly = candidates.filter((c) => !c.alreadyOnPuddles)
   const already = candidates.filter((c) => c.alreadyOnPuddles)
 

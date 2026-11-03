@@ -89,7 +89,6 @@ export function AdminLayout() {
             <PageContainer layout="wide" className="admin-reminder-banner__inner">
               <div className="admin-reminder-banner__copy">
                 <strong>{SCHEDULED_DISCOVER_REMINDER.title}</strong>
-                <span>{SCHEDULED_DISCOVER_REMINDER.phrase}</span>
                 <span>{SCHEDULED_DISCOVER_REMINDER.body}</span>
               </div>
               <button
@@ -140,9 +139,14 @@ export function AdminLayout() {
                   {isSigningOut ? 'Signing out…' : 'Sign out'}
                 </button>
               ) : null}
-              <Link to="/" className="text-sm font-medium text-charcoal underline decoration-border underline-offset-4">
-                View public site
-              </Link>
+              <a
+                href="https://puddlesmap.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm font-medium text-charcoal underline decoration-border underline-offset-4"
+              >
+                View public site ↗
+              </a>
             </div>
           </div>
 
@@ -166,11 +170,11 @@ export function AdminLayout() {
                   <strong>Publish</strong>. This is not Draft Events.
                 </li>
                 <li>
-                  <strong>Events</strong> — Switch <strong>Regular</strong> (everyday Browse in the
-                  core cities) or <strong>Regional / Seasonal</strong> (every collection on Home
-                  today). Monitor <strong>Live</strong> and <strong>Past</strong>. Cancel or remove
-                  a live listing from the row. Drafts and listings that need a look are on{' '}
-                  <strong>Review</strong>.
+                  <strong>Events</strong> — Switch <strong>Regular</strong> (Browse: core cities +
+                  destination Other cities) or <strong>Regional / Seasonal</strong> (seasonal
+                  collections on Home). Monitor <strong>Live</strong> and <strong>Past</strong>.
+                  Cancel or remove a live listing from the row. Drafts and listings that need a look
+                  are on <strong>Review</strong>.
                 </li>
               </ol>
               <p className="admin-howto-panel__note">

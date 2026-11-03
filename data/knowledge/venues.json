@@ -1,0 +1,74 @@
+[
+  {
+    "id": "mountain-view-library",
+    "names": ["Mountain View Library", "Mountain View Public Library"],
+    "aliases": ["MV Library", "Mountain View Public Library — Main"],
+    "city": "Mountain View",
+    "officialUrl": "https://library.mountainview.gov/",
+    "geoRef": "Mountain View Library"
+  },
+  {
+    "id": "palo-alto-childrens-library",
+    "names": ["Children's Library", "Palo Alto Children's Library"],
+    "aliases": ["Palo Alto Children’s Library", "Children’s Library"],
+    "city": "Palo Alto",
+    "officialUrl": "https://library.cityofpaloalto.org/locations/childrens/",
+    "geoRef": "Children's Library"
+  },
+  {
+    "id": "palo-alto-downtown-library",
+    "names": ["Downtown Library", "Palo Alto Downtown Library"],
+    "aliases": ["Rinconada Library"],
+    "city": "Palo Alto",
+    "officialUrl": "https://library.cityofpaloalto.org/",
+    "geoRef": "Downtown Library"
+  },
+  {
+    "id": "palo-alto-mitchell-park-library",
+    "names": ["Mitchell Park Library"],
+    "aliases": ["Mitchell Park Branch Library"],
+    "city": "Palo Alto",
+    "officialUrl": "https://library.cityofpaloalto.org/",
+    "geoRef": "Mitchell Park Library"
+  },
+  {
+    "id": "pioneer-park-mountain-view",
+    "names": ["Pioneer Park", "Pioneer Memorial Park"],
+    "aliases": [],
+    "city": "Mountain View",
+    "officialUrl": "https://www.mountainview.gov/",
+    "geoRef": "Pioneer Park"
+  },
+  {
+    "id": "cuesta-park",
+    "names": ["Cuesta Park"],
+    "aliases": [],
+    "city": "Mountain View",
+    "officialUrl": "https://www.mountainview.gov/",
+    "geoRef": "Cuesta Park"
+  },
+  {
+    "id": "las-palmas-park",
+    "names": ["Las Palmas Park"],
+    "aliases": [],
+    "city": "Sunnyvale",
+    "officialUrl": "https://www.sunnyvale.ca.gov/",
+    "geoRef": "Las Palmas Park"
+  },
+  {
+    "id": "mitchell-park",
+    "names": ["Mitchell Park"],
+    "aliases": [],
+    "city": "Palo Alto",
+    "officialUrl": "https://www.cityofpaloalto.org/",
+    "geoRef": "Mitchell Park"
+  },
+  {
+    "id": "los-altos-library",
+    "names": ["Los Altos Library", "Los Altos Public Library"],
+    "aliases": ["SCCLD Los Altos"],
+    "city": "Los Altos",
+    "officialUrl": "https://sccl.org/",
+    "geoRef": "Los Altos Library"
+  }
+]

@@ -2,6 +2,7 @@ import { ALL_EVENTS } from '../data/events'
 import { ALL_DISCOVERY_CANDIDATES } from '../data/discovery'
 import { SYNC_META } from '../data/syncInfo'
 import type { DiscoveryCandidate, DiscoveryEditableFields } from '../types/discovery'
+import { stripLeadNotesForPublish } from './discoveryInternalNotes'
 import type { ActivityType, City, Event } from '../types/event'
 import { ACTIVITY_TYPES } from '../types/event'
 import { resolveEventCost } from './eventCost'
@@ -16,8 +17,6 @@ import {
   normalizeDiscoveryEventUrl,
 } from './discoveryMatchEvents'
 import { inferAgeRangeFromText } from './discoveryAgeHints'
-import { applyAdminScheduleDates } from './adminEventEdit'
-import { FULL_SITE_AGE_TAG, formatPublicAgeRangeLabel } from './ageRange'
 import {
   findOutsidePuddlesAgeScope,
 } from './eventAudienceAge'
@@ -29,17 +28,18 @@ import {
 } from './discoveryReview'
 import {
   loadCachedAdminRefresh,
-  rememberDismissedAdminEventId,
   resolveAdminEventsSource,
   saveCachedAdminRefresh,
 } from './sheetSync'
-import { isLaunchAreaCity } from './cityRegions'
-import { findIdentityMatches, isCancelledNotice, publishedTitleForUpdate } from './discoveryInboxCore.mjs'
+import { LAUNCH_CITIES } from './adminReviewFlags'
 
 export const OUTSIDE_PUDDLES_AGE_MESSAGE = 'Outside Puddles ages 0–5 — cannot approve.'
 
+/** @deprecated Soft warning only — other cities may Approve → Browse when destination-worthy. */
 export const OUTSIDE_CORE_CITY_MESSAGE =
-  'Outside Puddles core cities (Palo Alto · Los Altos / Los Altos Hills · Mountain View · Sunnyvale). Choose Home and Browse to list it on Home and Browse without making it seasonal. Otherwise use Seasonal Discovery / Worth a little drive.'
+  'Outside core cities — only Approve if this is a destination / once-in-a-while outing, not a routine weekly program. It will show on Browse under Other cities.'
+
+export const OTHER_CITY_DESTINATION_WARNING = OUTSIDE_CORE_CITY_MESSAGE
 
 /** Merge candidate + edits (and fresh copy inference) then block out-of-scope ages. */
 export function assertDiscoveryAgeInScope(
@@ -63,15 +63,31 @@ export function assertDiscoveryAgeInScope(
   }
 }
 
-/** Block Go live / Approve into the public catalog for out-of-area Regional rows. */
-export function assertDiscoveryCityInScope(
-  candidate: DiscoveryCandidate,
+export function isOutsideCoreDiscoveryCity(
+  candidate: Pick<DiscoveryCandidate, 'city'> | { city?: string },
   edits: Partial<DiscoveryEditableFields> = {},
-): void {
+): boolean {
   const city = String(edits.city ?? candidate.city ?? '').trim()
-  if (!isLaunchAreaCity(city)) {
-    throw new Error(OUTSIDE_CORE_CITY_MESSAGE)
-  }
+  return Boolean(city) && !(LAUNCH_CITIES as readonly string[]).includes(city)
+}
+
+/** Soft warning for Admin — no longer blocks Approve / Go live. */
+export function otherCityDestinationWarning(
+  candidate: Pick<DiscoveryCandidate, 'city'> | { city?: string },
+  edits: Partial<DiscoveryEditableFields> = {},
+): string | null {
+  return isOutsideCoreDiscoveryCity(candidate, edits) ? OTHER_CITY_DESTINATION_WARNING : null
+}
+
+/**
+ * City is no longer a hard publish gate. Kept for call-site compatibility;
+ * ages remain hard-blocked via assertDiscoveryAgeInScope.
+ */
+export function assertDiscoveryCityInScope(
+  _candidate: DiscoveryCandidate,
+  _edits: Partial<DiscoveryEditableFields> = {},
+): void {
+  // Other cities may publish to Browse/Home when destination-worthy.
 }
 
 function slugPart(value: string): string {
@@ -96,7 +112,7 @@ function localDraftId(candidate: DiscoveryCandidate, edits: DiscoveryEditableFie
 }
 
 function asCity(raw: string): City {
-  const cities: City[] = ['Palo Alto', 'Los Altos', 'Los Altos Hills', 'Mountain View', 'Sunnyvale']
+  const cities: City[] = ['Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale']
   const hit = cities.find((city) => city.toLowerCase() === raw.trim().toLowerCase())
   return hit ?? ((raw.trim() || 'Palo Alto') as City)
 }
@@ -137,22 +153,6 @@ export function upsertAdminCacheEvent(event: Event): Event {
       : [prepared, ...events],
   )
   return prepared
-}
-
-/** Drop an unpublished cache row (Draft or Hidden). Never removes Published/Live rows. */
-export function removeAdminCacheEvent(eventId: string): boolean {
-  ensureAdminEventsCacheSeeded()
-  const events = currentAdminEvents()
-  const target = events.find((item) => item.id === eventId)
-  if (!target || target.status === 'Published') return false
-  persistAdminEvents(events.filter((item) => item.id !== eventId))
-  rememberDismissedAdminEventId(eventId)
-  return true
-}
-
-/** Read one cached Admin row. Does not reconcile discovery or write localStorage. */
-export function peekAdminCacheEvent(eventId: string): Event | undefined {
-  return currentAdminEvents().find((item) => item.id === eventId)
 }
 
 const TITLE_STOP_WORDS = new Set([
@@ -344,16 +344,30 @@ export function applyVerifiedDateInAdminCache(
 }
 
 export type DiscoveryApproveOptions = {
-  /** Inbox Add / Seasonal Drafts may be out of the core four (Worth a little drive). */
+  /** @deprecated Other cities may Browse; kept for older call sites. */
   allowRegional?: boolean
-  /** Editor chose Home and Browse for a non-seasonal event outside the core cities. */
+  /** Inbox “browse only” path — still publish outside core when destination-worthy. */
   allowOtherCityBrowse?: boolean
   isSeasonal?: boolean
   isRegional?: boolean
 }
 
-function skipsCoreCityBlock(options?: DiscoveryApproveOptions): boolean {
-  return Boolean(options?.allowRegional || options?.allowOtherCityBrowse)
+function resolveIsRegional(
+  candidate: DiscoveryCandidate,
+  edits: DiscoveryEditableFields,
+  options?: DiscoveryApproveOptions,
+): boolean {
+  if (typeof options?.isRegional === 'boolean') return options.isRegional
+  if (String(candidate.source ?? '').startsWith('Regional ·')) return true
+  return isOutsideCoreDiscoveryCity(candidate, edits)
+}
+
+function withWorthADriveTag(tags: string[] | undefined, isRegional: boolean): string[] {
+  const next = [...(tags || [])]
+  if (isRegional && !next.some((tag) => /worth a drive/i.test(tag))) {
+    next.push('Worth a Drive')
+  }
+  return next
 }
 
 /** Add a local Draft into the Admin Events cache (no Sheet write). */
@@ -364,9 +378,6 @@ export function appendDraftInAdminCache(
   options?: DiscoveryApproveOptions,
 ): { eventId: string } {
   assertDiscoveryAgeInScope(candidate, edits)
-  if (!skipsCoreCityBlock(options)) {
-    assertDiscoveryCityInScope(candidate, edits)
-  }
   const eventId = localDraftId(candidate, edits)
   let events = currentAdminEvents()
 
@@ -378,11 +389,15 @@ export function appendDraftInAdminCache(
   )
   const ageMin = inferred?.ageMin ?? candidate.ageMin ?? 0
   const ageMax = inferred?.ageMax ?? candidate.ageMax ?? 5
-  const draftBase = enrichPublishingFields({
+  const isRegional = resolveIsRegional(candidate, edits, options)
+  const draft = enrichPublishingFields({
     id: eventId,
     title: edits.title || candidate.title,
     description: edits.description || candidate.description || '',
-    ...(edits.tips || candidate.tips ? { tips: edits.tips || candidate.tips } : {}),
+    ...(() => {
+      const tips = stripLeadNotesForPublish(edits.tips || candidate.tips)
+      return tips ? { tips } : {}
+    })(),
     venue: edits.venue || candidate.venue,
     ...(edits.room || candidate.room ? { room: edits.room || candidate.room } : {}),
     address: edits.address || candidate.address || '',
@@ -390,15 +405,11 @@ export function appendDraftInAdminCache(
     date: edits.date || candidate.date,
     startTime: edits.startTime || candidate.startTime || '',
     endTime: edits.endTime || candidate.endTime || '',
-    ...(candidate.sessions?.length ? { sessions: candidate.sessions } : {}),
-    ageRange: formatPublicAgeRangeLabel(
-      edits.ageRange || inferred?.ageRange || candidate.ageRange || FULL_SITE_AGE_TAG,
-    ),
-    ...(edits.bestFor || candidate.bestFor ? { bestFor: edits.bestFor || candidate.bestFor } : {}),
+    ageRange: edits.ageRange || inferred?.ageRange || candidate.ageRange || '0–2, 2–5, 5+',
     ageMin,
     ageMax,
     types: asActivityTypes(edits.types?.length ? edits.types : candidate.types),
-    categoryTags: candidate.categoryTags || [],
+    categoryTags: withWorthADriveTag(candidate.categoryTags, isRegional),
     cost: resolveEventCost(
       edits.cost || candidate.cost,
       edits.description || candidate.description,
@@ -411,13 +422,7 @@ export function appendDraftInAdminCache(
     lng: candidate.lng ?? 0,
     status: 'Draft',
     isSeasonal: options?.isSeasonal ?? isSeasonalDiscoveryCandidate(candidate),
-    isRegional:
-      options?.isRegional ?? String(candidate.source ?? '').startsWith('Regional ·'),
-  })
-  const draft = applyAdminScheduleDates(draftBase, {
-    date: edits.date || candidate.date,
-    closingDate: edits.closingDate || candidate.closingDate || '',
-    scheduleKind: candidate.scheduleKind || '',
+    isRegional,
   })
 
   if (existingIndex >= 0) {
@@ -443,9 +448,6 @@ export function approveDiscoveryLocally(
   options?: DiscoveryApproveOptions,
 ): { eventId: string; mode: 'existing' | 'draft' } {
   assertDiscoveryAgeInScope(candidate, edits)
-  if (!skipsCoreCityBlock(options)) {
-    assertDiscoveryCityInScope(candidate, edits)
-  }
   const merged = { ...candidate, ...edits }
   const onSite = findOnSiteCatalogEvent(merged) ?? findOnSiteCatalogEvent(candidate)
   if (candidate.alreadyOnPuddles || onSite) {
@@ -605,21 +607,13 @@ export function syncReadyDiscoveryIntoAdminCache(): {
 
     if (alreadyPresent) continue
 
-    // Worth-a-drive rows stay out of the draft sync. Home and Browse is an explicit placement.
-    const city = String(edits.city ?? candidate.city ?? '').trim()
-    const browsePlacement = (candidate as DiscoveryCandidate & { placement?: string }).placement === 'browse'
-    if (!isLaunchAreaCity(city) && !browsePlacement) continue
-
     try {
-      appendDraftInAdminCache(
-        candidate,
-        edits,
-        verifiedDate,
-        browsePlacement ? { allowOtherCityBrowse: true, isSeasonal: false, isRegional: false } : undefined,
-      )
+      appendDraftInAdminCache(candidate, edits, verifiedDate, {
+        isRegional: isOutsideCoreDiscoveryCity(candidate, edits),
+      })
       draftsAdded += 1
     } catch {
-      // Age/city asserts or corrupt rows — skip; do not take down Admin Events.
+      // Age asserts or corrupt rows — skip; do not take down Admin Events.
     }
   }
 
@@ -648,24 +642,22 @@ export function prepareGoLiveEvents(
   for (const candidate of candidates) {
     const edits = editableFieldsFromCandidate(candidate)
     assertDiscoveryAgeInScope(candidate, edits)
-    const browsePlacement = (candidate as DiscoveryCandidate & { placement?: string }).placement === 'browse'
-    if (!browsePlacement) assertDiscoveryCityInScope(candidate, edits)
     const stamped = { ...edits, lastChecked: verifiedDate }
+    const approveOpts: DiscoveryApproveOptions = {
+      isRegional: isOutsideCoreDiscoveryCity(candidate, stamped),
+    }
 
     let eventId = ''
-    const browseOptions = browsePlacement
-      ? { allowOtherCityBrowse: true, isSeasonal: false as const, isRegional: false as const }
-      : undefined
     if (candidate.alreadyOnPuddles) {
       try {
         const result = applyVerifiedDateInAdminCache(candidate, stamped, verifiedDate)
         eventId = result.eventId
       } catch {
-        const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate, browseOptions)
+        const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate, approveOpts)
         eventId = draft.eventId
       }
     } else {
-      const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate, browseOptions)
+      const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate, approveOpts)
       eventId = draft.eventId
     }
 
@@ -679,170 +671,34 @@ export function prepareGoLiveEvents(
     const candidate = result
       ? candidates.find((row) => row.id === result.candidateId)
       : undefined
+    const outsideCore = candidate
+      ? isOutsideCoreDiscoveryCity(candidate, editableFieldsFromCandidate(candidate))
+      : false
     return enrichPublishingFields({
       ...event,
       status: 'Published',
       verifiedDate,
       isSeasonal: candidate
-        ? (candidate as DiscoveryCandidate & { placement?: string }).placement === 'browse'
-          ? false
-          : isSeasonalDiscoveryCandidate(candidate) || isSeasonalListing(event)
+        ? isSeasonalDiscoveryCandidate(candidate) || isSeasonalListing(event)
         : isSeasonalListing(event),
       isRegional: candidate
-        ? (candidate as DiscoveryCandidate & { placement?: string }).placement === 'browse'
-          ? false
-          : String(candidate.source ?? '').startsWith('Regional ·') || isRegionalListing(event)
+        ? String(candidate.source ?? '').startsWith('Regional ·') ||
+          outsideCore ||
+          isRegionalListing(event)
         : isRegionalListing(event),
+      categoryTags: withWorthADriveTag(
+        event.categoryTags,
+        Boolean(
+          candidate &&
+            (String(candidate.source ?? '').startsWith('Regional ·') ||
+              outsideCore ||
+              isRegionalListing(event)),
+        ),
+      ),
     })
   })
   persistAdminEvents(events)
 
   const toPublish = events.filter((event) => publishIds.has(event.id))
   return { events: toPublish, results }
-}
-
-export interface InboxChoiceInput {
-  choice: 'replace' | 'new' | 'create'
-  id: string
-  title: string
-  date: string
-  startTime: string
-  endTime: string
-  venue: string
-  city: string
-  ageRange: string
-  bestFor: string
-  cost: string
-  description: string
-  tips: string
-  types: string[]
-  imageUrl: string
-  eventUrl: string
-  matchedEventId?: string | null
-  /** Home and Browse keeps the event off Seasonal and Worth a little drive. */
-  placement?: 'browse' | 'seasonal' | 'drive'
-}
-
-function inboxStub(input: InboxChoiceInput): DiscoveryCandidate {
-  return {
-    id: input.id,
-    title: input.title,
-    date: input.date,
-    startTime: input.startTime,
-    endTime: input.endTime,
-    venue: input.venue,
-    room: '',
-    address: '',
-    city: input.city,
-    lat: null,
-    lng: null,
-    ageRange: input.ageRange,
-    bestFor: input.bestFor,
-    ageMin: null,
-    ageMax: null,
-    audiences: '',
-    types: input.types as ActivityType[],
-    categoryTags: [],
-    cost: input.cost,
-    description: input.description,
-    tips: input.tips,
-    imageUrl: input.imageUrl,
-    eventUrl: input.eventUrl,
-    source: 'Discovery inbox',
-    isCancelled: false,
-    isRecurring: false,
-    alreadyOnPuddles: input.choice === 'replace',
-    reviewStatus: 'pending',
-    convertedEventId: '',
-    lastChecked: '',
-  }
-}
-
-function replaceTarget(matches: Event[], input: InboxChoiceInput): Event | undefined {
-  if (input.matchedEventId) {
-    const chosen = matches.find((event) => event.id === input.matchedEventId)
-    if (chosen) return chosen
-  }
-  const series = matches.filter((event) => event.scheduleKind === 'seasonal-run')
-  if (series.length === 1) return series[0]
-  const sorted = [...matches].sort((a, b) => a.date.localeCompare(b.date))
-  return sorted.filter((event) => event.date <= input.date).pop() || sorted[0]
-}
-
-/**
- * 取代 patches the matched event and records the previous date.
- * 新的一場 / a brand-new candidate appends a different id and leaves the old save alone.
- */
-export function applyInboxChoice(input: InboxChoiceInput, verifiedDate: string): { eventId: string } {
-  const stub = inboxStub(input)
-  const edits = editableFieldsFromCandidate(stub)
-  assertDiscoveryAgeInScope(stub, edits)
-  const browsePlacement = input.placement === 'browse'
-  if (!browsePlacement) assertDiscoveryCityInScope(stub, edits)
-  ensureAdminEventsCacheSeeded()
-
-  if (input.choice === 'replace') {
-    const matches = findIdentityMatches(input, currentAdminEvents()) as Event[]
-    const target = replaceTarget(matches, input)
-    if (!target) {
-      throw new Error('No catalog event matches this row. Choose 新的一場 if it is a separate occurrence.')
-    }
-    const rescheduledFrom = target.date === input.date ? target.rescheduledFrom : target.date
-    const cancelling = isCancelledNotice({
-      title: input.title,
-      description: input.description,
-      tips: input.tips,
-    })
-    const events = currentAdminEvents().map((event) => {
-      if (event.id !== target.id) return event
-      return enrichPublishingFields({
-        ...event,
-        title: publishedTitleForUpdate(input.title, event.title),
-        date: input.date || event.date,
-        startTime: input.startTime || event.startTime,
-        endTime: input.endTime || event.endTime,
-        venue: input.venue || event.venue,
-        city: asCity(input.city || event.city),
-        ageRange: input.ageRange || event.ageRange,
-        ...(input.bestFor ? { bestFor: input.bestFor } : {}),
-        cost: input.cost || event.cost,
-        description: input.description || event.description,
-        ...(input.tips ? { tips: input.tips } : {}),
-        ...(input.types.length > 0 ? { types: input.types as ActivityType[] } : {}),
-        imageUrl: input.imageUrl,
-        eventUrl: input.eventUrl || event.eventUrl,
-        ...(cancelling ? { status: 'Cancelled' as const } : {}),
-        ...(browsePlacement ? { isSeasonal: false, isRegional: false } : {}),
-        verifiedDate,
-        ...(rescheduledFrom && rescheduledFrom !== input.date ? { rescheduledFrom } : {}),
-      })
-    })
-    persistAdminEvents(events)
-    return { eventId: target.id }
-  }
-
-  const created = appendDraftInAdminCache(
-    stub,
-    edits,
-    verifiedDate,
-    browsePlacement ? { allowOtherCityBrowse: true, isSeasonal: false, isRegional: false } : undefined,
-  )
-  return { eventId: created.eventId }
-}
-
-/** Re-apply each Ready inbox choice, then return the Published payloads for Go live. */
-export function prepareInboxGoLive(inputs: InboxChoiceInput[], verifiedDate: string): Event[] {
-  const ids = inputs.map((input) => applyInboxChoice(input, verifiedDate).eventId)
-  const idSet = new Set(ids)
-  const events = currentAdminEvents().map((event) =>
-    idSet.has(event.id)
-      ? enrichPublishingFields({
-          ...event,
-          status: event.status === 'Cancelled' ? 'Cancelled' : 'Published',
-          verifiedDate,
-        })
-      : event,
-  )
-  persistAdminEvents(events)
-  return events.filter((event) => idSet.has(event.id))
 }

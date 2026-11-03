@@ -1,0 +1,247 @@
+{
+  "generatedAt": "2026-11-03T20:20:51.662Z",
+  "library": "sccl",
+  "source": "SCCL · Los Altos",
+  "window": {
+    "start": "2026-11-03",
+    "end": "2027-02-01",
+    "days": 90
+  },
+  "stats": {
+    "apiListed": 1482,
+    "fetchedIds": 1482,
+    "inWindow": 939,
+    "losAltosBranchesInWindow": 142,
+    "youngAudienceInWindow": 63,
+    "cancelledSkipped": 21,
+    "candidates": 55,
+    "alreadyOnPuddles": 1,
+    "newForReview": 54
+  },
+  "candidates": [
+    {
+      "id": "6970253094297d3600a66ca3",
+      "title": "Board Game Sunday!",
+      "date": "2026-11-08",
+      "startTime": "14:00",
+      "endTime": "15:30",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation"
+      ],
+      "cost": "Free",
+      "description": "Everyone is invited to play board games!\n\n Join us on the second Sunday of the month from 2:00 PM to 3:30 PM.\n\n We have board games for all ages: adults, teens, and children.\n\n Come with friends & family!\n\n (The room closes at 3:30 PM, so come early enough to have time to finish your game.)",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/f00ce3e9afd5f0b0c0a1198e0b2103aa/kssboardgame;Header(1).png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6970253094297d3600a66ca3",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": true
+    },
+    {
+      "id": "6970253094297d3600a66ca4",
+      "title": "Board Game Sunday!",
+      "date": "2026-12-13",
+      "startTime": "14:00",
+      "endTime": "15:30",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation"
+      ],
+      "cost": "Free",
+      "description": "Everyone is invited to play board games!\n\n Join us on the second Sunday of the month from 2:00 PM to 3:30 PM.\n\n We have board games for all ages: adults, teens, and children.\n\n Come with friends & family!\n\n (The room closes at 3:30 PM, so come early enough to have time to finish your game.)",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/f00ce3e9afd5f0b0c0a1198e0b2103aa/kssboardgame;Header(1).png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6970253094297d3600a66ca4",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false
+    },
+    {
+      "id": "68fc04f0831f063d005395b9",
+      "title": "Los Altos Library Closes at 5pm for Christmas Eve",
+      "date": "2026-12-24",
+      "startTime": "",
+      "endTime": "",
+      "venue": "Los Altos Library",
+      "room": "",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Scheduled Closure/Holiday"
+      ],
+      "cost": "Free",
+      "description": "All SCCLD locations will CLOSE at 5:00PM Thursday, December 24 for Christmas Eve. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/68fc04f0831f063d005395b9",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false
+    },
+    {
+      "id": "68fc11d1831f063d005398b8",
+      "title": "Woodland Branch Library Closes at 5pm for Christmas Eve",
+      "date": "2026-12-24",
+      "startTime": "",
+      "endTime": "",
+      "venue": "Woodland Branch Library",
+      "room": "",
+      "address": "1975 Grant Road, Los Altos, CA 94024",
+      "city": "Los Altos",
+      "lat": 37.3442675,
+      "lng": -122.07544430000002,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Scheduled Closure/Holiday"
+      ],
+      "cost": "Free",
+      "description": "All SCCLD locations will CLOSE at 5:00PM Thursday, December 24 for Christmas Eve. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/68fc11d1831f063d005398b8",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false
+    },
+    {
+      "id": "68fc04f0831f063d005395bb",
+      "title": "Los Altos Library Closes at 5pm for New Year's Eve",
+      "date": "2026-12-31",
+      "startTime": "",
+      "endTime": "",
+      "venue": "Los Altos Library",
+      "room": "",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Scheduled Closure/Holiday"
+      ],
+      "cost": "Free",
+      "description": "All SCCLD locations will CLOSE at 5:00PM Thursday, December 31 for New Year's Eve. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/68fc04f0831f063d005395bb",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false
+    },
+    {
+      "id": "68fc11d1831f063d005398ba",
+      "title": "Woodland Branch Library Closes at 5pm for New Year's Eve",
+      "date": "2026-12-31",
+      "startTime": "",
+      "endTime": "",
+      "venue": "Woodland Branch Library",
+      "room": "",
+      "address": "1975 Grant Road, Los Altos, CA 94024",
+      "city": "Los Altos",
+      "lat": 37.3442675,
+      "lng": -122.07544430000002,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Adults; Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Kids: Toddlers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Scheduled Closure/Holiday"
+      ],
+      "cost": "Free",
+      "description": "All SCCLD locations will CLOSE at 5:00PM Thursday, December 31 for New Year's Eve. See regular library hours .\n\n The Online Library is available 24/7 , including holidays and closures. Visit our website for eBooks, downloads, streaming, and more!",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/a09860788f60d19e710bb349859486cb/closed-day.png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/68fc11d1831f063d005398ba",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false
+    },
+    {
+      "id": "6970253094297d3600a66ca5",
+      "title": "Board Game Sunday!",
+      "date": "2027-01-10",
+      "startTime": "14:00",
+      "endTime": "15:30",
+      "venue": "Los Altos Library",
+      "room": "Orchard Room",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3808782,
+      "lng": -122.11330029999999,
+      "ageRange": "0–2, 2–5, 5+",
+      "ageMin": 0,
+      "ageMax": 5,
+      "audiences": "Kids: Babies; Kids: Family Events; Kids: Grades 5-8; Kids: Grades K-8; Kids: Preschoolers; Older Adults; Teens",
+      "types": [
+        "Other"
+      ],
+      "categoryTags": [
+        "Entertainment & Recreation"
+      ],
+      "cost": "Free",
+      "description": "Everyone is invited to play board games!\n\n Join us on the second Sunday of the month from 2:00 PM to 3:30 PM.\n\n We have board games for all ages: adults, teens, and children.\n\n Come with friends & family!\n\n (The room closes at 3:30 PM, so come early enough to have time to finish your game.)",
+      "tips": "",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/f00ce3e9afd5f0b0c0a1198e0b2103aa/kssboardgame;Header(1).png",
+      "eventUrl": "https://sccl.bibliocommons.com/events/6970253094297d3600a66ca5",
+      "source": "SCCL · Los Altos",
+      "isCancelled": false,
+      "isRecurring": true,
+      "alreadyOnPuddles": false
+    }
+  ]
+}

@@ -1,5 +1,16 @@
-/** Hidden tip prefix. Parents see the text only; the icon is chosen from the prefix. */
-export const TIP_ICON_PREFIXES = [
+export type TipIconKind =
+  | 'ticket'
+  | 'baby'
+  | 'stroller'
+  | 'accessibility'
+  | 'restroom'
+  | 'food'
+  | 'weather'
+  | 'crowds'
+  | 'sound'
+  | 'info'
+
+export const TIP_ICON_PREFIXES: TipIconKind[] = [
   'ticket',
   'baby',
   'stroller',
@@ -10,52 +21,73 @@ export const TIP_ICON_PREFIXES = [
   'crowds',
   'sound',
   'info',
-] as const
-
-export type TipIconKind = (typeof TIP_ICON_PREFIXES)[number]
+]
 
 export type EventTipLine = {
-  icon: TipIconKind | null
+  icon: TipIconKind
   text: string
 }
 
-const LEGACY_TIP_ICON_ALIASES = {
+const LEGACY_TIP_PREFIX: Record<string, TipIconKind> = {
   access: 'accessibility',
   bath: 'restroom',
   sun: 'weather',
   music: 'sound',
-} as const satisfies Record<string, TipIconKind>
-
-const TIP_PREFIX_NAME =
-  'ticket|baby|stroller|accessibility|restroom|food|weather|crowds|sound|info|access|bath|sun|music'
-
-const TIP_PREFIX_RE = new RegExp(`^(${TIP_PREFIX_NAME})\\|\\s*`)
-
-/** A later prefix on the same stored line starts another icon row. */
-const INLINE_TIP_PREFIX_RE = new RegExp(`\\s+(?=(?:${TIP_PREFIX_NAME})\\|)`)
-
-/** Split one stored tip line. Legacy aliases remain readable; unprefixed lines use Info. */
-export function parseEventTipLine(raw: string): EventTipLine {
-  const trimmed = raw.trim()
-  const match = trimmed.match(TIP_PREFIX_RE)
-  if (!match) return { icon: 'info', text: trimmed }
-  const prefix = match[1] as TipIconKind | keyof typeof LEGACY_TIP_ICON_ALIASES
-  const icon = prefix in LEGACY_TIP_ICON_ALIASES
-    ? LEGACY_TIP_ICON_ALIASES[prefix as keyof typeof LEGACY_TIP_ICON_ALIASES]
-    : prefix as TipIconKind
-  return { icon, text: trimmed.slice(match[0].length).trim() }
 }
 
-/** Split sheet Tips into display lines — one icon per prefix, even mid-line. */
+const TIP_PREFIX_TOKENS = [...TIP_ICON_PREFIXES, ...Object.keys(LEGACY_TIP_PREFIX)]
+
+const TIP_PREFIX_SPLIT_RE = new RegExp(
+  `(?=\\b(?:${TIP_PREFIX_TOKENS.join('|')})\\|)`,
+  'gi',
+)
+
+function resolveTipIcon(rawPrefix: string): TipIconKind {
+  const key = rawPrefix.trim().toLowerCase()
+  if (LEGACY_TIP_PREFIX[key]) return LEGACY_TIP_PREFIX[key]
+  if (TIP_ICON_PREFIXES.includes(key as TipIconKind)) return key as TipIconKind
+  return 'info'
+}
+
+function splitPrefixedTipSegments(line: string): string[] {
+  const trimmed = line.trim()
+  if (!trimmed) return []
+  const matches = [...trimmed.matchAll(TIP_PREFIX_SPLIT_RE)]
+  if (matches.length === 0) return [trimmed]
+  const segments: string[] = []
+  for (let index = 0; index < matches.length; index += 1) {
+    const start = matches[index].index ?? 0
+    const end =
+      index + 1 < matches.length ? (matches[index + 1].index ?? trimmed.length) : trimmed.length
+    segments.push(trimmed.slice(start, end).trim())
+  }
+  return segments.filter(Boolean)
+}
+
+/** Parse one Good to know line (with optional icon prefix). */
+export function parseEventTipLine(line: string): EventTipLine {
+  const trimmed = line.trim()
+  const pipe = trimmed.match(/^([a-z]+)\|([\s\S]*)$/i)
+  if (pipe) {
+    return {
+      icon: resolveTipIcon(pipe[1]),
+      text: pipe[2].trim(),
+    }
+  }
+  return { icon: 'info', text: trimmed }
+}
+
+/** Split sheet Tips into display bullets — one per non-empty line, with optional icons. */
 export function parseEventTips(tips?: string | null): EventTipLine[] {
   if (!tips?.trim()) return []
-  return tips
-    .split(/\r?\n/)
-    .flatMap((line) => line.split(INLINE_TIP_PREFIX_RE))
-    .map((item) => item.trim())
-    .filter(Boolean)
-    .map(parseEventTipLine)
-    .filter((line) => line.text.length > 0)
+  const items: EventTipLine[] = []
+  for (const rawLine of tips.split(/\r?\n/)) {
+    for (const segment of splitPrefixedTipSegments(rawLine)) {
+      const parsed = parseEventTipLine(segment)
+      if (parsed.text.trim()) items.push(parsed)
+    }
+  }
+  return items
 }
 
 export function hasEventTips(tips?: string | null): boolean {

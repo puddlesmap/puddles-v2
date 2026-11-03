@@ -1,0 +1,492 @@
+{
+  "generatedAt": "2026-11-03T20:21:06.692Z",
+  "window": {
+    "start": "2026-11-03",
+    "end": "2027-02-01",
+    "days": 90
+  },
+  "launchTargets": {
+    "city": "Sunnyvale",
+    "activityTypes": [
+      "Parent & Me",
+      "Festivals & Community"
+    ]
+  },
+  "discoveryGeneratedAt": "2026-11-03T20:21:04.928Z",
+  "expansion": {
+    "sunnyvale": {
+      "inWindow": 1,
+      "pending": 1,
+      "onCatalog": 0
+    },
+    "parentAndMe": {
+      "inWindow": 1,
+      "pending": 1,
+      "onCatalog": 0
+    },
+    "festivals": {
+      "inWindow": 12,
+      "pending": 7,
+      "onCatalog": 3
+    },
+    "byCity": [
+      [
+        "Palo Alto",
+        {
+          "total": 71,
+          "pending": 30
+        }
+      ],
+      [
+        "Mountain View",
+        {
+          "total": 33,
+          "pending": 21
+        }
+      ],
+      [
+        "Los Altos",
+        {
+          "total": 20,
+          "pending": 6
+        }
+      ],
+      [
+        "San Carlos",
+        {
+          "total": 3,
+          "pending": 3
+        }
+      ],
+      [
+        "Oakland",
+        {
+          "total": 3,
+          "pending": 3
+        }
+      ],
+      [
+        "Sausalito",
+        {
+          "total": 2,
+          "pending": 2
+        }
+      ],
+      [
+        "Sunnyvale",
+        {
+          "total": 1,
+          "pending": 1
+        }
+      ],
+      [
+        "Los Altos Hills",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "Woodside",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ]
+    ],
+    "byType": [
+      [
+        "Stories",
+        83
+      ],
+      [
+        "Build & Explore",
+        22
+      ],
+      [
+        "Outdoor",
+        15
+      ],
+      [
+        "Festivals & Community",
+        12
+      ],
+      [
+        "Other",
+        11
+      ],
+      [
+        "Music & Movement",
+        6
+      ],
+      [
+        "Arts & Crafts",
+        4
+      ],
+      [
+        "Parent & Me",
+        1
+      ]
+    ],
+    "sunnyvalePendingRows": [
+      {
+        "id": "core-weekend-sunnyvale-fall-2026-enrollment-parent-me",
+        "title": "Sunnyvale Recreation · Fall Parent & Me & preschool classes",
+        "date": "2026-11-03",
+        "startTime": "",
+        "endTime": "",
+        "venue": "Sunnyvale Recreation (multiple sites)",
+        "room": "",
+        "address": "",
+        "city": "Sunnyvale",
+        "lat": null,
+        "lng": null,
+        "ageRange": "0–5",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Parent & Me",
+          "Build & Explore"
+        ],
+        "categoryTags": [
+          "Weekend search"
+        ],
+        "cost": "Paid",
+        "description": "City Fall 2026 guide: Music Together (Creative Arts Center), Kidz Love Soccer Parent & Me, Youth Evolution Baby Ballers, Mini Makers (3–4, potty-trained). Caregiver participation or enrollment series — not library storytimes.",
+        "tips": "",
+        "imageUrl": "",
+        "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/classes-and-activities/preschool/preschool-parent-and-tot",
+        "source": "Core cities · Weekend search · agent",
+        "watchlistSourceId": "sunnyvale-recreation-preschool",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29",
+        "internalReviewNotes": "One Puddles row per program after review. Link each series to the official registration page. Do not list open seats in public copy."
+      }
+    ],
+    "parentAndMePendingRows": [
+      {
+        "id": "core-weekend-sunnyvale-fall-2026-enrollment-parent-me",
+        "title": "Sunnyvale Recreation · Fall Parent & Me & preschool classes",
+        "date": "2026-11-03",
+        "startTime": "",
+        "endTime": "",
+        "venue": "Sunnyvale Recreation (multiple sites)",
+        "room": "",
+        "address": "",
+        "city": "Sunnyvale",
+        "lat": null,
+        "lng": null,
+        "ageRange": "0–5",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Parent & Me",
+          "Build & Explore"
+        ],
+        "categoryTags": [
+          "Weekend search"
+        ],
+        "cost": "Paid",
+        "description": "City Fall 2026 guide: Music Together (Creative Arts Center), Kidz Love Soccer Parent & Me, Youth Evolution Baby Ballers, Mini Makers (3–4, potty-trained). Caregiver participation or enrollment series — not library storytimes.",
+        "tips": "",
+        "imageUrl": "",
+        "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/classes-and-activities/preschool/preschool-parent-and-tot",
+        "source": "Core cities · Weekend search · agent",
+        "watchlistSourceId": "sunnyvale-recreation-preschool",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29",
+        "internalReviewNotes": "One Puddles row per program after review. Link each series to the official registration page. Do not list open seats in public copy."
+      }
+    ],
+    "festivalsPendingRows": [
+      {
+        "id": "regional-crucible-gifty-2026-12-05",
+        "title": "GIFTY Holiday Craft Fair & Open House",
+        "date": "2026-12-05",
+        "startTime": "",
+        "endTime": "",
+        "venue": "The Crucible",
+        "room": "",
+        "address": "",
+        "city": "Oakland",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Build & Explore",
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Free",
+        "description": "Artist demos plus free hands-on kids' activities; optional paid workshops.",
+        "tips": "Confirm which workshops fit preschoolers before recommending specific sessions.",
+        "imageUrl": "",
+        "eventUrl": "https://www.thecrucible.org/events/gifty/",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      },
+      {
+        "id": "core-weekend-magical-santa-dance-party-2026-12-05",
+        "title": "Magical Santa Dance Party",
+        "date": "2026-12-05",
+        "startTime": "17:00",
+        "endTime": "19:30",
+        "venue": "Lucie Stern Community Center",
+        "room": "",
+        "address": "",
+        "city": "Palo Alto",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages and abilities",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community",
+          "Music & Movement"
+        ],
+        "categoryTags": [
+          "Weekend search"
+        ],
+        "cost": "Paid",
+        "description": "Sensory-friendly inclusive holiday dance with DJ, games, Santa, and refreshments (Magical Bridge + SF Autism Society).",
+        "tips": "",
+        "imageUrl": "",
+        "eventUrl": "https://www.magicalbridge.org/event/magical-santa-dance-party/",
+        "source": "Core cities · Weekend search · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29",
+        "internalReviewNotes": "Verify ticket pricing on the official event page before publish."
+      },
+      {
+        "id": "regional-fairyland-fairy-winterland-2026-12-12",
+        "title": "Fairy Winterland",
+        "date": "2026-12-12",
+        "startTime": "12:00",
+        "endTime": "19:00",
+        "venue": "Children's Fairyland",
+        "room": "",
+        "address": "699 Bellevue Ave, Oakland, CA 94610",
+        "city": "Oakland",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community",
+          "Arts & Crafts"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Paid",
+        "description": "Holiday crafts, puppet shows, multicultural stories, Santa visits — toddler-oriented venue.",
+        "tips": "Tickets on sale Nov 1; Dec 19 member free day per official site.",
+        "imageUrl": "",
+        "eventUrl": "https://www.fairyland.org/fairy-winterland",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      },
+      {
+        "id": "6abc44f5295b3b0033ca0dd7",
+        "title": "Celebrating Yalda Night",
+        "date": "2026-12-19",
+        "startTime": "15:30",
+        "endTime": "17:30",
+        "venue": "Children's Library",
+        "room": "",
+        "address": "1276  Harriet Street, Palo Alto, CA 94301",
+        "city": "Palo Alto",
+        "lat": 37.4447829,
+        "lng": -122.14501310000003,
+        "ageRange": "2–5, 5+",
+        "ageMin": 2,
+        "ageMax": 5,
+        "audiences": "Kids (6-11); Pre-schoolers (3-5)",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Celebrations",
+          "Celebrating Cultures"
+        ],
+        "cost": "Free",
+        "description": "Join us for a special Yalda Night celebration with children’s author Anahita Tamaddon and a reading of her book, Yalda Night ! Experience the beauty of this cherished Persian tradition through a Yalda-inspired story, music, and a fun paper craft featuring one of Yalda’s beloved symbols. Yalda, the longest night of the year, is a joyful celebration of family, storytelling, and togetherness as we welcome the arrival of winter. All craft materials will be provided. Materials will be available while supplies last. برای جشن ویژه‌ی شب یلدا همراه با نویسنده‌ی کتاب‌های کودک، آناهیتا تمدن ، به ما بپیوندیددر این برنامه با زیبایی‌های این سنت دیرینه‌ی ایرانی از طریق قصه‌ای با حال‌وهوای یلدا، موسیقی و ساخت کاردستی کاغذی با الهام از یکی از نمادهای دوست‌داشتنی یلدا آشنا خواهیم شد.شب یلدا، بلندترین شب سال، فرصتی برای جشن گرفتن در کنار خانواده و عزیزان، قصه‌گویی و با هم بودن و همچنین خوشامدگویی به فصل زمستان است. تمام وسایل مورد نیاز برای ساخت کاردستی فراهم خواهد بود.",
+        "tips": "Space is limited (100 seats) — check the official page for registration.\nChildren ages three and up, along with their adult caregivers, are invited to participate.\nWhile registration isn’t required and doesn't guarantee a spot, it is recommended if you'd like a reminder about the event.",
+        "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/d32c48dba4514ebca91923316c90f232/BibliocommonsbannerCropsbc(27).png",
+        "eventUrl": "https://paloalto.bibliocommons.com/events/6abc44f5295b3b0033ca0dd7",
+        "source": "Palo Alto Library · BiblioCommons",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": ""
+      },
+      {
+        "id": "regional-badm-noon-years-eve-2026-12-31",
+        "title": "Noon Year's Eve",
+        "date": "2026-12-31",
+        "startTime": "09:00",
+        "endTime": "14:00",
+        "venue": "Bay Area Discovery Museum",
+        "room": "",
+        "address": "",
+        "city": "Sausalito",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Paid",
+        "description": "Countdown crafts, noon ball drop, blacklight sensory experience for babies.",
+        "tips": "Confirm 2026 tickets; ignore 2025 sold-out page.",
+        "imageUrl": "",
+        "eventUrl": "https://bayareadiscoverymuseum.org/events/noon-years-eve/",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      },
+      {
+        "id": "regional-fairyland-countdown-wonderland-2026-12-31",
+        "title": "Countdown in Wonderland",
+        "date": "2026-12-31",
+        "startTime": "10:00",
+        "endTime": "16:00",
+        "venue": "Children's Fairyland",
+        "room": "",
+        "address": "",
+        "city": "Oakland",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Paid",
+        "description": "Alice-themed daytime New Year's with crafts, puppet shows, bubbles, and noon ball drop.",
+        "tips": "",
+        "imageUrl": "",
+        "eventUrl": "https://www.fairyland.org/countdown-in-wonderland",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      },
+      {
+        "id": "6a750a3788e9bf28003613ac",
+        "title": "Noon Year's Eve Celebration!",
+        "date": "2026-12-31",
+        "startTime": "11:30",
+        "endTime": "12:30",
+        "venue": "",
+        "room": "Adobe Room ",
+        "address": "",
+        "city": "Palo Alto",
+        "lat": null,
+        "lng": null,
+        "ageRange": "0–2, 2–5, 5+",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs)",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Celebrations"
+        ],
+        "cost": "Free",
+        "description": "Not planning to stay up until midnight on New Year's Eve with your little ones? Then join us for a \"Noon\" Year's Eve celebration! We will countdown to noon on Thursday, December 31, complete with a \"ball and bubble\" drop. We'll ring in the new year with crafts, dancing and music, so bring your party hats and noisemakers! Come dressed in party attire if you'd like! *This event will be held in the Adobe Room of the Mitchell Park Community Center.",
+        "tips": "Space is limited (90 seats) — check the official page for registration.",
+        "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/03ac94a3dfc1452d80939d2e50267d9b/Family-Celebrating-New-Years-Eve-with-Young-Children.jpg",
+        "eventUrl": "https://paloalto.bibliocommons.com/events/6a750a3788e9bf28003613ac",
+        "source": "Palo Alto Library · BiblioCommons",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": ""
+      }
+    ],
+    "actions": [
+      "**Sunnyvale library:** No automated Sunnyvale branch scraper — add `discover-sunnyvale.mjs` or keep `build-launch-staging.mjs` series seeds current.",
+      "**Parent & Me:** Re-check FIT4MOM weekly graphic (Mondays), Marti Foster, Music Together semester row.",
+      "**Seasonal drive picks:** Editorial farms/haunts live in `seasonal*DriveEvents.ts` — not library scrapers.",
+      "**Core cities only in regular discovery:** Events outside Palo Alto / Los Altos / Mountain View belong in Seasonal → Worth a Little Drive until a city landing justifies a scraper."
+    ]
+  },
+  "watchlistUpdatedAt": "2026-09-10"
+}
