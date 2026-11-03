@@ -7,7 +7,7 @@ Automated collection of family events (ages 0–5) for Puddles review, then publ
 | Phase | What | Storage |
 |-------|------|---------|
 | **0 — Experiment** | One-shot Palo Alto Library pull (next 14 days) | Local files in `data/discovery/` |
-| **1 — Product** | Admin **Discovery** page + Wednesday cron (60-day window) | Repo JSON (`src/data/discovery-candidates.json`); review in Admin |
+| **1 — Product** | Admin **Discovery** page + Sunday cron (60-day window) | Repo JSON (`src/data/discovery-candidates.json`); review in Admin |
 | **2 — Scale** | Los Altos (SCCL) + Mountain View (LibCal); **city / community calendars** via [Calendar Watchlist](./calendar-watchlist.md) | Same Admin pipeline (manual first) |
 | **3 — Only if needed** | Real database for multi-editor realtime | DB behind Admin |
 | **Later optional** | All ops in Admin; retire day-to-day Google Sheets | DB = source of truth; Sheet = optional CSV export |
@@ -16,7 +16,7 @@ Automated collection of family events (ages 0–5) for Puddles review, then publ
 
 1. **Human review** before anything goes live (no auto-Publish).
 2. **Discovery queue is not the Events spreadsheet** — review in Admin; Sheet (or DB) only when promoting to Draft/Published.
-3. **Library calendars first** (BiblioCommons / LibCal-style APIs), not whole-web search.
+3. **Library calendars first** (BiblioCommons / LibCal-style APIs). Weekly **web & social** search for the four core cities is a separate Thursday pass — see [Core cities weekend search](./core-cities-weekend-search.md).
 4. **Dedupe by official URL** so weekly runs stay small after the first pass.
 5. **One publishing path** — Events → sync → site (unchanged until a full Admin/DB migration).
 
@@ -47,12 +47,12 @@ Writes dated CSV/JSON under `data/discovery/` **and** the Admin queue at `src/da
 
 | Trigger | When | Workflow |
 |---|---|---|
-| **Wednesday cron** | 8:00 AM PT | [`.github/workflows/discover-bay-area.yml`](../.github/workflows/discover-bay-area.yml) — Palo Alto, Los Altos, and Mountain View library queue (`discover:bay-area`, ~90 days), plus Linden Tree. New finds need **Approve → Go live** (no auto-publish). |
-| **Wednesday cron** | 8:00 AM PT | [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml) — regional / Worth a little drive pass |
-| **Manual** | Anytime | GitHub → Actions → run either workflow, or locally `npm run discover:bay-area` |
+| **Sunday cron** | 8:00 AM PT | [`.github/workflows/discover-bay-area.yml`](../.github/workflows/discover-bay-area.yml) — library queue refresh (`discover:bay-area`, ~90 days). New finds need **Approve → Go live** (no auto-publish). |
+| **Thursday cron** | 8:00 AM PT | Core-city weekend inbox ([`discover-core-weekend.yml`](../.github/workflows/discover-core-weekend.yml)) **and** regional / Worth a little drive ([`discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml)). Search itself is agent-assisted (web, social, 小紅書). |
+| **Manual** | Anytime | GitHub → Actions → run a workflow, or locally `npm run discover:bay-area` / `discover:core-weekend` / `discover:regional-weekly` |
 | Mid-week | Manual only | Same commands as above |
 
-Each Wednesday library run:
+Each Sunday run:
 
 1. `npm run discover:bay-area -- --days=90` (default in CI)
 2. Merges into `discovery-candidates.json` and **preserves** `reviewStatus` / `convertedEventId` / `lastChecked` for matching library events
@@ -62,24 +62,24 @@ Each Wednesday library run:
 
 Mountain View **city** special events (festivals, movies on Castro, etc.) are **not** on LibCal — they stay on the [Calendar Watchlist](./calendar-watchlist.md) (Akamai blocks automated fetch of mountainview.gov). Marketing page URLs like `/special-events/harvest-history-festival` are aliased to CivicPlus calendar event IDs when marking already-on-Puddles.
 
-### Browser pass the same Wednesday morning
+### Core cities — weekend web & social (Thursdays)
 
-GitHub does not open the Sunnyvale kids calendar or the FIT4MOM Glofox schedule. A browser visit does.
-
-1. Open the current month and the next month of [Sunnyvale kids events](https://www.library.sunnyvale.ca.gov/events/kids-events). Re-bump Baby Lapsit, Night Owl, Family Storytime, Toddler Storytime, and Preschool Storytime onto the next date. Do not add a second row for a storytime that already has a series.
-2. Open the [FIT4MOM Glofox week](https://sunnyvale.fit4mom.com/schedule). Re-bump stroller classes and caregiver-and-baby classes. Skip virtual workouts, prenatal, run club, cancelled rows, and the pink community calendar.
-3. Open [luma.com/ottofamilyclub](https://luma.com/ottofamilyclub). Add a dated session that is still taking RSVPs and is not already on Puddles. Leave a sold-out session off. Do not put seat counts, Near Capacity, or membership prices on the card. `providerId` stays `otto-family-club` and `sourceType` stays `luma`.
-4. A titled special with no series row goes to Discovery only after its event page is read. Approve → Go live stays manual.
-
-Admin shows Sunnyvale library and FIT4MOM as still to check until that visit is done.
-
-### Regional / Worth a Drive (Wednesdays)
-
-Bay Area destination events (farms, festivals, trains) outside the four Browse cities — plus **小紅書 leads** you paste with official URLs — use a separate weekly pass. See [Regional discovery — weekly](./regional-discovery-weekly.md).
+Library scrapers miss Instagram pop-ups, garden mornings, and shopping-center play days. Each Thursday (or in chat: “search this weekend and next”), search official calendars + social for **Palo Alto · Los Altos · Mountain View · Sunnyvale**, then paste official URLs into `data/discovery/core-cities-weekend-inbox.json`. See [Core cities — weekend search](./core-cities-weekend-search.md).
 
 | Command | When |
 |---------|------|
-| `npm run discover:regional-weekly` | Local or Wednesday GitHub Action (8:00 AM PT) |
+| `npm run discover:core-weekend` | Local or Thursday GitHub Action (8:00 AM PT) |
+| Inbox | `data/discovery/core-cities-weekend-inbox.json` |
+
+These **can** Approve → Go live (core cities). Destination finds outside the core four use the regional inbox, then Approve → Browse under Other cities.
+
+### Regional / Worth a Drive (Thursdays, same morning as core cities)
+
+Bay Area destination events (farms, festivals, trains) outside the four Browse cities — plus **小紅書** and **weekend web/social (~1 hour)** leads you paste with official URLs — use the Thursday review pass. See [Regional discovery — weekly](./regional-discovery-weekly.md) and [weekend Worth a Drive search](./regional-weekend-drive-search.md).
+
+| Command | When |
+|---------|------|
+| `npm run discover:regional-weekly` | Local or Thursday GitHub Action (8:00 AM PT) |
 | Inbox | `data/discovery/regional-leads-inbox.json` |
 
 Workflow: [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml)
@@ -120,7 +120,7 @@ Writes:
 - `docs/calendar-watchlist-next-2-months.md` — human-readable priorities
 - `data/discovery/expansion-lookahead-{date}.json` — machine-readable stats
 
-**Sunnyvale library** stays a browser check. Do not add `discover-sunnyvale.mjs` to the GitHub job. Re-bump the standing storytime rows from the kids calendar, and send a new special to Discovery only after its event page is read.
+**Sunnyvale library** is on the [Calendar Watchlist](./calendar-watchlist.md) (site blocks scrapers) until `discover-sunnyvale.mjs` exists; use staging seeds + FIT4MOM / Mini Yoga watchlist rows for Sunnyvale inventory.
 
 Each candidate is enriched toward a Puddles Events row:
 
@@ -130,6 +130,28 @@ Each candidate is enriched toward a Puddles Events row:
 - **types** — mapped from event type + title heuristics
 - **tips** (“Good to know”) — practical notes extracted from registration fields and description (bring a blanket, weather/indoor-outdoor, registration/space limits, accompaniment, etc.). Discovery scripts voice tips in a friendly soft-imperative Puddles tone (`voiceTipLine` / `finalizeTips` in `scripts/discovery-shared.mjs`): keep “Bring a blanket,” drop library “we/our,” skip Admin ops notes.
 - **imageUrl** — featured event image when present
+
+### Venue & program knowledge library (Before you go)
+
+Reusable tip **facts** (not one paragraph per venue) live under `data/knowledge/`:
+
+| File | Role |
+|------|------|
+| `venues.json` | Venue entities + aliases |
+| `programs.json` | Recurring programs (venue + organizer + title patterns) |
+| `facts.json` | Individual tip atoms with source, verified date, volatility, `reuseSafe` |
+
+**Compose order:** venue → program → event (event wins on the same category). Admin → Discovery shows suggestions with provenance; **Accept** writes prefixed lines into `tips`. Public pages still read only the event’s stored `tips` (no live merge).
+
+When a scrape leaves tips empty, `attachKnowledgeTipsToCandidates` fills **reuseSafe + verified + fresh** library tips only — no full venue re-research.
+
+| Command | What |
+|---------|------|
+| `npm run test:tip-knowledge` | Compose / match / freshness tests |
+| `npm run knowledge:stale` | List facts past refresh window (stable 180d / semi 90d / dynamic 14d) |
+| `npm run knowledge:backfill-tips` | Fill empty live tips from the library (`--dry-run`, `--rewrite-matched`) |
+
+Save-back from Admin updates this browser’s knowledge overrides (`localStorage`); commit `data/knowledge/*.json` to share with the team. Check `usedByEventIds` before changing a shared fact.
 
 ### Optional Sheet write
 

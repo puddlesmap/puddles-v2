@@ -9,6 +9,7 @@ import {
   addDaysYmd,
   descriptionWithoutTips,
   extractTipsFromText,
+  attachKnowledgeTipsToCandidates,
   finalizeTips,
   isUrlAlreadyOnPuddles,
   loadCatalogUrls,
@@ -224,10 +225,11 @@ export async function discoverMountainView({ days = 30, writeAdmin = true } = {}
     }
   }
 
-  const candidates = sortCandidates([...byUrl.values()])
+  let candidates = sortCandidates([...byUrl.values()])
   for (const candidate of candidates) {
     candidate.alreadyOnPuddles = isUrlAlreadyOnPuddles(candidate.eventUrl, catalogUrls)
   }
+  candidates = await attachKnowledgeTipsToCandidates(candidates)
 
   const newOnly = candidates.filter((c) => !c.alreadyOnPuddles)
   const already = candidates.filter((c) => c.alreadyOnPuddles)

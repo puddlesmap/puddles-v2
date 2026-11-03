@@ -31,6 +31,9 @@
     "discover:plan-window": "node scripts/plan-discovery-window.mjs --print",
     "discover:weekly-summary": "node scripts/write-weekly-discovery-summary.mjs",
     "verify:events": "node scripts/verify-event-freshness.mjs",
+    "knowledge:stale": "node scripts/knowledge/list-stale-facts.mjs",
+    "knowledge:backfill-tips": "node scripts/knowledge/backfill-live-tips.mjs",
+    "test:tip-knowledge": "node --test scripts/tip-knowledge-compose.test.mjs scripts/event-tips-regression.test.mjs",
     "build:launch-staging": "node scripts/build-launch-staging.mjs",
     "verify-expansion-watch": "node scripts/verify-expansion-watch-submission.mjs"
   },

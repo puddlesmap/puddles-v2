@@ -27,9 +27,9 @@ Events appear naturally in regular discovery when they meet Puddles’ inclusion
 
 **Core principle**
 
-> If an event is useful enough for a Puddles family **and** it is in a core city (Palo Alto · Los Altos · Mountain View · Sunnyvale), it can belong in regular discovery.
+> If an event is useful enough for a Puddles family in a **core city** (Palo Alto · Los Altos · Mountain View · Sunnyvale), it can belong in regular discovery.
 
-Out-of-area events stay out of the main feed unless curated into Seasonal Discovery / Worth a little drive.
+**Other cities** can also appear on Home / Browse when the outing is destination-worthy (once-in-a-while / worth the drive) — not a routine weekly program in another city. Parents can filter with **Other cities**. Seasonal Discovery remains an optional editorial layer when a theme fits; it is not required for other-city Browse placement.
 
 ---
 

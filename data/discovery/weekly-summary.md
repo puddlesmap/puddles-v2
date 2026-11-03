@@ -1,18 +1,14 @@
-# Weekly discovery summary (2026-10-29)
+# Weekly discovery summary (2026-11-03)
 
 ## A. Event maintenance
-- Events checked: 36
-- Automatically verified: 1
+- Events checked: 0
+- Automatically verified: 0
 - Updated: 0
 - Events archived by this run: 0
-- Past events skipped: 329
-- Not due this run: 97
-- Verification failures: 35
-- Retries scheduled: 35
-
-Failures by reason:
-- No official reading matched this listing.: 28
-- Official reading is older than this event’s check interval.: 7
+- Past events skipped: 304
+- Not due this run: 59
+- Verification failures: 0
+- Retries scheduled: 0
 
 ## B. Discovery
 - Horizon fetched (days): 90

@@ -2,7 +2,7 @@
 
 Weekly discovery pass for **seasonal outings a little farther afield** that the four-city library scrape misses: pumpkin patches, apple days, harvest festivals, farm open days, and cultural fall weekends **within about an hour of Palo Alto · Los Altos · Mountain View · Sunnyvale**.
 
-This is the **drive** counterpart to [Core cities — weekend search](./core-cities-weekend-search.md). Qualifying finds stay out of regular Browse. Queue them as `Regional ·` Discovery rows, then promote into **Hello Fall / Halloween → Worth a little drive** (Hidden). Never **Approve → Go live** into the public feed.
+This is the **drive** counterpart to [Core cities — weekend search](./core-cities-weekend-search.md). Qualifying finds are destination / once-in-a-while outings (not everyday out-of-area programs). Queue them as `Regional ·` Discovery rows, then **Approve → Publish** onto Browse/Home under **Other cities**. Optionally also feature in a seasonal collection when a theme fits — they do **not** need a current seasonal theme to ship.
 
 ## What runs automatically
 
@@ -102,7 +102,7 @@ Then:
 npm run discover:regional-weekly
 ```
 
-Review `/admin/discovery` — filter Source for `Regional ·`. **Do not Go live.** Add a Hidden row in `seasonalHelloFallDriveEvents.ts` / Halloween drive + `driveEventIds` when it earns Worth a little drive.
+Review `/admin/discovery` — filter Source for `Regional ·`. **Approve → Publish** destination finds onto Browse (Other cities). Optionally also add to a seasonal collection when a theme fits.
 
 ## Reports
 

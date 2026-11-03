@@ -91,7 +91,7 @@ function normalizeLeadToCandidate(lead) {
     categoryTags: ['Weekend search', ...(lead.categoryTags ?? [])],
     cost: lead.cost ?? '',
     description: lead.description ?? '',
-    tips: lead.tips ?? (lead.leadNotes ? `Lead note: ${lead.leadNotes}` : ''),
+    tips: lead.tips ?? '',
     imageUrl: lead.imageUrl ?? '',
     eventUrl,
     source: sourceLabel,

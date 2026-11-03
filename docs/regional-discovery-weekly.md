@@ -1,13 +1,13 @@
 # Regional discovery — weekly Bay Area pass
 
-Puddles **Regular Browse** stays Palo Alto · Los Altos · Mountain View · Sunnyvale. Larger Bay Area outings (farms, festivals, trains) stay out of regular Browse. Queue them as `Regional ·` Discovery rows for review, then promote **only** into **Hello Fall / Halloween → Worth a little drive** (Hidden seasonal drive events) — never Go live into the public feed.
+**Core cities** (Palo Alto · Los Altos · Mountain View · Sunnyvale) carry everyday local finds. **Other cities** can also land on Browse/Home when the outing is destination-worthy (farms, festivals, special one-offs / worth the drive) — not another city’s routine weekly storytime. Queue them as `Regional ·` Discovery rows, then **Approve → Publish**. They appear under Browse **Other cities** (Worth a Drive). Optionally feature the same row in a seasonal collection when a theme fits.
 
 ## What runs automatically
 
 | When | What |
 |------|------|
-| **Wednesdays @ 8:00 AM PT** | Library scrape (`discover-bay-area`) — Palo Alto, Los Altos, and Mountain View (Approve → Go live required). Sunnyvale library and FIT4MOM are a browser check. |
-| **Wednesdays @ 8:00 AM PT** | Regional pass (`discover:regional-weekly`) — watchlist drive rows + inbox leads + report |
+| **Sundays @ 8:00 AM PT** | Library scrape (`discover-bay-area`) — four-city storytimes & classes (Approve → Go live required) |
+| **Thursdays @ 8:00 AM PT** | Weekly review: core-city weekend web & social (`discover:core-weekend`) **and** regional / Worth a little drive (`discover:regional-weekly`) + 小紅書 inbox. Agent search: [core cities](./core-cities-weekend-search.md) · [weekend Worth a Drive (~1 hour)](./regional-weekend-drive-search.md). |
 | Mid-week | Manual runs only |
 
 GitHub Actions: [`.github/workflows/discover-regional-weekly.yml`](../.github/workflows/discover-regional-weekly.yml) · [`.github/workflows/discover-bay-area.yml`](../.github/workflows/discover-bay-area.yml)
@@ -16,16 +16,20 @@ GitHub Actions: [`.github/workflows/discover-regional-weekly.yml`](../.github/wo
 
 小紅書 blocks scrapers, requires login, and posts are **curated roundups** — not authoritative event data. Puddles rule: [official host page first](../.cursor/rules/event-copy-fact-check.mdc).
 
-**Workflow:** you (or Cursor) search 小紅書 or the open web → paste **official URLs** into the inbox → the Wednesday job queues **pending** rows for your review. Nothing auto-publishes.
+**Workflow:** you (or Cursor) search 小紅書 or the open web → paste **official URLs** into the inbox → Thursday job queues **pending** rows for your review. Nothing auto-publishes.
 
-**Ask in chat:** “幫我搜尋本週灣區大型活動” — the agent can web-search official pages and fill `regional-leads-inbox.json`, then run `discover:regional-weekly`.
+**Ask in chat:**
+
+- “fall activities within an hour of Puddles cities this weekend and next” — follow [weekend Worth a Drive search](./regional-weekend-drive-search.md)
+- “幫我搜尋本週灣區大型活動” — 小紅書 / official pages into the same inbox
 
 ## Weekly steps (≈15 min)
 
-1. **Search 小紅書** — keywords like `湾区 亲子`, `Labor Day`, `南瓜`, `万圣节`, `周末 遛娃`.
-2. **Pick 3–5** with clear toddler activities (not adult concerts / 6+ only).
-3. **Open each official page** (city, EBRPD, farm, railroad, museum).
-4. **Add to inbox** — [`data/discovery/regional-leads-inbox.json`](../data/discovery/regional-leads-inbox.json):
+1. **Web & social (~1 hour)** — this weekend + next: farms, harvest festivals, pumpkin patches. See [Regional — weekend Worth a Drive search](./regional-weekend-drive-search.md).
+2. **Search 小紅書** — keywords like `湾区 亲子`, `Labor Day`, `南瓜`, `万圣节`, `周末 遛娃`.
+3. **Pick 3–5** with clear toddler activities (not adult concerts / 6+ only).
+4. **Open each official page** (city, EBRPD, farm, railroad, museum).
+5. **Add to inbox** — [`data/discovery/regional-leads-inbox.json`](../data/discovery/regional-leads-inbox.json):
 
 ```json
 {
@@ -49,15 +53,14 @@ GitHub Actions: [`.github/workflows/discover-regional-weekly.yml`](../.github/wo
 }
 ```
 
-5. **Run locally** (optional before Wednesday):
+6. **Run locally** (optional before Thursday):
 
 ```bash
 npm run discover:regional-weekly
 ```
 
-6. **Review** `/admin/discovery` — filter Source for `Regional ·`.
 7. **Review** `/admin/discovery` — filter Source for `Regional ·`.
-8. Other-city leads default to **Worth a little drive**. They stay out of Home and Browse unless an editor sets Placement to **Home and Browse** (not seasonal). A drive-worthy seasonal outing can still be a Hidden row under the seasonal drive lists plus `driveEventIds`.
+8. **Approve → Publish** when it is a destination / once-in-a-while outing (toddler-relevant). It goes to Browse **Other cities**. Skip routine weekly out-of-area programs. Optionally also add to a seasonal collection (`driveEventIds` / Seasonal picks) when a theme fits.
 
 ## Inbox rules
 
@@ -73,5 +76,7 @@ Each run writes `data/discovery/regional-weekly-{date}.md` — pending regional 
 ## Related
 
 - [Calendar Watchlist](./calendar-watchlist.md) — recurring regional sources (Lemos, Garin, Roaring Camp, …)
+- [Regional — weekend Worth a Drive search](./regional-weekend-drive-search.md) — ~1 hour, this weekend + next (Thursday)
+- [Core cities — weekend search](./core-cities-weekend-search.md) — PA / LA / MV / Sunnyvale web & Instagram (Thursday)
 - [Event discovery layers](./event-discovery-layers.md) — Worth a Little Drive
 - `npm run discover:ingest-expansion` — watchlist rows only (no inbox)

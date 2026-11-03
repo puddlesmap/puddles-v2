@@ -32,8 +32,8 @@ import { eventDetailUrl, isOfficialEventUrl } from '../utils/eventPages'
 import { getEventCategoryTags } from '../utils/eventImages'
 import { getEventModalAgeLabel } from '../utils/ageRange'
 import { getEventAgeRecommendation } from '../utils/eventAgeRecommendation'
-import { parseEventTips, stripLogisticsFromDescription } from '../utils/eventTips'
 import { BeforeYouGoTipItems } from './event-detail/BeforeYouGoIcon'
+import { parseEventTips, stripLogisticsFromDescription } from '../utils/eventTips'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { ReportOutdatedForm } from './ReportOutdatedForm'
 import { EventRouteCard } from './EventRouteCard'
@@ -58,6 +58,9 @@ interface EventDetailViewProps {
   lifecycleLinkTarget?: LifecycleLinkTarget
   /** Direct shared URL for first-time visitors — site header context, no close control */
   visitorContext?: 'shared-direct'
+  /** Admin: render public event UI without analytics, share, or report flows. */
+  previewMode?: boolean
+  previewViewport?: 'mobile' | 'desktop'
 }
 
 const headerIconProps = {
@@ -398,16 +401,21 @@ export function EventDetailView({
   lifecycleNow = new Date(),
   lifecycleLinkTarget = 'production',
   visitorContext,
+  previewMode = false,
+  previewViewport = 'mobile',
 }: EventDetailViewProps) {
   const isOverlay = presentation === 'overlay'
-  const hideCloseControl = visitorContext === 'shared-direct'
+  const hideCloseControl = previewMode || visitorContext === 'shared-direct'
   const isEndedLifecycle =
     lifecycleStatus === 'ended' ||
     lifecycleStatus === 'archived' ||
     lifecycleStatus === 'cancelled'
   const effectiveShareInHeader = shareInHeader || isEndedLifecycle
-  const isDesktop = useMediaQuery('(min-width: 768px)')
-  const isWideDesktop = isOverlay && overlayLayout === 'wide' && isDesktop
+  const windowIsDesktop = useMediaQuery('(min-width: 768px)')
+  const isDesktop = previewMode ? previewViewport === 'desktop' : windowIsDesktop
+  const isWideDesktop =
+    (previewMode && previewViewport === 'desktop') ||
+    (isOverlay && overlayLayout === 'wide' && isDesktop)
   const isV3Desktop = isOverlay && overlayLayout === 'v3' && isDesktop
   const [showReportForm, setShowReportForm] = useState(false)
   const [reportSubmitted, setReportSubmitted] = useState(false)
@@ -437,8 +445,9 @@ export function EventDetailView({
   const categoryTags = getEventCategoryTags(event)
 
   useEffect(() => {
+    if (previewMode) return
     trackActivityOpened(event, analyticsSource ?? 'discovery')
-  }, [event, analyticsSource])
+  }, [event, analyticsSource, previewMode])
 
   function handleScroll() {
     if (isWideDesktop || isV3Desktop) return
@@ -585,18 +594,20 @@ export function EventDetailView({
 
             <aside className="event-modal-wide-layout__side">
               <EventDetailMetadata {...contentProps} />
-              <EventDetailTrustCard {...contentProps} />
-              <EventRouteCard event={event} />
-              <EventDetailActions
-                event={event}
-                canAddToCalendar={canAddToCalendar}
-                hasOfficialPage={hasOfficialPage}
-                shareInHeader={effectiveShareInHeader}
-                hideCloseButton={hideCloseControl}
-                onShare={effectiveShareInHeader ? undefined : () => void handleShare()}
-                onClose={hideCloseControl || effectiveShareInHeader ? undefined : onClose}
-                className="event-modal-actions event-modal-actions--inline"
-              />
+              {!previewMode ? <EventDetailTrustCard {...contentProps} /> : null}
+              {!previewMode ? <EventRouteCard event={event} /> : null}
+              {!previewMode ? (
+                <EventDetailActions
+                  event={event}
+                  canAddToCalendar={canAddToCalendar}
+                  hasOfficialPage={hasOfficialPage}
+                  shareInHeader={effectiveShareInHeader}
+                  hideCloseButton={hideCloseControl}
+                  onShare={effectiveShareInHeader ? undefined : () => void handleShare()}
+                  onClose={hideCloseControl || effectiveShareInHeader ? undefined : onClose}
+                  className="event-modal-actions event-modal-actions--inline"
+                />
+              ) : null}
             </aside>
           </div>
         </div>
@@ -668,7 +679,11 @@ export function EventDetailView({
             />
           ) : null}
 
-          {!hasInAppReturn && !effectiveShareInHeader && !isEndedLifecycle && visitorContext !== 'shared-direct' ? (
+          {!previewMode &&
+          !hasInAppReturn &&
+          !effectiveShareInHeader &&
+          !isEndedLifecycle &&
+          visitorContext !== 'shared-direct' ? (
             <p className="event-detail-direct-fallback">
               <Link to="/browse">Browse more events</Link>
             </p>
@@ -682,13 +697,13 @@ export function EventDetailView({
 
           <EventDetailTips tips={event.tips} />
 
-          <EventDetailTrustCard {...contentProps} />
+          {!previewMode ? <EventDetailTrustCard {...contentProps} /> : null}
 
-          <EventRouteCard event={event} />
+          {!previewMode ? <EventRouteCard event={event} /> : null}
         </div>
       </div>
 
-      {isEndedLifecycle && lifecycleStatus ? (
+      {previewMode ? null : isEndedLifecycle && lifecycleStatus ? (
         <EventLifecycleActions
           event={event}
           status={lifecycleStatus}
