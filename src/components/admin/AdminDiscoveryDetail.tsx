@@ -1,4 +1,5 @@
-import { Fragment, useEffect, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
+import type { TipSuggestion } from '../../types/tipKnowledge'
 import { getEventHostImageUrl } from '../../data/eventHostImages'
 import type { DiscoveryCandidate, DiscoveryEditableFields } from '../../types/discovery'
 import { ACTIVITY_TYPES, type ActivityType } from '../../types/event'
@@ -6,8 +7,17 @@ import { EVENT_FALLBACK_IMAGES } from '../../utils/eventImages'
 import { BeforeYouGoTipItems } from '../event-detail/BeforeYouGoIcon'
 import { formatEventDate, formatEventTimeRange } from '../../utils/dates'
 import { latestApprovedOnForCandidate } from '../../utils/discoveryMatchEvents'
+import { otherCityDestinationWarning } from '../../utils/discoveryApproveLocal'
 import { editableFieldsFromCandidate } from '../../utils/discoveryReview'
+import { parentTipWarnings, stripInternalNotesForPublish } from '../../utils/discoveryInternalNotes'
 import { parseEventTips } from '../../utils/eventTips'
+import {
+  appendTipLine,
+  composeTipSuggestions,
+  removeTipLineByText,
+} from '../../utils/tipKnowledgeCompose'
+import { loadFactsWithOverrides } from '../../utils/tipKnowledgeBrowserStore'
+import { AdminTipKnowledgePanel } from './AdminTipKnowledgePanel'
 import { DetailSection } from './AdminDetailGrid'
 
 const ACTIVITY_TYPE_OPTIONS = ACTIVITY_TYPES
@@ -104,8 +114,66 @@ export function AdminDiscoveryDetailPanel({
   const canGoLive = candidate.reviewStatus === 'approved'
   const approveDisabled = busy || !canApprove || !draft.title.trim() || !draft.date.trim()
   const approvedOnDisplay = latestApprovedOnForCandidate({ ...candidate, ...draft })
+  const tipWarnings = useMemo(() => parentTipWarnings(draft.tips), [draft.tips])
+  const cityWarning = useMemo(
+    () => otherCityDestinationWarning(candidate, draft),
+    [candidate, draft],
+  )
+  const tipLines = useMemo(
+    () => parseEventTips(stripInternalNotesForPublish(draft.tips)),
+    [draft.tips],
+  )
+  const knowledge = useMemo(
+    () =>
+      composeTipSuggestions(
+        {
+          title: draft.title,
+          venue: draft.venue,
+          city: draft.city,
+          description: draft.description,
+          tips: draft.tips,
+          eventUrl: draft.eventUrl,
+          eventId: candidate.id,
+        },
+        { facts: loadFactsWithOverrides() },
+      ),
+    [
+      draft.title,
+      draft.venue,
+      draft.city,
+      draft.description,
+      draft.tips,
+      draft.eventUrl,
+      candidate.id,
+    ],
+  )
+
+  function acceptKnowledgeTip(suggestion: TipSuggestion) {
+    setDraft((current) => ({
+      ...current,
+      tips: appendTipLine(current.tips, suggestion.prefixedLine),
+    }))
+  }
+
+  function removeKnowledgeTip(suggestion: TipSuggestion) {
+    setDraft((current) => ({
+      ...current,
+      tips: removeTipLineByText(current.tips, suggestion.text),
+    }))
+  }
+
+  function acceptAllSafeTips() {
+    setDraft((current) => {
+      let tips = current.tips
+      for (const suggestion of knowledge.suggestions) {
+        if (!suggestion.reuseSafe || suggestion.stale) continue
+        tips = appendTipLine(tips, suggestion.prefixedLine)
+      }
+      return { ...current, tips }
+    })
+  }
+
   const imageUrl = draft.imageUrl.trim()
-  const tipLines = parseEventTips(draft.tips)
   const activityType = primaryActivityType(draft.types)
   const clayImage = EVENT_FALLBACK_IMAGES[activityType]
   const [officialPicks, setOfficialPicks] = useState<ImagePick[]>([])
@@ -188,6 +256,12 @@ export function AdminDiscoveryDetailPanel({
           <span className="text-sm text-muted">Approved on {approvedOnDisplay}</span>
         ) : null}
       </div>
+
+      {cityWarning ? (
+        <div className="admin-discovery-tip-warnings" role="status">
+          <p>{cityWarning}</p>
+        </div>
+      ) : null}
 
       <div className="admin-discovery-detail-layout">
       <DetailSection title="Edit before approve">
@@ -310,16 +384,55 @@ export function AdminDiscoveryDetailPanel({
               disabled={busy}
             />
           </Field>
-          <Field label="Good to know (tips)">
+          <Field label="Internal review notes (Admin only — not published)">
+            <textarea
+              className="admin-discovery-input admin-discovery-textarea admin-discovery-input--internal"
+              rows={3}
+              value={draft.internalReviewNotes ?? ''}
+              onChange={(e) => update('internalReviewNotes', e.target.value)}
+              disabled={busy}
+              placeholder="Verify pricing on official page · editorial reminders…"
+            />
+          </Field>
+          <Field label="Good to know (parents see this on Puddles)">
             <textarea
               className="admin-discovery-input admin-discovery-textarea"
               rows={3}
               value={draft.tips}
               onChange={(e) => update('tips', e.target.value)}
               disabled={busy}
-              placeholder="Bring a blanket… registration notes…"
+              placeholder="Advance registration required · strollers welcome · what to bring…"
             />
           </Field>
+          {knowledge.suggestions.some((s) => s.reuseSafe && !s.stale) ? (
+            <div className="admin-tip-knowledge__accept-all">
+              <button
+                type="button"
+                className="admin-btn admin-btn-secondary"
+                disabled={busy}
+                onClick={acceptAllSafeTips}
+              >
+                Accept all safe library tips
+              </button>
+            </div>
+          ) : null}
+          {tipWarnings.length > 0 ? (
+            <div className="admin-discovery-tip-warnings" role="status">
+              {tipWarnings.map((warning) => (
+                <p key={warning}>{warning}</p>
+              ))}
+            </div>
+          ) : null}
+          <AdminTipKnowledgePanel
+            eventId={candidate.id}
+            suggestions={knowledge.suggestions}
+            needsReview={knowledge.needsReview}
+            venueId={knowledge.venueId}
+            programId={knowledge.programId}
+            busy={busy}
+            onAccept={acceptKnowledgeTip}
+            onRemoveFromTips={removeKnowledgeTip}
+          />
           <Field label="Official URL">
             <input
               className="admin-discovery-input"

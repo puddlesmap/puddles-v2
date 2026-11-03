@@ -1,6 +1,7 @@
 import type { DiscoveryCandidate } from '../types/discovery'
 import type { Event } from '../types/event'
 import { ALL_EVENTS } from '../data/events'
+import { isDiscoveryCandidateExpired } from '../data/discovery'
 import { LAUNCH_CITIES } from './adminReviewFlags'
 
 function eventToDiscoveryCandidate(event: Event): DiscoveryCandidate {
@@ -62,19 +63,23 @@ export function resolveSeasonalDiscoveryRows(
       rows.push(eventToDiscoveryCandidate(fromEvent))
     }
   }
-  return rows
+  return rows.filter((row) => !isDiscoveryCandidateExpired(row))
 }
 
 export function isCoreLaunchCity(city: string): boolean {
   return (LAUNCH_CITIES as readonly string[]).includes(String(city || '').trim())
 }
 
-/** Regular Discovery: drop non-core Regional rows from default review chips. */
+/** Regular Discovery: core cities plus Regional pending/ready (Worth a Drive review). */
 export function filterRegularDiscoveryCandidates(
   candidates: DiscoveryCandidate[],
 ): DiscoveryCandidate[] {
   return candidates.filter((candidate) => {
     if (isCoreLaunchCity(candidate.city)) return true
+    const isRegional = String(candidate.source ?? '').startsWith('Regional ·')
+    if (isRegional && (candidate.reviewStatus === 'pending' || candidate.reviewStatus === 'approved')) {
+      return true
+    }
     // Keep already-reviewed live/dismissed for Live/Dismissed tabs if city drifted
     if (candidate.reviewStatus === 'live' || candidate.reviewStatus === 'dismissed') return true
     return false

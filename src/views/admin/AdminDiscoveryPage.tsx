@@ -29,6 +29,7 @@ import {
   pacificTodayYmd,
   saveDiscoveryReviewRecord,
 } from '../../utils/discoveryReview'
+import { stripInternalNotesForPublish } from '../../utils/discoveryInternalNotes'
 import { summarizeDiscoveryThisWeek } from '../../utils/discoveryThisWeek'
 import {
   addToSeasonalSection,
@@ -148,7 +149,7 @@ async function writeNewDraftToSheet(
       discoveryId: candidate.id,
       title: edits.title,
       description: edits.description,
-      tips: edits.tips,
+      tips: stripInternalNotesForPublish(edits.tips),
       venue: edits.venue,
       room: edits.room,
       address: edits.address,

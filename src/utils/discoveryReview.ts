@@ -1,4 +1,5 @@
 import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryReviewStatus } from '../types/discovery'
+import { joinInternalReviewNotes, splitTipsForAdmin } from './discoveryInternalNotes'
 
 const STORAGE_KEY = 'puddles-admin-discovery-review-v1'
 
@@ -89,10 +90,15 @@ export function applyDiscoveryReviewOverrides(
 }
 
 export function editableFieldsFromCandidate(candidate: DiscoveryCandidate): DiscoveryEditableFields {
+  const { parentTips, internalNotes } = splitTipsForAdmin(
+    candidate.tips,
+    candidate.internalReviewNotes,
+  )
   return {
     title: candidate.title,
     description: candidate.description,
-    tips: candidate.tips,
+    tips: parentTips,
+    internalReviewNotes: joinInternalReviewNotes(internalNotes),
     venue: candidate.venue,
     room: candidate.room,
     address: candidate.address,
