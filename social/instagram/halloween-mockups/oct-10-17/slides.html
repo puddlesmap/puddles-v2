@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>document.documentElement.dataset.slide = location.hash.slice(1) || '1'</script>
+    <style>
+      @font-face { font-family: "Nunito Sans"; src: url("file:///Users/schei/Documents/Projects/Puddles%20WIP/_Instagram/weekend-social-generator/assets/NunitoSans-400.woff2") format("woff2"); font-weight: 400; }
+      @font-face { font-family: "Nunito Sans"; src: url("file:///Users/schei/Documents/Projects/Puddles%20WIP/_Instagram/weekend-social-generator/assets/NunitoSans-600.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Nunito Sans"; src: url("file:///Users/schei/Documents/Projects/Puddles%20WIP/_Instagram/weekend-social-generator/assets/NunitoSans-800.ttf") format("truetype"); font-weight: 800; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1350px; overflow: hidden; background: #141414; }
+      .slide { display: none; position: relative; width: 1080px; height: 1350px; overflow: hidden; font-family: "Nunito Sans", sans-serif; background: #141414; color: #fff; }
+      html[data-slide='1'] .s1, html[data-slide='2'] .s2, html[data-slide='3'] .s3, html[data-slide='4'] .s4, html[data-slide='5'] .s5, html[data-slide='6'] .s6, html[data-slide='7'] .s7, html[data-slide='8'] .s8, html[data-slide='9'] .s9 { display: flex; }
+      .s1 { flex-direction: column; }
+      .cover-copy { position: relative; z-index: 2; flex: 0 0 auto; padding: 108px 108px 48px; }
+      .kicker { color: #ff8a3d; font-size: 30px; font-weight: 600; letter-spacing: -0.01em; }
+      .brand { margin-top: 22px; display: flex; align-items: center; gap: 14px; font-size: 32px; font-weight: 600; }
+      .brand img { width: 52px; height: 52px; border-radius: 50%; background: #fff; }
+      .cover-copy h1 { margin-top: 22px; color: #ff8a3d; font-size: 64px; line-height: 1.05; font-weight: 800; letter-spacing: -0.035em; max-width: 860px; }
+      .cover-themes { margin-top: 28px; color: #d7b4ff; font-size: 30px; line-height: 1.45; font-weight: 600; max-width: 820px; }
+      .bleed { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.72fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px; }
+      .bleed .tall { grid-row: 1 / span 2; overflow: hidden; min-width: 0; }
+      .bleed .cell { overflow: hidden; min-height: 0; min-width: 0; }
+      .bleed img, .hero img { width: 100%; height: 100%; object-fit: cover; display: block; min-width: 0; }
+      .event { flex-direction: column; }
+      .hero { flex: 1; min-height: 0; overflow: hidden; }
+      .copy { flex: 0 0 auto; padding: 48px 90px 96px; }
+      .copy .kicker { font-size: 24px; letter-spacing: 0.04em; }
+      .name { margin-top: 14px; font-size: 56px; line-height: 1.08; font-weight: 800; letter-spacing: -0.035em; }
+      .meta { margin-top: 16px; color: rgba(255,255,255,0.7); font-size: 26px; font-weight: 400; line-height: 1.4; }
+      .blurb { margin-top: 14px; font-size: 28px; line-height: 1.45; font-weight: 400; color: rgba(255,255,255,0.88); }
+      .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 22px; }
+      .chip { height: 40px; padding: 0 14px; border-radius: 20px; font-size: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+      .chip.city { background: #f0f0f0; color: #333; }
+      .chip.free { background: #e2f5e7; color: #2b7a3d; }
+      .chip.paid { background: #e6edf5; color: #35506e; }
+      .pin { width: 16px; height: 16px; }
+      .logo { position: absolute; top: 90px; right: 90px; z-index: 4; width: 76px; height: 76px; border-radius: 50%; background: #fff; }
+      .text-slide { flex-direction: column; justify-content: center; padding: 120px; }
+      .text-slide .logo { top: 90px; right: 90px; }
+      .text-slide h1 { margin-top: 28px; font-size: 64px; line-height: 1.08; font-weight: 800; letter-spacing: -0.035em; max-width: 820px; }
+      .points { margin-top: 48px; display: flex; flex-direction: column; gap: 36px; max-width: 820px; }
+      .point { display: grid; grid-template-columns: 36px 1fr; column-gap: 18px; align-items: start; }
+      .point .bygo { margin-top: 4px; color: #66c5f9; }
+      .point .bygo svg { width: 36px; height: 36px; display: block; }
+      .points h2 { font-size: 36px; line-height: 1.2; font-weight: 800; letter-spacing: -0.03em; }
+      .points p { margin-top: 8px; font-size: 30px; line-height: 1.4; font-weight: 400; color: rgba(255,255,255,0.78); }
+      .lede { margin-top: 48px; font-size: 30px; line-height: 1.35; font-weight: 600; color: rgba(255,255,255,0.88); }
+      .end-link { margin-top: 12px; font-size: 34px; font-weight: 600; color: #66c5f9; }
+    </style>
+  </head>
+  <body>
+    <article class="slide s1">
+      <div class="cover-copy">
+        <div class="kicker">OCT 10–17 · BAY AREA</div>
+        <div class="brand"><img src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />Puddles</div>
+        <h1>Halloween Fun<br />for Little Ones 🎃</h1>
+        <div class="cover-themes">Stories · Sensory play · Pumpkin patches</div>
+      </div>
+      <div class="bleed">
+        <div class="tall"><img style="object-position:center 72%" src="../photos/creepy-carrots-official.jpg" alt="" /></div>
+        <div class="cell"><img style="object-position:center 28%" src="../photos/otto-sensory.jpg" alt="" /></div>
+        <div class="cell"><img style="object-position:center 40%" src="../photos/pumpkins.jpg" alt="" /></div>
+      </div>
+    </article>
+
+    <article class="slide s2 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 86%" src="../photos/creepy-carrots-official.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">SAT, OCT 10 · CLOSE TO HOME</div>
+        <div class="name">Creepy Carrots!</div>
+        <div class="meta">11:30 AM &amp; 1:30 PM · Mountain View Center for the Performing Arts</div>
+        <div class="blurb">A funny, slightly spooky picture-book play, followed by a chance to meet the performers.</div>
+        <div class="chips"><span class="chip paid">Youth from $20</span></div>
+      </div>
+    </article>
+
+    <article class="slide s3 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 28%" src="../../halloween-2026-two-weeks/photos/otto-sensory.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">SAT, OCT 10 · CLOSE TO HOME</div>
+        <div class="name">Spider Web</div>
+        <div class="meta">10:00–10:50 AM · Otto Family Club</div>
+        <div class="blurb">Halloween sensory play for ages 1–5. Splashy, squishy, and messy—dress accordingly. Included with membership.</div>
+        <div class="chips"><span class="chip city"><svg class="pin" viewBox="0 0 14 14"><path fill="#333" d="M7 1.1a3.3 3.3 0 0 0-3.3 3.3C3.7 7.1 7 12.2 7 12.2s3.3-5.1 3.3-7.8A3.3 3.3 0 0 0 7 1.1zm0 4.4a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>Sunnyvale</span><span class="chip paid">$39 drop-in</span></div>
+      </div>
+    </article>
+
+    <article class="slide s4 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 40%" src="../../halloween-2026-this-weekend/photos/pumpkins-in-the-park.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">SAT, OCT 10 · WORTH A LITTLE DRIVE</div>
+        <div class="name">Pumpkins in the Park</div>
+        <div class="meta">10:00 AM–4:00 PM · Discovery Meadow</div>
+        <div class="blurb">Pumpkins, inflatables, and community fun. One free pumpkin per family while supplies last.</div>
+        <div class="chips"><span class="chip city"><svg class="pin" viewBox="0 0 14 14"><path fill="#333" d="M7 1.1a3.3 3.3 0 0 0-3.3 3.3C3.7 7.1 7 12.2 7 12.2s3.3-5.1 3.3-7.8A3.3 3.3 0 0 0 7 1.1zm0 4.4a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>San Jose</span><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s5 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center top; height:125%" src="file:///Users/schei/Documents/Projects/Puddles%20WIP/_Instagram/weekend-social-generator/photos/spina.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">OPEN THROUGH NOV 2 · WORTH A LITTLE DRIVE</div>
+        <div class="name">Spina Farms Pumpkin Patch</div>
+        <div class="meta">Spina Farms, Morgan Hill · Weather permitting</div>
+        <div class="blurb">Pumpkin fields, rides, and a corn maze. Free entry; weekend parking $30 cash. Rides extra.</div>
+      </div>
+    </article>
+
+    <article class="slide s6 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 40%" src="../../halloween-2026-two-weeks/photos/deer-hollow-barn.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">FRI, OCT 16 · WORTH A LITTLE DRIVE</div>
+        <div class="name">Deer Hollow Storytime</div>
+        <div class="meta">11:00 AM–12:00 PM · Deer Hollow Farm</div>
+        <div class="blurb">Stories, songs, and farm animals. Registration required; about a one-mile walk in.</div>
+        <div class="chips"><span class="chip city"><svg class="pin" viewBox="0 0 14 14"><path fill="#333" d="M7 1.1a3.3 3.3 0 0 0-3.3 3.3C3.7 7.1 7 12.2 7 12.2s3.3-5.1 3.3-7.8A3.3 3.3 0 0 0 7 1.1zm0 4.4a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>Cupertino</span><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s7 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 18%" src="../../halloween-2026-two-weeks/photos/deer-hollow-spooky.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">SAT, OCT 17 · WORTH A LITTLE DRIVE</div>
+        <div class="name">Deer Hollow Farm</div>
+        <div class="meta">10:00 AM–3:00 PM · Deer Hollow Farm</div>
+        <div class="blurb">Costumes, crafts, and barnyard animals. Last entry at 2:30 PM. $7 in costume, $10 without. Babies 12 months and under are free.</div>
+        <div class="chips"><span class="chip city"><svg class="pin" viewBox="0 0 14 14"><path fill="#333" d="M7 1.1a3.3 3.3 0 0 0-3.3 3.3C3.7 7.1 7 12.2 7 12.2s3.3-5.1 3.3-7.8A3.3 3.3 0 0 0 7 1.1zm0 4.4a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3z"/></svg>Cupertino</span></div>
+      </div>
+    </article>
+
+    <article class="slide s8 event">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="hero"><img style="object-position:center 45%" src="../../halloween-2026-two-weeks/photos/hands-on-the-arts.jpg" alt="" /></div>
+      <div class="copy">
+        <div class="kicker">SAT, OCT 17 · CLOSE TO HOME</div>
+        <div class="name">Hands on the Arts</div>
+        <div class="meta">10:00 AM–3:00 PM · Sunnyvale Community Center</div>
+        <div class="blurb">Hands-on art workshops, live performances, and food trucks. A free tote and stickers while supplies last.</div>
+        <div class="chips"><span class="chip free">Free</span></div>
+      </div>
+    </article>
+
+    <article class="slide s9 text-slide">
+      <img class="logo" src="file:///Users/schei/puddles-v2/public/puddles-logo-pin.png" alt="" />
+      <div class="kicker">A note from Puddles</div>
+      <h1>Before you go</h1>
+      <div class="points">
+        <div class="point">
+          <span class="bygo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></span>
+          <div>
+            <h2>Book ahead</h2>
+            <p>Deer Hollow Storytime requires registration.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="bygo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg></span>
+          <div>
+            <h2>Plan for a walk</h2>
+            <p>Deer Hollow Farm is about a mile from parking.</p>
+          </div>
+        </div>
+        <div class="point">
+          <span class="bygo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.25"/><path d="M12 3.75v1.75M12 18.5v1.75M3.75 12h1.75M18.5 12h1.75M6.1 6.1l1.25 1.25M16.65 16.65l1.25 1.25M17.9 6.1l-1.25 1.25M7.35 16.65l-1.25 1.25"/></svg></span>
+          <div>
+            <h2>Extra costs</h2>
+            <p>Spina Farms has free entry, but parking and rides cost extra.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lede">More Halloween plans for little ones</div>
+      <div class="end-link">puddlesmap.com</div>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+---
+description: Stop and show a parent-facing review list before any live publish
+alwaysApply: true
+---
+
+# Before you deploy
+
+When the user asks to deploy, publish, go live, or push events or interface changes to the live site:
+
+1. **Stop.** Do not commit to `main` or push until they confirm the list below.
+2. Show the list in the chat. Wait for a clear yes. “Deploy” alone is not that yes if the list has not been shown yet in this turn.
+3. If they correct the list, update it and show it again before pushing.
+4. Publish only what the confirmed list names. Leave everything else off the live site.
+
+## The list
+
+- **Each event:** title, when, where, cost, ages, description, Before you go lines, and whether the card image is the event’s own photo, the host’s photo, or still the clay fallback.
+- **Interface that changes with this publish:** heading, icons, and any other parent-facing label. If a tip line needs a prefix for an icon, say whether the stripper ships in the same publish. Never ship prefixes without the stripper. Never ship the stripper while leaving those lines untagged if the point of the publish is the icons.
+- **Files that will be committed to `main`.** Name them.
+- **Work from this chat that stays off the live site,** and why.
+
+Do not push the whole working tree when it mixes this publish with other uncommitted work.

@@ -1,0 +1,16 @@
+{
+  "notes": "Starting intervals. Events 8–30 days out that require registration or tickets use a 7-day interval. The weekly job is the heartbeat: a listing checked inside its interval is not fetched again.",
+  "intervals": [
+    { "maxDaysUntil": 7, "everyDays": 7 },
+    { "maxDaysUntil": 30, "everyDays": 14 },
+    { "maxDaysUntil": 90, "everyDays": 30 }
+  ],
+  "beyondHorizonEveryDays": 30,
+  "registrationTightensWithinDays": 30,
+  "registrationIntervalDays": 7,
+  "escalateAfterFailures": 3,
+  "escalateFailuresWithinDays": 30,
+  "retryDays": 3,
+  "soonRetryDays": 1,
+  "soonRetryWithinDays": 7
+}
