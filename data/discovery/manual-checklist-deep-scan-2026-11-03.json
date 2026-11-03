@@ -1,0 +1,58 @@
+{
+  "scrapedAt": "2026-11-03",
+  "source": "Manual checklist deep scan · Cursor browser · 2026-11-03",
+  "scanNotes": {
+    "paloAltoCalendar": "List view OK for early Nov; full month needs Events Directory + calendar pagination (startDate query did not change list in a11y snapshot). Playhouse/Gingerbread/Little Red already in discovery or live.",
+    "hiller": "/events/list = daily hours + weekend Drone Plex / Helicopter Adventure; /events/category/special-events/ 404. No separate kid festival rows beyond museum programs.",
+    "mommyPoppins": "Use https://mommypoppins.com/events/2462/san-francisco-bay-area/... not /event/calendar (404). Default day view skews SF/SJ (TapeScape, Salesforce Park storytime) — filter peninsula or use roundup articles for core cities.",
+    "510Families": "Cloudflare challenge in Cursor browser — calendar not scraped.",
+    "bakf": "/weekend-highlights/ loaded but stale (Oct 30–Nov 1 Halloween week) — refresh before queueing.",
+    "marinMommies": "/calendar = editorial list (Marin/SF); regional Worth a Drive only.",
+    "sunnyvaleClasses": "Hub confirms Fall 2026 open + Issuu/PDF guide; not per-class HTML table. Super Safari Parent & Tot session Nov 3–19 from guide snapshot.",
+    "fit4mom": "Glofox embed empty in accessibility tree — use FIT4MOM watchlist / IG weekly graphic or logged-in scroll.",
+    "instagramCityofsunnyvale": "Logged-in Cursor browser 2026-11-03. Grid ~12 posts: Las Palmas Park renovation open houses Nov 16 & 18 6–8pm City Hall (civic input, not 0–5 outing); State of the City; Lakewood grand opening Oct 31 (already on catalog); ballot measures / sandbags / council agenda. No new 0–5 queue rows.",
+    "instagramSunnyvaleRecreation": "Pinned Nov 2026 roundup: Senior luncheon Nov 5; Winter-Spring 2027 guide release Nov 13; Evening of Cultural Arts Nov 13; craft fair senior center; Fun on the Run ages 6–11; youth basketball. Confirms guide timing — kid enrollment still from Fall guide / registration hub, not IG captions alone."
+  },
+  "candidates": [
+    {
+      "id": "manual-palo-alto-library-year-of-letters-series-2026-11-04",
+      "title": "Year of Letters at Rinconada Library",
+      "date": "2026-11-04",
+      "startTime": "16:30",
+      "endTime": "17:30",
+      "venue": "Rinconada Library",
+      "address": "1213 Newell Rd, Palo Alto, CA 94303",
+      "city": "Palo Alto",
+      "description": "Drop-in letter writing and card decorating at the library; supplies provided or bring your own stationery.",
+      "eventUrl": "https://www.paloalto.gov/Events-Directory/Library/Year-of-Letters",
+      "types": ["Arts & Crafts"],
+      "categoryTags": ["Palo Alto", "Library"],
+      "cost": "Free",
+      "isRecurring": true,
+      "source": "Manual checklist deep scan · Palo Alto Calendar / Events Directory",
+      "internalReviewNotes": "Monthly series (first Wed pattern). Next after Nov 4: Dec 2 2026. One series row — do not spam monthly dates."
+    },
+    {
+      "id": "manual-sunnyvale-super-safari-parent-and-tot-fall-2026",
+      "title": "Super Safari Parent and Tot",
+      "date": "2026-11-03",
+      "startTime": "",
+      "endTime": "",
+      "endDate": "2026-11-19",
+      "venue": "Serra Park",
+      "address": "Serra Park, Sunnyvale, CA",
+      "city": "Sunnyvale",
+      "ageMin": 2,
+      "ageMax": 4,
+      "ageRange": "2–4",
+      "description": "City preschool Parent & Tot at Serra Park — caregiver and child participate together. Fall 2026 session runs Nov 3–Nov 19 (per Fall Activities Guide).",
+      "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/classes-and-activities/preschool/preschool-parent-and-tot",
+      "types": ["Parent & Me"],
+      "categoryTags": ["Sunnyvale", "Enrollment series"],
+      "cost": "Paid",
+      "isRecurring": false,
+      "source": "Manual checklist deep scan · Sunnyvale classes hub + Fall guide",
+      "internalReviewNotes": "VERIFY days/times and fees on Fall 2026 guide or registration.sunnyvale.ca.gov before Go live. One semester row, not weekly Browse spam."
+    }
+  ]
+}

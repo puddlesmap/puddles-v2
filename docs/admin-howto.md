@@ -45,6 +45,12 @@ Prefer Admin Refresh over Sheet CSV — Sheet fallback can overwrite local revie
 
 See also [event-discovery.md](./event-discovery.md).
 
+**Manual checklist (weekly sources)**
+
+- **Open all this week** in Admin only opens links in *your* browser — it does not scrape or add rows.
+- Preferred: in Cursor chat, ask the agent to open the same URLs in the **Editor browser**, scrape, and merge with `node scripts/merge-manual-checklist-scrape.mjs data/discovery/manual-checklist-scrape-*.json`.
+- Checkboxes on the checklist mark “looked” in localStorage only.
+
 ## Events
 
 Monitor and **edit live events** (expand a row → edit → stage for header Publish):

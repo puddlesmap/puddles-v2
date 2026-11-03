@@ -87,8 +87,17 @@ export function AdminManualCheckList() {
         </summary>
         <div className="admin-manual-checks__toolbar">
           <p className="admin-review-flag__evidence">
-            GitHub does not open these pages. Check the box after you look. A new date or a new event
-            still needs a note in chat — the box does not add it.
+            These links are for you in your own browser, or ask Cursor to open the same URLs in the
+            Editor browser and scrape into Discovery. Checking a box only marks “looked” on this device —
+            it does not add events to the queue.
+          </p>
+          <p className="admin-review-flag__evidence">
+            <strong>Wednesdays @ 8:00 AM PT:</strong> GitHub runs library scrapes and ingests inbox JSON
+            only — it does <em>not</em> open this checklist or read Instagram / FIT4MOM / roundups. To
+            cover these sources each week, ask Cursor (or a scheduled Automation): “Open the manual
+            checklist URLs in the Editor browser, scrape, and merge into{' '}
+            <code>discovery-candidates.json</code>.” Keep Instagram logged in in Cursor Browser when
+            scraping @cityofsunnyvale.
           </p>
           <button
             type="button"

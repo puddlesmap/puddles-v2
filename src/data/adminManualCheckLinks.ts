@@ -123,6 +123,14 @@ export const ADMIN_MANUAL_CHECK_LINKS: AdminManualCheckLink[] = [
     sourceType: 'calendar',
   },
   {
+    id: 'mvcpa-events',
+    name: 'MVCPA event calendar',
+    why: 'MVCPA hosts PYT and ballet — check for family shows and sensory-friendly performances.',
+    url: 'https://www.mvcpa.com/events',
+    active: true,
+    sourceType: 'calendar',
+  },
+  {
     id: 'pyt-shows',
     name: 'Peninsula Youth Theatre shows',
     why: 'Family Stories on Stage. Use the shows list, not a single production URL.',
