@@ -59,7 +59,7 @@ interface AdminDiscoveryDetailProps {
   busy: boolean
   onSaveEdits: (edits: DiscoveryEditableFields) => void
   onApprove: (edits: DiscoveryEditableFields) => void
-  onGoLive: () => void
+  onGoLive?: () => void
   onDismiss: () => void
   onRestore: () => void
 }
@@ -456,20 +456,19 @@ export function AdminDiscoveryDetailPanel({
             </p>
           ) : candidate.reviewStatus === 'approved' && approvedOnDisplay ? (
             <p className="text-sm text-muted">
-              <strong>Ready — Approved on {approvedOnDisplay}</strong>. Click <strong>Go live</strong>{' '}
-              to publish on the public site (~2–4 min).
+              <strong>In Publish queue</strong> (approved {approvedOnDisplay}). Use header{' '}
+              <strong>Publish</strong> to go live (~2–4 min).
             </p>
           ) : candidate.alreadyOnPuddles ? (
             <p className="text-sm text-muted">
               Already on Puddles
               {approvedOnDisplay ? ` (last verified ${approvedOnDisplay})` : ''}.{' '}
-              <strong>Approve</strong> updates Last checked to <em>today</em>, then{' '}
-              <strong>Go live</strong> refreshes the public catalog.
+              <strong>Approve</strong> updates Last checked and adds the row to header{' '}
+              <strong>Publish</strong>.
             </p>
           ) : (
             <p className="text-sm text-muted">
-              <strong>Approve</strong> marks Ready. <strong>Go live</strong> publishes to the public
-              site.
+              <strong>Approve</strong> adds this row to the header <strong>Publish</strong> queue.
             </p>
           )}
         </div>
@@ -588,7 +587,7 @@ export function AdminDiscoveryDetailPanel({
             </button>
           </Fragment>
         ) : null}
-        {canGoLive ? (
+        {canGoLive && onGoLive ? (
           <button
             type="button"
             className="admin-btn admin-btn-primary"
@@ -598,7 +597,7 @@ export function AdminDiscoveryDetailPanel({
             {busy ? 'Going live…' : 'Go live'}
           </button>
         ) : null}
-        {!canApprove && !canGoLive ? (
+        {!canApprove && !(canGoLive && onGoLive) ? (
           <button
             type="button"
             className="admin-btn admin-btn-secondary"

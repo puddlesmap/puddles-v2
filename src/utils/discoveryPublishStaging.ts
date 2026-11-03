@@ -5,7 +5,7 @@ import {
   includeInSeasonalFromCandidate,
   seasonalSectionForCandidate,
 } from './adminCatalogPlacement.mjs'
-import { stageAdminEvent } from './adminPublishQueue'
+import { loadAdminPublishQueue, stageAdminEvent } from './adminPublishQueue'
 import { getAdminEventForPublish } from './discoveryApproveLocal'
 import { addToSeasonalSection, getActiveThemeSlugForAdmin } from './seasonalCurationStaging'
 
@@ -30,4 +30,24 @@ export function stageDiscoveryCandidateForPublish(
       getActiveThemeSlugForAdmin(),
     )
   }
+}
+
+/** Backfill header Publish from Ready rows that are not staged yet (this browser). */
+export function syncApprovedDiscoveryToPublishQueue(candidates: DiscoveryCandidate[]): number {
+  const staged = new Set(
+    loadAdminPublishQueue()
+      .items.filter((item) => item.source === 'discovery')
+      .map((item) => item.sourceId),
+  )
+  let added = 0
+  for (const candidate of candidates) {
+    if (candidate.reviewStatus !== 'approved') continue
+    if (staged.has(candidate.id)) continue
+    const eventId = candidate.convertedEventId?.trim()
+    if (!eventId) continue
+    stageDiscoveryCandidateForPublish(candidate, eventId)
+    staged.add(candidate.id)
+    added += 1
+  }
+  return added
 }

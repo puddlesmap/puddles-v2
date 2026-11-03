@@ -13,7 +13,6 @@ import { AdminPublishControl } from './AdminPublishControl'
 
 const NAV_ITEMS = [
   { to: '/admin', label: 'Review', end: true },
-  { to: '/admin/approved', label: 'Approved', end: true },
   { to: '/admin/events', label: 'Events', end: false },
   { to: '/admin/submissions', label: 'Submissions', end: false },
   { to: '/admin/seasonal-calendar', label: 'Seasonal', end: false },
@@ -158,12 +157,8 @@ export function AdminLayout() {
                   <strong>Submissions</strong> — Refresh, review Share form items, then Approve or Remove.
                 </li>
                 <li>
-                  <strong>Discovery</strong> — Review the prioritized queue. Approved candidates join
-                  the header Publish summary; unchanged events stay out of the queue.
-                </li>
-                <li>
-                  <strong>Approved</strong> — Last check and edit for items waiting on the header{' '}
-                  <strong>Publish</strong>. This is not Draft Events.
+                  <strong>Discovery</strong> — Review the queue, then <strong>Approve</strong>. Approved
+                  items join the header <strong>Publish</strong> summary (no separate Ready tab).
                 </li>
                 <li>
                   <strong>Events</strong> — Switch <strong>Regular</strong> (everyday Browse in the

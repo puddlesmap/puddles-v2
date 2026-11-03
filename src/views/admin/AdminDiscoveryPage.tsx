@@ -15,11 +15,9 @@ import {
   assertDiscoveryAgeInScope,
   ensureAdminEventsCacheSeeded,
   loadWriteSheetPreference,
-  prepareGoLiveEvents,
   reconcileAdminWithLivedCatalog,
   saveWriteSheetPreference,
 } from '../../utils/discoveryApproveLocal'
-import { publishEventsToSite } from '../../utils/publishEvents'
 import { publishSeasonalCurationToSite } from '../../utils/publishSeasonalCuration'
 import { callSheetApi } from '../../utils/sheetApi'
 import {
@@ -46,6 +44,10 @@ import {
   filterRegularDiscoveryCandidates,
   resolveSeasonalDiscoveryRows,
 } from '../../utils/seasonalDiscoveryAdmin'
+import {
+  stageDiscoveryCandidateForPublish,
+  syncApprovedDiscoveryToPublishQueue,
+} from '../../utils/discoveryPublishStaging'
 
 type ActionMessage = { type: 'success' | 'error'; text: string }
 type DiscoveryMode = 'regular' | 'seasonal'
@@ -55,7 +57,6 @@ const REGULAR_VIEW_OPTIONS: { id: DiscoveryViewFilter; label: string }[] = [
   { id: 'pending', label: 'Pending' },
   { id: 'new', label: 'New only' },
   { id: 'already', label: 'Already on site' },
-  { id: 'approved', label: 'Ready' },
   { id: 'dismissed', label: 'Dismissed' },
   { id: 'all', label: 'All' },
 ]
@@ -182,7 +183,6 @@ export function AdminDiscoveryPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
   const [bulkBusy, setBulkBusy] = useState(false)
-  const [goLiveBusy, setGoLiveBusy] = useState(false)
   const [publishCurationBusy, setPublishCurationBusy] = useState(false)
   const [writeSheet, setWriteSheet] = useState(() => loadWriteSheetPreference())
   const [actionMessage, setActionMessage] = useState<ActionMessage | null>(null)
@@ -191,7 +191,7 @@ export function AdminDiscoveryPage() {
   const [addQuery, setAddQuery] = useState('')
 
   useEffect(() => {
-    if (view === 'live') setView('thisWeek')
+    if (view === 'live' || view === 'approved') setView('thisWeek')
   }, [view])
 
   const themeSlug = getActiveThemeSlugForAdmin()
@@ -228,6 +228,13 @@ export function AdminDiscoveryPage() {
 
   useEffect(() => {
     runLivedReconcile()
+    const staged = syncApprovedDiscoveryToPublishQueue(reloadDiscoveryCandidates())
+    if (staged > 0) {
+      setActionMessage({
+        type: 'success',
+        text: `Added ${staged} Ready item${staged === 1 ? '' : 's'} to header Publish.`,
+      })
+    }
     const onFocus = () => runLivedReconcile()
     window.addEventListener('focus', onFocus)
     return () => window.removeEventListener('focus', onFocus)
@@ -430,7 +437,7 @@ export function AdminDiscoveryPage() {
       updateCandidate(candidate.id, () => next)
       persistCandidate(next, payloadEdits, lastChecked)
       setSelectedId(null)
-      setView('approved')
+      stageDiscoveryCandidateForPublish(next, local.eventId)
 
       let sheetNote = ''
       if (writeSheet) {
@@ -453,8 +460,8 @@ export function AdminDiscoveryPage() {
       setActionMessage({
         type: sheetNote.includes('Sheet write failed') ? 'error' : 'success',
         text: isExisting
-          ? `Ready — Approved on ${lastChecked} for “${edits.title}” (Event ${local.eventId}). Open Events to confirm Last checked.${sheetNote}`
-          : `Ready — “${edits.title}” added as Draft in Admin (${local.eventId}). Approved on ${lastChecked}. Open Events → Drafts.${sheetNote}`,
+          ? `Approved on ${lastChecked} for “${edits.title}” — added to header Publish (${local.eventId}).${sheetNote}`
+          : `Approved on ${lastChecked} — “${edits.title}” staged in header Publish (${local.eventId}).${sheetNote}`,
       })
       requestAnimationFrame(() => {
         document.getElementById('admin-discovery-action-message')?.scrollIntoView({
@@ -602,16 +609,29 @@ export function AdminDiscoveryPage() {
       }
     }
 
+    if (okCount > 0) {
+      for (const candidate of rows) {
+        const eventId = localEventIds.get(candidate.id)
+        if (!eventId) continue
+        const payloadEdits = { ...editableFieldsFromCandidate(candidate), lastChecked }
+        const next = mergeCandidate(candidate, payloadEdits, {
+          reviewStatus: 'approved',
+          convertedEventId: eventId,
+          lastChecked,
+        })
+        stageDiscoveryCandidateForPublish(next, eventId)
+      }
+    }
+
     setBulkBusy(false)
     setSelectedId(null)
-    if (okCount > 0) setView('approved')
 
     if (okCount > 0 && !localFail && !sheetFailMessage) {
       setActionMessage({
         type: 'success',
         text: writeSheet
-          ? `Marked ${okCount} Ready (updated verified on ${updatedExisting} already on site). Approved on ${lastChecked}. Also wrote Google Sheet.`
-          : `Marked ${okCount} Ready (updated verified on ${updatedExisting} already on site). Approved on ${lastChecked}. Open Events to see Drafts / Last checked.`,
+          ? `Approved ${okCount} — added to header Publish (verified ${updatedExisting} already on site). Also wrote Google Sheet.`
+          : `Approved ${okCount} — added to header Publish (verified ${updatedExisting} already on site).`,
       })
     } else if (okCount > 0 && (localFail || sheetFailMessage)) {
       setActionMessage({
@@ -643,78 +663,14 @@ export function AdminDiscoveryPage() {
     setActionMessage({ type: 'success', text: 'Restored to pending.' })
   }
 
-  async function handleGoLive(rows: DiscoveryCandidate[]) {
-    const targets = rows.filter((row) => row.reviewStatus === 'approved')
-    if (targets.length === 0) {
-      setActionMessage({ type: 'error', text: 'Select Ready items to Go live.' })
-      return
-    }
-
-    const ok = window.confirm(
-      `Go live with ${targets.length} activit${targets.length === 1 ? 'y' : 'ies'}?\n\nThey will be Published on the public site (usually updates in 2–4 minutes).`,
-    )
-    if (!ok) return
-
-    setGoLiveBusy(true)
-    setActionMessage({
-      type: 'success',
-      text: `Going live with ${targets.length}…`,
-    })
-
-    try {
-      const verifiedDate = pacificTodayYmd()
-      const { events, results } = prepareGoLiveEvents(targets, verifiedDate)
-      const message = await publishEventsToSite(events)
-
-      for (const result of results) {
-        const candidate = targets.find((row) => row.id === result.candidateId)
-        if (!candidate) continue
-        const edits = editableFieldsFromCandidate(candidate)
-        const next = mergeCandidate(
-          candidate,
-          { ...edits, lastChecked: verifiedDate },
-          {
-            reviewStatus: 'live',
-            convertedEventId: result.eventId,
-            lastChecked: verifiedDate,
-          },
-        )
-        updateCandidate(candidate.id, () => next)
-        persistCandidate(next, { ...edits, lastChecked: verifiedDate }, verifiedDate)
-      }
-
-      setSelectedId(null)
-      setView('thisWeek')
-      refreshCandidatesFromStore()
-      runLivedReconcile()
-      setActionMessage({
-        type: 'success',
-        text: message,
-      })
-      requestAnimationFrame(() => {
-        document.getElementById('admin-discovery-action-message')?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-        })
-      })
-    } catch (error) {
-      setActionMessage({
-        type: 'error',
-        text: error instanceof Error ? error.message : 'Could not Go live.',
-      })
-    } finally {
-      setGoLiveBusy(false)
-    }
-  }
-
   return (
     <>
       <section className="admin-sync-bar" aria-label="Discovery overview">
         <p className="admin-submissions-intro">
-          Review library candidates here. <strong>Approve</strong> → <strong>Ready</strong>, then{' '}
-          <strong>Go live</strong> to publish them on the public site (~2–4 min). Use{' '}
-          <strong>Seasonal picks</strong> to curate Close to home / Worth a little drive for the
-          active theme.
+          Review candidates here. <strong>Approve</strong> adds rows to the header{' '}
+          <strong>Publish</strong> queue (~2–4 min after you publish). Use <strong>Seasonal picks</strong>{' '}
+          for Close to home / Worth a little drive, then publish curation or include it in the same
+          header Publish when staged.
         </p>
         <aside className="admin-discovery-schedule-note" aria-label="Discovery automation schedule">
           <h2 className="admin-discovery-schedule-note__title">Automation schedule</h2>
@@ -757,27 +713,18 @@ export function AdminDiscoveryPage() {
           </div>
           <div className="admin-stat-card admin-stat-card-static">
             <div className="admin-stat-value">{counts.approved}</div>
-            <div className="admin-stat-label">Ready</div>
+            <div className="admin-stat-label">In Publish</div>
           </div>
           <div className="admin-stat-card admin-stat-card-static">
             <div className="admin-stat-value">{counts.dismissed}</div>
             <div className="admin-stat-label">Dismissed</div>
           </div>
         </div>
-        {view === 'approved' && counts.approved > 0 ? (
-          <div className="admin-discovery-golive-bar">
-            <button
-              type="button"
-              className="admin-btn admin-btn-primary"
-              disabled={goLiveBusy || bulkBusy}
-              onClick={() => void handleGoLive(filtered)}
-            >
-              {goLiveBusy ? 'Going live…' : `Go live all Ready (${counts.approved})`}
-            </button>
-            <span className="text-sm text-muted">
-              Publishes Ready activities to the public catalog without Google Sheet.
-            </span>
-          </div>
+        {counts.approved > 0 ? (
+          <p className="text-sm text-muted">
+            {counts.approved} approved — open header <strong>Publish</strong> to go live on the public
+            site.
+          </p>
         ) : null}
         <p className="mt-3 text-sm text-muted">
           Queue: {DISCOVERY_CATALOG.window.start} → {DISCOVERY_CATALOG.window.end} · generated{' '}
@@ -871,11 +818,11 @@ export function AdminDiscoveryPage() {
         ) : null}
       </section>
 
-      <section className="admin-events-section">
+      <section className="admin-events-section admin-events-section--discovery">
         <div className="admin-events-header">
           <div>
             <h2 className="font-display text-lg text-charcoal">Discovery queue</h2>
-            <p className="mt-1 text-sm text-muted">
+            <p className="admin-events-header__sub">
               {discoveryMode === 'regular'
                 ? `${filtered.length} shown · core cities + Worth a Drive pending`
                 : `${seasonalCollection?.title || themeSlug} · ${
@@ -885,13 +832,17 @@ export function AdminDiscoveryPage() {
           </div>
         </div>
 
-        <div className="admin-discovery-mode-toggle" role="tablist" aria-label="Discovery mode">
+        <div
+          className="admin-discovery-mode-toggle admin-segment-toggle"
+          role="tablist"
+          aria-label="Discovery mode"
+        >
           <button
             type="button"
             role="tab"
             aria-selected={discoveryMode === 'regular'}
-            className={`admin-btn ${
-              discoveryMode === 'regular' ? 'admin-btn-primary' : 'admin-btn-secondary'
+            className={`admin-segment-toggle__btn ${
+              discoveryMode === 'regular' ? 'admin-segment-toggle__btn--active' : ''
             }`}
             onClick={() => setDiscoveryMode('regular')}
           >
@@ -901,8 +852,8 @@ export function AdminDiscoveryPage() {
             type="button"
             role="tab"
             aria-selected={discoveryMode === 'seasonal'}
-            className={`admin-btn ${
-              discoveryMode === 'seasonal' ? 'admin-btn-primary' : 'admin-btn-secondary'
+            className={`admin-segment-toggle__btn ${
+              discoveryMode === 'seasonal' ? 'admin-segment-toggle__btn--active' : ''
             }`}
             onClick={() => setDiscoveryMode('seasonal')}
           >
@@ -936,9 +887,7 @@ export function AdminDiscoveryPage() {
                         ? counts.newPending
                         : option.id === 'already'
                           ? counts.alreadyPending
-                          : option.id === 'approved'
-                            ? counts.approved
-                            : option.id === 'dismissed'
+                          : option.id === 'dismissed'
                               ? counts.dismissed
                               : counts.queue
                 return (
@@ -960,12 +909,11 @@ export function AdminDiscoveryPage() {
               candidates={filtered}
               selectedId={selectedId}
               busyId={busyId}
-              bulkBusy={bulkBusy || goLiveBusy}
+              bulkBusy={bulkBusy}
               onSelect={handleSelect}
               onSaveEdits={handleSaveEdits}
               onApprove={handleApprove}
               onBulkApprove={(rows) => void handleBulkApprove(rows)}
-              onGoLive={(rows) => void handleGoLive(rows)}
               onDismiss={handleDismiss}
               onRestore={handleRestore}
             />
@@ -1063,12 +1011,11 @@ export function AdminDiscoveryPage() {
                 candidates={seasonalSections.closeToHome}
                 selectedId={selectedId}
                 busyId={busyId}
-                bulkBusy={bulkBusy || goLiveBusy}
+                bulkBusy={bulkBusy}
                 onSelect={handleSelect}
                 onSaveEdits={handleSaveEdits}
                 onApprove={handleApprove}
                 onBulkApprove={(rows) => void handleBulkApprove(rows)}
-                onGoLive={(rows) => void handleGoLive(rows)}
                 onDismiss={handleDismiss}
                 onRestore={handleRestore}
                 curationSection="closeToHome"
@@ -1092,12 +1039,11 @@ export function AdminDiscoveryPage() {
                 candidates={seasonalSections.worthADrive}
                 selectedId={selectedId}
                 busyId={busyId}
-                bulkBusy={bulkBusy || goLiveBusy}
+                bulkBusy={bulkBusy}
                 onSelect={handleSelect}
                 onSaveEdits={handleSaveEdits}
                 onApprove={handleApprove}
                 onBulkApprove={(rows) => void handleBulkApprove(rows)}
-                onGoLive={(rows) => void handleGoLive(rows)}
                 onDismiss={handleDismiss}
                 onRestore={handleRestore}
                 curationSection="worthADrive"

@@ -74,7 +74,6 @@ import { ExperimentSeasonalLaunchReviewPage } from './views/ExperimentSeasonalLa
 import { ExperimentSeasonalBackgroundDialPage } from './views/ExperimentSeasonalBackgroundDialPage'
 import { WelcomeOnboarding } from './components/welcome/WelcomeOnboarding'
 import { AdminEventsPage } from './views/admin/AdminEventsPage'
-import { AdminApprovedPage } from './views/admin/AdminApprovedPage'
 import { AdminDiscoveryPage } from './views/admin/AdminDiscoveryPage'
 import { AdminSubmissionsPage } from './views/admin/AdminSubmissionsPage'
 import { AdminSeasonalCalendarPage } from './views/admin/AdminSeasonalCalendarPage'
@@ -232,7 +231,7 @@ function AppShell() {
         <Route element={<AdminLayout />}>
           <Route index element={<AdminDiscoveryPage />} />
           <Route path="discovery" element={<Navigate to="/admin" replace />} />
-          <Route path="approved" element={<AdminApprovedPage />} />
+          <Route path="approved" element={<Navigate to="/admin" replace />} />
           <Route path="events" element={<AdminEventsPage />} />
           <Route path="submissions" element={<AdminSubmissionsPage />} />
           <Route path="seasonal-calendar" element={<AdminSeasonalCalendarPage />} />
