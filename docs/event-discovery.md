@@ -71,7 +71,7 @@ Library scrapers miss Instagram pop-ups, garden mornings, and shopping-center pl
 | `npm run discover:core-weekend` | Local or Thursday GitHub Action (8:00 AM PT) |
 | Inbox | `data/discovery/core-cities-weekend-inbox.json` |
 
-These **can** Approve → Go live (core cities). Out-of-area finds still use the regional inbox.
+These **can** Approve → Go live (core cities). Destination finds outside the core four use the regional inbox, then Approve → Browse under Other cities.
 
 ### Regional / Worth a Drive (Thursdays, same morning as core cities)
 
@@ -130,6 +130,28 @@ Each candidate is enriched toward a Puddles Events row:
 - **types** — mapped from event type + title heuristics
 - **tips** (“Good to know”) — practical notes extracted from registration fields and description (bring a blanket, weather/indoor-outdoor, registration/space limits, accompaniment, etc.). Discovery scripts voice tips in a friendly soft-imperative Puddles tone (`voiceTipLine` / `finalizeTips` in `scripts/discovery-shared.mjs`): keep “Bring a blanket,” drop library “we/our,” skip Admin ops notes.
 - **imageUrl** — featured event image when present
+
+### Venue & program knowledge library (Before you go)
+
+Reusable tip **facts** (not one paragraph per venue) live under `data/knowledge/`:
+
+| File | Role |
+|------|------|
+| `venues.json` | Venue entities + aliases |
+| `programs.json` | Recurring programs (venue + organizer + title patterns) |
+| `facts.json` | Individual tip atoms with source, verified date, volatility, `reuseSafe` |
+
+**Compose order:** venue → program → event (event wins on the same category). Admin → Discovery shows suggestions with provenance; **Accept** writes prefixed lines into `tips`. Public pages still read only the event’s stored `tips` (no live merge).
+
+When a scrape leaves tips empty, `attachKnowledgeTipsToCandidates` fills **reuseSafe + verified + fresh** library tips only — no full venue re-research.
+
+| Command | What |
+|---------|------|
+| `npm run test:tip-knowledge` | Compose / match / freshness tests |
+| `npm run knowledge:stale` | List facts past refresh window (stable 180d / semi 90d / dynamic 14d) |
+| `npm run knowledge:backfill-tips` | Fill empty live tips from the library (`--dry-run`, `--rewrite-matched`) |
+
+Save-back from Admin updates this browser’s knowledge overrides (`localStorage`); commit `data/knowledge/*.json` to share with the team. Check `usedByEventIds` before changing a shared fact.
 
 ### Optional Sheet write
 

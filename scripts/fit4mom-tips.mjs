@@ -1,8 +1,30 @@
 /** Good-to-know copy for FIT4MOM weekly Parent & Me classes.
  * Source of truth: https://sunnyvale.fit4mom.com/our-workouts + /faqs
+ *
+ * Tip atoms also live in data/knowledge/facts.json (program scope). Prefer the
+ * knowledge library when present so Discovery Admin can reuse the same facts.
  */
 
+import { tipsFromProgramId } from './knowledge/compose.mjs'
+
 const SCHEDULE_LINE = 'Check the official schedule for current class times.'
+
+/** Map legacy watchlist series ids → knowledge program ids. */
+export const FIT4MOM_SERIES_TO_PROGRAM = {
+  'watchlist-fit4mom-stroller-strides-laspalmas-series': 'fit4mom-stroller-strides-laspalmas',
+  'watchlist-fit4mom-mommy-baby-yoga-laspalmas-series': 'fit4mom-mommy-baby-yoga-laspalmas',
+  'watchlist-fit4mom-stroller-strides-cuesta-series': 'fit4mom-stroller-strides-cuesta',
+  'watchlist-fit4mom-stroller-barre-cuesta-series': 'fit4mom-stroller-barre-cuesta',
+  'watchlist-fit4mom-family-strides-cuesta-series': 'fit4mom-family-strides-cuesta',
+  'watchlist-fit4mom-stroller-barre-mitchell-series': 'fit4mom-stroller-barre-mitchell',
+}
+
+function tipsFromKnowledgeOrFallback(seriesId, fallbackTips) {
+  const programId = FIT4MOM_SERIES_TO_PROGRAM[seriesId]
+  if (!programId) return fallbackTips
+  const fromLib = tipsFromProgramId(programId, { maxTips: 6 })
+  return fromLib || fallbackTips
+}
 
 /** Card cost — membership/package rates vary; first class is free per FIT4MOM. */
 export const FIT4MOM_COST = 'Paid · First class free'
@@ -131,11 +153,15 @@ export function resolveFit4momSeriesId(title) {
   return null
 }
 
-/** Discovery queue rows — same copy as series. */
+/** Discovery queue rows — same copy as series (tips prefer knowledge library). */
 export function buildFit4momDiscoveryCopy(candidate) {
   const seriesId = resolveFit4momSeriesId(candidate.title)
   if (seriesId && FIT4MOM_SERIES_COPY[seriesId]) {
-    return FIT4MOM_SERIES_COPY[seriesId]
+    const base = FIT4MOM_SERIES_COPY[seriesId]
+    return {
+      description: base.description,
+      tips: tipsFromKnowledgeOrFallback(seriesId, base.tips),
+    }
   }
   return {
     description: String(candidate.description || '').split('\n')[0].trim(),

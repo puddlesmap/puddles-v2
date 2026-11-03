@@ -337,6 +337,48 @@ export function finalizeTips(tipsRaw) {
     .join('\n')
 }
 
+/**
+ * When scrape tips are empty, reuse verified venue/program library tips
+ * (no full venue re-research). Dynamic / unsafe facts stay out until Admin Accept.
+ */
+export function attachKnowledgeTipsToCandidate(candidate) {
+  if (String(candidate?.tips || '').trim()) return candidate
+  try {
+    // Lazy require-style import so discovery-shared still loads if knowledge JSON is missing in odd envs.
+    return import('./knowledge/compose.mjs').then(({ safePrefixedTipsFromKnowledge }) => {
+      const tips = safePrefixedTipsFromKnowledge({
+        title: candidate.title,
+        venue: candidate.venue,
+        city: candidate.city,
+        description: candidate.description,
+        eventUrl: candidate.eventUrl,
+        eventId: candidate.id,
+      })
+      if (!tips) return candidate
+      return { ...candidate, tips }
+    })
+  } catch {
+    return Promise.resolve(candidate)
+  }
+}
+
+export async function attachKnowledgeTipsToCandidates(candidates) {
+  const { safePrefixedTipsFromKnowledge } = await import('./knowledge/compose.mjs')
+  return candidates.map((candidate) => {
+    if (String(candidate?.tips || '').trim()) return candidate
+    const tips = safePrefixedTipsFromKnowledge({
+      title: candidate.title,
+      venue: candidate.venue,
+      city: candidate.city,
+      description: candidate.description,
+      eventUrl: candidate.eventUrl,
+      eventId: candidate.id,
+    })
+    if (!tips) return candidate
+    return { ...candidate, tips }
+  })
+}
+
 export function toCsv(rows) {
   const headers = [
     'date',

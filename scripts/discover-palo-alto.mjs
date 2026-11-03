@@ -11,7 +11,13 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { inferAgeRangeFromText } from './age-hints.mjs'
-import { finalizeTips, isLibraryClosureNotice, isUrlAlreadyOnPuddles, loadCatalogUrls } from './discovery-shared.mjs'
+import {
+  attachKnowledgeTipsToCandidates,
+  finalizeTips,
+  isLibraryClosureNotice,
+  isUrlAlreadyOnPuddles,
+  loadCatalogUrls,
+} from './discovery-shared.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = join(__dirname, '..')
@@ -400,6 +406,10 @@ async function main() {
   candidates.sort(
     (a, b) => a.date.localeCompare(b.date) || a.startTime.localeCompare(b.startTime) || a.title.localeCompare(b.title),
   )
+
+  const withKnowledge = await attachKnowledgeTipsToCandidates(candidates)
+  candidates.length = 0
+  candidates.push(...withKnowledge)
 
   const newOnly = candidates.filter((c) => !c.alreadyOnPuddles)
   const already = candidates.filter((c) => c.alreadyOnPuddles)

@@ -57,7 +57,7 @@ function computeIsPast(date, startTime, endTime) {
   return endDate.getTime() <= Date.now()
 }
 
-function enrichForPublic(event) {
+export function enrichForPublic(event) {
   const rawStatus = String(event.status || '').trim()
   const status =
     rawStatus === 'Hidden' ||
@@ -75,6 +75,124 @@ function enrichForPublic(event) {
     isPast,
     isLive,
   }
+}
+
+export function mergeEventsForPublish(catalogInput, events) {
+  const catalog = Array.isArray(catalogInput) ? [...catalogInput] : []
+  let upserted = 0
+  let inserted = 0
+  for (const raw of Array.isArray(events) ? events : []) {
+    if (!raw || typeof raw !== 'object' || !raw.id) continue
+    const event = enrichForPublic({ ...raw })
+    const index = findExistingIndex(catalog, event)
+    if (index >= 0) {
+      catalog[index] = enrichForPublic({ ...catalog[index], ...event })
+      upserted += 1
+    } else {
+      catalog.push(event)
+      inserted += 1
+    }
+  }
+  catalog.sort(
+    (a, b) =>
+      String(a.date || '').localeCompare(String(b.date || '')) ||
+      String(a.startTime || '').localeCompare(String(b.startTime || '')) ||
+      String(a.title || '').localeCompare(String(b.title || '')),
+  )
+  return { catalog, upserted, inserted }
+}
+
+function githubHeaders(token) {
+  return {
+    Authorization: `Bearer ${token}`,
+    Accept: 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+    'Content-Type': 'application/json',
+  }
+}
+
+async function githubJson(url, options, label) {
+  const response = await fetch(url, options)
+  if (!response.ok) {
+    let detail = ''
+    try {
+      detail = (await response.json())?.message || ''
+    } catch {
+      detail = await response.text()
+    }
+    const error = new Error(detail || `${label} failed (${response.status})`)
+    error.status = response.status
+    throw error
+  }
+  return response.json()
+}
+
+/** Commit several repository files in one Git commit, so Netlify sees one deploy-triggering change. */
+export async function githubCommitFiles({ token, owner, name, files, message, attempts = 2 }) {
+  let lastError = null
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    try {
+      const base = `https://api.github.com/repos/${owner}/${name}`
+      const ref = await githubJson(
+        `${base}/git/ref/heads/main`,
+        { headers: githubHeaders(token) },
+        'Read main ref',
+      )
+      const parentSha = ref.object.sha
+      const commit = await githubJson(
+        `${base}/git/commits/${parentSha}`,
+        { headers: githubHeaders(token) },
+        'Read main commit',
+      )
+      const treeEntries = await Promise.all(
+        files.map(async (file) => {
+          const blob = await githubJson(
+            `${base}/git/blobs`,
+            {
+              method: 'POST',
+              headers: githubHeaders(token),
+              body: JSON.stringify({ content: file.content, encoding: 'utf-8' }),
+            },
+            `Create ${file.path} blob`,
+          )
+          return { path: file.path, mode: '100644', type: 'blob', sha: blob.sha }
+        }),
+      )
+      const tree = await githubJson(
+        `${base}/git/trees`,
+        {
+          method: 'POST',
+          headers: githubHeaders(token),
+          body: JSON.stringify({ base_tree: commit.tree.sha, tree: treeEntries }),
+        },
+        'Create publish tree',
+      )
+      const nextCommit = await githubJson(
+        `${base}/git/commits`,
+        {
+          method: 'POST',
+          headers: githubHeaders(token),
+          body: JSON.stringify({ message, tree: tree.sha, parents: [parentSha] }),
+        },
+        'Create publish commit',
+      )
+      await githubJson(
+        `${base}/git/refs/heads/main`,
+        {
+          method: 'PATCH',
+          headers: githubHeaders(token),
+          body: JSON.stringify({ sha: nextCommit.sha, force: false }),
+        },
+        'Update main ref',
+      )
+      return { sha: nextCommit.sha }
+    } catch (error) {
+      lastError = error
+      if (attempt + 1 < attempts && (error?.status === 409 || error?.status === 422)) continue
+      break
+    }
+  }
+  throw lastError || new Error('Could not commit publish bundle')
 }
 
 async function githubGetFile({ token, owner, name, path }) {

@@ -5,9 +5,7 @@
 name: Discover bay area libraries
 
 on:
-  schedule:
-    # Sundays 15:00 UTC ≈ 8:00 AM Pacific (PDT); 7:00 AM during PST
-    - cron: '0 15 * * 0'
+  # Scheduled pass moved to discover-wednesday.yml (Wednesdays, unified).
   workflow_dispatch:
     inputs:
       days:

@@ -1,6 +1,6 @@
 # Regional discovery — weekly Bay Area pass
 
-Puddles **Regular Browse** stays Palo Alto · Los Altos · Mountain View · Sunnyvale. Larger Bay Area outings (farms, festivals, trains) stay out of regular Browse. Queue them as `Regional ·` Discovery rows for review, then promote **only** into **Hello Fall / Halloween → Worth a little drive** (Hidden seasonal drive events) — never Go live into the public feed.
+**Core cities** (Palo Alto · Los Altos · Mountain View · Sunnyvale) carry everyday local finds. **Other cities** can also land on Browse/Home when the outing is destination-worthy (farms, festivals, special one-offs / worth the drive) — not another city’s routine weekly storytime. Queue them as `Regional ·` Discovery rows, then **Approve → Publish**. They appear under Browse **Other cities** (Worth a Drive). Optionally feature the same row in a seasonal collection when a theme fits.
 
 ## What runs automatically
 
@@ -60,7 +60,7 @@ npm run discover:regional-weekly
 ```
 
 7. **Review** `/admin/discovery` — filter Source for `Regional ·`.
-8. **Do not Approve → Go live** into regular Browse (blocked for non-core cities). Instead add a Hidden row under `seasonalHelloFallDriveEvents.ts` / Halloween drive + `driveEventIds` when it earns Seasonal / Worth a little drive.
+8. **Approve → Publish** when it is a destination / once-in-a-while outing (toddler-relevant). It goes to Browse **Other cities**. Skip routine weekly out-of-area programs. Optionally also add to a seasonal collection (`driveEventIds` / Seasonal picks) when a theme fits.
 
 ## Inbox rules
 

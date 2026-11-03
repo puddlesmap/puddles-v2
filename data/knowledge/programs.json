@@ -1,0 +1,104 @@
+[
+  {
+    "id": "mv-outdoor-storytime-pioneer",
+    "venueId": "pioneer-park-mountain-view",
+    "organizerKey": "mountainview.libcal.com",
+    "titlePatterns": ["outdoor storytime"],
+    "officialUrl": "https://mountainview.libcal.com/",
+    "label": "Outdoor Storytime · Pioneer Park"
+  },
+  {
+    "id": "pa-family-storytime",
+    "organizerKey": "paloalto.bibliocommons.com",
+    "titlePatterns": ["family storytime"],
+    "officialUrl": "https://paloalto.bibliocommons.com/",
+    "label": "Family Storytime · Palo Alto Libraries"
+  },
+  {
+    "id": "pa-little-ones-storytime",
+    "venueId": "palo-alto-childrens-library",
+    "organizerKey": "paloalto.bibliocommons.com",
+    "titlePatterns": ["little ones storytime"],
+    "officialUrl": "https://paloalto.bibliocommons.com/",
+    "label": "Little Ones Storytime · Palo Alto Children’s Library"
+  },
+  {
+    "id": "pa-music-movement",
+    "organizerKey": "paloalto.bibliocommons.com",
+    "titlePatterns": ["music & movement", "music and movement"],
+    "officialUrl": "https://paloalto.bibliocommons.com/",
+    "label": "Music & Movement · Palo Alto Libraries"
+  },
+  {
+    "id": "mv-pages-and-paws",
+    "venueId": "mountain-view-library",
+    "organizerKey": "mountainview.libcal.com",
+    "titlePatterns": ["pages and paws"],
+    "officialUrl": "https://mountainview.libcal.com/",
+    "label": "Pages and Paws Reading Buddy"
+  },
+  {
+    "id": "sccl-lego-tuesdays",
+    "venueId": "los-altos-library",
+    "organizerKey": "sccl.bibliocommons.com",
+    "titlePatterns": ["lego tuesdays"],
+    "officialUrl": "https://sccl.bibliocommons.com/",
+    "label": "LEGO Tuesdays · Los Altos Library"
+  },
+  {
+    "id": "sccl-lego-fridays",
+    "venueId": "los-altos-library",
+    "organizerKey": "sccl.bibliocommons.com",
+    "titlePatterns": ["lego fridays"],
+    "officialUrl": "https://sccl.bibliocommons.com/",
+    "label": "LEGO Fridays · Los Altos Library"
+  },
+  {
+    "id": "fit4mom-stroller-strides-cuesta",
+    "venueId": "cuesta-park",
+    "organizerKey": "sunnyvale.fit4mom.com",
+    "titlePatterns": ["stroller strides"],
+    "officialUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "label": "FIT4MOM Stroller Strides · Cuesta Park"
+  },
+  {
+    "id": "fit4mom-stroller-barre-cuesta",
+    "venueId": "cuesta-park",
+    "organizerKey": "sunnyvale.fit4mom.com",
+    "titlePatterns": ["stroller barre"],
+    "officialUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "label": "FIT4MOM Stroller Barre · Cuesta Park"
+  },
+  {
+    "id": "fit4mom-family-strides-cuesta",
+    "venueId": "cuesta-park",
+    "organizerKey": "sunnyvale.fit4mom.com",
+    "titlePatterns": ["family strides"],
+    "officialUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "label": "FIT4MOM Family Strides · Cuesta Park"
+  },
+  {
+    "id": "fit4mom-stroller-strides-laspalmas",
+    "venueId": "las-palmas-park",
+    "organizerKey": "sunnyvale.fit4mom.com",
+    "titlePatterns": ["stroller strides"],
+    "officialUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "label": "FIT4MOM Stroller Strides · Las Palmas Park"
+  },
+  {
+    "id": "fit4mom-mommy-baby-yoga-laspalmas",
+    "venueId": "las-palmas-park",
+    "organizerKey": "sunnyvale.fit4mom.com",
+    "titlePatterns": ["mommy & baby yoga", "mommy and baby yoga"],
+    "officialUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "label": "FIT4MOM Mommy & Baby Yoga · Las Palmas"
+  },
+  {
+    "id": "fit4mom-stroller-barre-mitchell",
+    "venueId": "mitchell-park",
+    "organizerKey": "sunnyvale.fit4mom.com",
+    "titlePatterns": ["stroller barre"],
+    "officialUrl": "https://sunnyvale.fit4mom.com/our-workouts",
+    "label": "FIT4MOM Stroller Barre · Mitchell Park"
+  }
+]

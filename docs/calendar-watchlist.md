@@ -54,7 +54,7 @@ Library scrapers miss Instagram pop-ups and one-off play days. **Thursday cron**
 
 ### Weekend web & social (~1 hour drive)
 
-Pumpkin patches, apple days, and harvest festivals outside the four cities. **Thursday cron** + chat: [Regional — weekend Worth a Drive search](./regional-weekend-drive-search.md). Inbox: `data/discovery/regional-leads-inbox.json`. Command: `npm run discover:regional-weekly`. Do not Go live — Hidden Worth a Drive only.
+Pumpkin patches, apple days, and harvest festivals outside the four cities. **Thursday cron** + chat: [Regional — weekend Worth a Drive search](./regional-weekend-drive-search.md). Inbox: `data/discovery/regional-leads-inbox.json`. Command: `npm run discover:regional-weekly`. Approve destination finds → Browse Other cities (optional seasonal feature).
 
 
 Machine-readable copy: [`data/calendar-watchlist.json`](../data/calendar-watchlist.json).

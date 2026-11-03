@@ -84,8 +84,12 @@ export function summarizeDiscoveryCounts(candidates: DiscoveryCandidate[]) {
   const live = candidates.filter((c) => c.reviewStatus === 'live').length
   return {
     total: candidates.length,
-    /** Active review queue — excludes already-lived items. */
-    queue: candidates.filter((c) => c.reviewStatus !== 'live').length,
+    /** Active review queue — excludes lived + already-on-Puddles pending noise. */
+    queue: candidates.filter(
+      (c) =>
+        c.reviewStatus !== 'live' &&
+        !(c.reviewStatus === 'pending' && c.alreadyOnPuddles),
+    ).length,
     pending: candidates.filter((c) => c.reviewStatus === 'pending').length,
     newPending: candidates.filter((c) => c.reviewStatus === 'pending' && !c.alreadyOnPuddles).length,
     alreadyPending: candidates.filter((c) => c.reviewStatus === 'pending' && c.alreadyOnPuddles)
@@ -126,6 +130,15 @@ export function filterDiscoveryCandidates(
     if (isDiscoveryCandidateExpired(candidate)) return false
     // Lived items leave the Discovery queue (still tracked in Events).
     if (candidate.reviewStatus === 'live' && opts.view !== 'live') return false
+
+    // All = to-add / to-review only — skip already-on-Puddles pending noise.
+    if (
+      opts.view === 'all' &&
+      candidate.reviewStatus === 'pending' &&
+      candidate.alreadyOnPuddles
+    ) {
+      return false
+    }
 
     if (opts.view === 'pending' && candidate.reviewStatus !== 'pending') return false
     if (opts.view === 'new' && !(candidate.reviewStatus === 'pending' && !candidate.alreadyOnPuddles)) {

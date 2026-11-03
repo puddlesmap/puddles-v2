@@ -1,10 +1,93 @@
-/** Split sheet Tips into display bullets — one per non-empty line. */
-export function parseEventTips(tips?: string | null): string[] {
+export type TipIconKind =
+  | 'ticket'
+  | 'baby'
+  | 'stroller'
+  | 'accessibility'
+  | 'restroom'
+  | 'food'
+  | 'weather'
+  | 'crowds'
+  | 'sound'
+  | 'info'
+
+export const TIP_ICON_PREFIXES: TipIconKind[] = [
+  'ticket',
+  'baby',
+  'stroller',
+  'accessibility',
+  'restroom',
+  'food',
+  'weather',
+  'crowds',
+  'sound',
+  'info',
+]
+
+export type EventTipLine = {
+  icon: TipIconKind
+  text: string
+}
+
+const LEGACY_TIP_PREFIX: Record<string, TipIconKind> = {
+  access: 'accessibility',
+  bath: 'restroom',
+  sun: 'weather',
+  music: 'sound',
+}
+
+const TIP_PREFIX_TOKENS = [...TIP_ICON_PREFIXES, ...Object.keys(LEGACY_TIP_PREFIX)]
+
+const TIP_PREFIX_SPLIT_RE = new RegExp(
+  `(?=\\b(?:${TIP_PREFIX_TOKENS.join('|')})\\|)`,
+  'gi',
+)
+
+function resolveTipIcon(rawPrefix: string): TipIconKind {
+  const key = rawPrefix.trim().toLowerCase()
+  if (LEGACY_TIP_PREFIX[key]) return LEGACY_TIP_PREFIX[key]
+  if (TIP_ICON_PREFIXES.includes(key as TipIconKind)) return key as TipIconKind
+  return 'info'
+}
+
+function splitPrefixedTipSegments(line: string): string[] {
+  const trimmed = line.trim()
+  if (!trimmed) return []
+  const matches = [...trimmed.matchAll(TIP_PREFIX_SPLIT_RE)]
+  if (matches.length === 0) return [trimmed]
+  const segments: string[] = []
+  for (let index = 0; index < matches.length; index += 1) {
+    const start = matches[index].index ?? 0
+    const end =
+      index + 1 < matches.length ? (matches[index + 1].index ?? trimmed.length) : trimmed.length
+    segments.push(trimmed.slice(start, end).trim())
+  }
+  return segments.filter(Boolean)
+}
+
+/** Parse one Good to know line (with optional icon prefix). */
+export function parseEventTipLine(line: string): EventTipLine {
+  const trimmed = line.trim()
+  const pipe = trimmed.match(/^([a-z]+)\|([\s\S]*)$/i)
+  if (pipe) {
+    return {
+      icon: resolveTipIcon(pipe[1]),
+      text: pipe[2].trim(),
+    }
+  }
+  return { icon: 'info', text: trimmed }
+}
+
+/** Split sheet Tips into display bullets — one per non-empty line, with optional icons. */
+export function parseEventTips(tips?: string | null): EventTipLine[] {
   if (!tips?.trim()) return []
-  return tips
-    .split(/\r?\n/)
-    .map((item) => item.trim())
-    .filter(Boolean)
+  const items: EventTipLine[] = []
+  for (const rawLine of tips.split(/\r?\n/)) {
+    for (const segment of splitPrefixedTipSegments(rawLine)) {
+      const parsed = parseEventTipLine(segment)
+      if (parsed.text.trim()) items.push(parsed)
+    }
+  }
+  return items
 }
 
 export function hasEventTips(tips?: string | null): boolean {

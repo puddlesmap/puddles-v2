@@ -16825,7 +16825,8 @@
     "lng": -122.14501310000003,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Designed for the littlest listeners with a grown-up.\ninfo|Programs are indoors at the Children’s Library unless the listing says otherwise."
   },
   {
     "id": "disc-music-movement-2026-11-04-6a3dbc0bfddb082f00fe14a3",
@@ -16855,7 +16856,8 @@
     "lng": -122.11265209999999,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "info|Songs and movement indoors — grown-ups stay with little ones.\ninfo|Programs are indoors at Mitchell Park Library unless the listing says otherwise."
   },
   {
     "id": "disc-magical-bridge-storytime-2026-11-05-17290232",
@@ -16889,7 +16891,7 @@
     "id": "disc-bilingual-family-storytime-2026-11-05-69276b597eb3e430002638b8",
     "title": "Bilingual Family Storytime",
     "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
-    "tips": "Storytime may be held indoors or outdoors depending on the weather.",
+    "tips": "weather|Storytime may be held indoors or outdoors depending on the weather.",
     "venue": "College Terrace Library",
     "address": "2300  Wellesley St., Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -16945,7 +16947,8 @@
     "lng": -122.15917860000002,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at Downtown Library unless the listing says otherwise."
   },
   {
     "id": "pages-and-paws-reading-buddy-mountain-view-public-library-2026-11-06-15-30",
@@ -16976,13 +16979,14 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "sheetTypesRaw": "Stories"
+    "sheetTypesRaw": "Stories",
+    "tips": "restroom|Restrooms are inside the library.\ninfo|Free parking at the Mountain View Library lots."
   },
   {
     "id": "disc-lego-fridays-2026-11-06-6a25aace2ea730c17ab50492",
     "title": "LEGO Fridays!",
     "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-    "tips": "LEGOs stay at the library — snap a pic of creations!",
+    "tips": "info|LEGOs stay at the library — snap a pic of creations!",
     "venue": "College Terrace Library",
     "address": "2300  Wellesley St., Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -17070,7 +17074,8 @@
     "lng": -122.11265209999999,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at Mitchell Park Library unless the listing says otherwise."
   },
   {
     "id": "disc-board-game-sunday-2026-11-08-6970253094297d3600a66ca3",
@@ -17131,13 +17136,14 @@
     "lng": -122.14501310000003,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at the Children’s Library unless the listing says otherwise."
   },
   {
     "id": "disc-outdoor-storytime-2026-11-10-17142491",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "ticket|No registration. Drop-in.\nweather|Outdoors at Pioneer Park. Weather permitting — check before you leave.\ninfo|Bring a blanket for stories and songs.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -17225,7 +17231,7 @@
     "id": "disc-bilingual-family-storytime-2026-11-12-69276b597eb3e430002638b9",
     "title": "Bilingual Family Storytime",
     "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
-    "tips": "Storytime may be held indoors or outdoors depending on the weather.",
+    "tips": "weather|Storytime may be held indoors or outdoors depending on the weather.",
     "venue": "College Terrace Library",
     "address": "2300  Wellesley St., Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -17281,13 +17287,14 @@
     "lng": -122.15917860000002,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at Downtown Library unless the listing says otherwise."
   },
   {
     "id": "disc-lego-fridays-2026-11-13-6a25aace2ea730c17ab50493",
     "title": "LEGO Fridays!",
     "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-    "tips": "LEGOs stay at the library — snap a pic of creations!",
+    "tips": "info|LEGOs stay at the library — snap a pic of creations!",
     "venue": "College Terrace Library",
     "address": "2300  Wellesley St., Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -17343,7 +17350,8 @@
     "lng": -122.11265209999999,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at Mitchell Park Library unless the listing says otherwise."
   },
   {
     "id": "disc-family-storytime-2026-11-17-699f624cb0595799c09f6056",
@@ -17374,13 +17382,14 @@
     "lng": -122.14501310000003,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at the Children’s Library unless the listing says otherwise."
   },
   {
     "id": "disc-outdoor-storytime-2026-11-17-17142492",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "ticket|No registration. Drop-in.\nweather|Outdoors at Pioneer Park. Weather permitting — check before you leave.\ninfo|Bring a blanket for stories and songs.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -17465,7 +17474,8 @@
     "lng": -122.14501310000003,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Designed for the littlest listeners with a grown-up.\ninfo|Programs are indoors at the Children’s Library unless the listing says otherwise."
   },
   {
     "id": "disc-bilingual-storytime-mandarin-english-2026-11-18-17329164",
@@ -17524,13 +17534,14 @@
     "lng": -122.11265209999999,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "info|Songs and movement indoors — grown-ups stay with little ones.\ninfo|Programs are indoors at Mitchell Park Library unless the listing says otherwise."
   },
   {
     "id": "disc-bilingual-family-storytime-2026-11-19-69276b597eb3e430002638ba",
     "title": "Bilingual Family Storytime",
     "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
-    "tips": "Storytime may be held indoors or outdoors depending on the weather.",
+    "tips": "weather|Storytime may be held indoors or outdoors depending on the weather.",
     "venue": "College Terrace Library",
     "address": "2300  Wellesley St., Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -17586,7 +17597,8 @@
     "lng": -122.15917860000002,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at Downtown Library unless the listing says otherwise."
   },
   {
     "id": "holiday-bazaar-mountain-view-senior-center-2026-11-21-10-00",
@@ -17648,7 +17660,8 @@
     "lng": -122.11265209999999,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at Mitchell Park Library unless the listing says otherwise."
   },
   {
     "id": "disc-concert-palo-alto-school-of-chamber-musi-2026-11-21-6a6cf81ad23de82955c9bccc",
@@ -17772,13 +17785,14 @@
     "lng": -122.14501310000003,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at the Children’s Library unless the listing says otherwise."
   },
   {
     "id": "disc-outdoor-storytime-2026-11-24-17142493",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "ticket|No registration. Drop-in.\nweather|Outdoors at Pioneer Park. Weather permitting — check before you leave.\ninfo|Bring a blanket for stories and songs.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -17863,13 +17877,14 @@
     "lng": -122.14501310000003,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Designed for the littlest listeners with a grown-up.\ninfo|Programs are indoors at the Children’s Library unless the listing says otherwise."
   },
   {
     "id": "disc-lego-fridays-2026-11-27-6a25aace2ea730c17ab50494",
     "title": "LEGO Fridays!",
     "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-    "tips": "LEGOs stay at the library — snap a pic of creations!",
+    "tips": "info|LEGOs stay at the library — snap a pic of creations!",
     "venue": "College Terrace Library",
     "address": "2300  Wellesley St., Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -17925,7 +17940,8 @@
     "lng": -122.11265209999999,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at Mitchell Park Library unless the listing says otherwise."
   },
   {
     "id": "disc-family-storytime-2026-12-01-699f624cb0595799c09f6058",
@@ -17956,13 +17972,14 @@
     "lng": -122.14501310000003,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at the Children’s Library unless the listing says otherwise."
   },
   {
     "id": "disc-outdoor-storytime-2026-12-01-17142494",
     "title": "Outdoor Storytime",
     "description": "Tuesdays at 10:30 a.m.",
-    "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
+    "tips": "ticket|No registration. Drop-in.\nweather|Outdoors at Pioneer Park. Weather permitting — check before you leave.\ninfo|Bring a blanket for stories and songs.",
     "venue": "Pioneer Park",
     "address": "1146 Church St, Mountain View, CA 94041",
     "city": "Mountain View",
@@ -18047,7 +18064,8 @@
     "lng": -122.14501310000003,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Designed for the littlest listeners with a grown-up.\ninfo|Programs are indoors at the Children’s Library unless the listing says otherwise."
   },
   {
     "id": "disc-music-movement-2026-12-02-6a3dbc0bfddb082f00fe14a6",
@@ -18077,7 +18095,8 @@
     "lng": -122.11265209999999,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "info|Songs and movement indoors — grown-ups stay with little ones.\ninfo|Programs are indoors at Mitchell Park Library unless the listing says otherwise."
   },
   {
     "id": "disc-magical-bridge-storytime-2026-12-03-17290233",
@@ -18111,7 +18130,7 @@
     "id": "disc-bilingual-family-storytime-2026-12-03-69276b597eb3e430002638bc",
     "title": "Bilingual Family Storytime",
     "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
-    "tips": "Storytime may be held indoors or outdoors depending on the weather.",
+    "tips": "weather|Storytime may be held indoors or outdoors depending on the weather.",
     "venue": "College Terrace Library",
     "address": "2300  Wellesley St., Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -18167,7 +18186,8 @@
     "lng": -122.15917860000002,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at Downtown Library unless the listing says otherwise."
   },
   {
     "id": "pages-and-paws-reading-buddy-mountain-view-public-library-2026-12-04-15-30",
@@ -18198,13 +18218,14 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "sheetTypesRaw": "Stories"
+    "sheetTypesRaw": "Stories",
+    "tips": "restroom|Restrooms are inside the library.\ninfo|Free parking at the Mountain View Library lots."
   },
   {
     "id": "disc-lego-fridays-2026-12-04-6a25aace2ea730c17ab50495",
     "title": "LEGO Fridays!",
     "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-    "tips": "LEGOs stay at the library — snap a pic of creations!",
+    "tips": "info|LEGOs stay at the library — snap a pic of creations!",
     "venue": "College Terrace Library",
     "address": "2300  Wellesley St., Palo Alto, CA 94306",
     "city": "Palo Alto",
@@ -18292,7 +18313,8 @@
     "lng": -122.11265209999999,
     "status": "Published",
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "baby|Grown-ups stay with little ones for the whole program.\ninfo|Programs are indoors at Mitchell Park Library unless the listing says otherwise."
   },
   {
     "id": "disc-mindfulness-meditation-2026-12-05-68faeb383cbc052f00816108",

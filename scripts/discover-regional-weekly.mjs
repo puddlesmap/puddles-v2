@@ -93,7 +93,7 @@ function normalizeLeadToCandidate(lead) {
     categoryTags: ['Regional', 'Worth a Drive', ...(lead.categoryTags ?? [])],
     cost: lead.cost ?? '',
     description: lead.description ?? '',
-    tips: lead.tips ?? (lead.leadNotes ? `Lead note: ${lead.leadNotes}` : ''),
+    tips: lead.tips ?? '',
     imageUrl: lead.imageUrl ?? '',
     eventUrl,
     source: sourceLabel,

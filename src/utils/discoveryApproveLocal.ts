@@ -2,6 +2,7 @@ import { ALL_EVENTS } from '../data/events'
 import { ALL_DISCOVERY_CANDIDATES } from '../data/discovery'
 import { SYNC_META } from '../data/syncInfo'
 import type { DiscoveryCandidate, DiscoveryEditableFields } from '../types/discovery'
+import { stripLeadNotesForPublish } from './discoveryInternalNotes'
 import type { ActivityType, City, Event } from '../types/event'
 import { ACTIVITY_TYPES } from '../types/event'
 import { resolveEventCost } from './eventCost'
@@ -34,8 +35,11 @@ import { LAUNCH_CITIES } from './adminReviewFlags'
 
 export const OUTSIDE_PUDDLES_AGE_MESSAGE = 'Outside Puddles ages 0–5 — cannot approve.'
 
+/** @deprecated Soft warning only — other cities may Approve → Browse when destination-worthy. */
 export const OUTSIDE_CORE_CITY_MESSAGE =
-  'Outside Puddles core cities (Palo Alto · Los Altos · Mountain View · Sunnyvale). Do not Go live into regular Browse — use Seasonal Discovery / Worth a little drive only.'
+  'Outside core cities — only Approve if this is a destination / once-in-a-while outing, not a routine weekly program. It will show on Browse under Other cities.'
+
+export const OTHER_CITY_DESTINATION_WARNING = OUTSIDE_CORE_CITY_MESSAGE
 
 /** Merge candidate + edits (and fresh copy inference) then block out-of-scope ages. */
 export function assertDiscoveryAgeInScope(
@@ -59,15 +63,31 @@ export function assertDiscoveryAgeInScope(
   }
 }
 
-/** Block Go live / Approve into the public catalog for out-of-area Regional rows. */
-export function assertDiscoveryCityInScope(
-  candidate: DiscoveryCandidate,
+export function isOutsideCoreDiscoveryCity(
+  candidate: Pick<DiscoveryCandidate, 'city'> | { city?: string },
   edits: Partial<DiscoveryEditableFields> = {},
-): void {
+): boolean {
   const city = String(edits.city ?? candidate.city ?? '').trim()
-  if (!(LAUNCH_CITIES as readonly string[]).includes(city)) {
-    throw new Error(OUTSIDE_CORE_CITY_MESSAGE)
-  }
+  return Boolean(city) && !(LAUNCH_CITIES as readonly string[]).includes(city)
+}
+
+/** Soft warning for Admin — no longer blocks Approve / Go live. */
+export function otherCityDestinationWarning(
+  candidate: Pick<DiscoveryCandidate, 'city'> | { city?: string },
+  edits: Partial<DiscoveryEditableFields> = {},
+): string | null {
+  return isOutsideCoreDiscoveryCity(candidate, edits) ? OTHER_CITY_DESTINATION_WARNING : null
+}
+
+/**
+ * City is no longer a hard publish gate. Kept for call-site compatibility;
+ * ages remain hard-blocked via assertDiscoveryAgeInScope.
+ */
+export function assertDiscoveryCityInScope(
+  _candidate: DiscoveryCandidate,
+  _edits: Partial<DiscoveryEditableFields> = {},
+): void {
+  // Other cities may publish to Browse/Home when destination-worthy.
 }
 
 function slugPart(value: string): string {
@@ -108,6 +128,10 @@ function asActivityTypes(raw: string[]): ActivityType[] {
 
 function currentAdminEvents(): Event[] {
   return resolveAdminEventsSource(ALL_EVENTS, SYNC_META.syncedAt).events
+}
+
+export function getAdminEventForPublish(eventId: string): Event | null {
+  return currentAdminEvents().find((event) => event.id === eventId) ?? null
 }
 
 function persistAdminEvents(events: Event[]) {
@@ -320,10 +344,30 @@ export function applyVerifiedDateInAdminCache(
 }
 
 export type DiscoveryApproveOptions = {
-  /** Inbox Add / Seasonal Drafts may be out of the core four (Worth a little drive). */
+  /** @deprecated Other cities may Browse; kept for older call sites. */
   allowRegional?: boolean
+  /** Inbox “browse only” path — still publish outside core when destination-worthy. */
+  allowOtherCityBrowse?: boolean
   isSeasonal?: boolean
   isRegional?: boolean
+}
+
+function resolveIsRegional(
+  candidate: DiscoveryCandidate,
+  edits: DiscoveryEditableFields,
+  options?: DiscoveryApproveOptions,
+): boolean {
+  if (typeof options?.isRegional === 'boolean') return options.isRegional
+  if (String(candidate.source ?? '').startsWith('Regional ·')) return true
+  return isOutsideCoreDiscoveryCity(candidate, edits)
+}
+
+function withWorthADriveTag(tags: string[] | undefined, isRegional: boolean): string[] {
+  const next = [...(tags || [])]
+  if (isRegional && !next.some((tag) => /worth a drive/i.test(tag))) {
+    next.push('Worth a Drive')
+  }
+  return next
 }
 
 /** Add a local Draft into the Admin Events cache (no Sheet write). */
@@ -334,9 +378,6 @@ export function appendDraftInAdminCache(
   options?: DiscoveryApproveOptions,
 ): { eventId: string } {
   assertDiscoveryAgeInScope(candidate, edits)
-  if (!options?.allowRegional) {
-    assertDiscoveryCityInScope(candidate, edits)
-  }
   const eventId = localDraftId(candidate, edits)
   let events = currentAdminEvents()
 
@@ -348,11 +389,15 @@ export function appendDraftInAdminCache(
   )
   const ageMin = inferred?.ageMin ?? candidate.ageMin ?? 0
   const ageMax = inferred?.ageMax ?? candidate.ageMax ?? 5
+  const isRegional = resolveIsRegional(candidate, edits, options)
   const draft = enrichPublishingFields({
     id: eventId,
     title: edits.title || candidate.title,
     description: edits.description || candidate.description || '',
-    ...(edits.tips || candidate.tips ? { tips: edits.tips || candidate.tips } : {}),
+    ...(() => {
+      const tips = stripLeadNotesForPublish(edits.tips || candidate.tips)
+      return tips ? { tips } : {}
+    })(),
     venue: edits.venue || candidate.venue,
     ...(edits.room || candidate.room ? { room: edits.room || candidate.room } : {}),
     address: edits.address || candidate.address || '',
@@ -364,7 +409,7 @@ export function appendDraftInAdminCache(
     ageMin,
     ageMax,
     types: asActivityTypes(edits.types?.length ? edits.types : candidate.types),
-    categoryTags: candidate.categoryTags || [],
+    categoryTags: withWorthADriveTag(candidate.categoryTags, isRegional),
     cost: resolveEventCost(
       edits.cost || candidate.cost,
       edits.description || candidate.description,
@@ -377,8 +422,7 @@ export function appendDraftInAdminCache(
     lng: candidate.lng ?? 0,
     status: 'Draft',
     isSeasonal: options?.isSeasonal ?? isSeasonalDiscoveryCandidate(candidate),
-    isRegional:
-      options?.isRegional ?? String(candidate.source ?? '').startsWith('Regional ·'),
+    isRegional,
   })
 
   if (existingIndex >= 0) {
@@ -404,9 +448,6 @@ export function approveDiscoveryLocally(
   options?: DiscoveryApproveOptions,
 ): { eventId: string; mode: 'existing' | 'draft' } {
   assertDiscoveryAgeInScope(candidate, edits)
-  if (!options?.allowRegional) {
-    assertDiscoveryCityInScope(candidate, edits)
-  }
   const merged = { ...candidate, ...edits }
   const onSite = findOnSiteCatalogEvent(merged) ?? findOnSiteCatalogEvent(candidate)
   if (candidate.alreadyOnPuddles || onSite) {
@@ -566,16 +607,13 @@ export function syncReadyDiscoveryIntoAdminCache(): {
 
     if (alreadyPresent) continue
 
-    // Ready Regional / Worth-a-drive rows must not crash Admin when syncing drafts.
-    // Approve / Go live still hard-block via assertDiscoveryCityInScope.
-    const city = String(edits.city ?? candidate.city ?? '').trim()
-    if (!(LAUNCH_CITIES as readonly string[]).includes(city)) continue
-
     try {
-      appendDraftInAdminCache(candidate, edits, verifiedDate)
+      appendDraftInAdminCache(candidate, edits, verifiedDate, {
+        isRegional: isOutsideCoreDiscoveryCity(candidate, edits),
+      })
       draftsAdded += 1
     } catch {
-      // Age/city asserts or corrupt rows — skip; do not take down Admin Events.
+      // Age asserts or corrupt rows — skip; do not take down Admin Events.
     }
   }
 
@@ -604,8 +642,10 @@ export function prepareGoLiveEvents(
   for (const candidate of candidates) {
     const edits = editableFieldsFromCandidate(candidate)
     assertDiscoveryAgeInScope(candidate, edits)
-    assertDiscoveryCityInScope(candidate, edits)
     const stamped = { ...edits, lastChecked: verifiedDate }
+    const approveOpts: DiscoveryApproveOptions = {
+      isRegional: isOutsideCoreDiscoveryCity(candidate, stamped),
+    }
 
     let eventId = ''
     if (candidate.alreadyOnPuddles) {
@@ -613,11 +653,11 @@ export function prepareGoLiveEvents(
         const result = applyVerifiedDateInAdminCache(candidate, stamped, verifiedDate)
         eventId = result.eventId
       } catch {
-        const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate)
+        const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate, approveOpts)
         eventId = draft.eventId
       }
     } else {
-      const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate)
+      const draft = appendDraftInAdminCache(candidate, stamped, verifiedDate, approveOpts)
       eventId = draft.eventId
     }
 
@@ -631,6 +671,9 @@ export function prepareGoLiveEvents(
     const candidate = result
       ? candidates.find((row) => row.id === result.candidateId)
       : undefined
+    const outsideCore = candidate
+      ? isOutsideCoreDiscoveryCity(candidate, editableFieldsFromCandidate(candidate))
+      : false
     return enrichPublishingFields({
       ...event,
       status: 'Published',
@@ -639,8 +682,19 @@ export function prepareGoLiveEvents(
         ? isSeasonalDiscoveryCandidate(candidate) || isSeasonalListing(event)
         : isSeasonalListing(event),
       isRegional: candidate
-        ? String(candidate.source ?? '').startsWith('Regional ·') || isRegionalListing(event)
+        ? String(candidate.source ?? '').startsWith('Regional ·') ||
+          outsideCore ||
+          isRegionalListing(event)
         : isRegionalListing(event),
+      categoryTags: withWorthADriveTag(
+        event.categoryTags,
+        Boolean(
+          candidate &&
+            (String(candidate.source ?? '').startsWith('Regional ·') ||
+              outsideCore ||
+              isRegionalListing(event)),
+        ),
+      ),
     })
   })
   persistAdminEvents(events)

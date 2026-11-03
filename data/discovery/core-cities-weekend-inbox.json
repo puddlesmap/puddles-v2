@@ -1,6 +1,6 @@
 {
   "description": "Core-city weekend leads (web / Instagram / Facebook) for Palo Alto · Los Altos · Mountain View · Sunnyvale. Add rows here; run npm run discover:core-weekend to queue them in Admin Discovery. eventUrl must be the official host page (Instagram post OK when that is the announcement).",
-  "updatedAt": "2026-09-15",
+  "updatedAt": "2026-11-03",
   "leads": [
     {
       "id": "core-weekend-gamble-second-saturday-2026-09-12",

@@ -1,4 +1,8 @@
 import type { DiscoveryCandidate, DiscoveryEditableFields, DiscoveryReviewStatus } from '../types/discovery'
+import type { ComposeResult } from '../types/tipKnowledge'
+import { joinInternalReviewNotes, splitTipsForAdmin } from './discoveryInternalNotes'
+import { composeTipSuggestions } from './tipKnowledgeCompose'
+import { loadFactsWithOverrides } from './tipKnowledgeBrowserStore'
 
 const STORAGE_KEY = 'puddles-admin-discovery-review-v1'
 
@@ -40,6 +44,20 @@ export function saveDiscoveryReviewRecord(id: string, record: DiscoveryReviewRec
   writeStore(store)
 }
 
+export function markDiscoveryReviewsLive(ids: string[]) {
+  const wanted = new Set(ids)
+  if (wanted.size === 0) return
+  const store = readStore()
+  let changed = false
+  for (const id of wanted) {
+    const record = store[id]
+    if (!record) continue
+    store[id] = { ...record, reviewStatus: 'live', updatedAt: new Date().toISOString() }
+    changed = true
+  }
+  if (changed) writeStore(store)
+}
+
 export function clearDiscoveryEdits(id: string) {
   const store = readStore()
   const existing = store[id]
@@ -75,10 +93,15 @@ export function applyDiscoveryReviewOverrides(
 }
 
 export function editableFieldsFromCandidate(candidate: DiscoveryCandidate): DiscoveryEditableFields {
+  const { parentTips, internalNotes } = splitTipsForAdmin(
+    candidate.tips,
+    candidate.internalReviewNotes,
+  )
   return {
     title: candidate.title,
     description: candidate.description,
-    tips: candidate.tips,
+    tips: parentTips,
+    internalReviewNotes: joinInternalReviewNotes(internalNotes),
     venue: candidate.venue,
     room: candidate.room,
     address: candidate.address,
@@ -102,4 +125,25 @@ export function pacificTodayYmd(): string {
     month: '2-digit',
     day: '2-digit',
   }).format(new Date())
+}
+
+/** Compose reusable venue/program tip suggestions for a discovery candidate. */
+export function composeKnowledgeForCandidate(
+  candidate: Pick<
+    DiscoveryCandidate,
+    'id' | 'title' | 'venue' | 'city' | 'description' | 'tips' | 'eventUrl'
+  >,
+): ComposeResult {
+  return composeTipSuggestions(
+    {
+      title: candidate.title,
+      venue: candidate.venue,
+      city: candidate.city,
+      description: candidate.description,
+      tips: candidate.tips,
+      eventUrl: candidate.eventUrl,
+      eventId: candidate.id,
+    },
+    { facts: typeof window !== 'undefined' ? loadFactsWithOverrides() : undefined },
+  )
 }

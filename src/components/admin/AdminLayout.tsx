@@ -9,13 +9,16 @@ import {
   shouldShowScheduledDiscoverReminder,
 } from '../../utils/adminReminders'
 import { AdminMarkInternalAnalytics } from './AdminMarkInternalAnalytics'
+import { AdminPublishControl } from './AdminPublishControl'
 
 const NAV_ITEMS = [
-  { to: '/admin', label: 'Dashboard', end: true },
-  { to: '/admin/discovery', label: 'Discovery' },
-  { to: '/admin/events', label: 'Events' },
-  { to: '/admin/submissions', label: 'Submissions' },
-  { to: '/admin/seasonal-calendar', label: 'Seasonal' },
+  { to: '/admin', label: 'Review', end: true },
+  { to: '/admin/approved', label: 'Approved', end: true },
+  { to: '/admin/events', label: 'Events', end: false },
+  { to: '/admin/submissions', label: 'Submissions', end: false },
+  { to: '/admin/seasonal-calendar', label: 'Seasonal', end: false },
+  { to: '/admin/social', label: 'Social', end: false },
+  { to: '/admin/audience', label: 'Audience', end: false },
 ] as const
 
 const HOWTO_OPEN_KEY = 'puddles-admin-howto-open'
@@ -106,6 +109,7 @@ export function AdminLayout() {
               <h1 className="mt-1 font-display text-xl text-charcoal">Operations dashboard</h1>
             </div>
             <div className="flex flex-wrap items-center gap-3">
+              <AdminPublishControl />
               <button
                 type="button"
                 className="admin-btn admin-btn-secondary"
@@ -135,48 +139,55 @@ export function AdminLayout() {
                   {isSigningOut ? 'Signing out…' : 'Sign out'}
                 </button>
               ) : null}
-              <Link to="/" className="text-sm font-medium text-charcoal underline decoration-border underline-offset-4">
-                View public site
-              </Link>
+              <a
+                href="https://puddlesmap.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm font-medium text-charcoal underline decoration-border underline-offset-4"
+              >
+                View public site ↗
+              </a>
             </div>
           </div>
 
           {howToOpen ? (
             <div id="admin-howto-panel" className="admin-howto-panel">
               <p className="admin-howto-panel__lead">
-                Form → Submissions → Go live. Discovery → Approve as Draft, then header{' '}
-                <strong>Deploy</strong> on the Dashboard. Discovery still has Go live as backup.
-                Events monitors the public catalog. Full guide: <code>docs/admin-howto.md</code>
+                Review each item with <strong>Approve</strong> or <strong>Remove</strong>, then use
+                the header <strong>Publish</strong> once for all approved changes. Full guide:{' '}
+                <code>docs/admin-howto.md</code>
               </p>
               <ol className="admin-howto-panel__list">
                 <li>
-                  <strong>Submissions</strong> — Refresh, review Share form items,{' '}
-                  <strong>Go live</strong> for Event submissions.
+                  <strong>Submissions</strong> — Refresh, review Share form items, then Approve or Remove.
                 </li>
                 <li>
-                  <strong>Discovery</strong> — Approve library candidates, then{' '}
-                  <strong>Go live</strong>. Auto-refresh: Sundays 8:00 AM PT (library queue);
-                  Thursdays 8:00 AM PT (core cities + Worth a little drive). Mid-week = manual.
+                  <strong>Discovery</strong> — Review the prioritized queue. Approved candidates join
+                  the header Publish summary; unchanged events stay out of the queue.
                 </li>
                 <li>
-                  <strong>Events</strong> — Switch <strong>Regular</strong> or{' '}
-                  <strong>Regional / Seasonal</strong>, then monitor <strong>Live</strong>,{' '}
-                  <strong>Needs attention</strong>, and <strong>Past</strong>. Expand a row to{' '}
-                  <strong>edit &amp; publish</strong>.
+                  <strong>Approved</strong> — Last check and edit for items waiting on the header{' '}
+                  <strong>Publish</strong>. This is not Draft Events.
+                </li>
+                <li>
+                  <strong>Events</strong> — Switch <strong>Regular</strong> (Browse: core cities +
+                  destination Other cities) or <strong>Regional / Seasonal</strong> (seasonal
+                  collections on Home). Monitor <strong>Live</strong> and <strong>Past</strong>.
+                  Cancel or remove a live listing from the row. Drafts and listings that need a look
+                  are on <strong>Review</strong>.
                 </li>
               </ol>
               <p className="admin-howto-panel__note">
-                Google Sheet is optional. Go live updates the public site in ~2–4 minutes.
+                Google Sheet is optional. Publish updates the public site in ~2–4 minutes.
               </p>
             </div>
           ) : null}
 
           <nav className="admin-section-nav" aria-label="Admin sections">
             {NAV_ITEMS.map((item) => {
-              const isActive =
-                item.to === '/admin'
-                  ? location.pathname === '/admin'
-                  : location.pathname.startsWith(item.to)
+              const isActive = item.end
+                ? location.pathname === item.to
+                : location.pathname.startsWith(item.to)
               return (
                 <Link
                   key={item.to}

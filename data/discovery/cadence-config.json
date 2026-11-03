@@ -1,0 +1,9 @@
+{
+  "notes": "Library scrapers fetch a prefix (today through N days), not a slice. When a farther window is due, one scrape covers the nearer windows too, and those nearer windows are marked done so they are not fetched again that week.",
+  "maxHorizonDays": 90,
+  "windows": [
+    { "id": "0-30", "from": 0, "to": 30, "everyDays": 7 },
+    { "id": "31-60", "from": 31, "to": 60, "everyDays": 14 },
+    { "id": "61-90", "from": 61, "to": 90, "everyDays": 30 }
+  ]
+}

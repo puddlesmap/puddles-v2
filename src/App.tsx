@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import { AppProvider } from './context/AppContext'
 import { BottomNav } from './components/layout/BottomNav'
@@ -9,6 +9,7 @@ import { AdminAuthGate } from './components/admin/AdminAuthGate'
 import { AdminLayout } from './components/admin/AdminLayout'
 import { DiscoveryPage } from './views/DiscoveryPage'
 import { HomePage } from './views/HomePage'
+import { HalloweenGuidePage } from './views/HalloweenGuidePage'
 import { HomeLaunchPreviewPage } from './views/HomeLaunchPreviewPage'
 import { ExperimentHallmarkHelloFallMockupPage } from './views/ExperimentHallmarkHelloFallMockupPage'
 import { ExperimentHallmarkHomeMockupPage } from './views/ExperimentHallmarkHomeMockupPage'
@@ -56,8 +57,6 @@ import { ExperimentSharedEventDetailPage } from './views/ExperimentSharedEventDe
 import { ExperimentWelcomePage } from './views/ExperimentWelcomePage'
 import { ExperimentSeasonalDiscoveryPage } from './views/ExperimentSeasonalDiscoveryPage'
 import { ExperimentCommunityEventsMockupPage } from './views/ExperimentCommunityEventsMockupPage'
-import { ExperimentAdminWorkflowMockupPage } from './views/ExperimentAdminWorkflowMockupPage'
-import { ExperimentThursdayAllSearchMockupPage } from './views/ExperimentThursdayAllSearchMockupPage'
 import { ExperimentLaunchExpandMockupPage } from './views/ExperimentLaunchExpandMockupPage'
 import { ExperimentBrowseV2MockupPage } from './views/ExperimentBrowseV2MockupPage'
 import { ExperimentBrowseV3MockupPage } from './views/ExperimentBrowseV3MockupPage'
@@ -65,15 +64,22 @@ import { ExperimentBrowseCardLayoutMockupPage } from './views/ExperimentBrowseCa
 import { ExperimentBrowseCardDesignReferencePage } from './views/ExperimentBrowseCardDesignReferencePage'
 import { ExperimentBrowseLiveVsOption2Page } from './views/ExperimentBrowseLiveVsOption2Page'
 import { ExperimentSeasonalThemeCalendarPage } from './views/ExperimentSeasonalThemeCalendarPage'
-import { ExperimentSeasonalCollectionPage } from './views/ExperimentSeasonalCollectionPage'
+import {
+  ExperimentSeasonalCollectionPage,
+  SeasonalActivePage,
+} from './views/ExperimentSeasonalCollectionPage'
+import { GuidesIndexPage } from './views/GuidesIndexPage'
+import { ExperimentFallGatheringsMockupPage } from './views/ExperimentFallGatheringsMockupPage'
 import { ExperimentSeasonalLaunchReviewPage } from './views/ExperimentSeasonalLaunchReviewPage'
 import { ExperimentSeasonalBackgroundDialPage } from './views/ExperimentSeasonalBackgroundDialPage'
 import { WelcomeOnboarding } from './components/welcome/WelcomeOnboarding'
 import { AdminEventsPage } from './views/admin/AdminEventsPage'
+import { AdminApprovedPage } from './views/admin/AdminApprovedPage'
 import { AdminDiscoveryPage } from './views/admin/AdminDiscoveryPage'
 import { AdminSubmissionsPage } from './views/admin/AdminSubmissionsPage'
 import { AdminSeasonalCalendarPage } from './views/admin/AdminSeasonalCalendarPage'
-import { initAnalytics, trackPageView } from './utils/analytics'
+import { AdminSocialStudioPage } from './views/admin/AdminSocialStudioPage'
+import { initAnalytics, pageViewIdentity, trackPageView } from './utils/analytics'
 import { applySiteMeta } from './utils/siteMeta'
 import { getEventDetailBackground } from './utils/eventDetailNavigation'
 
@@ -81,21 +87,27 @@ function AppShell() {
   const location = useLocation()
   const backgroundLocation = getEventDetailBackground(location.state)
   const isAdminRoute = location.pathname.startsWith('/admin')
-  const isAdminMockup =
-    location.pathname.startsWith('/experiment/admin-workflow-mockup') ||
-    location.pathname.startsWith('/experiment/thursday-all-search-mockup')
   const isLogoLab = location.pathname === '/logo-lab'
   const isStandaloneEventDetail =
     /^\/event\/[^/]+$/.test(location.pathname) && !backgroundLocation
+  const viewIdentity = pageViewIdentity(location.pathname, location.search)
+  const lastView = useRef<string | null>(null)
 
   useEffect(() => {
     applySiteMeta(location.pathname, location.search)
-    trackPageView(location.pathname)
-  }, [location.pathname, location.search])
+    if (viewIdentity === lastView.current) return
+    lastView.current = viewIdentity
+    if (!viewIdentity) return
+    trackPageView(location.pathname, location.search)
+  }, [location.pathname, location.search, viewIdentity])
 
   const primaryRoutes = (
     <>
       <Route path="/" element={<HomePage />} />
+      <Route path="/guides" element={<GuidesIndexPage />} />
+      <Route path="/guides/halloween-with-little-ones" element={<HalloweenGuidePage />} />
+      <Route path="/seasonal" element={<SeasonalActivePage />} />
+      <Route path="/seasonal/:slug" element={<ExperimentSeasonalCollectionPage />} />
       <Route path="/experiment/home-launch-preview" element={<HomeLaunchPreviewPage />} />
       <Route path="/experiment/seasonal-launch-review" element={<ExperimentSeasonalLaunchReviewPage />} />
       <Route path="/experiment/hallmark-home-mockup" element={<ExperimentHallmarkHomeMockupPage />} />
@@ -158,18 +170,14 @@ function AppShell() {
         path="/experiment/seasonal-discovery/background"
         element={<Navigate to="/experiment/seasonal-bg-dial" replace />}
       />
+      <Route
+        path="/experiment/seasonal-discovery/preview/fall-gatherings"
+        element={<ExperimentFallGatheringsMockupPage />}
+      />
       <Route path="/experiment/seasonal-discovery/:slug" element={<ExperimentSeasonalCollectionPage />} />
       <Route
         path="/experiment/community-events-mockup"
         element={<ExperimentCommunityEventsMockupPage />}
-      />
-      <Route
-        path="/experiment/admin-workflow-mockup"
-        element={<ExperimentAdminWorkflowMockupPage />}
-      />
-      <Route
-        path="/experiment/thursday-all-search-mockup"
-        element={<ExperimentThursdayAllSearchMockupPage />}
       />
       <Route
         path="/experiment/launch-expand-mockup"
@@ -221,12 +229,14 @@ function AppShell() {
       <Route path="/logo-lab" element={<LogoLabPage />} />
       <Route path="/maintenance" element={<MaintenancePage />} />
       <Route path="/admin" element={<AdminAuthGate />}>
-        <Route index element={<ExperimentAdminWorkflowMockupPage live />} />
         <Route element={<AdminLayout />}>
+          <Route index element={<AdminDiscoveryPage />} />
+          <Route path="discovery" element={<Navigate to="/admin" replace />} />
+          <Route path="approved" element={<AdminApprovedPage />} />
           <Route path="events" element={<AdminEventsPage />} />
-          <Route path="discovery" element={<AdminDiscoveryPage />} />
           <Route path="submissions" element={<AdminSubmissionsPage />} />
           <Route path="seasonal-calendar" element={<AdminSeasonalCalendarPage />} />
+          <Route path="social" element={<AdminSocialStudioPage />} />
         </Route>
       </Route>
       <Route path="/Admin" element={<Navigate to="/admin" replace />} />
@@ -248,9 +258,9 @@ function AppShell() {
           <Route path="/event/:eventId" element={<EventDetailModalOverlay />} />
         </Routes>
       ) : null}
-      {!isAdminRoute && !isAdminMockup && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
+      {!isAdminRoute && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
       {!isAdminRoute && <LocationBridge />}
-      {!isAdminRoute && !isAdminMockup && !isLogoLab && <WelcomeOnboarding />}
+      {!isAdminRoute && !isLogoLab && <WelcomeOnboarding />}
     </div>
   )
 }

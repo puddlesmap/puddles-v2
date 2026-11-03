@@ -474,8 +474,8 @@ function AirbnbLayout({
               <h2 className="sedl-section-title">Good to know</h2>
               <ul className="event-detail-tips-list sedl-tips-list">
                 {tipItems.map((item, index) => (
-                  <li key={`${index}-${item}`} className="event-detail-tips-item">
-                    {item}
+                  <li key={`${index}-${item.text}`} className="event-detail-tips-item">
+                    {item.text}
                   </li>
                 ))}
               </ul>
@@ -700,8 +700,8 @@ function EventbriteLayout({
                 <h2 className="sedl-section-title">Tips for families</h2>
                 <ul className="event-detail-tips-list sedl-tips-list">
                   {tipItems.map((item, index) => (
-                    <li key={`${index}-${item}`} className="event-detail-tips-item">
-                      {item}
+                    <li key={`${index}-${item.text}`} className="event-detail-tips-item">
+                      {item.text}
                     </li>
                   ))}
                 </ul>
@@ -901,8 +901,8 @@ function AirbnbV2Layout({
                 </h2>
                 <ul className="event-detail-tips-list">
                   {tipItems.map((item, index) => (
-                    <li key={`${index}-${item}`} className="event-detail-tips-item">
-                      {item}
+                    <li key={`${index}-${item.text}`} className="event-detail-tips-item">
+                      {item.text}
                     </li>
                   ))}
                 </ul>
@@ -1094,8 +1094,8 @@ export function AirbnbV3DesktopContent({
               <h2 className="sedl-section-title">Good to know</h2>
               <ul className="event-detail-tips-list sedl-tips-list">
                 {tipItems.map((item, index) => (
-                  <li key={`${index}-${item}`} className="event-detail-tips-item">
-                    {item}
+                  <li key={`${index}-${item.text}`} className="event-detail-tips-item">
+                    {item.text}
                   </li>
                 ))}
               </ul>
@@ -1290,8 +1290,8 @@ function AirbnbV3Layout({
                 </h2>
                 <ul className="event-detail-tips-list">
                   {tipItems.map((item, index) => (
-                    <li key={`${index}-${item}`} className="event-detail-tips-item">
-                      {item}
+                    <li key={`${index}-${item.text}`} className="event-detail-tips-item">
+                      {item.text}
                     </li>
                   ))}
                 </ul>

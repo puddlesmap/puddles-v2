@@ -1,4 +1,4 @@
-import { ALL_EVENTS, ALL_LAUNCH_REVIEW_DISCOVERY_EVENTS, ALL_SEASONAL_DRIVE_EVENTS } from '../data/events'
+import { ALL_EVENTS } from '../data/events'
 import { SYNC_META } from '../data/syncInfo'
 import type { DiscoveryCandidate } from '../types/discovery'
 import type { Event } from '../types/event'
@@ -15,59 +15,17 @@ function adminEventPool(): Event[] {
   return resolveAdminEventsSource(ALL_EVENTS, SYNC_META.syncedAt).events
 }
 
-/** Admin cache plus compiled catalog (Hidden Hello Fall drive rows included). */
-export function catalogMatchPool(): Event[] {
-  const skipLaunchReview = new Set(ALL_LAUNCH_REVIEW_DISCOVERY_EVENTS.map((event) => event.id))
-  const byId = new Map<string, Event>()
-  for (const event of ALL_EVENTS) {
-    if (skipLaunchReview.has(event.id)) continue
-    byId.set(event.id, event)
-  }
-  for (const event of ALL_SEASONAL_DRIVE_EVENTS) {
-    if (skipLaunchReview.has(event.id)) continue
-    byId.set(event.id, event)
-  }
-  for (const event of adminEventPool()) {
-    if (skipLaunchReview.has(event.id)) continue
-    byId.set(event.id, event)
-  }
-  return [...byId.values()]
-}
-
-function normalizeTitle(title: string): string {
-  return String(title || '')
-    .toLowerCase()
-    .replace(/[^a-z0-9\u4e00-\u9fff]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-}
-
-function sameOutingDateCity(
-  event: Event,
-  candidate: Pick<DiscoveryCandidate, 'title' | 'date' | 'city' | 'venue'>,
-): boolean {
-  if (!candidate.date || event.date !== candidate.date) return false
-  const want = normalizeTitle(candidate.title)
-  const have = normalizeTitle(event.title)
-  if (!want || !have || want !== have) return false
-  const city = String(candidate.city || '').trim().toLowerCase()
-  if (city && event.city.trim().toLowerCase() === city) return true
-  const venue = String(candidate.venue || '').trim().toLowerCase()
-  return Boolean(venue && event.venue.trim().toLowerCase() === venue)
-}
-
-/** Published or Hidden (Worth a little drive) — already on the public/seasonal site. */
-export function isOnSiteCatalogStatus(status: Event['status']): boolean {
-  return status === 'Published' || status === 'Hidden'
-}
-
 /**
- * Matching Events rows for a Discovery candidate.
- * Prefer converted id, then the same official URL on the same date, else title + date + city.
- * Same host URL without a matching date is not a match (library calendars share one link).
+ * Pending discovery rows are copied into the catalog as Hidden previews
+ * (same id, for the launch-review page). Those copies are not on the public site.
  */
+function isSyntheticDiscoveryPreview(event: Event, candidate: DiscoveryCandidate): boolean {
+  return event.status === 'Hidden' && event.id === candidate.id
+}
+
+/** Matching Events rows for a Discovery candidate (by converted id, then URL + date). */
 export function findMatchingEventsForCandidate(candidate: DiscoveryCandidate): Event[] {
-  const events = catalogMatchPool()
+  const events = adminEventPool().filter((event) => !isSyntheticDiscoveryPreview(event, candidate))
 
   if (candidate.convertedEventId?.trim()) {
     const id = candidate.convertedEventId.trim()
@@ -76,20 +34,27 @@ export function findMatchingEventsForCandidate(candidate: DiscoveryCandidate): E
   }
 
   const target = normalizeDiscoveryEventUrl(candidate.eventUrl)
-  if (target && target !== '#') {
-    const byUrl = events.filter(
-      (event) => normalizeDiscoveryEventUrl(event.eventUrl) === target,
-    )
-    if (candidate.date) {
-      const byDate = byUrl.filter((event) => event.date === candidate.date)
-      if (byDate.length > 0) return byDate
-    }
+  if (!target) return []
+
+  const byUrl = events.filter(
+    (event) => normalizeDiscoveryEventUrl(event.eventUrl) === target,
+  )
+
+  if (byUrl.length === 0) return []
+
+  if (candidate.date) {
+    const byDate = byUrl.filter((event) => event.date === candidate.date)
+    if (byDate.length > 0) return byDate
   }
 
-  return events.filter((event) => sameOutingDateCity(event, candidate))
+  return byUrl
 }
 
-/** Live Browse or Hidden seasonal-drive row already on Puddles. */
+function isOnSiteCatalogStatus(status: Event['status'] | undefined): boolean {
+  return status === 'Published' || status === 'Hidden' || status === 'Cancelled'
+}
+
+/** Live Browse, Hidden, or Cancelled row already on Puddles. */
 export function findOnSiteCatalogEvent(candidate: DiscoveryCandidate): Event | undefined {
   return findMatchingEventsForCandidate(candidate).find((event) => isOnSiteCatalogStatus(event.status))
 }

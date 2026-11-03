@@ -8,14 +8,11 @@ This is the **core-city** counterpart to [Regional discovery — weekly](./regio
 
 | When | What |
 |------|------|
-| **Sundays @ 8:00 AM PT** | Library scrape (`discover-bay-area`) — storytimes & classes |
-| **Thursdays @ 8:00 AM PT** | This pass (`discover:core-weekend`) **and** Worth a little drive / 小紅書 (`discover:regional-weekly`) |
+| **Wednesdays @ 8:00 AM PT** | Unified pass: [`discover-wednesday.yml`](../.github/workflows/discover-wednesday.yml) → `npm run discover:wednesday` (libraries, Linden, **core inbox ingest**, **regional inbox ingest**, merge, verify). One commit. |
 
-Instagram and the open web **cannot be fully scraped**. The Thursday job queues leads you (or Cursor) already pasted. The search itself is **agent-assisted**.
+Instagram and the open web **cannot be fully scraped**. The Wednesday job **imports** leads you (or Cursor) already pasted into `core-cities-weekend-inbox.json`. The search itself is **agent-assisted** — use the watchlist + roundups the same week.
 
-**Ask in chat:** “search this weekend and next for Puddles events in PA / MV / Los Altos / Sunnyvale” — the agent should follow [`.cursor/skills/core-cities-weekend-search/SKILL.md`](../.cursor/skills/core-cities-weekend-search/SKILL.md).
-
-GitHub Actions: [`.github/workflows/discover-core-weekend.yml`](../.github/workflows/discover-core-weekend.yml)
+**Ask in chat:** “search this weekend and next for Puddles events in PA / MV / Los Altos / Sunnyvale” — the agent should follow [`.cursor/skills/core-cities-weekend-search/SKILL.md`](../.cursor/skills/core-cities-weekend-search/SKILL.md), then commit inbox rows or re-run the Wednesday workflow.
 
 ## Window
 

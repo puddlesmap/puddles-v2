@@ -24,6 +24,7 @@ export const SEASONAL_DISCOVERY_ID_ALIASES: Record<string, string> = {
 const THEME_LABEL: Record<SeasonalCollectionSlug, string> = {
   'hello-fall': 'Hello Fall',
   'halloween-with-little-ones': 'Halloween',
+  'holiday-magic': 'Holiday magic',
 }
 
 export function seasonalThemeLabel(slug: SeasonalCollectionSlug): string {
