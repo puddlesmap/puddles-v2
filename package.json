@@ -27,16 +27,18 @@
     "discover:regional-weekly": "node scripts/discover-regional-weekly.mjs",
     "discover:core-weekend": "node scripts/discover-core-weekend.mjs",
     "discover:wednesday": "node scripts/discover-wednesday.mjs",
+    "discover:sync-seasonal": "node scripts/sync-seasonal-discovery.mjs",
+    "discover:plan-window": "node scripts/plan-discovery-window.mjs --print",
     "discover:weekly-summary": "node scripts/write-weekly-discovery-summary.mjs",
     "verify:events": "node scripts/verify-event-freshness.mjs",
     "knowledge:stale": "node scripts/knowledge/list-stale-facts.mjs",
     "knowledge:backfill-tips": "node scripts/knowledge/backfill-live-tips.mjs",
     "test:tip-knowledge": "node --test scripts/tip-knowledge-compose.test.mjs scripts/event-tips-regression.test.mjs",
-    "discover:sync-seasonal": "node scripts/sync-seasonal-discovery.mjs",
     "build:launch-staging": "node scripts/build-launch-staging.mjs",
     "verify-expansion-watch": "node scripts/verify-expansion-watch-submission.mjs"
   },
   "dependencies": {
+    "@netlify/blobs": "^11.1.4",
     "@netlify/plugin-nextjs": "^5.15.12",
     "@tailwindcss/postcss": "^4.3.2",
     "@vis.gl/react-google-maps": "^1.8.3",
@@ -46,7 +48,8 @@
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-leaflet": "^5.0.0",
-    "react-router-dom": "^7.17.0"
+    "react-router-dom": "^7.17.0",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
