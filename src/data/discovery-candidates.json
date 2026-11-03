@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T22:01:57.648Z",
+  "generatedAt": "2026-11-03T23:16:20.964Z",
   "libraries": [
     "linden-tree"
   ],
@@ -9,9 +9,9 @@
     "days": 90
   },
   "stats": {
-    "candidates": 260,
+    "candidates": 264,
     "alreadyOnPuddles": 122,
-    "newForReview": 138,
+    "newForReview": 142,
     "bySource": {
       "Calendar Watchlist · Marti Foster Yoga": 5,
       "Calendar Watchlist · Los Altos History Museum": 1,
@@ -38,6 +38,7 @@
       "Mountain View Library · LibCal": 32,
       "Palo Alto Library · BiblioCommons": 64,
       "Manual checklist deep scan · Palo Alto Calendar / Events Directory": 1,
+      "FIT4MOM Glofox scan · Cursor browser · 2026-11-03": 4,
       "Calendar Watchlist · Linden Tree Books": 13,
       "SCCL · Los Altos": 7,
       "Seasonal · Holiday magic · drive": 4,
@@ -4276,6 +4277,44 @@
       "lastChecked": "2026-09-01"
     },
     {
+      "room": "",
+      "audiences": "",
+      "categoryTags": [
+        "Parent & Me",
+        "Sunnyvale"
+      ],
+      "imageUrl": "",
+      "isCancelled": false,
+      "isRecurring": true,
+      "convertedEventId": "",
+      "lastChecked": "2026-11-03",
+      "lat": 37.3515,
+      "lng": -122.0255,
+      "ageMin": 0,
+      "ageMax": 2,
+      "ageRange": "0–2",
+      "types": [
+        "Parent & Me",
+        "Outdoor"
+      ],
+      "cost": "Paid · First class free",
+      "tips": "",
+      "reviewStatus": "pending",
+      "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+      "id": "watchlist-fit4mom-fit4baby-laspalmas-2026-11-07",
+      "title": "FIT4MOM FIT4BABY · Las Palmas Park",
+      "date": "2026-11-07",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "venue": "Las Palmas Park",
+      "address": "850 Russet Dr, Sunnyvale, CA 94087",
+      "city": "Sunnyvale",
+      "description": "Postpartum workout for caregivers with baby — strength and cardio with little one in a stroller or carrier; designed for the fourth trimester and early infancy.",
+      "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "internalReviewNotes": "Weekly Saturdays 10:00 at Las Palmas per Glofox Nov–Dec 2026. One series row — not weekly Browse spam. Distinct from Virtual FIT4BABY.",
+      "alreadyOnPuddles": false
+    },
+    {
       "id": "698e125a2a787a47a5e73be9",
       "title": "Family Storytime",
       "date": "2026-11-07",
@@ -4665,6 +4704,45 @@
       "lastChecked": "2026-09-01"
     },
     {
+      "room": "",
+      "audiences": "",
+      "categoryTags": [
+        "Mountain View",
+        "Library special"
+      ],
+      "imageUrl": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "convertedEventId": "",
+      "lastChecked": "2026-11-03",
+      "lat": 37.3745,
+      "lng": -122.0785,
+      "ageMin": 0,
+      "ageMax": 5,
+      "ageRange": "0–5",
+      "types": [
+        "Parent & Me",
+        "Stories",
+        "Outdoor"
+      ],
+      "cost": "Paid · First class free",
+      "tips": "",
+      "reviewStatus": "pending",
+      "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+      "id": "manual-fit4mom-walk-club-library-storytime-2026-11-12",
+      "title": "FIT4MOM Walk Club & Library Storytime",
+      "date": "2026-11-12",
+      "startTime": "09:30",
+      "endTime": "10:30",
+      "venue": "Cuesta Park",
+      "address": "615 Cuesta Drive, Mountain View, CA 94040",
+      "city": "Mountain View",
+      "description": "Stroller walk with storytime stop — caregiver and little one outing at Cuesta Park with a library-on-location storytime.",
+      "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "internalReviewNotes": "One-off on Glofox Thu 11/12/2026. Confirm title and partner library on Glofox before Go live.",
+      "alreadyOnPuddles": false
+    },
+    {
       "id": "17295776",
       "title": "Cuesta Park Storytime",
       "date": "2026-11-12",
@@ -4995,6 +5073,44 @@
       "lastChecked": "2026-09-01"
     },
     {
+      "room": "",
+      "audiences": "",
+      "categoryTags": [
+        "Sunnyvale",
+        "Free"
+      ],
+      "imageUrl": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "convertedEventId": "",
+      "lastChecked": "2026-11-03",
+      "lat": 37.3515,
+      "lng": -122.0255,
+      "ageMin": 0,
+      "ageMax": 2,
+      "ageRange": "0–2",
+      "types": [
+        "Parent & Me",
+        "Outdoor"
+      ],
+      "cost": "Free",
+      "tips": "",
+      "reviewStatus": "pending",
+      "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+      "id": "manual-fit4mom-meet-the-doula-2026-11-14",
+      "title": "FREE: Meet the Doula",
+      "date": "2026-11-14",
+      "startTime": "11:00",
+      "endTime": "11:30",
+      "venue": "Las Palmas Park",
+      "address": "850 Russet Dr, Sunnyvale, CA 94087",
+      "city": "Sunnyvale",
+      "description": "Drop-in to meet a doula and ask questions — short outdoor meet-up for expecting and new parents with babies welcome.",
+      "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "internalReviewNotes": "Glofox Sat 11/14/2026 after FIT4BABY block. Adult-focused info session — include only if copy stays honest for 0–5 (babies welcome, not a kids activity).",
+      "alreadyOnPuddles": false
+    },
+    {
       "id": "core-weekend-wag-along-storybook-party-2026-11-15",
       "title": "Wag Along! A Charlie & Gigi Storybook Party",
       "date": "2026-11-15",
@@ -5067,6 +5183,44 @@
       "reviewStatus": "dismissed",
       "convertedEventId": "",
       "lastChecked": ""
+    },
+    {
+      "room": "",
+      "audiences": "",
+      "categoryTags": [
+        "Sunnyvale",
+        "Free",
+        "Our Village"
+      ],
+      "imageUrl": "",
+      "isCancelled": false,
+      "isRecurring": false,
+      "convertedEventId": "",
+      "lastChecked": "2026-11-03",
+      "lat": null,
+      "lng": null,
+      "ageMin": 0,
+      "ageMax": 5,
+      "ageRange": "0–5",
+      "types": [
+        "Festivals & Community"
+      ],
+      "cost": "Free",
+      "tips": "",
+      "reviewStatus": "pending",
+      "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+      "id": "manual-fit4mom-friendsgiving-potluck-2026-11-15",
+      "title": "Annual International Potluck Friendsgiving (FREE)",
+      "date": "2026-11-15",
+      "startTime": "11:00",
+      "endTime": "12:30",
+      "venue": "Special Event Location",
+      "address": "Sunnyvale, CA",
+      "city": "Sunnyvale",
+      "description": "Our Village potluck for caregivers and little ones — bring a dish to share and connect with other local parents.",
+      "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "internalReviewNotes": "Glofox Sun 11/15/2026 — address is Special Event Location in portal; confirm venue in Glofox detail before Go live.",
+      "alreadyOnPuddles": false
     },
     {
       "room": "",
