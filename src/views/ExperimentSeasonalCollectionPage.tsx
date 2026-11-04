@@ -297,7 +297,12 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
     month: '2-digit',
     day: '2-digit',
   }).format(new Date())
-  if (collection.slug === 'holiday-magic' && todayPacific < collection.activeFrom) {
+  const isExperimentPreview = location.pathname.startsWith('/experiment/')
+  if (
+    collection.slug === 'holiday-magic' &&
+    todayPacific < collection.activeFrom &&
+    !isExperimentPreview
+  ) {
     return <Navigate to="/" replace />
   }
 
@@ -391,6 +396,9 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
             } as CSSProperties
           }
         >
+          {isExperimentPreview && isHoliday ? (
+            <p className="seasonal-mockup-banner">Mockup · not on the public site until November 5</p>
+          ) : null}
           <Link to="/" className="seasonal-collection-back">
             ← Back home
           </Link>

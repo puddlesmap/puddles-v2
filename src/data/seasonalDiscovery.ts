@@ -328,6 +328,7 @@ export const HOLIDAY_MAGIC_DESCRIPTION =
   'Holiday lights, festive shows, and family outings, from November through early January.'
 
 export const HOLIDAY_MAGIC_CLOSE_EVENT_IDS = [
+  'manual-23rd-annual-holiday-stroll-2026-11-13',
   'seasonal-friendsgiving-palo-alto-2026-11-21',
   'seasonal-los-altos-festival-of-lights-parade-2026-11-29',
   'seasonal-cityline-winter-ice-rink-2026-11-24',
@@ -335,8 +336,11 @@ export const HOLIDAY_MAGIC_CLOSE_EVENT_IDS = [
   'seasonal-los-altos-holiday-tree-celebration-2026-12-04',
   'seasonal-once-upon-a-garden-2026-12-04',
   'seasonal-breakfast-with-santa-2026-12-05',
+  'core-weekend-magical-santa-dance-party-2026-12-05',
+  'manual-selfies-with-santa-2026-12-05',
   'barn-lighting-westwind-community-barn-2026-12-06-14-00',
   'community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30',
+  'manual-holiday-market-downtown-los-altos-2026-12-10',
   'core-weekend-playhouse-gingerbread-man-2026-12-19',
   'disc-celebrating-yalda-night-2026-12-19-6abc44f5295b3b0033ca0dd7',
   'disc-noon-year-s-eve-celebration-2026-12-31-6a750a3788e9bf28003613ac',
@@ -345,8 +349,173 @@ export const HOLIDAY_MAGIC_CLOSE_EVENT_IDS = [
 export const HOLIDAY_MAGIC_DRIVE_EVENT_IDS = [
   'regional-filoli-holidays-2026-11-14',
   'seasonal-illuminodyssey-2026-11-14',
+  'regional-oakland-zoo-glowfari-2026-11-06',
+  'regional-badm-winter-wonderlab-2026-11-21',
   'seasonal-hiller-santa-helicopter-2026-12-05',
+  'regional-crucible-gifty-2026-12-05',
+  'regional-fairyland-fairy-winterland-2026-12-12',
+  'regional-union-square-holiday-ice-rink-2026-11-04',
+  'regional-marin-holiday-light-spectacular-2026-11-27',
+  'regional-roaring-camp-holiday-tree-walk-2026-11-27',
+  'regional-santa-cruz-holiday-lights-train-2026-11-27',
   'seasonal-sf-ballet-sensory-nutcracker-2026-12-27',
+] as const
+
+/** Holiday magic — discovery rows to review after roundup / Marin Mommies / Mommy Poppins passes. */
+export interface HolidayMagicCurationCandidate {
+  discoveryId: string
+  title: string
+  date: string
+  city: string
+  why: string
+  priority: 'high' | 'medium' | 'low'
+}
+
+export const HOLIDAY_MAGIC_DISCOVERY_PIPELINE: HolidayMagicCurationCandidate[] = [
+  {
+    discoveryId: 'regional-oakland-zoo-glowfari-2026-11-06',
+    title: 'Glowfari',
+    date: '2026-11-06',
+    city: 'Oakland',
+    why: 'HM drive · Mommy Poppins “best holiday lights” — timed tickets, evening lanterns.',
+    priority: 'high',
+  },
+  {
+    discoveryId: 'regional-fairyland-fairy-winterland-2026-12-12',
+    title: 'Fairy Winterland',
+    date: '2026-12-12',
+    city: 'Oakland',
+    why: 'HM drive · toddler-native venue; on MP + Marin calendars.',
+    priority: 'high',
+  },
+  {
+    discoveryId: 'regional-marin-holiday-light-spectacular-2026-11-27',
+    title: 'Holiday Light Spectacular',
+    date: '2026-11-27',
+    city: 'San Rafael',
+    why: 'HM drive · free walk-through lights; Marin Mommies + county official page.',
+    priority: 'high',
+  },
+  {
+    discoveryId: 'manual-23rd-annual-holiday-stroll-2026-11-13',
+    title: '23rd Annual Holiday Stroll',
+    date: '2026-11-13',
+    city: 'Los Altos',
+    why: 'HM close · DTLA evening stroll — approve copy before publish.',
+    priority: 'high',
+  },
+  {
+    discoveryId: 'regional-roaring-camp-holiday-tree-walk-2026-11-27',
+    title: 'Holiday Tree Walk (Roaring Camp)',
+    date: '2026-11-27',
+    city: 'Felton',
+    why: 'HM drive · redwoods + Santa; MP sell-out pick.',
+    priority: 'high',
+  },
+  {
+    discoveryId: 'regional-santa-cruz-holiday-lights-train-2026-11-27',
+    title: 'Santa Cruz Holiday Lights Train',
+    date: '2026-11-27',
+    city: 'Santa Cruz',
+    why: 'HM drive · Boardwalk train; book early per MP.',
+    priority: 'medium',
+  },
+  {
+    discoveryId: 'regional-badm-winter-wonderlab-2026-11-21',
+    title: 'Winter Wonderlab',
+    date: '2026-11-21',
+    city: 'Sausalito',
+    why: 'HM drive · hands-on winter exhibit for 0–5.',
+    priority: 'medium',
+  },
+  {
+    discoveryId: 'regional-crucible-gifty-2026-12-05',
+    title: 'GIFTY Holiday Craft Fair & Open House',
+    date: '2026-12-05',
+    city: 'Oakland',
+    why: 'HM drive · maker open house — verify age fit on official page.',
+    priority: 'medium',
+  },
+  {
+    discoveryId: 'core-weekend-magical-santa-dance-party-2026-12-05',
+    title: 'Magical Santa Dance Party',
+    date: '2026-12-05',
+    city: 'Palo Alto',
+    why: 'HM close · sensory-friendly dance with Santa.',
+    priority: 'high',
+  },
+  {
+    discoveryId: 'manual-selfies-with-santa-2026-12-05',
+    title: 'Selfies with Santa',
+    date: '2026-12-05',
+    city: 'Los Altos',
+    why: 'HM close · free DTLA Santa photos.',
+    priority: 'medium',
+  },
+  {
+    discoveryId: 'manual-holiday-market-downtown-los-altos-2026-12-10',
+    title: 'Holiday Market (Downtown Los Altos)',
+    date: '2026-12-10',
+    city: 'Los Altos',
+    why: 'HM close · evening market + Santa.',
+    priority: 'medium',
+  },
+  {
+    discoveryId: 'regional-gilroy-north-pole-nights-2026-11-21',
+    title: 'North Pole Nights at Gilroy Gardens',
+    date: '2026-11-21',
+    city: 'Gilroy',
+    why: 'Backlog · MP “best for little kids” — full-day park evening.',
+    priority: 'medium',
+  },
+  {
+    discoveryId: 'regional-dickens-christmas-fair-2026-11-21',
+    title: 'The Great Dickens Christmas Fair',
+    date: '2026-11-21',
+    city: 'Daly City',
+    why: 'Backlog · immersive; loud/crowded — editor call for 0–5.',
+    priority: 'low',
+  },
+  {
+    discoveryId: 'regional-union-square-holiday-ice-rink-2026-11-04',
+    title: 'Union Square Holiday Ice Rink',
+    date: '2026-11-04',
+    city: 'San Francisco',
+    why: 'HM drive · MP “best overall”; distinct from Cityline rink.',
+    priority: 'medium',
+  },
+  {
+    discoveryId: 'regional-westin-st-francis-breakfast-with-santa-2026-12-05',
+    title: 'Breakfast with Santa at the Westin St. Francis',
+    date: '2026-12-05',
+    city: 'San Francisco',
+    why: 'Backlog · not Sunnyvale breakfast — separate row if added.',
+    priority: 'low',
+  },
+  {
+    discoveryId: 'regional-snoopy-home-ice-merry-bright-2026-11-28',
+    title: 'Merry & Bright Free Holiday Shows',
+    date: '2026-11-28',
+    city: 'Santa Rosa',
+    why: 'Backlog · Marin calendar · free ice shows.',
+    priority: 'low',
+  },
+  {
+    discoveryId: 'regional-grace-cathedral-sing-merry-christmas-2026-12-12',
+    title: 'Sing You a Merry Christmas',
+    date: '2026-12-12',
+    city: 'San Francisco',
+    why: 'Backlog · seated sing-along — preschool attention span.',
+    priority: 'low',
+  },
+  {
+    discoveryId: 'regional-elf-in-concert-sfsymphony-2026-12-18',
+    title: 'Elf in Concert with the SF Symphony',
+    date: '2026-12-18',
+    city: 'San Francisco',
+    why: 'Backlog · long movie concert.',
+    priority: 'low',
+  },
 ] as const
 
 export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
