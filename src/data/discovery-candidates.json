@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-03T23:16:20.964Z",
+  "generatedAt": "2026-11-04T21:01:33.652Z",
   "libraries": [
     "linden-tree"
   ],
   "window": {
-    "start": "2026-11-03",
-    "end": "2027-02-01",
+    "start": "2026-11-04",
+    "end": "2027-02-02",
     "days": 90
   },
   "stats": {
-    "candidates": 264,
-    "alreadyOnPuddles": 122,
-    "newForReview": 142,
+    "candidates": 259,
+    "alreadyOnPuddles": 149,
+    "newForReview": 110,
     "bySource": {
       "Calendar Watchlist · Marti Foster Yoga": 5,
       "Calendar Watchlist · Los Altos History Museum": 1,
@@ -25,7 +25,7 @@
       "Calendar Watchlist · garin-apple-festival": 1,
       "Calendar Watchlist · Music Together MP/PA": 1,
       "Calendar Watchlist · Sunnyvale Public Library · Kids Events": 10,
-      "Seasonal · Hello Fall · collection": 16,
+      "Seasonal · Hello Fall · collection": 15,
       "Calendar Watchlist · Gamble Garden": 1,
       "Seasonal · Halloween · featured": 6,
       "Calendar Watchlist · Peninsula Youth Theatre": 3,
@@ -35,9 +35,9 @@
       "Core cities · Weekend search · agent": 6,
       "Core cities · Weekend search · web": 1,
       "Manual checklist deep scan · Sunnyvale classes hub + Fall guide": 1,
-      "Mountain View Library · LibCal": 32,
-      "Palo Alto Library · BiblioCommons": 64,
       "Manual checklist deep scan · Palo Alto Calendar / Events Directory": 1,
+      "Palo Alto Library · BiblioCommons": 61,
+      "Mountain View Library · LibCal": 31,
       "FIT4MOM Glofox scan · Cursor browser · 2026-11-03": 4,
       "Calendar Watchlist · Linden Tree Books": 13,
       "SCCL · Los Altos": 7,
@@ -2501,46 +2501,6 @@
       "lastChecked": "2026-07-07"
     },
     {
-      "id": "watchlist-sunnyvale-hands-on-the-arts-2026-10-17",
-      "title": "Hands on the Arts",
-      "date": "2026-10-17",
-      "startTime": "10:30",
-      "endTime": "15:00",
-      "venue": "Sunnyvale Community Center",
-      "room": "",
-      "address": "550 E Remington Dr, Sunnyvale, CA 94087",
-      "city": "Sunnyvale",
-      "lat": 37.3782,
-      "lng": -122.0265,
-      "ageRange": "2–5",
-      "ageMin": 2,
-      "ageMax": 5,
-      "audiences": "",
-      "types": [
-        "Arts & Crafts",
-        "Festivals & Community"
-      ],
-      "categoryTags": [
-        "Sunnyvale",
-        "Seasonal pick",
-        "Seasonal · Hello Fall",
-        "collection"
-      ],
-      "cost": "Free",
-      "description": "20+ hands-on art booths, roving performers, and food vendors — Sunnyvale’s long-running children’s arts festival celebrating cultures from around the world.",
-      "tips": "Free wristband at check-in unlocks all workshops (booths tailored ~ages 3–15; best for preschool+). Limited parking; bike valet often available.",
-      "imageUrl": "",
-      "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/special-events",
-      "source": "Seasonal · Hello Fall · collection",
-      "watchlistSourceId": "",
-      "isCancelled": false,
-      "isRecurring": false,
-      "alreadyOnPuddles": true,
-      "reviewStatus": "live",
-      "convertedEventId": "",
-      "lastChecked": "2026-09-03"
-    },
-    {
       "id": "halloween-costume-game-night-town-hall-council-chambers-2026-10-17-18-00",
       "title": "Halloween Costume Game Night",
       "date": "2026-10-17",
@@ -3885,39 +3845,6 @@
       "alreadyOnPuddles": false
     },
     {
-      "id": "17142490",
-      "title": "CANCELED DUE TO WEATHER - Outdoor Storytime",
-      "date": "2026-11-03",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "venue": "Pioneer Park",
-      "room": "",
-      "address": "1146 Church St, Mountain View, CA 94041",
-      "city": "Mountain View",
-      "lat": 37.3896,
-      "lng": -122.0832,
-      "ageRange": "0–2, 2–5",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Babies; Preschoolers; Children; Families",
-      "types": [
-        "Stories"
-      ],
-      "categoryTags": [],
-      "cost": "Free",
-      "description": "Tuesdays at 10:30 a.m.",
-      "tips": "CANCELED DUE TO WEATHER.\nBring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park.\nAll ages welcome, no registration required.\nAll events are weather permitting.",
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_21_15_59_33.png",
-      "eventUrl": "https://mountainview.libcal.com/event/17142490",
-      "source": "Mountain View Library · LibCal",
-      "isCancelled": false,
-      "isRecurring": false,
-      "alreadyOnPuddles": true,
-      "reviewStatus": "approved",
-      "convertedEventId": "",
-      "lastChecked": "2026-09-01"
-    },
-    {
       "room": "",
       "audiences": "",
       "categoryTags": [
@@ -3953,114 +3880,6 @@
       "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#duniya-dance-bollywood-bhangra-2026-11-03",
       "internalReviewNotes": "VERIFY date/time on SPL kids calendar.",
       "alreadyOnPuddles": true
-    },
-    {
-      "id": "6a89d81336204e08fbb653fa",
-      "title": "Animal Friends: Reptile Rescuer John Hale",
-      "date": "2026-11-03",
-      "startTime": "16:00",
-      "endTime": "17:00",
-      "venue": "Children's Library",
-      "room": "Treetop Room",
-      "address": "1276  Harriet Street, Palo Alto, CA 94301",
-      "city": "Palo Alto",
-      "lat": 37.4447829,
-      "lng": -122.14501310000003,
-      "ageRange": "0–2, 2–5, 5+",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
-      "types": [
-        "Stories"
-      ],
-      "categoryTags": [
-        "Health & Science",
-        "Kids Storytimes"
-      ],
-      "cost": "Free",
-      "description": "Join PACL and Project HumaneKind as we host reptile rescuer John Hale at the Children's Library! John will introduce several wonderous creatures we share the Earth with. You might meet: Bernie the Chameleon, Ginger the Bearded Dragon, Vince the Red-Footed Tortoise, or Cupcake the Rabbit. Surprises abound! Please arrive on time. Project HumaneKind teaches compassion and respect for living beings. Through humane education, they combat cruelty and indifference and bring awareness to the intelligent, social, and emotional depths of our fellow animals. Visit them online at www.projecthumanekind.org .",
-      "tips": "Please note: registrations will be released for standby attendees at the start of the program.\nA waitlist may be available.\nSpace is limited (40 seats) — check the official page for registration.\nRegistration required.",
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/85e1dc850cabe528be53901b1b2b3462/BibliocommonsbannerCropsbc(22).png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6a89d81336204e08fbb653fa",
-      "source": "Palo Alto Library · BiblioCommons",
-      "isCancelled": false,
-      "isRecurring": false,
-      "alreadyOnPuddles": true,
-      "reviewStatus": "approved",
-      "convertedEventId": "",
-      "lastChecked": "2026-09-01"
-    },
-    {
-      "id": "68afa7b0022de53d00d2717f",
-      "title": "LEGO Tuesdays!",
-      "date": "2026-11-03",
-      "startTime": "16:00",
-      "endTime": "17:00",
-      "venue": "Downtown Library",
-      "room": "El Camino Room",
-      "address": "270 Forest Ave., Palo Alto, CA 94301",
-      "city": "Palo Alto",
-      "lat": 37.44387529999999,
-      "lng": -122.15917860000002,
-      "ageRange": "0–2, 2–5, 5+",
-      "ageMin": 0,
-      "ageMax": 5,
-      "audiences": "Kids (6-11); Pre-schoolers (3-5); Toddlers (18 mos. to 3 yrs); Tweens (11-13)",
-      "types": [
-        "Build & Explore"
-      ],
-      "categoryTags": [
-        "Games & Gaming",
-        "STEAM"
-      ],
-      "cost": "Free",
-      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-      "tips": "LEGOs stay at the library — snap a pic of creations!",
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2717f",
-      "source": "Palo Alto Library · BiblioCommons",
-      "isCancelled": false,
-      "isRecurring": true,
-      "alreadyOnPuddles": true,
-      "reviewStatus": "approved",
-      "convertedEventId": "",
-      "lastChecked": "2026-09-01"
-    },
-    {
-      "id": "6946001eea69de6e001069b6",
-      "title": "Little Ones Storytime",
-      "date": "2026-11-04",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "venue": "Children's Library",
-      "room": "Treetop Room",
-      "address": "1276  Harriet Street, Palo Alto, CA 94301",
-      "city": "Palo Alto",
-      "lat": 37.4447829,
-      "lng": -122.14501310000003,
-      "ageRange": "0–2",
-      "ageMin": 0,
-      "ageMax": 2,
-      "audiences": "Babies (under 2); Toddlers (18 mos. to 3 yrs)",
-      "types": [
-        "Stories"
-      ],
-      "categoryTags": [
-        "Storytimes",
-        "Kids Storytimes"
-      ],
-      "cost": "Free",
-      "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library. Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages.",
-      "tips": "baby|Designed for the littlest listeners with a grown-up.\ninfo|Programs are indoors at the Children’s Library unless the listing says otherwise.",
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069b6",
-      "source": "Palo Alto Library · BiblioCommons",
-      "isCancelled": false,
-      "isRecurring": true,
-      "alreadyOnPuddles": true,
-      "reviewStatus": "approved",
-      "convertedEventId": "",
-      "lastChecked": "2026-09-01"
     },
     {
       "room": "",
@@ -5428,7 +5247,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -5637,7 +5456,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -6209,7 +6028,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -6385,7 +6204,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -6677,7 +6496,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -6964,7 +6783,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -7642,7 +7461,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -7675,7 +7494,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -7711,7 +7530,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -7744,7 +7563,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -7780,7 +7599,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -7813,7 +7632,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -7849,7 +7668,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -7882,7 +7701,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -7918,7 +7737,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8023,7 +7842,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8059,7 +7878,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8095,7 +7914,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8132,7 +7951,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8246,7 +8065,7 @@
       "source": "SCCL · Los Altos",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8279,7 +8098,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8312,7 +8131,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8348,7 +8167,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8384,7 +8203,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8417,7 +8236,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8519,7 +8338,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8555,7 +8374,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8671,7 +8490,7 @@
       "source": "Mountain View Library · LibCal",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8707,7 +8526,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8743,7 +8562,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -8925,7 +8744,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": true,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -9408,7 +9227,7 @@
       "source": "Palo Alto Library · BiblioCommons",
       "isCancelled": false,
       "isRecurring": false,
-      "alreadyOnPuddles": false,
+      "alreadyOnPuddles": true,
       "reviewStatus": "pending",
       "convertedEventId": "",
       "lastChecked": ""
@@ -10025,34 +9844,5 @@
       "convertedEventId": "",
       "lastChecked": ""
     }
-  ],
-  "sources": [
-    "Calendar Watchlist · Downtown Los Altos",
-    "Calendar Watchlist · FIT4MOM Silicon Valley Central",
-    "Calendar Watchlist · Gamble Garden",
-    "Calendar Watchlist · Linden Tree Books",
-    "Calendar Watchlist · Los Altos History Museum",
-    "Calendar Watchlist · Marti Foster Yoga",
-    "Calendar Watchlist · Music Together MP/PA",
-    "Calendar Watchlist · Oshman Family JCC",
-    "Calendar Watchlist · Peninsula Youth Theatre",
-    "Calendar Watchlist · Sunnyvale Public Library · Kids Events",
-    "Calendar Watchlist · garin-apple-festival",
-    "Calendar Watchlist · lemos-farm",
-    "Calendar Watchlist · roaring-camp-railroads",
-    "Core cities · Weekend search · agent",
-    "Core cities · Weekend search · watchlist",
-    "Core cities · Weekend search · web",
-    "Discovery · catalog",
-    "Mountain View Library · LibCal",
-    "Palo Alto Library · BiblioCommons",
-    "Regional · Lead · agent",
-    "SCCL · Los Altos",
-    "Seasonal · Halloween · collection",
-    "Seasonal · Halloween · featured",
-    "Seasonal · Hello Fall · collection",
-    "Seasonal · Hello Fall · featured",
-    "Seasonal · Holiday magic · collection",
-    "Seasonal · Holiday magic · drive"
   ]
 }

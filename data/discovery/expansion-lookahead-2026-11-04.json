@@ -1,0 +1,737 @@
+{
+  "generatedAt": "2026-11-04T21:01:33.937Z",
+  "window": {
+    "start": "2026-11-04",
+    "end": "2027-02-02",
+    "days": 90
+  },
+  "launchTargets": {
+    "city": "Sunnyvale",
+    "activityTypes": [
+      "Parent & Me",
+      "Festivals & Community"
+    ]
+  },
+  "discoveryGeneratedAt": "2026-11-04T21:01:33.652Z",
+  "expansion": {
+    "sunnyvale": {
+      "inWindow": 10,
+      "pending": 3,
+      "onCatalog": 1
+    },
+    "parentAndMe": {
+      "inWindow": 3,
+      "pending": 3,
+      "onCatalog": 0
+    },
+    "festivals": {
+      "inWindow": 25,
+      "pending": 9,
+      "onCatalog": 10
+    },
+    "byCity": [
+      [
+        "Palo Alto",
+        {
+          "total": 74,
+          "pending": 16
+        }
+      ],
+      [
+        "Mountain View",
+        {
+          "total": 37,
+          "pending": 9
+        }
+      ],
+      [
+        "Los Altos",
+        {
+          "total": 26,
+          "pending": 8
+        }
+      ],
+      [
+        "Sunnyvale",
+        {
+          "total": 10,
+          "pending": 3
+        }
+      ],
+      [
+        "San Carlos",
+        {
+          "total": 4,
+          "pending": 3
+        }
+      ],
+      [
+        "Oakland",
+        {
+          "total": 3,
+          "pending": 3
+        }
+      ],
+      [
+        "Sausalito",
+        {
+          "total": 2,
+          "pending": 2
+        }
+      ],
+      [
+        "Los Altos Hills",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "San Mateo",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "Woodside",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "San Francisco",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ]
+    ],
+    "byType": [
+      [
+        "Stories",
+        85
+      ],
+      [
+        "Festivals & Community",
+        25
+      ],
+      [
+        "Build & Explore",
+        23
+      ],
+      [
+        "Outdoor",
+        20
+      ],
+      [
+        "Other",
+        12
+      ],
+      [
+        "Music & Movement",
+        9
+      ],
+      [
+        "Arts & Crafts",
+        5
+      ],
+      [
+        "Parent & Me",
+        3
+      ],
+      [
+        "Social & Play",
+        2
+      ]
+    ],
+    "sunnyvalePendingRows": [
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me",
+          "Sunnyvale"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": true,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": 37.3515,
+        "lng": -122.0255,
+        "ageMin": 0,
+        "ageMax": 2,
+        "ageRange": "0–2",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Paid · First class free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "watchlist-fit4mom-fit4baby-laspalmas-2026-11-07",
+        "title": "FIT4MOM FIT4BABY · Las Palmas Park",
+        "date": "2026-11-07",
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "venue": "Las Palmas Park",
+        "address": "850 Russet Dr, Sunnyvale, CA 94087",
+        "city": "Sunnyvale",
+        "description": "Postpartum workout for caregivers with baby — strength and cardio with little one in a stroller or carrier; designed for the fourth trimester and early infancy.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "Weekly Saturdays 10:00 at Las Palmas per Glofox Nov–Dec 2026. One series row — not weekly Browse spam. Distinct from Virtual FIT4BABY.",
+        "alreadyOnPuddles": false
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Sunnyvale",
+          "Free"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": 37.3515,
+        "lng": -122.0255,
+        "ageMin": 0,
+        "ageMax": 2,
+        "ageRange": "0–2",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "manual-fit4mom-meet-the-doula-2026-11-14",
+        "title": "FREE: Meet the Doula",
+        "date": "2026-11-14",
+        "startTime": "11:00",
+        "endTime": "11:30",
+        "venue": "Las Palmas Park",
+        "address": "850 Russet Dr, Sunnyvale, CA 94087",
+        "city": "Sunnyvale",
+        "description": "Drop-in to meet a doula and ask questions — short outdoor meet-up for expecting and new parents with babies welcome.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "Glofox Sat 11/14/2026 after FIT4BABY block. Adult-focused info session — include only if copy stays honest for 0–5 (babies welcome, not a kids activity).",
+        "alreadyOnPuddles": false
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Sunnyvale",
+          "Free",
+          "Our Village"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": null,
+        "lng": null,
+        "ageMin": 0,
+        "ageMax": 5,
+        "ageRange": "0–5",
+        "types": [
+          "Festivals & Community"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "manual-fit4mom-friendsgiving-potluck-2026-11-15",
+        "title": "Annual International Potluck Friendsgiving (FREE)",
+        "date": "2026-11-15",
+        "startTime": "11:00",
+        "endTime": "12:30",
+        "venue": "Special Event Location",
+        "address": "Sunnyvale, CA",
+        "city": "Sunnyvale",
+        "description": "Our Village potluck for caregivers and little ones — bring a dish to share and connect with other local parents.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "Glofox Sun 11/15/2026 — address is Special Event Location in portal; confirm venue in Glofox detail before Go live.",
+        "alreadyOnPuddles": false
+      }
+    ],
+    "parentAndMePendingRows": [
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Parent & Me",
+          "Sunnyvale"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": true,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": 37.3515,
+        "lng": -122.0255,
+        "ageMin": 0,
+        "ageMax": 2,
+        "ageRange": "0–2",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Paid · First class free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "watchlist-fit4mom-fit4baby-laspalmas-2026-11-07",
+        "title": "FIT4MOM FIT4BABY · Las Palmas Park",
+        "date": "2026-11-07",
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "venue": "Las Palmas Park",
+        "address": "850 Russet Dr, Sunnyvale, CA 94087",
+        "city": "Sunnyvale",
+        "description": "Postpartum workout for caregivers with baby — strength and cardio with little one in a stroller or carrier; designed for the fourth trimester and early infancy.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "Weekly Saturdays 10:00 at Las Palmas per Glofox Nov–Dec 2026. One series row — not weekly Browse spam. Distinct from Virtual FIT4BABY.",
+        "alreadyOnPuddles": false
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Mountain View",
+          "Library special"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": 37.3745,
+        "lng": -122.0785,
+        "ageMin": 0,
+        "ageMax": 5,
+        "ageRange": "0–5",
+        "types": [
+          "Parent & Me",
+          "Stories",
+          "Outdoor"
+        ],
+        "cost": "Paid · First class free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "manual-fit4mom-walk-club-library-storytime-2026-11-12",
+        "title": "FIT4MOM Walk Club & Library Storytime",
+        "date": "2026-11-12",
+        "startTime": "09:30",
+        "endTime": "10:30",
+        "venue": "Cuesta Park",
+        "address": "615 Cuesta Drive, Mountain View, CA 94040",
+        "city": "Mountain View",
+        "description": "Stroller walk with storytime stop — caregiver and little one outing at Cuesta Park with a library-on-location storytime.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "One-off on Glofox Thu 11/12/2026. Confirm title and partner library on Glofox before Go live.",
+        "alreadyOnPuddles": false
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Sunnyvale",
+          "Free"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": 37.3515,
+        "lng": -122.0255,
+        "ageMin": 0,
+        "ageMax": 2,
+        "ageRange": "0–2",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "manual-fit4mom-meet-the-doula-2026-11-14",
+        "title": "FREE: Meet the Doula",
+        "date": "2026-11-14",
+        "startTime": "11:00",
+        "endTime": "11:30",
+        "venue": "Las Palmas Park",
+        "address": "850 Russet Dr, Sunnyvale, CA 94087",
+        "city": "Sunnyvale",
+        "description": "Drop-in to meet a doula and ask questions — short outdoor meet-up for expecting and new parents with babies welcome.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "Glofox Sat 11/14/2026 after FIT4BABY block. Adult-focused info session — include only if copy stays honest for 0–5 (babies welcome, not a kids activity).",
+        "alreadyOnPuddles": false
+      }
+    ],
+    "festivalsPendingRows": [
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Seasonal"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": null,
+        "lng": null,
+        "ageMin": 0,
+        "ageMax": 5,
+        "ageRange": "0–5",
+        "types": [
+          "Festivals & Community"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "internalReviewNotes": "",
+        "source": "Calendar Watchlist · Downtown Los Altos",
+        "reviewStatus": "pending",
+        "alreadyOnPuddles": false,
+        "title": "23rd Annual Holiday Stroll",
+        "date": "2026-11-13",
+        "startTime": "17:00",
+        "endTime": "21:00",
+        "venue": "Downtown Los Altos",
+        "address": "Main and State Streets, Los Altos, CA",
+        "city": "Los Altos",
+        "description": "Evening stroll through Downtown Los Altos with lights, strolling entertainment, and shops open late — a casual holiday outing with little ones.",
+        "eventUrl": "https://downtownlosaltos.org/event/23rd-annual-holiday-stroll/",
+        "id": "manual-23rd-annual-holiday-stroll-2026-11-13"
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Sunnyvale",
+          "Free",
+          "Our Village"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": null,
+        "lng": null,
+        "ageMin": 0,
+        "ageMax": 5,
+        "ageRange": "0–5",
+        "types": [
+          "Festivals & Community"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "manual-fit4mom-friendsgiving-potluck-2026-11-15",
+        "title": "Annual International Potluck Friendsgiving (FREE)",
+        "date": "2026-11-15",
+        "startTime": "11:00",
+        "endTime": "12:30",
+        "venue": "Special Event Location",
+        "address": "Sunnyvale, CA",
+        "city": "Sunnyvale",
+        "description": "Our Village potluck for caregivers and little ones — bring a dish to share and connect with other local parents.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "Glofox Sun 11/15/2026 — address is Special Event Location in portal; confirm venue in Glofox detail before Go live.",
+        "alreadyOnPuddles": false
+      },
+      {
+        "id": "regional-crucible-gifty-2026-12-05",
+        "title": "GIFTY Holiday Craft Fair & Open House",
+        "date": "2026-12-05",
+        "startTime": "",
+        "endTime": "",
+        "venue": "The Crucible",
+        "room": "",
+        "address": "",
+        "city": "Oakland",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Build & Explore",
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Free",
+        "description": "Artist demos plus free hands-on kids' activities; optional paid workshops.",
+        "tips": "Confirm which workshops fit preschoolers before recommending specific sessions.",
+        "imageUrl": "",
+        "eventUrl": "https://www.thecrucible.org/events/gifty/",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Seasonal"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": null,
+        "lng": null,
+        "ageMin": 0,
+        "ageMax": 5,
+        "ageRange": "0–5",
+        "types": [
+          "Festivals & Community"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "internalReviewNotes": "",
+        "source": "Calendar Watchlist · Downtown Los Altos",
+        "reviewStatus": "pending",
+        "alreadyOnPuddles": false,
+        "title": "Selfies with Santa",
+        "date": "2026-12-05",
+        "startTime": "14:00",
+        "endTime": "16:00",
+        "venue": "Enchante Boutique Hotel",
+        "address": "1 Main Street, Los Altos, CA",
+        "city": "Los Altos",
+        "description": "Visit Santa in Downtown Los Altos for photos hosted by the Los Altos Village Association.",
+        "eventUrl": "https://downtownlosaltos.org/event/selfies-with-santa/",
+        "id": "manual-selfies-with-santa-2026-12-05"
+      },
+      {
+        "id": "core-weekend-magical-santa-dance-party-2026-12-05",
+        "title": "Magical Santa Dance Party",
+        "date": "2026-12-05",
+        "startTime": "17:00",
+        "endTime": "19:30",
+        "venue": "Lucie Stern Community Center",
+        "room": "",
+        "address": "",
+        "city": "Palo Alto",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages and abilities",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community",
+          "Music & Movement"
+        ],
+        "categoryTags": [
+          "Weekend search"
+        ],
+        "cost": "Paid",
+        "description": "Sensory-friendly inclusive holiday dance with DJ, games, Santa, and refreshments (Magical Bridge + SF Autism Society).",
+        "tips": "",
+        "imageUrl": "",
+        "eventUrl": "https://www.magicalbridge.org/event/magical-santa-dance-party/",
+        "source": "Core cities · Weekend search · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29",
+        "internalReviewNotes": "Verify ticket pricing on the official event page before publish."
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Seasonal"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": null,
+        "lng": null,
+        "ageMin": 0,
+        "ageMax": 5,
+        "ageRange": "0–5",
+        "types": [
+          "Festivals & Community"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "internalReviewNotes": "",
+        "source": "Calendar Watchlist · Downtown Los Altos",
+        "reviewStatus": "pending",
+        "alreadyOnPuddles": false,
+        "title": "Holiday Market (Downtown Los Altos)",
+        "date": "2026-12-10",
+        "startTime": "16:00",
+        "endTime": "20:00",
+        "venue": "State Street Market",
+        "address": "170 State Street, Los Altos, CA",
+        "city": "Los Altos",
+        "description": "Holiday market on State Street with live music and Santa visits — casual evening outing.",
+        "eventUrl": "https://downtownlosaltos.org/event/holiday-market/",
+        "id": "manual-holiday-market-downtown-los-altos-2026-12-10"
+      },
+      {
+        "id": "regional-fairyland-fairy-winterland-2026-12-12",
+        "title": "Fairy Winterland",
+        "date": "2026-12-12",
+        "startTime": "12:00",
+        "endTime": "19:00",
+        "venue": "Children's Fairyland",
+        "room": "",
+        "address": "699 Bellevue Ave, Oakland, CA 94610",
+        "city": "Oakland",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community",
+          "Arts & Crafts"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Paid",
+        "description": "Holiday crafts, puppet shows, multicultural stories, Santa visits — toddler-oriented venue.",
+        "tips": "Tickets on sale Nov 1; Dec 19 member free day per official site.",
+        "imageUrl": "",
+        "eventUrl": "https://www.fairyland.org/fairy-winterland",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      },
+      {
+        "id": "regional-badm-noon-years-eve-2026-12-31",
+        "title": "Noon Year's Eve",
+        "date": "2026-12-31",
+        "startTime": "09:00",
+        "endTime": "14:00",
+        "venue": "Bay Area Discovery Museum",
+        "room": "",
+        "address": "",
+        "city": "Sausalito",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Paid",
+        "description": "Countdown crafts, noon ball drop, blacklight sensory experience for babies.",
+        "tips": "Confirm 2026 tickets; ignore 2025 sold-out page.",
+        "imageUrl": "",
+        "eventUrl": "https://bayareadiscoverymuseum.org/events/noon-years-eve/",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      },
+      {
+        "id": "regional-fairyland-countdown-wonderland-2026-12-31",
+        "title": "Countdown in Wonderland",
+        "date": "2026-12-31",
+        "startTime": "10:00",
+        "endTime": "16:00",
+        "venue": "Children's Fairyland",
+        "room": "",
+        "address": "",
+        "city": "Oakland",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Paid",
+        "description": "Alice-themed daytime New Year's with crafts, puppet shows, bubbles, and noon ball drop.",
+        "tips": "",
+        "imageUrl": "",
+        "eventUrl": "https://www.fairyland.org/countdown-in-wonderland",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      }
+    ],
+    "actions": [
+      "**Sunnyvale library:** No automated Sunnyvale branch scraper — add `discover-sunnyvale.mjs` or keep `build-launch-staging.mjs` series seeds current.",
+      "**Seasonal drive picks:** Editorial farms/haunts live in `seasonal*DriveEvents.ts` — not library scrapers.",
+      "**Core cities only in regular discovery:** Events outside Palo Alto / Los Altos / Mountain View belong in Seasonal → Worth a Little Drive until a city landing justifies a scraper."
+    ]
+  },
+  "watchlistUpdatedAt": "2026-10-20"
+}

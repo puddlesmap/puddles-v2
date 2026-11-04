@@ -1,22 +1,114 @@
 {
-  "today": "2026-10-29",
-  "sourceCatalogGeneratedAt": "2026-10-29T23:52:04.412Z",
-  "freshReadings": 0,
+  "today": "2026-11-04",
+  "sourceCatalogGeneratedAt": "2026-11-04T21:01:33.652Z",
+  "freshReadings": 178,
   "report": {
-    "checked": 36,
-    "verified": 1,
+    "checked": 29,
+    "verified": 0,
     "updated": 0,
-    "escalated": 0,
-    "failed": 35,
-    "retriesScheduled": 35,
-    "skippedNotDue": 97,
-    "skippedPast": 329,
+    "escalated": 13,
+    "failed": 16,
+    "retriesScheduled": 29,
+    "skippedNotDue": 74,
+    "skippedPast": 359,
     "skippedNotPublished": 229,
     "seriesLeftUnchanged": 0,
-    "attention": [],
+    "attention": [
+      {
+        "id": "staging-sunnyvale-library-magical-bridge-storytime-series",
+        "title": "Storytime at Magical Bridge Playground",
+        "date": "2026-11-06",
+        "city": "Sunnyvale",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      },
+      {
+        "id": "pages-and-paws-reading-buddy-mountain-view-public-library-2026-11-06-15-30",
+        "title": "Pages and Paws Reading Buddy",
+        "date": "2026-11-06",
+        "city": "Mountain View",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      },
+      {
+        "id": "los-altos-first-friday-2026-11-06",
+        "title": "Los Altos First Friday",
+        "date": "2026-11-06",
+        "city": "Los Altos",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      },
+      {
+        "id": "core-weekend-tlg-turkey-trot-psn-2026-11-07",
+        "title": "Parent Survival Night · Turkey Trot",
+        "date": "2026-11-07",
+        "city": "Mountain View",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      },
+      {
+        "id": "core-weekend-gamble-second-saturday-2026-11-14",
+        "title": "Second Saturday at Gamble Garden",
+        "date": "2026-11-14",
+        "city": "Palo Alto",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      },
+      {
+        "id": "core-weekend-tlg-friendsgiving-psn-2026-11-21",
+        "title": "Parent Survival Night · Friendsgiving",
+        "date": "2026-11-21",
+        "city": "Mountain View",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      },
+      {
+        "id": "pages-and-paws-reading-buddy-mountain-view-public-library-2026-12-04-15-30",
+        "title": "Pages and Paws Reading Buddy",
+        "date": "2026-12-04",
+        "city": "Mountain View",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      },
+      {
+        "id": "los-altos-first-friday-2026-12-04",
+        "title": "Los Altos First Friday",
+        "date": "2026-12-04",
+        "city": "Los Altos",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      },
+      {
+        "id": "core-weekend-tlg-winter-bounce-psn-2026-12-05",
+        "title": "Parent Survival Night · Winter Bounce Blast",
+        "date": "2026-12-05",
+        "city": "Mountain View",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      },
+      {
+        "id": "barn-lighting-westwind-community-barn-2026-12-06-14-00",
+        "title": "Barn Lighting",
+        "date": "2026-12-06",
+        "city": "Los Altos",
+        "reason": "Could not verify after 3 tries. Official reading is older than this event’s check interval."
+      },
+      {
+        "id": "community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30",
+        "title": "Community Tree Lighting Celebration",
+        "date": "2026-12-07",
+        "city": "Mountain View",
+        "reason": "Could not verify after 3 tries. Official reading is older than this event’s check interval."
+      },
+      {
+        "id": "family-fun-days-los-altos-community-center-2026-12-12-10-00",
+        "title": "Family Fun Days",
+        "date": "2026-12-12",
+        "city": "Los Altos",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      },
+      {
+        "id": "core-weekend-tlg-holiday-pajama-psn-2026-12-19",
+        "title": "Parent Survival Night · Holiday Pajama Party",
+        "date": "2026-12-19",
+        "city": "Mountain View",
+        "reason": "Could not verify after 3 tries. No official reading matched this listing."
+      }
+    ],
     "failuresByReason": {
-      "No official reading matched this listing.": 28,
-      "Official reading is older than this event’s check interval.": 7
+      "Official reading is older than this event’s check interval.": 11,
+      "No official reading matched this listing.": 5
     },
     "updates": []
   }

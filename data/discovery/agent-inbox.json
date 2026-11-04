@@ -1,11 +1,11 @@
 {
   "latestRun": {
-    "runId": "scheduled-2026-10-29",
+    "runId": "scheduled-2026-11-04",
     "startedAt": "",
-    "completedAt": "2026-10-29T23:52:05.080Z",
+    "completedAt": "2026-11-04T21:01:34.656Z",
     "agent": "Scheduled discovery adapters",
-    "sourcesChecked": 2,
-    "sourcesSucceeded": 2,
+    "sourcesChecked": 0,
+    "sourcesSucceeded": 0,
     "sourcesUnreadable": 0,
     "sourcesFailed": 0
   },
@@ -89,40 +89,6 @@
       "imageUrl": ""
     },
     {
-      "title": "Trick or Treat Sensory Play at The Bunny Hive",
-      "date": "2026-10-31",
-      "startTime": "11:00",
-      "endTime": "11:50",
-      "city": "Mountain View",
-      "venue": "The Bunny Hive",
-      "cost": "$40 per class",
-      "ageRange": "0–5",
-      "description": "The littles may not be ready for being out after dark, knocking on doors for candy. But The Bunny Hive is here to save the day with a toddler-friendly trick or treating sensory extravaganza! Costumes highly encouraged.",
-      "tips": "ticket|$40 per class, per family.",
-      "eventUrl": "https://www.thebunnyhive.com/mountainview#Schedule",
-      "sourceUrl": "https://www.thebunnyhive.com/mountainview#Schedule",
-      "sourceName": "The Bunny Hive Mountain View",
-      "sourceExcerpt": "The littles may not be ready for being out after dark, knocking on doors for candy. But The Bunny Hive is here to save the day with a toddler-friendly trick or treating sensory extravaganza! Costumes highly encouraged.",
-      "sourceSnapshot": {
-        "titleText": "Trick or Treat Sensory Play at The Bunny Hive",
-        "dateText": "2026-10-31",
-        "timeText": "11:00–11:50",
-        "locationText": "The Bunny Hive, 450 San Antonio Road, Mountain View",
-        "costText": "$40 per class",
-        "ageText": ""
-      },
-      "providerEventId": "bunnyhive-mv-154907",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-09T00:04:17.243Z",
-      "identityKey": "id:bunnyhive-mv-154907",
-      "id": "id:bunnyhive-mv-154907",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-09T00:04:17.269Z"
-    },
-    {
       "title": "Bunny Hive Sunday Stroller Walk",
       "date": "2026-11-08",
       "startTime": "10:00",
@@ -157,476 +123,6 @@
       "updatedAt": "2026-10-16T06:42:56.362Z",
       "imageUrl": "https://irp.cdn-website.com/45272f0c/dms3rep/multi/opt/prekKellyBullockPhotography-35-1920w.jpg",
       "types": []
-    },
-    {
-      "title": "Bilingual Family Storytime: Celebrate Día de Los Muertos!",
-      "date": "2026-10-29",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "College Terrace Library",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5",
-      "bestFor": "",
-      "description": "Join Librarian Juliana on Thursday mornings at 10:30 a.m. for Bilingual Family Storytime at College Terrace Library. Come sing, rhyme, and read stories with us! Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! Participa con la Señorita Juliana los Jueves por la mañana a las 10:30 a.m. a la Hora de Cuentos Bilingüe en la Biblioteca College Terrace. ¡Canta, rima y lee historias con nosotros! La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
-      "tips": "Storytime may be held indoors or outdoors depending on the weather.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/aebfcbc231dbf9255ec654153e21424f/banner.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638b7",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638b7",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join Librarian Juliana on Thursday mornings at 10:30 a.m. for Bilingual Family Storytime at College Terrace Library. Come sing, rhyme, and read stories with us! Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! Participa con la Señorita Juliana los Jueves por la mañana a las 10:30 a.m. a la Hora de Cuentos Bilingüe en la Biblioteca College Terrace. ¡Canta, rima y lee historias con nosotros! La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una li",
-      "sourceSnapshot": {
-        "titleText": "Bilingual Family Storytime: Celebrate Día de Los Muertos!",
-        "dateText": "2026-10-29",
-        "timeText": "10:30–11:00",
-        "locationText": "College Terrace Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5"
-      },
-      "providerEventId": "69276b597eb3e430002638b7",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:69276b597eb3e430002638b7",
-      "id": "id:69276b597eb3e430002638b7",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-28T20:06:18.238Z"
-    },
-    {
-      "title": "Baby Storytime: Rerun",
-      "date": "2026-10-30",
-      "startTime": "10:30",
-      "endTime": "11:15",
-      "city": "Mountain View",
-      "venue": "Mountain View Library",
-      "cost": "Free",
-      "ageRange": "0–2",
-      "bestFor": "",
-      "description": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1763669051.png",
-      "eventUrl": "https://mountainview.libcal.com/event/17170833",
-      "sourceUrl": "https://mountainview.libcal.com/event/17170833",
-      "sourceName": "Mountain View Library · LibCal",
-      "sourceExcerpt": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "sourceSnapshot": {
-        "titleText": "Baby Storytime: Rerun",
-        "dateText": "2026-10-30",
-        "timeText": "10:30–11:15",
-        "locationText": "Mountain View Library, Mountain View",
-        "costText": "Free",
-        "ageText": "0–2"
-      },
-      "providerEventId": "17170833",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:17170833",
-      "id": "id:17170833",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Family Storytime",
-      "date": "2026-10-30",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "Downtown Library",
-      "cost": "Free",
-      "ageRange": "2–5",
-      "bestFor": "",
-      "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069c9",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069c9",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "sourceSnapshot": {
-        "titleText": "Family Storytime",
-        "dateText": "2026-10-30",
-        "timeText": "10:30–11:00",
-        "locationText": "Downtown Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "2–5"
-      },
-      "providerEventId": "6946005fea69de6e001069c9",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:6946005fea69de6e001069c9",
-      "id": "id:6946005fea69de6e001069c9",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "A BOO-tiful Downtown Halloween",
-      "date": "2026-10-30",
-      "startTime": "12:00",
-      "endTime": "16:00",
-      "city": "Los Altos",
-      "venue": "Downtown Los Altos",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5",
-      "bestFor": "",
-      "description": "A BOO-tiful Downtown Halloween — trick-or-treating for children in Downtown Los Altos. Kids hunt for stores with orange pumpkin signs; family-friendly downtown Halloween afternoon.",
-      "tips": "Trick-or-treat at stores displaying an orange pumpkin sign, then games at Veterans Community Plaza. Confirm hours on downtownlosaltos.org closer to the date.",
-      "types": [
-        "Social & Play",
-        "Outdoor"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://downtownlosaltos.org/events/",
-      "sourceUrl": "https://downtownlosaltos.org/events/",
-      "sourceName": "Calendar Watchlist · Downtown Los Altos",
-      "sourceExcerpt": "A BOO-tiful Downtown Halloween — trick-or-treating for children in Downtown Los Altos. Kids hunt for stores with orange pumpkin signs; family-friendly downtown Halloween afternoon.",
-      "sourceSnapshot": {
-        "titleText": "A BOO-tiful Downtown Halloween",
-        "dateText": "2026-10-30",
-        "timeText": "12:00–16:00",
-        "locationText": "Downtown Los Altos, Los Altos",
-        "costText": "Free",
-        "ageText": "0–2, 2–5"
-      },
-      "providerEventId": "watchlist-dtla-halloween-2026-10-30",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:watchlist-dtla-halloween-2026-10-30",
-      "id": "id:watchlist-dtla-halloween-2026-10-30",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "A BOO-tiful Downtown Halloween",
-      "date": "2026-10-30",
-      "startTime": "12:00",
-      "endTime": "16:00",
-      "city": "Los Altos",
-      "venue": "Downtown Los Altos",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5",
-      "bestFor": "",
-      "description": "A BOO-tiful Downtown Halloween — trick-or-treating for children in Downtown Los Altos. Kids hunt for stores with orange pumpkin signs; family-friendly downtown Halloween afternoon.",
-      "tips": "Trick-or-treat at stores displaying an orange pumpkin sign, then games at Veterans Community Plaza. Confirm hours on downtownlosaltos.org closer to the date.",
-      "types": [
-        "Social & Play",
-        "Outdoor"
-      ],
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Los_Altos_Main_Street_2.jpg",
-      "eventUrl": "https://downtownlosaltos.org/events/",
-      "sourceUrl": "https://downtownlosaltos.org/events/",
-      "sourceName": "Seasonal · Halloween · collection",
-      "sourceExcerpt": "A BOO-tiful Downtown Halloween — trick-or-treating for children in Downtown Los Altos. Kids hunt for stores with orange pumpkin signs; family-friendly downtown Halloween afternoon.",
-      "sourceSnapshot": {
-        "titleText": "A BOO-tiful Downtown Halloween",
-        "dateText": "2026-10-30",
-        "timeText": "12:00–16:00",
-        "locationText": "Downtown Los Altos, Los Altos",
-        "costText": "Free",
-        "ageText": "0–2, 2–5"
-      },
-      "providerEventId": "disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-08-24",
-      "identityKey": "id:disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30",
-      "id": "id:disc-a-boo-tiful-downtown-halloween-2026-10-30-watchlist-dtla-halloween-2026-10-30",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "LEGO Fridays!",
-      "date": "2026-10-30",
-      "startTime": "16:00",
-      "endTime": "17:00",
-      "city": "Palo Alto",
-      "venue": "College Terrace Library",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5, 5+",
-      "bestFor": "",
-      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-      "tips": "LEGOs stay at the library — snap a pic of creations!",
-      "types": [
-        "Build & Explore"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50491",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50491",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-      "sourceSnapshot": {
-        "titleText": "LEGO Fridays!",
-        "dateText": "2026-10-30",
-        "timeText": "16:00–17:00",
-        "locationText": "College Terrace Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5, 5+"
-      },
-      "providerEventId": "6a25aace2ea730c17ab50491",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:6a25aace2ea730c17ab50491",
-      "id": "id:6a25aace2ea730c17ab50491",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Lakewood Branch Library Grand Opening",
-      "date": "2026-10-31",
-      "startTime": "10:00",
-      "endTime": "17:00",
-      "city": "Sunnyvale",
-      "venue": "Lakewood Branch Library and Learning Center",
-      "cost": "Free",
-      "ageRange": "All ages · Little ones welcome",
-      "bestFor": "",
-      "description": "Explore the new branch — live music, a Maker Lab showcase, crafts, giveaways, and a treat for costumes.",
-      "tips": "ticket|Free. Halloween costumes encouraged. Costumed visitors can stop by for a special treat.",
-      "types": [
-        "Festivals & Community"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://www.sunnyvale.ca.gov/business-and-development/projects-in-sunnyvale/infrastructure-projects/lakewood-branch-library",
-      "sourceUrl": "https://www.sunnyvale.ca.gov/business-and-development/projects-in-sunnyvale/infrastructure-projects/lakewood-branch-library",
-      "sourceName": "Core cities · Weekend search · watchlist",
-      "sourceExcerpt": "Explore the new branch — live music, a Maker Lab showcase, crafts, giveaways, and a treat for costumes.",
-      "sourceSnapshot": {
-        "titleText": "Lakewood Branch Library Grand Opening",
-        "dateText": "2026-10-31",
-        "timeText": "10:00–17:00",
-        "locationText": "Lakewood Branch Library and Learning Center, Sunnyvale",
-        "costText": "Free",
-        "ageText": "All ages · Little ones welcome"
-      },
-      "providerEventId": "core-weekend-lakewood-library-opening-2026-10-31",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-20",
-      "identityKey": "id:core-weekend-lakewood-library-opening-2026-10-31",
-      "id": "id:core-weekend-lakewood-library-opening-2026-10-31",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Family Storytime: Celebrate Halloween!",
-      "date": "2026-10-31",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "Mitchell Park Library",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5",
-      "bestFor": "",
-      "description": "Join Librarian Juliana on Saturday mornings at 10:30 a.m. for Family Storytime at Mitchell Park Library. Come sing, rhyme, and read stories with us! F ollow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73be8",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73be8",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join Librarian Juliana on Saturday mornings at 10:30 a.m. for Family Storytime at Mitchell Park Library. Come sing, rhyme, and read stories with us! F ollow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "sourceSnapshot": {
-        "titleText": "Family Storytime: Celebrate Halloween!",
-        "dateText": "2026-10-31",
-        "timeText": "10:30–11:00",
-        "locationText": "Mitchell Park Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5"
-      },
-      "providerEventId": "698e125a2a787a47a5e73be8",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:698e125a2a787a47a5e73be8",
-      "id": "id:698e125a2a787a47a5e73be8",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Family Storytime",
-      "date": "2026-11-03",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "Children's Library",
-      "cost": "Free",
-      "ageRange": "2–5",
-      "bestFor": "",
-      "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6054",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6054",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "sourceSnapshot": {
-        "titleText": "Family Storytime",
-        "dateText": "2026-11-03",
-        "timeText": "10:30–11:00",
-        "locationText": "Children's Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "2–5"
-      },
-      "providerEventId": "699f624cb0595799c09f6054",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:699f624cb0595799c09f6054",
-      "id": "id:699f624cb0595799c09f6054",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Outdoor Storytime",
-      "date": "2026-11-03",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Mountain View",
-      "venue": "Pioneer Park",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5",
-      "bestFor": "",
-      "description": "Tuesdays at 10:30 a.m.",
-      "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park. All ages welcome, no registration required. All events are weather permitting.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_21_15_59_33.png",
-      "eventUrl": "https://mountainview.libcal.com/event/17142490",
-      "sourceUrl": "https://mountainview.libcal.com/event/17142490",
-      "sourceName": "Mountain View Library · LibCal",
-      "sourceExcerpt": "Tuesdays at 10:30 a.m.",
-      "sourceSnapshot": {
-        "titleText": "Outdoor Storytime",
-        "dateText": "2026-11-03",
-        "timeText": "10:30–11:00",
-        "locationText": "Pioneer Park, Mountain View",
-        "costText": "Free",
-        "ageText": "0–2, 2–5"
-      },
-      "providerEventId": "17142490",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:17142490",
-      "id": "id:17142490",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Animal Friends: Reptile Rescuer John Hale",
-      "date": "2026-11-03",
-      "startTime": "16:00",
-      "endTime": "17:00",
-      "city": "Palo Alto",
-      "venue": "Children's Library",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5, 5+",
-      "bestFor": "",
-      "description": "Join PACL and Project HumaneKind as we host reptile rescuer John Hale at the Children's Library! John will introduce several wonderous creatures we share the Earth with. You might meet: Bernie the Chameleon, Ginger the Bearded Dragon, Vince the Red-Footed Tortoise, or Cupcake the Rabbit. Surprises abound! Please arrive on time. Project HumaneKind teaches compassion and respect for living beings. Through humane education, they combat cruelty and indifference and bring awareness to the intelligent, social, and emotional depths of our fellow animals. Visit them online at www.projecthumanekind.org .",
-      "tips": "Please note: registrations will be released for standby attendees at the start of the program. A waitlist may be available. Space is limited (40 seats) — check the official page for registration. Registration required.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/85e1dc850cabe528be53901b1b2b3462/BibliocommonsbannerCropsbc(22).png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6a89d81336204e08fbb653fa",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a89d81336204e08fbb653fa",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join PACL and Project HumaneKind as we host reptile rescuer John Hale at the Children's Library! John will introduce several wonderous creatures we share the Earth with. You might meet: Bernie the Chameleon, Ginger the Bearded Dragon, Vince the Red-Footed Tortoise, or Cupcake the Rabbit. Surprises abound! Please arrive on time. Project HumaneKind teaches compassion and respect for living beings. Through humane education, they combat cruelty and indifference and bring awareness to the intelligent, social, and emotional depths of our fellow animals. Visit them online at www.projecthumanekind.org",
-      "sourceSnapshot": {
-        "titleText": "Animal Friends: Reptile Rescuer John Hale",
-        "dateText": "2026-11-03",
-        "timeText": "16:00–17:00",
-        "locationText": "Children's Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5, 5+"
-      },
-      "providerEventId": "6a89d81336204e08fbb653fa",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:6a89d81336204e08fbb653fa",
-      "id": "id:6a89d81336204e08fbb653fa",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "LEGO Tuesdays!",
-      "date": "2026-11-03",
-      "startTime": "16:00",
-      "endTime": "17:00",
-      "city": "Palo Alto",
-      "venue": "Downtown Library",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5, 5+",
-      "bestFor": "",
-      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-      "tips": "LEGOs stay at the library — snap a pic of creations!",
-      "types": [
-        "Build & Explore"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fe6ca78286cf56c8ccfd4045df9f1a33/lego-blocks-2458575_1280.jpg",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2717f",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d2717f",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-      "sourceSnapshot": {
-        "titleText": "LEGO Tuesdays!",
-        "dateText": "2026-11-03",
-        "timeText": "16:00–17:00",
-        "locationText": "Downtown Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5, 5+"
-      },
-      "providerEventId": "68afa7b0022de53d00d2717f",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:68afa7b0022de53d00d2717f",
-      "id": "id:68afa7b0022de53d00d2717f",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
     },
     {
       "title": "Little Ones Storytime",
@@ -678,7 +174,7 @@
       "ageRange": "0–2, 2–5, 5+",
       "bestFor": "",
       "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance. Instruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music. This program is meant for families with children and no previous experience is needed! This week, we'll be celebrating Diwali with music in Hindi!",
-      "tips": "",
+      "tips": "info|Songs and movement indoors — grown-ups stay with little ones. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -704,7 +200,7 @@
       "id": "id:6a3dbc0bfddb082f00fe14a3",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Magical Bridge Storytime",
@@ -743,7 +239,7 @@
       "id": "id:17290232",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -782,7 +278,7 @@
       "id": "id:69276b597eb3e430002638b8",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Family Storytime",
@@ -795,7 +291,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Downtown Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -821,7 +317,7 @@
       "id": "id:6946005fea69de6e001069ca",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "LEGO Fridays!",
@@ -860,7 +356,7 @@
       "id": "id:6a25aace2ea730c17ab50492",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Family Storytime",
@@ -873,7 +369,7 @@
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "Join Librarian Juliana on Saturday mornings at 10:30 a.m. for Family Storytime at Mitchell Park Library. Come sing, rhyme, and read stories with us! F ollow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -899,7 +395,7 @@
       "id": "id:698e125a2a787a47a5e73be9",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Parent Survival Night · Turkey Trot",
@@ -977,7 +473,7 @@
       "id": "id:6970253094297d3600a66ca3",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Family Storytime",
@@ -990,7 +486,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -1016,7 +512,7 @@
       "id": "id:699f624cb0595799c09f6055",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -1055,7 +551,7 @@
       "id": "id:17142491",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -1094,7 +590,7 @@
       "id": "id:68afa7b0022de53d00d27180",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Cuesta Park Storytime",
@@ -1133,7 +629,7 @@
       "id": "id:17295776",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -1172,7 +668,7 @@
       "id": "id:69276b597eb3e430002638b9",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Family Storytime",
@@ -1185,7 +681,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Downtown Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -1211,7 +707,7 @@
       "id": "id:6946005fea69de6e001069cb",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "LEGO Fridays!",
@@ -1250,7 +746,7 @@
       "id": "id:6a25aace2ea730c17ab50493",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Second Saturday at Gamble Garden",
@@ -1303,7 +799,7 @@
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "Join Librarian Juliana on Saturday mornings at 10:30 a.m. for Family Storytime at Mitchell Park Library. Come sing, rhyme, and read stories with us! F ollow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -1329,7 +825,7 @@
       "id": "id:698e125a2a787a47a5e73bea",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Family Storytime",
@@ -1342,7 +838,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -1368,7 +864,7 @@
       "id": "id:699f624cb0595799c09f6056",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -1407,7 +903,7 @@
       "id": "id:17142492",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -1446,7 +942,7 @@
       "id": "id:68afa7b0022de53d00d27181",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Little Ones Storytime",
@@ -1459,7 +955,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library. Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages.",
-      "tips": "",
+      "tips": "baby|Designed for the littlest listeners with a grown-up. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -1485,7 +981,7 @@
       "id": "id:6946001eea69de6e001069b8",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Bilingual Storytime: Mandarin/English",
@@ -1524,7 +1020,7 @@
       "id": "id:17329164",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Music & Movement",
@@ -1537,7 +1033,7 @@
       "ageRange": "0–2, 2–5, 5+",
       "bestFor": "",
       "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance. This week, we'll be celebrating Native American Heritage Month. Instruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music. This program is meant for families with children and no previous experience is needed!",
-      "tips": "",
+      "tips": "info|Songs and movement indoors — grown-ups stay with little ones. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -1563,7 +1059,7 @@
       "id": "id:6a3dbc0bfddb082f00fe14a4",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -1602,7 +1098,7 @@
       "id": "id:69276b597eb3e430002638ba",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Family Storytime",
@@ -1615,7 +1111,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Downtown Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -1641,7 +1137,7 @@
       "id": "id:6946005fea69de6e001069cc",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Family Storytime",
@@ -1654,7 +1150,7 @@
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "Join Librarian Juliana on Saturday mornings at 10:30 a.m. for Family Storytime at Mitchell Park Library. Come sing, rhyme, and read stories with us! F ollow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -1680,7 +1176,7 @@
       "id": "id:698e125a2a787a47a5e73beb",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Concert: Palo Alto School of Chamber Music",
@@ -1719,7 +1215,7 @@
       "id": "id:6a6cf81ad23de82955c9bccc",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Parent Survival Night · Friendsgiving",
@@ -1797,7 +1293,7 @@
       "id": "id:6a8f395260ccaf01c0213e7c",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Smart Start Babytime",
@@ -1836,7 +1332,7 @@
       "id": "id:16916950",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Family Storytime",
@@ -1849,7 +1345,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -1875,7 +1371,7 @@
       "id": "id:699f624cb0595799c09f6057",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -1914,7 +1410,7 @@
       "id": "id:17142493",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -1953,7 +1449,7 @@
       "id": "id:68afa7b0022de53d00d27182",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Little Ones Storytime",
@@ -1966,7 +1462,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library. Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages.",
-      "tips": "",
+      "tips": "baby|Designed for the littlest listeners with a grown-up. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -1992,7 +1488,7 @@
       "id": "id:6946001eea69de6e001069b9",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "LEGO Fridays!",
@@ -2031,7 +1527,7 @@
       "id": "id:6a25aace2ea730c17ab50494",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Family Storytime",
@@ -2044,7 +1540,7 @@
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "Join Librarian Juliana on Saturday mornings at 10:30 a.m. for Family Storytime at Mitchell Park Library. Come sing, rhyme, and read stories with us! F ollow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2070,7 +1566,7 @@
       "id": "id:698e125a2a787a47a5e73bec",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Family Storytime",
@@ -2083,7 +1579,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2104,12 +1600,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:699f624cb0595799c09f6058",
       "id": "id:699f624cb0595799c09f6058",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -2143,12 +1639,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17142494",
       "id": "id:17142494",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -2182,12 +1678,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:68afa7b0022de53d00d27183",
       "id": "id:68afa7b0022de53d00d27183",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Little Ones Storytime",
@@ -2200,7 +1696,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library. Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages.",
-      "tips": "",
+      "tips": "baby|Designed for the littlest listeners with a grown-up. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2221,12 +1717,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6946001eea69de6e001069ba",
       "id": "id:6946001eea69de6e001069ba",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Music & Movement",
@@ -2239,7 +1735,7 @@
       "ageRange": "0–2, 2–5, 5+",
       "bestFor": "",
       "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance. Instruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music. This program is meant for families with children and no previous experience is needed!",
-      "tips": "",
+      "tips": "info|Songs and movement indoors — grown-ups stay with little ones. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2260,12 +1756,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a3dbc0bfddb082f00fe14a6",
       "id": "id:6a3dbc0bfddb082f00fe14a6",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Magical Bridge Storytime",
@@ -2299,12 +1795,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17290233",
       "id": "id:17290233",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -2338,12 +1834,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:69276b597eb3e430002638bc",
       "id": "id:69276b597eb3e430002638bc",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Family Storytime",
@@ -2356,7 +1852,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Downtown Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2377,12 +1873,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6946005fea69de6e001069ce",
       "id": "id:6946005fea69de6e001069ce",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "LEGO Fridays!",
@@ -2416,12 +1912,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a25aace2ea730c17ab50495",
       "id": "id:6a25aace2ea730c17ab50495",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Family Storytime",
@@ -2434,7 +1930,7 @@
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "Join Librarian Juliana on Saturday mornings at 10:30 a.m. for Family Storytime at Mitchell Park Library. Come sing, rhyme, and read stories with us! F ollow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2455,12 +1951,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:698e125a2a787a47a5e73bed",
       "id": "id:698e125a2a787a47a5e73bed",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "LOCATION CHANGE: Mindfulness Meditation",
@@ -2494,12 +1990,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:68faeb383cbc052f00816108",
       "id": "id:68faeb383cbc052f00816108",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Parent Survival Night · Winter Bounce Blast",
@@ -2551,7 +2047,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2572,12 +2068,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:699f624cb0595799c09f6059",
       "id": "id:699f624cb0595799c09f6059",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -2611,12 +2107,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17142495",
       "id": "id:17142495",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -2650,12 +2146,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:68afa7b0022de53d00d27184",
       "id": "id:68afa7b0022de53d00d27184",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Little Ones Storytime",
@@ -2668,7 +2164,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library. Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages.",
-      "tips": "",
+      "tips": "baby|Designed for the littlest listeners with a grown-up. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2689,12 +2185,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6946001eea69de6e001069bb",
       "id": "id:6946001eea69de6e001069bb",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Bilingual Storytime: Mandarin/English",
@@ -2728,12 +2224,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17329174",
       "id": "id:17329174",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Music & Movement",
@@ -2746,7 +2242,7 @@
       "ageRange": "0–2, 2–5, 5+",
       "bestFor": "",
       "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance. Instruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music. This program is meant for families with children and no previous experience is needed!",
-      "tips": "",
+      "tips": "info|Songs and movement indoors — grown-ups stay with little ones. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2767,12 +2263,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a3dbc0bfddb082f00fe14a7",
       "id": "id:6a3dbc0bfddb082f00fe14a7",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Cuesta Park Storytime",
@@ -2806,12 +2302,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17295777",
       "id": "id:17295777",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -2845,12 +2341,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:69276b597eb3e430002638bd",
       "id": "id:69276b597eb3e430002638bd",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Family Storytime",
@@ -2863,7 +2359,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Downtown Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2884,12 +2380,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6946005fea69de6e001069cf",
       "id": "id:6946005fea69de6e001069cf",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "LEGO Fridays!",
@@ -2923,12 +2419,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a25aace2ea730c17ab50496",
       "id": "id:6a25aace2ea730c17ab50496",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "Winter Storytime Spectacular!",
@@ -2941,7 +2437,7 @@
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "Join our Storytime librarians for a Winter Storytime Spectacular! Bring home a take-and-make craft kit while supplies last. F ollow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -2962,12 +2458,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:698e125a2a787a47a5e73bee",
       "id": "id:698e125a2a787a47a5e73bee",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "Parent Survival Night · Holiday Pajama Party",
@@ -3045,7 +2541,7 @@
       "id": "id:mountain-view-dia-de-muertos-2026-11-07",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Holidays at Filoli",
@@ -3066,7 +2562,7 @@
       "imageUrl": "https://filoli.org/media/xbcltkxd/filoli-holiday-lights-inmenlo-11-20-2022-0194-6.jpg",
       "eventUrl": "https://filoli.org/holidays/",
       "sourceUrl": "https://filoli.org/holidays/",
-      "sourceName": "Regional · Lead · watchlist",
+      "sourceName": "Seasonal · Holiday magic · drive",
       "sourceExcerpt": "Explore a festive village tucked beneath the redwoods, where model trains wind through miniature holiday scenes. During the day, families can discover Thistlewyck Village and the beautifully decorated House and gardens. After dark, Filoli transforms into a wonderland of glowing pathways and holiday lights.",
       "sourceSnapshot": {
         "titleText": "Holidays at Filoli",
@@ -3085,7 +2581,7 @@
       "id": "id:regional-filoli-holidays-2026-11-14",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Barron Park Celebration and Craft Fair",
@@ -3124,7 +2620,7 @@
       "id": "id:barron-park-celebration-craft-fair-2026-11-15",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Winter Wonderland",
@@ -3197,12 +2693,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6970253094297d3600a66ca4",
       "id": "id:6970253094297d3600a66ca4",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -3236,12 +2732,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17142496",
       "id": "id:17142496",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "Animal Friends: Meet a Chicken with Isabelle Cnudde",
@@ -3275,12 +2771,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6aac872065abe8002a7a2a4e",
       "id": "id:6aac872065abe8002a7a2a4e",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -3314,12 +2810,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:68afa7b0022de53d00d27185",
       "id": "id:68afa7b0022de53d00d27185",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "LEGO Fridays!",
@@ -3353,12 +2849,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a25aace2ea730c17ab50497",
       "id": "id:6a25aace2ea730c17ab50497",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Smart Start Babytime",
@@ -3392,12 +2888,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:16916951",
       "id": "id:16916951",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Family Craft: Pom Pom Photo Frames",
@@ -3431,12 +2927,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a7d12d9be1482002986fdd2",
       "id": "id:6a7d12d9be1482002986fdd2",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -3470,12 +2966,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:68afa7b0022de53d00d27186",
       "id": "id:68afa7b0022de53d00d27186",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Early Closure: Christmas Eve",
@@ -3509,12 +3005,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6aa83b7fab7a8e0037c1acaa",
       "id": "id:6aa83b7fab7a8e0037c1acaa",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Los Altos Library Closes at 5pm for Christmas Eve",
@@ -3548,12 +3044,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:68fc04f0831f063d005395b9",
       "id": "id:68fc04f0831f063d005395b9",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Woodland Branch Library Closes at 5pm for Christmas Eve",
@@ -3587,90 +3083,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:68fc11d1831f063d005398b8",
       "id": "id:68fc11d1831f063d005398b8",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
-    },
-    {
-      "title": "Halloween Zoo Night",
-      "date": "2026-10-29",
-      "startTime": "17:00",
-      "endTime": "19:00",
-      "city": "Palo Alto",
-      "venue": "Palo Alto Junior Museum & Zoo",
-      "cost": "$30",
-      "ageRange": "All ages · Little ones welcome",
-      "bestFor": "",
-      "description": "After-hours Halloween at the zoo with face painting, animal encounters, and more.",
-      "tips": "ticket|Membership required. $30 per person. Tickets are not sold at the door, and guest passes are not valid. info|Arrive early for parking.",
-      "types": [
-        "Festivals & Community"
-      ],
-      "imageUrl": "https://www.paloaltozoo.org/files/assets/jmz/v/1/home/halloween-icon-image.png?w=1200",
-      "eventUrl": "https://www.paloaltozoo.org/Visit/Events/Halloween-Zoo-Night",
-      "sourceUrl": "https://www.paloaltozoo.org/Visit/Events/Halloween-Zoo-Night",
-      "sourceName": "Core cities · Weekend search · watchlist",
-      "sourceExcerpt": "After-hours Halloween at the zoo with face painting, animal encounters, and more.",
-      "sourceSnapshot": {
-        "titleText": "Halloween Zoo Night",
-        "dateText": "2026-10-29",
-        "timeText": "17:00–19:00",
-        "locationText": "Palo Alto Junior Museum & Zoo, Palo Alto",
-        "costText": "$30",
-        "ageText": "All ages · Little ones welcome"
-      },
-      "providerEventId": "core-weekend-halloween-zoo-night-2026-10-29",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-20",
-      "identityKey": "id:core-weekend-halloween-zoo-night-2026-10-29",
-      "id": "id:core-weekend-halloween-zoo-night-2026-10-29",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Jack-O-Jaunt",
-      "date": "2026-10-30",
-      "startTime": "18:30",
-      "endTime": "20:30",
-      "city": "Palo Alto",
-      "venue": "Lytton Plaza",
-      "cost": "Free",
-      "ageRange": "All ages · Little ones welcome",
-      "bestFor": "",
-      "description": "Stroll through a jack-o-lantern display and vote for the scariest, cutest, and most creative pumpkins.",
-      "tips": "ticket|Free. accessibility|Contact csdaccommodations@paloalto.gov or (650) 617-3500 if your family needs accommodations.",
-      "types": [
-        "Festivals & Community"
-      ],
-      "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/mostcreativejoj.jpg?w=1200",
-      "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Jack-O-Jaunt",
-      "sourceUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Jack-O-Jaunt",
-      "sourceName": "Core cities · Weekend search · watchlist",
-      "sourceExcerpt": "Stroll through a jack-o-lantern display and vote for the scariest, cutest, and most creative pumpkins.",
-      "sourceSnapshot": {
-        "titleText": "Jack-O-Jaunt",
-        "dateText": "2026-10-30",
-        "timeText": "18:30–20:30",
-        "locationText": "Lytton Plaza, Palo Alto",
-        "costText": "Free",
-        "ageText": "All ages · Little ones welcome"
-      },
-      "providerEventId": "core-weekend-jack-o-jaunt-2026-10-30",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-20",
-      "identityKey": "id:core-weekend-jack-o-jaunt-2026-10-30",
-      "id": "id:core-weekend-jack-o-jaunt-2026-10-30",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Weekend Farm Tour",
@@ -3710,7 +3128,7 @@
       "id": "id:core-weekend-hidden-villa-weekend-farm-tour-2026-11-08",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.305Z"
     },
     {
       "title": "Playhouse Series: Little Red Riding Hood",
@@ -3749,7 +3167,7 @@
       "id": "id:core-weekend-playhouse-little-red-riding-hood-2026-11-21",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "A Year with Frog and Toad",
@@ -3788,7 +3206,7 @@
       "id": "id:core-weekend-frog-and-toad-2026-12-03",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Playhouse Series: The Gingerbread Man",
@@ -3808,7 +3226,7 @@
       "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/childrens-theatre/production-pictures/111playhouse-web-poster.png?w=1200",
       "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Playhouse-Series-The-Gingerbread",
       "sourceUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Playhouse-Series-The-Gingerbread",
-      "sourceName": "Core cities · Weekend search · watchlist",
+      "sourceName": "Seasonal · Holiday magic · collection",
       "sourceExcerpt": "Story-teller theatre with simple sets and costumes, and chances to get up and wiggle.",
       "sourceSnapshot": {
         "titleText": "Playhouse Series: The Gingerbread Man",
@@ -3827,203 +3245,7 @@
       "id": "id:core-weekend-playhouse-gingerbread-man-2026-12-19",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
-    },
-    {
-      "title": "Fall Family Fun / Trunk-or-Treat",
-      "date": "2026-10-30",
-      "startTime": "18:00",
-      "endTime": "20:30",
-      "city": "Los Altos",
-      "venue": "Bridges Community Church",
-      "cost": "Free",
-      "ageRange": "All ages · Little ones welcome",
-      "bestFor": "",
-      "description": "Decorated cars, treats, toys, and candy — a simple trunk-or-treat for younger kids.",
-      "tips": "Costumes encouraged, optional. Rain or shine.",
-      "types": [
-        "Festivals & Community"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://www.bridges.church/events",
-      "sourceUrl": "https://www.bridges.church/events",
-      "sourceName": "Core cities · Weekend search · agent",
-      "sourceExcerpt": "Decorated cars, treats, toys, and candy — a simple trunk-or-treat for younger kids.",
-      "sourceSnapshot": {
-        "titleText": "Fall Family Fun / Trunk-or-Treat",
-        "dateText": "2026-10-30",
-        "timeText": "18:00–20:30",
-        "locationText": "Bridges Community Church, Los Altos",
-        "costText": "Free",
-        "ageText": "All ages · Little ones welcome"
-      },
-      "providerEventId": "core-weekend-fall-family-fun-trunk-or-treat-2026-10-30",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-29",
-      "identityKey": "id:core-weekend-fall-family-fun-trunk-or-treat-2026-10-30",
-      "id": "id:core-weekend-fall-family-fun-trunk-or-treat-2026-10-30",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Halloween Trick-or-Treat",
-      "date": "2026-10-31",
-      "startTime": "10:00",
-      "endTime": "18:00",
-      "city": "Mountain View",
-      "venue": "Library-wide",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5, 5+",
-      "bestFor": "",
-      "description": "Stop by the Library for some Halloween fun. Trick-or-treating for children will be available during Library open hours on Saturday, October 31, from 10:00 a.m.–6:00 p.m. Non-food treats available in the Children's Room, Teen Zone, Second Floor Reference Desk, and Customer Service areas. Also in the Friends of the Mountain View Library Gift Shop when open. Costumes optional. For ages 0-18. This program is made possible by the generous support of the Friends of the Mountain View Library.",
-      "tips": "",
-      "types": [
-        "Other"
-      ],
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_09_28_11_43_54.png",
-      "eventUrl": "https://mountainview.libcal.com/event/17722185",
-      "sourceUrl": "https://mountainview.libcal.com/event/17722185",
-      "sourceName": "Mountain View Library · LibCal",
-      "sourceExcerpt": "Stop by the Library for some Halloween fun. Trick-or-treating for children will be available during Library open hours on Saturday, October 31, from 10:00 a.m.–6:00 p.m. Non-food treats available in the Children's Room, Teen Zone, Second Floor Reference Desk, and Customer Service areas. Also in the Friends of the Mountain View Library Gift Shop when open. Costumes optional. For ages 0-18. This program is made possible by the generous support of the Friends of the Mountain View Library.",
-      "sourceSnapshot": {
-        "titleText": "Halloween Trick-or-Treat",
-        "dateText": "2026-10-31",
-        "timeText": "10:00–18:00",
-        "locationText": "Library-wide, Mountain View",
-        "costText": "Free",
-        "ageText": "0–2, 2–5, 5+"
-      },
-      "providerEventId": "17722185",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
-      "identityKey": "id:17722185",
-      "id": "id:17722185",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Mountain View Library Halloween Trick-or-Treat",
-      "date": "2026-10-31",
-      "startTime": "10:00",
-      "endTime": "18:00",
-      "city": "Mountain View",
-      "venue": "Mountain View Public Library",
-      "cost": "Free",
-      "ageRange": "All ages · Little ones welcome",
-      "bestFor": "",
-      "description": "Collect non-food Halloween treats at participating library areas.",
-      "tips": "Confirm treat locations on the official library calendar before publish.",
-      "types": [
-        "Festivals & Community"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://library.mountainview.gov/events",
-      "sourceUrl": "https://library.mountainview.gov/events",
-      "sourceName": "Core cities · Weekend search · agent",
-      "sourceExcerpt": "Collect non-food Halloween treats at participating library areas.",
-      "sourceSnapshot": {
-        "titleText": "Mountain View Library Halloween Trick-or-Treat",
-        "dateText": "2026-10-31",
-        "timeText": "10:00–18:00",
-        "locationText": "Mountain View Public Library, Mountain View",
-        "costText": "Free",
-        "ageText": "All ages · Little ones welcome"
-      },
-      "providerEventId": "core-weekend-mv-library-halloween-trick-or-treat-2026-10-31",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-29",
-      "identityKey": "id:core-weekend-mv-library-halloween-trick-or-treat-2026-10-31",
-      "id": "id:core-weekend-mv-library-halloween-trick-or-treat-2026-10-31",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Family Storytime: Celebrate Halloween!",
-      "date": "2026-10-31",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "Mitchell Park Library",
-      "cost": "Free",
-      "ageRange": "All ages · Little ones welcome",
-      "bestFor": "",
-      "description": "Special Halloween edition of family storytime.",
-      "tips": "Lead note: ChatGPT Oct 29 · dedupe vs library scrape · Halloween",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://library.cityofpaloalto.org/events",
-      "sourceUrl": "https://library.cityofpaloalto.org/events",
-      "sourceName": "Core cities · Weekend search · agent",
-      "sourceExcerpt": "Special Halloween edition of family storytime.",
-      "sourceSnapshot": {
-        "titleText": "Family Storytime: Celebrate Halloween!",
-        "dateText": "2026-10-31",
-        "timeText": "10:30–11:00",
-        "locationText": "Mitchell Park Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "All ages · Little ones welcome"
-      },
-      "providerEventId": "core-weekend-pa-halloween-family-storytime-2026-10-31",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-29",
-      "identityKey": "id:core-weekend-pa-halloween-family-storytime-2026-10-31",
-      "id": "id:core-weekend-pa-halloween-family-storytime-2026-10-31",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
-    },
-    {
-      "title": "Sunnyvale Recreation · Fall Parent & Me & preschool classes",
-      "date": "2026-11-03",
-      "startTime": "",
-      "endTime": "",
-      "city": "Sunnyvale",
-      "venue": "Sunnyvale Recreation (multiple sites)",
-      "cost": "Paid",
-      "ageRange": "0–5",
-      "bestFor": "",
-      "description": "City Fall 2026 guide: Music Together (Creative Arts Center), Kidz Love Soccer Parent & Me, Youth Evolution Baby Ballers, Mini Makers (3–4, potty-trained). Caregiver participation or enrollment series — not library storytimes.",
-      "tips": "One Puddles row per program after review. Link each series to the official registration page. Do not list open seats in public copy.",
-      "types": [
-        "Parent & Me",
-        "Build & Explore"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/classes-and-activities/preschool/preschool-parent-and-tot",
-      "sourceUrl": "https://www.sunnyvale.ca.gov/recreation-and-community/classes-and-activities/preschool/preschool-parent-and-tot",
-      "sourceName": "Core cities · Weekend search · agent",
-      "sourceExcerpt": "City Fall 2026 guide: Music Together (Creative Arts Center), Kidz Love Soccer Parent & Me, Youth Evolution Baby Ballers, Mini Makers (3–4, potty-trained). Caregiver participation or enrollment series — not library storytimes.",
-      "sourceSnapshot": {
-        "titleText": "Sunnyvale Recreation · Fall Parent & Me & preschool classes",
-        "dateText": "2026-11-03",
-        "timeText": "",
-        "locationText": "Sunnyvale Recreation (multiple sites), Sunnyvale",
-        "costText": "Paid",
-        "ageText": "0–5"
-      },
-      "providerEventId": "core-weekend-sunnyvale-fall-2026-enrollment-parent-me",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-29",
-      "identityKey": "id:core-weekend-sunnyvale-fall-2026-enrollment-parent-me",
-      "id": "id:core-weekend-sunnyvale-fall-2026-enrollment-parent-me",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.795Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Wag Along! A Charlie & Gigi Storybook Party",
@@ -4062,7 +3284,7 @@
       "id": "id:core-weekend-wag-along-storybook-party-2026-11-15",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Baby Storytime",
@@ -4075,7 +3297,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -4096,12 +3318,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17170875",
       "id": "id:17170875",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Family Craft: Bean and Lentil Mosaics",
@@ -4135,12 +3357,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a7253c93f18b57d52335bb6",
       "id": "id:6a7253c93f18b57d52335bb6",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Baby Storytime: Rerun",
@@ -4153,7 +3375,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -4174,12 +3396,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17170902",
       "id": "id:17170902",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Winter Wonderlab",
@@ -4192,7 +3414,7 @@
       "ageRange": "All ages · Little ones welcome",
       "bestFor": "",
       "description": "Iceless skating rink, giant gingerbread playhouses, Toy Makers Studio — hands-on winter exhibit.",
-      "tips": "Museum hours Wed–Sun; verify holiday closures on official site.",
+      "tips": "",
       "types": [
         "Build & Explore"
       ],
@@ -4218,7 +3440,7 @@
       "id": "id:regional-badm-winter-wonderlab-2026-11-21",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Baby Storytime",
@@ -4231,7 +3453,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -4252,12 +3474,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17170876",
       "id": "id:17170876",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Early Closure: Thanksgiving Eve",
@@ -4291,12 +3513,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6ad81052a85a2c003380f3c9",
       "id": "id:6ad81052a85a2c003380f3c9",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Western Ballet Presents the Nutcracker",
@@ -4309,7 +3531,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Western Ballet’s The Nutcracker is a holiday tradition filled with delight. Join us for a short performance and a chance to meet the dancers up close.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Music & Movement"
       ],
@@ -4330,12 +3552,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17762592",
       "id": "id:17762592",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Glider Discovery",
@@ -4348,7 +3570,7 @@
       "ageRange": "All ages · Little ones welcome",
       "bestFor": "",
       "description": "Build balsa gliders and help assemble a full-size model airplane; each child takes home a glider.",
-      "tips": "Lead note: ChatGPT Oct 29 · also Dec 20 session — separate row or series after review",
+      "tips": "",
       "types": [
         "Build & Explore"
       ],
@@ -4374,7 +3596,7 @@
       "id": "id:regional-hiller-glider-discovery-2026-11-29",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Baby Storytime",
@@ -4387,7 +3609,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -4408,12 +3630,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17170877",
       "id": "id:17170877",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.796Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "Baby Storytime: Rerun",
@@ -4426,7 +3648,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -4447,12 +3669,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17170904",
       "id": "id:17170904",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.306Z"
     },
     {
       "title": "GIFTY Holiday Craft Fair & Open House",
@@ -4492,7 +3714,7 @@
       "id": "id:regional-crucible-gifty-2026-12-05",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Magical Santa Dance Party",
@@ -4505,7 +3727,7 @@
       "ageRange": "All ages and abilities",
       "bestFor": "",
       "description": "Sensory-friendly inclusive holiday dance with DJ, games, Santa, and refreshments (Magical Bridge + SF Autism Society).",
-      "tips": "Verify ticket pricing on the official event page before publish.",
+      "tips": "",
       "types": [
         "Festivals & Community",
         "Music & Movement"
@@ -4532,7 +3754,7 @@
       "id": "id:core-weekend-magical-santa-dance-party-2026-12-05",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Holiday Craft Cafe",
@@ -4545,7 +3767,7 @@
       "ageRange": "All ages and abilities",
       "bestFor": "",
       "description": "Inclusive holiday crafts and hot chocolate bar (Magical Bridge at the Art Center).",
-      "tips": "Verify whether hours are drop-in all day or scheduled sessions before publish.",
+      "tips": "",
       "types": [
         "Arts & Crafts"
       ],
@@ -4571,7 +3793,7 @@
       "id": "id:core-weekend-holiday-craft-cafe-palo-alto-2026-12-08",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Baby Storytime",
@@ -4584,7 +3806,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -4605,12 +3827,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17170878",
       "id": "id:17170878",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:34.307Z"
     },
     {
       "title": "Baby Storytime: Rerun",
@@ -4623,7 +3845,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -4644,12 +3866,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17170905",
       "id": "id:17170905",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "Fairy Winterland",
@@ -4689,7 +3911,7 @@
       "id": "id:regional-fairyland-fairy-winterland-2026-12-12",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "Winter Dance Party",
@@ -4723,12 +3945,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17881592",
       "id": "id:17881592",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:04.797Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "Baby Storytime",
@@ -4741,7 +3963,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -4762,12 +3984,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17170879",
       "id": "id:17170879",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.002Z"
     },
     {
       "title": "Seasonal Senses: A Festive Sensory Playtime for Toddlers & Preschoolers",
@@ -4780,7 +4002,7 @@
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "Little hands, big discoveries! Join us for a winter holiday-themed sensory play experience designed for toddlers and preschoolers. Little ones can explore a variety of hands-on sensory stations filled with festive textures, colors, and materials while engaging their senses, encouraging curiosity, and discovering the joy of play. Dress for mess!",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Other"
       ],
@@ -4801,12 +4023,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17861213",
       "id": "id:17861213",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "A Look into the Night Sky with Astro Everywhere",
@@ -4819,7 +4041,7 @@
       "ageRange": "2–5, 5+",
       "bestFor": "",
       "description": "Join us at the Children’s Library for a special evening of astronomy with Astro Everywhere! We’ll gather in the Treetop Room for a live astronomy show featuring planetarium software to explore the night sky as seen from Palo Alto. Then, head to the Secret Garden for a telescope demonstration and a closer look at the Moon and Saturn. We’ll wrap up the evening with a cozy cup of hot cocoa! Thank you to the Friends of the Palo Alto Library (FOPAL) for their generous support.",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
       "types": [
         "Build & Explore"
       ],
@@ -4840,12 +4062,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6ae3c3ad9b955d531f7ba1df",
       "id": "id:6ae3c3ad9b955d531f7ba1df",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Baby Storytime: Rerun",
@@ -4858,7 +4080,7 @@
       "ageRange": "0–2",
       "bestFor": "",
       "description": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -4879,12 +4101,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17170906",
       "id": "id:17170906",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Fratello Marionettes: The North Pole Review",
@@ -4897,7 +4119,7 @@
       "ageRange": "2–5",
       "bestFor": "",
       "description": "Get into the holiday spirit by taking a trip to the North Pole with the Fratello Marionettes! This music-based production showcases the graceful ice skater Crystal Chandelier, the high-kicking antics of the Russian Trepak Dancers, and a trio of dazzling acrobatic penguins.",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Music & Movement"
       ],
@@ -4918,12 +4140,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17788741",
       "id": "id:17788741",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Performance: Nathan's Fearless Five returns!",
@@ -4957,12 +4179,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6ad7a697295d793e2d1803ec",
       "id": "id:6ad7a697295d793e2d1803ec",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Celebrating Yalda Night",
@@ -4996,12 +4218,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6abc44f5295b3b0033ca0dd7",
       "id": "id:6abc44f5295b3b0033ca0dd7",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Open Cockpit Day",
@@ -5014,7 +4236,7 @@
       "ageRange": "All ages · Little ones welcome",
       "bestFor": "",
       "description": "Sit in aircraft cockpits and explore controls — extra aircraft open on this date.",
-      "tips": "Lead note: ChatGPT Oct 29",
+      "tips": "",
       "types": [
         "Build & Explore"
       ],
@@ -5040,7 +4262,7 @@
       "id": "id:regional-hiller-open-cockpit-day-2026-12-26",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Robot Roundup · Bee-Bots",
@@ -5079,7 +4301,7 @@
       "id": "id:regional-hiller-robot-roundup-beebots-2026-12-27",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -5113,12 +4335,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:68afa7b0022de53d00d27187",
       "id": "id:68afa7b0022de53d00d27187",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Los Altos Library Closes at 5pm for New Year's Eve",
@@ -5152,12 +4374,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:68fc04f0831f063d005395bb",
       "id": "id:68fc04f0831f063d005395bb",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.361Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Woodland Branch Library Closes at 5pm for New Year's Eve",
@@ -5191,12 +4413,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:68fc11d1831f063d005398ba",
       "id": "id:68fc11d1831f063d005398ba",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Noon Year's Eve",
@@ -5235,7 +4457,7 @@
       "id": "id:regional-badm-noon-years-eve-2026-12-31",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Countdown in Wonderland",
@@ -5248,7 +4470,7 @@
       "ageRange": "All ages · Little ones welcome",
       "bestFor": "",
       "description": "Alice-themed daytime New Year's with crafts, puppet shows, bubbles, and noon ball drop.",
-      "tips": "Lead note: ChatGPT Oct 22",
+      "tips": "",
       "types": [
         "Festivals & Community"
       ],
@@ -5274,7 +4496,7 @@
       "id": "id:regional-fairyland-countdown-wonderland-2026-12-31",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Noon Year's Eve Celebration!",
@@ -5308,25 +4530,25 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a750a3788e9bf28003613ac",
       "id": "id:6a750a3788e9bf28003613ac",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Time for Twos",
       "date": "2027-01-08",
       "startTime": "10:30",
-      "endTime": "11:00",
+      "endTime": "11:15",
       "city": "Mountain View",
       "venue": "Mountain View Library",
       "cost": "Free",
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "A storytime designed for 2-year-olds with books, action songs, and puppets!",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -5338,7 +4560,7 @@
       "sourceSnapshot": {
         "titleText": "Time for Twos",
         "dateText": "2027-01-08",
-        "timeText": "10:30–11:00",
+        "timeText": "10:30–11:15",
         "locationText": "Mountain View Library, Mountain View",
         "costText": "Free",
         "ageText": "0–2, 2–5"
@@ -5347,12 +4569,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17632956",
       "id": "id:17632956",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Board Game Sunday!",
@@ -5386,12 +4608,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6970253094297d3600a66ca5",
       "id": "id:6970253094297d3600a66ca5",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -5425,25 +4647,25 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a3313a0361280dd2264b891",
       "id": "id:6a3313a0361280dd2264b891",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Time for Twos",
       "date": "2027-01-15",
       "startTime": "10:30",
-      "endTime": "11:00",
+      "endTime": "11:15",
       "city": "Mountain View",
       "venue": "Mountain View Library",
       "cost": "Free",
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "A storytime designed for 2-year-olds with books, action songs, and puppets!",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -5455,7 +4677,7 @@
       "sourceSnapshot": {
         "titleText": "Time for Twos",
         "dateText": "2027-01-15",
-        "timeText": "10:30–11:00",
+        "timeText": "10:30–11:15",
         "locationText": "Mountain View Library, Mountain View",
         "costText": "Free",
         "ageText": "0–2, 2–5"
@@ -5464,12 +4686,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17632957",
       "id": "id:17632957",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Family Storytime",
@@ -5482,7 +4704,7 @@
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -5503,12 +4725,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a3313053e640a440019dd7f",
       "id": "id:6a3313053e640a440019dd7f",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -5542,25 +4764,25 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a3313a0361280dd2264b892",
       "id": "id:6a3313a0361280dd2264b892",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Time for Twos",
       "date": "2027-01-22",
       "startTime": "10:30",
-      "endTime": "11:00",
+      "endTime": "11:15",
       "city": "Mountain View",
       "venue": "Mountain View Library",
       "cost": "Free",
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "A storytime designed for 2-year-olds with books, action songs, and puppets!",
-      "tips": "",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
       "types": [
         "Stories"
       ],
@@ -5572,7 +4794,7 @@
       "sourceSnapshot": {
         "titleText": "Time for Twos",
         "dateText": "2027-01-22",
-        "timeText": "10:30–11:00",
+        "timeText": "10:30–11:15",
         "locationText": "Mountain View Library, Mountain View",
         "costText": "Free",
         "ageText": "0–2, 2–5"
@@ -5581,12 +4803,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:17632958",
       "id": "id:17632958",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
       "title": "Family Storytime",
@@ -5599,7 +4821,7 @@
       "ageRange": "0–2, 2–5",
       "bestFor": "",
       "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
       "types": [
         "Stories"
       ],
@@ -5620,12 +4842,1266 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-10-29T23:52:04.412Z",
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
       "identityKey": "id:6a3313053e640a440019dd80",
       "id": "id:6a3313053e640a440019dd80",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-10-29T23:52:05.362Z"
+      "updatedAt": "2026-11-04T21:01:35.003Z"
+    },
+    {
+      "title": "Year of Letters at Rinconada Library",
+      "date": "2026-11-04",
+      "startTime": "16:30",
+      "endTime": "17:30",
+      "city": "Palo Alto",
+      "venue": "Rinconada Library",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Drop-in letter writing and card decorating at the library; supplies provided or bring your own stationery.",
+      "tips": "",
+      "types": [
+        "Arts & Crafts"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.paloalto.gov/Events-Directory/Library/Year-of-Letters",
+      "sourceUrl": "https://www.paloalto.gov/Events-Directory/Library/Year-of-Letters",
+      "sourceName": "Manual checklist deep scan · Palo Alto Calendar / Events Directory",
+      "sourceExcerpt": "Drop-in letter writing and card decorating at the library; supplies provided or bring your own stationery.",
+      "sourceSnapshot": {
+        "titleText": "Year of Letters at Rinconada Library",
+        "dateText": "2026-11-04",
+        "timeText": "16:30–17:30",
+        "locationText": "Rinconada Library, Palo Alto",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "manual-palo-alto-library-year-of-letters-series-2026-11-04",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:manual-palo-alto-library-year-of-letters-series-2026-11-04",
+      "id": "id:manual-palo-alto-library-year-of-letters-series-2026-11-04",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.305Z"
+    },
+    {
+      "title": "FIT4MOM FIT4BABY · Las Palmas Park",
+      "date": "2026-11-07",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "city": "Sunnyvale",
+      "venue": "Las Palmas Park",
+      "cost": "Paid · First class free",
+      "ageRange": "0–2",
+      "bestFor": "",
+      "description": "Postpartum workout for caregivers with baby — strength and cardio with little one in a stroller or carrier; designed for the fourth trimester and early infancy.",
+      "tips": "",
+      "types": [
+        "Parent & Me",
+        "Outdoor"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "sourceUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "sourceName": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+      "sourceExcerpt": "Postpartum workout for caregivers with baby — strength and cardio with little one in a stroller or carrier; designed for the fourth trimester and early infancy.",
+      "sourceSnapshot": {
+        "titleText": "FIT4MOM FIT4BABY · Las Palmas Park",
+        "dateText": "2026-11-07",
+        "timeText": "10:00–11:00",
+        "locationText": "Las Palmas Park, Sunnyvale",
+        "costText": "Paid · First class free",
+        "ageText": "0–2"
+      },
+      "providerEventId": "watchlist-fit4mom-fit4baby-laspalmas-2026-11-07",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:watchlist-fit4mom-fit4baby-laspalmas-2026-11-07",
+      "id": "id:watchlist-fit4mom-fit4baby-laspalmas-2026-11-07",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.305Z"
+    },
+    {
+      "title": "Diwali Story and Dance",
+      "date": "2026-11-08",
+      "startTime": "11:00",
+      "endTime": "12:00",
+      "city": "Sunnyvale",
+      "venue": "Sunnyvale Public Library",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Library Diwali story and dance for families.",
+      "tips": "",
+      "types": [
+        "Stories",
+        "Music & Movement"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#diwali-story-and-dance-2026-11-08",
+      "sourceUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#diwali-story-and-dance-2026-11-08",
+      "sourceName": "Calendar Watchlist · Sunnyvale Public Library · Kids Events",
+      "sourceExcerpt": "Library Diwali story and dance for families.",
+      "sourceSnapshot": {
+        "titleText": "Diwali Story and Dance",
+        "dateText": "2026-11-08",
+        "timeText": "11:00–12:00",
+        "locationText": "Sunnyvale Public Library, Sunnyvale",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "watchlist-sunnyvale-library-diwali-story-and-dance-2026-11-08",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-09-02",
+      "identityKey": "id:watchlist-sunnyvale-library-diwali-story-and-dance-2026-11-08",
+      "id": "id:watchlist-sunnyvale-library-diwali-story-and-dance-2026-11-08",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.305Z"
+    },
+    {
+      "title": "Stuffed Animal Tea Party",
+      "date": "2026-11-09",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "city": "Sunnyvale",
+      "venue": "Sunnyvale Public Library",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Bring a stuffed friend for a library tea party.",
+      "tips": "",
+      "types": [
+        "Social & Play"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#stuffed-animal-tea-party-2026-11-09",
+      "sourceUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#stuffed-animal-tea-party-2026-11-09",
+      "sourceName": "Calendar Watchlist · Sunnyvale Public Library · Kids Events",
+      "sourceExcerpt": "Bring a stuffed friend for a library tea party.",
+      "sourceSnapshot": {
+        "titleText": "Stuffed Animal Tea Party",
+        "dateText": "2026-11-09",
+        "timeText": "16:00–17:00",
+        "locationText": "Sunnyvale Public Library, Sunnyvale",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "watchlist-sunnyvale-library-stuffed-animal-tea-party-2026-11-09",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-09-02",
+      "identityKey": "id:watchlist-sunnyvale-library-stuffed-animal-tea-party-2026-11-09",
+      "id": "id:watchlist-sunnyvale-library-stuffed-animal-tea-party-2026-11-09",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.305Z"
+    },
+    {
+      "title": "FIT4MOM Walk Club & Library Storytime",
+      "date": "2026-11-12",
+      "startTime": "09:30",
+      "endTime": "10:30",
+      "city": "Mountain View",
+      "venue": "Cuesta Park",
+      "cost": "Paid · First class free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Stroller walk with storytime stop — caregiver and little one outing at Cuesta Park with a library-on-location storytime.",
+      "tips": "",
+      "types": [
+        "Parent & Me",
+        "Stories",
+        "Outdoor"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "sourceUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "sourceName": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+      "sourceExcerpt": "Stroller walk with storytime stop — caregiver and little one outing at Cuesta Park with a library-on-location storytime.",
+      "sourceSnapshot": {
+        "titleText": "FIT4MOM Walk Club & Library Storytime",
+        "dateText": "2026-11-12",
+        "timeText": "09:30–10:30",
+        "locationText": "Cuesta Park, Mountain View",
+        "costText": "Paid · First class free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "manual-fit4mom-walk-club-library-storytime-2026-11-12",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:manual-fit4mom-walk-club-library-storytime-2026-11-12",
+      "id": "id:manual-fit4mom-walk-club-library-storytime-2026-11-12",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.305Z"
+    },
+    {
+      "title": "23rd Annual Holiday Stroll",
+      "date": "2026-11-13",
+      "startTime": "17:00",
+      "endTime": "21:00",
+      "city": "Los Altos",
+      "venue": "Downtown Los Altos",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Evening stroll through Downtown Los Altos with lights, strolling entertainment, and shops open late — a casual holiday outing with little ones.",
+      "tips": "",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://downtownlosaltos.org/event/23rd-annual-holiday-stroll/",
+      "sourceUrl": "https://downtownlosaltos.org/event/23rd-annual-holiday-stroll/",
+      "sourceName": "Calendar Watchlist · Downtown Los Altos",
+      "sourceExcerpt": "Evening stroll through Downtown Los Altos with lights, strolling entertainment, and shops open late — a casual holiday outing with little ones.",
+      "sourceSnapshot": {
+        "titleText": "23rd Annual Holiday Stroll",
+        "dateText": "2026-11-13",
+        "timeText": "17:00–21:00",
+        "locationText": "Downtown Los Altos, Los Altos",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "manual-23rd-annual-holiday-stroll-2026-11-13",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:manual-23rd-annual-holiday-stroll-2026-11-13",
+      "id": "id:manual-23rd-annual-holiday-stroll-2026-11-13",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.305Z"
+    },
+    {
+      "title": "IlluminOdyssey",
+      "date": "2026-11-14",
+      "startTime": "09:30",
+      "endTime": "16:30",
+      "city": "San Mateo",
+      "venue": "CuriOdyssey",
+      "cost": "Paid · See official site for pricing",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "Paint with light, follow glowing paths, and dance with your shadow.",
+      "tips": "",
+      "types": [
+        "Build & Explore"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://curiodyssey.org/exhibits-events/illuminodyssey/",
+      "sourceUrl": "https://curiodyssey.org/exhibits-events/illuminodyssey/",
+      "sourceName": "Seasonal · Holiday magic · drive",
+      "sourceExcerpt": "Paint with light, follow glowing paths, and dance with your shadow.",
+      "sourceSnapshot": {
+        "titleText": "IlluminOdyssey",
+        "dateText": "2026-11-14",
+        "timeText": "09:30–16:30",
+        "locationText": "CuriOdyssey, San Mateo",
+        "costText": "Paid · See official site for pricing",
+        "ageText": "All ages · Little ones welcome"
+      },
+      "providerEventId": "seasonal-illuminodyssey-2026-11-14",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-26",
+      "identityKey": "id:seasonal-illuminodyssey-2026-11-14",
+      "id": "id:seasonal-illuminodyssey-2026-11-14",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.305Z"
+    },
+    {
+      "title": "The Wizard of Oz (Peninsula Youth Theatre)",
+      "date": "2026-11-14",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "city": "Mountain View",
+      "venue": "Mountain View Center for the Performing Arts",
+      "cost": "Paid",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "PYT center-stage musical at MVCPA — story theatre with songs; check pytnet.org for performance times and age guidance.",
+      "tips": "ticket|Buy via PYT / MVCPA box office — verify showtimes for your date.",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://pytnet.org/boxoffice/the-wizard-of-oz/",
+      "sourceUrl": "https://pytnet.org/boxoffice/the-wizard-of-oz/",
+      "sourceName": "Calendar Watchlist · Peninsula Youth Theatre",
+      "sourceExcerpt": "PYT center-stage musical at MVCPA — story theatre with songs; check pytnet.org for performance times and age guidance.",
+      "sourceSnapshot": {
+        "titleText": "The Wizard of Oz (Peninsula Youth Theatre)",
+        "dateText": "2026-11-14",
+        "timeText": "10:00–12:00",
+        "locationText": "Mountain View Center for the Performing Arts, Mountain View",
+        "costText": "Paid",
+        "ageText": "0–5"
+      },
+      "providerEventId": "manual-the-wizard-of-oz-peninsula-youth-theatre-2026-11-14",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:manual-the-wizard-of-oz-peninsula-youth-theatre-2026-11-14",
+      "id": "id:manual-the-wizard-of-oz-peninsula-youth-theatre-2026-11-14",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.305Z"
+    },
+    {
+      "title": "FREE: Meet the Doula",
+      "date": "2026-11-14",
+      "startTime": "11:00",
+      "endTime": "11:30",
+      "city": "Sunnyvale",
+      "venue": "Las Palmas Park",
+      "cost": "Free",
+      "ageRange": "0–2",
+      "bestFor": "",
+      "description": "Drop-in to meet a doula and ask questions — short outdoor meet-up for expecting and new parents with babies welcome.",
+      "tips": "",
+      "types": [
+        "Parent & Me",
+        "Outdoor"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "sourceUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "sourceName": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+      "sourceExcerpt": "Drop-in to meet a doula and ask questions — short outdoor meet-up for expecting and new parents with babies welcome.",
+      "sourceSnapshot": {
+        "titleText": "FREE: Meet the Doula",
+        "dateText": "2026-11-14",
+        "timeText": "11:00–11:30",
+        "locationText": "Las Palmas Park, Sunnyvale",
+        "costText": "Free",
+        "ageText": "0–2"
+      },
+      "providerEventId": "manual-fit4mom-meet-the-doula-2026-11-14",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:manual-fit4mom-meet-the-doula-2026-11-14",
+      "id": "id:manual-fit4mom-meet-the-doula-2026-11-14",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.305Z"
+    },
+    {
+      "title": "Annual International Potluck Friendsgiving (FREE)",
+      "date": "2026-11-15",
+      "startTime": "11:00",
+      "endTime": "12:30",
+      "city": "Sunnyvale",
+      "venue": "Special Event Location",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Our Village potluck for caregivers and little ones — bring a dish to share and connect with other local parents.",
+      "tips": "",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "sourceUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+      "sourceName": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+      "sourceExcerpt": "Our Village potluck for caregivers and little ones — bring a dish to share and connect with other local parents.",
+      "sourceSnapshot": {
+        "titleText": "Annual International Potluck Friendsgiving (FREE)",
+        "dateText": "2026-11-15",
+        "timeText": "11:00–12:30",
+        "locationText": "Special Event Location, Sunnyvale",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "manual-fit4mom-friendsgiving-potluck-2026-11-15",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:manual-fit4mom-friendsgiving-potluck-2026-11-15",
+      "id": "id:manual-fit4mom-friendsgiving-potluck-2026-11-15",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.306Z"
+    },
+    {
+      "title": "Insect Discovery Lab",
+      "date": "2026-11-15",
+      "startTime": "11:00",
+      "endTime": "12:00",
+      "city": "Sunnyvale",
+      "venue": "Lakewood Branch Library",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Hands-on insect program for kids at Lakewood Library.",
+      "tips": "",
+      "types": [
+        "Build & Explore"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#insect-discovery-lab-2026-11-15",
+      "sourceUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#insect-discovery-lab-2026-11-15",
+      "sourceName": "Calendar Watchlist · Sunnyvale Public Library · Kids Events",
+      "sourceExcerpt": "Hands-on insect program for kids at Lakewood Library.",
+      "sourceSnapshot": {
+        "titleText": "Insect Discovery Lab",
+        "dateText": "2026-11-15",
+        "timeText": "11:00–12:00",
+        "locationText": "Lakewood Branch Library, Sunnyvale",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "watchlist-sunnyvale-library-insect-discovery-lab-2026-11-15",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-09-02",
+      "identityKey": "id:watchlist-sunnyvale-library-insect-discovery-lab-2026-11-15",
+      "id": "id:watchlist-sunnyvale-library-insect-discovery-lab-2026-11-15",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.306Z"
+    },
+    {
+      "title": "Friendsgiving in Palo Alto",
+      "date": "2026-11-21",
+      "startTime": "16:30",
+      "endTime": "19:30",
+      "city": "Palo Alto",
+      "venue": "Lucie Stern Community Center",
+      "cost": "$25",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "",
+      "tips": "",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.magicalbridge.org/event-details/friendsgiving-in-palo-alto",
+      "sourceUrl": "https://www.magicalbridge.org/event-details/friendsgiving-in-palo-alto",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "Friendsgiving in Palo Alto",
+      "sourceSnapshot": {
+        "titleText": "Friendsgiving in Palo Alto",
+        "dateText": "2026-11-21",
+        "timeText": "16:30–19:30",
+        "locationText": "Lucie Stern Community Center, Palo Alto",
+        "costText": "$25",
+        "ageText": "All ages · Little ones welcome"
+      },
+      "providerEventId": "seasonal-friendsgiving-palo-alto-2026-11-21",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-26",
+      "identityKey": "id:seasonal-friendsgiving-palo-alto-2026-11-21",
+      "id": "id:seasonal-friendsgiving-palo-alto-2026-11-21",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.306Z"
+    },
+    {
+      "title": "Traveling Reptile Show",
+      "date": "2026-11-22",
+      "startTime": "11:00",
+      "endTime": "12:00",
+      "city": "Sunnyvale",
+      "venue": "Lakewood Branch Library",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Live reptiles to see at the library.",
+      "tips": "",
+      "types": [
+        "Build & Explore"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#traveling-reptile-show-2026-11-22",
+      "sourceUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#traveling-reptile-show-2026-11-22",
+      "sourceName": "Calendar Watchlist · Sunnyvale Public Library · Kids Events",
+      "sourceExcerpt": "Live reptiles to see at the library.",
+      "sourceSnapshot": {
+        "titleText": "Traveling Reptile Show",
+        "dateText": "2026-11-22",
+        "timeText": "11:00–12:00",
+        "locationText": "Lakewood Branch Library, Sunnyvale",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "watchlist-sunnyvale-library-traveling-reptile-show-2026-11-22",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-09-02",
+      "identityKey": "id:watchlist-sunnyvale-library-traveling-reptile-show-2026-11-22",
+      "id": "id:watchlist-sunnyvale-library-traveling-reptile-show-2026-11-22",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.306Z"
+    },
+    {
+      "title": "Cityline Winter Ice Rink",
+      "date": "2026-11-24",
+      "startTime": "",
+      "endTime": "",
+      "city": "Sunnyvale",
+      "venue": "Cityline Sunnyvale",
+      "cost": "See official site",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "Outdoor ice skating at Cityline, daily from November 24 through January 3.",
+      "tips": "ticket|Check Cityline for hours and tickets.",
+      "types": [
+        "Outdoor"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://citylinesunnyvale.com/ice-rink",
+      "sourceUrl": "https://citylinesunnyvale.com/ice-rink",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "Outdoor ice skating at Cityline, daily from November 24 through January 3.",
+      "sourceSnapshot": {
+        "titleText": "Cityline Winter Ice Rink",
+        "dateText": "2026-11-24",
+        "timeText": "",
+        "locationText": "Cityline Sunnyvale, Sunnyvale",
+        "costText": "See official site",
+        "ageText": "All ages · Little ones welcome"
+      },
+      "providerEventId": "seasonal-cityline-winter-ice-rink-2026-11-24",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-26",
+      "identityKey": "id:seasonal-cityline-winter-ice-rink-2026-11-24",
+      "id": "id:seasonal-cityline-winter-ice-rink-2026-11-24",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.306Z"
+    },
+    {
+      "title": "Western Ballet Nutcracker Preview",
+      "date": "2026-11-29",
+      "startTime": "14:00",
+      "endTime": "15:00",
+      "city": "Sunnyvale",
+      "venue": "Sunnyvale Public Library",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Short Nutcracker preview performance at the library.",
+      "tips": "",
+      "types": [
+        "Music & Movement"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#western-ballet-nutcracker-preview-2026-11-29",
+      "sourceUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#western-ballet-nutcracker-preview-2026-11-29",
+      "sourceName": "Calendar Watchlist · Sunnyvale Public Library · Kids Events",
+      "sourceExcerpt": "Short Nutcracker preview performance at the library.",
+      "sourceSnapshot": {
+        "titleText": "Western Ballet Nutcracker Preview",
+        "dateText": "2026-11-29",
+        "timeText": "14:00–15:00",
+        "locationText": "Sunnyvale Public Library, Sunnyvale",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "watchlist-sunnyvale-library-western-ballet-nutcracker-preview-2026-11-29",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-09-02",
+      "identityKey": "id:watchlist-sunnyvale-library-western-ballet-nutcracker-preview-2026-11-29",
+      "id": "id:watchlist-sunnyvale-library-western-ballet-nutcracker-preview-2026-11-29",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.306Z"
+    },
+    {
+      "title": "Los Altos Festival of Lights Parade",
+      "date": "2026-11-29",
+      "startTime": "18:00",
+      "endTime": "19:45",
+      "city": "Los Altos",
+      "venue": "Downtown Los Altos",
+      "cost": "Free",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "Lighted floats and marching bands down First and State Streets.",
+      "tips": "info|The organizer lists the times as estimates.",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.losaltosparade.org/welcome",
+      "sourceUrl": "https://www.losaltosparade.org/welcome",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "Lighted floats and marching bands down First and State Streets.",
+      "sourceSnapshot": {
+        "titleText": "Los Altos Festival of Lights Parade",
+        "dateText": "2026-11-29",
+        "timeText": "18:00–19:45",
+        "locationText": "Downtown Los Altos, Los Altos",
+        "costText": "Free",
+        "ageText": "All ages · Little ones welcome"
+      },
+      "providerEventId": "seasonal-los-altos-festival-of-lights-parade-2026-11-29",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-27",
+      "identityKey": "id:seasonal-los-altos-festival-of-lights-parade-2026-11-29",
+      "id": "id:seasonal-los-altos-festival-of-lights-parade-2026-11-29",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.306Z"
+    },
+    {
+      "title": "Once Upon a Garden: Through the Looking Glass",
+      "date": "2026-12-04",
+      "startTime": "17:00",
+      "endTime": "19:00",
+      "city": "Palo Alto",
+      "venue": "Elizabeth F. Gamble Garden",
+      "cost": "Paid · See official site for pricing",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "",
+      "tips": "",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "https://www.gamblegarden.org/wp-content/uploads/2026/06/LIZ12556-e1782631391902.jpg",
+      "eventUrl": "https://www.gamblegarden.org/event/once-upon-a-garden/",
+      "sourceUrl": "https://www.gamblegarden.org/event/once-upon-a-garden/",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "Once Upon a Garden: Through the Looking Glass",
+      "sourceSnapshot": {
+        "titleText": "Once Upon a Garden: Through the Looking Glass",
+        "dateText": "2026-12-04",
+        "timeText": "17:00–19:00",
+        "locationText": "Elizabeth F. Gamble Garden, Palo Alto",
+        "costText": "Paid · See official site for pricing",
+        "ageText": "All ages · Little ones welcome"
+      },
+      "providerEventId": "seasonal-once-upon-a-garden-2026-12-04",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-26",
+      "identityKey": "id:seasonal-once-upon-a-garden-2026-12-04",
+      "id": "id:seasonal-once-upon-a-garden-2026-12-04",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "Holiday Tree Lighting at Lytton Plaza",
+      "date": "2026-12-04",
+      "startTime": "17:30",
+      "endTime": "19:00",
+      "city": "Palo Alto",
+      "venue": "Lytton Plaza",
+      "cost": "Free",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "Live music, dancers, and winter treats, then the tree lights up.",
+      "tips": "",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Holiday-Tree-Lighting",
+      "sourceUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Holiday-Tree-Lighting",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "Live music, dancers, and winter treats, then the tree lights up.",
+      "sourceSnapshot": {
+        "titleText": "Holiday Tree Lighting at Lytton Plaza",
+        "dateText": "2026-12-04",
+        "timeText": "17:30–19:00",
+        "locationText": "Lytton Plaza, Palo Alto",
+        "costText": "Free",
+        "ageText": "All ages · Little ones welcome"
+      },
+      "providerEventId": "seasonal-lytton-tree-lighting-2026-12-04",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-26",
+      "identityKey": "id:seasonal-lytton-tree-lighting-2026-12-04",
+      "id": "id:seasonal-lytton-tree-lighting-2026-12-04",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "Holiday Tree Celebration",
+      "date": "2026-12-04",
+      "startTime": "18:00",
+      "endTime": "20:00",
+      "city": "Los Altos",
+      "venue": "Veterans Community Plaza",
+      "cost": "Free",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "Student performances, trolley rides, and photos with Santa.",
+      "tips": "info|Bring your own camera for photos with Santa.",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "https://downtownlosaltos.org/wp-content/uploads/2018/08/Tree2.jpg",
+      "eventUrl": "https://downtownlosaltos.org/event/holiday-tree-celebration/",
+      "sourceUrl": "https://downtownlosaltos.org/event/holiday-tree-celebration/",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "Student performances, trolley rides, and photos with Santa.",
+      "sourceSnapshot": {
+        "titleText": "Holiday Tree Celebration",
+        "dateText": "2026-12-04",
+        "timeText": "18:00–20:00",
+        "locationText": "Veterans Community Plaza, Los Altos",
+        "costText": "Free",
+        "ageText": "All ages · Little ones welcome"
+      },
+      "providerEventId": "seasonal-los-altos-holiday-tree-celebration-2026-12-04",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-26",
+      "identityKey": "id:seasonal-los-altos-holiday-tree-celebration-2026-12-04",
+      "id": "id:seasonal-los-altos-holiday-tree-celebration-2026-12-04",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "Breakfast with Santa",
+      "date": "2026-12-05",
+      "startTime": "08:30",
+      "endTime": "11:00",
+      "city": "Sunnyvale",
+      "venue": "Sunnyvale Senior Center · Orchard Pavilion",
+      "cost": "$15",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "Breakfast with a photo stop with Santa.",
+      "tips": "",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.instagram.com/sunnyvale_recreation/p/DeuiZL1m8n8/",
+      "sourceUrl": "https://www.instagram.com/sunnyvale_recreation/p/DeuiZL1m8n8/",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "Breakfast with a photo stop with Santa.",
+      "sourceSnapshot": {
+        "titleText": "Breakfast with Santa",
+        "dateText": "2026-12-05",
+        "timeText": "08:30–11:00",
+        "locationText": "Sunnyvale Senior Center · Orchard Pavilion, Sunnyvale",
+        "costText": "$15",
+        "ageText": "All ages · Little ones welcome"
+      },
+      "providerEventId": "seasonal-breakfast-with-santa-2026-12-05",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-26",
+      "identityKey": "id:seasonal-breakfast-with-santa-2026-12-05",
+      "id": "id:seasonal-breakfast-with-santa-2026-12-05",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "Santa Arrives by Helicopter",
+      "date": "2026-12-05",
+      "startTime": "09:30",
+      "endTime": "12:00",
+      "city": "San Carlos",
+      "venue": "Hiller Aviation Museum",
+      "cost": "Free",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "Santa lands by helicopter, then stays to hear wishes while a band plays carols.",
+      "tips": "info|Santa arrives at 10:30 AM and stays until noon. Rain or shine.",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "https://www.hiller.org/wp-content/uploads/santa_2_600x450px-1.jpg",
+      "eventUrl": "https://www.hiller.org/event/santa-arrives-by-helicopter/",
+      "sourceUrl": "https://www.hiller.org/event/santa-arrives-by-helicopter/",
+      "sourceName": "Seasonal · Holiday magic · drive",
+      "sourceExcerpt": "Santa lands by helicopter, then stays to hear wishes while a band plays carols.",
+      "sourceSnapshot": {
+        "titleText": "Santa Arrives by Helicopter",
+        "dateText": "2026-12-05",
+        "timeText": "09:30–12:00",
+        "locationText": "Hiller Aviation Museum, San Carlos",
+        "costText": "Free",
+        "ageText": "All ages · Little ones welcome"
+      },
+      "providerEventId": "seasonal-hiller-santa-helicopter-2026-12-05",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-26",
+      "identityKey": "id:seasonal-hiller-santa-helicopter-2026-12-05",
+      "id": "id:seasonal-hiller-santa-helicopter-2026-12-05",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "Selfies with Santa",
+      "date": "2026-12-05",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "city": "Los Altos",
+      "venue": "Enchante Boutique Hotel",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Visit Santa in Downtown Los Altos for photos hosted by the Los Altos Village Association.",
+      "tips": "",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://downtownlosaltos.org/event/selfies-with-santa/",
+      "sourceUrl": "https://downtownlosaltos.org/event/selfies-with-santa/",
+      "sourceName": "Calendar Watchlist · Downtown Los Altos",
+      "sourceExcerpt": "Visit Santa in Downtown Los Altos for photos hosted by the Los Altos Village Association.",
+      "sourceSnapshot": {
+        "titleText": "Selfies with Santa",
+        "dateText": "2026-12-05",
+        "timeText": "14:00–16:00",
+        "locationText": "Enchante Boutique Hotel, Los Altos",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "manual-selfies-with-santa-2026-12-05",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:manual-selfies-with-santa-2026-12-05",
+      "id": "id:manual-selfies-with-santa-2026-12-05",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "Autism/Sensory Friendly Nutcracker (Pacific Ballet Academy)",
+      "date": "2026-12-06",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "city": "Mountain View",
+      "venue": "Mountain View Center for the Performing Arts",
+      "cost": "Paid",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Sensory-friendly Nutcracker performance at MVCPA — calmer lighting/sound for families who need it.",
+      "tips": "",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://www.mvcpa.com/events",
+      "sourceUrl": "https://www.mvcpa.com/events",
+      "sourceName": "Manual checklist scrape · MVCPA",
+      "sourceExcerpt": "Sensory-friendly Nutcracker performance at MVCPA — calmer lighting/sound for families who need it.",
+      "sourceSnapshot": {
+        "titleText": "Autism/Sensory Friendly Nutcracker (Pacific Ballet Academy)",
+        "dateText": "2026-12-06",
+        "timeText": "14:00–16:00",
+        "locationText": "Mountain View Center for the Performing Arts, Mountain View",
+        "costText": "Paid",
+        "ageText": "0–5"
+      },
+      "providerEventId": "manual-autism-sensory-friendly-nutcracker-pacific-balle-2026-12-06",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:manual-autism-sensory-friendly-nutcracker-pacific-balle-2026-12-06",
+      "id": "id:manual-autism-sensory-friendly-nutcracker-pacific-balle-2026-12-06",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "Barn Lighting",
+      "date": "2026-12-06",
+      "startTime": "14:00",
+      "endTime": "17:00",
+      "city": "Los Altos",
+      "venue": "Westwind Community Barn",
+      "cost": "Free",
+      "ageRange": "0–2",
+      "bestFor": "",
+      "description": "Come together with friends and neighbors for a jolly afternoon filled with holiday cheer at the beautiful Westwind Community Barn. This magical celebration offers something for everyone. Sip on hot chocolate or wine, savor cookies and Mister Softee’s, and enjoy warm conversations while the kids take part in holiday-themed fun like seasonal games, craft tables, face painting, pony rides, and a petting zoo. Don’t forget to visit Santa for that perfect holiday photo and a chance for little ones",
+      "tips": "",
+      "types": [
+        "Social & Play",
+        "Outdoor"
+      ],
+      "imageUrl": "https://www.losaltoshills.ca.gov/ImageRepository/Document?documentID=8042",
+      "eventUrl": "https://www.losaltoshills.ca.gov/Calendar.aspx?EID=5210&month=12&year=2026&day=7&calType=0",
+      "sourceUrl": "https://www.losaltoshills.ca.gov/Calendar.aspx?EID=5210&month=12&year=2026&day=7&calType=0",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "Come together with friends and neighbors for a jolly afternoon filled with holiday cheer at the beautiful Westwind Community Barn. This magical celebration offers something for everyone. Sip on hot chocolate or wine, savor cookies and Mister Softee’s, and enjoy warm conversations while the kids take part in holiday-themed fun like seasonal games, craft tables, face painting, pony rides, and a petting zoo. Don’t forget to visit Santa for that perfect holiday photo and a chance for little ones",
+      "sourceSnapshot": {
+        "titleText": "Barn Lighting",
+        "dateText": "2026-12-06",
+        "timeText": "14:00–17:00",
+        "locationText": "Westwind Community Barn, Los Altos",
+        "costText": "Free",
+        "ageText": "0–2"
+      },
+      "providerEventId": "barn-lighting-westwind-community-barn-2026-12-06-14-00",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-07-07",
+      "identityKey": "id:barn-lighting-westwind-community-barn-2026-12-06-14-00",
+      "id": "id:barn-lighting-westwind-community-barn-2026-12-06-14-00",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "Community Tree Lighting Celebration",
+      "date": "2026-12-07",
+      "startTime": "17:30",
+      "endTime": "20:00",
+      "city": "Mountain View",
+      "venue": "Civic Center Plaza",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "On Monday, Dec. 7, 2026, from 5:30 to 8 p.m. the City will celebrate the winter season with the Community Tree Lighting Celebration in Downtown Mountain View.",
+      "tips": "",
+      "types": [
+        "Other"
+      ],
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/City_Hall_of_Mountain_View_-_panoramio_-_Aleh_Haiko_%281%29.jpg",
+      "eventUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3490/656?npage=2",
+      "sourceUrl": "https://www.mountainview.gov/Home/Components/Calendar/Event/3490/656?npage=2",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "On Monday, Dec. 7, 2026, from 5:30 to 8 p.m. the City will celebrate the winter season with the Community Tree Lighting Celebration in Downtown Mountain View.",
+      "sourceSnapshot": {
+        "titleText": "Community Tree Lighting Celebration",
+        "dateText": "2026-12-07",
+        "timeText": "17:30–20:00",
+        "locationText": "Civic Center Plaza, Mountain View",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-07-07",
+      "identityKey": "id:community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30",
+      "id": "id:community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "Holiday Market (Downtown Los Altos)",
+      "date": "2026-12-10",
+      "startTime": "16:00",
+      "endTime": "20:00",
+      "city": "Los Altos",
+      "venue": "State Street Market",
+      "cost": "Free",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Holiday market on State Street with live music and Santa visits — casual evening outing.",
+      "tips": "",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://downtownlosaltos.org/event/holiday-market/",
+      "sourceUrl": "https://downtownlosaltos.org/event/holiday-market/",
+      "sourceName": "Calendar Watchlist · Downtown Los Altos",
+      "sourceExcerpt": "Holiday market on State Street with live music and Santa visits — casual evening outing.",
+      "sourceSnapshot": {
+        "titleText": "Holiday Market (Downtown Los Altos)",
+        "dateText": "2026-12-10",
+        "timeText": "16:00–20:00",
+        "locationText": "State Street Market, Los Altos",
+        "costText": "Free",
+        "ageText": "0–5"
+      },
+      "providerEventId": "manual-holiday-market-downtown-los-altos-2026-12-10",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:manual-holiday-market-downtown-los-altos-2026-12-10",
+      "id": "id:manual-holiday-market-downtown-los-altos-2026-12-10",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "The Night Before Christmas (Stories on Stage)",
+      "date": "2026-12-11",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "city": "Mountain View",
+      "venue": "Peninsula Youth Theatre",
+      "cost": "Paid",
+      "ageRange": "0–5",
+      "bestFor": "",
+      "description": "Short Stories on Stage holiday show — designed for young audiences; check PYT for exact showtimes.",
+      "tips": "",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "",
+      "eventUrl": "https://pytnet.org/boxoffice/the-night-before-christmas/",
+      "sourceUrl": "https://pytnet.org/boxoffice/the-night-before-christmas/",
+      "sourceName": "Calendar Watchlist · Peninsula Youth Theatre",
+      "sourceExcerpt": "Short Stories on Stage holiday show — designed for young audiences; check PYT for exact showtimes.",
+      "sourceSnapshot": {
+        "titleText": "The Night Before Christmas (Stories on Stage)",
+        "dateText": "2026-12-11",
+        "timeText": "10:00–11:00",
+        "locationText": "Peninsula Youth Theatre, Mountain View",
+        "costText": "Paid",
+        "ageText": "0–5"
+      },
+      "providerEventId": "manual-the-night-before-christmas-stories-on-stage-2026-12-11",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-03",
+      "identityKey": "id:manual-the-night-before-christmas-stories-on-stage-2026-12-11",
+      "id": "id:manual-the-night-before-christmas-stories-on-stage-2026-12-11",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:34.307Z"
+    },
+    {
+      "title": "Celebrating Yalda Night",
+      "date": "2026-12-19",
+      "startTime": "15:30",
+      "endTime": "17:30",
+      "city": "Palo Alto",
+      "venue": "Children's Library",
+      "cost": "Free",
+      "ageRange": "3–5",
+      "bestFor": "",
+      "description": "Hear a Yalda Night story, listen to music, and make a paper craft from one of the holiday’s symbols.",
+      "tips": "ticket|Registration opens November 28 at 8:00 AM. Registration is recommended for a reminder; it does not hold a seat. info|The library invites children ages three and up with an adult caregiver. Craft materials last while supplies last.",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/d32c48dba4514ebca91923316c90f232/BibliocommonsbannerCropsbc(27).png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6abc44f5295b3b0033ca0dd7",
+      "sourceUrl": "https://paloalto.bibliocommons.com/events/6abc44f5295b3b0033ca0dd7",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "Hear a Yalda Night story, listen to music, and make a paper craft from one of the holiday’s symbols.",
+      "sourceSnapshot": {
+        "titleText": "Celebrating Yalda Night",
+        "dateText": "2026-12-19",
+        "timeText": "15:30–17:30",
+        "locationText": "Children's Library, Palo Alto",
+        "costText": "Free",
+        "ageText": "3–5"
+      },
+      "providerEventId": "disc-celebrating-yalda-night-2026-12-19-6abc44f5295b3b0033ca0dd7",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-27",
+      "identityKey": "id:disc-celebrating-yalda-night-2026-12-19-6abc44f5295b3b0033ca0dd7",
+      "id": "id:disc-celebrating-yalda-night-2026-12-19-6abc44f5295b3b0033ca0dd7",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:35.003Z"
+    },
+    {
+      "title": "Noon Year's Eve Celebration!",
+      "date": "2026-12-31",
+      "startTime": "11:30",
+      "endTime": "12:30",
+      "city": "Palo Alto",
+      "venue": "Mitchell Park Community Center",
+      "cost": "Free",
+      "ageRange": "All ages · Little ones welcome",
+      "bestFor": "",
+      "description": "Count down to noon with a ball-and-bubble drop, then crafts, dancing, and music. Party hats and noisemakers welcome.",
+      "tips": "ticket|Registration required. info|Held in the Adobe Room at Mitchell Park Community Center.",
+      "types": [
+        "Festivals & Community"
+      ],
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/03ac94a3dfc1452d80939d2e50267d9b/Family-Celebrating-New-Years-Eve-with-Young-Children.jpg",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a750a3788e9bf28003613ac",
+      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a750a3788e9bf28003613ac",
+      "sourceName": "Seasonal · Holiday magic · collection",
+      "sourceExcerpt": "Count down to noon with a ball-and-bubble drop, then crafts, dancing, and music. Party hats and noisemakers welcome.",
+      "sourceSnapshot": {
+        "titleText": "Noon Year's Eve Celebration!",
+        "dateText": "2026-12-31",
+        "timeText": "11:30–12:30",
+        "locationText": "Mitchell Park Community Center, Palo Alto",
+        "costText": "Free",
+        "ageText": "All ages · Little ones welcome"
+      },
+      "providerEventId": "disc-noon-year-s-eve-celebration-2026-12-31-6a750a3788e9bf28003613ac",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-10-27",
+      "identityKey": "id:disc-noon-year-s-eve-celebration-2026-12-31-6a750a3788e9bf28003613ac",
+      "id": "id:disc-noon-year-s-eve-celebration-2026-12-31-6a750a3788e9bf28003613ac",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:35.003Z"
+    },
+    {
+      "title": "Bilingual Family Storytime",
+      "date": "2027-01-28",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "city": "Palo Alto",
+      "venue": "College Terrace Library",
+      "cost": "Free",
+      "ageRange": "0–2, 2–5",
+      "bestFor": "",
+      "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
+      "tips": "Storytime may be held indoors or outdoors depending on the weather.",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6a80100ac7322c3d6032bc4338a36e7a/bilingual-storytime.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b893",
+      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b893",
+      "sourceName": "Palo Alto Library · BiblioCommons",
+      "sourceExcerpt": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube p",
+      "sourceSnapshot": {
+        "titleText": "Bilingual Family Storytime",
+        "dateText": "2027-01-28",
+        "timeText": "10:30–11:00",
+        "locationText": "College Terrace Library, Palo Alto",
+        "costText": "Free",
+        "ageText": "0–2, 2–5"
+      },
+      "providerEventId": "6a3313a0361280dd2264b893",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
+      "identityKey": "id:6a3313a0361280dd2264b893",
+      "id": "id:6a3313a0361280dd2264b893",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:35.003Z"
+    },
+    {
+      "title": "Time for Twos",
+      "date": "2027-01-29",
+      "startTime": "10:30",
+      "endTime": "11:15",
+      "city": "Mountain View",
+      "venue": "Mountain View Library",
+      "cost": "Free",
+      "ageRange": "0–2, 2–5",
+      "bestFor": "",
+      "description": "A storytime designed for 2-year-olds with books, action songs, and puppets!",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_10_21_11_40_04.png",
+      "eventUrl": "https://mountainview.libcal.com/event/17632959",
+      "sourceUrl": "https://mountainview.libcal.com/event/17632959",
+      "sourceName": "Mountain View Library · LibCal",
+      "sourceExcerpt": "A storytime designed for 2-year-olds with books, action songs, and puppets!",
+      "sourceSnapshot": {
+        "titleText": "Time for Twos",
+        "dateText": "2027-01-29",
+        "timeText": "10:30–11:15",
+        "locationText": "Mountain View Library, Mountain View",
+        "costText": "Free",
+        "ageText": "0–2, 2–5"
+      },
+      "providerEventId": "17632959",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
+      "identityKey": "id:17632959",
+      "id": "id:17632959",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:35.003Z"
+    },
+    {
+      "title": "Family Storytime",
+      "date": "2027-01-30",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "city": "Palo Alto",
+      "venue": "Mitchell Park Library",
+      "cost": "Free",
+      "ageRange": "0–2, 2–5",
+      "bestFor": "",
+      "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd81",
+      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd81",
+      "sourceName": "Palo Alto Library · BiblioCommons",
+      "sourceExcerpt": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "sourceSnapshot": {
+        "titleText": "Family Storytime",
+        "dateText": "2027-01-30",
+        "timeText": "10:30–11:00",
+        "locationText": "Mitchell Park Library, Palo Alto",
+        "costText": "Free",
+        "ageText": "0–2, 2–5"
+      },
+      "providerEventId": "6a3313053e640a440019dd81",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-04T21:01:33.652Z",
+      "identityKey": "id:6a3313053e640a440019dd81",
+      "id": "id:6a3313053e640a440019dd81",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-04T21:01:35.003Z"
     }
   ],
   "pendingUrls": []
