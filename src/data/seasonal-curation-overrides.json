@@ -1,4 +1,43 @@
 {
   "hello-fall": null,
-  "halloween-with-little-ones": null
+  "halloween-with-little-ones": null,
+  "holiday-magic": {
+    "collectionEventIds": [
+      "manual-23rd-annual-holiday-stroll-2026-11-13",
+      "seasonal-friendsgiving-palo-alto-2026-11-21",
+      "seasonal-los-altos-festival-of-lights-parade-2026-11-29",
+      "seasonal-cityline-winter-ice-rink-2026-11-24",
+      "seasonal-lytton-tree-lighting-2026-12-04",
+      "seasonal-los-altos-holiday-tree-celebration-2026-12-04",
+      "seasonal-once-upon-a-garden-2026-12-04",
+      "seasonal-breakfast-with-santa-2026-12-05",
+      "core-weekend-magical-santa-dance-party-2026-12-05",
+      "manual-selfies-with-santa-2026-12-05",
+      "barn-lighting-westwind-community-barn-2026-12-06-14-00",
+      "community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30",
+      "manual-holiday-market-downtown-los-altos-2026-12-10",
+      "core-weekend-playhouse-gingerbread-man-2026-12-19",
+      "disc-celebrating-yalda-night-2026-12-19-6abc44f5295b3b0033ca0dd7",
+      "disc-noon-year-s-eve-celebration-2026-12-31-6a750a3788e9bf28003613ac",
+      "disc-23rd-annual-holiday-stroll-2026-11-13-manual-23rd-annual-holiday-stroll-2026-1",
+      "disc-selfies-with-santa-2026-12-05-manual-selfies-with-santa-2026-12-05",
+      "disc-holiday-market-downtown-los-altos-2026-12-10-manual-holiday-market-downtown-los-altos"
+    ],
+    "driveEventIds": [
+      "regional-filoli-holidays-2026-11-14",
+      "seasonal-illuminodyssey-2026-11-14",
+      "regional-oakland-zoo-glowfari-2026-11-06",
+      "regional-badm-winter-wonderlab-2026-11-21",
+      "seasonal-hiller-santa-helicopter-2026-12-05",
+      "regional-crucible-gifty-2026-12-05",
+      "regional-fairyland-fairy-winterland-2026-12-12",
+      "regional-union-square-holiday-ice-rink-2026-11-04",
+      "regional-marin-holiday-light-spectacular-2026-11-27",
+      "regional-roaring-camp-holiday-tree-walk-2026-11-27",
+      "regional-santa-cruz-holiday-lights-train-2026-11-27",
+      "seasonal-sf-ballet-sensory-nutcracker-2026-12-27",
+      "disc-winter-wonderlab-2026-11-21-regional-badm-winter-wonderlab-2026-11-2"
+    ],
+    "updatedAt": "2026-11-05T20:56:56.989Z"
+  }
 }
