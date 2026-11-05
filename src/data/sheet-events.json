@@ -19615,6 +19615,38 @@
     "description": "Walk through working artists’ studios, then try Bennu W<3 — scan the sculpture with your phone to summon an asteroid in augmented reality."
   },
   {
+    "id": "disc-wag-along-a-charlie-gigi-storybook-party-2026-11-15-core-weekend-wag-along-storybook-party-2",
+    "title": "Wag Along! A Charlie & Gigi Storybook Party",
+    "description": "Author reading and interactive activity; each family receives a signed book.",
+    "tips": "Best for preschool segment (3–5). Ticket required.",
+    "venue": "Oshman Family JCC, Arrillaga Pavilion",
+    "address": "",
+    "city": "Palo Alto",
+    "date": "2026-11-15",
+    "startTime": "10:00",
+    "endTime": "11:30",
+    "ageRange": "2–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Weekend search"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.paloaltojcc.org/events",
+    "verifiedDate": "2026-11-05",
+    "lat": 0,
+    "lng": 0,
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "isPast": false,
+    "isLive": true
+  },
+  {
     "id": "barron-park-celebration-craft-fair-2026-11-15",
     "title": "Barron Park Celebration and Craft Fair",
     "description": "Make crafts, join Zumba, and celebrate with Barron Park neighbors.",
@@ -20519,6 +20551,41 @@
     "description": "A short Nutcracker performance, then a chance to meet the dancers."
   },
   {
+    "id": "disc-glider-discovery-2026-11-29-regional-hiller-glider-discovery-2026-11",
+    "title": "Glider Discovery",
+    "description": "Build balsa gliders and help assemble a full-size model airplane; each child takes home a glider.",
+    "venue": "Hiller Aviation Museum",
+    "address": "601 Skyway Rd, San Carlos, CA 94070",
+    "city": "San Carlos",
+    "date": "2026-11-29",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore"
+    ],
+    "categoryTags": [
+      "Regional",
+      "Worth a Drive",
+      "Regional",
+      "Worth a Drive",
+      "Holiday magic"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.hiller.org/event/glider-discovery/",
+    "verifiedDate": "2026-11-05",
+    "lat": 0,
+    "lng": 0,
+    "status": "Hidden",
+    "isSeasonal": true,
+    "isRegional": true,
+    "isPast": false,
+    "isLive": false
+  },
+  {
     "id": "disc-family-storytime-2026-12-01-699f624cb0595799c09f6058",
     "title": "Family Storytime",
     "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome!\n\nMake sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
@@ -21031,6 +21098,43 @@
     "sheetTypesRaw": "Festivals & Community"
   },
   {
+    "id": "disc-gifty-holiday-craft-fair-open-house-2026-12-05-regional-crucible-gifty-2026-12-05",
+    "title": "GIFTY Holiday Craft Fair & Open House",
+    "description": "Artist demos plus free hands-on kids' activities; optional paid workshops.",
+    "tips": "Confirm which workshops fit preschoolers before recommending specific sessions.",
+    "venue": "The Crucible",
+    "address": "",
+    "city": "Oakland",
+    "date": "2026-12-05",
+    "startTime": "",
+    "endTime": "",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore",
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Regional",
+      "Worth a Drive",
+      "Regional",
+      "Worth a Drive",
+      "Holiday magic"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.thecrucible.org/events/gifty/",
+    "verifiedDate": "2026-11-05",
+    "lat": 0,
+    "lng": 0,
+    "status": "Hidden",
+    "isSeasonal": true,
+    "isRegional": true,
+    "isPast": false,
+    "isLive": false
+  },
+  {
     "id": "disc-family-storytime-2026-12-05-698e125a2a787a47a5e73bed",
     "title": "Family Storytime",
     "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us!\n\n Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
@@ -21279,6 +21383,37 @@
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Other"
+  },
+  {
+    "id": "disc-holiday-craft-cafe-2026-12-08-core-weekend-holiday-craft-cafe-palo-alt",
+    "title": "Holiday Craft Cafe",
+    "description": "Inclusive holiday crafts and hot chocolate bar (Magical Bridge at the Art Center).",
+    "venue": "Palo Alto Art Center",
+    "address": "",
+    "city": "Palo Alto",
+    "date": "2026-12-08",
+    "startTime": "09:00",
+    "endTime": "18:00",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts"
+    ],
+    "categoryTags": [
+      "Weekend search"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.paloalto.gov/Departments/Community-Services/Arts-Sciences/Palo-Art-Center",
+    "verifiedDate": "2026-11-05",
+    "lat": 0,
+    "lng": 0,
+    "status": "Published",
+    "isSeasonal": false,
+    "isRegional": false,
+    "isPast": false,
+    "isLive": true
   },
   {
     "id": "disc-family-storytime-2026-12-08-699f624cb0595799c09f6059",
@@ -21778,6 +21913,43 @@
     "isPast": false,
     "isLive": true,
     "description": "A winter storytime with songs and rhymes, plus a take-and-make craft kit while supplies last."
+  },
+  {
+    "id": "disc-fairy-winterland-2026-12-12-regional-fairyland-fairy-winterland-2026",
+    "title": "Fairy Winterland",
+    "description": "Holiday crafts, puppet shows, multicultural stories, Santa visits — toddler-oriented venue.",
+    "tips": "Tickets on sale Nov 1; Dec 19 member free day per official site.",
+    "venue": "Children's Fairyland",
+    "address": "699 Bellevue Ave, Oakland, CA 94610",
+    "city": "Oakland",
+    "date": "2026-12-12",
+    "startTime": "12:00",
+    "endTime": "19:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community",
+      "Arts & Crafts"
+    ],
+    "categoryTags": [
+      "Regional",
+      "Worth a Drive",
+      "Regional",
+      "Worth a Drive",
+      "Holiday magic"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.fairyland.org/fairy-winterland",
+    "verifiedDate": "2026-11-05",
+    "lat": 0,
+    "lng": 0,
+    "status": "Hidden",
+    "isSeasonal": true,
+    "isRegional": true,
+    "isPast": false,
+    "isLive": false
   },
   {
     "id": "disc-board-game-sunday-2026-12-13-6970253094297d3600a66ca4",
@@ -22387,6 +22559,76 @@
     "room": ""
   },
   {
+    "id": "disc-open-cockpit-day-2026-12-26-regional-hiller-open-cockpit-day-2026-12",
+    "title": "Open Cockpit Day",
+    "description": "Sit in aircraft cockpits and explore controls — extra aircraft open on this date.",
+    "venue": "Hiller Aviation Museum",
+    "address": "",
+    "city": "San Carlos",
+    "date": "2026-12-26",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore"
+    ],
+    "categoryTags": [
+      "Regional",
+      "Worth a Drive",
+      "Regional",
+      "Worth a Drive",
+      "Holiday magic"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.hiller.org/event/open-cockpit-day/",
+    "verifiedDate": "2026-11-05",
+    "lat": 0,
+    "lng": 0,
+    "status": "Hidden",
+    "isSeasonal": true,
+    "isRegional": true,
+    "isPast": false,
+    "isLive": false
+  },
+  {
+    "id": "disc-robot-roundup-bee-bots-2026-12-27-regional-hiller-robot-roundup-beebots-20",
+    "title": "Robot Roundup · Bee-Bots",
+    "description": "Preschool-friendly Bee-Bot sequencing and coding intro (Dec 27 session).",
+    "tips": "Nov 22 session uses Ozobots — different age fit; do not merge descriptions.",
+    "venue": "Hiller Aviation Museum",
+    "address": "",
+    "city": "San Carlos",
+    "date": "2026-12-27",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Build & Explore"
+    ],
+    "categoryTags": [
+      "Regional",
+      "Worth a Drive",
+      "Regional",
+      "Worth a Drive"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.hiller.org/event/robot-roundup/",
+    "verifiedDate": "2026-11-05",
+    "lat": 0,
+    "lng": 0,
+    "status": "Hidden",
+    "isSeasonal": true,
+    "isRegional": true,
+    "isPast": false,
+    "isLive": false
+  },
+  {
     "id": "disc-lego-tuesdays-2026-12-29-68afa7b0022de53d00d27187",
     "title": "LEGO Tuesdays!",
     "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
@@ -22419,6 +22661,77 @@
     "isRegional": false,
     "isPast": false,
     "isLive": true
+  },
+  {
+    "id": "disc-noon-year-s-eve-2026-12-31-regional-badm-noon-years-eve-2026-12-31",
+    "title": "Noon Year's Eve",
+    "description": "Countdown crafts, noon ball drop, blacklight sensory experience for babies.",
+    "tips": "Confirm 2026 tickets; ignore 2025 sold-out page.",
+    "venue": "Bay Area Discovery Museum",
+    "address": "",
+    "city": "Sausalito",
+    "date": "2026-12-31",
+    "startTime": "09:00",
+    "endTime": "14:00",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Regional",
+      "Worth a Drive",
+      "Regional",
+      "Worth a Drive",
+      "Holiday magic"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://bayareadiscoverymuseum.org/events/noon-years-eve/",
+    "verifiedDate": "2026-11-05",
+    "lat": 0,
+    "lng": 0,
+    "status": "Hidden",
+    "isSeasonal": true,
+    "isRegional": true,
+    "isPast": false,
+    "isLive": false
+  },
+  {
+    "id": "disc-countdown-in-wonderland-2026-12-31-regional-fairyland-countdown-wonderland-",
+    "title": "Countdown in Wonderland",
+    "description": "Alice-themed daytime New Year's with crafts, puppet shows, bubbles, and noon ball drop.",
+    "venue": "Children's Fairyland",
+    "address": "",
+    "city": "Oakland",
+    "date": "2026-12-31",
+    "startTime": "10:00",
+    "endTime": "16:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Festivals & Community"
+    ],
+    "categoryTags": [
+      "Regional",
+      "Worth a Drive",
+      "Regional",
+      "Worth a Drive",
+      "Holiday magic"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://www.fairyland.org/countdown-in-wonderland",
+    "verifiedDate": "2026-11-05",
+    "lat": 0,
+    "lng": 0,
+    "status": "Hidden",
+    "isSeasonal": true,
+    "isRegional": true,
+    "isPast": false,
+    "isLive": false
   },
   {
     "tips": "ticket|Registration required.\ninfo|Held in the Adobe Room at Mitchell Park Community Center.",
