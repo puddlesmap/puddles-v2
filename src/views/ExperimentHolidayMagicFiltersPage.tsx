@@ -2,19 +2,16 @@
 
 import { Link } from 'react-router-dom'
 import { ExperimentSeasonalCollectionPage } from './ExperimentSeasonalCollectionPage'
-import './experiment-where-when-home-browse.css'
 
-/** Holiday Magic collection + Browse-style city/ZIP typeahead and pick-a-date. */
+/** Thin alias — live `/seasonal/holiday-magic` already enables typeahead filters. */
 export function ExperimentHolidayMagicFiltersPage() {
   return (
     <div className="experiment-holiday-magic-filters">
-      <p className="wwhb-note" style={{ margin: '0.75rem 1rem 0', maxWidth: '52rem' }}>
-        Mockup — Holiday Magic with typeahead filters (city/ZIP → ~8 mi + pick-a-date).{' '}
-        <Link to="/experiment/seasonal-discovery/holiday-magic">Holiday without filters</Link>
+      <p style={{ margin: '0.75rem 1rem 0', maxWidth: '52rem' }}>
+        Alias of live Holiday Magic filters.{' '}
+        <Link to="/seasonal/holiday-magic">Open live page</Link>
         {' · '}
-        <Link to="/browse">Live Browse</Link>
-        {' · '}
-        <Link to="/experiment/browse-typeahead-filters">Browse typeahead</Link>
+        <Link to="/browse">Browse</Link>
       </p>
       <ExperimentSeasonalCollectionPage slug="holiday-magic" typeaheadFilters />
     </div>
