@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { Event } from '../../types/event'
 import { EventImage } from '../EventImage'
+import { SaveHeartButton } from '../saved/SaveHeartButton'
 import {
   DiscoveryCardBody,
   discoveryCardBodyLayoutClass,
@@ -60,6 +61,10 @@ interface DiscoveryV3CardProps extends DiscoveryV3CardData {
   venueLine?: string | null
   /** Inline venue at 390px+, dedicated row below 390. Card-only. */
   venueResponsive?: boolean
+  /** Heart overlay on the image. Default on. */
+  showSaveHeart?: boolean
+  /** Soft day pill on media (e.g. TODAY). Saved-only. */
+  mediaDayLabel?: string | null
 }
 
 export function DiscoveryBadge({
@@ -99,8 +104,11 @@ function DiscoveryV3CardContent({
   showVenueBelowTitle = false,
   venueLine = null,
   venueResponsive = false,
+  showSaveHeart = true,
+  mediaDayLabel = null,
 }: DiscoveryV3CardProps) {
   const isMapSheet = density === 'map-sheet'
+  const dayPill = mediaDayLabel?.trim() || null
 
   return (
     <>
@@ -124,7 +132,18 @@ function DiscoveryV3CardContent({
             decoding="async"
           />
         )}
+        {dayPill ? (
+          <span className="saved-card-day-pill" aria-hidden>
+            {dayPill}
+          </span>
+        ) : null}
         {badge ? <DiscoveryBadge badge={badge} /> : null}
+        {showSaveHeart && event?.id ? (
+          <SaveHeartButton
+            eventId={event.id}
+            variant={isMapSheet ? 'map-sheet' : 'card'}
+          />
+        ) : null}
       </div>
       <DiscoveryCardBody
         when={when}

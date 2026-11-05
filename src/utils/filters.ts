@@ -20,6 +20,7 @@ import {
   matchesPublicAgeFilter,
   type AgeFilter,
 } from './ageRange'
+import { eventMatchesPickedYmd } from './pickedDate'
 
 export type { AgeFilter }
 
@@ -127,8 +128,39 @@ export function sortEventsBySchedule(events: Event[], now: Date = new Date()): E
   })
 }
 
-export function getFilteredCount(browse: BrowseFilters): number {
-  return filterEvents(getPublicEventsFromCatalog(), { browse }).length
+export function getFilteredCount(
+  browse: BrowseFilters,
+  opts?: { pickedYmd?: string | null; events?: Event[] },
+): number {
+  const browseForFilter = opts?.pickedYmd ? { ...browse, day: 'anytime' as const } : browse
+
+  // Curated subsets (e.g. Holiday Magic) — do not merge extra seasonal catalog rows.
+  if (opts?.events) {
+    const f = { ...DEFAULT_BROWSE_FILTERS, ...browseForFilter }
+    const anchor = getAnchorDate()
+    const now = new Date()
+    return opts.events.filter((event) => {
+      if (!matchesCity(event, f.city)) return false
+      if (opts.pickedYmd) {
+        if (!eventMatchesPickedYmd(event, opts.pickedYmd)) return false
+      } else if (
+        !eventMatchesDayFilter(event, f.day, anchor, now) &&
+        !spannedScheduleMatchesWhen(event, f.day, anchor, now)
+      ) {
+        return false
+      }
+      if (!eventMatchesTimeFilter(event, f.time)) return false
+      if (!matchesAge(event, f.age)) return false
+      if (f.types.length > 0 && !f.types.some((t) => event.types.includes(t))) return false
+      if (f.seasonal && !isSeasonalAdminListing(event)) return false
+      if (f.free && !isFreeCost(event.cost)) return false
+      return true
+    }).length
+  }
+
+  const base = filterEvents(getPublicEventsFromCatalog(), { browse: browseForFilter })
+  if (!opts?.pickedYmd) return base.length
+  return base.filter((event) => eventMatchesPickedYmd(event, opts.pickedYmd!)).length
 }
 
 export function hasActiveBrowseFilters(browse: BrowseFilters): boolean {

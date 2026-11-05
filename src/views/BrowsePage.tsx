@@ -11,7 +11,18 @@ import { PageContainer } from '../components/layout/PageContainer'
 import { Footer } from '../components/layout/Footer'
 import { AppHeader } from '../components/layout/AppHeader'
 import { BrowseLocationPill } from '../components/layout/BrowseLocationPill'
+import {
+  WhereWhenPillFilters,
+  type WhereWhenCityValue,
+} from '../components/filters/WhereWhenPillFilters'
 import { getBrowseLocationLabel } from '../components/layout/BrandLockup'
+import { eventMatchesPickedYmd } from '../utils/pickedDate'
+import type { DayFilter, TimeFilter } from '../types/event'
+import {
+  formatSearchAnchorLocationLabel,
+  type BrowseSearchAnchor,
+} from '../utils/browseSearchAnchor'
+import { formatShortDate } from '../utils/dates'
 import { useApp } from '../context/AppContext'
 import { BrowseEmptyState } from '../components/empty-states/BrowseEmptyState'
 import { BrowseMapView } from '../components/browse/BrowseMapView'
@@ -124,6 +135,10 @@ interface BrowsePageProps {
   showVenueBelowTitle?: boolean
   /** Card-only: venue inline at 390px+, own line below 390. Live /browse stays off. */
   venueResponsive?: boolean
+  /** Experiment: Where/When pill instead of location pill + Upcoming + Time chips. */
+  filterVariant?: 'chips' | 'where-when-pill'
+  /** Experiment: city/ZIP typeahead (~8 mi) + pick-a-date under Upcoming. */
+  filterEnhancements?: boolean
 }
 
 function isBrowseHubPath(pathname: string): boolean {
@@ -144,6 +159,8 @@ export function BrowsePage({
   appendVenueToWhen = false,
   showVenueBelowTitle = false,
   venueResponsive = false,
+  filterVariant = 'chips',
+  filterEnhancements = false,
 }: BrowsePageProps = {}) {
   const { browseFilters, setBrowseFilters } = useApp()
   const { getCatalog: getLaunchCatalog } = useLaunchStagingCatalog()
@@ -167,8 +184,13 @@ export function BrowsePage({
     return defaultViewMode
   })
   const [restoreSnapshot, setRestoreSnapshot] = useState<BrowseReturnSnapshot | null>(null)
+  const [pickedYmd, setPickedYmd] = useState<string | null>(null)
+  const [whereWhenOpen, setWhereWhenOpen] = useState(false)
+  const [searchAnchor, setSearchAnchor] = useState<BrowseSearchAnchor | null>(null)
   const skipViewModeSyncRef = useRef(false)
-  const filterMenuOpen = openPopover !== null || openSheet !== null
+  const useWhereWhenPill = filterVariant === 'where-when-pill'
+  const useFilterEnhancements = filterEnhancements && !useWhereWhenPill
+  const filterMenuOpen = openPopover !== null || openSheet !== null || whereWhenOpen
   const browseControlsRef = useRef<HTMLDivElement>(null)
   const secondaryControlsRowRef = useRef<HTMLDivElement>(null)
   const isMobileViewport = useMediaQuery('(max-width: 767px)')
@@ -318,7 +340,20 @@ export function BrowsePage({
 
   const events = useMemo(() => {
     const catalog = resolveCatalog()
-    const base = filterEvents(catalog, { browse: browseFilters, discoveryGate })
+    const browseForFilter = {
+      ...(pickedYmd ? { ...browseFilters, day: 'anytime' as const } : browseFilters),
+      ...(searchAnchor ? { city: 'all' as const } : null),
+    }
+    const base = filterEvents(catalog, { browse: browseForFilter, discoveryGate }).filter((event) =>
+      pickedYmd ? eventMatchesPickedYmd(event, pickedYmd) : true,
+    )
+
+    if (searchAnchor) {
+      return sortEventsByDistance(
+        filterEventsByRadius(base, searchAnchor, NEARBY_RADIUS_MILES),
+        searchAnchor,
+      )
+    }
 
     if (browseFilters.city === 'nearby' && coords) {
       return sortEventsByDistance(
@@ -328,11 +363,14 @@ export function BrowsePage({
     }
 
     return sortEventsBySchedule(base)
-  }, [browseFilters, coords, discoveryGate, resolveCatalog])
+  }, [browseFilters, pickedYmd, searchAnchor, coords, discoveryGate, resolveCatalog])
 
-  const awaitingNearby = browseFilters.city === 'nearby' && !coords
-  const showReset = !isBrowseFiltersDefault(browseFilters)
-  const locationLabel = getBrowseLocationLabel(browseFilters.city)
+  const awaitingNearby = browseFilters.city === 'nearby' && !coords && !searchAnchor
+  const showReset =
+    !isBrowseFiltersDefault(browseFilters) || Boolean(pickedYmd) || Boolean(searchAnchor)
+  const locationLabel = searchAnchor
+    ? formatSearchAnchorLocationLabel(searchAnchor)
+    : getBrowseLocationLabel(browseFilters.city)
 
   const mobileControlsCollapsed = useBrowseMobileControlsCollapse(!filterMenuOpen)
   const viewToggleSeparated = useBrowseViewToggleSeparation(secondaryControlsRowRef, [
@@ -384,8 +422,10 @@ export function BrowsePage({
 
   const resultsSummary =
     resultsCountStyle === 'contextual'
-      ? getBrowseResultsSummary(events.length, browseFilters.city, browseFilters.day)
-      : `${events.length} ${getBrowseActivityNoun(events.length, browseFilters.day)}`
+      ? getBrowseResultsSummary(events.length, browseFilters.city, browseFilters.day, {
+          pickedYmd,
+        })
+      : `${events.length} ${getBrowseActivityNoun(events.length, browseFilters.day, { pickedYmd })}`
 
   const mobileResultsLabel =
     awaitingNearby ? null : `${formatActivityCount(events.length)}.`
@@ -414,9 +454,12 @@ export function BrowsePage({
         browseFilters.types.join(','),
         coords?.lat ?? '',
         coords?.lng ?? '',
+        searchAnchor?.lat ?? '',
+        searchAnchor?.lng ?? '',
+        pickedYmd ?? '',
         viewMode,
       ].join('|'),
-    [browseFilters, coords, viewMode],
+    [browseFilters, coords, searchAnchor, pickedYmd, viewMode],
   )
 
   function countBrowseEvents(filters: BrowseFilters) {
@@ -431,7 +474,21 @@ export function BrowsePage({
   }
 
   function resetFilters() {
+    setPickedYmd(null)
+    setSearchAnchor(null)
     setBrowseFilters(getResetBrowseFilters(browseFilters))
+  }
+
+  function handleSearchAnchor(anchor: BrowseSearchAnchor | null) {
+    setSearchAnchor(anchor)
+    if (anchor) {
+      setBrowseFilters({
+        ...browseFilters,
+        city: 'all',
+        cityLocked: true,
+      })
+      trackCitySelected('nearby', 'browse')
+    }
   }
 
   function tryAllCities() {
@@ -513,16 +570,24 @@ export function BrowsePage({
     active: boolean
     selectionCount?: number
   }> = [
-    {
-      key: 'day' as const,
-      label: browseFilters.day !== 'anytime' ? DAY_LABELS[browseFilters.day] : 'Upcoming',
-      active: browseFilters.day !== 'anytime',
-    },
-    {
-      key: 'time' as const,
-      label: browseFilters.time !== 'any' ? TIME_LABELS[browseFilters.time] : 'Time',
-      active: browseFilters.time !== 'any',
-    },
+    ...(useWhereWhenPill
+      ? []
+      : [
+          {
+            key: 'day' as const,
+            label: pickedYmd
+              ? formatShortDate(new Date(`${pickedYmd}T12:00:00`))
+              : browseFilters.day !== 'anytime'
+                ? DAY_LABELS[browseFilters.day]
+                : 'Upcoming',
+            active: Boolean(pickedYmd) || browseFilters.day !== 'anytime',
+          },
+          {
+            key: 'time' as const,
+            label: browseFilters.time !== 'any' ? TIME_LABELS[browseFilters.time] : 'Time',
+            active: browseFilters.time !== 'any',
+          },
+        ]),
     {
       key: 'age' as const,
       label: getBrowseAgeChipLabel(browseFilters.age),
@@ -534,6 +599,38 @@ export function BrowsePage({
       active: browseFilters.types.length > 0,
     },
   ]
+
+  function handleWhereWhenWhere(key: WhereWhenCityValue) {
+    if (key === 'nearby') {
+      setBrowseFilters({ ...browseFilters, city: 'nearby', cityLocked: true })
+      trackCitySelected('nearby', 'browse')
+      void requestNearbyLocation()
+      return
+    }
+    setBrowseFilters({
+      ...browseFilters,
+      city: key,
+      cityLocked: key !== 'all',
+    })
+    trackCitySelected(key === 'all' ? 'all' : key, 'browse')
+  }
+
+  function handleWhereWhenDay(key: DayFilter | string) {
+    setPickedYmd(null)
+    setBrowseFilters({ ...browseFilters, day: key as DayFilter })
+  }
+
+  function handleWhereWhenTime(key: TimeFilter) {
+    setBrowseFilters({ ...browseFilters, time: key })
+  }
+
+  const whereWhenWhereKey = (
+    ['nearby', 'all', 'other', 'Palo Alto', 'Los Altos', 'Mountain View', 'Sunnyvale'].includes(
+      browseFilters.city,
+    )
+      ? browseFilters.city
+      : 'all'
+  ) as WhereWhenCityValue
 
   const secondaryControls = (
     <div ref={secondaryControlsRowRef} className="browse-secondary-controls-row">
@@ -597,10 +694,11 @@ export function BrowsePage({
         logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
         showBrandName={false}
         below={
-          <div
+            <div
             className={[
               'browse-controls-band',
               mobileControlsCollapsed ? 'browse-controls-band--collapsed' : '',
+              whereWhenOpen ? 'browse-controls-band--where-when-open' : '',
             ]
               .filter(Boolean)
               .join(' ')}
@@ -608,7 +706,23 @@ export function BrowsePage({
             <div ref={browseControlsRef} className="layout-container browse-controls relative">
             <div className="browse-controls-row">
               <div className="browse-location-row">
-                <BrowseLocationPill label={locationLabel} onClick={openLocationFilter} />
+                {useWhereWhenPill ? (
+                  <WhereWhenPillFilters
+                    surface="browse"
+                    whereKey={whereWhenWhereKey}
+                    dayKey={browseFilters.day}
+                    timeKey={browseFilters.time}
+                    pickedYmd={pickedYmd}
+                    onWhereSelect={handleWhereWhenWhere}
+                    onDaySelect={handleWhereWhenDay}
+                    onTimeSelect={handleWhereWhenTime}
+                    onPickDate={setPickedYmd}
+                    onClearPickedDate={() => setPickedYmd(null)}
+                    onOpenChange={setWhereWhenOpen}
+                  />
+                ) : (
+                  <BrowseLocationPill label={locationLabel} onClick={openLocationFilter} />
+                )}
               </div>
 
               <div className="browse-secondary-controls">
@@ -623,6 +737,12 @@ export function BrowsePage({
               onClose={() => setOpenPopover(null)}
               hasNearbyCoords={Boolean(coords)}
               onRequestNearby={requestNearbyLocation}
+              filterEnhancements={useFilterEnhancements}
+              searchAnchorLabel={searchAnchor?.label ?? null}
+              onSearchAnchor={handleSearchAnchor}
+              pickedYmd={pickedYmd}
+              onPickDate={setPickedYmd}
+              onClearPickedDate={() => setPickedYmd(null)}
             />
           </div>
           </div>
@@ -636,6 +756,12 @@ export function BrowsePage({
         onClose={() => setOpenSheet(null)}
         hasNearbyCoords={Boolean(coords)}
         onRequestNearby={requestNearbyLocation}
+        filterEnhancements={useFilterEnhancements}
+        searchAnchorLabel={searchAnchor?.label ?? null}
+        onSearchAnchor={handleSearchAnchor}
+        pickedYmd={pickedYmd}
+        onPickDate={setPickedYmd}
+        onClearPickedDate={() => setPickedYmd(null)}
       />
 
       {viewMode === 'map' && events.length > 0 && !awaitingNearby ? (

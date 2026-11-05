@@ -1472,6 +1472,16 @@
 
   .home-seasonal-density--split-bp
     .home-experiment-refined-main
+    > .home-seasonal-teaser--prominent.home-seasonal-teaser--holiday-magic
+    .home-seasonal-teaser__hit {
+    border-radius: var(--radius-md);
+    background: #17382a;
+    border-color: #cdc744;
+    box-shadow: var(--shadow-elevation-light-3);
+  }
+
+  .home-seasonal-density--split-bp
+    .home-experiment-refined-main
     > .home-seasonal-teaser--prominent
     .home-seasonal-teaser__inner.layout-container {
     max-width: none;

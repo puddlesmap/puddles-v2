@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ClerkProvider } from '@clerk/nextjs'
 import { AppProviders } from '@/components/AppProviders'
 import { PLAUSIBLE_BOOTSTRAP_SCRIPT } from '@/utils/plausibleSnippet'
 import './globals.css'
@@ -45,10 +46,12 @@ export default function RootLayout({
           id="plausible-bootstrap"
           dangerouslySetInnerHTML={{ __html: PLAUSIBLE_BOOTSTRAP_SCRIPT }}
         />
-        <AppProviders>
-          {children}
-          {modal}
-        </AppProviders>
+        <ClerkProvider>
+          <AppProviders>
+            {children}
+            {modal}
+          </AppProviders>
+        </ClerkProvider>
       </body>
     </html>
   )

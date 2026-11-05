@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import type { DayFilter, TimeFilter } from '../types/event'
+import type { TimeFilter } from '../types/event'
 import { PUBLIC_AGE_FILTER_OPTIONS } from '../utils/ageRange'
-import { getTemporalTabs } from '../utils/dates'
 import type { BrowseFilters } from '../utils/filters'
+import type { BrowseSearchAnchor } from '../utils/browseSearchAnchor'
 import { BrowseLocationOptions } from './filters/BrowseLocationOptions'
+import { BrowseDayOptions } from './filters/BrowseDayOptions'
 import { ActivityTypeFilterPills } from './filters/ActivityTypeFilterPills'
 import { trackBrowseFiltersApplied, trackCitySelected } from '../utils/analytics'
 
@@ -26,6 +27,12 @@ interface FilterPopoverProps {
   onClose: () => void
   hasNearbyCoords?: boolean
   onRequestNearby?: () => Promise<boolean>
+  filterEnhancements?: boolean
+  searchAnchorLabel?: string | null
+  onSearchAnchor?: (anchor: BrowseSearchAnchor | null) => void
+  pickedYmd?: string | null
+  onPickDate?: (ymd: string) => void
+  onClearPickedDate?: () => void
 }
 
 export function FilterPopover({
@@ -35,6 +42,12 @@ export function FilterPopover({
   onClose,
   hasNearbyCoords = false,
   onRequestNearby,
+  filterEnhancements = false,
+  searchAnchorLabel = null,
+  onSearchAnchor,
+  pickedYmd = null,
+  onPickDate,
+  onClearPickedDate,
 }: FilterPopoverProps) {
   const [draft, setDraft] = useState(filters)
 
@@ -44,7 +57,6 @@ export function FilterPopover({
 
   if (!open) return null
 
-  const dayTabs = getTemporalTabs()
   const isLocation = open === 'location'
 
   function apply(next: BrowseFilters) {
@@ -56,6 +68,7 @@ export function FilterPopover({
   }
 
   async function applyLocation(city: BrowseFilters['city']) {
+    onSearchAnchor?.(null)
     if (city === 'nearby') {
       if (draft.city === 'nearby' && hasNearbyCoords) {
         onClose()
@@ -84,20 +97,34 @@ export function FilterPopover({
 
   if (isLocation) {
     return (
-      <div
-        className="absolute left-0 right-0 top-full z-50 mt-2 hidden max-h-[min(24rem,60dvh)] overflow-y-auto rounded-xl border border-border bg-white p-4 shadow-card md:block"
-        role="dialog"
-        aria-modal="true"
-      >
-        <h3 className="text-sm font-semibold text-charcoal">Where</h3>
-        <div className="mt-2">
-          <BrowseLocationOptions
-            selectedCity={draft.city}
-            onSelect={applyLocation}
-            variant="popover"
-          />
+      <>
+        <button
+          type="button"
+          className="fixed inset-0 z-40 bg-black/20"
+          aria-label="Close filter menu"
+          onClick={onClose}
+        />
+        <div
+          className="absolute left-0 right-0 top-full z-50 mt-2 hidden max-h-[min(24rem,60dvh)] overflow-y-auto rounded-xl border border-border bg-white p-4 shadow-card md:block"
+          role="dialog"
+          aria-modal="true"
+        >
+          <h3 className="text-sm font-semibold text-charcoal">Where</h3>
+          <div className="mt-2">
+            <BrowseLocationOptions
+              selectedCity={draft.city}
+              onSelect={applyLocation}
+              variant="popover"
+              enableSearchAnchor={filterEnhancements}
+              searchAnchorLabel={searchAnchorLabel}
+              onSearchAnchor={(anchor) => {
+                onSearchAnchor?.(anchor)
+                onClose()
+              }}
+            />
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 
@@ -110,36 +137,33 @@ export function FilterPopover({
         onClick={onClose}
       />
       <div
-        className="absolute left-0 right-0 top-full z-50 mt-2 hidden max-h-[min(24rem,60dvh)] overflow-y-auto rounded-xl border border-border bg-white p-4 shadow-card md:block"
+        className={`absolute left-0 right-0 top-full z-50 mt-2 hidden overflow-y-auto rounded-xl border border-border bg-white p-4 shadow-card md:block ${
+          open === 'day' && filterEnhancements
+            ? 'max-h-[min(42rem,78dvh)]'
+            : 'max-h-[min(24rem,60dvh)]'
+        }`}
         role="dialog"
         aria-modal="true"
       >
         {open === 'day' && (
           <>
             <h3 className="text-sm font-semibold text-charcoal">Day</h3>
-            <div className="mt-2 space-y-0.5">
-              {[
-                ...dayTabs.map((t) => ({
-                  key: t.key as DayFilter,
-                  label: t.label,
-                  sub: t.sub,
-                })),
-                { key: 'anytime' as DayFilter, label: 'Anytime', sub: 'Next 2 months' },
-              ].map((opt) => (
-                <button
-                  key={opt.key}
-                  type="button"
-                  onClick={() => apply({ ...draft, day: opt.key })}
-                  className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left hover:bg-surface-muted ${
-                    draft.day === opt.key ? 'bg-surface-muted' : ''
-                  }`}
-                >
-                  <div>
-                    <div className="text-[15px] font-medium">{opt.label}</div>
-                    <div className="text-xs text-muted">{opt.sub}</div>
-                  </div>
-                </button>
-              ))}
+            <div className="mt-2">
+              <BrowseDayOptions
+                selectedDay={draft.day}
+                pickedYmd={pickedYmd}
+                onSelectDay={(day) => {
+                  onClearPickedDate?.()
+                  apply({ ...draft, day })
+                }}
+                onPickDate={(ymd) => {
+                  onPickDate?.(ymd)
+                  apply({ ...draft, day: 'anytime' })
+                }}
+                onClearPickedDate={() => onClearPickedDate?.()}
+                variant="popover"
+                enablePickADate={filterEnhancements}
+              />
             </div>
           </>
         )}

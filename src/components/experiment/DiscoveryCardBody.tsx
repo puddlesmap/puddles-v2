@@ -224,7 +224,20 @@ export function DiscoveryCardBody({
         ) : null}
       </h3>
       {showVenueBelowTitle || venueResponsive ? (
-        <p className="discovery-event-venue-line">{venueLine?.trim() || '\u00a0'}</p>
+        <p className="discovery-event-venue-line">
+          {venueLine?.trim() ? (
+            showVenueBelowTitle ? (
+              <>
+                <MetaCityPinIcon />
+                <span className="discovery-event-venue-line__text">{venueLine.trim()}</span>
+              </>
+            ) : (
+              venueLine.trim()
+            )
+          ) : (
+            '\u00a0'
+          )}
+        </p>
       ) : layout === 'venue-line' && location ? (
         <p className="discovery-event-location">{location}</p>
       ) : null}

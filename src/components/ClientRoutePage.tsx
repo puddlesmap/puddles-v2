@@ -73,9 +73,14 @@ import { ExperimentBrowseCardDesignReferencePage } from '@/views/ExperimentBrows
 import { ExperimentBrowseLiveVsOption2Page } from '@/views/ExperimentBrowseLiveVsOption2Page'
 import { ExperimentSeasonalThemeCalendarPage } from '@/views/ExperimentSeasonalThemeCalendarPage'
 import { ExperimentSeasonalBackgroundDialPage } from '@/views/ExperimentSeasonalBackgroundDialPage'
+import { ExperimentHolidayMagicFiltersPage } from '@/views/ExperimentHolidayMagicFiltersPage'
 import { WelcomeOnboarding } from '@/components/welcome/WelcomeOnboarding'
 import { PuddlesPicksPopup } from '@/components/picks/PuddlesPicksHome'
 import { PuddlesPicksMobilePill } from '@/components/picks/PuddlesPicksMobilePill'
+import { SavedHost } from '@/components/saved/SavedHost'
+import { SavedSignInSheet } from '@/components/saved/SavedSignInSheet'
+import { SavedPage } from '@/views/SavedPage'
+import { SavedSsoCallbackPage } from '@/views/SavedSsoCallbackPage'
 import { AdminEventsPage } from '@/views/admin/AdminEventsPage'
 import { AdminAudiencePage } from '@/views/admin/AdminAudiencePage'
 import { AdminApprovedPage } from '@/views/admin/AdminApprovedPage'
@@ -161,6 +166,8 @@ function ClientRoutes() {
             <Route path="/home-experiment-compact" element={<Navigate to="/" replace />} />
             <Route path="/discovery" element={<DiscoveryPage />} />
             <Route path="/browse" element={<BrowsePage {...BROWSE_PAGE_PROPS} />} />
+            <Route path="/saved" element={<SavedPage />} />
+            <Route path="/saved/sso-callback" element={<SavedSsoCallbackPage />} />
             <Route path="/map" element={<BrowsePage {...BROWSE_PAGE_PROPS} defaultViewMode="map" />} />
             <Route path="/browse-v2" element={<BrowseV2Page />} />
             <Route path="/palo-alto" element={<CityLandingPage citySlug="palo-alto" />} />
@@ -218,6 +225,10 @@ function ClientRoutes() {
               path="/experiment/browse-live-vs-option2"
               element={<ExperimentBrowseLiveVsOption2Page />}
             />
+            <Route
+              path="/experiment/holiday-magic-filters"
+              element={<ExperimentHolidayMagicFiltersPage />}
+            />
             <Route path="/experiment-shared-event" element={<ExperimentSharedEventLayout />}>
               <Route index element={<ExperimentSharedEventPage />} />
               <Route path="event/:eventId" element={<ExperimentSharedEventDetailPage />} />
@@ -265,6 +276,8 @@ function ClientRoutes() {
       {!isAdminRoute && !isLogoLab && <WelcomeOnboarding />}
       {!isAdminRoute && <PuddlesPicksPopup />}
       {!isAdminRoute && <PuddlesPicksMobilePill />}
+      {!isAdminRoute && <SavedHost />}
+      {!isAdminRoute && <SavedSignInSheet />}
     </div>
   )
 }

@@ -165,6 +165,8 @@ export function WelcomeOnboarding({
   const showWelcome = useMemo(() => {
     if (!ready) return false
     if (forceWelcomeOpen || successHold) return true
+    // Picks signup owns the home CTA — do not auto-stack Welcome on top.
+    if (picksSignupLive && !experiment) return false
     if (submitted || requestOpen) return false
     return shouldAutoShowWelcome({
       welcomeSeen,
@@ -179,6 +181,8 @@ export function WelcomeOnboarding({
     submitted,
     forceWelcomeOpen,
     successHold,
+    picksSignupLive,
+    experiment,
     requestOpen,
     welcomeSeen,
     location.pathname,
@@ -186,7 +190,6 @@ export function WelcomeOnboarding({
     showLocationBridge,
     blockingDom,
     hasOverlayBackground,
-    experiment,
   ])
 
   useEffect(() => {

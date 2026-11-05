@@ -96,12 +96,30 @@ export function parseFlexibleDate(dateStr: string): Date | null {
   const iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})/)
   if (iso) return new Date(`${iso[1]}-${iso[2]}-${iso[3]}T12:00:00`)
 
-  const slash = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/)
+  const slash = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/)
   if (slash) {
     const year = slash[3].length === 2 ? `20${slash[3]}` : slash[3]
     return new Date(
       `${year}-${slash[1].padStart(2, '0')}-${slash[2].padStart(2, '0')}T12:00:00`,
     )
+  }
+
+  // US month/day without year (e.g. 11/12) — use this year, or next if already past
+  const slashNoYear = raw.match(/^(\d{1,2})\/(\d{1,2})$/)
+  if (slashNoYear) {
+    const month = Number(slashNoYear[1])
+    const day = Number(slashNoYear[2])
+    if (month < 1 || month > 12 || day < 1 || day > 31) return null
+    const now = new Date()
+    let year = now.getFullYear()
+    let candidate = new Date(year, month - 1, day, 12, 0, 0)
+    if (candidate.getMonth() !== month - 1) return null
+    if (startOfDay(candidate).getTime() < startOfDay(now).getTime()) {
+      year += 1
+      candidate = new Date(year, month - 1, day, 12, 0, 0)
+      if (candidate.getMonth() !== month - 1) return null
+    }
+    return candidate
   }
 
   const parsed = new Date(raw.includes('T') ? raw : `${raw}T12:00:00`)
@@ -251,6 +269,37 @@ export function formatCardDateTime(
   const month = d.toLocaleDateString('en-US', { month: 'short' }).toUpperCase()
   const day = d.getDate()
   return `${weekday}, ${month} ${day} · ${time}`
+}
+
+/**
+ * Saved card media pill: TODAY / TOMORROW / FRI (rest of this week) / DEC 8 (later).
+ * Pass next-relevant YYYY-MM-DD (e.g. from getSeasonalAvailability).
+ */
+export function formatSavedDayPill(
+  ymd: string,
+  anchor: Date = getAnchorDate(),
+): string | null {
+  const trimmed = ymd?.trim()
+  if (!trimmed) return null
+
+  const parsed = parseFlexibleDate(trimmed) ?? new Date(`${trimmed}T12:00:00`)
+  const d = startOfDay(parsed)
+  if (Number.isNaN(d.getTime())) return null
+
+  const today = startOfDay(anchor)
+  const tomorrow = startOfDay(addDays(anchor, 1))
+  if (d.getTime() === today.getTime()) return 'TODAY'
+  if (d.getTime() === tomorrow.getTime()) return 'TOMORROW'
+
+  // Rest of this calendar week (Sun–Sat, matching en-US week start).
+  const endOfWeek = addDays(today, 6 - today.getDay())
+  if (d.getTime() > today.getTime() && d.getTime() <= endOfWeek.getTime()) {
+    return d.toLocaleDateString('en-US', { weekday: 'short' }).toUpperCase()
+  }
+
+  return d
+    .toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+    .toUpperCase()
 }
 
 /** Modal date line: Today, June 5 */

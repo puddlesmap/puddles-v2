@@ -1,0 +1,327 @@
+/* Shared Where/When pill — Home + Browse experiments */
+
+.ww-pill-root {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  font-family: var(--font-sans);
+}
+
+.ww-pill {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 44px;
+  height: 44px;
+  padding: 0.2rem;
+  border: 1px solid var(--color-border, #ebebeb);
+  border-radius: var(--radius-pill, 999px);
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
+}
+
+.ww-pill__seg {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  padding: 0 0.85rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill, 999px);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  color: var(--color-charcoal, #282e31);
+  transition:
+    background-color 0.14s ease-out,
+    border-color 0.14s ease-out,
+    box-shadow 0.14s ease-out;
+}
+
+.ww-pill__seg--active {
+  background: color-mix(in srgb, var(--color-brand, #66c5f9) 12%, #fff);
+  border-color: color-mix(in srgb, var(--color-brand, #66c5f9) 28%, var(--color-border, #ebebeb));
+  box-shadow: 0 1px 3px rgb(40 46 49 / 0.04);
+}
+
+.ww-pill__label {
+  flex-shrink: 0;
+  font-size: var(--type-meta-sm, 12px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-charcoal, #282e31);
+}
+
+.ww-pill__value {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: var(--type-chip-size, 14px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-muted, #686868);
+}
+
+.ww-pill__seg--active .ww-pill__value {
+  font-weight: 600;
+  color: var(--color-charcoal, #282e31);
+}
+
+/* Desktop / tablet: absolute overlay under pill (does not push layout) */
+.ww-pill-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgb(40 46 49 / 0.18);
+}
+
+.ww-pill-panel {
+  z-index: 45;
+  padding: 0.85rem 0.65rem 0.65rem;
+  border: 1px solid var(--color-border, #ebebeb);
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(40 46 49 / 0.1);
+  font-family: var(--font-sans);
+}
+
+.ww-pill-panel--overlay {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  max-height: min(28rem, 70vh);
+  overflow: auto;
+}
+
+/* Mobile: sheet attached above bottom nav */
+.ww-pill-panel--sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: var(--browse-mobile-nav-offset, calc(3.75rem + max(0.5rem, env(safe-area-inset-bottom))));
+  max-height: min(70dvh, 32rem);
+  overflow: auto;
+  border-radius: 1rem 1rem 0 0;
+  border-bottom: none;
+  animation: ww-pill-sheet-up 0.22s ease-out;
+}
+
+@keyframes ww-pill-sheet-up {
+  from {
+    transform: translateY(12%);
+    opacity: 0.85;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.ww-pill-panel__eyebrow {
+  margin: 0 0 0.5rem;
+  padding-inline: 0.35rem;
+  font-size: var(--type-meta-sm, 12px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-muted, #686868);
+}
+
+.ww-pill-panel__section + .ww-pill-panel__section {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--color-border, #ebebeb);
+}
+
+.ww-pill-typeahead {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.55rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--color-border, #ebebeb);
+  border-radius: var(--radius-md, 0.75rem);
+  background: var(--color-surface-muted, #fafafa);
+}
+
+.ww-pill-typeahead__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: var(--type-chip-size, 14px);
+  font-weight: 500;
+  outline: none;
+  color: var(--color-charcoal, #282e31);
+}
+
+.ww-pill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.ww-pill-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.5rem 0.4rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.ww-pill-row:hover,
+.ww-pill-row:focus-visible {
+  background: #f5fafd;
+  outline: none;
+}
+
+.ww-pill-row--selected {
+  background: #eef8fe;
+}
+
+.ww-pill-row__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.65rem;
+  background: #d7e8f7;
+  color: #1f4d73;
+}
+
+.ww-pill-row__icon--nearby {
+  background: #e8f7ef;
+  color: #1f5c3a;
+}
+
+.ww-pill-row__icon--other {
+  background: #f3f0ea;
+  color: #6a5b45;
+}
+
+.ww-pill-row__icon--when {
+  background: #efe8fb;
+  color: #4a3a73;
+}
+
+.ww-pill-row__icon--time {
+  background: #fef3e6;
+  color: #8a5a22;
+}
+
+.ww-pill-row__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  min-width: 0;
+}
+
+.ww-pill-row__title {
+  font-size: var(--type-chip-size, 14px);
+  font-weight: 700;
+  color: var(--color-charcoal, #282e31);
+}
+
+.ww-pill-row__sub {
+  font-size: var(--type-meta-sm, 12px);
+  font-weight: 500;
+  color: var(--color-muted, #686868);
+}
+
+.ww-pill-empty {
+  margin: 0.4rem;
+  font-size: var(--type-meta, 13px);
+  color: var(--color-muted, #686868);
+}
+
+.ww-pill-zip-hint {
+  margin: 0 0 0.45rem;
+  padding-inline: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: var(--type-meta-sm, 12px);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-muted, #686868);
+}
+
+.ww-pill-date {
+  margin-top: 0.55rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--color-border, #ebebeb);
+}
+
+.ww-pill-done {
+  padding: 0.65rem 0.35rem 0.25rem;
+}
+
+.ww-pill-done__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 44px;
+  border: none;
+  border-radius: var(--radius-pill, 999px);
+  background: var(--color-brand, #66c5f9);
+  font-family: var(--font-sans);
+  font-size: var(--type-btn-compact, 14px);
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Browse FilterSheet body — Home-style rows inside Age/Activity chrome */
+.ww-pill-filter-sheet-body .ww-pill-panel__section:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.ww-pill-filter-sheet-body .ww-pill-typeahead {
+  margin-top: 0;
+}
+
+/* Home experiment filter slot */
+.home-experiment-filters--where-when-pill {
+  margin-top: 0.85rem;
+  width: 100%;
+}
+
+.home-experiment-filters--where-when-pill .ww-pill-root {
+  width: 100%;
+  max-width: none;
+}
+
+/* Browse location row slot */
+.browse-location-row .ww-pill-root {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .browse-location-row .ww-pill-root {
+    min-width: 16rem;
+    max-width: 22rem;
+  }
+
+  .browse-controls-band--where-when-open {
+    z-index: 46;
+    overflow: visible;
+  }
+
+  .browse-controls-band--where-when-open .browse-controls {
+    overflow: visible;
+  }
+}

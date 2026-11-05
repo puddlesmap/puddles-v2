@@ -2,10 +2,10 @@ import { Logo } from './Logo'
 
 export const BROWSE_LOCATION_OPTIONS = [
   { key: 'nearby', label: 'Nearby' },
-  { key: 'Sunnyvale', label: 'Sunnyvale' },
   { key: 'Palo Alto', label: 'Palo Alto' },
   { key: 'Los Altos', label: 'Los Altos' },
   { key: 'Mountain View', label: 'Mountain View' },
+  { key: 'Sunnyvale', label: 'Sunnyvale' },
   { key: 'other', label: 'Other cities' },
   { key: 'all', label: 'All cities' },
 ] as const

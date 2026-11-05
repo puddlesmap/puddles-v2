@@ -14,4 +14,6 @@ export const BROWSE_PAGE_PROPS = {
   mapInteractionMode: 'connected' as const,
   listLayout: 'compact-two-column' as const,
   venueResponsive: true,
+  /** City/ZIP ~8 mi typeahead + Upcoming pick-a-date. */
+  filterEnhancements: true,
 }
