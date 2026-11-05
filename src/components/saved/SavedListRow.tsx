@@ -29,7 +29,7 @@ function CalendarPlusIcon() {
   )
 }
 
-function dateRailParts(ymd: string, anchor: Date) {
+function dateRailParts(ymd: string) {
   const parsed = parseFlexibleDate(ymd) ?? new Date(`${ymd}T12:00:00`)
   const d = startOfDay(parsed)
   if (Number.isNaN(d.getTime())) {
@@ -78,7 +78,7 @@ export function SavedListRow({
   const { toggleSave, isSaved } = useSaved()
   const now = new Date()
   const ymd = getSeasonalAvailability(event, now).nextRelevantYmd || event.date || ''
-  const rail = dateRailParts(ymd, now)
+  const rail = dateRailParts(ymd)
   const when = formatListWhen(event, ymd, now)
   const place = placeLabel(event)
   const canCalendar = canAddEventToCalendar(event)

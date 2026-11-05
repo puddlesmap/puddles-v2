@@ -105,6 +105,29 @@ export async function syncAudienceSaves(input: {
   return asContinue(body, response.ok && body.ok !== false)
 }
 
+/** Merge local saves into Blobs for the signed-in Clerk user. */
+export async function syncClerkAudienceSaves(input: {
+  saves: AudienceSavePayload[]
+  getToken: () => Promise<string | null>
+}): Promise<AudienceContinueResponse> {
+  const token = await input.getToken()
+  if (!token) return { ok: false, error: 'Not signed in.', saves: [] }
+  const response = await fetch('/api/audience', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      action: 'clerk_session',
+      saves: input.saves,
+    }),
+  })
+  const body = await readJson(response)
+  return asContinue(body, response.ok && body.ok !== false)
+}
+
 export async function subscribeNewsletter(input: {
   email: string
   signupSource: NewsletterSignupSource
