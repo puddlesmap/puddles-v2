@@ -50,7 +50,11 @@ function bannerPhotoEvents(collection: SeasonalCollection): Event[] {
   return out
 }
 
-export function HomePage() {
+export function HomePage({
+  filterVariant = 'chips',
+}: {
+  filterVariant?: 'chips' | 'where-when-pill'
+} = {}) {
   useStructuredData(websiteStructuredDataId, websiteJsonLd)
   const comingNext = getComingNextSeasonalTeaser()
   const collections = useMemo(() => getActiveSeasonalCollections(), [])
@@ -105,6 +109,7 @@ export function HomePage() {
       shellClassName="home-experiment-shell--refined home-experiment-shell--seasonal-puddles-aligned home-seasonal-density--split-bp home-seasonal-dual-stack"
       heroVariant="refined"
       layout="refined"
+      filterVariant={filterVariant}
       logoOnly={false}
       logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
       logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}

@@ -132,6 +132,36 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   if (pathname === '/experiment/hallmark-hello-fall-mockup') {
     return formatDocumentTitle('Hallmark Hello Fall Mockup')
   }
+  if (pathname === '/experiment/saved-and-picks') {
+    return formatDocumentTitle('Saved and Puddles Picks')
+  }
+  if (pathname === '/experiment/puddles-picks-signup') {
+    return formatDocumentTitle('Puddles Picks signup exploration')
+  }
+  if (pathname === '/experiment/saved') return formatDocumentTitle('Saved Experiment')
+  if (pathname === '/experiment/saved/flow') return formatDocumentTitle('Saved sign-in flow')
+  if (pathname === '/experiment/saved/heart') return formatDocumentTitle('Saved heart spec')
+  if (pathname === '/experiment/saved-list') {
+    return formatDocumentTitle('Saved list mobile variants')
+  }
+  if (pathname === '/experiment/where-when-search') {
+    return formatDocumentTitle('Where / When search mock')
+  }
+  if (pathname === '/experiment/where-when-home-browse') {
+    return formatDocumentTitle('Where / When Home + Browse mock')
+  }
+  if (pathname === '/experiment/home-where-when-pill') {
+    return formatDocumentTitle('Home Where / When pill mock')
+  }
+  if (pathname === '/experiment/browse-where-when-pill') {
+    return formatDocumentTitle('Browse Where / When pill mock')
+  }
+  if (pathname === '/experiment/browse-typeahead-filters') {
+    return formatDocumentTitle('Browse typeahead filters mock')
+  }
+  if (pathname === '/experiment/holiday-magic-filters') {
+    return formatDocumentTitle('Holiday Magic typeahead filters mock')
+  }
   if (pathname === '/share-experiment') return formatDocumentTitle('Share Experiment')
   if (pathname === '/about-experiment' || pathname === '/experiment_about') {
     return formatDocumentTitle('About Experiment')

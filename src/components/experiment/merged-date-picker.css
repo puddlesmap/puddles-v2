@@ -1,0 +1,431 @@
+/* Shared experiment Where/When merged date picker (Style 1 stack + variants) */
+
+.wws-merged {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.wws-merged__type {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.wws-merged__type-field {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.wws-merged__type-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: #717171;
+}
+
+.wws-merged__type-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-charcoal, #222);
+  outline: none;
+}
+
+.wws-merged__type-input::placeholder {
+  color: #9a9a9a;
+  font-weight: 400;
+}
+
+.wws-merged__type-go {
+  flex-shrink: 0;
+  min-height: 2.25rem;
+  padding: 0 0.75rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-brand, #66c5f9);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+
+.wws-merged__type-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.wws-merged__suggest {
+  align-self: flex-start;
+  min-height: 1.75rem;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--color-brand, #66c5f9) 35%, #ebebeb);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-brand, #66c5f9) 12%, #fff);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-charcoal, #282e31);
+  cursor: pointer;
+}
+
+.wws-merged__live-hint {
+  margin: 0;
+  padding-inline: 0.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #717171;
+}
+
+.wws-merged__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.wws-merged__tab {
+  min-height: 1.75rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid #ebebeb;
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-charcoal, #222);
+  cursor: pointer;
+}
+
+.wws-merged__tab--active {
+  border-color: transparent;
+  background: var(--color-brand, #66c5f9);
+  color: #fff;
+}
+
+.wws-merged__hint {
+  margin: 0.15rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: #717171;
+}
+
+.wws-merged__error {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: #b42318;
+}
+
+.wws-merged__grid-wrap {
+  min-width: 0;
+}
+
+.wws-merged__calendar-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 0.35rem 0.15rem 0.5rem;
+}
+
+.wws-merged__mobile-tabs {
+  padding: 0 0.25rem;
+}
+
+.wws-merged__nav-row {
+  position: absolute;
+  top: 0.15rem;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.wws-merged__nav {
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid #ebebeb;
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--color-charcoal, #282e31);
+  cursor: pointer;
+}
+
+.wws-merged__nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.wws-merged__months {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.wws-merged__months--dual {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+  padding-inline: 2.25rem;
+}
+
+.wws-merged__month {
+  width: 100%;
+  min-width: 0;
+  padding: 0.35rem 0.25rem 0.5rem;
+}
+
+.wws-merged__month-title {
+  margin: 0 0 0.85rem;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-charcoal, #282e31);
+}
+
+.wws-calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.35rem 0.2rem;
+}
+
+.wws-merged__dow {
+  margin-bottom: 0.45rem;
+}
+
+.wws-calendar__dow {
+  display: grid;
+  place-items: center;
+  min-height: 1.5rem;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #717171;
+}
+
+.wws-calendar__pad {
+  min-height: 2.75rem;
+}
+
+.wws-calendar__day {
+  display: grid;
+  place-items: center;
+  place-self: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  min-height: 2.5rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-charcoal, #222);
+  cursor: pointer;
+}
+
+.wws-calendar__day:hover,
+.wws-calendar__day:focus-visible {
+  background: #eef8fe;
+  outline: none;
+}
+
+.wws-calendar__day--selected {
+  background: var(--color-brand, #66c5f9);
+  color: #fff;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-brand, #66c5f9) 35%, transparent);
+}
+
+/* Desktop — full-width dual month */
+@media (min-width: 768px) {
+  .wws-merged--stack {
+    gap: 0.85rem;
+    width: 100%;
+    max-width: none;
+  }
+
+  .wws-merged--stack .wws-merged__calendar-shell {
+    width: 100%;
+    padding: 0.75rem 0.25rem 0.5rem;
+  }
+
+  .wws-merged--stack .wws-merged__months {
+    width: 100%;
+  }
+
+  .wws-merged--stack .wws-merged__months--dual {
+    gap: 1.5rem;
+    padding-inline: 2.25rem;
+  }
+
+  .wws-merged--stack .wws-merged__month {
+    padding: 0.35rem 0.25rem 0.5rem;
+  }
+
+  .wws-merged--stack .wws-merged__month-title {
+    margin-bottom: 1rem;
+    font-size: 1.0625rem;
+  }
+
+  .wws-merged--stack .wws-calendar__grid {
+    gap: 0.5rem 0.25rem;
+  }
+
+  .wws-merged--stack .wws-calendar__dow {
+    min-height: 1.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .wws-merged--stack .wws-calendar__pad {
+    min-height: 2.75rem;
+  }
+
+  .wws-merged--stack .wws-calendar__day {
+    width: 2.75rem;
+    height: 2.75rem;
+    min-height: 2.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile — larger tap targets + space around month */
+@media (max-width: 767px) {
+  .wws-merged--stack .wws-merged__calendar-shell {
+    gap: 0.85rem;
+    width: 100%;
+    padding: 0.5rem 0.35rem 0.75rem;
+  }
+
+  .wws-merged--stack .wws-merged__month {
+    padding: 0.65rem 0.4rem 0.85rem;
+  }
+
+  .wws-merged--stack .wws-merged__month-title {
+    margin-bottom: 0.95rem;
+    font-size: 1.0625rem;
+  }
+
+  .wws-merged--stack .wws-calendar__grid {
+    gap: 0.45rem 0.2rem;
+  }
+
+  .wws-merged--stack .wws-calendar__pad {
+    min-height: 2.875rem;
+  }
+
+  .wws-merged--stack .wws-calendar__day {
+    width: 2.75rem;
+    height: 2.75rem;
+    min-height: 2.75rem;
+    font-size: 0.9375rem;
+  }
+
+  .wws-merged--stack .wws-merged__tabs {
+    gap: 0.4rem;
+    justify-content: center;
+  }
+
+  .wws-merged--stack .wws-merged__tab {
+    min-height: 2.25rem;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.8125rem;
+  }
+}
+
+.wws-merged__split {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wws-merged__split-type {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.wws-frame--desktop .wws-merged--split .wws-merged__split {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.9fr) minmax(0, 1.2fr);
+  gap: 0.85rem;
+  align-items: start;
+}
+
+.wws-merged--inline .wws-merged__inline-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.wws-merged--inline .wws-merged__type {
+  flex: 1 1 10rem;
+}
+
+.wws-frame--mobile .wws-merged--inline .wws-merged__inline-bar {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.wws-merged--dense {
+  gap: 0.4rem;
+}
+
+.wws-merged--dense .wws-merged__type-field {
+  padding: 0.35rem 0.55rem;
+}
+
+.wws-merged--dense .wws-merged__type-input {
+  font-size: 0.8125rem;
+}
+
+.wws-merged--dense .wws-merged__type-go {
+  min-height: 2rem;
+  padding: 0 0.6rem;
+  font-size: 0.75rem;
+}
+
+.wws-merged--dense .wws-calendar__grid {
+  gap: 0.15rem;
+}
+
+.wws-merged--dense .wws-calendar__day {
+  font-size: 0.6875rem;
+}
+
+.wws-frame--mobile .wws-merged--dense .wws-calendar__day {
+  font-size: 0.625rem;
+}

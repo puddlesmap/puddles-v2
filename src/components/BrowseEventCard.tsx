@@ -1,7 +1,9 @@
 import type { Event } from '../types/event'
+import { formatSavedDayPill } from '../utils/dates'
 import { getSeasonalEditorialBadgeForEvent } from '../utils/seasonalEditorialBadges'
 import { eventToBrowseCard } from '../utils/browseEventCard'
 import { formatEventCardTitleParts } from '../utils/eventCardTitle'
+import { getSeasonalAvailability } from '../utils/formatSeasonalSchedule'
 import { DiscoveryV3Card } from './experiment/DiscoveryV3Card'
 
 interface BrowseEventCardProps {
@@ -30,6 +32,10 @@ interface BrowseEventCardProps {
    * Default off.
    */
   venueResponsive?: boolean
+  /** Heart overlay. Default on. */
+  showSaveHeart?: boolean
+  /** Soft blue day pill on media (Saved). Default off. */
+  showMediaDayPill?: boolean
 }
 
 /** Production browse card — Discovery v3 · Option 2 (city-soft). */
@@ -44,25 +50,47 @@ export function BrowseEventCard({
   appendVenueToWhen = false,
   showVenueBelowTitle = false,
   venueResponsive = false,
+  showSaveHeart = true,
+  showMediaDayPill = false,
   /** Override “today” for seasonal-run date labels (review mockups). */
   asOf,
 }: BrowseEventCardProps & { asOf?: Date }) {
+  const now = asOf ?? new Date()
   const badge = seasonalEditorial ? getSeasonalEditorialBadgeForEvent(event) : null
-  const card = eventToBrowseCard(event, badge, asOf ?? new Date())
+  const card = eventToBrowseCard(event, badge, now)
   const titleParts = appendVenueToTitle ? formatEventCardTitleParts(event) : null
 
   const venue = event.venue?.trim() || null
+  const city = event.city?.trim() || ''
   const showVenueLine = showVenueBelowTitle || venueResponsive
+  /** Venue · city under the title; keep date/time untruncated above. */
+  const venueBelowLabel = showVenueBelowTitle
+    ? [venue, city].filter(Boolean).join(' · ') || null
+    : showVenueLine
+      ? venue
+      : null
+  /** Avoid repeating city in chips when it already sits on the venue line. */
+  const pillarCity = showVenueBelowTitle ? '' : card.city
+
+  const mediaDayLabel = showMediaDayPill
+    ? formatSavedDayPill(
+        getSeasonalAvailability(event, now).nextRelevantYmd || event.date || '',
+        now,
+      )
+    : null
 
   return (
     <DiscoveryV3Card
       {...card}
+      city={pillarCity}
       title={titleParts?.title ?? card.title}
       titleVenue={titleParts?.venue}
       datetimeVenue={appendVenueToWhen || venueResponsive ? venue : null}
       showVenueBelowTitle={showVenueBelowTitle}
-      venueLine={showVenueLine ? venue : null}
+      venueLine={venueBelowLabel}
       venueResponsive={venueResponsive}
+      showSaveHeart={showSaveHeart}
+      mediaDayLabel={mediaDayLabel}
       event={event}
       onClick={onClick}
       selected={selected}

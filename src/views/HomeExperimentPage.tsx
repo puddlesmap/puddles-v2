@@ -9,6 +9,10 @@ import {
   DiscoveryFilterChip,
   NearbyPinIcon,
 } from '../components/filters/DiscoveryFilterChip'
+import {
+  WhereWhenPillFilters,
+  type WhereWhenCityValue,
+} from '../components/filters/WhereWhenPillFilters'
 import { isNewCityFilter } from '../config/cityLaunch'
 import { PageContainer } from '../components/layout/PageContainer'
 import { Footer } from '../components/layout/Footer'
@@ -26,6 +30,7 @@ import { useUserLocation } from '../hooks/useUserLocation'
 import { useApp } from '../context/AppContext'
 import { useEventNavigation } from '../hooks/useEventNavigation'
 import { filterEvents, sortEventsBySchedule } from '../utils/filters'
+import { eventMatchesPickedYmd } from '../utils/pickedDate'
 import type { TemporalTab } from '../utils/dates'
 import { getFirstTemporalTabWithEvents, getTemporalTabs } from '../utils/dates'
 import {
@@ -55,10 +60,10 @@ type WhereMode =
   | { kind: 'city'; value: CityValue }
 
 const CITY_CHIPS: Array<{ value: CityValue; label: string }> = [
-  { value: 'Sunnyvale', label: 'Sunnyvale' },
   { value: 'Palo Alto', label: 'Palo Alto' },
   { value: 'Los Altos', label: 'Los Altos' },
   { value: 'Mountain View', label: 'Mountain View' },
+  { value: 'Sunnyvale', label: 'Sunnyvale' },
   { value: 'other', label: 'Other cities' },
   { value: 'all', label: 'All Cities' },
 ]
@@ -135,6 +140,8 @@ interface HomeExperimentPageProps {
   showBrandName?: boolean
   /** Override catalog source (defaults to launch staging context when active). */
   getEventsCatalog?: () => ReturnType<typeof getPublicEventsFromCatalog>
+  /** Chip bars (default) or Airbnb-style Where/When pill (experiment mock). */
+  filterVariant?: 'chips' | 'where-when-pill'
 }
 
 function HomeExperimentHero({ variant }: { variant: HomeHeroVariant }) {
@@ -187,6 +194,7 @@ export function HomeExperimentPage({
   logoSrc2x = PUDDLES_WORDMARK_LOGO_SRC_2X,
   showBrandName = false,
   getEventsCatalog,
+  filterVariant = 'chips',
 }: HomeExperimentPageProps = {}) {
   const { getCatalog: getLaunchCatalog } = useLaunchStagingCatalog()
   const resolveCatalog = useCallback(
@@ -204,6 +212,7 @@ export function HomeExperimentPage({
   const [temporalTab, setLocalTemporalTab] = useState<TemporalTab>(() => {
     return readHomeReturnSnapshot()?.temporalTab ?? 'today'
   })
+  const [pickedYmd, setPickedYmd] = useState<string | null>(null)
   const { coords, isRequesting, requestLocation } = useUserLocation()
 
   const tabs = getTemporalTabs()
@@ -273,8 +282,8 @@ export function HomeExperimentPage({
   const events = useMemo(() => {
     const base = filterEvents(resolveCatalog(), {
       city: whereMode.kind === 'city' && whereMode.value !== 'all' ? whereMode.value : 'all',
-      temporalTab,
-    })
+      temporalTab: pickedYmd ? undefined : temporalTab,
+    }).filter((event) => (pickedYmd ? eventMatchesPickedYmd(event, pickedYmd) : true))
 
     if (whereMode.kind === 'nearby' && coords) {
       return sortEventsByDistance(
@@ -284,12 +293,12 @@ export function HomeExperimentPage({
     }
 
     return sortEventsBySchedule(base)
-  }, [whereMode, temporalTab, coords, resolveCatalog])
+  }, [whereMode, temporalTab, pickedYmd, coords, resolveCatalog])
 
   const feedKey = useMemo(
     () =>
-      `${whereMode.kind}|${whereMode.kind === 'city' ? whereMode.value : 'nearby'}|${temporalTab}|${coords?.lat ?? ''}|${coords?.lng ?? ''}`,
-    [whereMode, temporalTab, coords],
+      `${whereMode.kind}|${whereMode.kind === 'city' ? whereMode.value : 'nearby'}|${temporalTab}|${pickedYmd ?? ''}|${coords?.lat ?? ''}|${coords?.lng ?? ''}`,
+    [whereMode, temporalTab, pickedYmd, coords],
   )
 
   const requestNearbyLocation = useCallback(async () => {
@@ -300,6 +309,7 @@ export function HomeExperimentPage({
   }, [requestLocation])
 
   function pickFirstTabForCity(city: CityValue) {
+    setPickedYmd(null)
     const pool = filterEvents(resolveCatalog(), { city: city === 'all' ? 'all' : city })
     setLocalTemporalTab(getFirstTemporalTabWithEvents(pool))
   }
@@ -320,9 +330,14 @@ export function HomeExperimentPage({
   }
 
   function handleDayChange(day: TemporalTab) {
+    setPickedYmd(null)
     if (day === temporalTab) return
     setLocalTemporalTab(day)
     trackDateFilterSelected(day, 'home')
+  }
+
+  function handlePickDate(ymd: string) {
+    setPickedYmd(ymd)
   }
 
   const isRefinedLayout = layout === 'refined'
@@ -374,68 +389,95 @@ export function HomeExperimentPage({
     />
   )
 
-  const filterSection = (
-    <div
-      className={[
-        'home-experiment-filters discovery-filters',
-        isRefinedLayout ? '' : 'mt-8',
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      aria-label="Quick filters"
-    >
-      <div className="discovery-filter-group home-experiment-filter-group">
-        <span className="discovery-filter-label" id="home-experiment-where-label">
-          Where
-        </span>
-        <div
-          className="discovery-filter-chips discovery-filter-chips--scroll"
-          role="group"
-          aria-labelledby="home-experiment-where-label"
-        >
-          <DiscoveryFilterChip
-            label="Nearby"
-            icon={<NearbyPinIcon tone={isRefinedLayout ? 'brand' : 'default'} />}
-            active={whereMode.kind === 'nearby'}
-            onClick={handleNearbySelect}
-          />
-          {CITY_CHIPS.map((chip) => (
-            <DiscoveryFilterChip
-              key={chip.value}
-              label={chip.label}
-              badge={
-                chip.value !== 'all' && chip.value !== 'other' && isNewCityFilter(chip.value)
-                  ? 'NEW'
-                  : undefined
-              }
-              active={whereMode.kind === 'city' && whereMode.value === chip.value}
-              onClick={() => handleCitySelect(chip.value)}
-            />
-          ))}
-        </div>
+  const filterSection =
+    filterVariant === 'where-when-pill' ? (
+      <div
+        className={[
+          'home-experiment-filters home-experiment-filters--where-when-pill',
+          isRefinedLayout ? '' : 'mt-8',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        aria-label="Quick filters"
+      >
+        <WhereWhenPillFilters
+          surface="home"
+          whereKey={
+            whereMode.kind === 'nearby' ? 'nearby' : whereMode.value
+          }
+          dayKey={temporalTab}
+          pickedYmd={pickedYmd}
+          onWhereSelect={(key: WhereWhenCityValue) => {
+            if (key === 'nearby') handleNearbySelect()
+            else handleCitySelect(key)
+          }}
+          onDaySelect={(key) => handleDayChange(key as TemporalTab)}
+          onPickDate={handlePickDate}
+          onClearPickedDate={() => setPickedYmd(null)}
+        />
       </div>
+    ) : (
+      <div
+        className={[
+          'home-experiment-filters discovery-filters',
+          isRefinedLayout ? '' : 'mt-8',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        aria-label="Quick filters"
+      >
+        <div className="discovery-filter-group home-experiment-filter-group">
+          <span className="discovery-filter-label" id="home-experiment-where-label">
+            Where
+          </span>
+          <div
+            className="discovery-filter-chips discovery-filter-chips--scroll"
+            role="group"
+            aria-labelledby="home-experiment-where-label"
+          >
+            <DiscoveryFilterChip
+              label="Nearby"
+              icon={<NearbyPinIcon tone={isRefinedLayout ? 'brand' : 'default'} />}
+              active={whereMode.kind === 'nearby'}
+              onClick={handleNearbySelect}
+            />
+            {CITY_CHIPS.map((chip) => (
+              <DiscoveryFilterChip
+                key={chip.value}
+                label={chip.label}
+                badge={
+                  chip.value !== 'all' && chip.value !== 'other' && isNewCityFilter(chip.value)
+                    ? 'NEW'
+                    : undefined
+                }
+                active={whereMode.kind === 'city' && whereMode.value === chip.value}
+                onClick={() => handleCitySelect(chip.value)}
+              />
+            ))}
+          </div>
+        </div>
 
-      <div className="discovery-filter-group home-experiment-filter-group">
-        <span className="discovery-filter-label" id="home-experiment-when-label">
-          When
-        </span>
-        <div
-          className="discovery-filter-chips"
-          role="group"
-          aria-labelledby="home-experiment-when-label"
-        >
-          {tabs.map((tab) => (
-            <DiscoveryFilterChip
-              key={tab.key}
-              label={tab.label}
-              active={temporalTab === tab.key}
-              onClick={() => handleDayChange(tab.key)}
-            />
-          ))}
+        <div className="discovery-filter-group home-experiment-filter-group">
+          <span className="discovery-filter-label" id="home-experiment-when-label">
+            When
+          </span>
+          <div
+            className="discovery-filter-chips"
+            role="group"
+            aria-labelledby="home-experiment-when-label"
+          >
+            {tabs.map((tab) => (
+              <DiscoveryFilterChip
+                key={tab.key}
+                label={tab.label}
+                active={temporalTab === tab.key && !pickedYmd}
+                onClick={() => handleDayChange(tab.key)}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
 
   const showResultsSummaryWithResults =
     isRefinedLayout && refinedSummaryPlacement === 'with-results'

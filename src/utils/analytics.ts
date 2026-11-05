@@ -60,6 +60,8 @@ export const ANALYTICS_EVENTS = {
   GUIDE_SHARED: 'guide_shared',
   NEWSLETTER_SUBSCRIBED: 'newsletter_subscribed',
   NEWSLETTER_UNSUBSCRIBED: 'newsletter_unsubscribed',
+  ACTIVITY_SAVED: 'activity_saved',
+  SAVED_SIGN_IN: 'saved_sign_in',
 } as const
 
 type PlausibleInitOptions = {

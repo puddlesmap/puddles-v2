@@ -21,6 +21,7 @@ import {
   loadSubmissionsFromGithub,
   patchSubmissionsInGithub,
 } from './netlify/lib/submissions-store.mjs'
+import { handler as audienceHandler } from './netlify/functions/audience.mjs'
 
 const SPREADSHEET_ID = '1ko8p-HMzXMnSHT8qPxv14X-TPaac0RJTrfw8PwjikH8'
 const EVENTS_GID = '1023308778'
@@ -65,6 +66,11 @@ export default defineConfig(({ mode }) => {
           find: /^@\//,
           replacement: `${path.resolve(__dirname, 'src')}/`,
         },
+        {
+          // Shared hooks import next/navigation; under Vite use React Router instead.
+          find: 'next/navigation',
+          replacement: path.resolve(__dirname, 'src/shims/next-navigation-react-router.ts'),
+        },
       ],
     },
     define: {
@@ -82,6 +88,9 @@ export default defineConfig(({ mode }) => {
         env.NEXT_PUBLIC_PUDDLES_API_KEY || '',
       ),
       'process.env.VITE_PUDDLES_API_KEY': JSON.stringify(env.VITE_PUDDLES_API_KEY || ''),
+      'process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY': JSON.stringify(
+        env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || '',
+      ),
       'process.env.NODE_ENV': JSON.stringify(mode),
     },
     plugins: [
@@ -395,6 +404,36 @@ export default defineConfig(({ mode }) => {
               sendJson(res, 502, {
                 ok: false,
                 error: error instanceof Error ? error.message : 'Could not publish seasonal curation',
+              })
+            }
+          })
+
+          server.middlewares.use('/api/audience', async (req, res) => {
+            try {
+              const raw = ['POST', 'PATCH'].includes(String(req.method || ''))
+                ? await readBody(req)
+                : ''
+              const result = await audienceHandler({
+                httpMethod: req.method || 'GET',
+                headers: {
+                  cookie: req.headers.cookie || '',
+                  host: req.headers.host || '',
+                  authorization: req.headers.authorization || '',
+                  'content-type': req.headers['content-type'] || 'application/json',
+                },
+                body: raw || null,
+              })
+              const headers = result?.headers || {}
+              for (const [key, value] of Object.entries(headers)) {
+                if (typeof value === 'string') res.setHeader(key, value)
+              }
+              res.statusCode = result?.statusCode || 200
+              res.setHeader('Content-Type', 'application/json')
+              res.end(result?.body || '{}')
+            } catch (error) {
+              sendJson(res, 500, {
+                ok: false,
+                error: error instanceof Error ? error.message : 'Audience API failed',
               })
             }
           })

@@ -8,7 +8,7 @@ import {
   buildClipboardShareText,
   buildNativeSharePayload,
 } from '../utils/eventShare'
-import { addEventToCalendar, canAddEventToCalendar, isLikelyInAppBrowser } from '../utils/calendar'
+import { AddToCalendarButton } from './calendar/AddToCalendarButton'
 import type { EventLifecycleStatus } from '../utils/eventLifecycle'
 import type { LifecycleLinkTarget } from '../utils/eventLifecycleBrowse'
 import { EventLifecycleBanner } from './event-detail/EventLifecycleBanner'
@@ -320,7 +320,6 @@ function EventDetailTrustCard({
 
 function EventDetailActions({
   event,
-  canAddToCalendar,
   hasOfficialPage,
   onShare,
   onClose,
@@ -329,7 +328,6 @@ function EventDetailActions({
   className = 'event-modal-actions shrink-0 border-t border-border bg-white px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]',
 }: {
   event: Event
-  canAddToCalendar: boolean
   hasOfficialPage: boolean
   onShare?: () => void
   onClose?: () => void
@@ -340,22 +338,12 @@ function EventDetailActions({
   return (
     <div className={className}>
       <div className="event-modal-actions__ctas">
-        <button
-          type="button"
-          onClick={() => {
-            const result = addEventToCalendar(event)
-            if (result) trackActivityEngagement(ANALYTICS_EVENTS.ADD_TO_CALENDAR_CLICKED, event)
-          }}
-          disabled={!canAddToCalendar}
-          className="btn-primary disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Add to calendar
-        </button>
-        {!canAddToCalendar ? (
-          <p className="event-modal-actions-note text-center">Calendar details unavailable</p>
-        ) : isLikelyInAppBrowser() ? (
-          <p className="event-modal-actions-note text-center">Opens Google Calendar</p>
-        ) : null}
+        <AddToCalendarButton
+          event={event}
+          variant="primary"
+          showHint
+          className="disabled:cursor-not-allowed disabled:opacity-40"
+        />
         {hasOfficialPage ? (
           <a
             href={event.eventUrl}
@@ -438,7 +426,6 @@ export function EventDetailView({
   const description = event.description
     ? capitalizeCitiesInText(stripLogisticsFromDescription(event.description), event.city)
     : ''
-  const canAddToCalendar = canAddEventToCalendar(event)
   const hasOfficialPage = isOfficialEventUrl(event.eventUrl)
   const canNativeShare = typeof navigator !== 'undefined' && 'share' in navigator
   const shareUrl = eventDetailUrl(event)
@@ -599,7 +586,6 @@ export function EventDetailView({
               {!previewMode ? (
                 <EventDetailActions
                   event={event}
-                  canAddToCalendar={canAddToCalendar}
                   hasOfficialPage={hasOfficialPage}
                   shareInHeader={effectiveShareInHeader}
                   hideCloseButton={hideCloseControl}
@@ -713,7 +699,6 @@ export function EventDetailView({
       ) : (
         <EventDetailActions
           event={event}
-          canAddToCalendar={canAddToCalendar}
           hasOfficialPage={hasOfficialPage}
           shareInHeader={effectiveShareInHeader}
           hideCloseButton={hideCloseControl}

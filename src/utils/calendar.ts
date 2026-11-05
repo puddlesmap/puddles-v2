@@ -145,6 +145,13 @@ export function downloadEventIcs(event: Event): boolean {
     location ? `LOCATION:${escapeIcsText(location)}` : null,
     `DESCRIPTION:${escapeIcsText(description)}`,
     event.eventUrl?.trim() ? `URL:${escapeIcsText(event.eventUrl.trim())}` : null,
+    // One-day-before reminder — supported by .ics imports (Apple/Outlook/Google file import).
+    // Google Calendar TEMPLATE links cannot set reminders.
+    'BEGIN:VALARM',
+    'TRIGGER:-P1D',
+    'ACTION:DISPLAY',
+    'DESCRIPTION:Puddles reminder',
+    'END:VALARM',
     'END:VEVENT',
     'END:VCALENDAR',
   ].filter(Boolean)

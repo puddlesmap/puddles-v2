@@ -260,7 +260,12 @@ export function PuddlesPicksPopup() {
   return createPortal(
     <div className="picks-home-overlay" role="presentation">
       <button type="button" className="picks-home-backdrop" aria-label="Close" onClick={dismiss} />
-      <div className="picks-home-dialog" role="dialog" aria-modal="true" aria-label="Puddles Picks">
+      <div
+        className="picks-home-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Puddles Holiday Guide"
+      >
         <button type="button" className="picks-home-close" aria-label="Close" onClick={dismiss}>
           ×
         </button>
@@ -268,12 +273,13 @@ export function PuddlesPicksPopup() {
           <Success />
         ) : (
           <>
-            <p className="picks-home-kicker">Puddles Picks · Coming Soon</p>
+            <p className="picks-home-kicker">Puddles Holiday Guide</p>
             <div className="picks-home-copy">
-              <h3>Good plans, delivered.</h3>
+              <h3>Get our free Holiday Guide 🎄</h3>
             </div>
             <p className="picks-home-desc">
-              Curated family outings, seasonal picks & monthly parent guides for ages 0–5.
+              Discover holiday lights, festive shows, and family outings for little ones around the
+              South Peninsula.
             </p>
             <PlaceLine />
             <SignupFields id={id} signup={signup} layout="stack" buttonLabel="Join the list →" />

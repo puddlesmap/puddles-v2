@@ -1,12 +1,16 @@
-import type { CSSProperties } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { partitionSeasonalTiming } from '../utils/seasonalWeekendBuckets'
 import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
 import { PageContainer } from '../components/layout/PageContainer'
 import { BrowseEventCard } from '../components/BrowseEventCard'
+import { FilterPopover, type FilterPopoverType } from '../components/FilterPopover'
+import { FilterSheet, type FilterSheetType } from '../components/FilterSheet'
+import { getBrowseLocationLabel } from '../components/layout/BrandLockup'
 import { SeasonalEmDashTagline } from '../components/seasonal/SeasonalDiscoveryModuleHeader'
+import { HOLIDAY_GUIDE_DEK, HOLIDAY_GUIDE_TITLE } from '../data/holidayGuide'
 import type { Event } from '../types/event'
 import {
   getActiveSeasonalCollection,
@@ -15,7 +19,10 @@ import {
   resolveSeasonalEvents,
   type SeasonalCollection,
 } from '../data/seasonalDiscovery'
-import { sortSeasonalDiscoveryEvents } from '../utils/formatSeasonalSchedule'
+import {
+  sortSeasonalDiscoveryEvents,
+  spannedScheduleMatchesWhen,
+} from '../utils/formatSeasonalSchedule'
 import {
   PUDDLES_WORDMARK_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC_2X,
@@ -24,6 +31,68 @@ import { LocalGuideCardVariant } from '../components/guides/LocalGuideCard'
 import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
 import './guide-page.css'
 import { useEventNavigation } from '../hooks/useEventNavigation'
+import { useUserLocation } from '../hooks/useUserLocation'
+import {
+  DEFAULT_BROWSE_FILTERS,
+  type BrowseFilters,
+} from '../utils/filters'
+import {
+  formatSearchAnchorLocationLabel,
+  type BrowseSearchAnchor,
+} from '../utils/browseSearchAnchor'
+import { formatShortDate, getAnchorDate } from '../utils/dates'
+import { eventMatchesDayFilter } from '../utils/eventSessions'
+import { matchesBrowseCityFilter } from '../utils/cityRegions'
+import { eventMatchesPickedYmd } from '../utils/pickedDate'
+import {
+  NEARBY_RADIUS_MILES,
+  filterEventsByRadius,
+} from '../utils/geo'
+import { getBrowseResultsSummary } from '../utils/browseResultsCopy'
+import { trackCitySelected } from '../utils/analytics'
+
+const DESKTOP_MEDIA = '(min-width: 768px)'
+
+function isDesktopViewport() {
+  return window.matchMedia(DESKTOP_MEDIA).matches
+}
+
+const DAY_LABELS = {
+  today: 'Today',
+  tomorrow: 'Tomorrow',
+  weekend: 'This weekend',
+  anytime: 'Anytime',
+} as const
+
+function applyHolidayTypeaheadFilters(
+  events: Event[],
+  browseFilters: BrowseFilters,
+  pickedYmd: string | null,
+  searchAnchor: BrowseSearchAnchor | null,
+  coords: { lat: number; lng: number } | null,
+): Event[] {
+  const anchor = getAnchorDate()
+  const now = new Date()
+  const day = pickedYmd ? ('anytime' as const) : browseFilters.day
+  const city = searchAnchor ? 'all' : browseFilters.city
+
+  let next = events.filter((event) => {
+    if (!matchesBrowseCityFilter(event.city, city)) return false
+    if (pickedYmd) return eventMatchesPickedYmd(event, pickedYmd)
+    return (
+      eventMatchesDayFilter(event, day, anchor, now) ||
+      spannedScheduleMatchesWhen(event, day, anchor, now)
+    )
+  })
+
+  if (searchAnchor) {
+    next = filterEventsByRadius(next, searchAnchor, NEARBY_RADIUS_MILES)
+  } else if (browseFilters.city === 'nearby' && coords) {
+    next = filterEventsByRadius(next, coords, NEARBY_RADIUS_MILES)
+  }
+
+  return next
+}
 
 /** Soft night-sky sparkles for the Halloween collection page. */
 const HALLOWEEN_SPARKLES = [
@@ -87,15 +156,24 @@ function TimingGroups({
   events,
   onEventClick,
   geoLabel,
+  hideTimingLabels = false,
 }: {
   events: Event[]
   onEventClick: (event: Event) => void
   geoLabel: string
+  /** Skip This week / Later headings (flat list under the geo band). */
+  hideTimingLabels?: boolean
 }) {
   const { thisWeek, later } = useMemo(() => partitionSeasonalTiming(events), [events])
 
   if (events.length === 0) {
     return <p className="seasonal-density-empty">No activities in this section right now.</p>
+  }
+
+  if (hideTimingLabels) {
+    return (
+      <SeasonalEventGrid events={events} onEventClick={onEventClick} label={geoLabel} />
+    )
   }
 
   return (
@@ -124,18 +202,55 @@ function TimingGroups({
   )
 }
 
+function TypeaheadFilterChevron() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      className="seasonal-typeahead-filter__chevron"
+      aria-hidden
+    >
+      <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function TypeaheadFilterButton({
+  label,
+  onClick,
+}: {
+  label: string
+  onClick: () => void
+}) {
+  return (
+    <button type="button" className="seasonal-typeahead-filter" onClick={onClick}>
+      <TypeaheadFilterChevron />
+      <span className="seasonal-typeahead-filter__label">{label}</span>
+    </button>
+  )
+}
+
 function CollectionGeoTabs({
   collection,
   closeToHomeEvents,
   driveEvents,
   onEventClick,
   id,
+  afterTabs,
+  hideTimingLabels = false,
 }: {
   collection: SeasonalCollection
   closeToHomeEvents: Event[]
   driveEvents: Event[]
   onEventClick: (event: Event) => void
   id?: string
+  /** Mobile-only filter row rendered under the geo toggle. */
+  afterTabs?: ReactNode
+  hideTimingLabels?: boolean
 }) {
   const closeToHome = collection.closeToHome!
   const worthADrive = collection.worthADrive!
@@ -194,7 +309,12 @@ function CollectionGeoTabs({
               </button>
             </div>
           </div>
+          {afterTabs}
         </>
+      ) : afterTabs ? (
+        <div className="seasonal-typeahead-filters seasonal-typeahead-filters--mobile-only">
+          {afterTabs}
+        </div>
       ) : null}
 
       <div
@@ -209,7 +329,12 @@ function CollectionGeoTabs({
           <h2 className="seasonal-collection-band__title">{geoLabel}</h2>
           <p className="seasonal-collection-band__subtitle">{subtitle}</p>
         </header>
-        <TimingGroups events={events} onEventClick={onEventClick} geoLabel={geoLabel} />
+        <TimingGroups
+          events={events}
+          onEventClick={onEventClick}
+          geoLabel={geoLabel}
+          hideTimingLabels={hideTimingLabels}
+        />
       </div>
 
       {showDriveTab ? (
@@ -225,6 +350,7 @@ function CollectionGeoTabs({
               events={closeToHomeEvents}
               onEventClick={onEventClick}
               geoLabel={closeToHome.title}
+              hideTimingLabels={hideTimingLabels}
             />
           </section>
           <section
@@ -241,6 +367,7 @@ function CollectionGeoTabs({
               events={driveEvents}
               onEventClick={onEventClick}
               geoLabel={worthADrive.title}
+              hideTimingLabels={hideTimingLabels}
             />
           </section>
         </div>
@@ -255,7 +382,14 @@ export function SeasonalActivePage() {
   return <ExperimentSeasonalCollectionPage slug={active.slug} />
 }
 
-export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: string } = {}) {
+export function ExperimentSeasonalCollectionPage({
+  slug: slugProp,
+  typeaheadFilters: typeaheadFiltersProp = false,
+}: {
+  slug?: string
+  /** Browse-style city/ZIP typeahead + pick-a-date (live on holiday-magic; also via prop). */
+  typeaheadFilters?: boolean
+} = {}) {
   const params = useParams()
   const location = useLocation()
   const slug = slugProp ?? params.slug
@@ -263,15 +397,22 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
   const { getCatalog } = useLaunchStagingCatalog()
   const validSlug = isSeasonalCollectionSlug(slug) ? slug : null
   const collection = validSlug ? getSeasonalCollection(validSlug) : undefined
+  const typeaheadFilters = typeaheadFiltersProp || collection?.slug === 'holiday-magic'
+  const { coords, requestLocation } = useUserLocation()
+  const [browseFilters, setBrowseFilters] = useState<BrowseFilters>(DEFAULT_BROWSE_FILTERS)
+  const [pickedYmd, setPickedYmd] = useState<string | null>(null)
+  const [searchAnchor, setSearchAnchor] = useState<BrowseSearchAnchor | null>(null)
+  const [openPopover, setOpenPopover] = useState<FilterPopoverType>(null)
+  const [openSheet, setOpenSheet] = useState<FilterSheetType>(null)
 
-  const closeToHomeEvents = useMemo(() => {
+  const closeToHomeEventsRaw = useMemo(() => {
     if (!collection) return []
     const driveIds = new Set(collection.driveEventIds ?? [])
     const closeIds = collection.collectionEventIds.filter((id) => !driveIds.has(id))
     return sortSeasonalDiscoveryEvents(resolveSeasonalEvents(closeIds, getCatalog()))
   }, [collection, getCatalog])
 
-  const driveEvents = useMemo(
+  const driveEventsRaw = useMemo(
     () =>
       collection?.driveEventIds?.length
         ? sortSeasonalDiscoveryEvents(
@@ -281,11 +422,72 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
     [collection, getCatalog],
   )
 
+  const closeToHomeEvents = useMemo(() => {
+    if (!typeaheadFilters) return closeToHomeEventsRaw
+    return applyHolidayTypeaheadFilters(
+      closeToHomeEventsRaw,
+      browseFilters,
+      pickedYmd,
+      searchAnchor,
+      coords,
+    )
+  }, [
+    typeaheadFilters,
+    closeToHomeEventsRaw,
+    browseFilters,
+    pickedYmd,
+    searchAnchor,
+    coords,
+  ])
+
+  const driveEvents = useMemo(() => {
+    if (!typeaheadFilters) return driveEventsRaw
+    return applyHolidayTypeaheadFilters(
+      driveEventsRaw,
+      browseFilters,
+      pickedYmd,
+      searchAnchor,
+      coords,
+    )
+  }, [typeaheadFilters, driveEventsRaw, browseFilters, pickedYmd, searchAnchor, coords])
+
+  const filteredTotal = closeToHomeEvents.length + driveEvents.length
+
   useEffect(() => {
     const hash = location.hash || window.location.hash
     if (hash !== '#events') return
     document.getElementById('events')?.scrollIntoView({ block: 'start' })
   }, [location.hash, collection])
+
+  const requestNearbyLocation = useCallback(async () => {
+    const nextCoords = await requestLocation()
+    return Boolean(nextCoords)
+  }, [requestLocation])
+
+  function handleSearchAnchor(anchor: BrowseSearchAnchor | null) {
+    setSearchAnchor(anchor)
+    if (anchor) {
+      setBrowseFilters((prev) => ({ ...prev, city: 'all', cityLocked: false }))
+    }
+  }
+
+  function openLocationFilter() {
+    setOpenPopover(null)
+    if (isDesktopViewport()) setOpenPopover('location')
+    else setOpenSheet('location')
+  }
+
+  function openDayFilter() {
+    setOpenPopover(null)
+    if (isDesktopViewport()) setOpenPopover('day')
+    else setOpenSheet('day')
+  }
+
+  function resetTypeaheadFilters() {
+    setBrowseFilters(DEFAULT_BROWSE_FILTERS)
+    setPickedYmd(null)
+    setSearchAnchor(null)
+  }
 
   if (!validSlug || !collection) {
     return <Navigate to="/" replace />
@@ -317,6 +519,27 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
       ? undefined
       : collection.title
   const showDescription = Boolean(collection.description)
+  const showTypeahead = typeaheadFilters && isHoliday
+  const locationLabel = searchAnchor
+    ? formatSearchAnchorLocationLabel(searchAnchor)
+    : getBrowseLocationLabel(browseFilters.city)
+  const dayChipLabel = pickedYmd
+    ? formatShortDate(new Date(`${pickedYmd}T12:00:00`))
+    : browseFilters.day !== 'anytime'
+      ? DAY_LABELS[browseFilters.day]
+      : 'Upcoming'
+  const showReset =
+    showTypeahead &&
+    (browseFilters.city !== 'all' ||
+      browseFilters.day !== 'anytime' ||
+      Boolean(pickedYmd) ||
+      Boolean(searchAnchor))
+  const resultsSummary = getBrowseResultsSummary(
+    filteredTotal,
+    browseFilters.city,
+    browseFilters.day,
+    { pickedYmd },
+  )
 
   return (
     <div
@@ -379,6 +602,7 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
           isHalloween ? 'seasonal-collection-page--halloween' : '',
           isHoliday ? 'seasonal-collection-page--holiday-magic seasonal-collection-page--holiday-magic-reverse' : '',
           hasGeographicSections ? 'seasonal-collection-page--split' : '',
+          showTypeahead ? 'seasonal-collection-page--typeahead-filters' : '',
         ]
           .filter(Boolean)
           .join(' ')}
@@ -397,7 +621,11 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
           }
         >
           {isExperimentPreview && isHoliday ? (
-            <p className="seasonal-mockup-banner">Mockup · not on the public site until November 5</p>
+            <p className="seasonal-mockup-banner">
+              {showTypeahead
+                ? 'Mockup · Holiday Magic filters preview'
+                : 'Mockup · Holiday Magic preview'}
+            </p>
           ) : null}
           <Link to="/" className="seasonal-collection-back">
             ← Back home
@@ -429,18 +657,63 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
 
           {isHalloween ? <LocalGuideCardVariant variant={4} /> : null}
           {isHoliday ? (
-            <div className="local-guide-teaser local-guide-teaser--solo">
-              <div className="local-guide-card local-guide-card--poster" aria-label="Holiday guide, coming soon">
+            <div className="local-guide-teaser local-guide-teaser--solo local-guide-teaser--holiday-editorial">
+              <div
+                className="local-guide-card local-guide-card--holiday-editorial"
+                aria-label={`${HOLIDAY_GUIDE_TITLE}. Coming soon`}
+              >
                 <span className="holiday-guide-placeholder__media" aria-hidden />
                 <span className="local-guide-card__copy">
                   <span className="local-guide-card__eyebrow">Holiday guide</span>
-                  <span className="local-guide-card__title">Holiday magic with little ones</span>
-                  <span className="local-guide-card__dek">
-                    Lights, shows, and family outings from November through early January.
-                  </span>
+                  <span className="local-guide-card__title">{HOLIDAY_GUIDE_TITLE}</span>
+                  <span className="local-guide-card__dek">{HOLIDAY_GUIDE_DEK}</span>
                   <span className="local-guide-card__pill">Coming soon</span>
                 </span>
               </div>
+            </div>
+          ) : null}
+
+          {showTypeahead ? (
+            <div className="seasonal-typeahead-filters seasonal-typeahead-filters--desktop browse-controls relative">
+              <div
+                className="seasonal-typeahead-filters__row"
+                role="group"
+                aria-label="Location and date filters"
+              >
+                <div className="seasonal-typeahead-filters__controls">
+                  <TypeaheadFilterButton label={locationLabel} onClick={openLocationFilter} />
+                  <TypeaheadFilterButton label={dayChipLabel} onClick={openDayFilter} />
+                </div>
+                {showReset ? (
+                  <button
+                    type="button"
+                    onClick={resetTypeaheadFilters}
+                    className="browse-reset-link seasonal-typeahead-filters__reset"
+                  >
+                    Reset
+                  </button>
+                ) : null}
+                <p className="seasonal-typeahead-filters__count" aria-live="polite">
+                  {resultsSummary}
+                </p>
+              </div>
+              <FilterPopover
+                filters={browseFilters}
+                onApply={(next) => {
+                  setBrowseFilters(next)
+                  trackCitySelected(next.city, 'browse')
+                }}
+                open={openPopover}
+                onClose={() => setOpenPopover(null)}
+                hasNearbyCoords={Boolean(coords)}
+                onRequestNearby={requestNearbyLocation}
+                filterEnhancements
+                searchAnchorLabel={searchAnchor?.label ?? null}
+                onSearchAnchor={handleSearchAnchor}
+                pickedYmd={pickedYmd}
+                onPickDate={setPickedYmd}
+                onClearPickedDate={() => setPickedYmd(null)}
+              />
             </div>
           ) : null}
 
@@ -451,16 +724,88 @@ export function ExperimentSeasonalCollectionPage({ slug: slugProp }: { slug?: st
               closeToHomeEvents={closeToHomeEvents}
               driveEvents={driveEvents}
               onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
+              hideTimingLabels={showTypeahead}
+              afterTabs={
+                showTypeahead ? (
+                  <div className="seasonal-typeahead-filters seasonal-typeahead-filters--mobile browse-controls relative">
+                    <div
+                      className="seasonal-typeahead-filters__row"
+                      role="group"
+                      aria-label="Location and date filters"
+                    >
+                      <div className="seasonal-typeahead-filters__controls">
+                        <TypeaheadFilterButton label={locationLabel} onClick={openLocationFilter} />
+                        <TypeaheadFilterButton label={dayChipLabel} onClick={openDayFilter} />
+                      </div>
+                      {showReset ? (
+                        <button
+                          type="button"
+                          onClick={resetTypeaheadFilters}
+                          className="browse-reset-link seasonal-typeahead-filters__reset"
+                        >
+                          Reset
+                        </button>
+                      ) : null}
+                      <p className="seasonal-typeahead-filters__count" aria-live="polite">
+                        {resultsSummary}
+                      </p>
+                    </div>
+                    <hr className="seasonal-typeahead-filters__rule" />
+                  </div>
+                ) : null
+              }
             />
           ) : (
-            <TimingGroups
-              events={closeToHomeEvents}
-              onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
-              geoLabel={collection.subtitle}
-            />
+            <>
+              {showTypeahead ? (
+                <div className="seasonal-typeahead-filters seasonal-typeahead-filters--mobile browse-controls relative">
+                  <div
+                    className="seasonal-typeahead-filters__row"
+                    role="group"
+                    aria-label="Location and date filters"
+                  >
+                    <div className="seasonal-typeahead-filters__controls">
+                      <TypeaheadFilterButton label={locationLabel} onClick={openLocationFilter} />
+                      <TypeaheadFilterButton label={dayChipLabel} onClick={openDayFilter} />
+                    </div>
+                    <p className="seasonal-typeahead-filters__count" aria-live="polite">
+                      {resultsSummary}
+                    </p>
+                  </div>
+                  <hr className="seasonal-typeahead-filters__rule" />
+                </div>
+              ) : null}
+              <TimingGroups
+                events={closeToHomeEvents}
+                onEventClick={(event) => openEvent(event, 'home', { viewMode: 'list' })}
+                geoLabel={collection.subtitle}
+                hideTimingLabels={showTypeahead}
+              />
+            </>
           )}
         </div>
       </PageContainer>
+
+      {showTypeahead ? (
+        <FilterSheet
+          filters={browseFilters}
+          onApply={(next) => {
+            setBrowseFilters(next)
+            trackCitySelected(next.city, 'browse')
+          }}
+          open={openSheet}
+          onClose={() => setOpenSheet(null)}
+          hasNearbyCoords={Boolean(coords)}
+          onRequestNearby={requestNearbyLocation}
+          filterEnhancements
+          searchAnchorLabel={searchAnchor?.label ?? null}
+          onSearchAnchor={handleSearchAnchor}
+          pickedYmd={pickedYmd}
+          onPickDate={setPickedYmd}
+          onClearPickedDate={() => setPickedYmd(null)}
+          countEvents={[...closeToHomeEventsRaw, ...driveEventsRaw]}
+        />
+      ) : null}
 
       <Footer fullBleed className="mt-0" />
     </div>

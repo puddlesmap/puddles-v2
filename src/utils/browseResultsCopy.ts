@@ -1,11 +1,16 @@
 import type { DayFilter } from '../types/event'
+import { formatShortDate } from './dates'
 
 export function formatActivityCount(count: number): string {
   return `${count} ${count === 1 ? 'activity' : 'activities'}`
 }
 
-export function getBrowseActivityNoun(eventCount: number, day: DayFilter = 'anytime'): string {
-  const upcoming = day === 'anytime'
+export function getBrowseActivityNoun(
+  eventCount: number,
+  day: DayFilter = 'anytime',
+  opts?: { pickedYmd?: string | null },
+): string {
+  const upcoming = day === 'anytime' && !opts?.pickedYmd
   if (eventCount === 1) return upcoming ? 'upcoming activity' : 'activity'
   return upcoming ? 'upcoming activities' : 'activities'
 }
@@ -17,8 +22,14 @@ export function getBrowseResultsSummary(
   eventCount: number,
   _city: string,
   day: DayFilter = 'anytime',
+  opts?: { pickedYmd?: string | null },
 ): string {
-  return `${eventCount} ${getBrowseActivityNoun(eventCount, day)}`
+  const noun = getBrowseActivityNoun(eventCount, day, opts)
+  if (opts?.pickedYmd) {
+    const dateLabel = formatShortDate(new Date(`${opts.pickedYmd}T12:00:00`))
+    return `${eventCount} ${noun} · ${dateLabel}`
+  }
+  return `${eventCount} ${noun}`
 }
 
 export function getHomeFilterResultsSummary({

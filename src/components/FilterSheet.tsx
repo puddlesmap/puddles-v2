@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import type { DayFilter, TimeFilter } from '../types/event'
+import type { Event, TimeFilter } from '../types/event'
 import { PUBLIC_AGE_FILTER_OPTIONS } from '../utils/ageRange'
-import { getTemporalTabs } from '../utils/dates'
 import { getFilteredCount, type BrowseFilters } from '../utils/filters'
+import type { BrowseSearchAnchor } from '../utils/browseSearchAnchor'
 import { BrowseLocationOptions } from './filters/BrowseLocationOptions'
+import { BrowseDayOptions } from './filters/BrowseDayOptions'
 import { ActivityTypeFilterPills } from './filters/ActivityTypeFilterPills'
 import { trackBrowseFiltersApplied, trackCitySelected } from '../utils/analytics'
 
@@ -34,6 +35,15 @@ interface FilterSheetProps {
   onClose: () => void
   hasNearbyCoords?: boolean
   onRequestNearby?: () => Promise<boolean>
+  /** Experiment: city/ZIP → ~8 mi search anchor + pick-a-date under Upcoming. */
+  filterEnhancements?: boolean
+  searchAnchorLabel?: string | null
+  onSearchAnchor?: (anchor: BrowseSearchAnchor | null) => void
+  pickedYmd?: string | null
+  onPickDate?: (ymd: string) => void
+  onClearPickedDate?: () => void
+  /** Optional catalog for the Show N results count (e.g. curated holiday set). */
+  countEvents?: Event[]
 }
 
 export function FilterSheet({
@@ -43,18 +53,42 @@ export function FilterSheet({
   onClose,
   hasNearbyCoords = false,
   onRequestNearby,
+  filterEnhancements = false,
+  searchAnchorLabel = null,
+  onSearchAnchor,
+  pickedYmd = null,
+  onPickDate,
+  onClearPickedDate,
+  countEvents,
 }: FilterSheetProps) {
   const [draft, setDraft] = useState(filters)
+  const [draftPickedYmd, setDraftPickedYmd] = useState<string | null>(pickedYmd)
 
   useEffect(() => {
-    if (open) setDraft(filters)
-  }, [open, filters])
+    if (open) {
+      setDraft(filters)
+      setDraftPickedYmd(pickedYmd)
+    }
+  }, [open, filters, pickedYmd])
+
+  useEffect(() => {
+    if (!open) return
+
+    function onKey(event: KeyboardEvent) {
+      if (event.key === 'Escape') onClose()
+    }
+
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [open, onClose])
 
   if (!open) return null
 
-  const count = getFilteredCount(draft)
+  const count = getFilteredCount(draft, {
+    pickedYmd: draftPickedYmd,
+    events: countEvents,
+  })
   const resultsLabel = count > 0 ? `Show ${count} results` : 'Show results'
-  const dayTabs = getTemporalTabs()
 
   function apply() {
     void applyFilters()
@@ -62,7 +96,7 @@ export function FilterSheet({
 
   async function applyFilters() {
     if (open === 'location') {
-      if (draft.city === 'nearby') {
+      if (draft.city === 'nearby' && !searchAnchorLabel) {
         const granted = hasNearbyCoords || (await onRequestNearby?.()) === true
         if (!granted) return
       }
@@ -77,6 +111,11 @@ export function FilterSheet({
       return
     }
 
+    if (open === 'day' && filterEnhancements) {
+      if (draftPickedYmd) onPickDate?.(draftPickedYmd)
+      else onClearPickedDate?.()
+    }
+
     if (open) {
       trackBrowseFiltersApplied(filters, draft)
     }
@@ -85,7 +124,11 @@ export function FilterSheet({
   }
 
   function clear() {
-    if (open === 'day') setDraft({ ...draft, day: 'anytime' })
+    if (open === 'day') {
+      setDraft({ ...draft, day: 'anytime' })
+      setDraftPickedYmd(null)
+      onClearPickedDate?.()
+    }
     if (open === 'time') setDraft({ ...draft, time: 'any' })
     if (open === 'age') setDraft({ ...draft, age: 'all' })
     if (open === 'type') setDraft({ ...draft, types: [] })
@@ -122,46 +165,36 @@ export function FilterSheet({
           {open === 'location' && (
             <BrowseLocationOptions
               selectedCity={draft.city}
-              onSelect={(city) => setDraft({ ...draft, city })}
+              onSelect={(city) => {
+                onSearchAnchor?.(null)
+                setDraft({ ...draft, city })
+              }}
               variant="sheet"
+              enableSearchAnchor={filterEnhancements}
+              searchAnchorLabel={searchAnchorLabel}
+              onSearchAnchor={(anchor) => {
+                onSearchAnchor?.(anchor)
+                onClose()
+              }}
             />
           )}
 
           {open === 'day' && (
-            <div className="space-y-1">
-              {[
-                ...dayTabs.map((t) => ({
-                  key: t.key as DayFilter,
-                  label: t.label,
-                  sub: t.sub,
-                })),
-                { key: 'anytime' as DayFilter, label: 'Anytime', sub: 'Next 2 months' },
-              ].map((opt) => (
-                <button
-                  key={opt.key}
-                  type="button"
-                  onClick={() => setDraft({ ...draft, day: opt.key })}
-                  className={`flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left transition-colors ${
-                    draft.day === opt.key ? 'bg-surface-muted' : 'hover:bg-surface-muted/70'
-                  }`}
-                >
-                  <div>
-                    <div className="text-[15px] font-medium text-charcoal">{opt.label}</div>
-                    <div className="mt-0.5 text-xs text-muted">{opt.sub}</div>
-                  </div>
-                  <span
-                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${
-                      draft.day === opt.key ? 'border-charcoal bg-charcoal' : 'border-border'
-                    }`}
-                    aria-hidden
-                  >
-                    {draft.day === opt.key && (
-                      <span className="h-2 w-2 rounded-full bg-white" />
-                    )}
-                  </span>
-                </button>
-              ))}
-            </div>
+            <BrowseDayOptions
+              selectedDay={draft.day}
+              pickedYmd={draftPickedYmd}
+              onSelectDay={(day) => {
+                setDraftPickedYmd(null)
+                setDraft({ ...draft, day })
+              }}
+              onPickDate={(ymd) => {
+                setDraftPickedYmd(ymd)
+                setDraft({ ...draft, day: 'anytime' })
+              }}
+              onClearPickedDate={() => setDraftPickedYmd(null)}
+              variant="sheet"
+              enablePickADate={filterEnhancements}
+            />
           )}
 
           {open === 'time' && (

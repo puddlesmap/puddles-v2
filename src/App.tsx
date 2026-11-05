@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import { AppProvider } from './context/AppContext'
+import { SavedProvider } from './context/SavedContext'
+import { SavedHost } from './components/saved/SavedHost'
+import { SavedPage } from './views/SavedPage'
 import { BottomNav } from './components/layout/BottomNav'
 import { LocationBridge } from './components/LocationBridge'
 import { ScrollToTop } from './components/ScrollToTop'
@@ -72,7 +75,10 @@ import { GuidesIndexPage } from './views/GuidesIndexPage'
 import { ExperimentFallGatheringsMockupPage } from './views/ExperimentFallGatheringsMockupPage'
 import { ExperimentSeasonalLaunchReviewPage } from './views/ExperimentSeasonalLaunchReviewPage'
 import { ExperimentSeasonalBackgroundDialPage } from './views/ExperimentSeasonalBackgroundDialPage'
+import { ExperimentHolidayMagicFiltersPage } from './views/ExperimentHolidayMagicFiltersPage'
 import { WelcomeOnboarding } from './components/welcome/WelcomeOnboarding'
+import { PuddlesPicksPopup } from './components/picks/PuddlesPicksHome'
+import { PuddlesPicksMobilePill } from './components/picks/PuddlesPicksMobilePill'
 import { AdminEventsPage } from './views/admin/AdminEventsPage'
 import { AdminDiscoveryPage } from './views/admin/AdminDiscoveryPage'
 import { AdminSubmissionsPage } from './views/admin/AdminSubmissionsPage'
@@ -144,6 +150,7 @@ function AppShell() {
       <Route path="/home-experiment-compact" element={<Navigate to="/" replace />} />
       <Route path="/discovery" element={<DiscoveryPage />} />
       <Route path="/browse" element={<BrowsePage {...BROWSE_PAGE_PROPS} />} />
+      <Route path="/saved" element={<SavedPage />} />
       <Route path="/map" element={<BrowsePage {...BROWSE_PAGE_PROPS} defaultViewMode="map" />} />
       <Route path="/browse-v2" element={<BrowseV2Page />} />
       <Route path="/palo-alto" element={<CityLandingPage citySlug="palo-alto" />} />
@@ -201,6 +208,10 @@ function AppShell() {
       <Route
         path="/experiment/browse-live-vs-option2"
         element={<ExperimentBrowseLiveVsOption2Page />}
+      />
+      <Route
+        path="/experiment/holiday-magic-filters"
+        element={<ExperimentHolidayMagicFiltersPage />}
       />
       <Route path="/experiment-shared-event" element={<ExperimentSharedEventLayout />}>
         <Route index element={<ExperimentSharedEventPage />} />
@@ -260,6 +271,9 @@ function AppShell() {
       {!isAdminRoute && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
       {!isAdminRoute && <LocationBridge />}
       {!isAdminRoute && !isLogoLab && <WelcomeOnboarding />}
+      {!isAdminRoute && <PuddlesPicksPopup />}
+      {!isAdminRoute && <PuddlesPicksMobilePill />}
+      {!isAdminRoute && <SavedHost />}
     </div>
   )
 }
@@ -269,10 +283,13 @@ export default function App() {
     initAnalytics()
   }, [])
 
+  // Vite shell: local Saved hearts work without @clerk/nextjs (Clerk stays on Next).
   return (
     <BrowserRouter>
       <AppProvider>
-        <AppShell />
+        <SavedProvider>
+          <AppShell />
+        </SavedProvider>
       </AppProvider>
     </BrowserRouter>
   )

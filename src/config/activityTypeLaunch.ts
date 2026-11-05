@@ -21,9 +21,17 @@ export function isNewActivityTypeFilter(type: ActivityType, now = new Date()): b
   return now.getTime() <= end.getTime()
 }
 
-/** Parent-facing type lists: NEW types first, then the rest of ACTIVITY_TYPES. */
-export function publicActivityTypeFilterOrder(includeOther = false): ActivityType[] {
-  const newTypes = NEW_ACTIVITY_TYPE_FILTER_ORDER.filter((type) => ACTIVITY_TYPES.includes(type))
+/**
+ * Parent-facing type lists: still-NEW types first, then the rest of ACTIVITY_TYPES.
+ * Expired NEW entries stay in canonical ACTIVITY_TYPES order (Festivals / Parent & Me last).
+ */
+export function publicActivityTypeFilterOrder(
+  includeOther = false,
+  now = new Date(),
+): ActivityType[] {
+  const newTypes = NEW_ACTIVITY_TYPE_FILTER_ORDER.filter(
+    (type) => ACTIVITY_TYPES.includes(type) && isNewActivityTypeFilter(type, now),
+  )
   const rest = ACTIVITY_TYPES.filter(
     (type) => type !== 'Other' && !newTypes.includes(type),
   )

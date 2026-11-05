@@ -8,6 +8,7 @@ import { EventLifecycleActions } from './EventLifecycleActions'
 import { SharedEventNearbySection } from './SharedEventNearbySection'
 import { SharedEventVisitorIntro } from './SharedEventVisitorIntro'
 import { RelativeDateLabel } from './RelativeDateLabel'
+import { AddToCalendarButton } from '../calendar/AddToCalendarButton'
 import { addEventToCalendar, canAddEventToCalendar, isLikelyInAppBrowser } from '../../utils/calendar'
 import {
   formatEventDate,
@@ -47,6 +48,7 @@ import {
   keepCityNameOnOneLine,
 } from '../../utils/sharedEventNearby'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
+import { BeforeYouGoTipItems } from './BeforeYouGoIcon'
 
 export const SHARED_EVENT_LAYOUTS = ['airbnb', 'airbnb-v2', 'airbnb-v3', 'luma', 'eventbrite'] as const
 export type SharedEventLayoutId = (typeof SHARED_EVENT_LAYOUTS)[number]
@@ -298,14 +300,7 @@ function AirbnbV1CtaRail({
           </>
         ) : null}
       </p>
-      <button
-        type="button"
-        className="btn-primary sedl-cta"
-        disabled={!p.canCalendar}
-        onClick={p.handleCalendar}
-      >
-        Add to calendar
-      </button>
+      <AddToCalendarButton event={event} variant="primary" className="sedl-cta" />
       {p.hasOfficial ? (
         <a
           href={event.eventUrl}
@@ -473,11 +468,7 @@ function AirbnbLayout({
             <section className="sedl-section">
               <h2 className="sedl-section-title">Good to know</h2>
               <ul className="event-detail-tips-list sedl-tips-list">
-                {tipItems.map((item, index) => (
-                  <li key={`${index}-${item.text}`} className="event-detail-tips-item">
-                    {item.text}
-                  </li>
-                ))}
+                <BeforeYouGoTipItems items={tipItems} />
               </ul>
             </section>
           ) : null}
@@ -508,14 +499,7 @@ function AirbnbLayout({
               </>
             ) : null}
           </p>
-          <button
-            type="button"
-            className="btn-primary sedl-cta"
-            disabled={!p.canCalendar}
-            onClick={p.handleCalendar}
-          >
-            Add to calendar
-          </button>
+          <AddToCalendarButton event={event} variant="primary" className="sedl-cta" />
           {p.hasOfficial ? (
             <a
               href={event.eventUrl}
@@ -699,11 +683,7 @@ function EventbriteLayout({
               <section className="sedl-eb-block">
                 <h2 className="sedl-section-title">Tips for families</h2>
                 <ul className="event-detail-tips-list sedl-tips-list">
-                  {tipItems.map((item, index) => (
-                    <li key={`${index}-${item.text}`} className="event-detail-tips-item">
-                      {item.text}
-                    </li>
-                  ))}
+                  <BeforeYouGoTipItems items={tipItems} />
                 </ul>
               </section>
             )
@@ -900,11 +880,7 @@ function AirbnbV2Layout({
                   Before you go
                 </h2>
                 <ul className="event-detail-tips-list">
-                  {tipItems.map((item, index) => (
-                    <li key={`${index}-${item.text}`} className="event-detail-tips-item">
-                      {item.text}
-                    </li>
-                  ))}
+                  <BeforeYouGoTipItems items={tipItems} />
                 </ul>
               </section>
             ) : null}
@@ -937,19 +913,7 @@ function AirbnbV2Layout({
           {ageLabel ? <p className="sedl-v2-rail__age">{ageLabel}</p> : null}
 
           <div className="sedl-v2-rail__actions event-modal-actions__ctas">
-            <button
-              type="button"
-              className="btn-primary"
-              disabled={!p.canCalendar}
-              onClick={p.handleCalendar}
-            >
-              Add to calendar
-            </button>
-            {!p.canCalendar ? (
-              <p className="event-modal-actions-note text-center">Calendar details unavailable</p>
-            ) : p.inAppBrowser ? (
-              <p className="event-modal-actions-note text-center">Opens Google Calendar</p>
-            ) : null}
+            <AddToCalendarButton event={event} variant="primary" showHint />
             {p.hasOfficial ? (
               <a
                 href={event.eventUrl}
@@ -1093,11 +1057,7 @@ export function AirbnbV3DesktopContent({
             <section className="sedl-section">
               <h2 className="sedl-section-title">Good to know</h2>
               <ul className="event-detail-tips-list sedl-tips-list">
-                {tipItems.map((item, index) => (
-                  <li key={`${index}-${item.text}`} className="event-detail-tips-item">
-                    {item.text}
-                  </li>
-                ))}
+                <BeforeYouGoTipItems items={tipItems} />
               </ul>
             </section>
           ) : null}
@@ -1289,11 +1249,7 @@ function AirbnbV3Layout({
                   Before you go
                 </h2>
                 <ul className="event-detail-tips-list">
-                  {tipItems.map((item, index) => (
-                    <li key={`${index}-${item.text}`} className="event-detail-tips-item">
-                      {item.text}
-                    </li>
-                  ))}
+                  <BeforeYouGoTipItems items={tipItems} />
                 </ul>
               </section>
             ) : null}
