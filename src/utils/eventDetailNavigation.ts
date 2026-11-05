@@ -38,7 +38,8 @@ export function isEventModalOverlaySource(source: EventOpenSource): boolean {
     source === 'browse_map' ||
     source === 'home' ||
     source === 'discovery' ||
-    source === 'city_landing'
+    source === 'city_landing' ||
+    source === 'saved'
   )
 }
 

@@ -2,6 +2,7 @@ import type { Event } from '../types/event'
 import { ALL_EVENTS, getPublicEventsFromCatalog } from './events'
 import seasonalCurationOverrides from './seasonal-curation-overrides.json'
 import { zonedCalendarDate } from '../utils/dates'
+import { collapseSoftDuplicateEvents } from '../utils/eventDuplicates'
 import { sortSeasonalDiscoveryEvents } from '../utils/formatSeasonalSchedule'
 
 export type SeasonalCollectionSlug = 'hello-fall' | 'halloween-with-little-ones' | 'holiday-magic'
@@ -1458,9 +1459,10 @@ export function resolveSeasonalEvents(
 ): Event[] {
   const publicById = new Map(catalog.map((event) => [event.id, event]))
   const allById = new Map(ALL_EVENTS.map((event) => [event.id, event]))
-  return eventIds
+  const resolved = eventIds
     .map((id) => publicById.get(id) ?? allById.get(id))
     .filter((event): event is Event => Boolean(event))
+  return collapseSoftDuplicateEvents(resolved)
 }
 
 export function seasonalCollectionPath(slug: SeasonalCollectionSlug): string {

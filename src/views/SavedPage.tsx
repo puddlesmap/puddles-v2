@@ -7,6 +7,7 @@ import { SavedListRow } from '../components/saved/SavedListRow'
 import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
 import { PageContainer } from '../components/layout/PageContainer'
+import { useEventNavigation } from '../hooks/useEventNavigation'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { useSaved } from '../context/SavedContext'
 import { getCatalogEventById } from '../utils/eventPages'
@@ -16,7 +17,8 @@ import './experiment-saved-list.css'
 
 export function SavedPage() {
   const isDesktop = useMediaQuery('(min-width: 768px)')
-  const { saves, signedInEmail, openSignIn, isSaved } = useSaved()
+  const openEvent = useEventNavigation()
+  const { saves, signedInEmail, openAuthSheet, isSaved } = useSaved()
   const active = saves
     .filter((row) => !row.removedAt && isSaved(row.eventId))
     .map((row) => getCatalogEventById(row.eventId))
@@ -46,11 +48,25 @@ export function SavedPage() {
           <aside className="saved-page__persist">
             <p className="saved-page__persist-title">Save now, plan later</p>
             <p className="saved-page__persist-body">
-              Sign in to access your saved activities on any device.
+              Create an account to access your saved activities on any device.
             </p>
-            <button type="button" className="saved-page__persist-cta" onClick={() => openSignIn()}>
-              Sign in
+            <button
+              type="button"
+              className="saved-page__persist-cta"
+              onClick={() => openAuthSheet('create')}
+            >
+              Create account
             </button>
+            <p className="saved-page__persist-login">
+              Already have an account?{' '}
+              <button
+                type="button"
+                className="saved-page__persist-login-link"
+                onClick={() => openAuthSheet('login')}
+              >
+                Log in
+              </button>
+            </p>
           </aside>
         )}
 
@@ -79,6 +95,7 @@ export function SavedPage() {
                         showVenueBelowTitle
                         showMediaDayPill
                         seasonalEditorial={false}
+                        onClick={() => openEvent(event, 'saved', { viewMode: 'list' })}
                       />
                       <SavedCardActions event={event} />
                     </div>

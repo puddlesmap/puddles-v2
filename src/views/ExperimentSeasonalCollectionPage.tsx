@@ -451,6 +451,20 @@ export function ExperimentSeasonalCollectionPage({
     )
   }, [typeaheadFilters, driveEventsRaw, browseFilters, pickedYmd, searchAnchor, coords])
 
+  const getFilterSheetResultCount = useCallback(
+    (draft: BrowseFilters, draftPickedYmd: string | null) => {
+      const pool = [...closeToHomeEventsRaw, ...driveEventsRaw]
+      return applyHolidayTypeaheadFilters(
+        pool,
+        draft,
+        draftPickedYmd,
+        searchAnchor,
+        coords,
+      ).length
+    },
+    [closeToHomeEventsRaw, driveEventsRaw, searchAnchor, coords],
+  )
+
   const filteredTotal = closeToHomeEvents.length + driveEvents.length
 
   useEffect(() => {
@@ -803,7 +817,7 @@ export function ExperimentSeasonalCollectionPage({
           pickedYmd={pickedYmd}
           onPickDate={setPickedYmd}
           onClearPickedDate={() => setPickedYmd(null)}
-          countEvents={[...closeToHomeEventsRaw, ...driveEventsRaw]}
+          getResultCount={getFilterSheetResultCount}
         />
       ) : null}
 

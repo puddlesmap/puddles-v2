@@ -176,10 +176,22 @@ function softMatch(a: Event, b: Event): boolean {
   return timesWithinTolerance(a, b)
 }
 
+/** Title + venue/city + date + start (±30m) — same outing, possibly different IDs. */
+export function eventsAreSoftDuplicates(a: Event, b: Event): boolean {
+  return softMatch(a, b)
+}
+
+export function isDiscEventId(id: string): boolean {
+  return id.startsWith('disc-')
+}
+
 function pickWinner(members: Event[]): { winner: Event; reasons: string[] } {
   const scored = members
     .map((event) => ({ event, score: eventDetailScore(event) }))
     .sort((a, b) => {
+      const aDisc = isDiscEventId(a.event.id) ? 1 : 0
+      const bDisc = isDiscEventId(b.event.id) ? 1 : 0
+      if (aDisc !== bDisc) return aDisc - bDisc
       if (b.score.total !== a.score.total) return b.score.total - a.score.total
       const aVerified = a.event.verifiedDate || ''
       const bVerified = b.event.verifiedDate || ''
@@ -192,6 +204,70 @@ function pickWinner(members: Event[]): { winner: Event; reasons: string[] } {
     winner: best.event,
     reasons: [`score ${best.score.total}`, ...best.score.factors.slice(0, 4)],
   }
+}
+
+/**
+ * Collapse soft-duplicate events for seasonal lists / curation.
+ * Prefers non-`disc-*` IDs, then detail score. Preserves first-seen order of winners.
+ */
+export function collapseSoftDuplicateEvents(events: Event[]): Event[] {
+  if (events.length < 2) return events
+
+  const unique = Array.from(new Map(events.map((event) => [event.id, event])).values())
+  if (unique.length < 2) return unique
+
+  const suppressed = new Set<string>()
+  const used = new Set<string>()
+
+  for (let i = 0; i < unique.length; i++) {
+    const seed = unique[i]!
+    if (used.has(seed.id)) continue
+    const members = [seed]
+    used.add(seed.id)
+
+    for (let j = i + 1; j < unique.length; j++) {
+      const other = unique[j]!
+      if (used.has(other.id)) continue
+      if (members.some((member) => softMatch(member, other))) {
+        members.push(other)
+        used.add(other.id)
+      }
+    }
+
+    if (members.length < 2) continue
+    const { winner } = pickWinner(members)
+    for (const member of members) {
+      if (member.id !== winner.id) suppressed.add(member.id)
+    }
+  }
+
+  if (suppressed.size === 0) return unique
+  return unique.filter((event) => !suppressed.has(event.id))
+}
+
+/** Keep ID order, drop soft-duplicate losers (and exact ID repeats). */
+export function dedupeEventIdsBySoftMatch(
+  ids: string[],
+  resolve: (id: string) => Event | undefined,
+): string[] {
+  const resolved: Event[] = []
+  const order: string[] = []
+  const seen = new Set<string>()
+  for (const raw of ids) {
+    const id = String(raw || '').trim()
+    if (!id || seen.has(id)) continue
+    seen.add(id)
+    order.push(id)
+    const event = resolve(id)
+    if (event) resolved.push(event)
+  }
+
+  const winners = new Set(collapseSoftDuplicateEvents(resolved).map((event) => event.id))
+  return order.filter((id) => {
+    const event = resolve(id)
+    if (!event) return true
+    return winners.has(id)
+  })
 }
 
 function buildCluster(

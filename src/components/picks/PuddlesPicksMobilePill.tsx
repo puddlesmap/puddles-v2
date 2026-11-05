@@ -71,7 +71,20 @@ export function PuddlesPicksMobilePill() {
     return () => observer.disconnect()
   }, [location.pathname])
 
-  const show = Boolean(page) && mobile && !joined && !dismissed && !cardVisible
+  const [eventOverlayOpen, setEventOverlayOpen] = useState(false)
+
+  useEffect(() => {
+    function syncOverlay() {
+      setEventOverlayOpen(Boolean(document.querySelector('.event-detail-overlay')))
+    }
+    syncOverlay()
+    const observer = new MutationObserver(syncOverlay)
+    observer.observe(document.body, { childList: true, subtree: true })
+    return () => observer.disconnect()
+  }, [location.pathname])
+
+  const show =
+    Boolean(page) && mobile && !joined && !dismissed && !cardVisible && !eventOverlayOpen
 
   useEffect(() => {
     if (!show) {

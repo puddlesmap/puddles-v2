@@ -33,6 +33,17 @@ export function findMatchingEventsForCandidate(candidate: DiscoveryCandidate): E
     if (hit) return [hit]
   }
 
+  // Approve often mints disc-{slug}-{candidateId}; match that twin without requiring URL.
+  const candidateId = candidate.id?.trim()
+  if (candidateId) {
+    const discTwin = events.find(
+      (event) =>
+        event.id === candidateId ||
+        (event.id.startsWith('disc-') && event.id.includes(candidateId)),
+    )
+    if (discTwin) return [discTwin]
+  }
+
   const target = normalizeDiscoveryEventUrl(candidate.eventUrl)
   if (!target) return []
 

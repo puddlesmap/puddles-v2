@@ -78,7 +78,6 @@ import { WelcomeOnboarding } from '@/components/welcome/WelcomeOnboarding'
 import { PuddlesPicksPopup } from '@/components/picks/PuddlesPicksHome'
 import { PuddlesPicksMobilePill } from '@/components/picks/PuddlesPicksMobilePill'
 import { SavedHost } from '@/components/saved/SavedHost'
-import { SavedSignInSheet } from '@/components/saved/SavedSignInSheet'
 import { SavedPage } from '@/views/SavedPage'
 import { SavedSsoCallbackPage } from '@/views/SavedSsoCallbackPage'
 import { AdminEventsPage } from '@/views/admin/AdminEventsPage'
@@ -277,7 +276,6 @@ function ClientRoutes() {
       {!isAdminRoute && <PuddlesPicksPopup />}
       {!isAdminRoute && <PuddlesPicksMobilePill />}
       {!isAdminRoute && <SavedHost />}
-      {!isAdminRoute && <SavedSignInSheet />}
     </div>
   )
 }

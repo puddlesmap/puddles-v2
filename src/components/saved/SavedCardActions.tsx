@@ -4,7 +4,7 @@ import type { MouseEvent } from 'react'
 import type { Event } from '../../types/event'
 import { useSaved } from '../../context/SavedContext'
 import { ANALYTICS_EVENTS, trackActivityEngagement } from '../../utils/analytics'
-import { addEventToCalendar, canAddEventToCalendar } from '../../utils/calendar'
+import { addEventToCalendar } from '../../utils/calendar'
 import { SaveHeartIcon } from './SaveHeartIcon'
 
 function CalendarIcon() {
@@ -19,7 +19,6 @@ function CalendarIcon() {
 
 export function SavedCardActions({ event }: { event: Event }) {
   const { toggleSave } = useSaved()
-  const canCalendar = canAddEventToCalendar(event)
 
   function handleCalendar(clickEvent: MouseEvent<HTMLButtonElement>) {
     clickEvent.preventDefault()
@@ -39,7 +38,6 @@ export function SavedCardActions({ event }: { event: Event }) {
       <button
         type="button"
         className="saved-card-actions__calendar"
-        disabled={!canCalendar}
         aria-label={`Add ${event.title} to calendar`}
         onClick={handleCalendar}
       >

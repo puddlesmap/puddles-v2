@@ -223,7 +223,8 @@ function linkToDiscoveryRow(link, event, catalogUrls, existingById) {
     isRecurring: false,
     alreadyOnPuddles: onPuddles,
     reviewStatus: onPuddles ? 'live' : 'approved',
-    convertedEventId: link.discoveryId && link.eventId !== discoveryId ? link.eventId : '',
+    // Always keep a publishable event id — empty convertedEventId left rows stuck in “In Publish”.
+    convertedEventId: link.eventId || discoveryId,
     lastChecked: event.verifiedDate || pacificTodayYmd(),
   }
 
@@ -283,7 +284,7 @@ function stripSeasonalMarkers(row) {
     ...row,
     categoryTags,
     source: restoreSourceAfterSeasonalStrip(row),
-    convertedEventId: '',
+    convertedEventId: row.convertedEventId || '',
   }
 }
 

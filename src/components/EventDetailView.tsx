@@ -338,12 +338,7 @@ function EventDetailActions({
   return (
     <div className={className}>
       <div className="event-modal-actions__ctas">
-        <AddToCalendarButton
-          event={event}
-          variant="primary"
-          showHint
-          className="disabled:cursor-not-allowed disabled:opacity-40"
-        />
+        <AddToCalendarButton event={event} variant="primary" />
         {hasOfficialPage ? (
           <a
             href={event.eventUrl}

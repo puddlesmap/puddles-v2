@@ -913,7 +913,7 @@ function AirbnbV2Layout({
           {ageLabel ? <p className="sedl-v2-rail__age">{ageLabel}</p> : null}
 
           <div className="sedl-v2-rail__actions event-modal-actions__ctas">
-            <AddToCalendarButton event={event} variant="primary" showHint />
+            <AddToCalendarButton event={event} variant="primary" />
             {p.hasOfficial ? (
               <a
                 href={event.eventUrl}

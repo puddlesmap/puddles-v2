@@ -1,9 +1,9 @@
 'use client'
 
 import { useSignIn, useSignUp } from '@clerk/nextjs/legacy'
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { Logo } from '../layout/Logo'
-import { useSavedOptional } from '../../context/SavedContext'
+import { useSavedOptional, type SavedAuthMode } from '../../context/SavedContext'
 import { ANALYTICS_EVENTS, trackEvent } from '../../utils/analytics'
 
 function GoogleGlyph() {
@@ -40,76 +40,148 @@ function AppleGlyph() {
   )
 }
 
+function clerkErrorMessage(error: unknown, fallback: string): string {
+  if (
+    error &&
+    typeof error === 'object' &&
+    'errors' in error &&
+    Array.isArray((error as { errors: Array<{ longMessage?: string; message?: string }> }).errors)
+  ) {
+    const first = (error as { errors: Array<{ longMessage?: string; message?: string }> }).errors[0]
+    return first?.longMessage || first?.message || fallback
+  }
+  if (error instanceof Error && error.message) return error.message
+  return fallback
+}
+
 export function SavedSignInSheet() {
   const saved = useSavedOptional()
   const { isLoaded: signInLoaded, signIn, setActive: setSignInActive } = useSignIn()
   const { isLoaded: signUpLoaded, signUp, setActive: setSignUpActive } = useSignUp()
+  const [mode, setMode] = useState<SavedAuthMode>('create')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [verificationCode, setVerificationCode] = useState('')
+  const [awaitingVerification, setAwaitingVerification] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
 
+  useEffect(() => {
+    if (!saved?.signInOpen) return
+    setMode(saved.authMode)
+    setError(null)
+    setAwaitingVerification(false)
+    setVerificationCode('')
+    setBusy(false)
+  }, [saved?.signInOpen, saved?.authMode])
+
   if (!saved?.signInOpen) return null
 
+  const isCreate = mode === 'create'
+  const clerkReady = isCreate ? signUpLoaded && Boolean(signUp) : signInLoaded && Boolean(signIn)
+
+  async function finishSession(
+    sessionId: string,
+    setActive: ((args: { session: string }) => Promise<void>) | undefined,
+  ) {
+    if (!setActive) {
+      setError('Could not start your session. Try again.')
+      return
+    }
+    await setActive({ session: sessionId })
+    saved!.closeSignIn()
+    await saved!.syncNow()
+  }
+
   async function oauth(strategy: 'oauth_google' | 'oauth_apple') {
-    if (!signInLoaded || !signIn) return
     setError(null)
+    if (!clerkReady) {
+      setError('Sign-in is still loading. Try again in a moment.')
+      return
+    }
     setBusy(true)
-    trackEvent(ANALYTICS_EVENTS.SAVED_SIGN_IN, { method: strategy })
+    trackEvent(ANALYTICS_EVENTS.SAVED_SIGN_IN, { method: strategy, mode })
     try {
-      await signIn.authenticateWithRedirect({
+      const redirect = {
         strategy,
         redirectUrl: '/saved/sso-callback',
         redirectUrlComplete: '/saved',
-      })
+      } as const
+      if (isCreate) {
+        await signUp!.authenticateWithRedirect(redirect)
+      } else {
+        await signIn!.authenticateWithRedirect(redirect)
+      }
     } catch (err) {
       setBusy(false)
-      setError(err instanceof Error ? err.message : 'Could not continue. Try again.')
+      setError(clerkErrorMessage(err, 'Could not continue. Try again.'))
+    }
+  }
+
+  async function onVerify(event: FormEvent) {
+    event.preventDefault()
+    if (!signUpLoaded || !signUp) return
+    setError(null)
+    setBusy(true)
+    try {
+      const result = await signUp.attemptEmailAddressVerification({ code: verificationCode.trim() })
+      if (result.status === 'complete' && result.createdSessionId) {
+        await finishSession(result.createdSessionId, setSignUpActive)
+        setBusy(false)
+        return
+      }
+      setError('Enter the verification code from your email.')
+      setBusy(false)
+    } catch (err) {
+      setBusy(false)
+      setError(clerkErrorMessage(err, 'Could not verify that code. Try again.'))
     }
   }
 
   async function onSubmit(event: FormEvent) {
     event.preventDefault()
-    if (!signInLoaded || !signUpLoaded || !signIn || !signUp) return
+    if (!clerkReady) {
+      setError('Sign-in is still loading. Try again in a moment.')
+      return
+    }
     setError(null)
     setBusy(true)
-    trackEvent(ANALYTICS_EVENTS.SAVED_SIGN_IN, { method: 'email_password' })
+    trackEvent(ANALYTICS_EVENTS.SAVED_SIGN_IN, {
+      method: 'email_password',
+      mode,
+    })
     const trimmed = email.trim().toLowerCase()
+
+    if (isCreate) {
+      try {
+        const created = await signUp!.create({ emailAddress: trimmed, password })
+        if (created.status === 'complete' && created.createdSessionId) {
+          await finishSession(created.createdSessionId, setSignUpActive)
+          setBusy(false)
+          return
+        }
+        await signUp!.prepareEmailAddressVerification({ strategy: 'email_code' })
+        setAwaitingVerification(true)
+        setBusy(false)
+      } catch (err) {
+        setBusy(false)
+        setError(clerkErrorMessage(err, 'Could not create an account. Try Google or Apple.'))
+      }
+      return
+    }
+
     try {
-      const attempt = await signIn.create({ identifier: trimmed, password })
+      const attempt = await signIn!.create({ identifier: trimmed, password })
       if (attempt.status === 'complete' && attempt.createdSessionId) {
-        await setSignInActive({ session: attempt.createdSessionId })
-        saved!.closeSignIn()
-        await saved!.syncNow()
+        await finishSession(attempt.createdSessionId, setSignInActive)
         setBusy(false)
         return
       }
       setError('Check your email and password, or use Google / Apple.')
       setBusy(false)
-    } catch {
-      try {
-        const created = await signUp.create({ emailAddress: trimmed, password })
-        if (created.status === 'complete' && created.createdSessionId) {
-          await setSignUpActive({ session: created.createdSessionId })
-          saved!.closeSignIn()
-          await saved!.syncNow()
-          setBusy(false)
-          return
-        }
-        await signUp.prepareEmailAddressVerification({ strategy: 'email_code' })
-        setError('Check your email for a verification code, then sign in again.')
-        setBusy(false)
-      } catch (signUpError) {
-        setBusy(false)
-        const message =
-          signUpError &&
-          typeof signUpError === 'object' &&
-          'errors' in signUpError &&
-          Array.isArray((signUpError as { errors: Array<{ longMessage?: string }> }).errors)
-            ? (signUpError as { errors: Array<{ longMessage?: string }> }).errors[0]?.longMessage
-            : null
-        setError(message || 'Could not continue with email. Try Google or Apple.')
-      }
+    } catch (err) {
+      setBusy(false)
+      setError(clerkErrorMessage(err, 'Could not log in. Check your email and password.'))
     }
   }
 
@@ -118,7 +190,7 @@ export function SavedSignInSheet() {
       <button
         type="button"
         className="saved-signin-backdrop"
-        aria-label="Close sign in"
+        aria-label="Close"
         onClick={() => saved.closeSignIn()}
       />
       <div
@@ -140,55 +212,118 @@ export function SavedSignInSheet() {
         <h2 id="saved-signin-title" className="saved-signin-title">
           Keep your saved events
         </h2>
-        <p className="saved-signin-lede">Sign in to access your saves anywhere.</p>
-        <form className="saved-signin-form" onSubmit={onSubmit}>
-          <input
-            className="saved-signin-input"
-            type="email"
-            autoComplete="email"
-            placeholder="Email address"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-          <input
-            className="saved-signin-input"
-            type="password"
-            autoComplete="current-password"
-            placeholder="Password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-            minLength={8}
-          />
-          <button type="submit" className="btn-primary saved-signin-submit" disabled={busy}>
-            Continue with email
-          </button>
-        </form>
+        <p className="saved-signin-lede">
+          {awaitingVerification
+            ? 'Enter the verification code we emailed you.'
+            : 'Create an account to access your saved activities on any device.'}
+        </p>
+
+        {awaitingVerification ? (
+          <form className="saved-signin-form" onSubmit={onVerify}>
+            <input
+              className="saved-signin-input"
+              type="text"
+              inputMode="numeric"
+              autoComplete="one-time-code"
+              placeholder="Verification code"
+              value={verificationCode}
+              onChange={(eventChange) => setVerificationCode(eventChange.target.value)}
+              required
+            />
+            <button type="submit" className="btn-primary saved-signin-submit" disabled={busy}>
+              Verify email
+            </button>
+          </form>
+        ) : (
+          <>
+            <form className="saved-signin-form" onSubmit={onSubmit}>
+              <input
+                className="saved-signin-input"
+                type="email"
+                autoComplete="email"
+                placeholder="Email address"
+                value={email}
+                onChange={(eventChange) => setEmail(eventChange.target.value)}
+                required
+              />
+              <input
+                className="saved-signin-input"
+                type="password"
+                autoComplete={isCreate ? 'new-password' : 'current-password'}
+                placeholder="Password"
+                value={password}
+                onChange={(eventChange) => setPassword(eventChange.target.value)}
+                required
+                minLength={8}
+              />
+              <button
+                type="submit"
+                className="btn-primary saved-signin-submit"
+                disabled={busy || !clerkReady}
+              >
+                {isCreate ? 'Create account' : 'Log in'}
+              </button>
+            </form>
+
+            <p className="saved-signin-switch">
+              {isCreate ? (
+                <>
+                  Already have an account?{' '}
+                  <button
+                    type="button"
+                    className="saved-signin-switch-link"
+                    onClick={() => {
+                      setMode('login')
+                      setError(null)
+                    }}
+                  >
+                    Log in
+                  </button>
+                </>
+              ) : (
+                <>
+                  Need an account?{' '}
+                  <button
+                    type="button"
+                    className="saved-signin-switch-link"
+                    onClick={() => {
+                      setMode('create')
+                      setError(null)
+                    }}
+                  >
+                    Create account
+                  </button>
+                </>
+              )}
+            </p>
+
+            <div className="saved-signin-or" role="separator">
+              <span>or</span>
+            </div>
+            <div className="saved-signin-social">
+              <button
+                type="button"
+                className="saved-signin-social-btn"
+                aria-label="Continue with Apple"
+                disabled={busy || !clerkReady}
+                onClick={() => void oauth('oauth_apple')}
+              >
+                <AppleGlyph />
+              </button>
+              <button
+                type="button"
+                className="saved-signin-social-btn"
+                aria-label="Continue with Google"
+                disabled={busy || !clerkReady}
+                onClick={() => void oauth('oauth_google')}
+              >
+                <GoogleGlyph />
+              </button>
+            </div>
+          </>
+        )}
+
         {error ? <p className="saved-signin-error">{error}</p> : null}
-        <div className="saved-signin-or" role="separator">
-          <span>or</span>
-        </div>
-        <div className="saved-signin-social">
-          <button
-            type="button"
-            className="saved-signin-social-btn"
-            aria-label="Continue with Google"
-            disabled={busy}
-            onClick={() => void oauth('oauth_google')}
-          >
-            <GoogleGlyph />
-          </button>
-          <button
-            type="button"
-            className="saved-signin-social-btn"
-            aria-label="Continue with Apple"
-            disabled={busy}
-            onClick={() => void oauth('oauth_apple')}
-          >
-            <AppleGlyph />
-          </button>
-        </div>
       </div>
     </div>
   )

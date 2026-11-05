@@ -1,5 +1,12 @@
+import type { Event } from '../types/event'
+import { ALL_EVENTS } from '../data/events'
 import type { SeasonalCollectionSlug } from '../data/seasonalDiscovery'
-import { getActiveSeasonalCollection, getSeasonalCollection } from '../data/seasonalDiscovery'
+import {
+  getActiveSeasonalCollection,
+  getSeasonalCollection,
+  resolveSeasonalEvents,
+} from '../data/seasonalDiscovery'
+import { dedupeEventIdsBySoftMatch, eventsAreSoftDuplicates } from './eventDuplicates'
 
 const STORAGE_KEY = 'puddles-admin-seasonal-curation-v1'
 export const SEASONAL_STAGING_CHANGED = 'puddles:seasonal-staging-changed'
@@ -157,16 +164,43 @@ function mutateSection(
   return next
 }
 
+/** Soft-match already in this section (same outing, different id) — do not add a twin. */
+export function findSeasonalSoftMatch(
+  eventId: string,
+  section: SeasonalCurationSection,
+  themeSlug: SeasonalCollectionSlug = getActiveThemeSlugForAdmin(),
+): Event | undefined {
+  const id = eventId.trim()
+  if (!id) return undefined
+  const effective = getEffectiveSeasonalSectionIds(themeSlug)
+  const sectionIds = section === 'closeToHome' ? effective.closeToHome : effective.worthADrive
+  if (sectionIds.includes(id)) {
+    return resolveSeasonalEvents([id])[0]
+  }
+  const incoming = resolveSeasonalEvents([id])[0]
+  if (!incoming) return undefined
+  return resolveSeasonalEvents(sectionIds).find((event) => eventsAreSoftDuplicates(event, incoming))
+}
+
 export function addToSeasonalSection(
   eventId: string,
   section: SeasonalCurationSection,
   themeSlug: SeasonalCollectionSlug = getActiveThemeSlugForAdmin(),
 ): SeasonalThemeStaging {
   const id = eventId.trim()
+  if (!id || findSeasonalSoftMatch(id, section, themeSlug)) {
+    return loadSeasonalThemeStaging(themeSlug)
+  }
   return mutateSection(themeSlug, section, (current) => ({
     addIds: uniqueIds([...current.addIds, id]),
     removeIds: current.removeIds.filter((row) => row !== id),
   }))
+}
+
+/** Collapse soft-duplicate IDs before Publish curation. */
+export function dedupeSeasonalCurationIds(ids: string[]): string[] {
+  const byId = new Map(ALL_EVENTS.map((event) => [event.id, event]))
+  return dedupeEventIdsBySoftMatch(ids, (id) => byId.get(id))
 }
 
 export function removeFromSeasonalSection(

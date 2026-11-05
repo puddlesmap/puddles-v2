@@ -16,7 +16,6 @@ import {
   type WhereWhenCityValue,
 } from '../components/filters/WhereWhenPillFilters'
 import { getBrowseLocationLabel } from '../components/layout/BrandLockup'
-import { eventMatchesPickedYmd } from '../utils/pickedDate'
 import type { DayFilter, TimeFilter } from '../types/event'
 import {
   formatSearchAnchorLocationLabel,
@@ -32,7 +31,7 @@ import { useMediaQuery } from '../hooks/useMediaQuery'
 import { useUserLocation } from '../hooks/useUserLocation'
 import {
   DEFAULT_BROWSE_FILTERS,
-  filterEvents,
+  filterBrowseEventList,
   sortEventsBySchedule,
   getBrowseActivityChipLabel,
   getBrowseAgeChipLabel,
@@ -42,11 +41,7 @@ import {
   type BrowseFilters,
   type DiscoveryGate,
 } from '../utils/filters'
-import {
-  NEARBY_RADIUS_MILES,
-  filterEventsByRadius,
-  sortEventsByDistance,
-} from '../utils/geo'
+import { sortEventsByDistance } from '../utils/geo'
 import { trackCitySelected, trackViewModeChanged } from '../utils/analytics'
 import {
   formatActivityCount,
@@ -339,31 +334,38 @@ export function BrowsePage({
   }, [browseFilters, coords, isRequesting, requestLocation, setBrowseFilters])
 
   const events = useMemo(() => {
-    const catalog = resolveCatalog()
-    const browseForFilter = {
-      ...(pickedYmd ? { ...browseFilters, day: 'anytime' as const } : browseFilters),
-      ...(searchAnchor ? { city: 'all' as const } : null),
-    }
-    const base = filterEvents(catalog, { browse: browseForFilter, discoveryGate }).filter((event) =>
-      pickedYmd ? eventMatchesPickedYmd(event, pickedYmd) : true,
-    )
+    const base = filterBrowseEventList({
+      catalog: resolveCatalog(),
+      browse: browseFilters,
+      discoveryGate,
+      pickedYmd,
+      searchAnchor,
+      coords,
+    })
 
     if (searchAnchor) {
-      return sortEventsByDistance(
-        filterEventsByRadius(base, searchAnchor, NEARBY_RADIUS_MILES),
-        searchAnchor,
-      )
+      return sortEventsByDistance(base, searchAnchor)
     }
 
     if (browseFilters.city === 'nearby' && coords) {
-      return sortEventsByDistance(
-        filterEventsByRadius(base, coords, NEARBY_RADIUS_MILES),
-        coords,
-      )
+      return sortEventsByDistance(base, coords)
     }
 
     return sortEventsBySchedule(base)
   }, [browseFilters, pickedYmd, searchAnchor, coords, discoveryGate, resolveCatalog])
+
+  const getFilterSheetResultCount = useCallback(
+    (draft: BrowseFilters, draftPickedYmd: string | null) =>
+      filterBrowseEventList({
+        catalog: resolveCatalog(),
+        browse: draft,
+        discoveryGate,
+        pickedYmd: draftPickedYmd,
+        searchAnchor,
+        coords,
+      }).length,
+    [resolveCatalog, discoveryGate, searchAnchor, coords],
+  )
 
   const awaitingNearby = browseFilters.city === 'nearby' && !coords && !searchAnchor
   const showReset =
@@ -463,14 +465,13 @@ export function BrowsePage({
   )
 
   function countBrowseEvents(filters: BrowseFilters) {
-    const catalog = resolveCatalog()
-    const base = filterEvents(catalog, { browse: filters, discoveryGate })
-
-    if (filters.city === 'nearby' && coords) {
-      return filterEventsByRadius(base, coords, NEARBY_RADIUS_MILES).length
-    }
-
-    return base.length
+    return filterBrowseEventList({
+      catalog: resolveCatalog(),
+      browse: filters,
+      discoveryGate,
+      searchAnchor,
+      coords,
+    }).length
   }
 
   function resetFilters() {
@@ -762,6 +763,7 @@ export function BrowsePage({
         pickedYmd={pickedYmd}
         onPickDate={setPickedYmd}
         onClearPickedDate={() => setPickedYmd(null)}
+        getResultCount={getFilterSheetResultCount}
       />
 
       {viewMode === 'map' && events.length > 0 && !awaitingNearby ? (

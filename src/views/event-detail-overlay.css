@@ -3,7 +3,8 @@
 .event-detail-overlay {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  /* Above Puddles Picks pill (z-index 85) so overlay chrome stays tappable */
+  z-index: 95;
   display: flex;
   justify-content: center;
   align-items: flex-start;

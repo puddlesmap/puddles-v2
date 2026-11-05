@@ -63,6 +63,8 @@ export function sourceContextSlug(source: EventOpenSource): string {
       return 'browse'
     case 'guide':
       return 'guide'
+    case 'saved':
+      return 'saved'
     default:
       return source
   }

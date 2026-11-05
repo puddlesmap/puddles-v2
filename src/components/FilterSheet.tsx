@@ -44,6 +44,11 @@ interface FilterSheetProps {
   onClearPickedDate?: () => void
   /** Optional catalog for the Show N results count (e.g. curated holiday set). */
   countEvents?: Event[]
+  /**
+   * Preferred: same pipeline as the visible list (catalog + radius + discoveryGate).
+   * When set, overrides getFilteredCount / countEvents.
+   */
+  getResultCount?: (draft: BrowseFilters, draftPickedYmd: string | null) => number
 }
 
 export function FilterSheet({
@@ -60,6 +65,7 @@ export function FilterSheet({
   onPickDate,
   onClearPickedDate,
   countEvents,
+  getResultCount,
 }: FilterSheetProps) {
   const [draft, setDraft] = useState(filters)
   const [draftPickedYmd, setDraftPickedYmd] = useState<string | null>(pickedYmd)
@@ -84,10 +90,12 @@ export function FilterSheet({
 
   if (!open) return null
 
-  const count = getFilteredCount(draft, {
-    pickedYmd: draftPickedYmd,
-    events: countEvents,
-  })
+  const count = getResultCount
+    ? getResultCount(draft, draftPickedYmd)
+    : getFilteredCount(draft, {
+        pickedYmd: draftPickedYmd,
+        events: countEvents,
+      })
   const resultsLabel = count > 0 ? `Show ${count} results` : 'Show results'
 
   function apply() {

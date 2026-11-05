@@ -33,6 +33,8 @@ import {
   addToSeasonalSection,
   clearSeasonalThemeStaging,
   commitSeasonalCurationPublish,
+  dedupeSeasonalCurationIds,
+  findSeasonalSoftMatch,
   getActiveThemeSlugForAdmin,
   getEffectiveSeasonalSectionIds,
   moveSeasonalSection,
@@ -294,7 +296,16 @@ export function AdminDiscoveryPage() {
   }
 
   function handleAddToSeasonal(candidate: DiscoveryCandidate, section: SeasonalCurationSection) {
-    addToSeasonalSection(curationEventId(candidate), section, themeSlug)
+    const eventId = curationEventId(candidate)
+    const existing = findSeasonalSoftMatch(eventId, section, themeSlug)
+    if (existing) {
+      setActionMessage({
+        type: 'error',
+        text: `“${candidate.title}” is already in this section (${existing.id}).`,
+      })
+      return
+    }
+    addToSeasonalSection(eventId, section, themeSlug)
     bumpCuration()
     setActionMessage({
       type: 'success',
@@ -334,16 +345,14 @@ export function AdminDiscoveryPage() {
     setPublishCurationBusy(true)
     setActionMessage(null)
     try {
+      const collectionEventIds = dedupeSeasonalCurationIds(seasonalSections.closeIds)
+      const driveEventIds = dedupeSeasonalCurationIds(seasonalSections.driveIds)
       const message = await publishSeasonalCurationToSite({
         themeSlug,
-        collectionEventIds: seasonalSections.closeIds,
-        driveEventIds: seasonalSections.driveIds,
+        collectionEventIds,
+        driveEventIds,
       })
-      commitSeasonalCurationPublish(
-        themeSlug,
-        seasonalSections.closeIds,
-        seasonalSections.driveIds,
-      )
+      commitSeasonalCurationPublish(themeSlug, collectionEventIds, driveEventIds)
       bumpCuration()
       setActionMessage({ type: 'success', text: message })
     } catch (error) {

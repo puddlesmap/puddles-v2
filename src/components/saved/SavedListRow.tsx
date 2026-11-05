@@ -1,11 +1,11 @@
 'use client'
 
 import type { MouseEvent } from 'react'
-import { Link } from 'react-router-dom'
 import type { Event } from '../../types/event'
 import { useSaved } from '../../context/SavedContext'
+import { useEventNavigation } from '../../hooks/useEventNavigation'
 import { ANALYTICS_EVENTS, trackActivityEngagement } from '../../utils/analytics'
-import { addEventToCalendar, canAddEventToCalendar } from '../../utils/calendar'
+import { addEventToCalendar } from '../../utils/calendar'
 import {
   addDays,
   formatTime,
@@ -76,13 +76,17 @@ export function SavedListRow({
   variant: SavedListRowVariant
 }) {
   const { toggleSave, isSaved } = useSaved()
+  const openEvent = useEventNavigation()
   const now = new Date()
   const ymd = getSeasonalAvailability(event, now).nextRelevantYmd || event.date || ''
   const rail = dateRailParts(ymd)
   const when = formatListWhen(event, ymd, now)
   const place = placeLabel(event)
-  const canCalendar = canAddEventToCalendar(event)
   const saved = isSaved(event.id)
+
+  function handleOpen() {
+    openEvent(event, 'saved', { viewMode: 'list' })
+  }
 
   function handleCalendar(clickEvent: MouseEvent<HTMLButtonElement>) {
     clickEvent.preventDefault()
@@ -105,9 +109,9 @@ export function SavedListRow({
 
   const copy = (
     <div className="saved-list-row__copy">
-      <Link to={`/event/${event.id}`} className="saved-list-row__title">
+      <button type="button" className="saved-list-row__title" onClick={handleOpen}>
         {event.title}
-      </Link>
+      </button>
       <p className="saved-list-row__when">{when}</p>
       <p className="saved-list-row__place">{place}</p>
     </div>
@@ -135,7 +139,6 @@ export function SavedListRow({
       <button
         type="button"
         className="saved-list-row__calendar"
-        disabled={!canCalendar}
         aria-label={`Add ${event.title} to calendar`}
         onClick={handleCalendar}
       >

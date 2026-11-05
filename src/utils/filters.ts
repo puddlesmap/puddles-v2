@@ -21,6 +21,7 @@ import {
   type AgeFilter,
 } from './ageRange'
 import { eventMatchesPickedYmd } from './pickedDate'
+import { NEARBY_RADIUS_MILES, filterEventsByRadius } from './geo'
 
 export type { AgeFilter }
 
@@ -128,18 +129,72 @@ export function sortEventsBySchedule(events: Event[], now: Date = new Date()): E
   })
 }
 
+export type BrowseListGeo = {
+  lat: number
+  lng: number
+}
+
+/**
+ * Same filter + Nearby/ZIP radius path Browse uses for the list.
+ * Prefer this (or a page `getResultCount` that calls it) over a parallel count.
+ */
+export function filterBrowseEventList(opts: {
+  catalog: Event[]
+  browse: BrowseFilters
+  discoveryGate?: DiscoveryGate
+  pickedYmd?: string | null
+  searchAnchor?: BrowseListGeo | null
+  coords?: BrowseListGeo | null
+}): Event[] {
+  const {
+    catalog,
+    browse,
+    discoveryGate = 'public',
+    pickedYmd = null,
+    searchAnchor = null,
+    coords = null,
+  } = opts
+
+  const browseForFilter = {
+    ...(pickedYmd ? { ...browse, day: 'anytime' as const } : browse),
+    ...(searchAnchor ? { city: 'all' as const } : null),
+  }
+
+  const base = filterEvents(catalog, { browse: browseForFilter, discoveryGate }).filter((event) =>
+    pickedYmd ? eventMatchesPickedYmd(event, pickedYmd) : true,
+  )
+
+  if (searchAnchor) {
+    return filterEventsByRadius(base, searchAnchor, NEARBY_RADIUS_MILES)
+  }
+  if (browse.city === 'nearby' && coords) {
+    return filterEventsByRadius(base, coords, NEARBY_RADIUS_MILES)
+  }
+  return base
+}
+
 export function getFilteredCount(
   browse: BrowseFilters,
-  opts?: { pickedYmd?: string | null; events?: Event[] },
+  opts?: {
+    pickedYmd?: string | null
+    events?: Event[]
+    catalog?: Event[]
+    discoveryGate?: DiscoveryGate
+    searchAnchor?: BrowseListGeo | null
+    coords?: BrowseListGeo | null
+  },
 ): number {
-  const browseForFilter = opts?.pickedYmd ? { ...browse, day: 'anytime' as const } : browse
-
   // Curated subsets (e.g. Holiday Magic) — do not merge extra seasonal catalog rows.
   if (opts?.events) {
-    const f = { ...DEFAULT_BROWSE_FILTERS, ...browseForFilter }
+    const browseForFilter = opts.pickedYmd ? { ...browse, day: 'anytime' as const } : browse
+    const f = {
+      ...DEFAULT_BROWSE_FILTERS,
+      ...browseForFilter,
+      ...(opts.searchAnchor ? { city: 'all' as const } : null),
+    }
     const anchor = getAnchorDate()
     const now = new Date()
-    return opts.events.filter((event) => {
+    let next = opts.events.filter((event) => {
       if (!matchesCity(event, f.city)) return false
       if (opts.pickedYmd) {
         if (!eventMatchesPickedYmd(event, opts.pickedYmd)) return false
@@ -155,12 +210,23 @@ export function getFilteredCount(
       if (f.seasonal && !isSeasonalAdminListing(event)) return false
       if (f.free && !isFreeCost(event.cost)) return false
       return true
-    }).length
+    })
+    if (opts.searchAnchor) {
+      next = filterEventsByRadius(next, opts.searchAnchor, NEARBY_RADIUS_MILES)
+    } else if (browse.city === 'nearby' && opts.coords) {
+      next = filterEventsByRadius(next, opts.coords, NEARBY_RADIUS_MILES)
+    }
+    return next.length
   }
 
-  const base = filterEvents(getPublicEventsFromCatalog(), { browse: browseForFilter })
-  if (!opts?.pickedYmd) return base.length
-  return base.filter((event) => eventMatchesPickedYmd(event, opts.pickedYmd!)).length
+  return filterBrowseEventList({
+    catalog: opts?.catalog ?? getPublicEventsFromCatalog(),
+    browse,
+    discoveryGate: opts?.discoveryGate,
+    pickedYmd: opts?.pickedYmd,
+    searchAnchor: opts?.searchAnchor,
+    coords: opts?.coords,
+  }).length
 }
 
 export function hasActiveBrowseFilters(browse: BrowseFilters): boolean {

@@ -5,6 +5,7 @@ export type EventOpenSource =
   | 'home'
   | 'city_landing'
   | 'guide'
+  | 'saved'
 
 export type FilterContext = 'home' | 'browse'
 

@@ -43,7 +43,9 @@ export function syncApprovedDiscoveryToPublishQueue(candidates: DiscoveryCandida
   for (const candidate of candidates) {
     if (candidate.reviewStatus !== 'approved') continue
     if (staged.has(candidate.id)) continue
-    const eventId = candidate.convertedEventId?.trim()
+    const eventId =
+      candidate.convertedEventId?.trim() ||
+      (getAdminEventForPublish(candidate.id) ? candidate.id : '')
     if (!eventId) continue
     stageDiscoveryCandidateForPublish(candidate, eventId)
     staged.add(candidate.id)
