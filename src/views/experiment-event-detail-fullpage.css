@@ -1,0 +1,391 @@
+/* Experiment: full-page event detail mock (desktop title actions + mobile sticky CTA). */
+
+.edfp-index {
+  padding: 1.5rem var(--layout-padding-mobile) 4rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.edfp-index__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.edfp-index__lede {
+  margin: 0 0 1.5rem;
+  color: var(--color-muted);
+  line-height: 1.45;
+}
+
+.edfp-index__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.edfp-index__link {
+  display: block;
+  padding: 1rem 1.1rem;
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-md);
+  background: #fafafa;
+  color: inherit;
+  text-decoration: none;
+}
+
+.edfp-index__link:hover {
+  border-color: #cfd8dc;
+}
+
+.edfp-index__link-title {
+  margin: 0 0 0.25rem;
+  font-weight: 700;
+}
+
+.edfp-index__link-meta {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.edfp-note {
+  margin: 0 0 1rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: #eef7fc;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: #1b3a4b;
+}
+
+.edfp-note a {
+  color: inherit;
+  font-weight: 600;
+}
+
+/* Desktop title row */
+.edfp-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.edfp-title-row .sedl-airbnb-title,
+.edfp-title-row__title {
+  flex: 1 1 auto;
+  margin: 0;
+  min-width: 0;
+}
+
+.edfp-title-row__actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.edfp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2.25rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  background: #fff;
+  color: #222;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edfp-pill--saved {
+  border-color: #66c5f9;
+  color: #1b3a4b;
+}
+
+/* Secondary WHEN lines (session times) — match address / supporting copy */
+.edfp-when-secondary {
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--type-supporting-color, #6b7280);
+}
+
+/* Mobile: simple WHEN — primary date matches venue; time matches address */
+.edfp--mobile .edfp-when--simple .event-detail-field-value:not(.edfp-when-secondary) {
+  font-size: var(--type-page-body-size);
+  font-weight: 600;
+  line-height: var(--type-page-body-line-height);
+  color: var(--type-page-body-color);
+}
+
+.edfp--mobile .edfp-when--simple .edfp-when-secondary {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: var(--type-page-body-line-height);
+  color: var(--type-supporting-color, #6b7280);
+}
+
+/* Hero media — seasonal editorial badge anchors here */
+.edfp-hero-media {
+  position: relative;
+}
+
+/* Heart/Save/Share sit top-right — keep seasonal pill top-left */
+.edfp-hero-media .event-editorial-badge {
+  inset: 12px auto auto 12px;
+  z-index: 3;
+}
+
+/* Mobile: clear the Back chrome button above */
+.edfp--mobile .edfp-hero-media .event-editorial-badge {
+  top: calc(max(0.75rem, env(safe-area-inset-top, 0px)) + 2.75rem);
+  left: 12px;
+  right: auto;
+}
+
+/* Mobile sticky collapsed title — Back · title · Save/Share */
+.edfp-sticky-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3.5rem;
+  padding: max(0.5rem, env(safe-area-inset-top, 0px)) 0.75rem 0.5rem;
+  pointer-events: none;
+}
+
+.edfp-sticky-header--overlay {
+  visibility: hidden;
+}
+
+.edfp-sticky-header--collapsed {
+  background: rgb(255 255 255 / 0.96);
+  border-bottom: 1px solid #ebebeb;
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.04);
+}
+
+.edfp-sticky-title {
+  flex: 1 1 auto;
+  margin: 0;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.edfp-sticky-header__end {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.edfp-sticky-header--collapsed .edfp-chrome-btn {
+  box-shadow: none;
+  border-color: #e5e5e5;
+  background: #fff;
+}
+
+.edfp-sticky-spacer {
+  display: block;
+  width: 100%;
+  height: 0;
+}
+
+/* Mobile hero chrome */
+.edfp-hero {
+  position: relative;
+}
+
+.edfp-hero-chrome {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: max(0.75rem, env(safe-area-inset-top, 0px)) 0.75rem 0;
+  pointer-events: none;
+}
+
+.edfp-hero-chrome > *,
+.edfp-hero-chrome__end {
+  pointer-events: auto;
+}
+
+.edfp-hero-chrome__end {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.edfp-chrome-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.95);
+  color: #222;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.12);
+  cursor: pointer;
+}
+
+/* Save uses the same circle as Back/Share (no SaveHeartButton absolute styles). */
+.edfp-chrome-btn.edfp-chrome-save {
+  position: static;
+  top: auto;
+  right: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.95);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.12);
+  line-height: 0;
+}
+
+.edfp-chrome-btn.edfp-chrome-save .save-heart-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+/* One divider only: fields border-bottom (do not also add an <hr>). */
+.edfp--mobile .sedl-v2-meta.event-detail-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.125rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #ebebeb;
+}
+
+/* Kill uneven location margins from global event-detail styles. */
+.edfp--mobile .event-detail-location,
+.edfp--mobile .event-detail-row.event-detail-location {
+  margin-top: 0;
+}
+
+.edfp--mobile .event-detail-row {
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+/* Icons share one column size; sit on the first text line. */
+.edfp--mobile .event-detail-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.2rem;
+}
+
+.edfp--mobile .event-detail-field .event-detail-icon {
+  /* Align with uppercase AGES / TYPE / COST label */
+  margin-top: 0.05rem;
+}
+
+.edfp--mobile .event-detail-row-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.edfp--mobile .event-detail-field-label {
+  line-height: 1.2;
+}
+
+.edfp--mobile .event-detail-field-value {
+  margin-top: 0.2rem;
+}
+
+.edfp-mobile-desc {
+  margin: 1.25rem 0 1.25rem;
+}
+
+/* Mobile sticky CTA — stacked full-width like live Puddles */
+.edfp--mobile {
+  padding-bottom: calc(8.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+.edfp-sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid #ebebeb;
+  background: #fff;
+  box-shadow: 0 -6px 20px rgb(0 0 0 / 0.06);
+}
+
+.edfp-sticky-cta__actions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.edfp-sticky-cta__actions .sedl-cta,
+.edfp-sticky-cta__actions .btn-primary,
+.edfp-sticky-cta__actions .btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.edfp-sticky-cta__actions .btn-primary {
+  background: #66c5f9;
+  border-color: #66c5f9;
+  color: #fff;
+}
+
+.edfp-sticky-cta__actions .btn-secondary {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #222;
+}
+
+.edfp-detail-shell {
+  min-height: 100dvh;
+  background: #fff;
+}
+
+.edfp-detail-shell--mobile-chrome .site-header,
+.edfp-detail-shell--mobile-chrome .bottom-nav {
+  display: none !important;
+}

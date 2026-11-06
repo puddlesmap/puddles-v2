@@ -41,7 +41,7 @@ import {
   type BrowseFilters,
   type DiscoveryGate,
 } from '../utils/filters'
-import { sortEventsByDistance } from '../utils/geo'
+import { formatNearbyContextLabel, NEARBY_RADIUS_MILES } from '../utils/geo'
 import { trackCitySelected, trackViewModeChanged } from '../utils/analytics'
 import {
   formatActivityCount,
@@ -343,14 +343,6 @@ export function BrowsePage({
       coords,
     })
 
-    if (searchAnchor) {
-      return sortEventsByDistance(base, searchAnchor)
-    }
-
-    if (browseFilters.city === 'nearby' && coords) {
-      return sortEventsByDistance(base, coords)
-    }
-
     return sortEventsBySchedule(base)
   }, [browseFilters, pickedYmd, searchAnchor, coords, discoveryGate, resolveCatalog])
 
@@ -422,15 +414,29 @@ export function BrowsePage({
     }
   }, [locationLabel, browseFilters, viewMode, showReset, events.length])
 
+  const nearbyContextLabel =
+    browseFilters.city === 'nearby' && coords && !searchAnchor
+      ? formatNearbyContextLabel(NEARBY_RADIUS_MILES)
+      : null
+
   const resultsSummary =
     resultsCountStyle === 'contextual'
       ? getBrowseResultsSummary(events.length, browseFilters.city, browseFilters.day, {
           pickedYmd,
+          nearbyContextLabel,
         })
-      : `${events.length} ${getBrowseActivityNoun(events.length, browseFilters.day, { pickedYmd })}`
+      : [
+          `${events.length} ${getBrowseActivityNoun(events.length, browseFilters.day, { pickedYmd })}`,
+          nearbyContextLabel,
+        ]
+          .filter(Boolean)
+          .join(' · ')
 
-  const mobileResultsLabel =
-    awaitingNearby ? null : `${formatActivityCount(events.length)}.`
+  const mobileResultsLabel = awaitingNearby
+    ? null
+    : nearbyContextLabel
+      ? `${formatActivityCount(events.length)} · ${nearbyContextLabel}.`
+      : `${formatActivityCount(events.length)}.`
 
   const listResultsLabel = awaitingNearby
     ? null
@@ -492,6 +498,18 @@ export function BrowsePage({
     }
   }
 
+  function handleMapSearchHere(anchor: BrowseSearchAnchor) {
+    handleSearchAnchor(anchor)
+  }
+
+  function handleClearGeoBoundary() {
+    setSearchAnchor(null)
+    trackCitySelected('all', 'browse')
+    setBrowseFilters({ ...browseFilters, city: 'all', cityLocked: false })
+  }
+
+  const showMapClearBoundary = Boolean(searchAnchor) || browseFilters.city !== 'all'
+
   function tryAllCities() {
     trackCitySelected('all', 'browse')
     setBrowseFilters({ ...browseFilters, city: 'all', cityLocked: false })
@@ -516,7 +534,6 @@ export function BrowsePage({
             fromApp: true,
             eventOpenSource: 'browse_list',
             returnTo: `${location.pathname}${location.search}${location.hash}`,
-            backgroundLocation: location,
           },
         })
         return
@@ -535,7 +552,6 @@ export function BrowsePage({
             fromApp: true,
             eventOpenSource: 'browse_map',
             returnTo: `${location.pathname}${location.search}${location.hash}`,
-            backgroundLocation: location,
             ...mapSnapshot,
           },
         })
@@ -776,6 +792,9 @@ export function BrowsePage({
           onOpenEvent={handleOpenMapEvent}
           detachedViewToggle={viewToggleSeparated ? detachedViewToggle : null}
           venueResponsive={venueResponsive}
+          onSearchHere={handleMapSearchHere}
+          showClearBoundary={showMapClearBoundary}
+          onClearGeoBoundary={handleClearGeoBoundary}
         />
       ) : (
         <div className="browse-page-body">

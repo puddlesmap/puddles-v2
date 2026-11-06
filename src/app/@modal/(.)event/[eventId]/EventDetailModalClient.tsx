@@ -1,89 +1,24 @@
 'use client'
 
 import { useEffect } from 'react'
-import { EventDetailView } from '@/components/EventDetailView'
-import { EventUnavailableState } from '@/components/empty-states/EventUnavailableState'
-import { useCloseEventDetail } from '@/hooks/useCloseEventDetail'
-import { useEventDetailDocument } from '@/hooks/useEventDetailDocument'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
-import { readEventDetailOverlayState } from '@/utils/nextEventDetailState'
-import { resolveEventOverlayLayout } from '@/utils/eventOverlayLayout'
+import { useParams } from 'next/navigation'
+import { clearEventDetailOverlayState } from '@/utils/nextEventDetailState'
 
+/**
+ * Soft navigations used to open a modal over Browse. Event detail is full-page
+ * now — break out of the intercepting route with a hard load of the same URL.
+ */
 export function EventDetailModalClient() {
-  const { close } = useCloseEventDetail()
-  const overlayState = readEventDetailOverlayState()
-  const { event: publicEvent, lifecycleStatus, now } = useEventDetailDocument({
-    skipPageMeta: true,
-  })
-  const isDesktop = useMediaQuery('(min-width: 768px)')
-  const resolvedLayout = resolveEventOverlayLayout(
-    overlayState?.backgroundPath ?? overlayState?.returnTo ?? null,
-  )
-  // v3 / wide chrome is desktop-only; mobile keeps the classic modal shell
-  const overlayLayout = isDesktop ? resolvedLayout : 'default'
-  const isWideDesktop = overlayLayout === 'wide'
-  const isV3Desktop = overlayLayout === 'v3'
+  const params = useParams<{ eventId: string }>()
 
   useEffect(() => {
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+    clearEventDetailOverlayState()
+    const id = params.eventId
+    const search = typeof window !== 'undefined' ? window.location.search : ''
+    const hash = typeof window !== 'undefined' ? window.location.hash : ''
+    const target = id ? `/event/${id}${search}${hash}` : '/browse'
+    window.location.replace(target)
+  }, [params.eventId])
 
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === 'Escape') close()
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-    return () => {
-      document.body.style.overflow = previousOverflow
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [close])
-
-  const shareInHeader = overlayState?.eventOpenSource != null
-
-  return (
-    <div
-      className={[
-        'event-detail-overlay',
-        isWideDesktop ? 'event-detail-overlay--wide' : '',
-        isV3Desktop ? 'event-detail-overlay--v3' : '',
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      role="presentation"
-      onClick={close}
-    >
-      <div
-        className={[
-          'event-detail-overlay__dialog',
-          isWideDesktop ? 'event-detail-overlay__dialog--wide' : '',
-          isV3Desktop ? 'event-detail-overlay__dialog--v3' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        role="dialog"
-        aria-modal="true"
-        aria-label={publicEvent?.title ?? 'Event details'}
-        onClick={(event) => event.stopPropagation()}
-      >
-        {publicEvent ? (
-          <EventDetailView
-            event={publicEvent}
-            analyticsSource={overlayState?.eventOpenSource ?? 'discovery'}
-            hasInAppReturn
-            onClose={close}
-            presentation="overlay"
-            overlayLayout={overlayLayout}
-            shareInHeader={shareInHeader}
-            lifecycleStatus={lifecycleStatus ?? undefined}
-            lifecycleNow={now}
-          />
-        ) : (
-          <div className="event-detail-overlay__unavailable">
-            <EventUnavailableState hasInAppReturn onClose={close} />
-          </div>
-        )}
-      </div>
-    </div>
-  )
+  return null
 }

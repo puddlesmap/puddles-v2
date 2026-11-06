@@ -21,11 +21,13 @@ export const SEASONAL_BADGE_HALLOWEEN: DiscoveryBadgeData = {
 export const SEASONAL_BADGE_HOLIDAY: DiscoveryBadgeData = {
   kind: 'seasonal',
   label: 'Holiday Pick',
+  icon: 'holiday-sparkle',
 }
 
 const BADGE_BY_ACTIVE_SLUG: Partial<Record<SeasonalCollectionSlug, DiscoveryBadgeData>> = {
   'hello-fall': SEASONAL_BADGE_FALL,
   'halloween-with-little-ones': SEASONAL_BADGE_HALLOWEEN,
+  'holiday-magic': SEASONAL_BADGE_HOLIDAY,
 }
 
 /** Title heuristic for mockups / review — not used for live badges. */

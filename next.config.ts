@@ -18,6 +18,12 @@ const nextConfig: NextConfig = {
     cpus: 1,
     workerThreads: false,
   },
+  // Avoid Node 24 + webpack WasmHash crash (`Cannot read properties of undefined (reading 'length')`).
+  webpack: (config) => {
+    config.output = config.output ?? {}
+    config.output.hashFunction = 'xxhash64'
+    return config
+  },
 }
 
 export default nextConfig

@@ -19,10 +19,12 @@ interface MapControlsProps {
   onZoomIn?: () => void
   onZoomOut?: () => void
   zoomEnabled?: boolean
-  showSearchArea: boolean
+  showSearchArea?: boolean
+  showClearBoundary?: boolean
   locationMessage: string | null
   isLocating: boolean
-  onSearchArea: () => void
+  onSearchArea?: () => void
+  onClearBoundary?: () => void
   onLocate: () => void
   onDismissMessage: () => void
 }
@@ -32,10 +34,10 @@ export function MapControls({
   onZoomIn,
   onZoomOut,
   zoomEnabled,
-  showSearchArea,
+  showClearBoundary = false,
   locationMessage,
   isLocating,
-  onSearchArea,
+  onClearBoundary,
   onLocate,
   onDismissMessage,
 }: MapControlsProps) {
@@ -59,11 +61,17 @@ export function MapControls({
 
   return (
     <div className="browse-map-controls" onClick={(event) => event.stopPropagation()}>
-      {showSearchArea && (
-        <button type="button" className="browse-map-search-area-btn" onClick={onSearchArea}>
-          Search this area
-        </button>
-      )}
+      {showClearBoundary && onClearBoundary ? (
+        <div className="browse-map-area-actions">
+          <button
+            type="button"
+            className="browse-map-search-area-btn browse-map-search-area-btn--secondary"
+            onClick={onClearBoundary}
+          >
+            Show all areas
+          </button>
+        </div>
+      ) : null}
 
       {locationMessage && (
         <div className="browse-map-toast" role="status">

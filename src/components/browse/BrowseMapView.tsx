@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import type { Event } from '../../types/event'
+import type { BrowseSearchAnchor } from '../../utils/browseSearchAnchor'
 import type { BrowseFilters } from '../../utils/filters'
 import type { MapInteractionMode, MapOpenEventHandler } from '../../hooks/useBrowseMapInteraction'
 import type { BrowseReturnSnapshot } from '../../utils/browseReturnState'
@@ -16,6 +17,9 @@ interface BrowseMapViewProps {
   restoreSnapshot?: BrowseReturnSnapshot | null
   detachedViewToggle?: ReactNode
   venueResponsive?: boolean
+  onSearchHere?: (anchor: BrowseSearchAnchor) => void
+  showClearBoundary?: boolean
+  onClearGeoBoundary?: () => void
 }
 
 export function BrowseMapView({ browseFilters, interactionMode = 'default', ...props }: BrowseMapViewProps) {

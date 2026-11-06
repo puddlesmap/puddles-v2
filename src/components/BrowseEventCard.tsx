@@ -56,7 +56,9 @@ export function BrowseEventCard({
   asOf,
 }: BrowseEventCardProps & { asOf?: Date }) {
   const now = asOf ?? new Date()
-  const badge = seasonalEditorial ? getSeasonalEditorialBadgeForEvent(event) : null
+  // Mobile map preview cards are too small for seasonal pills to read.
+  const showSeasonalPill = seasonalEditorial && density !== 'map-sheet'
+  const badge = showSeasonalPill ? getSeasonalEditorialBadgeForEvent(event) : null
   const card = eventToBrowseCard(event, badge, now)
   const titleParts = appendVenueToTitle ? formatEventCardTitleParts(event) : null
 

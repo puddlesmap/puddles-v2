@@ -1,17 +1,21 @@
 'use client'
 
 import { useCallback } from 'react'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import type { Event } from '@/types/event'
 import type { EventOpenSource } from '@/types/analytics'
 import { saveBrowseReturnSnapshot, type BrowseReturnSnapshot } from '@/utils/browseReturnState'
-import { isEventModalOverlaySource } from '@/utils/eventDetailNavigation'
 import { saveHomeReturnSnapshotFromLive } from '@/utils/homeReturnState'
-import { saveEventDetailOverlayState } from '@/utils/nextEventDetailState'
+import { clearEventDetailOverlayState } from '@/utils/nextEventDetailState'
 import { eventDetailPath } from '@/utils/eventPages'
 
+const EVENT_DETAIL_RETURN_KEY = 'puddles:event-detail-return'
+
+/**
+ * Open event detail as a full page (not the intercepting modal overlay).
+ * Hard navigation avoids Next.js `(.)event` keeping Browse underneath.
+ */
 export function useEventNavigation() {
-  const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -19,27 +23,25 @@ export function useEventNavigation() {
     (event: Event, source: EventOpenSource, extra?: Partial<BrowseReturnSnapshot>) => {
       const search = searchParams.toString()
       const returnTo = `${pathname}${search ? `?${search}` : ''}`
-      const useBrowseOverlay = isEventModalOverlaySource(source)
 
       if (source === 'home') {
         saveHomeReturnSnapshotFromLive(window.scrollY)
       }
 
-      if (!useBrowseOverlay) {
-        saveBrowseReturnSnapshot({
-          scrollY: window.scrollY,
-          ...extra,
-        })
-      } else {
-        saveEventDetailOverlayState({
-          eventOpenSource: source,
-          returnTo,
-          backgroundPath: returnTo,
-        })
+      saveBrowseReturnSnapshot({
+        scrollY: window.scrollY,
+        ...extra,
+      })
+
+      clearEventDetailOverlayState()
+      try {
+        sessionStorage.setItem(EVENT_DETAIL_RETURN_KEY, returnTo)
+      } catch {
+        // ignore quota / private mode
       }
 
-      router.push(eventDetailPath(event))
+      window.location.assign(eventDetailPath(event))
     },
-    [pathname, router, searchParams],
+    [pathname, searchParams],
   )
 }

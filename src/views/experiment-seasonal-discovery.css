@@ -447,26 +447,61 @@
   color: var(--color-muted);
 }
 
-/* Two-line wrap of activity chips (no horizontal-only scroller). */
+/* One-line horizontal roll of activity chips */
 .seasonal-browse-preview__scroller {
   --browse-chip-gap: 0.875rem;
+  --browse-chip-pad: calc(2 * var(--layout-padding-mobile));
   position: relative;
   min-width: 0;
+  margin-inline: calc(-1 * var(--layout-padding-mobile));
+  container-type: inline-size;
+}
+
+.seasonal-browse-preview__scroller::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.85rem;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to right, transparent, var(--color-surface, #ffffff));
 }
 
 .seasonal-browse-preview__track {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  row-gap: 1rem;
-  column-gap: var(--browse-chip-gap);
+  flex-wrap: nowrap;
+  gap: var(--browse-chip-gap);
+  padding-inline: var(--layout-padding-mobile);
   padding-bottom: 0.25rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.seasonal-browse-preview__track::after {
+  content: '';
+  flex: 0 0 4.5rem;
 }
 
 @media (min-width: 768px) {
   .seasonal-browse-preview__scroller {
     --browse-chip-gap: 1.125rem;
+    --browse-chip-pad: 0px;
+    margin-inline: 0;
   }
+
+  .seasonal-browse-preview__track {
+    padding-inline: 0;
+  }
+}
+
+.seasonal-browse-preview__track::-webkit-scrollbar {
+  display: none;
 }
 
 .seasonal-browse-preview__chip {
@@ -474,17 +509,22 @@
   flex-direction: column;
   align-items: center;
   flex: 0 0 auto;
-  width: 4.75rem;
+  width: max(
+    4.75rem,
+    calc((100cqi - var(--browse-chip-pad) - 6 * var(--browse-chip-gap)) * 2 / 13)
+  );
   gap: 0.625rem;
   padding: 0.125rem;
   border: none;
   background: transparent;
   text-decoration: none;
+  scroll-snap-align: start;
   transition: transform 0.12s ease-out;
 }
 
 .seasonal-browse-preview__chip:hover .seasonal-browse-preview__chip-icon-wrap {
-  background: #ededed;
+  background: #eef8fe;
+  box-shadow: 0 2px 8px rgba(102, 197, 249, 0.18);
 }
 
 .seasonal-browse-preview__chip:active {
@@ -498,17 +538,19 @@
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 50%;
-  background: #f5f5f5;
-  box-shadow: none;
+  background: var(--color-cream, #f5f5f5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
   filter: none;
-  transition: background-color 0.14s ease-out;
+  transition:
+    background-color 0.14s ease-out,
+    box-shadow 0.14s ease-out;
 }
 
 .seasonal-browse-preview__chip-icon {
   display: block;
   flex-shrink: 0;
-  width: 2.625rem;
-  height: 2.625rem;
+  width: 2.875rem;
+  height: 2.875rem;
   object-fit: contain;
   object-position: center;
   filter: none;
@@ -1903,11 +1945,39 @@
   background: #17382a;
 }
 
+/* Desktop holiday-reverse — dark page header (not lime) */
 .home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse
   > header.app-header.page-header-sticky,
+.home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse
+  .app-header.page-header-sticky,
 .home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse .app-header-row {
   background: #17382a;
   background-image: none;
+}
+
+.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse .logo-mark-img,
+.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse .brand-lockup img {
+  filter: brightness(0) invert(1);
+}
+
+/* Mobile only — lime bar (#eef58a) + white Puddles wordmark */
+@media (max-width: 767px) {
+  .home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse
+    > header.app-header.page-header-sticky,
+  .home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse
+    .app-header.page-header-sticky,
+  .home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse
+    .app-header-row {
+    background: #eef58a !important;
+    background-image: none !important;
+  }
+
+  .home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse
+    .logo-mark-img,
+  .home-experiment-shell.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse
+    .brand-lockup img {
+    filter: brightness(0) invert(1) !important;
+  }
 }
 
 .seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-reverse
@@ -1931,11 +2001,6 @@
 .seasonal-collection-page--holiday-magic.seasonal-collection-page--holiday-magic-reverse
   .seasonal-collection-band__subtitle {
   color: #f5efde;
-}
-
-.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse .logo-mark-img,
-.home-experiment-shell--holiday-magic.home-experiment-shell--holiday-magic-reverse .brand-lockup img {
-  filter: brightness(0) invert(1);
 }
 
 .home-experiment-shell--holiday-magic-reverse .top-nav-link,
@@ -2018,40 +2083,55 @@
   }
 }
 
-/* Holiday typeahead geo toggle — load after density fall-frost so lime selected pill wins. */
-.seasonal-collection-page--typeahead-filters.seasonal-collection-page--holiday-magic-reverse
-  .seasonal-density-tabs {
+/* Holiday geo toggle — white outline, tighter vertical gaps, lime selected pill */
+.seasonal-collection-page--holiday-magic-reverse .seasonal-density-tabs {
   background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  margin-bottom: 0.5rem;
+  padding-block: 0.25rem;
 }
 
-.seasonal-collection-page--typeahead-filters.seasonal-collection-page--holiday-magic-reverse
-  .seasonal-density-tabs.is-stuck {
+.seasonal-collection-page--holiday-magic-reverse .seasonal-density-tabs.is-stuck {
   background: #17382a;
 }
 
-.seasonal-collection-page--typeahead-filters.seasonal-collection-page--holiday-magic-reverse
+.seasonal-collection-page--holiday-magic-reverse
+  .local-guide-teaser--holiday-editorial {
+  margin-bottom: 0.75rem;
+}
+
+.seasonal-collection-page--holiday-magic-reverse
+  .seasonal-density-mobile-panel
+  > .seasonal-collection-band__header {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.seasonal-collection-page--holiday-magic-reverse
   .seasonal-density-tabs--fall-frost
   .seasonal-density-tabs__list {
   background: transparent;
-  border: none;
+  border: 1px solid #ffffff;
   box-shadow: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  padding: 0;
+  padding: 0.25rem;
+  border-radius: 999px;
 }
 
-.seasonal-collection-page--typeahead-filters.seasonal-collection-page--holiday-magic-reverse
+.seasonal-collection-page--holiday-magic-reverse
   .seasonal-density-tabs--fall-frost
   .seasonal-density-tabs__tab {
   border: 1px solid transparent;
   color: #eef58a;
 }
 
-.seasonal-collection-page--typeahead-filters.seasonal-collection-page--holiday-magic-reverse
+.seasonal-collection-page--holiday-magic-reverse
   .seasonal-density-tabs--fall-frost
   .seasonal-density-tabs__tab[aria-selected='true'] {
   background: #eef58a;
-  border-color: #f5efde;
+  border-color: transparent;
   color: #17382a;
   box-shadow: none;
 }

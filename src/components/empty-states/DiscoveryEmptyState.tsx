@@ -12,7 +12,7 @@ export function DiscoveryEmptyState({
       <div className="empty-state empty-state-quiet">
         <p className="empty-state-title text-[17px]">Turn on location to see what&apos;s nearby</p>
         <p className="empty-state-body mt-2">
-          Pick a city below, or allow location access to find activities within 5 miles of you.
+          Pick a city below, or allow location access to find activities nearby.
         </p>
         {onRetryLocation ? (
           <button type="button" className="btn-secondary mt-4" onClick={onRetryLocation}>

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import type { Event } from '../../types/event'
+import type { BrowseSearchAnchor } from '../../utils/browseSearchAnchor'
 import type { BrowseFilters } from '../../utils/filters'
 import { getBrowseResultsSummary } from '../../utils/browseResultsCopy'
 import { BrowseEventCard } from '../BrowseEventCard'
@@ -36,6 +37,9 @@ interface BrowseLeafletMapViewProps {
   restoreSnapshot?: BrowseReturnSnapshot | null
   detachedViewToggle?: ReactNode
   venueResponsive?: boolean
+  onSearchHere?: (anchor: BrowseSearchAnchor) => void
+  showClearBoundary?: boolean
+  onClearGeoBoundary?: () => void
 }
 
 const MAP_BASEMAP = getLeafletBasemap()
@@ -122,6 +126,9 @@ export function BrowseLeafletMapView({
   restoreSnapshot = null,
   detachedViewToggle = null,
   venueResponsive = false,
+  onSearchHere,
+  showClearBoundary = false,
+  onClearGeoBoundary,
 }: BrowseLeafletMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
@@ -184,6 +191,14 @@ export function BrowseLeafletMapView({
     setShowSearchArea(false)
   }, [])
 
+  const handleSearchAreaMovedAway = useCallback(() => {
+    setShowSearchArea(true)
+  }, [])
+
+  const handleSearchAreaReset = useCallback(() => {
+    setShowSearchArea(false)
+  }, [])
+
   useEffect(() => {
     setSearchGeneration(0)
     setLeafletMap(null)
@@ -198,6 +213,18 @@ export function BrowseLeafletMapView({
   }
 
   function handleSearchArea(map: L.Map) {
+    if (onSearchHere) {
+      const center = map.getCenter()
+      onSearchHere({
+        lat: center.lat,
+        lng: center.lng,
+        label: 'This area',
+      })
+      setShowSearchArea(false)
+      setAreaBounds(null)
+      return
+    }
+
     const bounds = boundsBoxFromLeaflet(map.getBounds())
     setAreaBounds(bounds)
     setShowSearchArea(false)
@@ -239,8 +266,8 @@ export function BrowseLeafletMapView({
           <MapSearchAreaDetector
             resetKey={`${feedKey}|${searchGeneration}`}
             active={!showSearchArea}
-            onMovedAway={() => setShowSearchArea(true)}
-            onReset={() => setShowSearchArea(false)}
+            onMovedAway={handleSearchAreaMovedAway}
+            onReset={handleSearchAreaReset}
           />
           <MapPanToEvent event={selectedEvent} panTrigger={panTrigger} />
           <MapLocateHandler coords={userCoords} trigger={locateTrigger} />
@@ -274,8 +301,8 @@ export function BrowseLeafletMapView({
         <MapSearchAreaDetector
           resetKey={`${feedKey}|${searchGeneration}`}
           active={!showSearchArea}
-          onMovedAway={() => setShowSearchArea(true)}
-          onReset={() => setShowSearchArea(false)}
+          onMovedAway={handleSearchAreaMovedAway}
+          onReset={handleSearchAreaReset}
         />
         <MapPanToEvent event={selectedEvent} panTrigger={panTrigger} />
         <MapLocateHandler coords={userCoords} trigger={locateTrigger} />
@@ -289,11 +316,13 @@ export function BrowseLeafletMapView({
       <MapControls
         map={leafletMap}
         showSearchArea={showSearchArea}
+        showClearBoundary={showClearBoundary}
         locationMessage={locationError}
         isLocating={isRequesting}
         onSearchArea={() => {
           if (leafletMap) handleSearchArea(leafletMap)
         }}
+        onClearBoundary={onClearGeoBoundary}
         onLocate={handleLocate}
         onDismissMessage={clearError}
       />

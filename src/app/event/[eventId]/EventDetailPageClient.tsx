@@ -1,36 +1,15 @@
 'use client'
 
 import { Suspense, useEffect, useRef, useState } from 'react'
-import dynamic from 'next/dynamic'
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import { MemoryRouter, useLocation } from 'react-router-dom'
 import { SharedEventUrlPage } from '@/components/event-detail/SharedEventUrlPage'
 import { guideSlugFromLocationSearch, trackPageView } from '@/utils/analytics'
 import { useCloseEventDetail } from '@/hooks/useCloseEventDetail'
 import { useEventDetailDocument } from '@/hooks/useEventDetailDocument'
-import {
-  isEventDetailOverlayActive,
-  readEventDetailOverlayState,
-} from '@/utils/nextEventDetailState'
-
-/** Lazy: soft-open background must not pull Leaflet into the event route graph. */
-const ClientRoutePage = dynamic(
-  () => import('@/components/ClientRoutePage').then((mod) => mod.ClientRoutePage),
-  { ssr: false },
-)
+import { clearEventDetailOverlayState } from '@/utils/nextEventDetailState'
 
 const STANDALONE_EVENT_PATH = /^\/event\/[^/]+$/
-
-function backgroundEntryParts(backgroundPath: string): { pathname: string; search: string } {
-  const queryIndex = backgroundPath.indexOf('?')
-  if (queryIndex === -1) {
-    return { pathname: backgroundPath || '/', search: '' }
-  }
-  return {
-    pathname: backgroundPath.slice(0, queryIndex) || '/',
-    search: backgroundPath.slice(queryIndex),
-  }
-}
 
 /**
  * SharedEventUrlPage renders the shared react-router <Link>/navigate() components,
@@ -70,7 +49,10 @@ export function EventDetailPageClient() {
   const { event, lifecycleStatus, now } = useEventDetailDocument({ skipPageMeta: true })
 
   useEffect(() => {
-    if (isEventDetailOverlayActive()) return
+    clearEventDetailOverlayState()
+  }, [])
+
+  useEffect(() => {
     if (!params.eventId) return
     trackPageView(`/event/${params.eventId}`)
   }, [params.eventId])
@@ -83,14 +65,6 @@ export function EventDetailPageClient() {
     const next = `${url.pathname}${url.search}${url.hash}`
     window.history.replaceState(window.history.state, '', next)
   }, [guideSlug])
-
-  // Only treat this as a modal soft-open when it was opened in-app this session.
-  // A hard load with stale sessionStorage must render the real standalone page.
-  if (isEventDetailOverlayActive()) {
-    const backgroundPath = readEventDetailOverlayState()?.backgroundPath ?? '/browse'
-    const { pathname, search } = backgroundEntryParts(backgroundPath)
-    return <ClientRoutePage pathname={pathname} search={search} />
-  }
 
   const entry = params.eventId ? `/event/${params.eventId}` : '/event/unknown'
 

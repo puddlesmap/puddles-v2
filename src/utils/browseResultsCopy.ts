@@ -22,14 +22,18 @@ export function getBrowseResultsSummary(
   eventCount: number,
   _city: string,
   day: DayFilter = 'anytime',
-  opts?: { pickedYmd?: string | null },
+  opts?: { pickedYmd?: string | null; nearbyContextLabel?: string | null },
 ): string {
   const noun = getBrowseActivityNoun(eventCount, day, opts)
-  if (opts?.pickedYmd) {
-    const dateLabel = formatShortDate(new Date(`${opts.pickedYmd}T12:00:00`))
-    return `${eventCount} ${noun} · ${dateLabel}`
+  const base = opts?.pickedYmd
+    ? `${eventCount} ${noun} · ${formatShortDate(new Date(`${opts.pickedYmd}T12:00:00`))}`
+    : `${eventCount} ${noun}`
+
+  if (opts?.nearbyContextLabel) {
+    return `${base} · ${opts.nearbyContextLabel}`
   }
-  return `${eventCount} ${noun}`
+
+  return base
 }
 
 export function getHomeFilterResultsSummary({

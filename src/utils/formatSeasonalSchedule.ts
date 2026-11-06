@@ -108,7 +108,7 @@ function buildSeasonalDetailRows(
   const scheduleLine = avail.hoursOk
     ? `${avail.recurring} · ${avail.hours}`
     : avail.recurring
-  const throughLine = avail.closing ? `Through ${formatShortOpenDate(avail.closing)}` : ''
+  const throughLine = avail.closing ? `Through ${formatLongOpenDate(avail.closing)}` : ''
   const note = scheduleNote.trim()
 
   const rows: SeasonalWhenRow[] = [{ text: avail.statusLabel }]
@@ -178,12 +178,13 @@ function formatRelativeLongDay(ymd: string, today: string): string {
 }
 
 function multiDayPrimaryLabel(opening: string, closing: string, today: string): string {
-  const range = formatRangeLabel(opening, closing)
+  // Detail WHEN uses full month names (September 19–20).
+  const range = formatLongRangeLabel(opening, closing)
   if (today > closing) return `Closed · was ${range}`
   if (today >= opening && today <= closing) {
     return formatRelativeLongDay(today, today)
   }
-  // Before opening: today/tomorrow → relative day; otherwise the span (Sep 19–20).
+  // Before opening: today/tomorrow → relative day; otherwise the span.
   const tomorrow = addDaysYmd(today, 1)
   if (opening === today || opening === tomorrow) {
     return formatRelativeLongDay(opening, today)
@@ -198,7 +199,29 @@ function formatShortOpenDate(ymd: string): string {
   return `${month} ${d.getDate()}`
 }
 
-/** Same month → Sep 5–7; otherwise Sep 19–Oct 2. */
+/** Detail WHEN: September 5 (full month). */
+function formatLongOpenDate(ymd: string): string {
+  return formatLongMonthDay(ymd)
+}
+
+/** Same month → September 5–7; otherwise September 19–October 2. */
+function formatLongRangeLabel(from: string, to: string): string {
+  if (!to || from === to) return formatLongOpenDate(from)
+  const a = new Date(`${from}T12:00:00`)
+  const b = new Date(`${to}T12:00:00`)
+  if (Number.isNaN(a.getTime()) || Number.isNaN(b.getTime())) {
+    return `${formatLongOpenDate(from)}–${formatLongOpenDate(to)}`
+  }
+  const sameMonth =
+    a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth()
+  if (sameMonth) {
+    const month = a.toLocaleDateString('en-US', { month: 'long' })
+    return `${month} ${a.getDate()}–${b.getDate()}`
+  }
+  return `${formatLongOpenDate(from)}–${formatLongOpenDate(to)}`
+}
+
+/** Same month → Sep 5–7; otherwise Sep 19–Oct 2. Card / compact status labels. */
 function formatRangeLabel(from: string, to: string): string {
   if (!to || from === to) return formatShortOpenDate(from)
   const a = new Date(`${from}T12:00:00`)
@@ -557,7 +580,7 @@ function buildMultiDayDetailWhen(
   const windowLabel = (event.scheduleWindowLabel || '').trim()
   const opening = avail.opening || event.date
   const closing = avail.closing || opening
-  const range = formatRangeLabel(opening, closing)
+  const range = formatLongRangeLabel(opening, closing)
   const hoursLine = avail.recurring
     ? avail.hoursOk
       ? `${avail.recurring} · ${avail.hours}`
@@ -608,7 +631,7 @@ export function formatSeasonalDetailWhen(
     return { rows: [{ text: avail.statusLabel }], rail: [avail.statusLabel] }
   }
 
-  const throughLine = avail.closing ? `Through ${formatShortOpenDate(avail.closing)}` : ''
+  const throughLine = avail.closing ? `Through ${formatLongOpenDate(avail.closing)}` : ''
   const rail = [
     avail.statusLabel,
     avail.hoursOk ? avail.hours : '',

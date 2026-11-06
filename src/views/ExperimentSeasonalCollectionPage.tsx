@@ -387,7 +387,7 @@ export function ExperimentSeasonalCollectionPage({
   typeaheadFilters: typeaheadFiltersProp = false,
 }: {
   slug?: string
-  /** Browse-style city/ZIP typeahead + pick-a-date (live on holiday-magic; also via prop). */
+  /** Browse-style city/ZIP typeahead + pick-a-date (opt-in via prop; off for holiday-magic for now). */
   typeaheadFilters?: boolean
 } = {}) {
   const params = useParams()
@@ -397,7 +397,7 @@ export function ExperimentSeasonalCollectionPage({
   const { getCatalog } = useLaunchStagingCatalog()
   const validSlug = isSeasonalCollectionSlug(slug) ? slug : null
   const collection = validSlug ? getSeasonalCollection(validSlug) : undefined
-  const typeaheadFilters = typeaheadFiltersProp || collection?.slug === 'holiday-magic'
+  const typeaheadFilters = typeaheadFiltersProp
   const { coords, requestLocation } = useUserLocation()
   const [browseFilters, setBrowseFilters] = useState<BrowseFilters>(DEFAULT_BROWSE_FILTERS)
   const [pickedYmd, setPickedYmd] = useState<string | null>(null)

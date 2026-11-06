@@ -53,6 +53,20 @@ function formatShortRange(from: string, to: string): string {
   return `${monthA} ${a.getDate()}–${monthB} ${b.getDate()}`
 }
 
+/** Detail WHEN range: December 19–21 (full month; browse cards keep short). */
+function formatDetailRange(from: string, to: string): string {
+  const a = new Date(`${from}T12:00:00`)
+  const b = new Date(`${to}T12:00:00`)
+  if (Number.isNaN(a.getTime()) || Number.isNaN(b.getTime())) return from
+  const monthA = a.toLocaleDateString('en-US', { month: 'long' })
+  const monthB = b.toLocaleDateString('en-US', { month: 'long' })
+  if (from === to) return `${monthA} ${a.getDate()}`
+  if (a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear()) {
+    return `${monthA} ${a.getDate()}–${b.getDate()}`
+  }
+  return `${monthA} ${a.getDate()}–${monthB} ${b.getDate()}`
+}
+
 /** Browse card line for ticketed productions / dated tours with more than one session. */
 export function formatMultiplePerformancesCardWhen(
   event: Pick<Event, 'date' | 'startTime' | 'endTime' | 'sessions'>,
@@ -64,17 +78,16 @@ export function formatMultiplePerformancesCardWhen(
   return `${formatShortRange(first, last)} · Multiple performances`
 }
 
-function formatSessionClock(session: EventSession): string {
-  const start = formatTime(session.startTime)
-  if (!session.endTime) return start
-  return `${start}–${formatTime(session.endTime)}`
+/** Detail WHEN: start times only to keep multi-show days compact. */
+function formatSessionStartClock(session: EventSession): string {
+  return formatTime(session.startTime)
 }
 
-function formatSessionDay(ymd: string): string {
+function formatSessionDetailDay(ymd: string): string {
   const d = new Date(`${ymd}T12:00:00`)
   if (Number.isNaN(d.getTime())) return ymd
   const weekday = d.toLocaleDateString('en-US', { weekday: 'short' })
-  const month = d.toLocaleDateString('en-US', { month: 'short' })
+  const month = d.toLocaleDateString('en-US', { month: 'long' })
   return `${weekday}, ${month} ${d.getDate()}`
 }
 
@@ -86,10 +99,7 @@ export function formatSessionsDetailRows(
   const first = sessions[0].date
   const last = sessions[sessions.length - 1].date
   const range =
-    first === last
-      ? formatSessionDay(first)
-      : formatShortRange(first, last)
-        .replace(/\b([A-Z]{3})\b/g, (month) => month.slice(0, 1) + month.slice(1).toLowerCase())
+    first === last ? formatSessionDetailDay(first) : formatDetailRange(first, last)
 
   const byDate = new Map<string, EventSession[]>()
   for (const session of sessions) {
@@ -99,8 +109,8 @@ export function formatSessionsDetailRows(
   }
 
   const lines = [...byDate.entries()].map(([date, daySessions]) => {
-    const times = daySessions.map((session) => formatSessionClock(session)).join(', ')
-    return `${formatSessionDay(date)} · ${times}`
+    const times = daySessions.map((session) => formatSessionStartClock(session)).join(', ')
+    return `${formatSessionDetailDay(date)} · ${times}`
   })
 
   return [range, ...lines]

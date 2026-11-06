@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Map } from '@vis.gl/react-google-maps'
 import type { Event } from '../../types/event'
+import type { BrowseSearchAnchor } from '../../utils/browseSearchAnchor'
 import type { BrowseFilters } from '../../utils/filters'
 import { getBrowseResultsSummary } from '../../utils/browseResultsCopy'
 import { BrowseEventCard } from '../BrowseEventCard'
@@ -37,6 +38,9 @@ interface BrowseGoogleMapViewProps {
   restoreSnapshot?: BrowseReturnSnapshot | null
   detachedViewToggle?: ReactNode
   venueResponsive?: boolean
+  onSearchHere?: (anchor: BrowseSearchAnchor) => void
+  showClearBoundary?: boolean
+  onClearGeoBoundary?: () => void
 }
 
 export function BrowseGoogleMapView({
@@ -48,6 +52,9 @@ export function BrowseGoogleMapView({
   restoreSnapshot = null,
   detachedViewToggle = null,
   venueResponsive = false,
+  onSearchHere,
+  showClearBoundary = false,
+  onClearGeoBoundary,
 }: BrowseGoogleMapViewProps) {
   const isMobile = useMediaQuery('(max-width: 767px)')
   const { coords: userCoords, error: locationError, isRequesting, requestLocation, clearError } =
@@ -110,6 +117,14 @@ export function BrowseGoogleMapView({
     setShowSearchArea(false)
   }, [])
 
+  const handleSearchAreaMovedAway = useCallback(() => {
+    setShowSearchArea(true)
+  }, [])
+
+  const handleSearchAreaReset = useCallback(() => {
+    setShowSearchArea(false)
+  }, [])
+
   useEffect(() => {
     setSearchGeneration(0)
     setGoogleMap(null)
@@ -124,6 +139,18 @@ export function BrowseGoogleMapView({
   }
 
   function handleSearchArea(map: google.maps.Map) {
+    const center = map.getCenter()
+    if (onSearchHere && center) {
+      onSearchHere({
+        lat: center.lat(),
+        lng: center.lng(),
+        label: 'This area',
+      })
+      setShowSearchArea(false)
+      setAreaBounds(null)
+      return
+    }
+
     const bounds = map.getBounds()
     if (!bounds) return
 
@@ -165,8 +192,8 @@ export function BrowseGoogleMapView({
           <GoogleMapSearchAreaDetector
             resetKey={`${feedKey}|${searchGeneration}`}
             active={!showSearchArea}
-            onMovedAway={() => setShowSearchArea(true)}
-            onReset={() => setShowSearchArea(false)}
+            onMovedAway={handleSearchAreaMovedAway}
+            onReset={handleSearchAreaReset}
           />
           <GoogleMapPanToEvent event={selectedEvent} panTrigger={panTrigger} />
           <GoogleMapLocateHandler coords={userCoords} trigger={locateTrigger} />
@@ -197,8 +224,8 @@ export function BrowseGoogleMapView({
         <GoogleMapSearchAreaDetector
           resetKey={`${feedKey}|${searchGeneration}`}
           active={!showSearchArea}
-          onMovedAway={() => setShowSearchArea(true)}
-          onReset={() => setShowSearchArea(false)}
+          onMovedAway={handleSearchAreaMovedAway}
+          onReset={handleSearchAreaReset}
         />
         <GoogleMapPanToEvent event={selectedEvent} panTrigger={panTrigger} />
         <GoogleMapLocateHandler coords={userCoords} trigger={locateTrigger} />
@@ -220,11 +247,13 @@ export function BrowseGoogleMapView({
         }}
         zoomEnabled={Boolean(googleMap)}
         showSearchArea={showSearchArea}
+        showClearBoundary={showClearBoundary}
         locationMessage={locationError}
         isLocating={isRequesting}
         onSearchArea={() => {
           if (googleMap) handleSearchArea(googleMap)
         }}
+        onClearBoundary={onClearGeoBoundary}
         onLocate={handleLocate}
         onDismissMessage={clearError}
       />

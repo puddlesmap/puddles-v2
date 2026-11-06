@@ -1,6 +1,6 @@
 import type { Event } from '../types/event'
 
-export const NEARBY_RADIUS_MILES = 5
+export const NEARBY_RADIUS_MILES = 8
 
 const METERS_PER_MILE = 1609.344
 const EARTH_RADIUS_METERS = 6371000

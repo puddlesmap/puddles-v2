@@ -7,7 +7,9 @@ import type { EventLifecycleStatus } from '../../utils/eventLifecycle'
 import { AppHeader } from '../layout/AppHeader'
 import { Footer } from '../layout/Footer'
 import { EventUnavailableState } from '../empty-states/EventUnavailableState'
+import { EventDetailFullpageMockLayout } from './EventDetailFullpageMockLayout'
 import { SharedEventDesignLayout } from './SharedEventDesignLayouts'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { trackActivityOpened } from '../../utils/analytics'
 import { getSharedEventNearbyActivities } from '../../utils/sharedEventNearby'
 import {
@@ -25,7 +27,7 @@ interface SharedEventUrlPageProps {
   guideSlug?: string
 }
 
-/** Production standalone /event/:id experience — Airbnb v3 shared-link layout. */
+/** Production /event/:id — full-page Airbnb v3 (desktop + mobile), no modal. */
 export function SharedEventUrlPage({
   event,
   lifecycleStatus,
@@ -36,10 +38,13 @@ export function SharedEventUrlPage({
   guideSlug,
 }: SharedEventUrlPageProps) {
   const now = useMemo(() => lifecycleNow ?? new Date(), [lifecycleNow])
+  const isDesktop = useMediaQuery('(min-width: 768px)')
   const nearbyEvents = useMemo(
     () => (event ? getSharedEventNearbyActivities(event, 6, now) : []),
     [event, now],
   )
+  const useLifecycleLayout =
+    Boolean(lifecycleStatus) && lifecycleStatus !== 'upcoming'
 
   useEffect(() => {
     if (event) {
@@ -53,27 +58,39 @@ export function SharedEventUrlPage({
 
   return (
     <div className="shared-event-url-page">
-      <AppHeader
-        logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
-        logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
-        showBrandName={false}
-      />
+      {isDesktop || !event || useLifecycleLayout ? (
+        <AppHeader
+          logoSrc={PUDDLES_WORDMARK_LOGO_SRC}
+          logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
+          showBrandName={false}
+        />
+      ) : null}
 
       {event ? (
-        <SharedEventDesignLayout
-          event={event}
-          nearbyEvents={nearbyEvents}
-          layout="airbnb-v3"
-          lifecycleStatus={lifecycleStatus ?? undefined}
-          lifecycleNow={now}
-        />
+        useLifecycleLayout ? (
+          <SharedEventDesignLayout
+            event={event}
+            nearbyEvents={nearbyEvents}
+            layout="airbnb-v3"
+            lifecycleStatus={lifecycleStatus ?? undefined}
+            lifecycleNow={now}
+          />
+        ) : (
+          <EventDetailFullpageMockLayout
+            event={event}
+            nearbyEvents={nearbyEvents}
+            onBack={onClose}
+          />
+        )
       ) : (
         <div className="shared-event-url-page__unavailable layout-shell-app">
           <EventUnavailableState hasInAppReturn={hasInAppReturn} onClose={onClose} />
         </div>
       )}
 
-      <Footer fullBleed className="mt-0" />
+      {isDesktop || useLifecycleLayout || !event ? (
+        <Footer fullBleed className="mt-0" />
+      ) : null}
     </div>
   )
 }
