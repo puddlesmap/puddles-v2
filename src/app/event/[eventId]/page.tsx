@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 import { eventDetailUrl } from '@/utils/eventPages'
 import {
-  getAllCatalogEventsForLifecycle,
   getEventLifecycleStatus,
   getLifecycleDetailEventById,
-  isLifecycleDetailAccessible,
   isLifecycleEventIndexable,
 } from '@/utils/eventLifecycle'
 import {
@@ -15,10 +13,10 @@ import {
 } from '@/utils/eventShare'
 import { EventDetailPageLoader } from './EventDetailPageLoader'
 
-/** Prefer static shells on Netlify; avoid build-time SSG of every ended URL (OOM). */
+/** Prefer static shells on Netlify; avoid build-time SSG of hundreds of event URLs (OOM). */
 export const dynamic = 'force-static'
 export const revalidate = false
-/** Ended / archived ids not returned by generateStaticParams still resolve on first request. */
+/** Ids not prebuilt still resolve on first request (on-demand static). */
 export const dynamicParams = true
 
 interface EventPageProps {
@@ -26,15 +24,10 @@ interface EventPageProps {
 }
 
 export async function generateStaticParams() {
-  // Prebuild live/upcoming (+ seasonal Hidden drive shells) only.
-  // Prebuilding every ended/archived detail page (~600) OOMs Netlify (SIGKILL mid SSG).
-  return getAllCatalogEventsForLifecycle()
-    .filter(
-      (event) =>
-        isLifecycleDetailAccessible(event) &&
-        (isLifecycleEventIndexable(event) || event.status === 'Hidden'),
-    )
-    .map((event) => ({ eventId: event.id }))
+  // Prebuilding ~200 live/Hidden /event/:id shells still SIGKILL'd Netlify mid-SSG
+  // (~165/221) despite NODE_OPTIONS=8192 and experimental.cpus=1. Skip build-time
+  // event params; sitemap + first request still materialize pages via dynamicParams.
+  return []
 }
 
 export async function generateMetadata({ params }: EventPageProps): Promise<Metadata> {
