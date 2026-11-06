@@ -1,6 +1,6 @@
 'use client'
 
-import { useSignIn, useSignUp } from '@clerk/nextjs'
+import { useSignIn, useSignUp } from '@clerk/nextjs/legacy'
 import { useEffect, useState, type FormEvent } from 'react'
 import { Logo } from '../layout/Logo'
 import { useSavedOptional, type SavedAuthMode } from '../../context/SavedContext'
