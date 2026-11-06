@@ -130,7 +130,7 @@ export function SavedListRow({
       aria-label={saved ? `Remove ${event.title} from saved` : `Save ${event.title}`}
       onClick={handleHeart}
     >
-      <SaveHeartIcon saved={false} size={22} variant="spec" />
+      <SaveHeartIcon saved={saved} size={22} variant="spec" />
     </button>
   )
 

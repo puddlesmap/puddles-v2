@@ -1,6 +1,8 @@
-/** Valentine heart — white stroke, dark fill unsaved, white fill saved. */
+/** Lined heart — outline unsaved, puddles-blue fill when saved. */
 const HEART_PATH =
   'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'
+
+const PUDDLES_BLUE = '#66c5f9'
 
 export function SaveHeartIcon({
   saved,
@@ -33,14 +35,16 @@ export function SaveHeartIcon({
   }
 
   const card = variant === 'card'
-  const fill = card ? (saved ? '#fff' : 'rgba(0, 0, 0, 0.55)') : saved ? '#e61e4d' : '#222'
-  const stroke = '#fff'
+  // Card on photo: white outline → puddles blue fill. Event chrome: dark outline → blue fill.
+  const stroke = saved ? PUDDLES_BLUE : card ? '#fff' : '#222'
+  const fill = saved ? PUDDLES_BLUE : 'none'
+  const strokeWidth = card ? 2 : 1.75
 
   return (
     <svg
       width={size}
       height={size}
-      viewBox="-2 -2 28 28"
+      viewBox="0 0 24 24"
       aria-hidden
       className={saved ? 'save-heart-icon save-heart-icon--saved' : 'save-heart-icon'}
       overflow="visible"
@@ -49,10 +53,9 @@ export function SaveHeartIcon({
         d={HEART_PATH}
         fill={fill}
         stroke={stroke}
-        strokeWidth={card ? 2 : 1.5}
-        strokeLinejoin="miter"
+        strokeWidth={strokeWidth}
+        strokeLinejoin="round"
         strokeLinecap="round"
-        paintOrder="stroke"
       />
     </svg>
   )

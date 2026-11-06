@@ -20,12 +20,13 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.save-heart-btn:hover {
+.save-heart-btn:hover,
+.save-heart-btn:focus-visible {
   background: transparent;
 }
 
 .save-heart-btn:active {
-  transform: scale(0.96);
+  transform: none;
 }
 
 .save-heart-icon {
@@ -33,8 +34,13 @@
   overflow: visible;
 }
 
-.save-heart-btn--saved .save-heart-icon {
-  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.4));
+/* White lined / blue filled hearts need contrast on light photos */
+.save-heart-btn:not(.save-heart-btn--chrome) .save-heart-icon {
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.45));
+}
+
+.save-heart-btn--chrome .save-heart-icon {
+  filter: none;
 }
 
 .save-heart-btn--map-sheet {
@@ -109,9 +115,25 @@
   right: auto;
 }
 
+/* Pin footer to the bottom of the viewport (above mobile bottom nav). */
+.saved-page-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  .saved-page-shell {
+    padding-bottom: 0;
+  }
+}
+
 .saved-page {
+  flex: 1 1 auto;
+  width: 100%;
   padding-top: 1rem;
-  padding-bottom: 5.5rem;
+  padding-bottom: 1.25rem;
 }
 
 @media (min-width: 768px) {
@@ -127,6 +149,11 @@
   .saved-page-shell .site-footer.mt-0 {
     margin-top: 0;
   }
+}
+
+.saved-page-shell .site-footer {
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .saved-page__content {
@@ -212,6 +239,10 @@
 
 .saved-page__persist--signed-in .saved-page__persist-body {
   margin-bottom: 0;
+}
+
+.saved-page__persist--signed-in .saved-page__persist-login {
+  margin-top: 0.75rem;
 }
 
 .saved-page__persist-cta {

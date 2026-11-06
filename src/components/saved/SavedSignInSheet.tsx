@@ -1,6 +1,6 @@
 'use client'
 
-import { useSignIn, useSignUp } from '@clerk/nextjs/legacy'
+import { useSignIn, useSignUp } from '@clerk/nextjs'
 import { useEffect, useState, type FormEvent } from 'react'
 import { Logo } from '../layout/Logo'
 import { useSavedOptional, type SavedAuthMode } from '../../context/SavedContext'
@@ -78,7 +78,10 @@ export function SavedSignInSheet() {
   if (!saved?.signInOpen) return null
 
   const isCreate = mode === 'create'
-  const clerkReady = isCreate ? signUpLoaded && Boolean(signUp) : signInLoaded && Boolean(signIn)
+  // OAuth uses sign-in redirect for both create + login — Clerk creates the account when needed.
+  const oauthReady = signInLoaded && Boolean(signIn)
+  const emailReady = isCreate ? signUpLoaded && Boolean(signUp) : signInLoaded && Boolean(signIn)
+  const clerkLoaded = isCreate ? signUpLoaded && signInLoaded : signInLoaded
 
   async function finishSession(
     sessionId: string,
@@ -95,26 +98,26 @@ export function SavedSignInSheet() {
 
   async function oauth(strategy: 'oauth_google' | 'oauth_apple') {
     setError(null)
-    if (!clerkReady) {
+    if (!oauthReady || !signIn) {
       setError('Sign-in is still loading. Try again in a moment.')
       return
     }
     setBusy(true)
     trackEvent(ANALYTICS_EVENTS.SAVED_SIGN_IN, { method: strategy, mode })
     try {
-      const redirect = {
+      await signIn.authenticateWithRedirect({
         strategy,
         redirectUrl: '/saved/sso-callback',
         redirectUrlComplete: '/saved',
-      } as const
-      if (isCreate) {
-        await signUp!.authenticateWithRedirect(redirect)
-      } else {
-        await signIn!.authenticateWithRedirect(redirect)
-      }
+      })
     } catch (err) {
       setBusy(false)
-      setError(clerkErrorMessage(err, 'Could not continue. Try again.'))
+      setError(
+        clerkErrorMessage(
+          err,
+          'Could not continue with that provider. Check that Google/Apple are enabled for sign-up and sign-in in Clerk.',
+        ),
+      )
     }
   }
 
@@ -140,8 +143,12 @@ export function SavedSignInSheet() {
 
   async function onSubmit(event: FormEvent) {
     event.preventDefault()
-    if (!clerkReady) {
-      setError('Sign-in is still loading. Try again in a moment.')
+    if (!emailReady) {
+      setError(
+        isCreate && signUpLoaded && !signUp
+          ? 'Email sign-up is turned off in Clerk. Use Google or Apple, or enable Email + Password and Allow sign-ups in the Clerk Dashboard.'
+          : 'Sign-in is still loading. Try again in a moment.',
+      )
       return
     }
     setError(null)
@@ -259,7 +266,7 @@ export function SavedSignInSheet() {
               <button
                 type="submit"
                 className="btn-primary saved-signin-submit"
-                disabled={busy || !clerkReady}
+                disabled={busy || !clerkLoaded || (isCreate && signUpLoaded && !signUp)}
               >
                 {isCreate ? 'Create account' : 'Log in'}
               </button>
@@ -305,7 +312,7 @@ export function SavedSignInSheet() {
                 type="button"
                 className="saved-signin-social-btn"
                 aria-label="Continue with Apple"
-                disabled={busy || !clerkReady}
+                disabled={busy || !oauthReady}
                 onClick={() => void oauth('oauth_apple')}
               >
                 <AppleGlyph />
@@ -314,12 +321,19 @@ export function SavedSignInSheet() {
                 type="button"
                 className="saved-signin-social-btn"
                 aria-label="Continue with Google"
-                disabled={busy || !clerkReady}
+                disabled={busy || !oauthReady}
                 onClick={() => void oauth('oauth_google')}
               >
                 <GoogleGlyph />
               </button>
             </div>
+            {isCreate && signUpLoaded && !signUp ? (
+              <p className="saved-signin-social-note">
+                Email create is unavailable until Email + Password and Allow sign-ups are on in
+                Clerk. Google and Apple still work once those SSO connections are enabled for
+                sign-up and sign-in.
+              </p>
+            ) : null}
           </>
         )}
 

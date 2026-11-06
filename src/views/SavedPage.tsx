@@ -1,5 +1,6 @@
 'use client'
 
+import { useClerk } from '@clerk/nextjs'
 import { Link } from 'react-router-dom'
 import { BrowseEventCard } from '../components/BrowseEventCard'
 import { SavedCardActions } from '../components/saved/SavedCardActions'
@@ -14,6 +15,23 @@ import { getCatalogEventById } from '../utils/eventPages'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
 import './experiment-saved.css'
 import './experiment-saved-list.css'
+
+/** Only mount under ClerkProvider (Next). Vite Saved never shows signed-in. */
+function SavedSignOutButton() {
+  const { signOut } = useClerk()
+
+  return (
+    <p className="saved-page__persist-login">
+      <button
+        type="button"
+        className="saved-page__persist-login-link"
+        onClick={() => void signOut({ redirectUrl: '/saved' })}
+      >
+        Sign out
+      </button>
+    </p>
+  )
+}
 
 export function SavedPage() {
   const isDesktop = useMediaQuery('(min-width: 768px)')
@@ -43,6 +61,7 @@ export function SavedPage() {
             <p className="saved-page__persist-body">
               Saves sync across devices while you stay signed in.
             </p>
+            <SavedSignOutButton />
           </aside>
         ) : (
           <aside className="saved-page__persist">
