@@ -100,5 +100,16 @@
     "titlePatterns": ["stroller barre"],
     "officialUrl": "https://sunnyvale.fit4mom.com/our-workouts",
     "label": "FIT4MOM Stroller Barre · Mitchell Park"
+  },
+  {
+    "id": "sunnyvale-magical-bridge-storytime",
+    "venueId": "magical-bridge-fair-oaks",
+    "organizerKey": "library.sunnyvale.ca.gov",
+    "titlePatterns": [
+      "storytime at magical bridge",
+      "magical bridge playground"
+    ],
+    "officialUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "label": "Storytime at Magical Bridge · Fair Oaks Park"
   }
 ]

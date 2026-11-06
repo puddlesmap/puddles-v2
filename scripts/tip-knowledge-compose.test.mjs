@@ -85,3 +85,52 @@ test('stable facts are not stale within refresh window', () => {
     true,
   )
 })
+
+test('matches Sunnyvale Main Library and composes indoor restroom tip', () => {
+  const venue = matchKnowledgeVenue('Sunnyvale Public Library', 'Sunnyvale')
+  assert.equal(venue?.id, 'sunnyvale-public-library')
+  const result = composeTipSuggestions({
+    title: 'Toddler Storytime',
+    venue: 'Sunnyvale Public Library',
+    city: 'Sunnyvale',
+    description: 'Indoor stories at the Main Library.',
+    eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
+  })
+  assert.equal(result.venueId, 'sunnyvale-public-library')
+  assert.ok(result.suggestions.some((s) => s.factId === 'sv-main-lib-restroom'))
+})
+
+test('matches Lakewood Branch Library restroom tip', () => {
+  const venue = matchKnowledgeVenue('Lakewood Branch Library and Learning Center', 'Sunnyvale')
+  assert.equal(venue?.id, 'sunnyvale-lakewood-library')
+  const result = composeTipSuggestions({
+    title: 'Winter Magic Show',
+    venue: 'Lakewood Branch Library and Learning Center',
+    city: 'Sunnyvale',
+    description: 'A show indoors at Lakewood.',
+    eventUrl: 'https://www.library.sunnyvale.ca.gov/Home/Components/Calendar/Event/13567/129',
+  })
+  assert.equal(result.venueId, 'sunnyvale-lakewood-library')
+  assert.ok(result.suggestions.some((s) => s.factId === 'sv-lakewood-lib-restroom'))
+})
+
+test('Magical Bridge Fair Oaks outdoor storytime gets weather, not Main restroom', () => {
+  const venue = matchKnowledgeVenue('Magical Bridge Playground · Fair Oaks Park', 'Sunnyvale')
+  assert.equal(venue?.id, 'magical-bridge-fair-oaks')
+  const program = matchKnowledgeProgram('Storytime at Magical Bridge Playground', {
+    venueId: venue?.id,
+    eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
+  })
+  assert.equal(program?.id, 'sunnyvale-magical-bridge-storytime')
+  const result = composeTipSuggestions({
+    title: 'Storytime at Magical Bridge Playground',
+    venue: 'Magical Bridge Playground · Fair Oaks Park',
+    city: 'Sunnyvale',
+    description: 'Outdoor stories at Fair Oaks Park.',
+    eventUrl: 'https://www.library.sunnyvale.ca.gov/events/kids-events',
+  })
+  assert.equal(result.venueId, 'magical-bridge-fair-oaks')
+  assert.ok(result.suggestions.some((s) => s.factId === 'sv-magical-bridge-weather'))
+  assert.ok(!result.suggestions.some((s) => s.factId === 'sv-main-lib-restroom'))
+  assert.ok(!result.suggestions.some((s) => s.factId === 'sv-lakewood-lib-restroom'))
+})

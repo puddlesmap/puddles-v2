@@ -70,5 +70,36 @@
     "city": "Los Altos",
     "officialUrl": "https://sccl.org/",
     "geoRef": "Los Altos Library"
+  },
+  {
+    "id": "sunnyvale-public-library",
+    "names": ["Sunnyvale Public Library", "Sunnyvale Main Library"],
+    "aliases": ["Sunnyvale Library", "Main Library", "SPL Main"],
+    "city": "Sunnyvale",
+    "officialUrl": "https://www.library.sunnyvale.ca.gov/about-us/locations-hours",
+    "geoRef": "Sunnyvale Public Library"
+  },
+  {
+    "id": "sunnyvale-lakewood-library",
+    "names": [
+      "Lakewood Branch Library and Learning Center",
+      "Lakewood Branch Library"
+    ],
+    "aliases": ["Lakewood Library", "SPL Lakewood", "Lakewood Branch"],
+    "city": "Sunnyvale",
+    "officialUrl": "https://www.library.sunnyvale.ca.gov/about-us/locations-hours",
+    "geoRef": "Lakewood Branch Library and Learning Center"
+  },
+  {
+    "id": "magical-bridge-fair-oaks",
+    "names": [
+      "Magical Bridge Playground · Fair Oaks Park",
+      "Magical Bridge Playground at Fair Oaks Park",
+      "Magical Bridge Playground"
+    ],
+    "aliases": ["Fair Oaks Park Magical Bridge", "Magical Bridge Fair Oaks"],
+    "city": "Sunnyvale",
+    "officialUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "geoRef": "Magical Bridge Playground · Fair Oaks Park"
   }
 ]

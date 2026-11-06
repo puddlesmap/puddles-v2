@@ -646,5 +646,111 @@
       "outdoor",
       "class"
     ]
+  },
+  {
+    "id": "sv-main-lib-restroom",
+    "scope": "venue",
+    "venueId": "sunnyvale-public-library",
+    "category": "restroom",
+    "icon": "restroom",
+    "text": "Restrooms are inside the library.",
+    "sourceUrl": "https://www.library.sunnyvale.ca.gov/about-us/locations-hours",
+    "sourceType": "venue",
+    "verifiedAt": "2026-11-06",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "stable",
+    "appliesWhen": [
+      "indoor"
+    ],
+    "usedByEventIds": [
+      "staging-sunnyvale-library-night-owl-storytime-series",
+      "staging-sunnyvale-library-family-storytime-series",
+      "staging-sunnyvale-library-toddler-storytime-series",
+      "staging-sunnyvale-library-preschool-storytime-series",
+      "staging-sunnyvale-library-baby-lapsit-series",
+      "watchlist-sunnyvale-library-diwali-story-dance-2026-11-06",
+      "watchlist-sunnyvale-library-asl-for-babies-2026-11-09",
+      "watchlist-sunnyvale-library-sensory-storytime-2026-11-13",
+      "watchlist-sunnyvale-library-nutcracker-preview-2026-11-14",
+      "watchlist-sunnyvale-library-bilingual-spanish-storytime-craft-2026-11-16",
+      "watchlist-sunnyvale-library-japanese-storytime-2026-11-23",
+      "watchlist-sunnyvale-library-early-learning-playtime-2026-11-23",
+      "watchlist-sunnyvale-library-jamaroo-music-2026-11-30",
+      "watchlist-sunnyvale-library-holiday-postcards-2026-12-04",
+      "watchlist-sunnyvale-library-sensory-play-2026-12-07",
+      "watchlist-sunnyvale-library-crafts-with-santa-2026-12-10",
+      "watchlist-sunnyvale-library-sensory-storytime-2026-12-11",
+      "watchlist-sunnyvale-library-asl-for-babies-2026-12-14",
+      "watchlist-sunnyvale-library-bilingual-spanish-storytime-craft-2026-12-18",
+      "watchlist-sunnyvale-library-early-learning-playtime-2026-12-18",
+      "watchlist-sunnyvale-library-japanese-storytime-2026-12-21"
+    ]
+  },
+  {
+    "id": "sv-lakewood-lib-restroom",
+    "scope": "venue",
+    "venueId": "sunnyvale-lakewood-library",
+    "category": "restroom",
+    "icon": "restroom",
+    "text": "Restrooms are inside the library.",
+    "sourceUrl": "https://www.library.sunnyvale.ca.gov/about-us/locations-hours",
+    "sourceType": "venue",
+    "verifiedAt": "2026-11-06",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "stable",
+    "appliesWhen": [
+      "indoor"
+    ],
+    "usedByEventIds": [
+      "watchlist-sunnyvale-library-bilingual-spanish-spotlight-2026-11-07",
+      "watchlist-sunnyvale-library-traveling-reptile-show-2026-11-20",
+      "watchlist-sunnyvale-library-winter-magic-show-2026-12-21"
+    ]
+  },
+  {
+    "id": "sv-magical-bridge-weather",
+    "scope": "program",
+    "programId": "sunnyvale-magical-bridge-storytime",
+    "venueId": "magical-bridge-fair-oaks",
+    "category": "weather",
+    "icon": "weather",
+    "text": "Outdoors at Magical Bridge · Fair Oaks Park. Weather permitting — check before you leave.",
+    "sourceUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-06",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "storytime"
+    ],
+    "usedByEventIds": [
+      "staging-sunnyvale-library-magical-bridge-storytime-series"
+    ]
+  },
+  {
+    "id": "sv-magical-bridge-arrive",
+    "scope": "program",
+    "programId": "sunnyvale-magical-bridge-storytime",
+    "venueId": "magical-bridge-fair-oaks",
+    "category": "registration",
+    "icon": "info",
+    "text": "No registration — arrive early.",
+    "sourceUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events",
+    "sourceType": "organizer",
+    "verifiedAt": "2026-11-06",
+    "status": "verified",
+    "reuseSafe": true,
+    "volatility": "semi",
+    "appliesWhen": [
+      "outdoor",
+      "storytime"
+    ],
+    "usedByEventIds": [
+      "staging-sunnyvale-library-magical-bridge-storytime-series"
+    ]
   }
 ]
