@@ -1,29 +1,28 @@
 # Expansion discovery lookahead
 
-Window: **2026-11-04 → 2027-02-02** (90 days)
+Window: **2026-11-11 → 2027-02-09** (90 days)
 
-Generated 2026-11-04T21:01:33.937Z
+Generated 2026-11-11T21:42:08.339Z
 
 ## Launch expansion targets
 
 | Target | In window (discovery queue) | Pending review | On live catalog |
 |--------|----------------------------|----------------|-----------------|
-| **Sunnyvale** (new city) | 10 | 3 | 1 |
-| **Parent & Me** (new type) | 3 | 3 | 0 |
-| **Festivals & Community** (new type) | 25 | 9 | 10 |
+| **Sunnyvale** (new city) | 7 | 2 | 20 |
+| **Parent & Me** (new type) | 2 | 2 | 1 |
+| **Festivals & Community** (new type) | 23 | 3 | 12 |
 
 ## By city (discovery queue, in window)
 
 | City | Total | New for review |
 |------|-------|----------------|
-| Palo Alto | 74 | 16 |
-| Mountain View | 37 | 9 |
-| Los Altos | 26 | 8 |
-| Sunnyvale | 10 | 3 |
+| Palo Alto | 67 | 6 |
+| Mountain View | 44 | 14 |
+| Los Altos | 21 | 0 |
+| Sunnyvale | 7 | 2 |
 | San Carlos | 4 | 3 |
-| Oakland | 3 | 3 |
-| Sausalito | 2 | 2 |
-| Los Altos Hills | 1 | 0 |
+| Oakland | 3 | 1 |
+| Sausalito | 2 | 1 |
 | San Mateo | 1 | 0 |
 | Woodside | 1 | 0 |
 | San Francisco | 1 | 0 |
@@ -32,21 +31,20 @@ Generated 2026-11-04T21:01:33.937Z
 
 | Type | Count |
 |------|-------|
-| Stories | 85 |
-| Festivals & Community | 25 |
-| Build & Explore | 23 |
-| Outdoor | 20 |
-| Other | 12 |
-| Music & Movement | 9 |
-| Arts & Crafts | 5 |
-| Parent & Me | 3 |
-| Social & Play | 2 |
+| Stories | 88 |
+| Festivals & Community | 23 |
+| Build & Explore | 21 |
+| Outdoor | 18 |
+| Music & Movement | 10 |
+| Other | 5 |
+| Arts & Crafts | 4 |
+| Parent & Me | 2 |
+| Social & Play | 1 |
 
 ## Sunnyvale — pending review
 
 | Date | Event | Source | Status |
 |------|-------|--------|--------|
-| 2026-11-07 | FIT4MOM FIT4BABY · Las Palmas Park | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 | pending |
 | 2026-11-14 | FREE: Meet the Doula | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 | pending |
 | 2026-11-15 | Annual International Potluck Friendsgiving (FREE) | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 | pending |
 
@@ -54,7 +52,6 @@ Generated 2026-11-04T21:01:33.937Z
 
 | Date | City | Event | Source |
 |------|------|-------|--------|
-| 2026-11-07 | Sunnyvale | FIT4MOM FIT4BABY · Las Palmas Park | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 |
 | 2026-11-12 | Mountain View | FIT4MOM Walk Club & Library Storytime | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 |
 | 2026-11-14 | Sunnyvale | FREE: Meet the Doula | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 |
 
@@ -62,13 +59,7 @@ Generated 2026-11-04T21:01:33.937Z
 
 | Date | City | Event | Source |
 |------|------|-------|--------|
-| 2026-11-13 | Los Altos | 23rd Annual Holiday Stroll | Calendar Watchlist · Downtown Los Altos |
 | 2026-11-15 | Sunnyvale | Annual International Potluck Friendsgiving (FREE) | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 |
-| 2026-12-05 | Oakland | GIFTY Holiday Craft Fair & Open House | Regional · Lead · agent |
-| 2026-12-05 | Los Altos | Selfies with Santa | Calendar Watchlist · Downtown Los Altos |
-| 2026-12-05 | Palo Alto | Magical Santa Dance Party | Core cities · Weekend search · agent |
-| 2026-12-10 | Los Altos | Holiday Market (Downtown Los Altos) | Calendar Watchlist · Downtown Los Altos |
-| 2026-12-12 | Oakland | Fairy Winterland | Regional · Lead · agent |
 | 2026-12-31 | Sausalito | Noon Year's Eve | Regional · Lead · agent |
 | 2026-12-31 | Oakland | Countdown in Wonderland | Regional · Lead · agent |
 
@@ -179,6 +170,7 @@ Checked this pass: 0/3
 ## Gaps & next actions
 
 - **Sunnyvale library:** No automated Sunnyvale branch scraper — add `discover-sunnyvale.mjs` or keep `build-launch-staging.mjs` series seeds current.
+- **Parent & Me:** Re-check FIT4MOM weekly graphic (Mondays), Marti Foster, Music Together semester row.
 - **Seasonal drive picks:** Editorial farms/haunts live in `seasonal*DriveEvents.ts` — not library scrapers.
 - **Core cities only in regular discovery:** Events outside Palo Alto / Los Altos / Mountain View belong in Seasonal → Worth a Little Drive until a city landing justifies a scraper.
 

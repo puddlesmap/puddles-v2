@@ -1,0 +1,427 @@
+{
+  "generatedAt": "2026-11-11T21:42:08.339Z",
+  "window": {
+    "start": "2026-11-11",
+    "end": "2027-02-09",
+    "days": 90
+  },
+  "launchTargets": {
+    "city": "Sunnyvale",
+    "activityTypes": [
+      "Parent & Me",
+      "Festivals & Community"
+    ]
+  },
+  "discoveryGeneratedAt": "2026-11-11T21:42:08.053Z",
+  "expansion": {
+    "sunnyvale": {
+      "inWindow": 7,
+      "pending": 2,
+      "onCatalog": 20
+    },
+    "parentAndMe": {
+      "inWindow": 2,
+      "pending": 2,
+      "onCatalog": 1
+    },
+    "festivals": {
+      "inWindow": 23,
+      "pending": 3,
+      "onCatalog": 12
+    },
+    "byCity": [
+      [
+        "Palo Alto",
+        {
+          "total": 67,
+          "pending": 6
+        }
+      ],
+      [
+        "Mountain View",
+        {
+          "total": 44,
+          "pending": 14
+        }
+      ],
+      [
+        "Los Altos",
+        {
+          "total": 21,
+          "pending": 0
+        }
+      ],
+      [
+        "Sunnyvale",
+        {
+          "total": 7,
+          "pending": 2
+        }
+      ],
+      [
+        "San Carlos",
+        {
+          "total": 4,
+          "pending": 3
+        }
+      ],
+      [
+        "Oakland",
+        {
+          "total": 3,
+          "pending": 1
+        }
+      ],
+      [
+        "Sausalito",
+        {
+          "total": 2,
+          "pending": 1
+        }
+      ],
+      [
+        "San Mateo",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "Woodside",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ],
+      [
+        "San Francisco",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ]
+    ],
+    "byType": [
+      [
+        "Stories",
+        88
+      ],
+      [
+        "Festivals & Community",
+        23
+      ],
+      [
+        "Build & Explore",
+        21
+      ],
+      [
+        "Outdoor",
+        18
+      ],
+      [
+        "Music & Movement",
+        10
+      ],
+      [
+        "Other",
+        5
+      ],
+      [
+        "Arts & Crafts",
+        4
+      ],
+      [
+        "Parent & Me",
+        2
+      ],
+      [
+        "Social & Play",
+        1
+      ]
+    ],
+    "sunnyvalePendingRows": [
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Sunnyvale",
+          "Free"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": 37.3515,
+        "lng": -122.0255,
+        "ageMin": 0,
+        "ageMax": 2,
+        "ageRange": "0–2",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "manual-fit4mom-meet-the-doula-2026-11-14",
+        "title": "FREE: Meet the Doula",
+        "date": "2026-11-14",
+        "startTime": "11:00",
+        "endTime": "11:30",
+        "venue": "Las Palmas Park",
+        "address": "850 Russet Dr, Sunnyvale, CA 94087",
+        "city": "Sunnyvale",
+        "description": "Drop-in to meet a doula and ask questions — short outdoor meet-up for expecting and new parents with babies welcome.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "Glofox Sat 11/14/2026 after FIT4BABY block. Adult-focused info session — include only if copy stays honest for 0–5 (babies welcome, not a kids activity).",
+        "alreadyOnPuddles": false
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Sunnyvale",
+          "Free",
+          "Our Village"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": null,
+        "lng": null,
+        "ageMin": 0,
+        "ageMax": 5,
+        "ageRange": "0–5",
+        "types": [
+          "Festivals & Community"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "manual-fit4mom-friendsgiving-potluck-2026-11-15",
+        "title": "Annual International Potluck Friendsgiving (FREE)",
+        "date": "2026-11-15",
+        "startTime": "11:00",
+        "endTime": "12:30",
+        "venue": "Special Event Location",
+        "address": "Sunnyvale, CA",
+        "city": "Sunnyvale",
+        "description": "Our Village potluck for caregivers and little ones — bring a dish to share and connect with other local parents.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "Glofox Sun 11/15/2026 — address is Special Event Location in portal; confirm venue in Glofox detail before Go live.",
+        "alreadyOnPuddles": false
+      }
+    ],
+    "parentAndMePendingRows": [
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Mountain View",
+          "Library special"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": 37.3745,
+        "lng": -122.0785,
+        "ageMin": 0,
+        "ageMax": 5,
+        "ageRange": "0–5",
+        "types": [
+          "Parent & Me",
+          "Stories",
+          "Outdoor"
+        ],
+        "cost": "Paid · First class free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "manual-fit4mom-walk-club-library-storytime-2026-11-12",
+        "title": "FIT4MOM Walk Club & Library Storytime",
+        "date": "2026-11-12",
+        "startTime": "09:30",
+        "endTime": "10:30",
+        "venue": "Cuesta Park",
+        "address": "615 Cuesta Drive, Mountain View, CA 94040",
+        "city": "Mountain View",
+        "description": "Stroller walk with storytime stop — caregiver and little one outing at Cuesta Park with a library-on-location storytime.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "One-off on Glofox Thu 11/12/2026. Confirm title and partner library on Glofox before Go live.",
+        "alreadyOnPuddles": false
+      },
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Sunnyvale",
+          "Free"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": 37.3515,
+        "lng": -122.0255,
+        "ageMin": 0,
+        "ageMax": 2,
+        "ageRange": "0–2",
+        "types": [
+          "Parent & Me",
+          "Outdoor"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "manual-fit4mom-meet-the-doula-2026-11-14",
+        "title": "FREE: Meet the Doula",
+        "date": "2026-11-14",
+        "startTime": "11:00",
+        "endTime": "11:30",
+        "venue": "Las Palmas Park",
+        "address": "850 Russet Dr, Sunnyvale, CA 94087",
+        "city": "Sunnyvale",
+        "description": "Drop-in to meet a doula and ask questions — short outdoor meet-up for expecting and new parents with babies welcome.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "Glofox Sat 11/14/2026 after FIT4BABY block. Adult-focused info session — include only if copy stays honest for 0–5 (babies welcome, not a kids activity).",
+        "alreadyOnPuddles": false
+      }
+    ],
+    "festivalsPendingRows": [
+      {
+        "room": "",
+        "audiences": "",
+        "categoryTags": [
+          "Sunnyvale",
+          "Free",
+          "Our Village"
+        ],
+        "imageUrl": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "convertedEventId": "",
+        "lastChecked": "2026-11-03",
+        "lat": null,
+        "lng": null,
+        "ageMin": 0,
+        "ageMax": 5,
+        "ageRange": "0–5",
+        "types": [
+          "Festivals & Community"
+        ],
+        "cost": "Free",
+        "tips": "",
+        "reviewStatus": "pending",
+        "source": "FIT4MOM Glofox scan · Cursor browser · 2026-11-03",
+        "id": "manual-fit4mom-friendsgiving-potluck-2026-11-15",
+        "title": "Annual International Potluck Friendsgiving (FREE)",
+        "date": "2026-11-15",
+        "startTime": "11:00",
+        "endTime": "12:30",
+        "venue": "Special Event Location",
+        "address": "Sunnyvale, CA",
+        "city": "Sunnyvale",
+        "description": "Our Village potluck for caregivers and little ones — bring a dish to share and connect with other local parents.",
+        "eventUrl": "https://app.glofox.com/portal/#/branch/679a6b80a93819b121051767/classes-list-view",
+        "internalReviewNotes": "Glofox Sun 11/15/2026 — address is Special Event Location in portal; confirm venue in Glofox detail before Go live.",
+        "alreadyOnPuddles": false
+      },
+      {
+        "id": "regional-badm-noon-years-eve-2026-12-31",
+        "title": "Noon Year's Eve",
+        "date": "2026-12-31",
+        "startTime": "09:00",
+        "endTime": "14:00",
+        "venue": "Bay Area Discovery Museum",
+        "room": "",
+        "address": "",
+        "city": "Sausalito",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Paid",
+        "description": "Countdown crafts, noon ball drop, blacklight sensory experience for babies.",
+        "tips": "Confirm 2026 tickets; ignore 2025 sold-out page.",
+        "imageUrl": "",
+        "eventUrl": "https://bayareadiscoverymuseum.org/events/noon-years-eve/",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      },
+      {
+        "id": "regional-fairyland-countdown-wonderland-2026-12-31",
+        "title": "Countdown in Wonderland",
+        "date": "2026-12-31",
+        "startTime": "10:00",
+        "endTime": "16:00",
+        "venue": "Children's Fairyland",
+        "room": "",
+        "address": "",
+        "city": "Oakland",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Paid",
+        "description": "Alice-themed daytime New Year's with crafts, puppet shows, bubbles, and noon ball drop.",
+        "tips": "",
+        "imageUrl": "",
+        "eventUrl": "https://www.fairyland.org/countdown-in-wonderland",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      }
+    ],
+    "actions": [
+      "**Sunnyvale library:** No automated Sunnyvale branch scraper — add `discover-sunnyvale.mjs` or keep `build-launch-staging.mjs` series seeds current.",
+      "**Parent & Me:** Re-check FIT4MOM weekly graphic (Mondays), Marti Foster, Music Together semester row.",
+      "**Seasonal drive picks:** Editorial farms/haunts live in `seasonal*DriveEvents.ts` — not library scrapers.",
+      "**Core cities only in regular discovery:** Events outside Palo Alto / Los Altos / Mountain View belong in Seasonal → Worth a Little Drive until a city landing justifies a scraper."
+    ]
+  },
+  "watchlistUpdatedAt": "2026-10-20"
+}
