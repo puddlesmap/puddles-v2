@@ -1,0 +1,170 @@
+/* Design-preview — Guides H1 lockup explorations */
+
+.gte-page {
+  background: #fff;
+  color: var(--color-charcoal, #273034);
+  font-family: var(--font-sans);
+}
+
+.gte-banner {
+  max-width: var(--layout-max);
+  margin: 0 auto;
+  padding: 1rem var(--layout-padding-mobile) 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+@media (min-width: 768px) {
+  .gte-banner {
+    padding-inline: var(--layout-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gte-banner {
+    padding-inline: var(--layout-padding-desktop);
+  }
+}
+
+.gte-variants {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: var(--layout-max);
+  margin: 0 auto;
+  padding: 0.5rem var(--layout-padding-mobile) 3rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .gte-variants {
+    padding-inline: var(--layout-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gte-variants {
+    padding-inline: var(--layout-padding-desktop);
+  }
+}
+
+.gte-card {
+  padding: 1.5rem 1.25rem 1.75rem;
+  border: 1px solid #ebebeb;
+  border-radius: 20px;
+  background: #fafafa;
+}
+
+.gte-card__label {
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.gte-card__note {
+  margin: 0.85rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: #717171;
+}
+
+.gte-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-charcoal, #273034);
+}
+
+.gte-dek {
+  max-width: 40rem;
+  margin: 0.75rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: #484848;
+}
+
+/* A — plain control */
+.gte-a .gte-title {
+  display: block;
+}
+
+/* B — pin in white circle */
+.gte-b__row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.gte-pin-circle {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.08);
+}
+
+.gte-pin-circle img {
+  width: 2.35rem;
+  height: 2.35rem;
+  object-fit: contain;
+}
+
+/* C — pin alone, larger */
+.gte-c__row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.gte-pin-bare {
+  flex: 0 0 auto;
+  width: 3.25rem;
+  height: 3.25rem;
+  object-fit: contain;
+}
+
+/* D — soft pill lockup */
+.gte-d__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  max-width: 100%;
+  padding: 0.55rem 1.15rem 0.55rem 0.65rem;
+  border-radius: 999px;
+  background: #f7f1e8;
+}
+
+.gte-d__pill img {
+  width: 2.25rem;
+  height: 2.25rem;
+  object-fit: contain;
+}
+
+.gte-d__pill .gte-title {
+  font-size: clamp(1.5rem, 2.6vw, 1.85rem);
+}
+
+/* E — stacked masthead */
+.gte-e__stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.gte-e__stack img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+}
