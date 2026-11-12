@@ -1,0 +1,385 @@
+/* Shared guide editorial modules — Featured / Text / QuickPick */
+
+/* Stacked featured — image above copy so titles share the text-only left edge. */
+.guide-page.skin .lgg-out.gem-featured,
+.gem-featured {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 1.75rem 0 0;
+}
+
+.guide-page.skin .lgg-out.gem-featured > * {
+  order: initial;
+}
+
+.gem-featured__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 22rem;
+  overflow: hidden;
+}
+
+.gem-featured__media-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #ebe4d8;
+}
+
+.gem-featured__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gem-featured__media--contain .gem-featured__media-frame {
+  background: #f3eee6;
+}
+
+.gem-featured__media--contain img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.gem-featured__body {
+  min-width: 0;
+  width: 100%;
+}
+
+.gem-featured__body > :first-child {
+  margin-top: 0;
+}
+
+/* Holiday-scoped spacing for editorial modules */
+.holiday-guide-dimmed .gem-featured,
+.holiday-guide-dimmed .gem-text {
+  margin-top: 1.75rem;
+}
+
+.holiday-guide-dimmed .gem-section-nav {
+  margin-bottom: 0.5rem;
+  scroll-margin-top: 5.5rem;
+}
+
+.holiday-guide-dimmed .holiday-guide-map {
+  margin-top: 2rem;
+}
+
+.holiday-guide-dimmed .lgg-body {
+  padding-top: 0.75rem;
+}
+
+.holiday-guide-dimmed .lgg-chapter:first-child,
+.holiday-guide-dimmed .lgg-chapter.lgg-chapter--finder {
+  margin-top: 1.5rem;
+}
+
+.gem-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  margin-top: 0.85rem;
+}
+
+.gem-actions .lgg-event--text {
+  margin-top: 0;
+}
+
+.gem-map-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #17382a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.gem-map-link:hover {
+  color: #1f4a37;
+}
+
+/* Softer tip indent so tip text aligns closer to body copy */
+.holiday-guide-dimmed .guide-page.skin .lgg-iconline,
+.holiday-guide-dimmed .guide-page.skin--column .lgg-iconline {
+  grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr);
+  column-gap: 0.65rem;
+}
+
+.gem-text {
+  margin: 1.75rem 0 0;
+}
+
+.gem-text > :first-child,
+.gem-featured__body > :first-child {
+  margin-top: 0;
+}
+
+.gem-quick-group {
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gem-quick-group > li {
+  margin: 0;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.gem-quick-group > li:last-child {
+  border-bottom: none;
+}
+
+.gem-quick {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #484848;
+}
+
+.gem-quick__category {
+  font-weight: 700;
+  color: var(--color-charcoal, #273034);
+}
+
+.gem-quick__link:any-link {
+  font-weight: 600;
+  color: #17382a;
+  text-decoration: none;
+}
+
+.gem-quick__link:any-link:hover {
+  color: #1f4a37;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.holiday-finder.gem-quick-group {
+  margin-top: 0.55rem;
+}
+
+.holiday-finder.gem-quick-group > li {
+  padding: 0.28rem 0;
+}
+
+.holiday-finder .gem-quick {
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+@media (min-width: 768px) {
+  .holiday-finder.gem-quick-group > li {
+    padding: 0.1rem 0;
+  }
+
+  .holiday-finder .gem-quick {
+    line-height: 1.3;
+  }
+}
+
+.gem-section-nav {
+  margin: 0 0 0.75rem;
+}
+
+.gem-section-nav h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-charcoal, #273034);
+}
+
+.gem-section-nav__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .gem-section-nav__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .gem-section-nav__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.gem-section-nav__list a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #ebebeb;
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-charcoal, #273034);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.gem-section-nav__list a:hover {
+  border-color: #cdc744;
+  background: #f5efde;
+  color: #17382a;
+  text-decoration: none;
+}
+
+.holiday-guide-dimmed .gem-section-nav__list a,
+.holiday-guide-dimmed .gem-section-nav__list a:hover {
+  text-decoration: none;
+}
+
+.gem-section-nav__list a:focus-visible {
+  outline: 2px solid #17382a;
+  outline-offset: 2px;
+}
+
+.holiday-guide-dimmed .gem-section-nav h2,
+.holiday-guide-dimmed .gem-quick__category,
+.holiday-guide-dimmed .gem-quick__link:any-link {
+  color: #17382a;
+}
+
+.holiday-guide-dimmed .gem-section-nav__list a {
+  border-color: #cdc744;
+  background: #f5efde;
+  color: #17382a;
+}
+
+.holiday-guide-dimmed .gem-section-nav__list a:hover {
+  background: #eef58a;
+  border-color: #cdc744;
+}
+
+/* Clay thumb index — design-preview holiday mockup */
+.gem-section-nav--clay {
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.gem-section-nav--clay h2 {
+  margin-bottom: 0.75rem;
+}
+
+.gem-section-nav--clay .gem-section-nav__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  overflow: visible;
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .gem-section-nav--clay .gem-section-nav__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .gem-section-nav--clay .gem-section-nav__list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.gem-section-nav--clay .gem-section-nav__list a {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.45rem;
+  min-width: 0;
+  max-width: none;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 14px;
+  background: #fff;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .gem-section-nav--clay .gem-section-nav__list a {
+    justify-content: flex-start;
+    gap: 0.55rem;
+    min-height: 0;
+    padding: 0.55rem 0.7rem;
+  }
+}
+
+.gem-section-nav--clay .gem-section-nav__list a:hover {
+  text-decoration: none;
+}
+
+.gem-section-nav--clay .gem-section-nav__clay {
+  display: block;
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+}
+
+.gem-section-nav--clay .gem-section-nav__label {
+  display: block;
+  flex: 1 1 auto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: none;
+  color: #17382a;
+}
+
+@media (max-width: 767px) {
+  .gem-section-nav--clay .gem-section-nav__list a {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.55rem;
+  }
+
+  .gem-section-nav--clay .gem-section-nav__clay {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .gem-section-nav--clay .gem-section-nav__label {
+    font-size: 0.72rem;
+    text-align: left;
+  }
+}
+
+.holiday-guide-dimmed .gem-section-nav--clay .gem-section-nav__list a:hover {
+  background: #fff;
+  border-color: #17382a;
+}

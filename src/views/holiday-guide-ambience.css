@@ -1,0 +1,512 @@
+/* Holiday guide page ambience + layout polish */
+
+.holiday-guide-dimmed {
+  position: relative;
+  isolation: isolate;
+}
+
+.holiday-guide-blobs {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.holiday-guide-dots {
+  display: none;
+}
+
+.holiday-guide-dimmed > :not(.holiday-guide-blobs):not(.holiday-guide-dots) {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+ * Soft green cream + white dots on the PAGE background (full scroll height).
+ * Applies to local /guides/holiday-lights-traditions and the design preview.
+ * #ECEECD — body #484848 ~7.7:1 AA; muted #717171 ~4.1:1 (secondary).
+ * Opaque .guide-page.skin would cover the dots — keep skin transparent.
+ */
+.holiday-guide-dimmed.gct-page {
+  background-color: #eceecd;
+  background-image: url('/guides/holiday-lights/dots-tile.png?v=5');
+  /* ~1/3 density vs prior 720×960 tile (√3 ≈ 1.73× larger tiles) */
+  background-size: 1245px 1660px;
+  background-position: 0 0;
+  background-repeat: repeat;
+  animation: holiday-dots-drift 48s ease-in-out infinite;
+}
+
+.holiday-guide-dimmed.gct-page .guide-page.skin {
+  background: transparent;
+}
+
+.holiday-guide-dots {
+  display: none;
+}
+
+/*
+ * White dots: hard-edge white discs, 50–70% opacity (default for holiday guide).
+ * Asset: /guides/holiday-lights/dots-tile.png
+ */
+
+/* Design-preview only: red + white circle field toggle */
+.holiday-guide-mockup--dots-mixed.holiday-guide-dimmed.gct-page {
+  background-image:
+    radial-gradient(circle, rgb(255 255 255 / 0.2) 0 60px, transparent 61px),
+    radial-gradient(circle, rgb(181 58 77 / 0.1) 0 95px, transparent 96px),
+    radial-gradient(circle, rgb(255 255 255 / 0.14) 0 120px, transparent 121px),
+    radial-gradient(circle, rgb(155 44 62 / 0.08) 0 130px, transparent 131px),
+    radial-gradient(circle, rgb(255 255 255 / 0.08) 0 140px, transparent 141px);
+  background-size:
+    440px 480px,
+    600px 640px,
+    740px 700px,
+    880px 840px,
+    980px 920px;
+  background-position:
+    40px 60px,
+    300px 340px,
+    560px 90px,
+    140px 580px,
+    720px 420px;
+  animation-name: holiday-dots-drift-mixed;
+}
+
+@keyframes holiday-dots-drift {
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 28px -36px;
+  }
+}
+
+@keyframes holiday-dots-drift-mixed {
+  0%,
+  100% {
+    background-position:
+      40px 60px,
+      300px 340px,
+      560px 90px,
+      140px 580px,
+      720px 420px;
+  }
+  50% {
+    background-position:
+      70px 40px,
+      270px 380px,
+      590px 70px,
+      110px 620px,
+      750px 390px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .holiday-guide-dimmed.gct-page {
+    animation: none;
+  }
+}
+
+/* Title card: hero photo as FULL-CARD background (not a side column) */
+.holiday-guide-dimmed .geh--holiday {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  padding: 0;
+  gap: 0;
+  isolation: isolate;
+  background: #17382a;
+}
+
+.holiday-guide-dimmed .geh--holiday .geh__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.holiday-guide-dimmed .geh--holiday .geh__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgb(23 56 42 / 0.88) 0%, rgb(23 56 42 / 0.72) 42%, rgb(23 56 42 / 0.45) 100%),
+    rgb(23 56 42 / 0.35);
+  pointer-events: none;
+}
+
+.holiday-guide-dimmed .geh--holiday .geh__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: saturate(0.65) contrast(0.95);
+}
+
+.holiday-guide-dimmed .geh--holiday .geh__copy {
+  position: relative;
+  z-index: 1;
+  max-width: 36rem;
+  padding: 2rem 1.75rem 2.15rem;
+  box-sizing: border-box;
+}
+
+.holiday-guide-dimmed .geh--holiday .geh__cta--desktop {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 901px) {
+  .holiday-guide-dimmed .geh--holiday .geh__cta--desktop {
+    display: flex;
+    width: fit-content;
+  }
+}
+
+.holiday-guide-dimmed .geh--holiday .geh__cta--mobile {
+  position: relative;
+  z-index: 1;
+  margin: 0 1.25rem 1.35rem;
+  width: calc(100% - 2.5rem);
+  box-sizing: border-box;
+}
+
+@media (min-width: 901px) {
+  .holiday-guide-dimmed .geh--holiday {
+    min-height: 22rem;
+  }
+
+  .holiday-guide-dimmed .geh--holiday .geh__copy {
+    padding: 2.35rem 2.5rem 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .holiday-guide-dimmed .geh--holiday {
+    min-height: 0;
+  }
+
+  .holiday-guide-dimmed .geh--holiday .geh__copy {
+    padding: 1.35rem 1.25rem 1rem;
+  }
+
+  .holiday-guide-dimmed .geh--holiday .geh__media img {
+    min-height: 100%;
+    height: 100%;
+  }
+}
+
+/* No underlines on Explore CTA + In this guide + related guide cards */
+.holiday-guide-dimmed .geh__cta:any-link,
+.holiday-guide-dimmed .geh__cta:any-link:hover,
+.holiday-guide-dimmed .grf-seasonal__link:any-link,
+.holiday-guide-dimmed .grf-seasonal__link:any-link:hover,
+.holiday-guide-dimmed .gem-section-nav a:any-link,
+.holiday-guide-dimmed .gem-section-nav a:any-link:hover,
+.holiday-guide-dimmed .gem-section-nav__label,
+.holiday-guide-dimmed .grf-related__row:any-link,
+.holiday-guide-dimmed .grf-related__row:any-link:hover,
+.holiday-guide-dimmed .grf-related__title,
+.holiday-guide-dimmed .grf-related__dek {
+  text-decoration: none !important;
+}
+
+.holiday-guide-blob {
+  position: absolute;
+  display: block;
+  background: rgb(255 255 255 / 0.42);
+  filter: blur(2px);
+  border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  animation: holiday-blob-drift 32s ease-in-out infinite;
+}
+
+.holiday-guide-blob--1 {
+  width: min(42vw, 28rem);
+  height: min(42vw, 28rem);
+  top: 6%;
+  left: -8%;
+  opacity: 0.55;
+  animation-duration: 36s;
+}
+
+.holiday-guide-blob--2 {
+  width: min(36vw, 22rem);
+  height: min(34vw, 20rem);
+  top: 22%;
+  right: -6%;
+  border-radius: 42% 58% 47% 53% / 48% 41% 59% 52%;
+  animation-duration: 28s;
+  animation-delay: -6s;
+}
+
+.holiday-guide-blob--3 {
+  width: min(48vw, 32rem);
+  height: min(40vw, 26rem);
+  top: 48%;
+  left: 8%;
+  opacity: 0.38;
+  border-radius: 58% 42% 39% 61% / 44% 56% 44% 56%;
+  animation-duration: 40s;
+  animation-delay: -12s;
+}
+
+.holiday-guide-blob--4 {
+  width: min(30vw, 18rem);
+  height: min(30vw, 18rem);
+  top: 62%;
+  right: 4%;
+  opacity: 0.48;
+  animation-duration: 24s;
+  animation-delay: -4s;
+}
+
+.holiday-guide-blob--5 {
+  width: min(38vw, 24rem);
+  height: min(36vw, 22rem);
+  bottom: 12%;
+  left: -4%;
+  opacity: 0.4;
+  border-radius: 49% 51% 62% 38% / 57% 43% 57% 43%;
+  animation-duration: 34s;
+  animation-delay: -18s;
+}
+
+.holiday-guide-blob--6 {
+  width: min(26vw, 16rem);
+  height: min(28vw, 17rem);
+  bottom: 4%;
+  right: 18%;
+  opacity: 0.35;
+  animation-duration: 30s;
+  animation-delay: -9s;
+}
+
+@keyframes holiday-blob-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(2.5%, -1.5%, 0) scale(1.04);
+  }
+  66% {
+    transform: translate3d(-2%, 2%, 0) scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .holiday-guide-blob {
+    animation: none;
+  }
+}
+
+.holiday-guide-map {
+  margin: 2rem 0 0;
+}
+
+.holiday-guide-map h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #17382a;
+}
+
+.holiday-guide-map__lede {
+  margin: 0.35rem 0 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #484848;
+}
+
+.guide-map--compact .guide-map__frame,
+.guide-map--compact .guide-map__canvas {
+  height: 230px;
+}
+
+@media (min-width: 768px) {
+  .guide-map--compact .guide-map__frame,
+  .guide-map--compact .guide-map__canvas {
+    height: 300px;
+  }
+}
+
+.holiday-more__label {
+  margin: 1.35rem 0 0.55rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #17382a;
+}
+
+.holiday-more-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.holiday-more-list li {
+  margin: 0;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgb(23 56 42 / 0.12);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #484848;
+}
+
+.holiday-more-list li:last-child {
+  border-bottom: none;
+}
+
+/* Match title link size/weight to venue · date in the same lead line. */
+.holiday-more-list a.lgl-textlink {
+  display: inline;
+  margin-top: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* Tip inline links should match surrounding tip body type. */
+.holiday-guide-dimmed .lgg-tips a.lgl-textlink {
+  display: inline;
+  margin-top: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.holiday-coming {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .holiday-coming {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.holiday-coming__card {
+  padding: 1rem 1.1rem;
+  border: 1px solid rgb(23 56 42 / 0.14);
+  border-radius: 16px;
+  background: rgb(255 255 255 / 0.55);
+}
+
+.holiday-coming__card h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #17382a;
+}
+
+.holiday-coming__card p {
+  margin: 0.4rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: #484848;
+}
+
+.holiday-coming__soon {
+  display: inline-block;
+  margin-top: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.holiday-email-cta {
+  margin: 1.5rem 0 1rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: 18px;
+  background: #17382a;
+  color: #f5efde;
+}
+
+.holiday-email-cta h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #eef58a;
+}
+
+.holiday-email-cta p {
+  margin: 0.45rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #f5efde;
+}
+
+.holiday-email-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  margin-top: 0.9rem;
+  padding: 0 1.2rem;
+  border: none;
+  border-radius: 999px;
+  background: #eef58a;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #17382a;
+  cursor: pointer;
+}
+
+.holiday-email-cta__btn:hover {
+  background: #f4f9a8;
+}
+
+.holiday-guide-dimmed .gem-section-nav {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.holiday-guide-mockup .geh-preview-review {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  max-width: var(--layout-max);
+  margin: 0.35rem auto 0;
+  padding: 0 var(--layout-padding-mobile) 0.65rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .holiday-guide-mockup .geh-preview-review {
+    padding-inline: var(--layout-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .holiday-guide-mockup .geh-preview-review {
+    padding-inline: var(--layout-padding-desktop);
+  }
+}
+
+.holiday-guide-mockup .geh-preview-review__label {
+  flex: 0 0 100%;
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.holiday-guide-mockup .geh-preview-review a:any-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #17382a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+

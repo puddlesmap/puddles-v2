@@ -1796,55 +1796,6 @@
   gap: 0;
 }
 
-/* Holiday guide: compact two-column editorial (illustration | copy + CTA). */
-.local-guide-teaser--holiday-editorial {
-  margin: 1rem 0 1.15rem;
-}
-
-.local-guide-card.local-guide-card--holiday-editorial {
-  display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
-  gap: 0.85rem;
-  align-items: center;
-  margin-top: 0;
-  padding: 0.7rem;
-  border-radius: 16px;
-  background: #fff;
-  color: var(--color-charcoal, #273034);
-  box-shadow: var(--shadow-elevation-light-3);
-  text-decoration: none;
-}
-
-.local-guide-card.local-guide-card--holiday-editorial .holiday-guide-placeholder__media {
-  display: block;
-  width: 100%;
-  height: 96px;
-  border-radius: 12px;
-  background:
-    radial-gradient(circle at 78% 22%, #cdc744 0 18%, transparent 19%),
-    #f5efde;
-}
-
-.local-guide-card.local-guide-card--holiday-editorial .local-guide-card__pill {
-  margin-top: 0.55rem;
-}
-
-@media (min-width: 768px) {
-  .local-guide-teaser--holiday-editorial {
-    margin: 1.15rem 0 1.35rem;
-  }
-
-  .local-guide-card.local-guide-card--holiday-editorial {
-    grid-template-columns: 168px minmax(0, 1fr);
-    gap: 1.1rem;
-    padding: 0.85rem;
-  }
-
-  .local-guide-card.local-guide-card--holiday-editorial .holiday-guide-placeholder__media {
-    height: 120px;
-  }
-}
-
 @media (max-width: 767px) {
   .seasonal-collection-page--typeahead-filters .seasonal-typeahead-filters--mobile {
     display: block;
@@ -2006,6 +1957,14 @@
 .home-experiment-shell--holiday-magic-reverse .top-nav-link,
 .home-experiment-shell--holiday-magic-reverse .top-nav-link-active {
   color: #f5efde;
+  background-color: transparent;
+}
+
+.home-experiment-shell--holiday-magic-reverse .top-nav-link:hover,
+.home-experiment-shell--holiday-magic-reverse .top-nav-link-active:hover,
+.home-experiment-shell--holiday-magic-reverse .top-nav-link-active {
+  background-color: #17382a;
+  color: #eef58a;
 }
 
 /* Mockup 2 — deep green, mint, and white from the giver card. */
@@ -2084,28 +2043,52 @@
 }
 
 /* Holiday geo toggle — white outline, tighter vertical gaps, lime selected pill */
+.seasonal-collection-page--holiday-magic-reverse .seasonal-collection-sections {
+  gap: 0;
+}
+
 .seasonal-collection-page--holiday-magic-reverse .seasonal-density-tabs {
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  margin-bottom: 0.5rem;
-  padding-block: 0.25rem;
+  margin-bottom: var(--space-sm);
+  padding-block: 0;
 }
 
 .seasonal-collection-page--holiday-magic-reverse .seasonal-density-tabs.is-stuck {
   background: #17382a;
 }
 
-.seasonal-collection-page--holiday-magic-reverse
-  .local-guide-teaser--holiday-editorial {
-  margin-bottom: 0.75rem;
+.seasonal-collection-page--holiday-magic-reverse .hmg-guides {
+  margin-top: 0.15rem;
+  margin-bottom: var(--space-md);
+}
+
+.seasonal-collection-page--holiday-magic-reverse .seasonal-collection-hero {
+  margin-bottom: 0;
+  padding-bottom: 0.75rem;
+}
+
+.seasonal-collection-page--holiday-magic-reverse .seasonal-density-group__title {
+  margin-bottom: 0.65rem;
+  color: #cdc744;
+}
+
+.seasonal-collection-page--holiday-magic-reverse .seasonal-density-group + .seasonal-density-group {
+  margin-top: 1.35rem;
 }
 
 .seasonal-collection-page--holiday-magic-reverse
   .seasonal-density-mobile-panel
   > .seasonal-collection-band__header {
-  margin-top: 0.25rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+}
+
+.seasonal-collection-page--holiday-magic-reverse
+  .seasonal-density-desktop-stack
+  .seasonal-collection-band__header {
+  margin-bottom: 0.65rem;
 }
 
 .seasonal-collection-page--holiday-magic-reverse
@@ -2134,4 +2117,95 @@
   border-color: transparent;
   color: #17382a;
   box-shadow: none;
+}
+
+/* Desktop: restore geo toggle as outline filters (hide dual stack) */
+@media (min-width: 768px) {
+  .seasonal-collection-page--holiday-magic-reverse .hmg-guides {
+    margin-bottom: var(--space-xl); /* 32px — double prior 16px */
+  }
+
+  .seasonal-collection-page--holiday-magic-reverse .seasonal-density-tabs--mobile,
+  .seasonal-collection-page--holiday-magic-reverse .seasonal-density-tabs__sentinel,
+  .seasonal-collection-page--holiday-magic-reverse .seasonal-density-mobile-panel {
+    display: block;
+  }
+
+  .seasonal-collection-page--holiday-magic-reverse .seasonal-density-tabs--mobile {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: var(--space-lg); /* 24px — double prior 12px */
+    padding-inline: 0;
+    padding-block: 0;
+  }
+
+  /* Two separate filter-style buttons (not one connected segmented pill) */
+  .seasonal-collection-page--holiday-magic-reverse
+    .seasonal-density-tabs--fall-frost
+    .seasonal-density-tabs__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xs); /* 8px between outline buttons */
+    width: 100%;
+    max-width: 24rem;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .seasonal-collection-page--holiday-magic-reverse
+    .seasonal-density-tabs--fall-frost
+    .seasonal-density-tabs__tab {
+    min-height: 36px;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid #ffffff;
+    border-radius: 999px;
+    background: transparent;
+    color: #f5efde;
+    font-size: 0.75rem;
+    box-shadow: none;
+  }
+
+  .seasonal-collection-page--holiday-magic-reverse
+    .seasonal-density-tabs--fall-frost
+    .seasonal-density-tabs__tab[aria-selected='true'] {
+    background: #eef58a;
+    border-color: #eef58a;
+    color: #17382a;
+    box-shadow: none;
+  }
+
+  .seasonal-collection-page--holiday-magic-reverse .seasonal-density-desktop-stack {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .seasonal-collection-page--holiday-magic-reverse .seasonal-collection-hero {
+    padding-bottom: 0.5rem;
+  }
+
+  .seasonal-collection-page--holiday-magic-reverse .hmg-guides {
+    margin-bottom: 1.125rem; /* 18px — prior 12px + half */
+  }
+
+  .seasonal-collection-page--holiday-magic-reverse .seasonal-density-tabs {
+    margin-bottom: var(--space-sm); /* 12px — prior 8px + half */
+    padding-block: 0;
+  }
+
+  .seasonal-collection-page--holiday-magic-reverse
+    .seasonal-density-tabs--fall-frost
+    .seasonal-density-tabs__list {
+    padding: 0.15rem;
+  }
+
+  .seasonal-collection-page--holiday-magic-reverse
+    .seasonal-density-mobile-panel
+    > .seasonal-collection-band__header {
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+  }
 }

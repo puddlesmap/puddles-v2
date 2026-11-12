@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom'
 import { HALLOWEEN_GUIDE_COVER, HALLOWEEN_GUIDE_PATH } from '../../data/halloweenGuide'
+import {
+  HOLIDAY_GUIDE_COVER,
+  HOLIDAY_GUIDE_DEK,
+  HOLIDAY_GUIDE_PATH,
+  HOLIDAY_GUIDE_TITLE,
+} from '../../data/holidayGuide'
 
 const GUIDE_HREF = `${HALLOWEEN_GUIDE_PATH}?entry=collection`
 
@@ -87,6 +93,21 @@ export function LocalGuideCardVariant({ variant }: { variant: GuideCardVariant }
       {variant === 4 ? <PosterCard /> : null}
       {variant === 5 ? <FeatureCard /> : null}
     </div>
+  )
+}
+
+/** Compact card for /guides index (uses Filoli cover photo). */
+export function HolidayGuideIndexCard({ href = HOLIDAY_GUIDE_PATH }: { href?: string } = {}) {
+  return (
+    <Link className="local-guide-card" to={href}>
+      <img src={HOLIDAY_GUIDE_COVER} alt="" />
+      <span className="local-guide-card__copy">
+        <span className="local-guide-card__eyebrow">Holiday guide</span>
+        <span className="local-guide-card__title">{HOLIDAY_GUIDE_TITLE}</span>
+        <span className="local-guide-card__dek">{HOLIDAY_GUIDE_DEK}</span>
+        <span className="local-guide-card__cta">Explore guide →</span>
+      </span>
+    </Link>
   )
 }
 

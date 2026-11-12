@@ -13,6 +13,17 @@ import { AdminLayout } from './components/admin/AdminLayout'
 import { DiscoveryPage } from './views/DiscoveryPage'
 import { HomePage } from './views/HomePage'
 import { HalloweenGuidePage } from './views/HalloweenGuidePage'
+import { HolidayGuidePage } from './views/HolidayGuidePage'
+import { HolidayStoriesGuidePage } from './views/HolidayStoriesGuidePage'
+import { HelloNewYearGuidePage } from './views/HelloNewYearGuidePage'
+import { DesignPreviewHalloweenGuidePage } from './views/DesignPreviewHalloweenGuidePage'
+import { DesignPreviewHolidayLightsGuidePage } from './views/DesignPreviewHolidayLightsGuidePage'
+import { DesignPreviewGuidesTitlePage } from './views/DesignPreviewGuidesTitlePage'
+import { ExperimentLocalGuidesLayoutsPage } from './views/ExperimentLocalGuidesLayoutsPage'
+import { ExperimentGuideCardMockupsPage } from './views/ExperimentGuideCardMockupsPage'
+import { ExperimentGuideTinyDancesPage } from './views/ExperimentGuideTinyDancesPage'
+import { ExperimentGuidesHomeMockupsPage } from './views/ExperimentGuidesHomeMockupsPage'
+import { ExperimentHolidayGuidePalettesPage } from './views/ExperimentHolidayGuidePalettesPage'
 import { HomeLaunchPreviewPage } from './views/HomeLaunchPreviewPage'
 import { ExperimentHallmarkHelloFallMockupPage } from './views/ExperimentHallmarkHelloFallMockupPage'
 import { ExperimentHallmarkHomeMockupPage } from './views/ExperimentHallmarkHomeMockupPage'
@@ -35,6 +46,8 @@ import { BrowseV2Page } from './views/BrowseV2Page'
 import { BROWSE_PAGE_PROPS } from './views/browsePageConfigs'
 import { SharePage } from './views/SharePage'
 import { ExperimentSharePage } from './views/ExperimentSharePage'
+import { ContactPage } from './views/ContactPage'
+import { PrivacyPage } from './views/PrivacyPage'
 import { AboutPage } from './views/AboutPage'
 import { AboutExperimentPage } from './views/AboutExperimentPage'
 import { TypographyExperimentHomePage } from './views/TypographyExperimentHomePage'
@@ -76,6 +89,11 @@ import { ExperimentFallGatheringsMockupPage } from './views/ExperimentFallGather
 import { ExperimentSeasonalLaunchReviewPage } from './views/ExperimentSeasonalLaunchReviewPage'
 import { ExperimentSeasonalBackgroundDialPage } from './views/ExperimentSeasonalBackgroundDialPage'
 import { ExperimentHolidayMagicFiltersPage } from './views/ExperimentHolidayMagicFiltersPage'
+import { ExperimentSavedReminderMockupPage } from './views/ExperimentSavedReminderMockupPage'
+import {
+  ExperimentEventDetailFullpageDetailPage,
+  ExperimentEventDetailFullpageIndexPage,
+} from './views/ExperimentEventDetailFullpagePage'
 import { WelcomeOnboarding } from './components/welcome/WelcomeOnboarding'
 import { PuddlesPicksPopup } from './components/picks/PuddlesPicksHome'
 import { PuddlesPicksMobilePill } from './components/picks/PuddlesPicksMobilePill'
@@ -95,6 +113,8 @@ function AppShell() {
   const isLogoLab = location.pathname === '/logo-lab'
   const isStandaloneEventDetail =
     /^\/event\/[^/]+$/.test(location.pathname) && !backgroundLocation
+  const isEventDetailFullpageMockDetail =
+    /^\/experiment\/event-detail-fullpage\/event\/[^/]+$/.test(location.pathname)
   const viewIdentity = pageViewIdentity(location.pathname, location.search)
   const lastView = useRef<string | null>(null)
 
@@ -111,8 +131,46 @@ function AppShell() {
       <Route path="/" element={<HomePage />} />
       <Route path="/guides" element={<GuidesIndexPage />} />
       <Route path="/guides/halloween-with-little-ones" element={<HalloweenGuidePage />} />
+      <Route path="/guides/holiday-lights-traditions" element={<HolidayGuidePage />} />
+      <Route
+        path="/guides/holiday-magic-with-little-ones"
+        element={<Navigate to="/guides/holiday-lights-traditions" replace />}
+      />
+      <Route path="/guides/holiday-stories-play" element={<HolidayStoriesGuidePage />} />
+      <Route
+        path="/guides/holiday-stories-shows-play"
+        element={<Navigate to="/guides/holiday-stories-play" replace />}
+      />
+      <Route path="/guides/hello-new-year" element={<HelloNewYearGuidePage />} />
+      <Route
+        path="/design-preview/halloween-guide"
+        element={<DesignPreviewHalloweenGuidePage />}
+      />
+      <Route
+        path="/design-preview/holiday-lights-guide"
+        element={<DesignPreviewHolidayLightsGuidePage />}
+      />
+      <Route path="/design-preview/guides-title" element={<DesignPreviewGuidesTitlePage />} />
       <Route path="/seasonal" element={<SeasonalActivePage />} />
       <Route path="/seasonal/:slug" element={<ExperimentSeasonalCollectionPage />} />
+      <Route
+        path="/experiment/local-guides-layouts"
+        element={<ExperimentLocalGuidesLayoutsPage />}
+      />
+      <Route path="/experiment/guide-card-mockups" element={<ExperimentGuideCardMockupsPage />} />
+      <Route path="/experiment/guide-tiny-dances" element={<ExperimentGuideTinyDancesPage />} />
+      <Route
+        path="/experiment/guide-content-mockups"
+        element={<ExperimentGuideTinyDancesPage />}
+      />
+      <Route
+        path="/experiment/guides-home-mockups"
+        element={<ExperimentGuidesHomeMockupsPage />}
+      />
+      <Route
+        path="/experiment/holiday-guide-palettes"
+        element={<ExperimentHolidayGuidePalettesPage />}
+      />
       <Route path="/experiment/home-launch-preview" element={<HomeLaunchPreviewPage />} />
       <Route path="/experiment/seasonal-launch-review" element={<ExperimentSeasonalLaunchReviewPage />} />
       <Route path="/experiment/hallmark-home-mockup" element={<ExperimentHallmarkHomeMockupPage />} />
@@ -213,6 +271,18 @@ function AppShell() {
         path="/experiment/holiday-magic-filters"
         element={<ExperimentHolidayMagicFiltersPage />}
       />
+      <Route
+        path="/experiment/saved-reminder-mockup"
+        element={<ExperimentSavedReminderMockupPage />}
+      />
+      <Route
+        path="/experiment/event-detail-fullpage"
+        element={<ExperimentEventDetailFullpageIndexPage />}
+      />
+      <Route
+        path="/experiment/event-detail-fullpage/event/:eventId"
+        element={<ExperimentEventDetailFullpageDetailPage />}
+      />
       <Route path="/experiment-shared-event" element={<ExperimentSharedEventLayout />}>
         <Route index element={<ExperimentSharedEventPage />} />
         <Route path="event/:eventId" element={<ExperimentSharedEventDetailPage />} />
@@ -226,6 +296,8 @@ function AppShell() {
       <Route path="/browse-experiment" element={<Navigate to="/experiment-browse" replace />} />
       <Route path="/share" element={<SharePage />} />
       <Route path="/share-experiment" element={<ExperimentSharePage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/about-experiment" element={<AboutExperimentPage />} />
       <Route path="/experiment_about" element={<AboutExperimentPage />} />
@@ -268,11 +340,13 @@ function AppShell() {
           <Route path="/event/:eventId" element={<EventDetailModalOverlay />} />
         </Routes>
       ) : null}
-      {!isAdminRoute && !isLogoLab && !isStandaloneEventDetail && <BottomNav />}
+      {!isAdminRoute && !isLogoLab && !isStandaloneEventDetail && !isEventDetailFullpageMockDetail && (
+        <BottomNav />
+      )}
       {!isAdminRoute && <LocationBridge />}
       {!isAdminRoute && !isLogoLab && <WelcomeOnboarding />}
       {!isAdminRoute && <PuddlesPicksPopup />}
-      {!isAdminRoute && <PuddlesPicksMobilePill />}
+      {!isAdminRoute && !isEventDetailFullpageMockDetail && <PuddlesPicksMobilePill />}
       {!isAdminRoute && <SavedHost />}
     </div>
   )

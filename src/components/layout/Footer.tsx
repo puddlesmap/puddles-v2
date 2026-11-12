@@ -34,6 +34,15 @@ function FacebookIcon() {
   )
 }
 
+/** Plain anchors: Footer can render outside a matching <Routes> tree (standalone event pages). */
+function FooterLink({ href, children }: { href: string; children: string }) {
+  return (
+    <a href={href} className="site-footer-link">
+      {children}
+    </a>
+  )
+}
+
 export function Footer({
   className = '',
   fullBleed = false,
@@ -42,55 +51,94 @@ export function Footer({
   fullBleed?: boolean
 }) {
   const { pathname } = useLocation()
-  // Home/Browse use the floating CTA; About uses a text link. Keep footer form on Share only.
   const showExpansionWatch =
     pathname === '/share' || pathname.startsWith('/share-')
 
   return (
     <footer
-      className={`site-footer ${fullBleed ? 'site-footer--full-bleed' : 'mt-16'} py-10 text-center ${className}`.trim()}
+      className={`site-footer ${fullBleed ? 'site-footer--full-bleed' : 'mt-16'} ${className}`.trim()}
     >
       <div className="site-footer-inner">
-        <div className="site-footer-lead">
-          <p className="site-footer-lead-line">
-            Starting in Palo Alto, Los Altos, Mountain View, and Sunnyvale.
-          </p>
-          <p className="site-footer-lead-line">
-            {/*
-              Real navigation (not a react-router <Link>): the shared footer renders
-              in several router contexts — including the standalone event page whose
-              in-memory router has no matching <Routes>, where a <Link> is inert. A
-              plain anchor guarantees "Growing with your help" always lands on the
-              Share with Us page at the top, with normal history/back, on every page.
-            */}
-            <a href="/share" className="link-tertiary whitespace-nowrap">
-              Growing with your help.
-            </a>
-          </p>
-        </div>
-
-        <div className="site-footer-social">
-          <p className="site-footer-social-label">Follow Puddles</p>
-          <div className="site-footer-social-links">
-            <a
-              href={SITE.social.instagram}
-              className="site-footer-social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Puddles on Instagram"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href={SITE.social.facebook}
-              className="site-footer-social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Puddles on Facebook"
-            >
-              <FacebookIcon />
-            </a>
+        <div className="site-footer-grid">
+          <div className="site-footer-brand">
+            <p className="site-footer-brand-name">{SITE.name}</p>
+            <p className="site-footer-brand-desc">
+              The tot map — local activities for little ones, starting on the South Peninsula.
+            </p>
+            <div className="site-footer-social site-footer-social--brand">
+              <div className="site-footer-social-links">
+                <a
+                  href={SITE.social.instagram}
+                  className="site-footer-social-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow Puddles on Instagram"
+                >
+                  <InstagramIcon />
+                </a>
+                <a
+                  href={SITE.social.facebook}
+                  className="site-footer-social-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow Puddles on Facebook"
+                >
+                  <FacebookIcon />
+                </a>
+              </div>
+            </div>
           </div>
+
+          <nav className="site-footer-col" aria-label="Explore">
+            <p className="site-footer-col-title">Explore</p>
+            <ul className="site-footer-list">
+              <li>
+                <FooterLink href="/browse">Browse events</FooterLink>
+              </li>
+              <li>
+                <FooterLink href="/guides">Guides</FooterLink>
+              </li>
+              <li>
+                <FooterLink href="/saved">Saved</FooterLink>
+              </li>
+            </ul>
+          </nav>
+
+          <nav className="site-footer-col" aria-label="Locations">
+            <p className="site-footer-col-title">Locations</p>
+            <ul className="site-footer-list">
+              <li>
+                <FooterLink href="/palo-alto">Palo Alto</FooterLink>
+              </li>
+              <li>
+                <FooterLink href="/los-altos">Los Altos</FooterLink>
+              </li>
+              <li>
+                <FooterLink href="/mountain-view">Mountain View</FooterLink>
+              </li>
+              <li>
+                <FooterLink href="/sunnyvale">Sunnyvale</FooterLink>
+              </li>
+              <li>
+                <FooterLink href="/discovery">All cities</FooterLink>
+              </li>
+            </ul>
+          </nav>
+
+          <nav className="site-footer-col" aria-label="Puddles">
+            <p className="site-footer-col-title">Puddles</p>
+            <ul className="site-footer-list">
+              <li>
+                <FooterLink href="/about">About</FooterLink>
+              </li>
+              <li>
+                <FooterLink href="/share">Share an event</FooterLink>
+              </li>
+              <li>
+                <FooterLink href="/contact">Contact</FooterLink>
+              </li>
+            </ul>
+          </nav>
         </div>
 
         {showExpansionWatch ? (
@@ -99,7 +147,11 @@ export function Footer({
             className="site-footer-expansion-watch"
           />
         ) : null}
-        <p className="site-footer-copy">© 2026 Puddles LLC</p>
+
+        <div className="site-footer-bottom">
+          <p className="site-footer-copy">© 2026 Puddles LLC</p>
+          <FooterLink href="/privacy">Privacy Policy</FooterLink>
+        </div>
       </div>
     </footer>
   )

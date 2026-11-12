@@ -58,7 +58,11 @@ export function getHomeFilterResultsSummary({
   }
 
   if (whereMode.value === 'other') {
-    return `Other cities · ${countLabel}`
+    return `Around the Bay · ${countLabel}`
+  }
+
+  if (whereMode.value === 'core') {
+    return `South Peninsula · ${countLabel}`
   }
 
   return `${whereMode.value} · ${countLabel}`

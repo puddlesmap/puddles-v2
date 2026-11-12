@@ -12,7 +12,8 @@
   .shared-event-url-page,
   .experiment-expired-activity-detail,
   .guide-page,
-  .saved-page-shell
+  .saved-page-shell,
+  .privacy-page-shell
 ) .app-header.page-header-sticky {
   background: var(--page-background);
   border-bottom: none;
@@ -30,7 +31,8 @@
   .shared-event-url-page,
   .experiment-expired-activity-detail,
   .guide-page,
-  .saved-page-shell
+  .saved-page-shell,
+  .privacy-page-shell
 ) .app-header-row {
   background: var(--page-background);
   box-shadow: none;
@@ -48,7 +50,8 @@
   .shared-event-url-page,
   .experiment-expired-activity-detail,
   .guide-page,
-  .saved-page-shell
+  .saved-page-shell,
+  .privacy-page-shell
 ) .logo-mark {
   display: flex;
   align-items: center;
@@ -70,7 +73,8 @@
   .shared-event-url-page,
   .experiment-expired-activity-detail,
   .guide-page,
-  .saved-page-shell
+  .saved-page-shell,
+  .privacy-page-shell
 ) .logo-mark-img {
   width: auto;
   height: 100%;
@@ -91,7 +95,8 @@
   .shared-event-url-page,
   .experiment-expired-activity-detail,
   .guide-page,
-  .saved-page-shell
+  .saved-page-shell,
+  .privacy-page-shell
 ) .brand-lockup-subtitle {
   font-size: 15px;
 }
@@ -109,7 +114,8 @@
     .shared-event-url-page,
     .experiment-expired-activity-detail,
     .guide-page,
-    .saved-page-shell
+    .saved-page-shell,
+    .privacy-page-shell
   ) .brand-lockup--wordmark-only .logo-mark {
     transform: translateY(-2px);
   }
@@ -128,7 +134,8 @@
     .shared-event-url-page,
     .experiment-expired-activity-detail,
     .guide-page,
-    .saved-page-shell
+    .saved-page-shell,
+    .privacy-page-shell
   ) .app-header-row {
     justify-content: center;
   }
@@ -145,7 +152,8 @@
     .shared-event-url-page,
     .experiment-expired-activity-detail,
     .guide-page,
-    .saved-page-shell
+    .saved-page-shell,
+    .privacy-page-shell
   ) .app-header-brand-link {
     flex: 1;
     display: flex;
@@ -164,7 +172,8 @@
     .shared-event-url-page,
     .experiment-expired-activity-detail,
     .guide-page,
-    .saved-page-shell
+    .saved-page-shell,
+    .privacy-page-shell
   ) .brand-lockup-subtitle {
     display: none;
   }
@@ -182,7 +191,8 @@
     .shared-event-url-page,
     .experiment-expired-activity-detail,
     .guide-page,
-    .saved-page-shell
+    .saved-page-shell,
+    .privacy-page-shell
   ) .app-header.page-header-sticky,
   :is(
     .about-page-shell,
@@ -196,7 +206,8 @@
     .shared-event-url-page,
     .experiment-expired-activity-detail,
     .guide-page,
-    .saved-page-shell
+    .saved-page-shell,
+    .privacy-page-shell
   ) .app-header-row {
     background: var(--color-brand);
   }
@@ -213,7 +224,8 @@
     .shared-event-url-page,
     .experiment-expired-activity-detail,
     .guide-page,
-    .saved-page-shell
+    .saved-page-shell,
+    .privacy-page-shell
   ) .logo-mark-img {
     filter: brightness(0) invert(1);
   }

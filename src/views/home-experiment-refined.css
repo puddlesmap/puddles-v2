@@ -684,14 +684,75 @@
   .home-experiment-refined-aside {
     max-width: 19.5rem;
   }
+}
 
+/* Home discovery sections (All cities geo groups + See more) */
+.home-discovery-feed,
+.home-discovery-section {
+  width: 100%;
+  min-width: 0;
+}
+
+.home-discovery-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Fill the Home results column — override Browse’s fixed 21rem card tracks */
+.home-experiment-shell--refined .home-experiment-page--refined .browse-content .browse-event-grid {
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: stretch;
+}
+
+.home-experiment-shell--refined
+  .home-experiment-page--refined
+  .browse-content
+  .browse-event-grid
+  > *,
+.home-experiment-shell--refined
+  .home-experiment-page--refined
+  .browse-content
+  .browse-event-grid
+  .discovery-event-card {
+  max-width: none;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
   .home-experiment-shell--refined .home-experiment-page--refined .browse-content .browse-event-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  .home-experiment-shell--refined .home-experiment-page--refined .browse-content .browse-event-grid > * {
-    max-width: none;
-  }
+.home-discovery-section + .home-discovery-section {
+  margin-top: 1.15rem;
+}
+
+.home-discovery-section__title {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-charcoal, #273034);
+}
+
+.home-discovery-see-more {
+  display: inline-flex;
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-brand, #66c5f9);
+  text-decoration: none;
+}
+
+.home-discovery-see-more:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 @media (min-width: 1280px) {

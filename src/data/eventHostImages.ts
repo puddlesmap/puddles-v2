@@ -58,6 +58,26 @@ export const EVENT_HOST_IMAGES: Record<string, string> = {
     'https://upload.wikimedia.org/wikipedia/commons/9/90/Meek_Mansion_%28Hayward%2C_CA%29.JPG',
   'Hidden Villa': 'https://www.hiddenvilla.org/wp-content/uploads/2026/03/hidden-villa-logo.jpg',
   Filoli: 'https://filoli.org/media/xbcltkxd/filoli-holiday-lights-inmenlo-11-20-2022-0194-6.jpg',
+  // Holiday magic hosts — identity photos when event flyer is missing.
+  'Cityline Sunnyvale':
+    'https://cdn-files.eu.placewise.com/f/CNGNPRDQExoTY21zX2NvbXBvbmVudF9pbWFnZSIVaWQtMTc5MjE3MTMxNTk2NS02NzU3ON6C9VopFcPrJirhVqO_r_u0KoKV',
+  'Lytton Plaza':
+    'https://www.paloalto.gov/files/assets/public/v/1/community-services/special-events/tree-lighting-event-2026jpg.jpg',
+  // Plaza de César Chávez / CITP: no shared host photo — prefer event flyer or clay
+  // (screenshot heroes and civic exteriors mislead for markets/displays).
+  'Vasona Lake County Park':
+    'https://cdn.uploads.webconnex.com/180642/20%20%281%29.png?1793313955273',
+  'Billy Jones Wildcat Railroad · Oak Meadow Park':
+    'https://static.wixstatic.com/media/ac1bb4_23ec671624e04544875ac2ef042d4005%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/ac1bb4_23ec671624e04544875ac2ef042d4005%7Emv2.jpg',
+  'Billy Jones Wildcat Railroad':
+    'https://static.wixstatic.com/media/ac1bb4_23ec671624e04544875ac2ef042d4005%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/ac1bb4_23ec671624e04544875ac2ef042d4005%7Emv2.jpg',
+  // Caltrain: tiny 258×258 graphic removed — use event imageUrl or clay until a larger official photo is approved.
+  'Oshman Family JCC · Jeff Center':
+    'https://uploads.tickettailorassets.com/v1/production/userfiles/xujsgje5beh6xnbt387a.jpg?_a=BAAHWXDQ',
+  'Oshman Family JCC':
+    'https://uploads.tickettailorassets.com/v1/production/userfiles/xujsgje5beh6xnbt387a.jpg?_a=BAAHWXDQ',
+  // Mountain View City Hall Plaza / Lucie Stern: no civic/wrong-venue host defaults.
+  // Markets and Lucie Stern programs fall through to clay unless they have their own imageUrl.
 }
 
 /** Case-insensitive venue / host alias → canonical EVENT_HOST_IMAGES key */
@@ -96,6 +116,24 @@ const EVENT_HOST_IMAGE_ALIASES: Record<string, string> = {
   'meek park': 'Meek Estate Park',
   'hidden villa': 'Hidden Villa',
   filoli: 'Filoli',
+  'cityline sunnyvale': 'Cityline Sunnyvale',
+  cityline: 'Cityline Sunnyvale',
+  'lytton plaza': 'Lytton Plaza',
+  'plaza de césar chávez': 'Plaza de César Chávez',
+  'plaza de cesar chavez': 'Plaza de César Chávez',
+  'vasona lake county park': 'Vasona Lake County Park',
+  vasona: 'Vasona Lake County Park',
+  'billy jones wildcat railroad · oak meadow park': 'Billy Jones Wildcat Railroad · Oak Meadow Park',
+  'billy jones wildcat railroad': 'Billy Jones Wildcat Railroad',
+  'billy jones': 'Billy Jones Wildcat Railroad',
+  'caltrain · peninsula stations': 'Caltrain · Peninsula stations',
+  caltrain: 'Caltrain',
+  'oshman family jcc · jeff center': 'Oshman Family JCC · Jeff Center',
+  'oshman family jcc': 'Oshman Family JCC',
+  ofjcc: 'Oshman Family JCC',
+  'mountain view city hall plaza': 'Mountain View City Hall Plaza',
+  'lucie stern community center': 'Lucie Stern Community Center',
+  'lucie stern': 'Lucie Stern Community Center',
 }
 
 /** @deprecated Use getEventHostImageUrl */

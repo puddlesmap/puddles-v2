@@ -153,4 +153,4 @@ export function submissionStatusLabel(status: string): string {
   return value
 }
 
-export const SUBMISSION_TYPES = ['Event', 'Idea', 'ExpansionWatch', 'All types'] as const
+export const SUBMISSION_TYPES = ['Event', 'Idea', 'ExpansionWatch', 'Contact', 'All types'] as const

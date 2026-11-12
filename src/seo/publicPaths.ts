@@ -52,7 +52,17 @@ export function publicCanonicalPath(pathname: string, search = ''): string {
 /** noindex for personal Saved pages and Browse URLs that encode a temporary filter. */
 export function publicRobots(pathname: string, search = ''): string | undefined {
   if (pathname === '/saved' || pathname.startsWith('/saved/')) return 'noindex, nofollow'
+  if (pathname.startsWith('/design-preview/')) return 'noindex, nofollow'
+  if (pathname.startsWith('/mockups/')) return 'noindex, nofollow'
   if (pathname.startsWith('/experiment/seasonal-discovery')) return 'noindex, follow'
+  /** Coming soon companion guides — index when published. */
+  if (
+    pathname === '/guides/holiday-stories-play' ||
+    pathname === '/guides/holiday-stories-shows-play' ||
+    pathname === '/guides/hello-new-year'
+  ) {
+    return 'noindex, nofollow'
+  }
   if (pathname === '/browse' || pathname === '/browse-v2' || pathname === '/map') {
     if (hasBrowseShareQuery(searchParams(search))) return 'noindex, follow'
   }
@@ -69,6 +79,12 @@ export function publicDescription(pathname: string): string | undefined {
   if (pathname === '/share') {
     return 'Tell Puddles about a local activity, an idea, or something on a listing that needs a fix.'
   }
+  if (pathname === '/contact') {
+    return 'Contact Puddles with a question, idea, or privacy request. No account required.'
+  }
+  if (pathname === '/privacy') {
+    return 'How Puddles collects, uses, and protects information for families using the tot map.'
+  }
   if (pathname === '/about') {
     return 'Puddles lists local activities for ages 0–5, starting on the South Peninsula.'
   }
@@ -76,11 +92,33 @@ export function publicDescription(pathname: string): string | undefined {
     return 'Activities you have saved on Puddles.'
   }
   if (pathname === '/guides') {
-    return 'Short guides for little ones on the South Peninsula, starting with Halloween.'
+    return 'Explore seasonal family activities, nearby places, and helpful tips for getting out with kids ages 0–5 in Palo Alto, Mountain View, Los Altos, and beyond.'
+  }
+
+  if (
+    pathname === '/guides/holiday-lights-traditions' ||
+    pathname === '/guides/holiday-magic-with-little-ones'
+  ) {
+    return 'Find holiday lights, Santa visits, festive train rides, and local celebrations for little ones in Palo Alto, Mountain View, Los Altos, and beyond.'
+  }
+  if (
+    pathname === '/guides/holiday-stories-play' ||
+    pathname === '/guides/holiday-stories-shows-play'
+  ) {
+    return 'Discover holiday shows, storytimes, winter crafts, and hands-on museum play for kids ages 0–5 across the Bay Area, with helpful tips before you go.'
+  }
+  if (pathname === '/guides/hello-new-year') {
+    return "Find Noon Year's Eve balloon drops, daytime countdowns, and January celebrations for kids ages 0–5 across Palo Alto, Sunnyvale, and the Bay Area."
+  }
+  if (pathname === '/guides/halloween-with-little-ones') {
+    return 'Find 2026 Halloween events for kids ages 0–5 in Palo Alto, Mountain View, Los Altos, and Sunnyvale, including daytime trick-or-treating, crafts, and parades.'
   }
 
   const slug = seasonalSlugFromPath(pathname)
   if (pathname === '/seasonal' || slug || isExperimentSeasonalCollection(pathname)) {
+    if (slug === 'holiday-magic') {
+      return 'Browse 2026 holiday events for kids ages 0–5 around the Bay Area. Find lights, Santa visits, shows, crafts, and winter outings by date and location.'
+    }
     const collection = slug ? getSeasonalCollection(slug) : getActiveSeasonalCollection()
     return collection?.description
   }

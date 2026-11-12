@@ -16,6 +16,7 @@ export type City =
   | 'San Francisco'
   /** Seasonal / Worth a little drive destinations (not Browse city filters). */
   | 'Half Moon Bay'
+  | 'Gilroy'
   | 'Morgan Hill'
   | 'Hayward'
   | 'Felton'
@@ -123,6 +124,19 @@ export interface Event {
   categoryTags: string[]
   cost: CostLabel
   imageUrl: string
+  /** Official page (or upload) URL the approved image came from — Admin provenance. */
+  imageSourceUrl?: string
+  /** How the image was obtained — not a legal clearance claim. */
+  imageRights?: 'official_page' | 'host_registry' | 'editor_upload' | 'series_prior' | 'unknown'
+  /** Edition year parsed or entered at approve time. */
+  imageYear?: string
+  /** Organizer or photographer credit line for parent-facing Photo source. */
+  imageCredit?: string
+  /**
+   * What the photo depicts. Attribution alone does not grant reuse permission.
+   * Prefer clay fallback over forcing a weak match.
+   */
+  imageKind?: 'actual_event' | 'previous_edition' | 'official_artwork' | 'venue' | 'fallback'
   eventUrl: string
   verifiedDate: string
   lat: number

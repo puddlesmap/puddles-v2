@@ -43,7 +43,7 @@ export interface HomeMapPreviewFraming {
 function getNearLocationLabel(whereMode: HomeWhereMode): string {
   if (whereMode.kind === 'nearby') return 'you'
   if (whereMode.kind === 'city' && whereMode.value === 'all') return 'all cities'
-  if (whereMode.kind === 'city' && whereMode.value === 'other') return 'other cities'
+  if (whereMode.kind === 'city' && whereMode.value === 'other') return 'around the Bay'
   return whereMode.value
 }
 
@@ -77,7 +77,7 @@ export function getHomeMapPreviewStatus({
 export function getHomeMapPreviewLabelRefined(whereMode: HomeWhereMode): string {
   if (whereMode.kind === 'nearby') return 'Near you'
   if (whereMode.kind === 'city' && whereMode.value === 'all') return 'Explore nearby activities'
-  if (whereMode.kind === 'city' && whereMode.value === 'other') return 'Other cities'
+  if (whereMode.kind === 'city' && whereMode.value === 'other') return 'Around the Bay'
   return whereMode.value
 }
 

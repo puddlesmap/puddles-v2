@@ -326,13 +326,15 @@ export const HELLO_FALL_CURATION = {
 } as const
 
 export const HOLIDAY_MAGIC_DESCRIPTION =
-  'Holiday lights, festive shows, and family outings, from November through early January.'
+  'Lights, festive shows & family outings for little ones.'
 
 export const HOLIDAY_MAGIC_CLOSE_EVENT_IDS = [
   'manual-23rd-annual-holiday-stroll-2026-11-13',
   'seasonal-friendsgiving-palo-alto-2026-11-21',
+  'seasonal-ofjcc-hanukkah-storytime-2026-11-18',
   'seasonal-los-altos-festival-of-lights-parade-2026-11-29',
   'seasonal-cityline-winter-ice-rink-2026-11-24',
+  'seasonal-caltrain-holiday-train-2026-12-05',
   'seasonal-lytton-tree-lighting-2026-12-04',
   'seasonal-los-altos-holiday-tree-celebration-2026-12-04',
   'seasonal-once-upon-a-garden-2026-12-04',
@@ -342,8 +344,13 @@ export const HOLIDAY_MAGIC_CLOSE_EVENT_IDS = [
   'barn-lighting-westwind-community-barn-2026-12-06-14-00',
   'community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30',
   'manual-holiday-market-downtown-los-altos-2026-12-10',
+  'seasonal-german-holiday-market-mv-2026-12-12',
+  'seasonal-christmas-tree-lane-palo-alto-2026-12',
+  'seasonal-cupertino-community-tree-lighting-2026-12-04',
+  'disc-the-night-before-christmas-stories-on-st-2026-12-11-manual-the-night-before-christmas-storie',
   'core-weekend-playhouse-gingerbread-man-2026-12-19',
   'disc-celebrating-yalda-night-2026-12-19-6abc44f5295b3b0033ca0dd7',
+  'seasonal-sunnyvale-noon-years-eve-2026-12-30',
   'disc-noon-year-s-eve-celebration-2026-12-31-6a750a3788e9bf28003613ac',
 ] as const
 
@@ -352,14 +359,21 @@ export const HOLIDAY_MAGIC_DRIVE_EVENT_IDS = [
   'seasonal-illuminodyssey-2026-11-14',
   'regional-oakland-zoo-glowfari-2026-11-06',
   'regional-badm-winter-wonderlab-2026-11-21',
+  'regional-santas-tree-farm-half-moon-bay-2026-11-21',
+  'regional-christmas-in-the-park-san-jose-2026-11-27',
   'seasonal-hiller-santa-helicopter-2026-12-05',
+  'regional-fantasy-of-lights-vasona-2026-12-05',
   'regional-crucible-gifty-2026-12-05',
   'regional-fairyland-fairy-winterland-2026-12-12',
+  'regional-billy-jones-holiday-night-train-2026-12-14',
   'regional-union-square-holiday-ice-rink-2026-11-04',
   'regional-marin-holiday-light-spectacular-2026-11-27',
   'regional-roaring-camp-holiday-tree-walk-2026-11-27',
   'regional-santa-cruz-holiday-lights-train-2026-11-27',
   'seasonal-sf-ballet-sensory-nutcracker-2026-12-27',
+  'regional-photosynthesis-conservatory-2026-10-01',
+  'regional-lightscape-sf-botanical-2026-11-20',
+  'regional-gilroy-north-pole-nights-2026-11-21',
 ] as const
 
 /** Holiday magic — discovery rows to review after roundup / Marin Mommies / Mommy Poppins passes. */

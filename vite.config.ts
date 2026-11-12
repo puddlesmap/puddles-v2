@@ -21,7 +21,14 @@ import {
   loadSubmissionsFromGithub,
   patchSubmissionsInGithub,
 } from './netlify/lib/submissions-store.mjs'
+import { processContactRequest } from './netlify/lib/contact-core.mjs'
 import { handler as audienceHandler } from './netlify/functions/audience.mjs'
+import { seriesImageSuggestion } from './src/data/eventSeriesImages'
+import {
+  gateAmbiguousImageCandidates,
+  rankOfficialImageCandidates,
+  scoreOfficialImageCandidate,
+} from './src/utils/eventImageDiscovery'
 
 const SPREADSHEET_ID = '1ko8p-HMzXMnSHT8qPxv14X-TPaac0RJTrfw8PwjikH8'
 const EVENTS_GID = '1023308778'
@@ -152,68 +159,131 @@ export default defineConfig(({ mode }) => {
               sendJson(res, 405, { ok: false, error: 'Method not allowed' })
               return
             }
-            let body: { sourceUrls?: string[] }
+            // Dev path mirrors Next `/api/admin/event-images` trust scorer (no upload here).
+            let body: {
+              sourceUrls?: string[]
+              title?: string
+              description?: string
+              venue?: string
+              types?: string[]
+              eventId?: string
+              rejectedUrls?: string[]
+              usedByOtherEvents?: Record<string, string>
+              seriesSlug?: string
+            }
             try {
               body = JSON.parse(await readBody(req))
             } catch {
               sendJson(res, 400, { ok: false, error: 'Invalid JSON body' })
               return
             }
-            const sourceUrl = String(body.sourceUrls?.[0] ?? '').trim()
-            if (!/^https?:\/\//i.test(sourceUrl)) {
+            const sourceUrls = [...new Set((body.sourceUrls || []).map(String).map((url) => url.trim()).filter(Boolean))].slice(0, 2)
+            if (sourceUrls.length === 0 || !/^https?:\/\//i.test(sourceUrls[0])) {
               sendJson(res, 400, { ok: false, error: 'Add an official event URL.' })
               return
             }
-            try {
-              const response = await fetch(sourceUrl, {
-                headers: { 'User-Agent': 'Puddles image review/1.0' },
-                signal: AbortSignal.timeout(8000),
-              })
-              if (!response.ok) {
-                sendJson(res, 200, { ok: true, candidates: [], errors: [`Official source returned ${response.status}.`] })
-                return
-              }
-              const html = (await response.text()).slice(0, 1_500_000)
-              const pageUrl = new URL(response.url || sourceUrl)
-              const seen = new Set<string>()
-              const candidates: Array<{ imageUrl: string; reason: string }> = []
-              function addPhoto(raw: string, reason: string) {
-                if (candidates.length >= 3 || !raw) return
-                let imageUrl: string
-                try {
-                  imageUrl = new URL(raw.replaceAll('&amp;', '&'), pageUrl).href
-                } catch {
-                  return
-                }
-                if (!/^https?:\/\//i.test(imageUrl) || seen.has(imageUrl)) return
-                if (/\.(?:svg|gif)(?:$|[?#])/i.test(imageUrl)) return
-                if (/(favicon|sprite|logo|icon|avatar|pixel|placeholder|spinner|transparent|all-white|wordmark|lockup|brand|badge)/i.test(imageUrl)) return
-                const sized = imageUrl.match(/-(\d+)x(\d+)\.(?:jpe?g|png|webp)(?:$|[?#])/i)
-                if (sized && (Number(sized[1]) < 240 || Number(sized[2]) < 180)) return
-                seen.add(imageUrl)
-                candidates.push({ imageUrl, reason })
-              }
-              for (const tag of html.match(/<meta\b[^>]*>/gi) || []) {
-                const key = (tag.match(/\b(?:property|name)\s*=\s*["']([^"']+)["']/i)?.[1] || '').toLowerCase()
-                const content = tag.match(/\bcontent\s*=\s*["']([^"']+)["']/i)?.[1] || ''
-                if (['og:image', 'og:image:url', 'twitter:image', 'twitter:image:src'].includes(key)) {
-                  addPhoto(content, key.startsWith('og:') ? 'Official page featured image' : 'Official page social image')
-                }
-              }
-              for (const tag of html.match(/<img\b[^>]*>/gi) || []) {
-                const src = tag.match(/\b(?:data-src|data-lazy-src|src)\s*=\s*["']([^"']+)["']/i)?.[1] || ''
-                const width = Number(tag.match(/\bwidth\s*=\s*["']?(\d+)/i)?.[1] || 0)
-                if (width && width < 200) continue
-                addPhoto(src, 'Photo on the official page')
-              }
-              sendJson(res, 200, { ok: true, candidates, errors: [] })
-            } catch (error) {
-              sendJson(res, 200, {
-                ok: true,
-                candidates: [],
-                errors: [error instanceof Error ? error.message : 'Could not inspect the official page.'],
-              })
+            const context = {
+              title: String(body.title || '').trim() || undefined,
+              description: String(body.description || '').trim() || undefined,
+              venue: String(body.venue || '').trim() || undefined,
+              types: Array.isArray(body.types) ? body.types.map(String) : undefined,
+              eventId: String(body.eventId || '').trim() || undefined,
+              rejectedUrls: Array.isArray(body.rejectedUrls) ? body.rejectedUrls.map(String) : undefined,
+              usedByOtherEvents: body.usedByOtherEvents,
             }
+            const candidates = []
+            const errors = []
+            for (const sourceUrl of sourceUrls) {
+              try {
+                const response = await fetch(sourceUrl, {
+                  headers: { 'User-Agent': 'Puddles image review/1.0' },
+                  signal: AbortSignal.timeout(8000),
+                })
+                if (!response.ok) {
+                  errors.push(`Official source returned ${response.status}.`)
+                  continue
+                }
+                const html = (await response.text()).slice(0, 1_500_000)
+                const pageUrl = new URL(response.url || sourceUrl)
+                const seen = new Set()
+                function addPhoto(raw, reason, baseScore, width = 0, height = 0, altText = '') {
+                  if (!raw) return
+                  let imageUrl
+                  try {
+                    imageUrl = new URL(String(raw).replaceAll('&amp;', '&'), pageUrl).href
+                  } catch {
+                    return
+                  }
+                  if (seen.has(imageUrl)) return
+                  const scored = scoreOfficialImageCandidate({
+                    imageUrl,
+                    altText,
+                    reason,
+                    baseScore,
+                    width,
+                    height,
+                    rights: 'official_page',
+                    context,
+                  })
+                  if (!scored) return
+                  seen.add(imageUrl)
+                  candidates.push({
+                    ...scored,
+                    sourceUrl: pageUrl.href,
+                    sourceLabel: `Official page · ${pageUrl.hostname}`,
+                    sourceType: 'official_event',
+                  })
+                }
+                for (const tag of html.match(/<meta\b[^>]*>/gi) || []) {
+                  const key = (tag.match(/\b(?:property|name)\s*=\s*["']([^"']+)["']/i)?.[1] || '').toLowerCase()
+                  const content = tag.match(/\bcontent\s*=\s*["']([^"']+)["']/i)?.[1] || ''
+                  if (['og:image', 'og:image:url', 'twitter:image', 'twitter:image:src'].includes(key)) {
+                    addPhoto(content, key.startsWith('og:') ? 'Official page featured image' : 'Official page social image', 100)
+                  }
+                }
+                for (const tag of html.match(/<img\b[^>]*>/gi) || []) {
+                  const src = tag.match(/\b(?:data-src|data-lazy-src|src)\s*=\s*["']([^"']+)["']/i)?.[1] || ''
+                  const width = Number(tag.match(/\bwidth\s*=\s*["']?(\d+)/i)?.[1] || 0)
+                  const height = Number(tag.match(/\bheight\s*=\s*["']?(\d+)/i)?.[1] || 0)
+                  const altText = tag.match(/\balt\s*=\s*["']([^"']*)["']/i)?.[1] || ''
+                  if (width && width < 200) continue
+                  addPhoto(src, altText ? `Official page image · “${altText}”` : 'Photo on the official page', 40, width, height, altText)
+                }
+              } catch (error) {
+                errors.push(error instanceof Error ? error.message : 'Could not inspect the official page.')
+              }
+            }
+            const series = seriesImageSuggestion({
+              seriesSlug: String(body.seriesSlug || '').trim() || undefined,
+              title: context.title,
+              venue: context.venue,
+            })
+            if (series) {
+              const scored = scoreOfficialImageCandidate({
+                imageUrl: series.imageUrl,
+                reason: series.reason,
+                baseScore: 70,
+                rights: 'series_prior',
+                context,
+              })
+              if (scored) {
+                candidates.push({
+                  ...scored,
+                  tier: 'T2',
+                  eventYear: series.year || scored.eventYear,
+                  sourceUrl: series.imageUrl,
+                  sourceLabel: 'Series prior approved',
+                  sourceType: 'series_prior',
+                })
+              }
+            }
+            const ranked = rankOfficialImageCandidates(candidates, 6)
+            const gated = await gateAmbiguousImageCandidates(ranked, context)
+            sendJson(res, 200, {
+              ok: true,
+              candidates: rankOfficialImageCandidates(gated, 3),
+              errors,
+            })
           })
 
           server.middlewares.use('/api/sheet-csv', async (req, res) => {
@@ -434,6 +504,38 @@ export default defineConfig(({ mode }) => {
               sendJson(res, 500, {
                 ok: false,
                 error: error instanceof Error ? error.message : 'Audience API failed',
+              })
+            }
+          })
+
+          server.middlewares.use('/api/contact', async (req, res) => {
+            if (req.method === 'OPTIONS') {
+              sendJson(res, 204, { ok: true })
+              return
+            }
+            if (req.method !== 'POST') {
+              sendJson(res, 405, { ok: false, error: 'Method not allowed' })
+              return
+            }
+            try {
+              const raw = await readBody(req)
+              const body = raw ? JSON.parse(raw) : {}
+              const result = await processContactRequest(body, {
+                appendSubmission: appendSubmissionToGithub,
+                env,
+              })
+              if (!result.ok) {
+                sendJson(res, result.status || 400, {
+                  ok: false,
+                  error: result.error || 'Could not send your message.',
+                })
+                return
+              }
+              sendJson(res, 200, { ok: true })
+            } catch (error) {
+              sendJson(res, 502, {
+                ok: false,
+                error: error instanceof Error ? error.message : 'Could not send your message.',
               })
             }
           })

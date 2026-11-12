@@ -20,6 +20,10 @@ export function isPrimaryNavActive(to: string, pathname: string, end: boolean): 
     )
   }
 
+  if (to === '/guides') {
+    return pathname === '/guides' || pathname.startsWith('/guides/')
+  }
+
   if (to === '/share') {
     return pathname === '/share' || pathname === '/share-experiment'
   }

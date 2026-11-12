@@ -32,7 +32,7 @@ import {
   refreshSubmissionsFromSheet,
 } from '../../utils/submissionSync'
 
-const TYPE_FILTERS = ['all', 'Event', 'Idea', 'ExpansionWatch'] as const
+const TYPE_FILTERS = ['all', 'Event', 'Idea', 'ExpansionWatch', 'Contact'] as const
 const LEGACY_SUBMISSIONS_CACHE_KEY = 'puddles-admin-submissions-refresh'
 
 type ActionMessage = { type: 'success' | 'error'; text: string }

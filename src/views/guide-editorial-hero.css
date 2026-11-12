@@ -1,0 +1,295 @@
+/* Shared Guide editorial hero (.geh*) — production + design-preview */
+
+.geh-preview-shell {
+  background: #fff;
+}
+
+.geh-preview-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  max-width: var(--layout-max);
+  margin: 0 auto;
+  padding: 0.75rem var(--layout-padding-mobile) 0;
+}
+
+@media (min-width: 768px) {
+  .geh-preview-toolbar {
+    padding-inline: var(--layout-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .geh-preview-toolbar {
+    padding-inline: var(--layout-padding-desktop);
+  }
+}
+
+.geh-preview-toolbar__label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.geh-preview-toolbar__toggle {
+  display: inline-flex;
+  border: 1px solid #ebebeb;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.geh-preview-toolbar__toggle button {
+  min-height: 2.25rem;
+  padding: 0 0.9rem;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #484848;
+  cursor: pointer;
+}
+
+.geh-preview-toolbar__toggle button.is-on {
+  background: var(--color-charcoal, #273034);
+  color: #fff;
+}
+
+.geh-preview-gutter {
+  max-width: var(--layout-max);
+  margin: 0 auto;
+  padding: 1.25rem var(--layout-padding-mobile) 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .geh-preview-gutter {
+    padding-inline: var(--layout-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .geh-preview-gutter {
+    padding-inline: var(--layout-padding-desktop);
+  }
+}
+
+.geh-preview-gutter .guide-page__back:any-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #273034;
+  text-decoration: none;
+}
+
+.geh {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 2rem 2.5rem;
+  align-items: center;
+  margin: 0 0 2rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: 28px;
+  background: #f7f1e8;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .geh {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border-radius: 22px;
+  }
+}
+
+.geh__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  font-size: 0.875rem;
+  color: #717171;
+}
+
+.geh__read {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.geh__read-icon {
+  flex: 0 0 auto;
+  opacity: 0.9;
+}
+
+.geh__past {
+  font-weight: 500;
+}
+
+.geh__subtitle {
+  margin: 0.55rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.geh--holiday .geh__subtitle {
+  color: #eef58a;
+}
+
+.geh--meta-below .geh__subtitle {
+  margin-top: 0;
+}
+
+.geh--meta-below .geh__title {
+  margin-top: 0.45rem;
+}
+
+.geh--meta-below .geh__meta {
+  margin-top: 0.85rem;
+  opacity: 0.85;
+}
+
+.geh--holiday.geh--meta-below .geh__meta {
+  color: #f5efde;
+  opacity: 0.78;
+}
+
+.geh__title {
+  margin: 0.65rem 0 0;
+  max-width: 16ch;
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal, #273034);
+}
+
+.geh__dek {
+  max-width: 34rem;
+  margin: 0.85rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: #484848;
+}
+
+.geh__past-note {
+  max-width: 34rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #717171;
+}
+
+.geh__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  margin-top: 1.25rem;
+  padding: 0 1.35rem;
+  border-radius: 999px;
+  background: #66c5f9;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+.geh__cta:hover {
+  background: var(--color-brand-dark, #4db8f2);
+  color: #fff;
+}
+
+.geh__cta--mobile {
+  display: none;
+}
+
+.geh__media {
+  overflow: hidden;
+  border-radius: 22px;
+  background: #ebe4d8;
+}
+
+.geh__media img {
+  display: block;
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+@media (min-width: 901px) {
+  .geh__media img {
+    height: 22rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .geh__cta--desktop {
+    display: none;
+  }
+
+  .geh__cta--mobile {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 0;
+    box-sizing: border-box;
+  }
+
+  .geh__media img {
+    height: 12.5rem;
+  }
+}
+
+/* Holiday Magic — seasonal dark green + lime */
+.geh--holiday {
+  background: #17382a;
+}
+
+.geh--holiday .geh__meta,
+.geh--holiday .geh__past,
+.geh--holiday .geh__dek,
+.geh--holiday .geh__past-note {
+  color: #f5efde;
+}
+
+.geh--holiday .geh__meta {
+  opacity: 0.85;
+}
+
+.geh--holiday .geh__past-note {
+  opacity: 0.8;
+}
+
+.geh--holiday .geh__title {
+  color: #eef58a;
+}
+
+.geh--holiday .geh__cta {
+  background: #eef58a;
+  color: #17382a;
+}
+
+.geh--holiday .geh__cta:hover {
+  background: #f4f9a8;
+  color: #17382a;
+}
+
+.geh--holiday .geh__media {
+  background: #0f281e;
+}

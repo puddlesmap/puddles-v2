@@ -1,12 +1,23 @@
+import { Link } from 'react-router-dom'
 import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
-import { PageContainer } from '../components/layout/PageContainer'
-import { LocalGuideCard } from '../components/guides/LocalGuideCard'
-import { HALLOWEEN_GUIDE_PATH } from '../data/halloweenGuide'
+import { getFeaturedGuide, getGuidesHomeLibrary } from '../data/guidesCatalog'
+import { HOLIDAY_GUIDE_DEK } from '../data/holidayGuide'
 import { PUDDLES_WORDMARK_LOGO_SRC, PUDDLES_WORDMARK_LOGO_SRC_2X } from './experimentShared'
+import { AirbnbTeaser, GuidesLetterSection } from './guidesHomeMockups/GuideHomeShared'
+import './guides-home.css'
 
-/** Directory of published guides. The card is the same one used on seasonal collections. */
+const GUIDES_TITLE_ICON = '/brand/guides-title-icon.png'
+
+const GUIDES_INTRO_DEK =
+  'Seasonal ideas, places to explore, and helpful tips for getting out with little ones, ages 0–5.'
+
+/** Live /guides — Airbnb hero layout with Puddles chrome. */
 export function GuidesIndexPage() {
+  const featured = getFeaturedGuide()
+  const library = getGuidesHomeLibrary()
+  const featuredIsLive = featured.status === 'live' && Boolean(featured.href)
+
   return (
     <div className="about-page-shell">
       <AppHeader
@@ -14,10 +25,60 @@ export function GuidesIndexPage() {
         logoSrc2x={PUDDLES_WORDMARK_LOGO_SRC_2X}
         showBrandName={false}
       />
-      <PageContainer className="pt-6 md:pt-10">
-        <LocalGuideCard href={HALLOWEEN_GUIDE_PATH} />
-      </PageContainer>
-      <Footer />
+      <div className="abn">
+        <header className="abn-intro">
+          <h1 className="abn-intro__title">
+            <span className="abn-intro__title-word">Guides</span>
+            <img
+              className="abn-intro__title-icon"
+              src={GUIDES_TITLE_ICON}
+              alt=""
+              width={64}
+              height={64}
+              decoding="async"
+            />
+          </h1>
+          <p>{GUIDES_INTRO_DEK}</p>
+        </header>
+
+        <article className="abn-hero">
+          <div className="abn-hero__card">
+            <div className="abn-hero__copy">
+              <p className="abn-hero__eyebrow">Featured guide</p>
+              <h2>{featured.title}</h2>
+              <p>{HOLIDAY_GUIDE_DEK}</p>
+              {featuredIsLive ? (
+                <Link className="abn-pill" to={featured.href!}>
+                  Read guide
+                </Link>
+              ) : (
+                <span className="abn-pill is-soon">Coming soon</span>
+              )}
+            </div>
+            <div className="abn-hero__media" aria-hidden="true">
+              <img src={featured.cover} alt="" />
+            </div>
+          </div>
+        </article>
+
+        {library.length > 0 ? (
+          <section className="abn-topics abn-topics--library" id="abn-topics">
+            <div className="abn-topics__head">
+              <h2>Guides by season</h2>
+            </div>
+            <ul className="abn-topics__library">
+              {library.map((guide) => (
+                <li key={guide.slug}>
+                  <AirbnbTeaser guide={guide} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        <GuidesLetterSection />
+      </div>
+      <Footer fullBleed className="mt-0" />
     </div>
   )
 }

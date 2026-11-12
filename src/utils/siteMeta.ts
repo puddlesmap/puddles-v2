@@ -49,6 +49,8 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   if (pathname === '/experiment-browse-map') return formatDocumentTitle('Map')
 
   if (pathname === '/share') return formatDocumentTitle('Share with Us')
+  if (pathname === '/contact') return formatDocumentTitle('Contact')
+  if (pathname === '/privacy') return formatDocumentTitle('Privacy Policy')
   if (pathname === '/about') return formatDocumentTitle('About')
 
   const citySlug = localCitySlugFromPath(pathname)
@@ -75,11 +77,46 @@ export function getDocumentTitle(pathname: string, search = ''): string {
     return formatDocumentTitle('Halloween fun for little ones')
   }
   if (pathname === '/guides/halloween-with-little-ones') {
-    return formatDocumentTitle('Halloween with Little Ones')
+    return 'Bay Area Halloween Events for Toddlers & Preschoolers | Puddles'
   }
-  if (pathname === '/guides') return formatDocumentTitle('Guides')
+  if (
+    pathname === '/guides/holiday-lights-traditions' ||
+    pathname === '/guides/holiday-magic-with-little-ones'
+  ) {
+    return 'Bay Area Holiday Lights & Santa Events for Kids | Puddles'
+  }
+  if (
+    pathname === '/guides/holiday-stories-play' ||
+    pathname === '/guides/holiday-stories-shows-play'
+  ) {
+    return 'Bay Area Holiday Shows, Storytimes & Winter Play | Puddles'
+  }
+  if (pathname === '/guides/hello-new-year') {
+    return "Bay Area Noon Year's Eve & New Year Events for Kids | Puddles"
+  }
+  if (pathname === '/experiment/local-guides-layouts') {
+    return formatDocumentTitle('Local Guides Layouts')
+  }
+  if (pathname === '/experiment/guide-card-mockups') {
+    return formatDocumentTitle('Guide Card Mockups')
+  }
+  if (
+    pathname === '/experiment/guide-tiny-dances' ||
+    pathname === '/experiment/guide-content-mockups'
+  ) {
+    return formatDocumentTitle('Guide content mockups')
+  }
+  if (pathname === '/experiment/guides-home-mockups') {
+    return formatDocumentTitle('Guides home mockups')
+  }
+  if (pathname === '/guides') {
+    return 'Bay Area Family Activity Guides for Ages 0–5 | Puddles'
+  }
   if (pathname === '/seasonal' || pathname.startsWith('/seasonal/')) {
     const slug = seasonalSlugFromPath(pathname)
+    if (slug === 'holiday-magic') {
+      return 'Bay Area Holiday Events for Kids (2026) | Puddles'
+    }
     const collection = slug ? getSeasonalCollection(slug) : getActiveSeasonalCollection()
     return formatDocumentTitle(collection?.title ?? 'Seasonal Picks')
   }
@@ -141,6 +178,15 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   if (pathname === '/experiment/saved') return formatDocumentTitle('Saved Experiment')
   if (pathname === '/experiment/saved/flow') return formatDocumentTitle('Saved sign-in flow')
   if (pathname === '/experiment/saved/heart') return formatDocumentTitle('Saved heart spec')
+  if (pathname === '/experiment/saved-reminder-mockup') {
+    return formatDocumentTitle('Saved reminder mockup')
+  }
+  if (
+    pathname === '/experiment/event-detail-fullpage' ||
+    pathname.startsWith('/experiment/event-detail-fullpage/')
+  ) {
+    return formatDocumentTitle('Event detail full-page mock')
+  }
   if (pathname === '/experiment/saved-list') {
     return formatDocumentTitle('Saved list mobile variants')
   }

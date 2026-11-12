@@ -15,6 +15,10 @@ interface AppHeaderProps {
   logoSrc2x?: string
   /** When false, header lockup shows subtitle only (e.g. wordmark logo + "the tot map"). */
   showBrandName?: boolean
+  /** BrandLockup subtitle override (e.g. “Guides”). */
+  subtitle?: string
+  /** BrandLockup subtitle style (e.g. publication for Guides). */
+  subtitleStyle?: 'default' | 'publication'
   /** Optional right-side control on mobile (e.g. Share close). Hidden on md+. */
   trailing?: ReactNode
   /** Optional content below the brand row inside the same sticky header (e.g. Browse filters). */
@@ -28,6 +32,8 @@ export function AppHeader({
   logoSrc,
   logoSrc2x,
   showBrandName = true,
+  subtitle,
+  subtitleStyle,
   trailing,
   below,
 }: AppHeaderProps) {
@@ -40,7 +46,13 @@ export function AppHeader({
           ) : logoOnly ? (
             <Logo src={logoSrc} src2x={logoSrc2x} />
           ) : (
-            <BrandLockup logoSrc={logoSrc} logoSrc2x={logoSrc2x} showBrandName={showBrandName} />
+            <BrandLockup
+              logoSrc={logoSrc}
+              logoSrc2x={logoSrc2x}
+              showBrandName={showBrandName}
+              subtitle={subtitle}
+              subtitleStyle={subtitleStyle}
+            />
           )}
         </Link>
         <TopNav className="app-header-nav hidden md:flex" />

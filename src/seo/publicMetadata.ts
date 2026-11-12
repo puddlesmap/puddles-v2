@@ -12,6 +12,12 @@ import {
 } from '@/data/seasonalDiscovery'
 import { formatDocumentTitle } from '@/utils/siteMeta'
 import { publicCanonicalPath, publicDescription } from '@/seo/publicPaths'
+import {
+  GUIDES_HOME_SEO_DESCRIPTION,
+  GUIDES_HOME_SEO_TITLE,
+  HOLIDAY_MAGIC_COLLECTION_SEO_DESCRIPTION,
+  HOLIDAY_MAGIC_COLLECTION_SEO_TITLE,
+} from '@/seo/guidesSeo'
 
 function pageMetadata(pathname: string, title: string, description: string, imagePath?: string): Metadata {
   const canonical = absoluteUrl(publicCanonicalPath(pathname) === pathname ? pathname : publicCanonicalPath(pathname))
@@ -67,7 +73,7 @@ export function aboutMetadata(): Metadata {
 
 export function guidesMetadata(): Metadata {
   const pathname = '/guides'
-  return pageMetadata(pathname, formatDocumentTitle('Guides'), publicDescription(pathname) ?? SITE.description)
+  return pageMetadata(pathname, GUIDES_HOME_SEO_TITLE, GUIDES_HOME_SEO_DESCRIPTION)
 }
 
 export function savedMetadata(): Metadata {
@@ -102,6 +108,14 @@ export function seasonalSlugMetadata(slug: string): Metadata {
   }
   const collection = getSeasonalCollection(slug)
   const pathname = `/seasonal/${slug}`
+  if (slug === 'holiday-magic') {
+    return pageMetadata(
+      pathname,
+      HOLIDAY_MAGIC_COLLECTION_SEO_TITLE,
+      HOLIDAY_MAGIC_COLLECTION_SEO_DESCRIPTION,
+      collection?.illustrationSrc,
+    )
+  }
   return pageMetadata(
     pathname,
     formatDocumentTitle(collection?.title ?? 'Seasonal Picks'),

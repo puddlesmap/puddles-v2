@@ -112,7 +112,7 @@ function whereOptionsFor(surface: 'home' | 'browse'): WhereOption[] {
     { key: 'Los Altos', title: 'Los Altos', sub: 'Includes Los Altos Hills', tone: 'city' },
     { key: 'Mountain View', title: 'Mountain View', sub: 'Core city', tone: 'city' },
     { key: 'Sunnyvale', title: 'Sunnyvale', sub: 'Core city', tone: 'city' },
-    { key: 'other', title: 'Other cities', sub: 'Outside the core four', tone: 'other' },
+    { key: 'other', title: 'Around the Bay', sub: 'Outside the core four', tone: 'other' },
     { key: 'all', title: allTitle, sub: 'Everything we list', tone: 'other' },
   ]
 }

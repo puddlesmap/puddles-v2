@@ -41,7 +41,7 @@ export const OUTSIDE_PUDDLES_AGE_MESSAGE = 'Outside Puddles ages 0–5 — canno
 
 /** Soft warning only — other cities may Approve → Go live when destination-worthy. */
 export const OUTSIDE_CORE_CITY_MESSAGE =
-  'Outside core cities — only Approve if this is a destination / once-in-a-while outing, not a routine weekly program. It will show on Browse under Other cities.'
+  'Outside core cities — only Approve if this is a destination / once-in-a-while outing, not a routine weekly program. It will show on Browse under Around the Bay.'
 
 export const OTHER_CITY_DESTINATION_WARNING = OUTSIDE_CORE_CITY_MESSAGE
 
@@ -443,6 +443,15 @@ export function appendDraftInAdminCache(
       edits.tips || candidate.tips,
     ),
     imageUrl: edits.imageUrl || candidate.imageUrl || '',
+    ...(edits.imageSourceUrl || candidate.imageSourceUrl
+      ? { imageSourceUrl: edits.imageSourceUrl || candidate.imageSourceUrl }
+      : {}),
+    ...(edits.imageRights || candidate.imageRights
+      ? { imageRights: edits.imageRights || candidate.imageRights }
+      : {}),
+    ...(edits.imageYear || candidate.imageYear
+      ? { imageYear: edits.imageYear || candidate.imageYear }
+      : {}),
     eventUrl: edits.eventUrl || candidate.eventUrl || '#',
     verifiedDate,
     lat: candidate.lat ?? 0,

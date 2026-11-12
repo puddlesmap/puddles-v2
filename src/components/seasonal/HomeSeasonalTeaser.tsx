@@ -23,6 +23,18 @@ interface HomeSeasonalTeaserProps {
   prominent?: boolean
   /** Keeps two copies of the same teaser from sharing one heading id. */
   idSuffix?: string
+  /** Mock/preview override — production Home leaves this unset. */
+  ctaLabelOverride?: string
+  /** Optional uppercase cue rendered inside the band above the timing eyebrow. */
+  supportLabel?: string | null
+  /** Optional second CTA (mock dual-path). When set, band uses nested links instead of one wrap. */
+  secondaryCtaLabel?: string | null
+  secondaryHref?: string
+  /**
+   * Optional count line between dek and proof (mock/production).
+   * Pass a preformatted string; omit when counts are unavailable.
+   */
+  countMeta?: string | null
 }
 
 function formatTeaserDate(ymd: string): string {
@@ -59,6 +71,9 @@ function teaserCtaLabel(
     return count ? `Explore ${count} activities →` : 'Explore activities →'
   }
   if (proof === 'photo-strip') {
+    if (collection.slug === 'holiday-magic') {
+      return 'Explore holiday activities →'
+    }
     if (collection.slug === 'hello-fall') {
       return count ? `Explore ${count} fall picks →` : 'Explore fall picks →'
     }
@@ -161,17 +176,43 @@ function FeaturedThumbs({ events }: { events: Event[] }) {
 /** Compact Home B tagline — experiment-only; production `moduleTagline` stays unchanged. */
 const COMPACT_SEASONAL_TAGLINE = 'Farms, fall fun & seasonal celebrations.'
 
+function CountMetaRow({ text }: { text: string }) {
+  return (
+    <p className="home-seasonal-teaser__count-meta">
+      <svg
+        className="home-seasonal-teaser__count-meta-icon"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        aria-hidden
+      >
+        <rect x="3" y="5" width="18" height="16" rx="2" />
+        <path d="M3 10h18M8 3v4M16 3v4" strokeLinecap="round" />
+      </svg>
+      <span>{text}</span>
+    </p>
+  )
+}
+
 function TeaserCopy({
   headingId,
   collection,
   cta,
+  supportLabel,
+  countMeta,
 }: {
   headingId: string
   collection: SeasonalCollection
   cta?: ReactNode
+  supportLabel?: string | null
+  countMeta?: string | null
 }) {
   return (
     <div className="home-seasonal-teaser__copy-col">
+      {supportLabel ? <p className="home-seasonal-teaser__support-label">{supportLabel}</p> : null}
       <p className="home-seasonal-teaser__eyebrow">{collection.timingLabel}</p>
       <div className="home-seasonal-teaser__copy">
         <div className="home-seasonal-teaser__title-with-art">
@@ -194,6 +235,7 @@ function TeaserCopy({
         <p className="home-seasonal-teaser__tagline home-seasonal-teaser__tagline--compact">
           {collection.slug === 'holiday-magic' ? collection.moduleTagline : COMPACT_SEASONAL_TAGLINE}
         </p>
+        {countMeta ? <CountMetaRow text={countMeta} /> : null}
         {cta}
       </div>
     </div>
@@ -264,11 +306,19 @@ export function HomeSeasonalTeaser({
   pickCount = 0,
   prominent = false,
   idSuffix = '',
+  ctaLabelOverride,
+  supportLabel = null,
+  secondaryCtaLabel = null,
+  secondaryHref,
+  countMeta = null,
 }: HomeSeasonalTeaserProps) {
   const headingId = `home-seasonal-teaser-heading-${collection.slug}${idSuffix}`
   const titleCopy = variant === 'inline' && inlineCopy === 'title'
   const showClay = proof === 'none' && !titleCopy
-  const ctaLabel = teaserCtaLabel(proof, collection, pickCount, variant, inlineCopy)
+  const ctaLabel =
+    ctaLabelOverride ?? teaserCtaLabel(proof, collection, pickCount, variant, inlineCopy)
+  const dualCta = Boolean(secondaryCtaLabel)
+  const countLine = countMeta?.trim() || null
   const inlinePhotoStrip = proof === 'photo-strip' && variant === 'inline'
   const split = (proof === 'photo-strip' || proof === 'micro') && variant === 'band'
   const halloweenNight = collection.slug === 'halloween-with-little-ones'
@@ -278,6 +328,7 @@ export function HomeSeasonalTeaser({
     'home-seasonal-teaser__inner',
     variant === 'band' ? 'layout-container' : '',
     split ? 'home-seasonal-teaser__inner--split' : '',
+    dualCta ? 'home-seasonal-teaser__inner--dual-cta' : '',
   ]
     .filter(Boolean)
     .join(' ')
@@ -285,8 +336,120 @@ export function HomeSeasonalTeaser({
   const copyCta = (
     <span className="home-seasonal-teaser__cta home-seasonal-teaser__cta--in-copy">{ctaLabel}</span>
   )
-  const proofCta = (
+  const proofCta = dualCta ? (
+    <span className="home-seasonal-teaser__cta-row home-seasonal-teaser__cta-row--proof">
+      <Link className="home-seasonal-teaser__cta home-seasonal-teaser__cta--proof" to={href}>
+        {ctaLabel}
+      </Link>
+      <Link
+        className="home-seasonal-teaser__cta home-seasonal-teaser__cta--proof home-seasonal-teaser__cta--secondary"
+        to={secondaryHref || href}
+      >
+        {secondaryCtaLabel}
+      </Link>
+    </span>
+  ) : (
     <span className="home-seasonal-teaser__cta home-seasonal-teaser__cta--proof">{ctaLabel}</span>
+  )
+
+  const body = (
+    <>
+      {halloweenNight ? <HalloweenBannerSparkles /> : null}
+      <div className={innerClass}>
+        {split ? (
+          <>
+            <TeaserCopy
+              headingId={headingId}
+              collection={collection}
+              supportLabel={supportLabel}
+              countMeta={countLine}
+            />
+            {proof === 'photo-strip' ? (
+              <PhotoStrip events={events} />
+            ) : (
+              <MicroPreviews events={events} />
+            )}
+            {proofCta}
+          </>
+        ) : inlinePhotoStrip ? (
+          <>
+            {supportLabel ? (
+              <p className="home-seasonal-teaser__support-label">{supportLabel}</p>
+            ) : null}
+            <p className="home-seasonal-teaser__eyebrow">{collection.timingLabel}</p>
+            <div className="home-seasonal-teaser__intro">
+              <img
+                src={collection.illustrationSrc}
+                alt=""
+                className="home-seasonal-teaser__illustration"
+                width={72}
+                height={72}
+                decoding="async"
+              />
+              <CompactCopy
+                headingId={headingId}
+                collection={collection}
+                cta={dualCta ? null : copyCta}
+                tagline={compactTagline}
+              />
+            </div>
+            {countLine ? <CountMetaRow text={countLine} /> : null}
+            <PhotoStrip events={events} />
+            {dualCta ? proofCta : null}
+          </>
+        ) : titleCopy ? (
+          <TeaserCopy
+            headingId={headingId}
+            collection={collection}
+            cta={dualCta ? proofCta : copyCta}
+            supportLabel={supportLabel}
+            countMeta={countLine}
+          />
+        ) : (
+          <>
+            {supportLabel ? (
+              <p className="home-seasonal-teaser__support-label">{supportLabel}</p>
+            ) : null}
+            <p className="home-seasonal-teaser__eyebrow">{collection.timingLabel}</p>
+            <div className="home-seasonal-teaser__intro">
+              {showClay ? (
+                <img
+                  src={collection.illustrationSrc}
+                  alt=""
+                  className="home-seasonal-teaser__illustration"
+                  width={72}
+                  height={72}
+                  decoding="async"
+                />
+              ) : null}
+              {variant === 'inline' ? (
+                <CompactCopy
+                  headingId={headingId}
+                  collection={collection}
+                  cta={proof === 'none' && !dualCta ? copyCta : null}
+                  tagline={compactTagline}
+                />
+              ) : (
+                <div className="home-seasonal-teaser__copy">
+                  <h2 id={headingId} className="home-seasonal-teaser__title">
+                    {collection.subtitle}
+                  </h2>
+                  <SeasonalEmDashTagline
+                    text={collection.moduleTagline}
+                    className="home-seasonal-teaser__tagline"
+                  />
+                  {countLine ? <CountMetaRow text={countLine} /> : null}
+                  {proof === 'none' && !dualCta ? copyCta : null}
+                </div>
+              )}
+            </div>
+
+            {proof === 'featured' ? <FeaturedThumbs events={events} /> : null}
+            {proof === 'featured' || dualCta ? proofCta : null}
+          </>
+        )}
+      </div>
+    </>
   )
 
   return (
@@ -299,6 +462,9 @@ export function HomeSeasonalTeaser({
         halloweenNight ? 'home-seasonal-teaser--halloween-night' : '',
         holidayMagic ? 'home-seasonal-teaser--holiday-magic' : '',
         prominent ? 'home-seasonal-teaser--prominent' : '',
+        supportLabel ? 'home-seasonal-teaser--support-label' : '',
+        dualCta ? 'home-seasonal-teaser--dual-cta' : '',
+        countLine ? 'home-seasonal-teaser--count-meta' : '',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -311,83 +477,13 @@ export function HomeSeasonalTeaser({
         } as CSSProperties
       }
     >
-      <Link to={href} className="home-seasonal-teaser__hit">
-        {halloweenNight ? <HalloweenBannerSparkles /> : null}
-        <div className={innerClass}>
-          {split ? (
-            <>
-              <TeaserCopy headingId={headingId} collection={collection} />
-              {proof === 'photo-strip' ? (
-                <PhotoStrip events={events} />
-              ) : (
-                <MicroPreviews events={events} />
-              )}
-              {proofCta}
-            </>
-          ) : inlinePhotoStrip ? (
-            <>
-              <p className="home-seasonal-teaser__eyebrow">{collection.timingLabel}</p>
-              <div className="home-seasonal-teaser__intro">
-                <img
-                  src={collection.illustrationSrc}
-                  alt=""
-                  className="home-seasonal-teaser__illustration"
-                  width={72}
-                  height={72}
-                  decoding="async"
-                />
-                <CompactCopy
-                  headingId={headingId}
-                  collection={collection}
-                  cta={copyCta}
-                  tagline={compactTagline}
-                />
-              </div>
-              <PhotoStrip events={events} />
-            </>
-          ) : titleCopy ? (
-            <TeaserCopy headingId={headingId} collection={collection} cta={copyCta} />
-          ) : (
-            <>
-              <p className="home-seasonal-teaser__eyebrow">{collection.timingLabel}</p>
-              <div className="home-seasonal-teaser__intro">
-                {showClay ? (
-                  <img
-                    src={collection.illustrationSrc}
-                    alt=""
-                    className="home-seasonal-teaser__illustration"
-                    width={72}
-                    height={72}
-                    decoding="async"
-                  />
-                ) : null}
-                {variant === 'inline' ? (
-                  <CompactCopy
-                    headingId={headingId}
-                    collection={collection}
-                    cta={proof === 'none' ? copyCta : null}
-                    tagline={compactTagline}
-                  />
-                ) : (
-                  <div className="home-seasonal-teaser__copy">
-                    <h2 id={headingId} className="home-seasonal-teaser__title">
-                      {collection.subtitle}
-                    </h2>
-                    <SeasonalEmDashTagline
-                      text={collection.moduleTagline}
-                      className="home-seasonal-teaser__tagline"
-                    />
-                    {proof === 'none' ? copyCta : null}
-                  </div>
-                )}
-              </div>
-
-              {proof === 'featured' ? <FeaturedThumbs events={events} /> : null}
-              {proof === 'featured' ? proofCta : null}
-            </>
-          )}
-        </div>
-      </Link>
+      {dualCta ? (
+        <div className="home-seasonal-teaser__hit home-seasonal-teaser__hit--static">{body}</div>
+      ) : (
+        <Link to={href} className="home-seasonal-teaser__hit">
+          {body}
+        </Link>
+      )}
     </aside>
   )
 }

@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import { usePathname } from 'next/navigation'
 import { PuddlesPicksCard } from '../components/picks/PuddlesPicksHome'
 import { getPublicEventsFromCatalog } from '../data/events'
 import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
 import { BrowseEventCard } from '../components/BrowseEventCard'
+import type { Event } from '../types/event'
 import { DiscoveryEmptyState } from '../components/empty-states/DiscoveryEmptyState'
 import {
   DiscoveryFilterChip,
@@ -44,6 +46,12 @@ import {
 } from '../utils/analytics'
 import { homeFiltersToBrowseFilters, getHomeResultsSummaryRefined } from '../utils/homeMapPreview'
 import { getHomeFilterResultsSummary } from '../utils/browseResultsCopy'
+import { CORE_CITIES_FILTER, OTHER_CITIES_FILTER } from '../utils/cityRegions'
+import {
+  allocateHomePreview,
+  allocateSingleListPreview,
+  partitionHomeEvents,
+} from '../utils/homeDiscoverySections'
 import {
   clearLiveHomeUiState,
   readHomeReturnSnapshot,
@@ -64,7 +72,7 @@ const CITY_CHIPS: Array<{ value: CityValue; label: string }> = [
   { value: 'Los Altos', label: 'Los Altos' },
   { value: 'Mountain View', label: 'Mountain View' },
   { value: 'Sunnyvale', label: 'Sunnyvale' },
-  { value: 'other', label: 'Other cities' },
+  { value: 'other', label: 'Around the Bay' },
   { value: 'all', label: 'All Cities' },
 ]
 
@@ -85,7 +93,7 @@ function getResultsSummary({
     }
 
     if (whereMode.value === 'all') return 'No activities found in all cities'
-    if (whereMode.value === 'other') return 'No activities found in other cities'
+    if (whereMode.value === 'other') return 'No activities found around the Bay'
     return `No activities found in ${whereMode.value}`
   }
 
@@ -372,7 +380,79 @@ export function HomeExperimentPage({
     setBrowseFilters(homeFiltersToBrowseFilters(whereMode, temporalTab, browseFilters))
   }, [browseFilters, setBrowseFilters, temporalTab, whereMode])
 
+  const goBrowseWithCity = useCallback(
+    (city: string) => {
+      setBrowseFilters({
+        ...browseFilters,
+        city,
+        day: temporalTab,
+        cityLocked: city !== 'all',
+      })
+    },
+    [browseFilters, setBrowseFilters, temporalTab],
+  )
+
+  const handleSeeMoreCurrent = useCallback(() => {
+    setBrowseFilters(homeFiltersToBrowseFilters(whereMode, temporalTab, browseFilters))
+  }, [browseFilters, setBrowseFilters, temporalTab, whereMode])
+
+  const isAllCities =
+    whereMode.kind === 'city' && whereMode.value === 'all'
+
+  const groupedPreview = useMemo(() => {
+    if (!isAllCities) return null
+    const { peninsula, bay } = partitionHomeEvents(events)
+    return allocateHomePreview(peninsula, bay)
+  }, [isAllCities, events])
+
+  const singlePreview = useMemo(() => {
+    if (isAllCities) return null
+    return allocateSingleListPreview(events)
+  }, [isAllCities, events])
+
   const mapPreviewEvents = events
+
+  const renderEventCard = (event: Event) => (
+    <BrowseEventCard
+      key={event.id}
+      event={event}
+      appendVenueToTitle={appendVenueToTitle}
+      appendVenueToWhen={appendVenueToWhen}
+      venueResponsive={venueResponsive}
+      onClick={() => openEvent(event, 'home', { viewMode: 'list' })}
+    />
+  )
+
+  const renderSeeMoreLink = (label: string, onNavigate: () => void) => (
+    <Link to="/browse" className="home-discovery-see-more" onClick={onNavigate}>
+      {label}
+    </Link>
+  )
+
+  const renderEventSection = ({
+    title,
+    sectionEvents,
+    seeMoreLabel,
+    onSeeMore,
+    showSeeMore,
+  }: {
+    title?: string
+    sectionEvents: Event[]
+    seeMoreLabel?: string
+    onSeeMore?: () => void
+    showSeeMore?: boolean
+  }) => {
+    if (sectionEvents.length === 0) return null
+    return (
+      <div className="home-discovery-section">
+        {title ? <h2 className="home-discovery-section__title">{title}</h2> : null}
+        <div className="browse-event-grid">{sectionEvents.map(renderEventCard)}</div>
+        {showSeeMore && seeMoreLabel && onSeeMore
+          ? renderSeeMoreLink(seeMoreLabel, onSeeMore)
+          : null}
+      </div>
+    )
+  }
 
   const renderMapPreview = () => (
     <HomeMapPreview
@@ -517,17 +597,32 @@ export function HomeExperimentPage({
               onRetryLocation={emptyStateVariant === 'nearby-denied' ? requestNearbyLocation : undefined}
             />
           ) : events.length > 0 ? (
-            <div key={feedKey} className="browse-event-grid motion-feed-in">
-              {events.map((event) => (
-                <BrowseEventCard
-                  key={event.id}
-                  event={event}
-                  appendVenueToTitle={appendVenueToTitle}
-                  appendVenueToWhen={appendVenueToWhen}
-                  venueResponsive={venueResponsive}
-                  onClick={() => openEvent(event, 'home', { viewMode: 'list' })}
-                />
-              ))}
+            <div key={feedKey} className="home-discovery-feed motion-feed-in">
+              {groupedPreview ? (
+                <>
+                  {renderEventSection({
+                    title: 'Around the South Peninsula',
+                    sectionEvents: groupedPreview.peninsula,
+                    seeMoreLabel: 'See more nearby activities →',
+                    onSeeMore: () => goBrowseWithCity(CORE_CITIES_FILTER),
+                    showSeeMore: groupedPreview.peninsulaHasMore,
+                  })}
+                  {renderEventSection({
+                    title: 'Around the Bay Area',
+                    sectionEvents: groupedPreview.bay,
+                    seeMoreLabel: 'See more around the Bay Area →',
+                    onSeeMore: () => goBrowseWithCity(OTHER_CITIES_FILTER),
+                    showSeeMore: groupedPreview.bayHasMore,
+                  })}
+                </>
+              ) : singlePreview ? (
+                renderEventSection({
+                  sectionEvents: singlePreview.events,
+                  seeMoreLabel: 'See more activities →',
+                  onSeeMore: handleSeeMoreCurrent,
+                  showSeeMore: singlePreview.hasMore,
+                })
+              ) : null}
             </div>
           ) : null}
         </div>

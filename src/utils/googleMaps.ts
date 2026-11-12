@@ -115,13 +115,15 @@ export function buildEventStaticMapUrl(
 ): string | null {
   if (!hasGoogleMapsApiKey()) return null
 
+  // No Google default markers — EventRouteCard overlays the puddle blue pin.
+  // Passing `markers` here was stacking a red pin under the custom one.
   if (markerAddress) {
     return createStaticMapsUrl({
       apiKey: GOOGLE_MAPS_API_KEY,
       width: 640,
       height: 360,
       scale: 2,
-      markers: [{ location: markerAddress }],
+      center: markerAddress,
       visible: [markerAddress],
       zoom: 15,
       region: 'US',

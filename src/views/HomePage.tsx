@@ -15,6 +15,7 @@ import {
   seasonalCollectionPath,
   type SeasonalCollection,
 } from '../data/seasonalDiscovery'
+import { GUIDES_CATALOG } from '../data/guidesCatalog'
 import { HomeLaunchAnnouncement } from '../components/home/HomeLaunchAnnouncement'
 import { sortSeasonalDiscoveryEvents } from '../utils/formatSeasonalSchedule'
 
@@ -28,6 +29,29 @@ function seasonalCollectionPickCount(collection: SeasonalCollection, now: Date =
     now,
   )
   return close.length + drive.length
+}
+
+/** Live guides tied to a seasonal collection (e.g. Holiday Magic hub). */
+function liveGuideCountForCollection(slug: SeasonalCollection['slug']): number {
+  return GUIDES_CATALOG.filter(
+    (guide) => guide.collectionSlug === slug && guide.status === 'live',
+  ).length
+}
+
+/** Option D Home count line: `38 activities · 1 guide` (guides omitted when 0). */
+function formatHomeSeasonalCountMeta(
+  activityCount: number,
+  guideCount: number,
+): string | null {
+  if (activityCount <= 0 && guideCount <= 0) return null
+  const parts: string[] = []
+  if (activityCount > 0) {
+    parts.push(`${activityCount} ${activityCount === 1 ? 'activity' : 'activities'}`)
+  }
+  if (guideCount > 0) {
+    parts.push(`${guideCount} ${guideCount === 1 ? 'guide' : 'guides'}`)
+  }
+  return parts.join(' · ') || null
 }
 
 function bannerPhotoEvents(collection: SeasonalCollection): Event[] {
@@ -60,12 +84,20 @@ export function HomePage({
   const collections = useMemo(() => getActiveSeasonalCollections(), [])
   const teasers = useMemo(
     () =>
-      collections.map((collection) => ({
-        collection,
-        events: bannerPhotoEvents(collection),
-        count: seasonalCollectionPickCount(collection),
-        href: seasonalCollectionPath(collection.slug),
-      })),
+      collections.map((collection) => {
+        const count = seasonalCollectionPickCount(collection)
+        const countMeta =
+          collection.slug === 'holiday-magic'
+            ? formatHomeSeasonalCountMeta(count, liveGuideCountForCollection(collection.slug))
+            : null
+        return {
+          collection,
+          events: bannerPhotoEvents(collection),
+          count,
+          countMeta,
+          href: seasonalCollectionPath(collection.slug),
+        }
+      }),
     [collections],
   )
 
@@ -118,7 +150,7 @@ export function HomePage({
       venueResponsive
       topBand={
         <>
-          {teasers.map(({ collection, events, count, href }) => (
+          {teasers.map(({ collection, events, count, countMeta, href }) => (
             <HomeSeasonalTeaser
               key={collection.slug}
               collection={collection}
@@ -127,6 +159,7 @@ export function HomePage({
               proof="photo-strip"
               events={events}
               pickCount={count}
+              countMeta={countMeta}
               prominent
             />
           ))}
@@ -134,7 +167,7 @@ export function HomePage({
       }
       beforeResults={
         <>
-          {teasers.map(({ collection, events, count, href }) => (
+          {teasers.map(({ collection, events, count, countMeta, href }) => (
             <HomeSeasonalTeaser
               key={collection.slug}
               collection={collection}
@@ -143,6 +176,7 @@ export function HomePage({
               proof="photo-strip"
               events={events}
               pickCount={count}
+              countMeta={countMeta}
               prominent
               idSuffix="-card"
             />

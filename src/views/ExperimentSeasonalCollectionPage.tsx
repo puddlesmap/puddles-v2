@@ -10,7 +10,6 @@ import { FilterPopover, type FilterPopoverType } from '../components/FilterPopov
 import { FilterSheet, type FilterSheetType } from '../components/FilterSheet'
 import { getBrowseLocationLabel } from '../components/layout/BrandLockup'
 import { SeasonalEmDashTagline } from '../components/seasonal/SeasonalDiscoveryModuleHeader'
-import { HOLIDAY_GUIDE_DEK, HOLIDAY_GUIDE_TITLE } from '../data/holidayGuide'
 import type { Event } from '../types/event'
 import {
   getActiveSeasonalCollection,
@@ -27,7 +26,11 @@ import {
   PUDDLES_WORDMARK_LOGO_SRC,
   PUDDLES_WORDMARK_LOGO_SRC_2X,
 } from './experimentShared'
-import { LocalGuideCardVariant } from '../components/guides/LocalGuideCard'
+import {
+  LocalGuideCardVariant,
+  parseGuideCard,
+} from '../components/guides/LocalGuideCard'
+import { HolidayMagicGuidesPanel } from '../components/guides/HolidayMagicGuidesPanel'
 import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
 import './guide-page.css'
 import { useEventNavigation } from '../hooks/useEventNavigation'
@@ -392,6 +395,7 @@ export function ExperimentSeasonalCollectionPage({
 } = {}) {
   const params = useParams()
   const location = useLocation()
+  const guideCardVariant = parseGuideCard(new URLSearchParams(location.search).get('card'))
   const slug = slugProp ?? params.slug
   const openEvent = useEventNavigation()
   const { getCatalog } = useLaunchStagingCatalog()
@@ -669,23 +673,10 @@ export function ExperimentSeasonalCollectionPage({
             ) : null}
           </header>
 
-          {isHalloween ? <LocalGuideCardVariant variant={4} /> : null}
-          {isHoliday ? (
-            <div className="local-guide-teaser local-guide-teaser--solo local-guide-teaser--holiday-editorial">
-              <div
-                className="local-guide-card local-guide-card--holiday-editorial"
-                aria-label={`${HOLIDAY_GUIDE_TITLE}. Coming soon`}
-              >
-                <span className="holiday-guide-placeholder__media" aria-hidden />
-                <span className="local-guide-card__copy">
-                  <span className="local-guide-card__eyebrow">Holiday guide</span>
-                  <span className="local-guide-card__title">{HOLIDAY_GUIDE_TITLE}</span>
-                  <span className="local-guide-card__dek">{HOLIDAY_GUIDE_DEK}</span>
-                  <span className="local-guide-card__pill">Coming soon</span>
-                </span>
-              </div>
-            </div>
+          {isHalloween ? (
+            <LocalGuideCardVariant variant={guideCardVariant ?? 4} />
           ) : null}
+          {isHoliday ? <HolidayMagicGuidesPanel /> : null}
 
           {showTypeahead ? (
             <div className="seasonal-typeahead-filters seasonal-typeahead-filters--desktop browse-controls relative">
@@ -733,7 +724,7 @@ export function ExperimentSeasonalCollectionPage({
 
           {hasGeographicSections ? (
             <CollectionGeoTabs
-              id={isHalloween ? 'events' : undefined}
+              id={isHalloween || isHoliday ? 'events' : undefined}
               collection={collection}
               closeToHomeEvents={closeToHomeEvents}
               driveEvents={driveEvents}

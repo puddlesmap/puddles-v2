@@ -5,7 +5,7 @@ export const TOP_NAV_ITEMS = [
   { to: '/', label: 'Home', end: true },
   { to: '/browse', label: 'Browse', end: false },
   { to: '/saved', label: 'Saved', end: false },
-  { to: '/share', label: 'Share with us', end: false },
+  { to: '/guides', label: 'Guides', end: false },
   { to: '/about', label: 'About', end: false },
 ] as const
 

@@ -6,7 +6,7 @@ export const BROWSE_LOCATION_OPTIONS = [
   { key: 'Los Altos', label: 'Los Altos' },
   { key: 'Mountain View', label: 'Mountain View' },
   { key: 'Sunnyvale', label: 'Sunnyvale' },
-  { key: 'other', label: 'Other cities' },
+  { key: 'other', label: 'Around the Bay' },
   { key: 'all', label: 'All cities' },
 ] as const
 
@@ -15,10 +15,16 @@ export function BrandLockup({
   logoSrc,
   logoSrc2x,
   showBrandName = true,
+  subtitle = 'the tot map',
+  subtitleStyle = 'default',
 }: {
   logoSrc?: string
   logoSrc2x?: string
   showBrandName?: boolean
+  /** Replaces “the tot map” (e.g. “Guides” on /guides). Default CSS lowercases it. */
+  subtitle?: string
+  /** `publication` keeps capitalization and uses a product/publication weight. */
+  subtitleStyle?: 'default' | 'publication'
 } = {}) {
   return (
     <div
@@ -32,7 +38,17 @@ export function BrandLockup({
       <Logo src={logoSrc} src2x={logoSrc2x} />
       <div className="brand-lockup-wordmark">
         {showBrandName ? <span className="logo-main">Puddles</span> : null}
-        <span className="brand-lockup-subtitle logo-subtitle">the tot map</span>
+        <span
+          className={[
+            'brand-lockup-subtitle',
+            'logo-subtitle',
+            subtitleStyle === 'publication' ? 'logo-subtitle--publication' : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        >
+          {subtitle}
+        </span>
       </div>
     </div>
   )
@@ -41,6 +57,7 @@ export function BrandLockup({
 export function getBrowseLocationLabel(city: string): string {
   if (city === 'nearby') return 'Nearby'
   if (city === 'all') return 'All cities'
-  if (city === 'other') return 'Other cities'
+  if (city === 'other') return 'Around the Bay'
+  if (city === 'core') return 'South Peninsula'
   return city
 }
