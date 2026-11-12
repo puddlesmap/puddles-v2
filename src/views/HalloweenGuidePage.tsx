@@ -1,3 +1,4 @@
+import { MoreFromCollectionGuides } from '../components/guides/MoreFromCollectionGuides'
 import { AppHeader } from '../components/layout/AppHeader'
 import { HomeLaunchAnnouncement } from '../components/home/HomeLaunchAnnouncement'
 import { Footer } from '../components/layout/Footer'
@@ -30,6 +31,12 @@ export function HalloweenGuidePage() {
           suppressHero
           suppressCover
           hideEventsCta
+          afterBody={
+            <MoreFromCollectionGuides
+              collectionSlug="halloween-with-little-ones"
+              currentSlug="halloween-with-little-ones"
+            />
+          }
         />
       </article>
       <Footer fullBleed className="mt-0" />

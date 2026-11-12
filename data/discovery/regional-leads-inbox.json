@@ -1,6 +1,6 @@
 {
   "description": "Bay Area destination leads (~1 hour Worth a Drive web/social + 小紅書). Add rows here; run npm run discover:regional-weekly to queue them in Admin Discovery. eventUrl must be the official host page — not a 小紅書 or roundup-site URL.",
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-12",
   "leads": [
     {
       "id": "regional-kings-mountain-art-fair-2026-09-05",
@@ -377,6 +377,262 @@
       "processed": true,
       "processedAt": "2026-09-15",
       "queuedId": "regional-millbrae-mid-autumn-festival-2026-09-19"
+    },
+    {
+      "id": "regional-baby-wearing-dance-cupertino-2026-11-15",
+      "title": "Baby Wearing Dance",
+      "date": "2026-11-15",
+      "startTime": "11:00",
+      "endTime": "11:30",
+      "venue": "Cupertino Library",
+      "address": "10800 Torre Avenue, Cupertino, CA 95014",
+      "city": "Cupertino",
+      "lat": 37.3176,
+      "lng": -122.0322,
+      "ageRange": "0–2",
+      "types": [
+        "Parent & Me",
+        "Music & Movement"
+      ],
+      "categoryTags": [
+        "Regional"
+      ],
+      "cost": "Free",
+      "description": "Dance to popular tunes with your baby in a carrier — a short shared movement class for caregivers and little ones.",
+      "tips": "baby|Bring a baby carrier · expectant parents are welcome.\nticket|Free library program · check the official page for any day-of changes.",
+      "eventUrl": "https://sccl.bibliocommons.com/v2/events/6a985d0e29a7dd0d67488848",
+      "imageUrl": "",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified SCCLD Cupertino 2026-11-12. Nearby (outside core four cities).",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "regional-baby-wearing-dance-cupertino-2026-11-15"
+    },
+    {
+      "id": "regional-magical-bridge-rwc-stories-in-the-park-2026-11-24",
+      "title": "Stories in the Park",
+      "date": "2026-11-24",
+      "startTime": "10:00",
+      "endTime": "10:30",
+      "venue": "Magical Bridge Playground",
+      "address": "938 Valota Rd, Redwood City, CA 94061",
+      "city": "Redwood City",
+      "lat": 37.4854,
+      "lng": -122.2365,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Stories",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional"
+      ],
+      "cost": "Free",
+      "description": "Listen to stories at an inclusive outdoor playground — then explore Magical Bridge play areas before or after.",
+      "tips": "info|At Red Morton Park Magical Bridge · sponsored with Friends of the Redwood City Public Library.\nweather|Outdoor storytime · check the Magical Bridge calendar for weather changes.",
+      "eventUrl": "https://www.magicalbridge.org/event-details/stories-in-the-park-4",
+      "imageUrl": "",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified Magical Bridge + Redwood City calendar 2026-11-12.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "regional-magical-bridge-rwc-stories-in-the-park-2026-11-24"
+    },
+    {
+      "id": "regional-magical-bridge-rwc-casa-circulo-2026-11-21",
+      "title": "Art Projects with Casa Circulo Cultural",
+      "date": "2026-11-21",
+      "startTime": "13:30",
+      "endTime": "15:30",
+      "venue": "Magical Bridge Playground",
+      "address": "938 Valota Rd, Redwood City, CA 94061",
+      "city": "Redwood City",
+      "lat": 37.4854,
+      "lng": -122.2365,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Arts & Crafts",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional"
+      ],
+      "cost": "Free",
+      "description": "Make drop-in art projects with Casa Circulo Cultural in Magical Bridge’s Kindness Corner.",
+      "tips": "info|Kindness Corner is to the right of the main playground entrance.\ncrowds|Projects are first come, first served.\nticket|Playground & projects are free.",
+      "eventUrl": "https://www.magicalbridge.org/event-details/art-projects-with-casa-circulo-cultural-11",
+      "imageUrl": "",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified Magical Bridge event page 2026-11-12. Pair with Dec 5 row.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "regional-magical-bridge-rwc-casa-circulo-2026-11-21"
+    },
+    {
+      "id": "regional-magical-bridge-rwc-casa-circulo-2026-12-05",
+      "title": "Art Projects with Casa Circulo Cultural",
+      "date": "2026-12-05",
+      "startTime": "13:30",
+      "endTime": "15:30",
+      "venue": "Magical Bridge Playground",
+      "address": "938 Valota Rd, Redwood City, CA 94061",
+      "city": "Redwood City",
+      "lat": 37.4854,
+      "lng": -122.2365,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Arts & Crafts",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional"
+      ],
+      "cost": "Free",
+      "description": "Make drop-in art projects with Casa Circulo Cultural in Magical Bridge’s Kindness Corner.",
+      "tips": "info|Kindness Corner is to the right of the main playground entrance.\ncrowds|Projects are first come, first served.\nticket|Playground & projects are free.",
+      "eventUrl": "https://www.magicalbridge.org/event-details/art-projects-with-casa-circulo-cultural-12",
+      "imageUrl": "",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified Magical Bridge event page 2026-11-12.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "regional-magical-bridge-rwc-casa-circulo-2026-12-05"
+    },
+    {
+      "id": "regional-magical-bridge-rwc-ragazzi-2026-12-06",
+      "title": "Ragazzi Boys Chorus – Magical Music & Motion",
+      "date": "2026-12-06",
+      "startTime": "11:00",
+      "endTime": "12:00",
+      "venue": "Magical Bridge Playground",
+      "address": "938 Valota Rd, Redwood City, CA 94061",
+      "city": "Redwood City",
+      "lat": 37.4854,
+      "lng": -122.2365,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Music & Movement",
+        "Outdoor"
+      ],
+      "categoryTags": [
+        "Regional"
+      ],
+      "cost": "Free",
+      "description": "Watch a free outdoor choir set with seasonal songs at Magical Bridge — short enough for little ones, with the playground right there.",
+      "tips": "ticket|Free outdoor performance · all ages and abilities welcome.\nweather|Outdoor at Magical Bridge · bring layers for a December morning.",
+      "eventUrl": "https://www.magicalbridge.org/event-details/ragazzi-boys-chorus-magical-music-motion",
+      "imageUrl": "",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified Magical Bridge 2026-11-12.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "regional-magical-bridge-rwc-ragazzi-2026-12-06"
+    },
+    {
+      "id": "regional-marsh-hike-coyote-point-2026-11-20",
+      "title": "Marsh Hike at Coyote Point",
+      "date": "2026-11-20",
+      "startTime": "14:00",
+      "endTime": "15:30",
+      "venue": "CuriOdyssey",
+      "address": "1651 Coyote Point Dr, San Mateo, CA 94401",
+      "city": "San Mateo",
+      "lat": 37.5907,
+      "lng": -122.3234,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Outdoor",
+        "Build & Explore"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive"
+      ],
+      "cost": "Free",
+      "description": "Walk Coyote Point’s marsh with museum educators — look for wildlife, native plants, and signs of the changing season.",
+      "tips": "ticket|Free hike · RSVP required · San Mateo County Parks parking is $6/vehicle.\ninfo|Meet at CuriOdyssey; meetup details and packing notes come after registration.\nbaby|90-minute guided hike — best for little ones who can ride or walk with an adult the whole time.",
+      "eventUrl": "https://curiodyssey.org/event/marsh-hike-at-coyote-point-6/2026-11-20/",
+      "imageUrl": "",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified CuriOdyssey event page 2026-11-12.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "regional-marsh-hike-coyote-point-2026-11-20"
+    },
+    {
+      "id": "regional-fairyland-hummingbird-saves-fire-2026-11-14",
+      "title": "Puppet Show: Hummingbird Saves Fire",
+      "date": "2026-11-14",
+      "startTime": "11:00",
+      "endTime": "11:30",
+      "sessions": [
+        {
+          "date": "2026-11-14",
+          "startTime": "11:00",
+          "endTime": "11:30"
+        },
+        {
+          "date": "2026-11-14",
+          "startTime": "14:00",
+          "endTime": "14:30"
+        },
+        {
+          "date": "2026-11-14",
+          "startTime": "16:00",
+          "endTime": "16:30"
+        }
+      ],
+      "venue": "Children's Fairyland",
+      "address": "699 Bellevue Avenue, Oakland, CA 94610",
+      "city": "Oakland",
+      "lat": 37.8195,
+      "lng": -122.2595,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Stories"
+      ],
+      "categoryTags": [
+        "Regional",
+        "Worth a Drive"
+      ],
+      "cost": "Paid",
+      "description": "Watch a 30-minute Storybook Puppet Theater adventure, then wander Fairyland’s play sets and same-day crafts.",
+      "tips": "ticket|Included with Fairyland park admission — check current ticket prices on the Fairyland site.\ninfo|Storybook Puppet Theater · other Fairyland crafts and storytellers may be on the same-day calendar.",
+      "eventUrl": "https://fairyland.org/event-calendar/puppet-show-hummingbird-saves-fire-32/2026-11-14/1/",
+      "imageUrl": "",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified Fairyland calendar 2026-11-12. One production row with three same-day sessions.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "regional-fairyland-hummingbird-saves-fire-2026-11-14"
+    },
+    {
+      "id": "regional-HOLD-sensory-sunday-curiodyssey-2026-12-13",
+      "title": "Sensory Sunday — HOLD",
+      "date": "2026-12-13",
+      "city": "San Mateo",
+      "venue": "CuriOdyssey",
+      "eventUrl": "https://curiodyssey.org/exhibits-events/sensory-sundays/",
+      "leadSource": "web",
+      "leadNotes": "HOLD — overview vs dated page time/reg conflict (1:30 vs 2–5 / registration dates). Calendar also shows 1:30–4:30 on Dec 13; do not publish firm When until organizer aligns.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "disposition": "HOLD — organizer time/reg conflict",
+      "skipReason": "HOLD — organizer time/reg conflict"
+    },
+    {
+      "id": "regional-HOLD-first-friday-nights-curiodyssey",
+      "title": "First Friday Nights — HOLD",
+      "date": "2026-12-04",
+      "city": "San Mateo",
+      "venue": "CuriOdyssey",
+      "eventUrl": "https://curiodyssey.org/events/",
+      "leadSource": "web",
+      "leadNotes": "HOLD — ticket/age-fit unconfirmed for toddler-meaningful experience (adult evening format risk).",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "disposition": "HOLD — toddler fit / tickets unconfirmed",
+      "skipReason": "HOLD — toddler fit / tickets unconfirmed"
     }
   ]
 }

@@ -32,6 +32,7 @@ import {
 } from '../components/guides/LocalGuideCard'
 import { HolidayMagicGuidesPanel } from '../components/guides/HolidayMagicGuidesPanel'
 import { useLaunchStagingCatalog } from '../context/LaunchStagingContext'
+import { resolveSeasonalReturnTarget } from '../utils/seasonalReturnNav'
 import './guide-page.css'
 import { useEventNavigation } from '../hooks/useEventNavigation'
 import { useUserLocation } from '../hooks/useUserLocation'
@@ -395,6 +396,10 @@ export function ExperimentSeasonalCollectionPage({
 } = {}) {
   const params = useParams()
   const location = useLocation()
+  const seasonalReturn = useMemo(
+    () => resolveSeasonalReturnTarget(location.state),
+    [location.state],
+  )
   const guideCardVariant = parseGuideCard(new URLSearchParams(location.search).get('card'))
   const slug = slugProp ?? params.slug
   const openEvent = useEventNavigation()
@@ -645,9 +650,14 @@ export function ExperimentSeasonalCollectionPage({
                 : 'Mockup · Holiday Magic preview'}
             </p>
           ) : null}
-          <Link to="/" className="seasonal-collection-back">
-            ← Back home
-          </Link>
+          <div className="seasonal-collection-nav">
+            <Link to={seasonalReturn.to} className="seasonal-collection-back">
+              ← Back to {seasonalReturn.label}
+            </Link>
+            <Link to="/guides" className="seasonal-collection-all-guides">
+              View all guides →
+            </Link>
+          </div>
 
           <header className="seasonal-collection-hero">
             <p className="seasonal-collection-hero__eyebrow">{collection.timingLabel}</p>

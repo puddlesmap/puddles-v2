@@ -789,3 +789,104 @@ div.abn-topic-block {
 .hyb-airbnb .abn-latest {
   border-top: none;
 }
+
+/* Compact seasonal hub entry (Holiday Magic → /seasonal/…) */
+.abn-seasonal-hub {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .abn-seasonal-hub {
+    padding: 0 80px 1.75rem;
+  }
+}
+
+.abn-seasonal-hub__card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(23, 56, 42, 0.12);
+  border-radius: 1rem;
+  background: #f4f8f2;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.abn-seasonal-hub__card:hover {
+  border-color: rgba(29, 116, 63, 0.35);
+  box-shadow: 0 4px 14px rgba(23, 56, 42, 0.08);
+}
+
+.abn-seasonal-hub__art {
+  flex: 0 0 auto;
+  width: 3.25rem;
+  height: 3.25rem;
+  object-fit: contain;
+}
+
+.abn-seasonal-hub__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.abn-seasonal-hub__eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1d743f;
+}
+
+.abn-seasonal-hub__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #17382a;
+}
+
+.abn-seasonal-hub__dek {
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: #5c6b70;
+}
+
+.abn-seasonal-hub__cta {
+  margin-top: 0.2rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #1d743f;
+}
+
+/* Featured → seasonal collection (secondary to Read guide) */
+.abn-hero__collection {
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(39, 48, 52, 0.1);
+}
+
+.abn-hero__collection-label {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #717171;
+}
+
+.abn-hero__collection-link {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: var(--color-brand, #1d743f);
+  text-decoration: none;
+}
+
+.abn-hero__collection-link:hover {
+  text-decoration: underline;
+}

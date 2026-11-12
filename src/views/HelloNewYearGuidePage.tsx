@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { GuideRelatedFooter } from '../components/guides/GuideRelatedFooter'
+import { MoreFromCollectionGuides } from '../components/guides/MoreFromCollectionGuides'
 import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
 import {
   HELLO_NEW_YEAR_CTA_LABEL,
   HELLO_NEW_YEAR_EVENTS_HREF,
-  HELLO_NEW_YEAR_RELATED,
 } from '../data/helloNewYearGuide'
 import { useGuideFloatingChrome } from '../hooks/useGuideFloatingChrome'
 import { HelloNewYearGuideDraft } from './HelloNewYearGuideDraft'
@@ -46,11 +46,17 @@ export function HelloNewYearGuidePage() {
         <HelloNewYearGuideDraft
           idPrefix="guide"
           afterBody={
-            <GuideRelatedFooter
-              relatedGuides={[...HELLO_NEW_YEAR_RELATED]}
-              seasonalHref={HELLO_NEW_YEAR_EVENTS_HREF}
-              seasonalLinkLabel={HELLO_NEW_YEAR_CTA_LABEL}
-            />
+            <>
+              <MoreFromCollectionGuides
+                collectionSlug="holiday-magic"
+                currentSlug="hello-new-year"
+              />
+              <GuideRelatedFooter
+                relatedGuides={[]}
+                seasonalHref={HELLO_NEW_YEAR_EVENTS_HREF}
+                seasonalLinkLabel={HELLO_NEW_YEAR_CTA_LABEL}
+              />
+            </>
           }
         />
       </article>

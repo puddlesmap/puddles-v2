@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { GuideRelatedFooter } from '../components/guides/GuideRelatedFooter'
+import { MoreFromCollectionGuides } from '../components/guides/MoreFromCollectionGuides'
 import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
 import {
   HOLIDAY_STORIES_CTA_LABEL,
   HOLIDAY_STORIES_EVENTS_HREF,
-  HOLIDAY_STORIES_RELATED,
 } from '../data/holidayStoriesGuide'
 import { useGuideFloatingChrome } from '../hooks/useGuideFloatingChrome'
 import { HolidayStoriesGuideDraft } from './HolidayStoriesGuideDraft'
@@ -46,11 +46,17 @@ export function HolidayStoriesGuidePage() {
         <HolidayStoriesGuideDraft
           idPrefix="guide"
           afterBody={
-            <GuideRelatedFooter
-              relatedGuides={[...HOLIDAY_STORIES_RELATED]}
-              seasonalHref={HOLIDAY_STORIES_EVENTS_HREF}
-              seasonalLinkLabel={HOLIDAY_STORIES_CTA_LABEL}
-            />
+            <>
+              <MoreFromCollectionGuides
+                collectionSlug="holiday-magic"
+                currentSlug="holiday-stories-play"
+              />
+              <GuideRelatedFooter
+                relatedGuides={[]}
+                seasonalHref={HOLIDAY_STORIES_EVENTS_HREF}
+                seasonalLinkLabel={HOLIDAY_STORIES_CTA_LABEL}
+              />
+            </>
           }
         />
       </article>

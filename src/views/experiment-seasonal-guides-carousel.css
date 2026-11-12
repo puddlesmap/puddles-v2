@@ -1,0 +1,148 @@
+.sgc-mock__main {
+  flex: 1;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2.5rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .sgc-mock__main {
+    padding: 1.25rem 80px 3rem;
+  }
+}
+
+.sgc-mock__banner {
+  margin: 0 0 1rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.5rem;
+  background: #fff4d6;
+  color: #5c4a12;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.sgc-mock__variants {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0 0 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .sgc-mock__variants {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .sgc-mock__variants {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 899px) {
+  .sgc-mock__variants {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sgc-mock__variant {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-start;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(23, 56, 42, 0.14);
+  border-radius: 0.75rem;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.sgc-mock__variant.is-active {
+  border-color: #1d743f;
+  box-shadow: 0 0 0 1px #1d743f inset;
+  background: #f3faf5;
+}
+
+.sgc-mock__variant-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.sgc-mock__variant-note {
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: #5c6b70;
+}
+
+.sgc-mock__hub {
+  padding: 1.25rem 1rem 1.5rem;
+  border-radius: 1rem;
+  /* Preview frame matches live reverse hub (dark forest) */
+  background: #17382a;
+}
+
+.sgc-mock__hub .seasonal-collection-back {
+  margin-bottom: 1rem;
+}
+
+.sgc-mock__events-placeholder {
+  margin-top: 1.25rem;
+  padding: 1.25rem 1rem;
+  border: 1px dashed color-mix(in srgb, #f5efde 28%, transparent);
+  border-radius: 0.75rem;
+  color: #f5efde;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* —— Lime island mockup (page light green #eef58a) —— */
+.sgc-mock-surface--lime-island .sgc {
+  --sgc-heading: #17382a;
+  --sgc-on-dark: #17382a;
+  --sgc-on-dark-muted: color-mix(in srgb, #17382a 68%, transparent);
+  padding: 1rem 0.9rem 1.15rem;
+  border-radius: 1.15rem;
+  background: color-mix(in srgb, #eef58a 80%, transparent);
+}
+
+@media (min-width: 768px) {
+  .sgc-mock-surface--lime-island .sgc {
+    padding: 1.25rem 1.15rem 1.35rem;
+  }
+}
+
+.sgc-mock-surface--lime-island .sgc__heading {
+  color: #17382a;
+}
+
+.sgc-mock-surface--lime-island .sgc-dots__dot {
+  background: color-mix(in srgb, #17382a 28%, transparent);
+}
+
+.sgc-mock-surface--lime-island .sgc-dots__dot.is-active {
+  background: #17382a;
+}
+
+@media (min-width: 900px) {
+  .sgc-mock-surface--lime-island .sgc-supporting__item + .sgc-supporting__item {
+    border-top-color: color-mix(in srgb, #17382a 16%, transparent);
+  }
+
+  .sgc-mock-surface--lime-island .sgc-support.is-live:hover .sgc-support__title,
+  .sgc-mock-surface--lime-island .sgc-support.is-live:hover .sgc-support__cta {
+    color: #1d743f;
+  }
+
+  .sgc-mock-surface--lime-island .sgc-support__cta {
+    color: #1d743f;
+  }
+
+  .sgc-mock-surface--lime-island .sgc-featured.is-live:focus-visible,
+  .sgc-mock-surface--lime-island .sgc-support.is-live:focus-visible {
+    outline-color: #17382a;
+  }
+}

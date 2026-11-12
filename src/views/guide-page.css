@@ -265,7 +265,8 @@
 }
 
 @media (max-width: 767px) {
-  html[data-picks-pill] .guide-page__wrap {
+  html[data-picks-pill] .guide-page__wrap,
+  html[data-picks-pill] .guide-page.gct-page {
     padding-bottom: calc(8.75rem + env(safe-area-inset-bottom, 0px));
   }
 }

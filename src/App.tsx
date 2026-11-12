@@ -24,6 +24,7 @@ import { ExperimentGuideCardMockupsPage } from './views/ExperimentGuideCardMocku
 import { ExperimentGuideTinyDancesPage } from './views/ExperimentGuideTinyDancesPage'
 import { ExperimentGuidesHomeMockupsPage } from './views/ExperimentGuidesHomeMockupsPage'
 import { ExperimentHolidayGuidePalettesPage } from './views/ExperimentHolidayGuidePalettesPage'
+import { ExperimentSeasonalGuidesCarouselPage } from './views/ExperimentSeasonalGuidesCarouselPage'
 import { HomeLaunchPreviewPage } from './views/HomeLaunchPreviewPage'
 import { ExperimentHallmarkHelloFallMockupPage } from './views/ExperimentHallmarkHelloFallMockupPage'
 import { ExperimentHallmarkHomeMockupPage } from './views/ExperimentHallmarkHomeMockupPage'
@@ -170,6 +171,10 @@ function AppShell() {
       <Route
         path="/experiment/holiday-guide-palettes"
         element={<ExperimentHolidayGuidePalettesPage />}
+      />
+      <Route
+        path="/experiment/seasonal-guides-carousel"
+        element={<ExperimentSeasonalGuidesCarouselPage />}
       />
       <Route path="/experiment/home-launch-preview" element={<HomeLaunchPreviewPage />} />
       <Route path="/experiment/seasonal-launch-review" element={<ExperimentSeasonalLaunchReviewPage />} />

@@ -184,6 +184,7 @@
 }
 
 .home-seasonal-teaser--halloween-night .home-seasonal-teaser__tagline,
+.home-seasonal-teaser--halloween-night .home-seasonal-teaser__count-meta,
 .home-seasonal-teaser--halloween-night .home-seasonal-teaser__cta,
 .home-seasonal-teaser--halloween-night .home-seasonal-teaser__cta--in-copy,
 .home-seasonal-teaser--halloween-night .home-seasonal-teaser__cta--proof {
@@ -210,6 +211,7 @@
 }
 
 .home-seasonal-teaser--holiday-magic .home-seasonal-teaser__tagline,
+.home-seasonal-teaser--holiday-magic .home-seasonal-teaser__count-meta,
 .home-seasonal-teaser--holiday-magic .home-seasonal-teaser__cta,
 .home-seasonal-teaser--holiday-magic .home-seasonal-teaser__cta--in-copy,
 .home-seasonal-teaser--holiday-magic .home-seasonal-teaser__cta--proof {
@@ -425,6 +427,23 @@
   font-size: 0.875rem;
   line-height: 1.35;
   color: var(--color-muted);
+}
+
+.home-seasonal-teaser__count-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.55rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.home-seasonal-teaser__count-meta-icon {
+  flex-shrink: 0;
+  opacity: 0.85;
 }
 
 .home-seasonal-teaser__cta {

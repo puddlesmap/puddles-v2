@@ -5,6 +5,7 @@ import type { SeasonalCollection } from '../../data/seasonalDiscovery'
 import { SeasonalEmDashTagline } from './SeasonalDiscoveryModuleHeader'
 import { getEventImageUrl } from '../../utils/eventImages'
 import { getSeasonalAvailability } from '../../utils/formatSeasonalSchedule'
+import { stashSeasonalReturn } from '../../utils/seasonalReturnNav'
 
 export type HomeSeasonalTeaserProof = 'none' | 'photo-strip' | 'micro' | 'featured'
 
@@ -480,7 +481,12 @@ export function HomeSeasonalTeaser({
       {dualCta ? (
         <div className="home-seasonal-teaser__hit home-seasonal-teaser__hit--static">{body}</div>
       ) : (
-        <Link to={href} className="home-seasonal-teaser__hit">
+        <Link
+          to={href}
+          className="home-seasonal-teaser__hit"
+          state={{ seasonalReturn: { to: '/', label: 'Home' } }}
+          onClick={() => stashSeasonalReturn('/', 'Home')}
+        >
           {body}
         </Link>
       )}

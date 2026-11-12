@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
+import { GuideParentNav } from '../components/guides/GuideParentNav'
 import {
-  HALLOWEEN_COLLECTION_PATH,
   HALLOWEEN_EVENTS_HREF,
   HALLOWEEN_GUIDE_POSTED,
   HALLOWEEN_GUIDE_READ,
@@ -16,9 +16,7 @@ export function HalloweenGuideIntro({
 }) {
   return (
     <div className="gct-gutter">
-      <Link className="guide-page__back" to={HALLOWEEN_COLLECTION_PATH}>
-        ← Explore Halloween events
-      </Link>
+      <GuideParentNav guideSlug="halloween-with-little-ones" />
       <header className="gct-abn-head">
         <time>
           {HALLOWEEN_GUIDE_POSTED.replace(/^Posted /, '')}

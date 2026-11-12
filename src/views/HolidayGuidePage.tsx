@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { GuideRelatedFooter } from '../components/guides/GuideRelatedFooter'
+import { MoreFromCollectionGuides } from '../components/guides/MoreFromCollectionGuides'
 import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
 import {
@@ -10,7 +11,6 @@ import {
   HOLIDAY_GUIDE_DEK,
   HOLIDAY_GUIDE_OUTING_IMAGES,
   HOLIDAY_GUIDE_PATH,
-  HOLIDAY_GUIDE_RELATED,
   HOLIDAY_GUIDE_TITLE,
 } from '../data/holidayGuide'
 import { useGuideFloatingChrome } from '../hooks/useGuideFloatingChrome'
@@ -75,11 +75,17 @@ export function HolidayGuidePage() {
           linkFinder
           imageOverrides={HOLIDAY_GUIDE_OUTING_IMAGES}
           afterBody={
-            <GuideRelatedFooter
-              relatedGuides={[...HOLIDAY_GUIDE_RELATED]}
-              seasonalHref={HOLIDAY_EVENTS_HREF}
-              seasonalLinkLabel={HOLIDAY_GUIDE_CTA_LABEL}
-            />
+            <>
+              <MoreFromCollectionGuides
+                collectionSlug="holiday-magic"
+                currentSlug="holiday-lights-traditions"
+              />
+              <GuideRelatedFooter
+                relatedGuides={[]}
+                seasonalHref={HOLIDAY_EVENTS_HREF}
+                seasonalLinkLabel={HOLIDAY_GUIDE_CTA_LABEL}
+              />
+            </>
           }
         />
       </article>

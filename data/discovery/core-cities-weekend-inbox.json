@@ -1,6 +1,6 @@
 {
   "description": "Core-city weekend leads (web / Instagram / Facebook) for Palo Alto · Los Altos · Mountain View · Sunnyvale. Add rows here; run npm run discover:core-weekend to queue them in Admin Discovery. eventUrl must be the official host page (Instagram post OK when that is the announcement).",
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-12",
   "leads": [
     {
       "id": "core-weekend-gamble-second-saturday-2026-09-12",
@@ -143,6 +143,140 @@
       "processed": true,
       "processedAt": "2026-09-15",
       "queuedId": "core-weekend-gamble-second-saturday-2026-11-14"
+    },
+    {
+      "id": "core-weekend-museum-minis-anderson-2026-11-16",
+      "title": "Museum Minis: Storytime at the Anderson",
+      "date": "2026-11-16",
+      "startTime": "11:15",
+      "endTime": "12:15",
+      "venue": "Anderson Collection at Stanford",
+      "address": "314 Lomita Dr, Stanford, CA 94305",
+      "city": "Palo Alto",
+      "lat": 37.4339,
+      "lng": -122.1705,
+      "ageRange": "0–5",
+      "types": [
+        "Stories",
+        "Build & Explore"
+      ],
+      "cost": "Free",
+      "description": "Listen to two art-inspired picture books, notice colors and shapes in museum artworks, then share a light snack with other families.",
+      "tips": "ticket|Walk-ins welcome · no RSVP needed.\nfood|The morning wraps with a light snack and time to connect.",
+      "eventUrl": "https://events.stanford.edu/event/November-museum-minis-storytime-at-the-anderson",
+      "imageUrl": "",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified Stanford Events 2026-11-12. Free ages 0–5 + caregivers. Do not auto-publish; Approve → Go live.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "core-weekend-museum-minis-anderson-2026-11-16"
+    },
+    {
+      "id": "core-weekend-sunday-crafternoon-2026-11-15",
+      "title": "Sunday CrafterNoon",
+      "date": "2026-11-15",
+      "startTime": "14:00",
+      "endTime": "15:30",
+      "venue": "Los Altos Library",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3791,
+      "lng": -122.1142,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Arts & Crafts"
+      ],
+      "cost": "Free",
+      "description": "Explore the day’s surprise craft with provided supplies during a relaxed, self-directed afternoon at the library.",
+      "tips": "info|Children must come with a responsible adult crafting buddy.\ninfo|Orchard Room closes at 3:30 PM · unfinished crafts can go home.",
+      "eventUrl": "https://sccl.bibliocommons.com/v2/events/697025281e64afd01e559e3a",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/e954fbc9cc6ec9f37195d54009d75fc7/kssCrafterNoon;Header(760x230px).png",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified SCCLD BiblioCommons 2026-11-12. Prior dated CrafterNoon rows exist; this Nov 15 date was missing.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "core-weekend-sunday-crafternoon-2026-11-15"
+    },
+    {
+      "id": "core-weekend-baby-sign-stay-and-play-2026-12-05",
+      "title": "Baby Sign and Stay and Play",
+      "date": "2026-12-05",
+      "startTime": "10:30",
+      "endTime": "12:00",
+      "venue": "Los Altos Library",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3791,
+      "lng": -122.1142,
+      "ageRange": "0–1",
+      "types": [
+        "Parent & Me",
+        "Stories"
+      ],
+      "cost": "Free",
+      "description": "Share stories, songs, and simple American Sign Language with your baby, then explore toys with other caregivers.",
+      "tips": "baby|For non-walking babies ages 0–12 months · please bring a blanket.\ninfo|Storytime 10:30–11:00 AM · Stay & Play until noon · Orchard Room.",
+      "eventUrl": "https://sccl.bibliocommons.com/v2/events/696191ef992fc18a86dc9a40",
+      "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/85e5c17dba88f8d48ae0bf8c9945a88b/EarlyLearning&StorytimesBibliowebCalendar.png",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified SCCLD BiblioCommons 2026-11-12. Prior months exist; Dec 5 was missing.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "core-weekend-baby-sign-stay-and-play-2026-12-05"
+    },
+    {
+      "id": "core-weekend-family-coloring-2026-11-20",
+      "title": "Family Coloring",
+      "date": "2026-11-20",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "venue": "Los Altos Library",
+      "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+      "city": "Los Altos",
+      "lat": 37.3791,
+      "lng": -122.1142,
+      "ageRange": "All ages · Little ones welcome",
+      "types": [
+        "Arts & Crafts"
+      ],
+      "cost": "Free",
+      "description": "Choose pages and colors with provided supplies during an easy drop-in coloring afternoon at the library.",
+      "tips": "ticket|Materials provided · no registration required.",
+      "eventUrl": "https://sccl.bibliocommons.com/v2/events/6adc04e8035faf0033dea44e",
+      "imageUrl": "",
+      "leadSource": "web",
+      "leadNotes": "Nov 12 consolidation · verified SCCLD 2026-11-12. Low priority drop-in.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "queuedId": "core-weekend-family-coloring-2026-11-20"
+    },
+    {
+      "id": "core-weekend-HOLD-sunnyvale-spanish-english-storytime-vivinavi",
+      "title": "Spanish/English Storytime (Sunnyvale) — HOLD",
+      "date": "2026-11-15",
+      "city": "Sunnyvale",
+      "venue": "Sunnyvale Public Library",
+      "eventUrl": "",
+      "leadSource": "web",
+      "leadNotes": "HOLD — Vivinavi-only listing; need direct LibCal/city URL before queueing.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "disposition": "HOLD — no direct official URL",
+      "skipReason": "HOLD — Vivinavi-only; need LibCal/city URL"
+    },
+    {
+      "id": "core-weekend-HOLD-sunnyvale-japanese-storytime-vivinavi",
+      "title": "Japanese Storytime (Sunnyvale) — HOLD",
+      "date": "2026-11-15",
+      "city": "Sunnyvale",
+      "venue": "Sunnyvale Public Library",
+      "eventUrl": "",
+      "leadSource": "web",
+      "leadNotes": "HOLD — Vivinavi-only listing; need direct LibCal/city URL before queueing.",
+      "processed": true,
+      "processedAt": "2026-11-12",
+      "disposition": "HOLD — no direct official URL",
+      "skipReason": "HOLD — Vivinavi-only; need LibCal/city URL"
     }
   ]
 }

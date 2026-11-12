@@ -57,6 +57,12 @@
   .bring-nearby-anchor.bring-nearby-anchor--picks {
     bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
   }
+
+  /* Sit a bit higher over dense guide / seasonal card stacks */
+  body:has(.seasonal-collection-page) .bring-nearby-anchor--picks,
+  body:has(.guide-page.gct-page) .bring-nearby-anchor--picks {
+    bottom: calc(6.35rem + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @media (min-width: 768px) {

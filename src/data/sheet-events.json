@@ -19457,7 +19457,7 @@
   {
     "id": "core-weekend-gamble-second-saturday-2026-11-14",
     "title": "Second Saturday at Gamble Garden",
-    "description": "Storytime, scavenger hunts, crafts & a visit to Elizabeth’s house — a free November garden morning for little ones to explore.",
+    "description": "Explore seed stations, make seed bracelets & seed bombs, follow scavenger hunts, and join librarian storytimes — a free November garden morning.",
     "venue": "Elizabeth F. Gamble Garden",
     "address": "1431 Waverley Street, Palo Alto, CA 94301",
     "city": "Palo Alto",
@@ -19476,16 +19476,16 @@
       "Outdoor"
     ],
     "cost": "Free",
-    "imageUrl": "",
+    "imageUrl": "https://www.gamblegarden.org/wp-content/uploads/2026/06/LIZ12556-e1782631391902.jpg",
     "eventUrl": "https://www.gamblegarden.org/event/novembersaturday/",
-    "verifiedDate": "2026-09-15",
+    "verifiedDate": "2026-11-12",
     "lat": 37.4397,
     "lng": -122.1481,
     "status": "Published",
     "isPast": false,
     "isLive": true,
     "sheetTypesRaw": "Festivals & Community, Outdoor",
-    "tips": "Register for timed entry at 10:00, 10:30, or 11:00 AM. Check in at a Welcome Table. Activities subject to change per Gamble Garden."
+    "tips": "ticket|Free · register for timed entry at 10:00, 10:30, or 11:00 AM and check in at a Welcome Table.\ninfo|Storytimes at 10:30 and 11:15 AM · activities subject to change."
   },
   {
     "id": "disc-the-wizard-of-oz-peninsula-youth-theatre-2026-11-14-manual-the-wizard-of-oz-peninsula-youth-",
@@ -19929,8 +19929,8 @@
   {
     "id": "disc-family-craft-bean-and-lentil-mosaics-2026-11-19-6a7253c93f18b57d52335bb6",
     "title": "Family Craft: Bean and Lentil Mosaics",
-    "description": "Choose from a variety of beans and lentils to create your own colorful mosaic! Children ages 4–11 are invited to make a unique design using paper, glue, beans, and lentils. All materials will be provided. Family Craft events are designed for children and their adult companions to enjoy together. Crafts will be available while supplies last, so please arrive on time.",
-    "tips": "A waitlist may be available.\nSpace is limited (100 seats) — check the official page for registration.\nbaby|Grown-ups stay with little ones for the whole program.",
+    "description": "Glue colorful beans and lentils into a mosaic with your grown-up — materials provided while supplies last.",
+    "tips": "ticket|Free · space is limited; check the official page for registration and current availability.\ninfo|Family Craft is for children with an adult companion · organizer invites ages 4–11.",
     "venue": "Children's Library",
     "room": "Treetop Room",
     "address": "1276  Harriet Street, Palo Alto, CA 94301",
@@ -19938,9 +19938,9 @@
     "date": "2026-11-19",
     "startTime": "15:30",
     "endTime": "16:30",
-    "ageRange": "2–5",
+    "ageRange": "4–5",
     "ageMin": 4,
-    "ageMax": 11,
+    "ageMax": 5,
     "types": [
       "Arts & Crafts"
     ],
@@ -19950,7 +19950,7 @@
     "cost": "Free",
     "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fef7e54cfaeee070ef11c5058945f6c6/Turkey-bean-art.jpg",
     "eventUrl": "https://paloalto.bibliocommons.com/events/6a7253c93f18b57d52335bb6",
-    "verifiedDate": "2026-11-05",
+    "verifiedDate": "2026-11-12",
     "lat": 37.4447829,
     "lng": -122.14501310000003,
     "status": "Published",
@@ -21242,9 +21242,9 @@
   {
     "id": "disc-magical-santa-dance-party-2026-12-05-core-weekend-magical-santa-dance-party-2",
     "title": "Magical Santa Dance Party",
-    "description": "Sensory-friendly inclusive holiday dance with DJ, games, Santa, and refreshments (Magical Bridge + SF Autism Society).",
+    "description": "Dance to a festive DJ set, visit Santa, and share pizza and cookies at a sensory-friendly holiday party for all ages and abilities.",
     "venue": "Lucie Stern Community Center",
-    "address": "",
+    "address": "1305 Middlefield Rd, Palo Alto, CA 94301",
     "city": "Palo Alto",
     "date": "2026-12-05",
     "startTime": "17:00",
@@ -21257,19 +21257,22 @@
       "Music & Movement"
     ],
     "categoryTags": [
-      "Weekend search"
+      "Weekend search",
+      "Seasonal",
+      "Holiday magic"
     ],
     "cost": "Paid",
     "imageUrl": "",
-    "eventUrl": "https://www.magicalbridge.org/event/magical-santa-dance-party/",
-    "verifiedDate": "2026-11-05",
-    "lat": 0,
-    "lng": 0,
+    "eventUrl": "https://www.magicalbridge.org/event-details/magical-santa-dance-party-with-sf-autism-society",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.444752,
+    "lng": -122.145844,
     "status": "Published",
-    "isSeasonal": false,
+    "isSeasonal": true,
     "isRegional": false,
     "isPast": false,
-    "isLive": true
+    "isLive": true,
+    "tips": "ticket|$20 per guest including caregivers · registration required.\nfood|Pizza, cookies & treats with Santa visit.\nsound|Sensory-friendly inclusive dance (Magical Bridge + SF Autism Society)."
   },
   {
     "id": "core-weekend-tlg-winter-bounce-psn-2026-12-05",
@@ -21874,9 +21877,9 @@
   },
   {
     "id": "family-fun-days-los-altos-community-center-2026-12-12-10-00",
-    "title": "Family Fun Days",
-    "description": "Join Community Services and the Los Altos Library for a series of Family Fun Days at the Los Altos Community Center! These free, themed events are held on select Saturdays and are packed with arts and crafts, games, movies, a scavenger hunt, and more. It's the perfect opportunity for families to come together and enjoy a day of fun and creativity.",
-    "tips": "ticket|Free. No registration.\ninfo|Supplies are limited and first come, first served.",
+    "title": "Winter Wonderland",
+    "description": "Crafts, games, a scavenger hunt & more at the Los Altos Community Center’s free Winter Wonderland Family Fun Day.",
+    "tips": "ticket|Free · no registration.\ninfo|Supplies are limited and first come, first served.",
     "venue": "Los Altos Community Center",
     "address": "97 Hillview Ave, Los Altos",
     "city": "Los Altos",
@@ -21892,18 +21895,21 @@
     ],
     "categoryTags": [
       "Arts & Crafts",
-      "Build & Explore"
+      "Build & Explore",
+      "Seasonal",
+      "Holiday magic"
     ],
     "cost": "Free",
     "imageUrl": "https://www.losaltosca.gov/ImageRepository/Document?documentID=2763",
     "eventUrl": "https://www.losaltosca.gov/329/Family-Fun-Days",
-    "verifiedDate": "2026-07-07",
+    "verifiedDate": "2026-11-12",
     "lat": 37.3804,
     "lng": -122.1113,
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "sheetTypesRaw": "Arts & Crafts, Build & Explore"
+    "sheetTypesRaw": "Arts & Crafts, Build & Explore",
+    "isSeasonal": true
   },
   {
     "tips": "info|Craft kits last while supplies last.",
@@ -23306,7 +23312,7 @@
     "id": "watchlist-sunnyvale-library-sensory-storytime-2026-11-13",
     "title": "Sensory Storytime",
     "description": "Interactive literacy with movement, music, sensory materials & a calmer group size — great for little ones who need a gentler storytime.",
-    "tips": "ticket|Registration required · limited to 12 participants and caregivers.\ninfo|Ages 3+ · caregivers stay with children.\nrestroom|Restrooms are inside the library.",
+    "tips": "ticket|Registration required · limited to 12 children with caregivers.\ninfo|Ages 3+ · caregivers stay with children.\nrestroom|Restrooms are inside the library.",
     "venue": "Sunnyvale Public Library",
     "address": "665 W Olive Ave, Sunnyvale, CA 94086",
     "city": "Sunnyvale",
@@ -23326,7 +23332,7 @@
     "status": "Published",
     "isPast": false,
     "isLive": true,
-    "verifiedDate": "2026-11-06"
+    "verifiedDate": "2026-11-12"
   },
   {
     "imageUrl": "",
@@ -23903,7 +23909,8 @@
     "categoryTags": [
       "Regional",
       "Worth a Drive",
-      "Holiday magic"
+      "Holiday magic",
+      "Seasonal"
     ],
     "cost": "Paid",
     "imageUrl": "https://www.cdm.org/wp-content/uploads/2018/12/Menorahs-and-Miracles-2018-6_cropped.jpg",
@@ -24304,5 +24311,386 @@
     "imageKind": "fallback",
     "imageCredit": "Compagnons (@sigmund) · Unsplash",
     "imageYear": "2027"
+  },
+  {
+    "id": "core-weekend-museum-minis-anderson-2026-11-16",
+    "title": "Museum Minis: Storytime at the Anderson",
+    "description": "Listen to two art-inspired picture books, notice colors and shapes in museum artworks, then share a light snack with other families.",
+    "tips": "ticket|Walk-ins welcome · no RSVP needed.\nfood|The morning wraps with a light snack and time to connect.",
+    "venue": "Anderson Collection at Stanford",
+    "address": "314 Lomita Dr, Stanford, CA 94305",
+    "city": "Palo Alto",
+    "date": "2026-11-16",
+    "startTime": "11:15",
+    "endTime": "12:15",
+    "ageRange": "0–5",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Build & Explore"
+    ],
+    "categoryTags": [
+      "Stories",
+      "Build & Explore"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://events.stanford.edu/event/November-museum-minis-storytime-at-the-anderson",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.4339,
+    "lng": -122.1705,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": false
+  },
+  {
+    "id": "core-weekend-sunday-crafternoon-2026-11-15",
+    "title": "Sunday CrafterNoon",
+    "description": "Explore the day’s surprise craft with provided supplies during a relaxed, self-directed afternoon at the library.",
+    "tips": "info|Children must come with a responsible adult crafting buddy.\ninfo|Orchard Room closes at 3:30 PM · unfinished crafts can go home.",
+    "venue": "Los Altos Library",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-11-15",
+    "startTime": "14:00",
+    "endTime": "15:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts"
+    ],
+    "categoryTags": [
+      "Arts & Crafts"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/e954fbc9cc6ec9f37195d54009d75fc7/kssCrafterNoon;Header(760x230px).png",
+    "eventUrl": "https://sccl.bibliocommons.com/v2/events/697025281e64afd01e559e3a",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.3791,
+    "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": false
+  },
+  {
+    "id": "core-weekend-baby-sign-stay-and-play-2026-12-05",
+    "title": "Baby Sign and Stay and Play",
+    "description": "Share stories, songs, and simple American Sign Language with your baby, then explore toys with other caregivers.",
+    "tips": "baby|For non-walking babies ages 0–12 months · please bring a blanket.\ninfo|Storytime 10:30–11:00 AM · Stay & Play until noon · Orchard Room.",
+    "venue": "Los Altos Library",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-12-05",
+    "startTime": "10:30",
+    "endTime": "12:00",
+    "ageRange": "0–1",
+    "ageMin": 0,
+    "ageMax": 1,
+    "types": [
+      "Parent & Me",
+      "Stories"
+    ],
+    "categoryTags": [
+      "Parent & Me",
+      "Stories"
+    ],
+    "cost": "Free",
+    "imageUrl": "https://sccl.bibliocommons.com/events/uploads/images/full/85e5c17dba88f8d48ae0bf8c9945a88b/EarlyLearning&StorytimesBibliowebCalendar.png",
+    "eventUrl": "https://sccl.bibliocommons.com/v2/events/696191ef992fc18a86dc9a40",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.3791,
+    "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": false
+  },
+  {
+    "id": "core-weekend-family-coloring-2026-11-20",
+    "title": "Family Coloring",
+    "description": "Choose pages and colors with provided supplies during an easy drop-in coloring afternoon at the library.",
+    "tips": "ticket|Materials provided · no registration required.",
+    "venue": "Los Altos Library",
+    "address": "13 S. San Antonio Road, Los Altos, CA 94022",
+    "city": "Los Altos",
+    "date": "2026-11-20",
+    "startTime": "16:00",
+    "endTime": "17:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts"
+    ],
+    "categoryTags": [
+      "Arts & Crafts"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://sccl.bibliocommons.com/v2/events/6adc04e8035faf0033dea44e",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.3791,
+    "lng": -122.1142,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": false
+  },
+  {
+    "id": "regional-baby-wearing-dance-cupertino-2026-11-15",
+    "title": "Baby Wearing Dance",
+    "description": "Dance to popular tunes with your baby in a carrier — a short shared movement class for caregivers and little ones.",
+    "tips": "baby|Bring a baby carrier · expectant parents are welcome.\nticket|Free library program · check the official page for any day-of changes.",
+    "venue": "Cupertino Library",
+    "address": "10800 Torre Avenue, Cupertino, CA 95014",
+    "city": "Cupertino",
+    "date": "2026-11-15",
+    "startTime": "11:00",
+    "endTime": "11:30",
+    "ageRange": "0–2",
+    "ageMin": 0,
+    "ageMax": 2,
+    "types": [
+      "Parent & Me",
+      "Music & Movement"
+    ],
+    "categoryTags": [
+      "Regional"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://sccl.bibliocommons.com/v2/events/6a985d0e29a7dd0d67488848",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.3176,
+    "lng": -122.0322,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": true
+  },
+  {
+    "id": "regional-magical-bridge-rwc-stories-in-the-park-2026-11-24",
+    "title": "Stories in the Park",
+    "description": "Listen to stories at an inclusive outdoor playground — then explore Magical Bridge play areas before or after.",
+    "tips": "info|At Red Morton Park Magical Bridge · sponsored with Friends of the Redwood City Public Library.\nweather|Outdoor storytime · check the Magical Bridge calendar for weather changes.",
+    "venue": "Magical Bridge Playground",
+    "address": "938 Valota Rd, Redwood City, CA 94061",
+    "city": "Redwood City",
+    "date": "2026-11-24",
+    "startTime": "10:00",
+    "endTime": "10:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Regional"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.magicalbridge.org/event-details/stories-in-the-park-4",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.4854,
+    "lng": -122.2365,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": true
+  },
+  {
+    "id": "regional-magical-bridge-rwc-casa-circulo-2026-11-21",
+    "title": "Art Projects with Casa Circulo Cultural",
+    "description": "Make drop-in art projects with Casa Circulo Cultural in Magical Bridge’s Kindness Corner.",
+    "tips": "info|Kindness Corner is to the right of the main playground entrance.\ncrowds|Projects are first come, first served.\nticket|Playground & projects are free.",
+    "venue": "Magical Bridge Playground",
+    "address": "938 Valota Rd, Redwood City, CA 94061",
+    "city": "Redwood City",
+    "date": "2026-11-21",
+    "startTime": "13:30",
+    "endTime": "15:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Regional"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.magicalbridge.org/event-details/art-projects-with-casa-circulo-cultural-11",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.4854,
+    "lng": -122.2365,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": true
+  },
+  {
+    "id": "regional-magical-bridge-rwc-casa-circulo-2026-12-05",
+    "title": "Art Projects with Casa Circulo Cultural",
+    "description": "Make drop-in art projects with Casa Circulo Cultural in Magical Bridge’s Kindness Corner.",
+    "tips": "info|Kindness Corner is to the right of the main playground entrance.\ncrowds|Projects are first come, first served.\nticket|Playground & projects are free.",
+    "venue": "Magical Bridge Playground",
+    "address": "938 Valota Rd, Redwood City, CA 94061",
+    "city": "Redwood City",
+    "date": "2026-12-05",
+    "startTime": "13:30",
+    "endTime": "15:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Arts & Crafts",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Regional"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.magicalbridge.org/event-details/art-projects-with-casa-circulo-cultural-12",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.4854,
+    "lng": -122.2365,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": true
+  },
+  {
+    "id": "regional-magical-bridge-rwc-ragazzi-2026-12-06",
+    "title": "Ragazzi Boys Chorus – Magical Music & Motion",
+    "description": "Watch a free outdoor choir set with seasonal songs at Magical Bridge — short enough for little ones, with the playground right there.",
+    "tips": "ticket|Free outdoor performance · all ages and abilities welcome.\nweather|Outdoor at Magical Bridge · bring layers for a December morning.",
+    "venue": "Magical Bridge Playground",
+    "address": "938 Valota Rd, Redwood City, CA 94061",
+    "city": "Redwood City",
+    "date": "2026-12-06",
+    "startTime": "11:00",
+    "endTime": "12:00",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Music & Movement",
+      "Outdoor"
+    ],
+    "categoryTags": [
+      "Regional"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://www.magicalbridge.org/event-details/ragazzi-boys-chorus-magical-music-motion",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.4854,
+    "lng": -122.2365,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": true
+  },
+  {
+    "id": "regional-marsh-hike-coyote-point-2026-11-20",
+    "title": "Marsh Hike at Coyote Point",
+    "description": "Walk Coyote Point’s marsh with museum educators — look for wildlife, native plants, and signs of the changing season.",
+    "tips": "ticket|Free hike · RSVP required · San Mateo County Parks parking is $6/vehicle.\ninfo|Meet at CuriOdyssey; meetup details and packing notes come after registration.\nbaby|90-minute guided hike — best for little ones who can ride or walk with an adult the whole time.",
+    "venue": "CuriOdyssey",
+    "address": "1651 Coyote Point Dr, San Mateo, CA 94401",
+    "city": "San Mateo",
+    "date": "2026-11-20",
+    "startTime": "14:00",
+    "endTime": "15:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Outdoor",
+      "Build & Explore"
+    ],
+    "categoryTags": [
+      "Regional",
+      "Worth a Drive"
+    ],
+    "cost": "Free",
+    "imageUrl": "",
+    "eventUrl": "https://curiodyssey.org/event/marsh-hike-at-coyote-point-6/2026-11-20/",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.5907,
+    "lng": -122.3234,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": true
+  },
+  {
+    "id": "regional-fairyland-hummingbird-saves-fire-2026-11-14",
+    "title": "Puppet Show: Hummingbird Saves Fire",
+    "description": "Watch a 30-minute Storybook Puppet Theater adventure, then wander Fairyland’s play sets and same-day crafts.",
+    "tips": "ticket|Included with Fairyland park admission — check current ticket prices on the Fairyland site.\ninfo|Storybook Puppet Theater · other Fairyland crafts and storytellers may be on the same-day calendar.",
+    "venue": "Children's Fairyland",
+    "address": "699 Bellevue Avenue, Oakland, CA 94610",
+    "city": "Oakland",
+    "date": "2026-11-14",
+    "startTime": "11:00",
+    "endTime": "11:30",
+    "ageRange": "All ages · Little ones welcome",
+    "ageMin": 0,
+    "ageMax": 5,
+    "types": [
+      "Stories"
+    ],
+    "categoryTags": [
+      "Regional",
+      "Worth a Drive"
+    ],
+    "cost": "Paid",
+    "imageUrl": "",
+    "eventUrl": "https://fairyland.org/event-calendar/puppet-show-hummingbird-saves-fire-32/2026-11-14/1/",
+    "verifiedDate": "2026-11-12",
+    "lat": 37.8195,
+    "lng": -122.2595,
+    "status": "Published",
+    "isPast": false,
+    "isLive": true,
+    "isSeasonal": false,
+    "isRegional": true,
+    "sessions": [
+      {
+        "date": "2026-11-14",
+        "startTime": "11:00",
+        "endTime": "11:30"
+      },
+      {
+        "date": "2026-11-14",
+        "startTime": "14:00",
+        "endTime": "14:30"
+      },
+      {
+        "date": "2026-11-14",
+        "startTime": "16:00",
+        "endTime": "16:30"
+      }
+    ]
   }
 ]

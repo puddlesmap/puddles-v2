@@ -249,7 +249,7 @@ export function getLiveGuideStream(): GuideCatalogEntry[] {
 
 /**
  * Public /guides “More guides” cards: listed guides only, excluding the featured hero.
- * Upcoming (`soon`) first by sortKey, then live reverse-chronological.
+ * Live first (reverse-chronological), then upcoming (`soon`) by sortKey.
  */
 export function getGuidesHomeLibrary(): GuideCatalogEntry[] {
   const featuredSlug = getFeaturedGuide().slug
@@ -262,7 +262,7 @@ export function getGuidesHomeLibrary(): GuideCatalogEntry[] {
   const live = listed
     .filter((g) => g.status === 'live')
     .sort((a, b) => b.sortKey.localeCompare(a.sortKey))
-  return [...soon, ...live]
+  return [...live, ...soon]
 }
 
 export function getGuidesBySeason(): {
@@ -290,4 +290,28 @@ export function getPublishedGuideTopics(): GuideTopic[] {
 export function guideMatchesTopic(guide: GuideCatalogEntry, topic: GuideTopic | 'All'): boolean {
   if (topic === 'All') return true
   return Boolean(guide.topics?.includes(topic))
+}
+
+export function getGuideBySlug(slug: string): GuideCatalogEntry | undefined {
+  return GUIDES_CATALOG.find((g) => g.slug === slug)
+}
+
+/** Sibling guides in the same seasonal collection, excluding the current guide. */
+export function getSiblingGuides(
+  collectionSlug: SeasonalCollectionSlug,
+  currentSlug: string,
+): GuideCatalogEntry[] {
+  return GUIDES_CATALOG.filter(
+    (g) =>
+      g.collectionSlug === collectionSlug &&
+      g.slug !== currentSlug &&
+      g.listOnGuidesHome !== false,
+  ).sort((a, b) => a.sortKey.localeCompare(b.sortKey))
+}
+
+/** All guides for a seasonal hub Explore panel / carousel (fixed sort). */
+export function getGuidesForCollection(collectionSlug: SeasonalCollectionSlug): GuideCatalogEntry[] {
+  return GUIDES_CATALOG.filter(
+    (g) => g.collectionSlug === collectionSlug && g.listOnGuidesHome !== false,
+  ).sort((a, b) => a.sortKey.localeCompare(b.sortKey))
 }

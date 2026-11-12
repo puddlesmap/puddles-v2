@@ -1,5 +1,5 @@
 import { lazy, Suspense, useCallback, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { GuideParentNav } from '../components/guides/GuideParentNav'
 import { GuideEditorialHero } from '../components/guides/GuideEditorialHero'
 import { GuideSectionNav } from '../components/guides/QuickPick'
 import { GUIDES_CATALOG } from '../data/guidesCatalog'
@@ -69,11 +69,7 @@ export function HolidayStoriesGuideIntro({
 
   return (
     <div className="gct-gutter holiday-guide-intro">
-      <nav className="guide-page__context" aria-label="Guide navigation">
-        <Link className="guide-page__back" to="/guides">
-          ← All Guides
-        </Link>
-      </nav>
+      <GuideParentNav guideSlug="holiday-stories-play" />
       <GuideEditorialHero
         title={`${HOLIDAY_STORIES_GUIDE_TITLE} 🎭`}
         subtitle={HOLIDAY_STORIES_GUIDE_SUBTITLE}
