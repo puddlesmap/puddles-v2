@@ -56,6 +56,13 @@ export const HALLOWEEN_GUIDE_CHART = [
 
 export type GuidePlaceGroup = 'tradition' | 'neighborhood'
 
+/** Map pin color groups for guide articles (not Browse activity types). */
+export interface GuideMapCategory {
+  id: string
+  label: string
+  color: string
+}
+
 export interface GuidePlace {
   slug: string
   name: string
@@ -63,6 +70,16 @@ export interface GuidePlace {
   lat: number
   lng: number
   status: string
+  categoryId?: string
+  venueKey?: string
+  venue?: string
+  city?: string
+  date?: string
+  cost?: string
+  tip?: string
+  eventHref?: string
+  reservationNote?: string
+  ageLabel?: string
 }
 
 /** Area pins, not a specific house. */
