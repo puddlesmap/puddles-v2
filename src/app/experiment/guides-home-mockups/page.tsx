@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { GuidesHomeMockupsClient } from './GuidesHomeMockupsClient'
 
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 }
 
 export default function GuidesHomeMockupsRoute() {
-  return <GuidesHomeMockupsClient />
+  return (
+    <Suspense fallback={null}>
+      <GuidesHomeMockupsClient />
+    </Suspense>
+  )
 }

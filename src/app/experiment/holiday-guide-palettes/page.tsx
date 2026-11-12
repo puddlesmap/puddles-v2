@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { HolidayGuidePalettesClient } from './HolidayGuidePalettesClient'
 
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 }
 
 export default function HolidayGuidePalettesRoute() {
-  return <HolidayGuidePalettesClient />
+  return (
+    <Suspense fallback={null}>
+      <HolidayGuidePalettesClient />
+    </Suspense>
+  )
 }

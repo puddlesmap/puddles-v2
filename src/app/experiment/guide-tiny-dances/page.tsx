@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { GuideTinyDancesClient } from './GuideTinyDancesClient'
 
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 }
 
 export default function GuideTinyDancesRoute() {
-  return <GuideTinyDancesClient />
+  return (
+    <Suspense fallback={null}>
+      <GuideTinyDancesClient />
+    </Suspense>
+  )
 }
