@@ -30,6 +30,10 @@ export interface DiscoveryCandidate {
   /** Admin-only review / editorial notes — never on the public site. */
   internalReviewNotes?: string
   imageUrl: string
+  imageSourceUrl?: string
+  imageRights?: 'official_page' | 'host_registry' | 'editor_upload' | 'series_prior' | 'unknown'
+  imageYear?: string
+  imageCredit?: string
   eventUrl: string
   source: string
   isCancelled: boolean
@@ -73,6 +77,10 @@ export type DiscoveryEditableFields = Pick<
   | 'cost'
   | 'eventUrl'
   | 'imageUrl'
+  | 'imageSourceUrl'
+  | 'imageRights'
+  | 'imageYear'
+  | 'imageCredit'
   | 'lastChecked'
 >
 
