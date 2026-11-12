@@ -1,0 +1,426 @@
+/* Tiny Dances–inspired guide layout studies (Halloween content). */
+
+.guide-page.skin--tiny-show,
+.guide-page.skin--tiny-split,
+.guide-page.skin--tiny-visit {
+  container-type: inline-size;
+  container-name: guide;
+}
+
+/* —— 1. Showtime hero (cover → title → date grid → tagline) —— */
+
+.guide-page.skin--tiny-show {
+  display: flex;
+  flex-direction: column;
+}
+
+.guide-page.skin--tiny-show .lgg-hero {
+  display: contents;
+}
+
+.guide-page.skin--tiny-show .lgl-eyebrow {
+  display: none;
+}
+
+.guide-page.skin--tiny-show .lgg-cover {
+  order: 1;
+  width: 100%;
+  max-height: min(52vh, 28rem);
+  margin: 0;
+  border-radius: 0;
+  aspect-ratio: 16 / 9;
+  object-position: center 35%;
+}
+
+.guide-page.skin--tiny-show .lgg-hero h1 {
+  order: 2;
+  margin: 1.15rem 0 0;
+  padding: 0 1.25rem;
+  font-size: clamp(1.85rem, 4.5cqi, 2.65rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #273034;
+}
+
+.guide-page.skin--tiny-show .gtd-showtimes {
+  order: 3;
+}
+
+.guide-page.skin--tiny-show .lgg-dek {
+  order: 4;
+  margin: 1rem 0 0;
+  padding: 0 1.25rem;
+  max-width: 42rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #273034;
+}
+
+.guide-page.skin--tiny-show .lgg-date {
+  order: 5;
+  padding: 0 1.25rem 0.5rem;
+}
+
+.guide-page.skin--tiny-show .lgg-body {
+  order: 6;
+}
+
+.gtd-showtimes {
+  margin: 0.75rem 0 0;
+  padding: 0 1.25rem 1.25rem;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.gtd-showtimes__range {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.gtd-showtimes__grid {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gtd-showtimes__day {
+  display: flex;
+  gap: 0.65rem;
+  align-items: baseline;
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.gtd-showtimes__day span:last-child {
+  color: #273034;
+}
+
+.gtd-showtimes__slots {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gtd-showtimes__slots li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid #f0f0f0;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.gtd-showtimes__slots strong {
+  font-weight: 700;
+  color: #273034;
+}
+
+.gtd-showtimes__slots span {
+  color: #555;
+}
+
+.gtd-showtimes__badge {
+  margin: 0.45rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9a6b4f;
+}
+
+.gtd-showtimes__grid > li.is-highlight {
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  background: #faf6f2;
+}
+
+@container guide (min-width: 640px) {
+  .gtd-showtimes__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .gtd-showtimes__slots li {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
+@container guide (min-width: 760px) {
+  .guide-page.skin--tiny-show .lgg-hero h1,
+  .guide-page.skin--tiny-show .lgg-dek,
+  .guide-page.skin--tiny-show .lgg-date,
+  .gtd-showtimes {
+    padding-right: max(1.25rem, calc(50% - 22rem));
+    padding-left: max(1.25rem, calc(50% - 22rem));
+  }
+
+  .guide-page.skin--tiny-show .lgg-cover {
+    max-height: min(58vh, 32rem);
+  }
+}
+
+/* —— 2. Production split (main column + sticky facts) —— */
+
+.guide-page.skin--tiny-split .lgg-cover {
+  width: 100%;
+  margin: 0 0 1rem;
+  border-radius: 0;
+  aspect-ratio: 21 / 9;
+  object-position: center 40%;
+}
+
+.guide-page.skin--tiny-split .lgg-hero h1 {
+  font-size: clamp(1.75rem, 4cqi, 2.35rem);
+  color: #273034;
+}
+
+.guide-page.skin--tiny-split .lgg-layout--rail {
+  align-items: start;
+  gap: 2rem;
+}
+
+.guide-page.skin--tiny-split .lgg-rail {
+  position: sticky;
+  top: 5.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.gtd-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.gtd-fact {
+  padding: 0.85rem 1rem;
+  border-top: 1px solid #e8e8e8;
+}
+
+.gtd-fact:first-child {
+  border-top: none;
+}
+
+.gtd-fact h4 {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.gtd-fact p {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #273034;
+}
+
+.gtd-facts__cta {
+  display: block;
+  padding: 0.95rem 1rem;
+  border-top: 1px solid #e8e8e8;
+  background: #fafafa;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  color: #1d4f6e;
+}
+
+.guide-page.skin--tiny-split .lgg-out > h4 {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.guide-page.skin--tiny-split .lgg-chapter > h3 {
+  margin-top: 2.75rem;
+  font-size: 1.125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #273034;
+}
+
+@container guide (max-width: 759px) {
+  .guide-page.skin--tiny-split .lgg-layout--rail {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .guide-page.skin--tiny-split .lgg-rail {
+    position: static;
+    order: -1;
+    margin-bottom: 1rem;
+  }
+}
+
+@container guide (min-width: 760px) {
+  .guide-page.skin--tiny-split .lgg-hero,
+  .guide-page.skin--tiny-split .lgg-body {
+    max-width: none;
+  }
+
+  .guide-page.skin--tiny-split .lgg-layout--rail {
+    grid-template-columns: minmax(0, 1fr) 17.5rem;
+  }
+}
+
+/* —— 3. Plan your visit (editorial blocks + FAQ + gallery) —— */
+
+.guide-page.skin--tiny-visit .lgg-cover {
+  border-radius: 0;
+  aspect-ratio: 16 / 9;
+}
+
+.guide-page.skin--tiny-visit .lgg-chapter > h3 {
+  margin-top: 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #273034;
+}
+
+.guide-page.skin--tiny-visit .lgg-chapter > h3 + p,
+.guide-page.skin--tiny-visit .lgg-chapter > h3 + .lgg-out {
+  margin-top: 0.85rem;
+}
+
+.guide-page.skin--tiny-visit .lgg-out > h4 {
+  font-size: 1.25rem;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  color: #273034;
+}
+
+.gtd-visit {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e8e8e8;
+}
+
+.gtd-visit h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.gtd-visit__lede {
+  margin: 0.5rem 0 0;
+  max-width: 40rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.gtd-visit__cols {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.gtd-visit__cols h4 {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.gtd-visit__cols ul {
+  margin: 0.45rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #273034;
+}
+
+.gtd-faq {
+  margin-top: 1.5rem;
+  border-top: 1px solid #e8e8e8;
+}
+
+.gtd-faq__item {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.gtd-faq__item summary {
+  padding: 0.85rem 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.gtd-faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.gtd-faq__item p {
+  margin: 0 0 0.85rem;
+  padding-right: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.gtd-gallery {
+  margin-top: 2.5rem;
+}
+
+.gtd-gallery h3 {
+  margin: 0 0 0.85rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.gtd-gallery ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gtd-gallery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f3f3f3;
+}
+
+@container guide (min-width: 640px) {
+  .gtd-visit__cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gtd-gallery ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

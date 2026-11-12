@@ -1,0 +1,235 @@
+/* Mobile featured guide mockups — phone-framed preview only */
+
+.mfm-frame {
+  width: min(100%, 24.375rem); /* 390px */
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2.5rem;
+  box-sizing: border-box;
+}
+
+.mfm-frame__label {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #717171;
+  text-align: center;
+}
+
+.mfm {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  font-family: var(--font-sans);
+}
+
+.mfm__eyebrow {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mfm__dek {
+  margin: 0.65rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.mfm__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  margin-top: 1rem;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  background: var(--color-brand, #66c5f9);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.mfm__pill.is-soon {
+  background: #ddd;
+  color: #717171;
+}
+
+.mfm__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* ——— A · Magazine cover ——— */
+
+.mfm--magazine {
+  min-height: min(70vh, 32rem);
+  background: #17382a;
+}
+
+.mfm--magazine .mfm__media {
+  position: absolute;
+  inset: 0;
+}
+
+.mfm--magazine .mfm__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(23 56 42 / 0.15) 0%,
+    rgb(23 56 42 / 0.35) 40%,
+    rgb(23 56 42 / 0.88) 78%,
+    rgb(23 56 42 / 0.96) 100%
+  );
+}
+
+.mfm--magazine .mfm__copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: min(70vh, 32rem);
+  padding: 1.5rem 1.25rem 1.4rem;
+  box-sizing: border-box;
+}
+
+.mfm--magazine .mfm__eyebrow {
+  color: #eef58a;
+}
+
+.mfm--magazine h2 {
+  margin: 0.45rem 0 0;
+  max-width: 14ch;
+  font-size: clamp(1.65rem, 7vw, 2.05rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #eef58a;
+}
+
+.mfm--magazine .mfm__dek {
+  max-width: 28ch;
+  color: #f5efde;
+}
+
+.mfm--magazine .mfm__pill {
+  align-self: flex-start;
+  background: #eef58a;
+  color: #17382a;
+}
+
+/* ——— B · Photo lead ——— */
+
+.mfm--photo-lead {
+  background: #fff;
+  border: 1px solid #ebebeb;
+}
+
+.mfm--photo-lead .mfm__media {
+  height: 20rem;
+  overflow: hidden;
+  border-radius: 22px 22px 0 0;
+  background: #eef2f4;
+}
+
+.mfm--photo-lead .mfm__copy {
+  padding: 1.15rem 1.15rem 1.35rem;
+}
+
+.mfm--photo-lead .mfm__eyebrow {
+  color: #717171;
+}
+
+.mfm--photo-lead .mfm__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.mfm--photo-lead h2 {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: clamp(1.35rem, 5.5vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal, #273034);
+}
+
+.mfm--photo-lead .mfm__title-row .mfm__pill {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  min-height: 2.25rem;
+  padding: 0 0.9rem;
+  font-size: 0.8125rem;
+}
+
+.mfm--photo-lead .mfm__dek {
+  color: #484848;
+}
+
+/* ——— C · Overlap strip ——— */
+
+.mfm--overlap {
+  min-height: min(62vh, 30rem);
+  background: #17382a;
+  padding-bottom: 0;
+}
+
+.mfm--overlap .mfm__media {
+  position: absolute;
+  inset: 0 0 28% 0;
+}
+
+.mfm--overlap .mfm__media::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 35%;
+  background: linear-gradient(180deg, transparent, rgb(23 56 42 / 0.55));
+}
+
+.mfm--overlap .mfm__copy {
+  position: relative;
+  z-index: 1;
+  margin: min(42vh, 18rem) 0.85rem 0.85rem;
+  padding: 1.15rem 1.1rem 1.2rem;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgb(23 56 42 / 0.22);
+}
+
+.mfm--overlap .mfm__eyebrow {
+  color: #717171;
+}
+
+.mfm--overlap h2 {
+  margin: 0.4rem 0 0;
+  font-size: clamp(1.4rem, 5.8vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal, #273034);
+}
+
+.mfm--overlap .mfm__dek {
+  color: #484848;
+}
+
+.mfm--overlap .mfm__pill {
+  margin-top: 0.9rem;
+}

@@ -1,0 +1,142 @@
+/* Layout helpers for /experiment/saved-reminder-mockup — tokens match saved-page + sedl */
+
+.saved-reminder-mockup__frames {
+  margin-top: 1.25rem;
+}
+
+.saved-reminder-mockup__screen {
+  padding: 0;
+  background: #fff;
+}
+
+.saved-reminder-mockup__phone .saved-flow-phone__screen {
+  width: min(100%, 22rem);
+}
+
+.saved-reminder-mockup__rail {
+  position: static;
+  padding: 1rem 1rem 1.25rem;
+  border: none;
+  box-shadow: none;
+}
+
+.saved-reminder-mockup__saved-slice {
+  padding: 0.75rem 0.65rem 1rem;
+}
+
+.saved-reminder-mockup__saved-slice .saved-page__persist {
+  margin-bottom: 0.75rem;
+}
+
+.saved-reminder-mockup__saved-slice .saved-page__section {
+  margin-top: 1rem;
+}
+
+.saved-reminders-accordion--open .saved-reminders-accordion__panel {
+  display: block;
+}
+
+.saved-reminder-mockup__signin-frame {
+  min-height: 28rem;
+  position: relative;
+}
+
+.saved-reminder-mockup__signin-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.saved-reminder-mockup__signin-overlay .saved-signin-sheet {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100%;
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+
+.saved-reminder-mockup__email-wrap {
+  padding: 0.85rem 0.75rem 1rem;
+  font-family: var(--font-sans);
+}
+
+.saved-reminder-mockup__email-subject {
+  margin: 0 0 0.65rem;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.saved-reminder-mockup__email-body {
+  padding: 1rem;
+  border: 1px solid var(--color-border, #ebebeb);
+  border-radius: var(--radius-card, 12px);
+  background: #fafafa;
+}
+
+.saved-reminder-mockup__email-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brand-dark, #2d6a4f);
+}
+
+.saved-reminder-mockup__email-headline {
+  margin: 0 0 0.65rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-charcoal);
+}
+
+.saved-reminder-mockup__email-line {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-charcoal);
+}
+
+.saved-reminder-mockup__email-line + .saved-reminder-mockup__email-line {
+  margin-top: 0.15rem;
+}
+
+.saved-reminder-mockup__email-tip {
+  margin: 0.75rem 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.65rem;
+  background: #fff;
+  border: 1px solid var(--color-border, #ebebeb);
+}
+
+.saved-reminder-mockup__email-tip-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.saved-reminder-mockup__email-tip-text {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-charcoal);
+}
+
+.saved-reminder-mockup__email-cta {
+  display: block;
+  width: 100%;
+  margin-top: 0.85rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.saved-reminder-mockup__email-foot {
+  margin: 0.75rem 0 0;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  color: var(--color-muted);
+}

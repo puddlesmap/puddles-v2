@@ -1,0 +1,519 @@
+/* Full-viewport guide mockups (SF Ballet bleed + grid, Airbnb Newsroom). */
+
+.gfm-lab {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 2px 12px rgb(34 34 34 / 0.06);
+}
+
+.gfm-lab__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  max-width: 76rem;
+  margin: 0 auto;
+}
+
+.gfm-lab__tag {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9a6b4f;
+}
+
+.gfm-lab__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.gfm-lab__buttons button {
+  min-height: 2.25rem;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  background: #fff;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gfm-lab__buttons button.is-on {
+  border-color: #273034;
+  background: #273034;
+  color: #fff;
+}
+
+.gfm-page {
+  background: #fff;
+}
+
+.gfm-page .guide-page__wrap {
+  max-width: none;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.gfm-page .guide-page__back {
+  display: inline-block;
+  margin: 1rem 1.25rem 0;
+}
+
+.gfm-bleed {
+  width: 100vw;
+  max-width: 100vw;
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
+}
+
+.gfm-content {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.gfm-variant--split .gfm-content,
+.gfm-variant--visit .gfm-content {
+  max-width: 72rem;
+}
+
+/* —— Variant: production split (layout 2) —— */
+
+.gfm-variant--split .lgg-cover {
+  width: 100vw;
+  max-height: min(72vh, 36rem);
+  margin: 0 calc(50% - 50vw);
+  border-radius: 0;
+  aspect-ratio: 21 / 9;
+}
+
+.gfm-variant--split .lgg-hero {
+  max-width: 44rem;
+  margin: 1.25rem auto 0;
+  padding: 0 1.25rem;
+}
+
+.gfm-variant--split .lgg-body {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 2rem;
+}
+
+@media (min-width: 960px) {
+  .gfm-variant--split.guide-page.skin--tiny-split .lgg-layout--rail {
+    grid-template-columns: minmax(0, 1fr) 18rem;
+  }
+}
+
+/* —— Variant: plan your visit (layout 3) —— */
+
+.gfm-variant--visit .lgg-cover {
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  border-radius: 0;
+}
+
+.gfm-variant--visit .lgg-hero,
+.gfm-variant--visit .lgg-body {
+  max-width: 44rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+
+/* —— Variant: ballet grid (playful + 12-col band) —— */
+
+.gfm-variant--ballet-grid .lgg-hero {
+  display: none;
+}
+
+.gfm-variant--ballet-grid .lgg-cover {
+  width: 100vw;
+  max-height: min(78vh, 40rem);
+  margin: 0 calc(50% - 50vw);
+  border-radius: 0;
+  aspect-ratio: 16 / 9;
+}
+
+.gfm-variant--ballet-grid .gtd-showtimes {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.gfm-variant--ballet-grid .lgg-body {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 2.5rem;
+}
+
+.gfm-grid-band__inner {
+  display: grid;
+  gap: 1px;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 1.5rem;
+  background: #273034;
+}
+
+@media (min-width: 768px) {
+  .gfm-grid-band__inner {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .gfm-grid-band__cell--meta {
+    grid-column: span 4;
+  }
+
+  .gfm-grid-band__cell--accent {
+    grid-column: span 4;
+  }
+
+  .gfm-grid-band__cell:not(.gfm-grid-band__cell--meta):not(.gfm-grid-band__cell--accent):not(.gfm-grid-band__cell--wide) {
+    grid-column: span 2;
+  }
+
+  .gfm-grid-band__cell--wide {
+    grid-column: span 12;
+  }
+}
+
+.gfm-grid-band__cell {
+  padding: 1rem 1.1rem;
+  background: #fff;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.gfm-grid-band__cell--accent {
+  background: #faf0e8;
+  color: #273034;
+}
+
+.gfm-grid-band__cell--accent strong {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 1.125rem;
+}
+
+.gfm-grid-band__kicker {
+  margin: 0 0 0.65rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.gfm-grid-band__stat {
+  margin: 0.5rem 0 0;
+}
+
+.gfm-grid-band__stat span {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.gfm-grid-band__stat strong {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.9375rem;
+}
+
+.gfm-variant--ballet-grid .lgg-hero h1,
+.gfm-variant--ballet-grid .gfm-grid-band + .lgg-body::before {
+  content: none;
+}
+
+.gfm-variant--ballet-grid .gtd-showtimes__range {
+  font-size: 0.875rem;
+}
+
+/* Title band after showtimes */
+.gfm-variant--ballet-grid .gtd-showtimes::after {
+  display: block;
+  margin-top: 1rem;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #273034;
+  content: 'Halloween with Little Ones';
+}
+
+/* —— Variant: bento (playful) —— */
+
+.gfm-bento {
+  padding: 1.5rem 1.25rem 2rem;
+  background: linear-gradient(180deg, #fff7ef 0%, #fff 100%);
+}
+
+.gfm-bento__head h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.gfm-bento__head p {
+  margin: 0.35rem 0 0;
+  font-size: 0.875rem;
+  color: #717171;
+}
+
+.gfm-bento__grid {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 72rem;
+  margin: 1rem auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .gfm-bento__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: minmax(7rem, auto);
+  }
+
+  .gfm-bento__tile--wide {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gfm-bento__tile--tall {
+    grid-row: span 2;
+  }
+}
+
+.gfm-bento__tile a {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 7.5rem;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  color: #273034;
+  box-shadow: 0 4px 16px rgb(34 34 34 / 0.08);
+}
+
+.gfm-bento__tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.gfm-bento__tile.tone-sun a {
+  background: #ffe8c8;
+}
+
+.gfm-bento__tile.tone-plum a {
+  background: #ead4ff;
+  color: #2a153f;
+}
+
+.gfm-bento__tile.tone-mint a {
+  background: #d8f5ea;
+}
+
+.gfm-bento__tile.tone-coral a {
+  background: #ffd6cc;
+}
+
+.gfm-bento__label {
+  position: relative;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gfm-bento__title {
+  position: relative;
+  margin-top: 0.25rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.gfm-variant--bento .lgg-hero,
+.gfm-variant--bento .lgg-cover {
+  display: none;
+}
+
+.gfm-variant--bento .lgg-body {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 2.5rem;
+}
+
+/* —— Variant: Airbnb Newsroom —— */
+
+.gfm-news-hero {
+  position: relative;
+  color: #fff;
+}
+
+.gfm-news-hero > img {
+  display: block;
+  width: 100%;
+  max-height: min(85vh, 42rem);
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+.gfm-news-hero__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0.15) 0%, rgb(0 0 0 / 0.72) 68%, rgb(0 0 0 / 0.92) 100%);
+  pointer-events: none;
+}
+
+.gfm-news-hero__inner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 1.5rem;
+}
+
+.gfm-news-hero__date {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgb(255 255 255 / 0.85);
+}
+
+.gfm-news-hero h1 {
+  margin: 0.5rem 0 0;
+  max-width: 18ch;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.gfm-news-hero__dek {
+  margin: 0.75rem 0 0;
+  max-width: 42rem;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: rgb(255 255 255 / 0.92);
+}
+
+.gfm-news-hero__cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #273034;
+}
+
+.gfm-news-index {
+  position: relative;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 2rem;
+  background: #fff;
+}
+
+.gfm-news-index__label {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #273034;
+}
+
+.gfm-news-index ul {
+  display: grid;
+  gap: 1.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .gfm-news-index ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.gfm-news-index a {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1rem;
+  align-items: start;
+  text-decoration: none;
+  color: inherit;
+}
+
+.gfm-news-index img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f3f3f3;
+}
+
+.gfm-news-index__date {
+  display: block;
+  font-size: 0.8125rem;
+  color: #717171;
+}
+
+.gfm-news-index__title {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #273034;
+}
+
+.gfm-variant--airbnb .lgg-hero,
+.gfm-variant--airbnb .lgg-cover,
+.gfm-variant--airbnb .guide-events-cta {
+  display: none;
+}
+
+.gfm-variant--airbnb .lgg-jumps {
+  display: none;
+}
+
+.gfm-variant--airbnb .lgg-body {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+  border-top: 1px solid #eee;
+}
+
+.gfm-variant--airbnb .lgg-body > .lgg-layout > div > h3:first-of-type {
+  margin-top: 2rem;
+}
