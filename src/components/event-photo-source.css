@@ -1,0 +1,105 @@
+.event-photo-source {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 3;
+}
+
+.event-photo-source__chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.55);
+  cursor: pointer;
+}
+
+.event-photo-source__chip:hover {
+  background: transparent;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.event-photo-source__chip:focus-visible {
+  outline: 2px solid #4db8f2;
+  outline-offset: 2px;
+}
+
+.event-photo-source__panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.45rem);
+  width: min(16.5rem, calc(100vw - 2rem));
+  padding: 0.85rem 0.95rem;
+  border: 1px solid #ebebeb;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(34 34 34 / 0.14);
+  text-align: left;
+}
+
+.event-photo-source__eyebrow {
+  margin: 0;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.event-photo-source__credit {
+  margin: 0.35rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #273034;
+}
+
+.event-photo-source__meta {
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: #717171;
+}
+
+.event-photo-source__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #2a94d0;
+  text-decoration: none;
+}
+
+.event-photo-source__link:hover {
+  color: #1f7aad;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .event-photo-source {
+    right: 0.65rem;
+    bottom: 0.65rem;
+  }
+
+  .event-photo-source__chip {
+    min-height: 0;
+    padding: 0;
+    font-size: 0.625rem;
+  }
+}
