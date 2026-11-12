@@ -62,6 +62,8 @@ export const ANALYTICS_EVENTS = {
   NEWSLETTER_UNSUBSCRIBED: 'newsletter_unsubscribed',
   ACTIVITY_SAVED: 'activity_saved',
   SAVED_SIGN_IN: 'saved_sign_in',
+  SAVED_REMINDER_PROMPT_ACCEPTED: 'saved_reminder_prompt_accepted',
+  SAVED_REMINDER_PROMPT_DECLINED: 'saved_reminder_prompt_declined',
 } as const
 
 type PlausibleInitOptions = {
