@@ -225,7 +225,7 @@
 
 .shared-event-nearby__grid .discovery-event-card .card-listing-media {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 5 / 2.75;
   flex-shrink: 0;
 }
 

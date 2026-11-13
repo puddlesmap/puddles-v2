@@ -510,3 +510,44 @@
   text-underline-offset: 2px;
 }
 
+/* Magical holiday guides — nav/header match seasonal hub lighten (dark green) */
+.holiday-guide-hub-chrome > header.app-header.page-header-sticky,
+.holiday-guide-hub-chrome > header.app-header.page-header-sticky .app-header-row,
+.holiday-guide-hub-chrome .app-header.page-header-sticky,
+.holiday-guide-hub-chrome .app-header-row {
+  background: #113f34 !important;
+  background-image: none !important;
+  border-bottom-color: transparent;
+}
+
+.holiday-guide-hub-chrome .logo-mark-img,
+.holiday-guide-hub-chrome .brand-lockup img {
+  filter: brightness(0) invert(1) !important;
+}
+
+.holiday-guide-hub-chrome .brand-lockup-subtitle {
+  color: #e9ebc9;
+}
+
+.holiday-guide-hub-chrome .top-nav-link,
+.holiday-guide-hub-chrome .top-nav-link-active {
+  color: #e9ebc9;
+  background-color: transparent;
+}
+
+.holiday-guide-hub-chrome .top-nav-link:hover,
+.holiday-guide-hub-chrome .top-nav-link-active:hover,
+.holiday-guide-hub-chrome .top-nav-link-active {
+  background-color: color-mix(in srgb, #113f34 70%, #000);
+  color: #d8e378;
+}
+
+@media (max-width: 767px) {
+  .holiday-guide-hub-chrome > header.app-header.page-header-sticky,
+  .holiday-guide-hub-chrome > header.app-header.page-header-sticky .app-header-row,
+  .holiday-guide-hub-chrome .app-header-row {
+    background: #113f34 !important;
+    background-image: none !important;
+  }
+}
+

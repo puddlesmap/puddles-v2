@@ -29,7 +29,7 @@
 .home-experiment-page--refined .discovery-event-card .card-listing-media,
 .saved-page-shell .discovery-event-card .card-listing-media {
   border-radius: 0;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 5 / 2.75;
   box-shadow: none;
   overflow: hidden;
 }
@@ -343,7 +343,7 @@
 
 .seasonal-discovery-module--home-band .discovery-event-card .card-listing-media {
   border-radius: 0;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 5 / 2.75;
   box-shadow: none;
 }
 

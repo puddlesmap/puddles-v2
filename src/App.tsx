@@ -90,6 +90,7 @@ import { ExperimentFallGatheringsMockupPage } from './views/ExperimentFallGather
 import { ExperimentSeasonalLaunchReviewPage } from './views/ExperimentSeasonalLaunchReviewPage'
 import { ExperimentSeasonalBackgroundDialPage } from './views/ExperimentSeasonalBackgroundDialPage'
 import { ExperimentHolidayMagicFiltersPage } from './views/ExperimentHolidayMagicFiltersPage'
+import { ExperimentHolidayMagicLightenPage } from './views/ExperimentHolidayMagicLightenPage'
 import { ExperimentSavedReminderMockupPage } from './views/ExperimentSavedReminderMockupPage'
 import {
   ExperimentEventDetailFullpageDetailPage,
@@ -275,6 +276,10 @@ function AppShell() {
       <Route
         path="/experiment/holiday-magic-filters"
         element={<ExperimentHolidayMagicFiltersPage />}
+      />
+      <Route
+        path="/experiment/holiday-magic-lighten"
+        element={<ExperimentHolidayMagicLightenPage />}
       />
       <Route
         path="/experiment/saved-reminder-mockup"

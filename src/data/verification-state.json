@@ -603,13 +603,13 @@
       "attention": "Could not verify after 3 tries. Official reading is older than this event’s check interval."
     },
     "barron-park-celebration-craft-fair-2026-11-15": {
-      "lastChecked": "",
-      "nextCheckDue": "2026-11-12",
-      "outcome": "failed",
-      "failureCount": 2,
-      "lastFailure": "Official reading is older than this event’s check interval.",
-      "lastAttempt": "2026-11-11",
-      "failureSourceDate": "2026-10-20",
+      "lastChecked": "2026-11-13",
+      "nextCheckDue": "2026-11-20",
+      "outcome": "ok",
+      "failureCount": 0,
+      "lastFailure": "",
+      "lastAttempt": "2026-11-13",
+      "failureSourceDate": "",
       "escalatedOn": "",
       "applied": null,
       "attention": ""

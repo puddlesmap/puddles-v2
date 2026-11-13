@@ -344,6 +344,7 @@ export const HOLIDAY_MAGIC_CLOSE_EVENT_IDS = [
   'barn-lighting-westwind-community-barn-2026-12-06-14-00',
   'community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30',
   'manual-holiday-market-downtown-los-altos-2026-12-10',
+  'seasonal-allied-arts-christmas-market-2026-12-05',
   'family-fun-days-los-altos-community-center-2026-12-12-10-00',
   'seasonal-german-holiday-market-mv-2026-12-12',
   'seasonal-christmas-tree-lane-palo-alto-2026-12',

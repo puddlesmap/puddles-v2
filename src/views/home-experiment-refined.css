@@ -224,31 +224,23 @@
   max-width: none;
 }
 
-/* —— Sidebar cards: map preview + CTA (match About / Discovery) —— */
-.home-experiment-page--refined .home-map-preview-card,
-.home-experiment-page--refined .about-cta-section.community-cta-card {
+/* —— Sidebar cards: map preview + CTA —— */
+/* Puddles Picks CTA chrome lives on `.picks-home-share.community-cta-card` (shared with guides). */
+.home-experiment-page--refined .home-map-preview-card {
   width: 100%;
   max-width: none;
   margin: 0;
-  /* Keep overflow visible so card + primary-button elevation shadows aren’t boxed */
   overflow: visible;
   border: var(--refined-sidebar-card-border);
   border-radius: var(--refined-sidebar-card-radius);
   background: #ffffff;
-  box-shadow: none;
+  box-shadow: var(--elevation-shadow-soft);
   transition: border-color 0.16s ease-out;
 }
 
 .home-experiment-page--refined .about-cta-section.community-cta-card {
   min-height: 0;
-  padding: 1.25rem;
-  /* Extra bottom room for the primary button glow */
-  padding-bottom: 1.5rem;
-  box-shadow: var(--elevation-shadow-soft);
-}
-
-.home-experiment-page--refined .home-map-preview-card {
-  box-shadow: var(--elevation-shadow-soft);
+  transition: border-color 0.16s ease-out;
 }
 
 .home-experiment-page--refined .about-cta-section .cta-title {

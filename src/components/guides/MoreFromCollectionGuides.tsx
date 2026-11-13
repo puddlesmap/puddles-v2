@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import {
   getSiblingGuides,
   type GuideCatalogEntry,
@@ -7,24 +6,44 @@ import {
   getSeasonalCollection,
   type SeasonalCollectionSlug,
 } from '../../data/seasonalDiscovery'
-import { AirbnbTeaser } from '../../views/guidesHomeMockups/GuideHomeShared'
-import '../../views/guides-home.css'
+import {
+  SeasonalGuidesCarousel,
+  type SeasonalCarouselGuide,
+} from './SeasonalGuidesCarousel'
+import './holiday-magic-guides-panel.css'
 import './moreFromCollectionGuides.css'
 
-function titleWithEmoji(guide: GuideCatalogEntry): GuideCatalogEntry {
-  if (guide.slug === 'holiday-lights-traditions' && !guide.title.includes('✨')) {
-    return { ...guide, title: `${guide.title} ✨` }
+/** Short card deks — ~2/3 of full guide deks, same spirit as the hub. */
+const LIGHTS_HUB_DEK = 'Train rides, Santa visits & festive outings.'
+const STORIES_HUB_DEK = 'Shows, stories, crafts & winter play.'
+const NEW_YEAR_HUB_DEK = 'Balloon drops & January traditions.'
+
+function toCarouselGuide(guide: GuideCatalogEntry): SeasonalCarouselGuide {
+  if (guide.slug === 'holiday-lights-traditions') {
+    return {
+      ...guide,
+      displayTitle: `${guide.title} ✨`,
+      hubDek: LIGHTS_HUB_DEK,
+    }
   }
-  if (guide.slug === 'holiday-stories-play' && !guide.title.includes('🎭')) {
-    return { ...guide, title: `${guide.title} 🎭` }
+  if (guide.slug === 'holiday-stories-play') {
+    return {
+      ...guide,
+      displayTitle: `${guide.title} 🎭`,
+      hubDek: STORIES_HUB_DEK,
+    }
   }
-  if (guide.slug === 'hello-new-year' && !guide.title.includes('🎉')) {
-    return { ...guide, title: `${guide.title} 🎉` }
+  if (guide.slug === 'hello-new-year') {
+    return {
+      ...guide,
+      displayTitle: `${guide.title} 🎉`,
+      hubDek: NEW_YEAR_HUB_DEK,
+    }
   }
   return guide
 }
 
-/** Compact sibling guide cards for the end of an individual guide. */
+/** Sibling guides in the Holiday Magic Explore-the-guides card-grid layout. */
 export function MoreFromCollectionGuides({
   collectionSlug,
   currentSlug,
@@ -33,22 +52,16 @@ export function MoreFromCollectionGuides({
   currentSlug: string
 }) {
   const collection = getSeasonalCollection(collectionSlug)
-  const siblings = getSiblingGuides(collectionSlug, currentSlug).map(titleWithEmoji)
+  const siblings = getSiblingGuides(collectionSlug, currentSlug).map(toCarouselGuide)
   if (!collection || siblings.length === 0) return null
 
   return (
-    <section className="more-from-collection" aria-label={`More from ${collection.subtitle}`}>
-      <h3 className="more-from-collection__heading">More from {collection.subtitle}</h3>
-      <ul className="more-from-collection__list">
-        {siblings.map((guide) => (
-          <li key={guide.slug}>
-            <AirbnbTeaser guide={guide} />
-          </li>
-        ))}
-      </ul>
-      <p className="more-from-collection__all">
-        <Link to="/guides">View all guides →</Link>
-      </p>
-    </section>
+    <div className="hmg-guides-carousel more-from-collection">
+      <SeasonalGuidesCarousel
+        guides={siblings}
+        heading={`More from ${collection.subtitle}`}
+        desktopMode="card-grid"
+      />
+    </div>
   )
 }

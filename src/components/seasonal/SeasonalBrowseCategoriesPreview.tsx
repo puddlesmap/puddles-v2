@@ -27,6 +27,7 @@ export function SeasonalBrowseCategoriesPreview() {
               <Link
                 key={type}
                 to={browseActivityHref(type)}
+                data-activity-type={type}
                 className={[
                   'seasonal-browse-preview__chip',
                   showNew ? 'seasonal-browse-preview__chip--new' : '',

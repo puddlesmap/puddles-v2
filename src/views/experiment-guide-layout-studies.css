@@ -336,10 +336,30 @@
   outline-offset: 3px;
 }
 
+/* Mutually exclusive with Get Puddles Picks pill — only show when scrolled */
+.gsl-totop--exclusive {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(0.4rem);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s;
+}
+
+.gsl-totop--exclusive.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+}
+
 @media (max-width: 767px) {
   .gsl-totop {
     right: 0.85rem;
-    bottom: calc(6rem + env(safe-area-inset-bottom));
+    /* Same clearance band as guide Picks pill — exclusive, so they never stack */
+    bottom: calc(7.75rem + env(safe-area-inset-bottom, 0px));
   }
 }
 

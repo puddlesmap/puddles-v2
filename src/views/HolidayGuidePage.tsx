@@ -41,7 +41,7 @@ export function HolidayGuidePage() {
   useStructuredData('puddles-holiday-lights-guide-jsonld', articleJsonLd)
 
   return (
-    <div className="guide-page gct-page gct-page--abn-index holiday-guide-dimmed">
+    <div className="guide-page gct-page gct-page--abn-index holiday-guide-dimmed holiday-guide-hub-chrome">
       <div className="holiday-guide-blobs" aria-hidden="true">
         <span className="holiday-guide-blob holiday-guide-blob--1" />
         <span className="holiday-guide-blob holiday-guide-blob--2" />

@@ -83,8 +83,29 @@ export function PuddlesPicksMobilePill() {
     return () => observer.disconnect()
   }, [location.pathname])
 
+  const [guideTopFab, setGuideTopFab] = useState(false)
+
+  useEffect(() => {
+    function syncGuideTopFab() {
+      setGuideTopFab(document.documentElement.dataset.guideTopFab === '1')
+    }
+    syncGuideTopFab()
+    const observer = new MutationObserver(syncGuideTopFab)
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-guide-top-fab'],
+    })
+    return () => observer.disconnect()
+  }, [location.pathname])
+
   const show =
-    Boolean(page) && mobile && !joined && !dismissed && !cardVisible && !eventOverlayOpen
+    Boolean(page) &&
+    mobile &&
+    !joined &&
+    !dismissed &&
+    !cardVisible &&
+    !eventOverlayOpen &&
+    !guideTopFab
 
   useEffect(() => {
     if (!show) {

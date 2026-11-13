@@ -1,4 +1,20 @@
-/* Puddles Picks on Home — Saved experiment only. */
+/* Puddles Picks CTA — shared chrome (Home + guide footer) */
+
+.picks-home-share.community-cta-card,
+.picks-home-share.community-cta-card.community-cta-card--neutral {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  overflow: visible;
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-md, 0.75rem);
+  background: #ffffff;
+  box-shadow: var(--elevation-shadow-soft, 0 4px 16px rgb(34 34 34 / 0.06));
+  padding: 1.25rem;
+  padding-bottom: 1.5rem;
+  text-align: left;
+  color: var(--color-black, #273034);
+}
 
 .picks-home-share .picks-home-kicker {
   margin: 0 0 0.7rem;
@@ -58,10 +74,15 @@
     bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
   }
 
-  /* Sit a bit higher over dense guide / seasonal card stacks */
+  /* Clear BottomNav with a visible gap (nav ~4.5–5.5rem + safe-area) */
   body:has(.seasonal-collection-page) .bring-nearby-anchor--picks,
   body:has(.guide-page.gct-page) .bring-nearby-anchor--picks {
-    bottom: calc(6.35rem + env(safe-area-inset-bottom, 0px));
+    bottom: calc(7.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Guide Top FAB owns the corner once scrolled — hide Picks pill */
+  html[data-guide-top-fab] .bring-nearby-anchor--picks {
+    display: none;
   }
 }
 

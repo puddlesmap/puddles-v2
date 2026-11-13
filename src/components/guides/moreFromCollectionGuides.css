@@ -1,44 +1,140 @@
-.more-from-collection {
-  margin: 2rem 0 0;
-  padding: 0;
+/* Guide-page “More from…” — same card-grid as Holiday Magic hub, flat lighten chrome */
+
+.more-from-collection.hmg-guides-carousel {
+  margin: 3.25rem 0 2.5rem;
+  max-width: 56rem;
+  width: 100%;
 }
 
-.more-from-collection__heading {
-  margin: 0 0 0.85rem;
-  font-family: var(--font-sans);
-  font-size: 1.05rem;
+/* Match hub lighten: no lime island on the cream guide page */
+.more-from-collection.hmg-guides-carousel .sgc {
+  --sgc-heading: #113f34;
+  --sgc-brand: #113f34;
+  --sgc-muted: #6f756e;
+  --sgc-panel: #ffffff;
+  --sgc-border: #ebebeb;
+  --sgc-ink: #273034;
+  margin-bottom: 0;
+  padding: 0.25rem 0 0.35rem;
+  border-radius: 0;
+  background: transparent;
+}
+
+.more-from-collection.hmg-guides-carousel .sgc__heading {
+  color: #113f34;
+  margin: 0 0 0.65rem;
+  font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.25;
-  color: var(--color-text, #273034);
+  letter-spacing: normal;
 }
 
-.more-from-collection__list {
-  list-style: none;
+.more-from-collection.hmg-guides-carousel .sgc-dots__dot {
+  background: color-mix(in srgb, #113f34 22%, transparent);
+}
+
+.more-from-collection.hmg-guides-carousel .sgc-dots__dot.is-active {
+  background: #113f34;
+}
+
+.more-from-collection.hmg-guides-carousel .sgc-card__media {
+  aspect-ratio: 16 / 10;
+}
+
+.more-from-collection.hmg-guides-carousel .sgc-card {
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-md, 0.75rem);
+  background: #ffffff;
+  box-shadow: var(--elevation-shadow-soft, 0 4px 16px rgb(34 34 34 / 0.06));
+  overflow: hidden;
+}
+
+.more-from-collection.hmg-guides-carousel .sgc-card__panel {
+  border: none;
+  box-shadow: 0 6px 18px rgba(39, 48, 52, 0.08);
+  /* ~2/3 of default sgc panel padding */
+  gap: 0.19rem;
+  padding: 0.53rem 0.57rem 0.6rem;
+  margin: -1.35rem 0.65rem 0.65rem;
+}
+
+/*
+  Beat `.guide-page.skin .lgg-body h3` (1.5rem chapter titles) so carousel
+  text matches the seasonal hub — ~2/3 of that inflated size / hub secondary.
+*/
+.guide-page.skin .lgg-body .more-from-collection .sgc-card__title,
+.more-from-collection.hmg-guides-carousel .sgc-card__title {
   margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.75rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: var(--sgc-ink, #273034);
 }
 
-@media (min-width: 640px) {
-  .more-from-collection__list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+.guide-page.skin .lgg-body .more-from-collection .sgc-card__label,
+.more-from-collection.hmg-guides-carousel .sgc-card__label {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sgc-brand, #113f34);
+}
+
+.guide-page.skin .lgg-body .more-from-collection .sgc-card.is-soon .sgc-card__label,
+.more-from-collection.hmg-guides-carousel .sgc-card.is-soon .sgc-card__label {
+  color: var(--sgc-muted, #6f756e);
+}
+
+.guide-page.skin .lgg-body .more-from-collection .sgc-card__dek,
+.more-from-collection.hmg-guides-carousel .sgc-card__dek {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--sgc-muted, #6f756e);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.guide-page.skin .lgg-body .more-from-collection .sgc-card__cta,
+.more-from-collection.hmg-guides-carousel .sgc-card__cta {
+  margin-top: 0.3rem;
+  min-height: 2rem;
+  padding: 0.28rem 0.7rem;
+  font-size: 0.8125rem;
+}
+
+@media (min-width: 768px) {
+  .more-from-collection.hmg-guides-carousel .sgc--desktop-card-grid .sgc-card__media {
+    aspect-ratio: unset;
+    height: 10.3rem;
   }
 }
 
-.more-from-collection__all {
-  margin: 0.9rem 0 0;
+@media (min-width: 900px) {
+  /* Even card widths — hub uses a wider featured column; siblings should match */
+  .more-from-collection.hmg-guides-carousel .sgc--desktop-card-grid .sgc__viewport[data-count='2'],
+  .more-from-collection.hmg-guides-carousel .sgc--desktop-card-grid .sgc__viewport[data-count='3'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .more-from-collection.hmg-guides-carousel .sgc--desktop-card-grid .sgc__viewport[data-count='3'] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .guide-page.skin .lgg-body .more-from-collection .sgc-card--featured .sgc-card__title,
+  .guide-page.skin .lgg-body .more-from-collection .sgc-card--secondary .sgc-card__title,
+  .more-from-collection.hmg-guides-carousel .sgc--desktop-card-grid .sgc-card--featured .sgc-card__title,
+  .more-from-collection.hmg-guides-carousel .sgc--desktop-card-grid .sgc-card--secondary .sgc-card__title {
+    font-size: 0.98rem;
+  }
 }
 
-.more-from-collection__all a {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--color-brand, #1d743f);
-  text-decoration: none;
-}
-
-.more-from-collection__all a:hover {
-  text-decoration: underline;
+@media (min-width: 1100px) {
+  .more-from-collection.hmg-guides-carousel .sgc--desktop-card-grid .sgc-card__media {
+    height: 11.6rem;
+  }
 }

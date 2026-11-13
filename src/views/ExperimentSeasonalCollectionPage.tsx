@@ -386,13 +386,18 @@ export function SeasonalActivePage() {
   return <ExperimentSeasonalCollectionPage slug={active.slug} />
 }
 
+export type HolidayMagicSkin = 'reverse' | 'lighten'
+
 export function ExperimentSeasonalCollectionPage({
   slug: slugProp,
   typeaheadFilters: typeaheadFiltersProp = false,
+  skin: skinProp = 'lighten',
 }: {
   slug?: string
   /** Browse-style city/ZIP typeahead + pick-a-date (opt-in via prop; off for holiday-magic for now). */
   typeaheadFilters?: boolean
+  /** Holiday Magic visual skin. Live hub uses `lighten`; pass `reverse` to compare the prior dark page. */
+  skin?: HolidayMagicSkin
 } = {}) {
   const params = useParams()
   const location = useLocation()
@@ -534,6 +539,15 @@ export function ExperimentSeasonalCollectionPage({
   const isHalloween = collection.slug === 'halloween-with-little-ones'
   const isHelloFall = collection.slug === 'hello-fall'
   const isHoliday = collection.slug === 'holiday-magic'
+  const holidaySkin: HolidayMagicSkin = isHoliday ? skinProp : 'reverse'
+  const holidayShellClass =
+    holidaySkin === 'lighten'
+      ? 'home-experiment-shell--holiday-magic home-experiment-shell--holiday-magic-lighten'
+      : 'home-experiment-shell--holiday-magic home-experiment-shell--holiday-magic-reverse'
+  const holidayPageClass =
+    holidaySkin === 'lighten'
+      ? 'seasonal-collection-page--holiday-magic seasonal-collection-page--holiday-magic-lighten'
+      : 'seasonal-collection-page--holiday-magic seasonal-collection-page--holiday-magic-reverse'
   const hasGeographicSections = Boolean(collection.closeToHome && collection.worthADrive)
   const supportingLine =
     collection.slug === 'hello-fall' ||
@@ -571,7 +585,7 @@ export function ExperimentSeasonalCollectionPage({
         'home-experiment-shell--refined',
         isHelloFall ? 'home-experiment-shell--hello-fall-collection home-experiment-shell--seasonal-puddles-aligned' : '',
         isHalloween ? 'home-experiment-shell--halloween-night' : '',
-        isHoliday ? 'home-experiment-shell--holiday-magic home-experiment-shell--holiday-magic-reverse' : '',
+        isHoliday ? holidayShellClass : '',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -623,7 +637,7 @@ export function ExperimentSeasonalCollectionPage({
           'layout-container',
           isHelloFall ? 'seasonal-collection-page--hello-fall' : '',
           isHalloween ? 'seasonal-collection-page--halloween' : '',
-          isHoliday ? 'seasonal-collection-page--holiday-magic seasonal-collection-page--holiday-magic-reverse' : '',
+          isHoliday ? holidayPageClass : '',
           hasGeographicSections ? 'seasonal-collection-page--split' : '',
           showTypeahead ? 'seasonal-collection-page--typeahead-filters' : '',
         ]
@@ -645,9 +659,11 @@ export function ExperimentSeasonalCollectionPage({
         >
           {isExperimentPreview && isHoliday ? (
             <p className="seasonal-mockup-banner">
-              {showTypeahead
-                ? 'Mockup · Holiday Magic filters preview'
-                : 'Mockup · Holiday Magic preview'}
+              {holidaySkin === 'reverse'
+                ? 'Mockup · Holiday Magic reverse — not live'
+                : showTypeahead
+                  ? 'Mockup · Holiday Magic filters preview'
+                  : 'Mockup · Holiday Magic preview'}
             </p>
           ) : null}
           <div className="seasonal-collection-nav">

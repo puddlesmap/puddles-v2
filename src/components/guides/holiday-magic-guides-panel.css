@@ -1,4 +1,4 @@
-/* Live Holiday Magic hub — lime island + full-width card grid on desktop */
+/* Holiday Magic guides — reverse (lime island) vs lighten (page bg, live chrome) */
 
 .hmg-guides-carousel {
   margin: 0.15rem 0 var(--space-md, 1rem);
@@ -40,4 +40,78 @@
 
 .hmg-guides-carousel .sgc-dots__dot.is-active {
   background: #17382a;
+}
+
+/* Lighten (live) — no olive island; Home-like soft shadow */
+.seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel {
+  margin-top: 0.1rem;
+  margin-bottom: 1rem;
+  max-width: 56rem;
+}
+
+.seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc {
+  --sgc-heading: #113f34;
+  --sgc-brand: #113f34;
+  --sgc-muted: #6f756e;
+  --sgc-panel: #ffffff;
+  --sgc-border: #ebebeb;
+  padding: 0.25rem 0 0.35rem;
+  border-radius: 0;
+  background: transparent;
+}
+
+.seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc__heading {
+  color: #113f34;
+  margin-bottom: 0.65rem;
+}
+
+.seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc-dots__dot {
+  background: color-mix(in srgb, #113f34 22%, transparent);
+}
+
+.seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc-dots__dot.is-active {
+  background: #113f34;
+}
+
+/* ~25–30% shorter than live 4/3 */
+.seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc-card__media {
+  aspect-ratio: 16 / 10;
+}
+
+.seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc-card {
+  border: 1px solid #ebebeb;
+  border-radius: var(--radius-md, 0.75rem);
+  background: #ffffff;
+  box-shadow: var(--elevation-shadow-soft, 0 4px 16px rgb(34 34 34 / 0.06));
+  overflow: hidden;
+}
+
+/* Keep live-like white text panel; soft elevation lives on the card shell */
+.seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc-card__panel {
+  border: none;
+  box-shadow: 0 6px 18px rgba(39, 48, 52, 0.08);
+}
+
+@media (min-width: 768px) {
+  .seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel {
+    margin-bottom: 1.35rem;
+  }
+
+  /* Live desktop heights 13.75 / 15.5 → ~70–75% */
+  .seasonal-collection-page--holiday-magic-lighten
+    .hmg-guides-carousel
+    .sgc--desktop-card-grid
+    .sgc-card__media {
+    aspect-ratio: unset;
+    height: 10.3rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .seasonal-collection-page--holiday-magic-lighten
+    .hmg-guides-carousel
+    .sgc--desktop-card-grid
+    .sgc-card__media {
+    height: 11.6rem;
+  }
 }
