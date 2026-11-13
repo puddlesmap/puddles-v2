@@ -95,6 +95,8 @@
 @media (min-width: 768px) {
   .seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel {
     margin-bottom: 1.35rem;
+    max-width: none;
+    width: 100%;
   }
 
   /* Live desktop heights 13.75 / 15.5 → ~70–75% */
