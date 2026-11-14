@@ -11,6 +11,7 @@ import { SaveHeartIcon } from '../saved/SaveHeartIcon'
 import { useSavedOptional } from '../../context/SavedContext'
 import { BeforeYouGoTipItems } from './BeforeYouGoIcon'
 import { RelativeDateLabel } from './RelativeDateLabel'
+import { EventLocationUpdatedBanner } from './EventLocationUpdatedBanner'
 import { SharedEventNearbySection } from './SharedEventNearbySection'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { ANALYTICS_EVENTS, trackActivityEngagement } from '../../utils/analytics'
@@ -466,6 +467,8 @@ export function EventDetailFullpageMockLayout({
               <p className="sedl-body sedl-v3-desktop-desc">{p.displayDescription}</p>
             ) : null}
 
+            <EventLocationUpdatedBanner event={event} />
+
             <div className="sedl-airbnb-facts">
               <div>
                 <p className="sedl-fact-label">When</p>
@@ -621,6 +624,8 @@ export function EventDetailFullpageMockLayout({
         <div className="sedl-v2-main">
           <div className="sedl-v2-content">
             <h1 className="event-detail-title sedl-v2-title">{event.title}</h1>
+
+            <EventLocationUpdatedBanner event={event} />
 
             <div className="sedl-v2-meta event-detail-fields">
               <div className="event-detail-row">

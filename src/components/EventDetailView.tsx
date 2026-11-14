@@ -12,6 +12,7 @@ import { AddToCalendarButton } from './calendar/AddToCalendarButton'
 import type { EventLifecycleStatus } from '../utils/eventLifecycle'
 import type { LifecycleLinkTarget } from '../utils/eventLifecycleBrowse'
 import { EventLifecycleBanner } from './event-detail/EventLifecycleBanner'
+import { EventLocationUpdatedBanner } from './event-detail/EventLocationUpdatedBanner'
 import { EventLifecycleActions } from './event-detail/EventLifecycleActions'
 import { SharedEventVisitorIntro } from './event-detail/SharedEventVisitorIntro'
 import { RelativeDateLabel } from './event-detail/RelativeDateLabel'
@@ -659,6 +660,8 @@ export function EventDetailView({
               linkTarget={lifecycleLinkTarget}
             />
           ) : null}
+
+          {!isEndedLifecycle ? <EventLocationUpdatedBanner event={event} /> : null}
 
           {!previewMode &&
           !hasInAppReturn &&

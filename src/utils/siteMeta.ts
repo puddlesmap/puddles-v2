@@ -181,6 +181,9 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   if (pathname === '/experiment/saved-reminder-mockup') {
     return formatDocumentTitle('Saved reminder mockup')
   }
+  if (pathname === '/experiment/saved-past-mockup') {
+    return formatDocumentTitle('Saved Past mockup')
+  }
   if (
     pathname === '/experiment/event-detail-fullpage' ||
     pathname.startsWith('/experiment/event-detail-fullpage/')

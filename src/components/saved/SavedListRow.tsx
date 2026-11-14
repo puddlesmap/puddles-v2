@@ -15,6 +15,7 @@ import {
 import { getSeasonalAvailability } from '../../utils/formatSeasonalSchedule'
 import { EventImage } from '../EventImage'
 import { SaveHeartIcon } from './SaveHeartIcon'
+import { SavedLocationUpdatedChip } from './SavedLocationUpdatedChip'
 
 export type SavedListRowVariant = 1 | 2 | 3 | 4 | 5
 
@@ -114,6 +115,7 @@ export function SavedListRow({
       </button>
       <p className="saved-list-row__when">{when}</p>
       <p className="saved-list-row__place">{place}</p>
+      <SavedLocationUpdatedChip event={event} />
     </div>
   )
 

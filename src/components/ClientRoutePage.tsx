@@ -90,6 +90,7 @@ import { ExperimentSeasonalBackgroundDialPage } from '@/views/ExperimentSeasonal
 import { ExperimentHolidayMagicFiltersPage } from '@/views/ExperimentHolidayMagicFiltersPage'
 import { ExperimentHolidayMagicLightenPage } from '@/views/ExperimentHolidayMagicLightenPage'
 import { ExperimentSavedReminderMockupPage } from '@/views/ExperimentSavedReminderMockupPage'
+import { ExperimentSavedPastMockupPage } from '@/views/ExperimentSavedPastMockupPage'
 import {
   ExperimentEventDetailFullpageDetailPage,
   ExperimentEventDetailFullpageIndexPage,
@@ -305,6 +306,10 @@ function ClientRoutes() {
             <Route
               path="/experiment/saved-reminder-mockup"
               element={<ExperimentSavedReminderMockupPage />}
+            />
+            <Route
+              path="/experiment/saved-past-mockup"
+              element={<ExperimentSavedPastMockupPage />}
             />
             <Route
               path="/experiment/event-detail-fullpage"

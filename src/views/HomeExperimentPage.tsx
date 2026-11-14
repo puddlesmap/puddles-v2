@@ -34,7 +34,7 @@ import { useEventNavigation } from '../hooks/useEventNavigation'
 import { filterEvents, sortEventsBySchedule } from '../utils/filters'
 import { eventMatchesPickedYmd } from '../utils/pickedDate'
 import type { TemporalTab } from '../utils/dates'
-import { getFirstTemporalTabWithEvents, getTemporalTabs } from '../utils/dates'
+import { getFirstTemporalTabWithEvents, getTemporalTabs, ymdForTemporalTab } from '../utils/dates'
 import {
   NEARBY_RADIUS_MILES,
   filterEventsByRadius,
@@ -287,6 +287,14 @@ export function HomeExperimentPage({
     }
   }, [])
 
+  const filterYmd = useMemo(() => {
+    if (pickedYmd) return pickedYmd
+    if (temporalTab === 'today' || temporalTab === 'tomorrow') {
+      return ymdForTemporalTab(temporalTab)
+    }
+    return null
+  }, [pickedYmd, temporalTab])
+
   const events = useMemo(() => {
     const base = filterEvents(resolveCatalog(), {
       city: whereMode.kind === 'city' && whereMode.value !== 'all' ? whereMode.value : 'all',
@@ -300,8 +308,8 @@ export function HomeExperimentPage({
       )
     }
 
-    return sortEventsBySchedule(base)
-  }, [whereMode, temporalTab, pickedYmd, coords, resolveCatalog])
+    return sortEventsBySchedule(base, new Date(), { forYmd: filterYmd })
+  }, [whereMode, temporalTab, pickedYmd, filterYmd, coords, resolveCatalog])
 
   const feedKey = useMemo(
     () =>
@@ -419,6 +427,7 @@ export function HomeExperimentPage({
       appendVenueToTitle={appendVenueToTitle}
       appendVenueToWhen={appendVenueToWhen}
       venueResponsive={venueResponsive}
+      forYmd={filterYmd}
       onClick={() => openEvent(event, 'home', { viewMode: 'list' })}
     />
   )

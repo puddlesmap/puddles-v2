@@ -156,6 +156,11 @@ export interface Event {
    * Shown until the new date has passed. A new occurrence does not set this.
    */
   rescheduledFrom?: string
+  /**
+   * Previous venue name when an editor confirmed a location change.
+   * Parent UI shows a location-updated notice until cleared.
+   */
+  locationChangedFrom?: string
 }
 
 export type DayFilter = 'today' | 'tomorrow' | 'weekend' | 'anytime'

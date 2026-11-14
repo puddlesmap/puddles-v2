@@ -24,8 +24,9 @@ export function eventToBrowseCard(
   event: Event,
   badge: DiscoveryBadgeData | null = null,
   now: Date = new Date(),
+  opts?: { forYmd?: string | null },
 ) {
-  const when = formatDiscoveryWhen(event, now)
+  const when = formatDiscoveryWhen(event, now, opts)
   return {
     title: event.title,
     when: when.line,

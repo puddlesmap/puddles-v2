@@ -4,6 +4,7 @@ import { EventImage } from '../EventImage'
 import { EventDetailIcon } from '../EventDetailIcon'
 import { EventRouteCard } from '../EventRouteCard'
 import { EventLifecycleBanner } from './EventLifecycleBanner'
+import { EventLocationUpdatedBanner } from './EventLocationUpdatedBanner'
 import { EventLifecycleActions } from './EventLifecycleActions'
 import { SharedEventNearbySection } from './SharedEventNearbySection'
 import { SharedEventVisitorIntro } from './SharedEventVisitorIntro'
@@ -1020,6 +1021,8 @@ export function AirbnbV3DesktopContent({
             />
           ) : null}
 
+          {!isEnded ? <EventLocationUpdatedBanner event={event} /> : null}
+
           <div className="sedl-airbnb-facts">
             <div>
               <p className="sedl-fact-label">When</p>
@@ -1174,6 +1177,8 @@ function AirbnbV3Layout({
                 linkTarget={lifecycleLinkTarget}
               />
             ) : null}
+
+            {!isEnded ? <EventLocationUpdatedBanner event={event} /> : null}
 
             <div className="sedl-v2-meta event-detail-fields">
               <div className="event-detail-row">

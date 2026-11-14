@@ -36,6 +36,11 @@ interface BrowseEventCardProps {
   showSaveHeart?: boolean
   /** Soft blue day pill on media (Saved). Default off. */
   showMediaDayPill?: boolean
+  /**
+   * When Home/Browse filters to one calendar day, label that day on the card
+   * (avoids “Open TODAY” / “TODAY · …” while Tomorrow is selected).
+   */
+  forYmd?: string | null
 }
 
 /** Production browse card — Discovery v3 · Option 2 (city-soft). */
@@ -52,6 +57,7 @@ export function BrowseEventCard({
   venueResponsive = false,
   showSaveHeart = true,
   showMediaDayPill = false,
+  forYmd = null,
   /** Override “today” for seasonal-run date labels (review mockups). */
   asOf,
 }: BrowseEventCardProps & { asOf?: Date }) {
@@ -59,7 +65,7 @@ export function BrowseEventCard({
   // Mobile map preview cards are too small for seasonal pills to read.
   const showSeasonalPill = seasonalEditorial && density !== 'map-sheet'
   const badge = showSeasonalPill ? getSeasonalEditorialBadgeForEvent(event) : null
-  const card = eventToBrowseCard(event, badge, now)
+  const card = eventToBrowseCard(event, badge, now, { forYmd })
   const titleParts = appendVenueToTitle ? formatEventCardTitleParts(event) : null
 
   const venue = event.venue?.trim() || null

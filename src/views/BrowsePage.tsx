@@ -21,7 +21,7 @@ import {
   formatSearchAnchorLocationLabel,
   type BrowseSearchAnchor,
 } from '../utils/browseSearchAnchor'
-import { formatShortDate } from '../utils/dates'
+import { formatShortDate, ymdForTemporalTab } from '../utils/dates'
 import { useApp } from '../context/AppContext'
 import { BrowseEmptyState } from '../components/empty-states/BrowseEmptyState'
 import { BrowseMapView } from '../components/browse/BrowseMapView'
@@ -333,6 +333,14 @@ export function BrowsePage({
     })
   }, [browseFilters, coords, isRequesting, requestLocation, setBrowseFilters])
 
+  const filterYmd = useMemo(() => {
+    if (pickedYmd) return pickedYmd
+    if (browseFilters.day === 'today' || browseFilters.day === 'tomorrow') {
+      return ymdForTemporalTab(browseFilters.day)
+    }
+    return null
+  }, [pickedYmd, browseFilters.day])
+
   const events = useMemo(() => {
     const base = filterBrowseEventList({
       catalog: resolveCatalog(),
@@ -343,8 +351,8 @@ export function BrowsePage({
       coords,
     })
 
-    return sortEventsBySchedule(base)
-  }, [browseFilters, pickedYmd, searchAnchor, coords, discoveryGate, resolveCatalog])
+    return sortEventsBySchedule(base, new Date(), { forYmd: filterYmd })
+  }, [browseFilters, pickedYmd, filterYmd, searchAnchor, coords, discoveryGate, resolveCatalog])
 
   const getFilterSheetResultCount = useCallback(
     (draft: BrowseFilters, draftPickedYmd: string | null) =>
@@ -831,6 +839,7 @@ export function BrowsePage({
                       appendVenueToWhen={appendVenueToWhen}
                       showVenueBelowTitle={showVenueBelowTitle}
                       venueResponsive={venueResponsive}
+                      forYmd={filterYmd}
                     />
                   ))}
                 </div>

@@ -23,12 +23,18 @@ import {
   formatCardDateTime,
   formatEventTimeRange,
   formatTime,
+  getAnchorDate,
   getEventEffectiveEnd,
   getThisWeekendRange,
   isEventStillActive,
   PUBLIC_DISPLAY_WINDOW_DAYS,
   zonedCalendarDate,
 } from './dates'
+
+export type DiscoveryWhenOpts = {
+  /** When Home/Browse filters to a single calendar day, label that day (not “next open” from now). */
+  forYmd?: string | null
+}
 
 export type DiscoveryWhenParts = {
   primary: string
@@ -545,14 +551,17 @@ export function getSeasonalAvailability(
 export function formatSeasonalBrowseWhen(
   event: SeasonalFields,
   now: Date = new Date(),
+  opts?: DiscoveryWhenOpts,
 ): DiscoveryWhenParts {
+  const forYmd = opts?.forYmd?.trim() || null
+  const labelAnchor = getAnchorDate()
   const performances = formatMultiplePerformancesCardWhen(event)
   if (performances) {
     return { primary: performances, line: performances }
   }
 
   if (!eventUsesSeasonalWhen(event)) {
-    const line = formatCardDateTime(event.date, event.startTime, now)
+    const line = formatCardDateTime(event.date, event.startTime, labelAnchor)
     return { primary: line, line }
   }
 
@@ -561,10 +570,19 @@ export function formatSeasonalBrowseWhen(
     return { primary: avail.statusLabel, line: avail.statusLabel }
   }
 
+  // Single-day When filter: show that day’s occurrence, not “Open TODAY” from wall-clock now.
+  if (forYmd) {
+    const line = formatCardDateTime(forYmd, event.startTime, labelAnchor)
+    if (event.scheduleKind === 'seasonal-run' && avail.hoursOk) {
+      return { primary: line, secondary: avail.hours, line: joinWhen(line, avail.hours) }
+    }
+    return { primary: line, line }
+  }
+
   // Multi-day festivals on cards: start day/date + start time (not date-span or hours duration).
   if (event.scheduleKind === 'multi-day') {
     const day = avail.nextRelevantYmd || avail.opening || event.date
-    const line = formatCardDateTime(day, event.startTime, now)
+    const line = formatCardDateTime(day, event.startTime, labelAnchor)
     return { primary: line, line }
   }
 
@@ -651,8 +669,9 @@ export function formatSeasonalDetailWhen(
 export function formatDiscoveryWhen(
   event: SeasonalFields,
   now: Date = new Date(),
+  opts?: DiscoveryWhenOpts,
 ): DiscoveryWhenParts {
-  return formatSeasonalBrowseWhen(event, now)
+  return formatSeasonalBrowseWhen(event, now, opts)
 }
 
 /**

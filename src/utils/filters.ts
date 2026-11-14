@@ -119,9 +119,16 @@ export function filterEvents(
 }
 
 /** Chronological feed order — next open day, then start time, then title. */
-export function sortEventsBySchedule(events: Event[], now: Date = new Date()): Event[] {
+export function sortEventsBySchedule(
+  events: Event[],
+  now: Date = new Date(),
+  opts?: { forYmd?: string | null },
+): Event[] {
+  const forYmd = opts?.forYmd?.trim() || null
   return [...events].sort((a, b) => {
-    const byDate = scheduleSortYmd(a, now).localeCompare(scheduleSortYmd(b, now))
+    const aYmd = forYmd || scheduleSortYmd(a, now)
+    const bYmd = forYmd || scheduleSortYmd(b, now)
+    const byDate = aYmd.localeCompare(bYmd)
     if (byDate !== 0) return byDate
     const byTime = (a.startTime || '').localeCompare(b.startTime || '')
     if (byTime !== 0) return byTime

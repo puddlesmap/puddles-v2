@@ -415,6 +415,19 @@ export function dateInTemporalTab(dateStr: string, tab: TemporalTab, anchor = ge
   return dateInThisWeekend(dateStr, anchor)
 }
 
+/** Pacific YYYY-MM-DD for a single-day Home/Browse When chip (today / tomorrow). */
+export function ymdForTemporalTab(
+  tab: Extract<TemporalTab, 'today' | 'tomorrow'>,
+  now: Date = new Date(),
+): string {
+  const today = zonedCalendarDate(now)
+  if (tab === 'tomorrow') {
+    const d = parseFlexibleDate(today) ?? new Date(`${today}T12:00:00`)
+    return zonedCalendarDate(addDays(d, 1))
+  }
+  return today
+}
+
 export function getFirstTemporalTabWithEvents(
   events: { date: string; startTime?: string; endTime?: string }[],
   anchor = getAnchorDate(),
