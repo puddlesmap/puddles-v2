@@ -1,65 +1,55 @@
 # Expansion discovery lookahead
 
-Window: **2026-11-11 → 2027-02-09** (90 days)
+Window: **2026-11-18 → 2027-02-16** (90 days)
 
-Generated 2026-11-11T21:42:08.339Z
+Generated 2026-11-18T22:27:23.546Z
 
 ## Launch expansion targets
 
 | Target | In window (discovery queue) | Pending review | On live catalog |
 |--------|----------------------------|----------------|-----------------|
-| **Sunnyvale** (new city) | 7 | 2 | 20 |
-| **Parent & Me** (new type) | 2 | 2 | 1 |
-| **Festivals & Community** (new type) | 23 | 3 | 12 |
+| **Sunnyvale** (new city) | 4 | 0 | 15 |
+| **Parent & Me** (new type) | 0 | 0 | 2 |
+| **Festivals & Community** (new type) | 19 | 2 | 23 |
 
 ## By city (discovery queue, in window)
 
 | City | Total | New for review |
 |------|-------|----------------|
-| Palo Alto | 67 | 6 |
-| Mountain View | 44 | 14 |
-| Los Altos | 21 | 0 |
-| Sunnyvale | 7 | 2 |
+| Palo Alto | 65 | 12 |
+| Mountain View | 49 | 21 |
+| Los Altos | 21 | 1 |
+| Sunnyvale | 4 | 0 |
 | San Carlos | 4 | 3 |
 | Oakland | 3 | 1 |
 | Sausalito | 2 | 1 |
-| San Mateo | 1 | 0 |
-| Woodside | 1 | 0 |
 | San Francisco | 1 | 0 |
 
 ## By activity type (discovery queue, in window)
 
 | Type | Count |
 |------|-------|
-| Stories | 88 |
-| Festivals & Community | 23 |
-| Build & Explore | 21 |
-| Outdoor | 18 |
+| Stories | 94 |
+| Festivals & Community | 19 |
+| Build & Explore | 17 |
+| Outdoor | 15 |
 | Music & Movement | 10 |
-| Other | 5 |
+| Other | 6 |
 | Arts & Crafts | 4 |
-| Parent & Me | 2 |
 | Social & Play | 1 |
 
 ## Sunnyvale — pending review
 
-| Date | Event | Source | Status |
-|------|-------|--------|--------|
-| 2026-11-14 | FREE: Meet the Doula | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 | pending |
-| 2026-11-15 | Annual International Potluck Friendsgiving (FREE) | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 | pending |
+_No Sunnyvale rows in window — check watchlist (Mini Yoga, FIT4MOM) and library seeds._
 
 ## Parent & Me — pending review (in window)
 
-| Date | City | Event | Source |
-|------|------|-------|--------|
-| 2026-11-12 | Mountain View | FIT4MOM Walk Club & Library Storytime | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 |
-| 2026-11-14 | Sunnyvale | FREE: Meet the Doula | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 |
+_None — re-check FIT4MOM schedule, Marti Foster, Music Together, yoga studios._
 
 ## Festivals & Community — pending review (in window)
 
 | Date | City | Event | Source |
 |------|------|-------|--------|
-| 2026-11-15 | Sunnyvale | Annual International Potluck Friendsgiving (FREE) | FIT4MOM Glofox scan · Cursor browser · 2026-11-03 |
 | 2026-12-31 | Sausalito | Noon Year's Eve | Regional · Lead · agent |
 | 2026-12-31 | Oakland | Countdown in Wonderland | Regional · Lead · agent |
 
@@ -169,6 +159,7 @@ Checked this pass: 0/3
 
 ## Gaps & next actions
 
+- **Sunnyvale:** No pending library rows — Sunnyvale Public Library is watchlist-only until `discover-sunnyvale.mjs` exists; verify Mini Yoga Club + FIT4MOM Las Palmas + library seeds.
 - **Sunnyvale library:** No automated Sunnyvale branch scraper — add `discover-sunnyvale.mjs` or keep `build-launch-staging.mjs` series seeds current.
 - **Parent & Me:** Re-check FIT4MOM weekly graphic (Mondays), Marti Foster, Music Together semester row.
 - **Seasonal drive picks:** Editorial farms/haunts live in `seasonal*DriveEvents.ts` — not library scrapers.

@@ -1,0 +1,217 @@
+{
+  "generatedAt": "2026-11-18T22:27:23.546Z",
+  "window": {
+    "start": "2026-11-18",
+    "end": "2027-02-16",
+    "days": 90
+  },
+  "launchTargets": {
+    "city": "Sunnyvale",
+    "activityTypes": [
+      "Parent & Me",
+      "Festivals & Community"
+    ]
+  },
+  "discoveryGeneratedAt": "2026-11-18T22:27:23.310Z",
+  "expansion": {
+    "sunnyvale": {
+      "inWindow": 4,
+      "pending": 0,
+      "onCatalog": 15
+    },
+    "parentAndMe": {
+      "inWindow": 0,
+      "pending": 0,
+      "onCatalog": 2
+    },
+    "festivals": {
+      "inWindow": 19,
+      "pending": 2,
+      "onCatalog": 23
+    },
+    "byCity": [
+      [
+        "Palo Alto",
+        {
+          "total": 65,
+          "pending": 12
+        }
+      ],
+      [
+        "Mountain View",
+        {
+          "total": 49,
+          "pending": 21
+        }
+      ],
+      [
+        "Los Altos",
+        {
+          "total": 21,
+          "pending": 1
+        }
+      ],
+      [
+        "Sunnyvale",
+        {
+          "total": 4,
+          "pending": 0
+        }
+      ],
+      [
+        "San Carlos",
+        {
+          "total": 4,
+          "pending": 3
+        }
+      ],
+      [
+        "Oakland",
+        {
+          "total": 3,
+          "pending": 1
+        }
+      ],
+      [
+        "Sausalito",
+        {
+          "total": 2,
+          "pending": 1
+        }
+      ],
+      [
+        "San Francisco",
+        {
+          "total": 1,
+          "pending": 0
+        }
+      ]
+    ],
+    "byType": [
+      [
+        "Stories",
+        94
+      ],
+      [
+        "Festivals & Community",
+        19
+      ],
+      [
+        "Build & Explore",
+        17
+      ],
+      [
+        "Outdoor",
+        15
+      ],
+      [
+        "Music & Movement",
+        10
+      ],
+      [
+        "Other",
+        6
+      ],
+      [
+        "Arts & Crafts",
+        4
+      ],
+      [
+        "Social & Play",
+        1
+      ]
+    ],
+    "sunnyvalePendingRows": [],
+    "parentAndMePendingRows": [],
+    "festivalsPendingRows": [
+      {
+        "id": "regional-badm-noon-years-eve-2026-12-31",
+        "title": "Noon Year's Eve",
+        "date": "2026-12-31",
+        "startTime": "09:00",
+        "endTime": "14:00",
+        "venue": "Bay Area Discovery Museum",
+        "room": "",
+        "address": "",
+        "city": "Sausalito",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Paid",
+        "description": "Countdown crafts, noon ball drop, blacklight sensory experience for babies.",
+        "tips": "Confirm 2026 tickets; ignore 2025 sold-out page.",
+        "imageUrl": "",
+        "eventUrl": "https://bayareadiscoverymuseum.org/events/noon-years-eve/",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      },
+      {
+        "id": "regional-fairyland-countdown-wonderland-2026-12-31",
+        "title": "Countdown in Wonderland",
+        "date": "2026-12-31",
+        "startTime": "10:00",
+        "endTime": "16:00",
+        "venue": "Children's Fairyland",
+        "room": "",
+        "address": "",
+        "city": "Oakland",
+        "lat": null,
+        "lng": null,
+        "ageRange": "All ages · Little ones welcome",
+        "ageMin": 0,
+        "ageMax": 5,
+        "audiences": "",
+        "types": [
+          "Festivals & Community"
+        ],
+        "categoryTags": [
+          "Regional",
+          "Worth a Drive",
+          "Regional",
+          "Worth a Drive",
+          "Holiday magic"
+        ],
+        "cost": "Paid",
+        "description": "Alice-themed daytime New Year's with crafts, puppet shows, bubbles, and noon ball drop.",
+        "tips": "",
+        "imageUrl": "",
+        "eventUrl": "https://www.fairyland.org/countdown-in-wonderland",
+        "source": "Regional · Lead · agent",
+        "watchlistSourceId": "",
+        "isCancelled": false,
+        "isRecurring": false,
+        "alreadyOnPuddles": false,
+        "reviewStatus": "pending",
+        "convertedEventId": "",
+        "lastChecked": "2026-10-29"
+      }
+    ],
+    "actions": [
+      "**Sunnyvale:** No pending library rows — Sunnyvale Public Library is watchlist-only until `discover-sunnyvale.mjs` exists; verify Mini Yoga Club + FIT4MOM Las Palmas + library seeds.",
+      "**Sunnyvale library:** No automated Sunnyvale branch scraper — add `discover-sunnyvale.mjs` or keep `build-launch-staging.mjs` series seeds current.",
+      "**Parent & Me:** Re-check FIT4MOM weekly graphic (Mondays), Marti Foster, Music Together semester row.",
+      "**Seasonal drive picks:** Editorial farms/haunts live in `seasonal*DriveEvents.ts` — not library scrapers.",
+      "**Core cities only in regular discovery:** Events outside Palo Alto / Los Altos / Mountain View belong in Seasonal → Worth a Little Drive until a city landing justifies a scraper."
+    ]
+  },
+  "watchlistUpdatedAt": "2026-10-20"
+}
