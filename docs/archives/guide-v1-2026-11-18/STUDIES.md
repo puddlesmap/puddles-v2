@@ -40,10 +40,10 @@ Do **not** put Stories or Hello New Year in Study 2’s primary cohort or compar
 
 | Field | Value |
 | --- | --- |
-| UTC | _TBD — record at production deploy_ |
-| America/Los_Angeles | _TBD_ |
-| git SHA | _TBD_ |
-| Netlify deploy ID | _TBD_ |
+| UTC | `2026-11-19T00:53:50Z` (git push to `main`; Netlify build may finish a few minutes later) |
+| America/Los_Angeles | `2026-11-18 16:53:50 PST` |
+| git SHA | `41944565897daa6a3444dbccbed547618b5eeb3c` |
+| Netlify deploy ID | _Confirm in Netlify UI when build publishes_ |
 | Notes | Boundary splits Lights V1 vs V2 only; staggered Stories / Hello dates are unrelated to this cut. |
 
 ### Comparable metrics (use where V1 history exists)

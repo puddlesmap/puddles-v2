@@ -103,12 +103,13 @@ Full cohort rules: [`STUDIES.md`](./STUDIES.md).
 
 | Field | Value |
 | --- | --- |
-| Status | **Not deployed** — production approval unchanged |
-| UTC | _TBD at ship_ |
-| America/Los_Angeles | _TBD at ship_ |
-| git SHA | _TBD at ship_ |
-| Netlify deploy ID | _TBD at ship_ |
+| Status | **Pushed to `main`** — awaiting Netlify production publish |
+| UTC | `2026-11-19T00:53:50Z` (push time) |
+| America/Los_Angeles | `2026-11-18 16:53:50 PST` |
+| git SHA | `41944565897daa6a3444dbccbed547618b5eeb3c` |
+| Netlify deploy ID | _Confirm in Netlify UI when build publishes_ |
+| Affected URLs | `/guides/holiday-lights-traditions` (live V2); `/guides/holiday-stories-play` (soon until 2026-11-19 PT); `/guides/hello-new-year` (soon until 2026-12-07 PT); `/seasonal/holiday-magic` |
 
-## Do not deploy until approved
+## Deploy note
 
-Production approval status is **unchanged** (still awaiting explicit yes). After approval, record the table above plus affected Guide URLs and analytics validation status.
+Shipped on explicit approval. Fill Netlify deploy ID when the production build goes live; use push time above as the Study 2 provisional boundary until the exact Netlify publish timestamp is known.
