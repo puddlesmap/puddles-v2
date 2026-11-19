@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import { GuideDesktopTocRail } from '../components/guides/GuideDesktopTocRail'
 import {
   GuideFBleedHero,
@@ -13,11 +14,7 @@ import { MoreFromCollectionGuides } from '../components/guides/MoreFromCollectio
 import { AppHeader } from '../components/layout/AppHeader'
 import { Footer } from '../components/layout/Footer'
 import { GUIDES_CATALOG } from '../data/guidesCatalog'
-import {
-  HOLIDAY_GUIDE_EVENT_COUNT,
-  HOLIDAY_MAGIC_GUIDE_EYEBROW,
-  HOLIDAY_MAGIC_GUIDE_META,
-} from '../data/holidayGuide'
+import { HOLIDAY_GUIDE_EVENT_COUNT, HOLIDAY_MAGIC_GUIDE_EYEBROW } from '../data/holidayGuide'
 import {
   HOLIDAY_STORIES_CTA_BROWSE_LABEL,
   HOLIDAY_STORIES_CTA_DEK,
@@ -25,7 +22,9 @@ import {
   HOLIDAY_STORIES_EVENTS_HREF,
   HOLIDAY_STORIES_FINDER_LEDE,
   HOLIDAY_STORIES_GUIDE_COVER,
+  HOLIDAY_STORIES_GUIDE_META,
   HOLIDAY_STORIES_GUIDE_PATH,
+  HOLIDAY_STORIES_GUIDE_PUBLISH_ON,
   HOLIDAY_STORIES_GUIDE_SECTION_NAV,
   HOLIDAY_STORIES_GUIDE_SLUG,
   HOLIDAY_STORIES_GUIDE_TITLE,
@@ -36,6 +35,7 @@ import {
 } from '../data/holidayStoriesGuidePlaces'
 import { useGuideVisitLifecycle } from '../hooks/useGuideVisitLifecycle'
 import { trackGuideMapOpened } from '../utils/analytics'
+import { zonedCalendarDate } from '../utils/dates'
 import { markGuideMapAssisted } from '../utils/discoveryAttribution'
 import { guideCommonProps } from '../utils/guideVisitAnalytics'
 import {
@@ -65,6 +65,13 @@ const GUIDE_META = getGuideLifecycleMeta(
 )
 
 export function HolidayStoriesGuidePage() {
+  if (zonedCalendarDate() < HOLIDAY_STORIES_GUIDE_PUBLISH_ON) {
+    return <Navigate to="/guides" replace />
+  }
+  return <HolidayStoriesGuidePageLive />
+}
+
+function HolidayStoriesGuidePageLive() {
   useGuideVisitLifecycle(HOLIDAY_STORIES_GUIDE_SLUG, 'v2')
   const lifecycle = resolveGuideLifecycleState(GUIDE_META)
   const [mapOpen, setMapOpen] = useState(false)
@@ -108,7 +115,7 @@ export function HolidayStoriesGuidePage() {
           coverSrc={HOLIDAY_STORIES_GUIDE_COVER}
           eyebrow={HOLIDAY_MAGIC_GUIDE_EYEBROW}
           title={HOLIDAY_STORIES_GUIDE_TITLE}
-          meta={HOLIDAY_MAGIC_GUIDE_META}
+          meta={HOLIDAY_STORIES_GUIDE_META}
           shareUrl={`https://puddlesmap.com${HOLIDAY_STORIES_GUIDE_PATH}`}
           shareTitle={HOLIDAY_STORIES_GUIDE_TITLE}
           guideSlug={HOLIDAY_STORIES_GUIDE_SLUG}

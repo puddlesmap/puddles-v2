@@ -40,3 +40,5 @@ Snapshot of production Guide UX and tracking before V2 work in the local tree.
 ## V2 note
 
 V2 ships Guide **F**, shell **H**, and map explore overlay **G** from the local working tree (post this SHA).
+
+**Study 2** (V1 vs V2 behavioral impact) uses **Holiday Lights only** (`holiday-lights-traditions`), split at the recorded V2 production deploy timestamp. See [`STUDIES.md`](./STUDIES.md).

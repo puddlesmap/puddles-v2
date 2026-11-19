@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import { GuideDesktopTocRail } from '../components/guides/GuideDesktopTocRail'
 import {
   GuideFBleedHero,
@@ -20,7 +21,9 @@ import {
   HELLO_NEW_YEAR_EVENTS_HREF,
   HELLO_NEW_YEAR_FINDER_LEDE,
   HELLO_NEW_YEAR_GUIDE_COVER,
+  HELLO_NEW_YEAR_GUIDE_META,
   HELLO_NEW_YEAR_GUIDE_PATH,
+  HELLO_NEW_YEAR_GUIDE_PUBLISH_ON,
   HELLO_NEW_YEAR_GUIDE_SECTION_NAV,
   HELLO_NEW_YEAR_GUIDE_SLUG,
   HELLO_NEW_YEAR_GUIDE_TITLE,
@@ -29,13 +32,10 @@ import {
   HELLO_NEW_YEAR_GUIDE_MAP_CATEGORIES,
   HELLO_NEW_YEAR_GUIDE_PLACES,
 } from '../data/helloNewYearGuidePlaces'
-import {
-  HOLIDAY_GUIDE_EVENT_COUNT,
-  HOLIDAY_MAGIC_GUIDE_EYEBROW,
-  HOLIDAY_MAGIC_GUIDE_META,
-} from '../data/holidayGuide'
+import { HOLIDAY_GUIDE_EVENT_COUNT, HOLIDAY_MAGIC_GUIDE_EYEBROW } from '../data/holidayGuide'
 import { useGuideVisitLifecycle } from '../hooks/useGuideVisitLifecycle'
 import { trackGuideMapOpened } from '../utils/analytics'
+import { zonedCalendarDate } from '../utils/dates'
 import { markGuideMapAssisted } from '../utils/discoveryAttribution'
 import { guideCommonProps } from '../utils/guideVisitAnalytics'
 import {
@@ -65,6 +65,13 @@ const GUIDE_META = getGuideLifecycleMeta(
 )
 
 export function HelloNewYearGuidePage() {
+  if (zonedCalendarDate() < HELLO_NEW_YEAR_GUIDE_PUBLISH_ON) {
+    return <Navigate to="/guides" replace />
+  }
+  return <HelloNewYearGuidePageLive />
+}
+
+function HelloNewYearGuidePageLive() {
   useGuideVisitLifecycle(HELLO_NEW_YEAR_GUIDE_SLUG, 'v2')
   const lifecycle = resolveGuideLifecycleState(GUIDE_META)
   const [mapOpen, setMapOpen] = useState(false)
@@ -108,7 +115,7 @@ export function HelloNewYearGuidePage() {
           coverSrc={HELLO_NEW_YEAR_GUIDE_COVER}
           eyebrow={HOLIDAY_MAGIC_GUIDE_EYEBROW}
           title={HELLO_NEW_YEAR_GUIDE_TITLE}
-          meta={HOLIDAY_MAGIC_GUIDE_META}
+          meta={HELLO_NEW_YEAR_GUIDE_META}
           shareUrl={`https://puddlesmap.com${HELLO_NEW_YEAR_GUIDE_PATH}`}
           shareTitle={HELLO_NEW_YEAR_GUIDE_TITLE}
           guideSlug={HELLO_NEW_YEAR_GUIDE_SLUG}

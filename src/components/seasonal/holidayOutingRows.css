@@ -1,0 +1,359 @@
+/* Holiday Magic outing rows — Airbnb-style band chrome; Puddles cards unchanged */
+
+.hmg-outing-rows {
+  --hmg-outing-card-gap: var(--discovery-card-gap, 1rem);
+  --hmg-outing-card-width: var(--discovery-card-width, 21rem);
+  margin: 0.35rem 0 0;
+  max-width: none;
+  width: 100%;
+  font-family: var(--font-sans);
+}
+
+@media (min-width: 768px) {
+  .hmg-outing-rows {
+    --hmg-outing-card-gap: var(--discovery-card-gap, 1.25rem);
+  }
+}
+
+.hmg-outing-rows__intro {
+  margin: 0 0 1.15rem;
+}
+
+/* Match Explore the guides heading */
+.seasonal-collection-page .hmg-outing-rows__heading,
+.hmg-outing-rows > .hmg-outing-rows__intro > .hmg-outing-rows__heading {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #113f34;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .seasonal-collection-page .hmg-outing-rows__heading,
+  .hmg-outing-rows > .hmg-outing-rows__intro > .hmg-outing-rows__heading {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.hmg-outing-rows__dek {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--color-body, #333333);
+}
+
+/* No frame — flat on page like Airbnb destination rows */
+.hmg-outing-band {
+  margin: 0 0 1.75rem;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.hmg-outing-band:last-child {
+  margin-bottom: 0.35rem;
+}
+
+.hmg-outing-band__header {
+  margin: 0 0 0.85rem;
+  padding: 0;
+}
+
+.hmg-outing-band__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.hmg-outing-band__title {
+  margin: 0;
+  min-width: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-charcoal, #273034);
+}
+
+.hmg-outing-band__title-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.hmg-outing-band__title-link:hover span {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.hmg-outing-band__title-link:focus-visible {
+  outline: 2px solid var(--color-brand-dark, #4db8f2);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.hmg-outing-band__title-chevron {
+  flex: 0 0 auto;
+  color: var(--color-charcoal, #273034);
+}
+
+.hmg-outing-band__subtitle {
+  margin: 0.2rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-muted, #717171);
+}
+
+.hmg-outing-band__scroll-nav {
+  display: none;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+@media (min-width: 768px) {
+  .hmg-outing-band__scroll-nav {
+    display: inline-flex;
+  }
+}
+
+.hmg-outing-band__scroll-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--color-border, #dddddd);
+  border-radius: 999px;
+  background: var(--color-white, #ffffff);
+  color: var(--color-charcoal, #273034);
+  cursor: pointer;
+}
+
+.hmg-outing-band__scroll-btn:hover:not(:disabled) {
+  background: var(--color-surface-muted, #f7f7f7);
+}
+
+.hmg-outing-band__scroll-btn:focus-visible {
+  outline: 2px solid var(--color-brand-dark, #4db8f2);
+  outline-offset: 2px;
+}
+
+.hmg-outing-band__scroll-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.hmg-outing-band__empty {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-muted, #717171);
+}
+
+.hmg-outing-band__track {
+  outline: none;
+}
+
+.hmg-outing-band__list {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: var(--hmg-outing-card-gap);
+  width: 100%;
+  margin: 0;
+  padding: 0 0 0.2rem;
+  list-style: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.hmg-outing-band__list::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hmg-outing-band__list {
+    scroll-snap-type: none;
+  }
+
+  .hmg-outing-band__list {
+    scroll-behavior: auto;
+  }
+}
+
+.hmg-outing-band__item {
+  flex: 0 0 var(--hmg-outing-card-width);
+  width: var(--hmg-outing-card-width);
+  min-width: var(--hmg-outing-card-width);
+  max-width: var(--hmg-outing-card-width);
+  scroll-snap-align: start;
+}
+
+@media (max-width: 767px) {
+  .hmg-outing-band__item {
+    flex-basis: min(var(--hmg-outing-card-width), calc(100vw - 4.5rem));
+    width: min(var(--hmg-outing-card-width), calc(100vw - 4.5rem));
+    min-width: min(var(--hmg-outing-card-width), calc(100vw - 4.5rem));
+    max-width: min(var(--hmg-outing-card-width), calc(100vw - 4.5rem));
+  }
+}
+
+.hmg-outing-band__item > .venue-cq {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Preserve Browse card footprint without restyling card chrome */
+.hmg-outing-band .discovery-event-card.discovery-v3-event-card {
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.hmg-outing-band .discovery-event-card .card-listing-media {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 5 / 2.75;
+  height: auto;
+  min-height: 8rem;
+}
+
+.hmg-outing-band .browse-content .discovery-event-card.discovery-v3-event-card .discovery-v3-event-card__body {
+  box-sizing: border-box;
+  flex: 0 0 var(--discovery-v3-body-height, 7.625rem);
+  height: var(--discovery-v3-body-height, 7.625rem);
+  min-height: var(--discovery-v3-body-height, 7.625rem);
+  max-height: var(--discovery-v3-body-height, 7.625rem);
+  overflow: hidden;
+}
+
+.hmg-outing-band .browse-content .discovery-v3-event-card h3.discovery-event-title {
+  min-height: calc(2 * 1.35em);
+  max-height: calc(2 * 1.35em);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.hmg-outing-band .browse-content .discovery-v3-event-card .lem-disc-meta-pillars,
+.hmg-outing-band .browse-content .discovery-v3-event-card .lem-disc-meta-pillars--compact {
+  display: flex;
+  flex-wrap: nowrap;
+  min-height: var(--discovery-v3-pillars-height, 1.625rem);
+  max-height: var(--discovery-v3-pillars-height, 1.625rem);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Airbnb-style terminal “See all” card — Puddles type + soft border */
+.hmg-outing-band__item--see-all {
+  display: flex;
+}
+
+.hmg-outing-see-all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  padding: 1.25rem 1rem;
+  border: 1px solid var(--color-border-light, #ebebeb);
+  border-radius: var(--radius-md, 16px);
+  background: var(--color-white, #ffffff);
+  color: var(--color-charcoal, #273034);
+  text-decoration: none;
+  box-shadow: var(--elevation-shadow-soft, 0 4px 16px rgb(34 34 34 / 0.06));
+}
+
+.hmg-outing-see-all:hover {
+  background: var(--color-surface-muted, #f7f7f7);
+}
+
+.hmg-outing-see-all:focus-visible {
+  outline: 2px solid var(--color-brand-dark, #4db8f2);
+  outline-offset: 2px;
+}
+
+.hmg-outing-see-all__stack {
+  position: relative;
+  width: 4.5rem;
+  height: 3.35rem;
+}
+
+.hmg-outing-see-all__thumb,
+.hmg-outing-see-all__placeholder {
+  position: absolute;
+  top: 50%;
+  width: 2.65rem;
+  height: 2.65rem;
+  border: 2px solid #fff;
+  border-radius: 0.55rem;
+  object-fit: cover;
+  background: #e8eee9;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.12);
+}
+
+.hmg-outing-see-all__thumb--0,
+.hmg-outing-see-all__placeholder {
+  left: 0;
+  transform: translateY(-50%) rotate(-8deg);
+  z-index: 1;
+}
+
+.hmg-outing-see-all__thumb--1 {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.hmg-outing-see-all__thumb--2 {
+  right: 0;
+  left: auto;
+  transform: translateY(-50%) rotate(8deg);
+  z-index: 2;
+}
+
+.hmg-outing-see-all__label {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-charcoal, #273034);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

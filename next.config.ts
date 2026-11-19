@@ -19,9 +19,20 @@ const nextConfig: NextConfig = {
     workerThreads: false,
   },
   // Avoid Node 24 + webpack WasmHash crash (`Cannot read properties of undefined (reading 'length')`).
+  // Ignore nested git worktrees so Watchpack does not exhaust file descriptors (EMFILE → false 404s).
   webpack: (config) => {
     config.output = config.output ?? {}
     config.output.hashFunction = 'xxhash64'
+    config.watchOptions = {
+      ...config.watchOptions,
+      ignored: [
+        '**/node_modules/**',
+        '**/.git/**',
+        '**/.next/**',
+        '**/.worktrees/**',
+        '**/worktrees/**',
+      ],
+    }
     return config
   },
 }

@@ -15,7 +15,7 @@ import {
   seasonalCollectionPath,
   type SeasonalCollection,
 } from '../data/seasonalDiscovery'
-import { GUIDES_CATALOG } from '../data/guidesCatalog'
+import { getGuidesForCollection } from '../data/guidesCatalog'
 import { HomeLaunchAnnouncement } from '../components/home/HomeLaunchAnnouncement'
 import { sortSeasonalDiscoveryEvents } from '../utils/formatSeasonalSchedule'
 
@@ -33,8 +33,8 @@ function seasonalCollectionPickCount(collection: SeasonalCollection, now: Date =
 
 /** Live guides tied to a seasonal collection (e.g. Holiday Magic hub). */
 function liveGuideCountForCollection(slug: SeasonalCollection['slug']): number {
-  return GUIDES_CATALOG.filter(
-    (guide) => guide.collectionSlug === slug && guide.status === 'live',
+  return getGuidesForCollection(slug).filter(
+    (guide) => guide.status === 'live' && Boolean(guide.href),
   ).length
 }
 

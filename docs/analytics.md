@@ -141,6 +141,17 @@ Wired on the Home Hello Fall band via [`SeasonalDiscoveryModule`](../src/compone
 | `guide_collection_clicked` | `guide_slug`, `cta_placement`, `destination_type=collection`, `destination_path` (`…#events`) |
 | `guide_shared` | `guide_slug` |
 
+#### Study dashboards (PostHog)
+
+Full rules: [`docs/archives/guide-v1-2026-11-18/STUDIES.md`](./archives/guide-v1-2026-11-18/STUDIES.md).
+
+| Study | Filter / cohort |
+|-------|-----------------|
+| **Study 1 — Guides vs Browse** | All published Guides vs Browse; include each Guide only after its own Pacific `publishOn`. Unchanged by Study 2 Lights-only clarification. |
+| **Study 2 — V1 vs V2 behavioral impact** | **`guide_slug = holiday-lights-traditions` only.** V1 window: 2026-11-11 through the recorded V2 production deploy timestamp. V2 window: after that timestamp. Stories / Hello New Year are out of this cohort even after they publish. |
+
+Comparable Study 2 metrics (reading/sections, event clicks, and saves **only where V1 history exists**). Keep V2-only events (`guide_engagement_summary`, map overlay, hub/collection named events, `guide_nav_clicked`, impressions, persistence Save funnel props) in a **separate** panel — do not treat missing V1 as zero.
+
 ### Save (Guide vs Browse)
 
 | Event | Properties |
@@ -154,6 +165,42 @@ Wired on the Home Hello Fall band via [`SeasonalDiscoveryModule`](../src/compone
 `discovery_origin` is first-touch Guide or Browse for the session visit (separate from `save_surface`). Map pin → Event Detail → Save keeps `discovery_origin=guide`, `map_assisted=true`, and `save_surface=event_detail`.
 
 After `activity_opened` includes `guide_slug`, later official-site, calendar, and directions clicks for that event carry the same `guide_slug`.
+
+## Seasonal Hub — Holiday Magic
+
+Create this in the PostHog UI, project `517281`. Name the dashboard **Seasonal Hub — Holiday Magic**.
+
+Build this dashboard **before** deploying Guide V2 / hub-related analytics so baselines and funnels exist on day one. Keep Study 1 / Study 2 and **Local Guides — Halloween** as separate dashboards; join only on shared props (`guide_slug`, `guide_view_id`).
+
+### Trends / breakdowns
+
+- `$pageview` where `page` = `seasonal_collection` and `collection_slug` = `holiday_magic` (device: desktop vs mobile)
+- `$pageview` where `page` = `guide` and `entry_point` = `collection` (breakdown by `guide_slug`)
+- `guide_seasonal_hub_clicked` and `guide_collection_clicked` (Guide → Hub / `#events`)
+
+### Funnel A — Hub → Guide → plan (one session)
+
+1. `$pageview` where `page` = `seasonal_collection` and `collection_slug` = `holiday_magic`
+2. `$pageview` where `page` = `guide` and `entry_point` = `collection`  
+   (upgrade later to `seasonal_hub_guide_clicked` if that event ships)
+3. `guide_event_link_clicked`
+4. `activity_opened` where `source_context` = `guide`
+5. `activity_saved` where `discovery_origin` = `guide`  
+   **or** engagement: `visit_official_page_clicked` / `add_to_calendar_clicked` / `open_route_clicked` with `guide_slug`
+
+### Funnel B — Hub → Event (direct; coarse until hub `source_context` ships)
+
+1. `$pageview` where `page` = `seasonal_collection` and `collection_slug` = `holiday_magic`
+2. `activity_opened` (today hub opens often look like `source_context` = `home` — treat as approximate)
+3. Save or engagement as above
+
+### Known gaps (dashboard still useful)
+
+- No Hub → Guide click event yet (infer via guide `$pageview` `entry_point=collection`)
+- Hub event opens are not distinctly labeled vs Home
+- Live Home teaser does not fire `seasonal_banner_*`
+
+Replay filter: URL contains `/seasonal/holiday-magic`. Heatmaps: that hub + holiday guide URLs. Replay stays masked. Autocapture stays off.
 
 ## Local Guides — Halloween
 

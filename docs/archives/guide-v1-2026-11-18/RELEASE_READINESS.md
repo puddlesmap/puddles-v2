@@ -13,13 +13,15 @@
 
 ## UX shipped (V2)
 
-Applies to all three Holiday Magic guides:
+Applies to all three Holiday Magic guides (shared V2 UX + analytics):
 
-- `/guides/holiday-lights-traditions`
-- `/guides/holiday-stories-play` (catalog now `live`)
-- `/guides/hello-new-year` (catalog now `live`)
+- `/guides/holiday-lights-traditions` — live from `2026-11-11` (Pacific)
+- `/guides/holiday-stories-play` — scheduled public live from `2026-11-19` (Pacific); catalog `soon` + direct URL redirects until then
+- `/guides/hello-new-year` — scheduled public live from `2026-12-07` (Pacific); same gate
 
 Baseline: Guide F + shell H + map explore overlay G, event-level Save, collection CTA in footer, no Guide Save heart, Share status feedback (“Link copied” / “Shared”).
+
+Staggered publish dates control public availability and **Study 1** eligibility only. They do **not** define **Study 2** (Lights-only). See [`STUDIES.md`](./STUDIES.md).
 
 **Hub vs Collection destinations (verified):**
 
@@ -71,10 +73,15 @@ Guide map pin → Event Detail → Save:
 
 | Check | Result |
 | --- | --- |
-| Production SHA vs `origin/main` | Match `ff57572…` |
+| Production SHA vs prior baseline | V1 archive still `ff57572…`; `origin/main` now also has `f3f6c50` (weekly discovery) — rebase before ship |
+| Staggered publish (Pacific 2026-11-18) | Lights **live**; Stories **soon** until 2026-11-19; Hello **soon** until 2026-12-07 |
+| Own posted dates + page day-gates | Pass (Lights / Stories / Hello pages + intros) |
+| Catalog `resolveGuidePublication` + Home live guide count | Pass in working tree (uncommitted with schedule patch) |
 | `node scripts/verify-save-persistence.mjs` | Pass |
+| Study scope docs | Study 2 Lights-only recorded in [`STUDIES.md`](./STUDIES.md); Study 1 unchanged |
 | Local Next.js interactive journeys | **Blocked** — host EMFILE (too many open files) caused Next route 404s in this environment |
 | PostHog Live property inspection | **Deferred** to Netlify Preview / production after deploy approval |
+| Exact V2 deploy timestamp | **Not set** — production not approved |
 
 ## Known limitations
 
@@ -85,11 +92,23 @@ Guide map pin → Event Detail → Save:
 
 ## Studies measurable after this ship?
 
-| Study | Measurable? |
+Full cohort rules: [`STUDIES.md`](./STUDIES.md).
+
+| Study | Scope | Measurable? |
+| --- | --- | --- |
+| Study 1 — Guides vs Browse | All published Guides vs Browse; each Guide only after its own `publishOn` | Yes once Live events ingest (`discovery_origin` + confirmed `activity_saved`) |
+| Study 2 — V1 vs V2 behavioral impact | **`guide_slug = holiday-lights-traditions` only**; V1 = Nov 11 → V2 deploy boundary; V2 = after that timestamp | Comparable metrics where V1 tracked; V2-only metrics in a separate panel (never treat missing V1 as zero) |
+
+### V2 production deploy boundary (Study 2 cut)
+
+| Field | Value |
 | --- | --- |
-| Study 1 — Guide vs Browse Save conversion | Yes, once Live events ingest (`discovery_origin` + confirmed `activity_saved`) |
-| Study 2 — Guide V2 engagement / map / hub / saves | Yes for V2 diagnostics; V1 historical Save rate remains unavailable |
+| Status | **Not deployed** — production approval unchanged |
+| UTC | _TBD at ship_ |
+| America/Los_Angeles | _TBD at ship_ |
+| git SHA | _TBD at ship_ |
+| Netlify deploy ID | _TBD at ship_ |
 
 ## Do not deploy until approved
 
-After approval, record: UTC + Pacific deploy time, git SHA, Netlify deploy ID, affected Guide URLs, analytics validation status.
+Production approval status is **unchanged** (still awaiting explicit yes). After approval, record the table above plus affected Guide URLs and analytics validation status.

@@ -69,7 +69,7 @@ export function resolveFeaturedGuideForCollection(
   now: Date = new Date(),
   config: GuideHubFeaturedConfig | undefined = GUIDE_HUB_FEATURED_BY_COLLECTION[collectionSlug],
 ): GuideCatalogEntry | undefined {
-  const guides = getGuidesForCollection(collectionSlug)
+  const guides = getGuidesForCollection(collectionSlug, now)
   if (guides.length === 0) return undefined
 
   const today = zonedCalendarDate(now)
@@ -115,7 +115,7 @@ export function orderGuidesForCollectionHub(
   now: Date = new Date(),
   config?: GuideHubFeaturedConfig,
 ): GuideCatalogEntry[] {
-  const guides = getGuidesForCollection(collectionSlug)
+  const guides = getGuidesForCollection(collectionSlug, now)
   if (guides.length === 0) return []
 
   const featured = resolveFeaturedGuideForCollection(collectionSlug, now, config)

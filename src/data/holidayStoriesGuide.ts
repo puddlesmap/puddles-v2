@@ -3,7 +3,6 @@ import {
   HOLIDAY_GUIDE_CTA_DEK,
   HOLIDAY_GUIDE_CTA_TITLE,
   HOLIDAY_MAGIC_GUIDE_EYEBROW,
-  HOLIDAY_MAGIC_GUIDE_META,
 } from './holidayGuide'
 
 /** Holiday Stories & Play — companion winter guide. */
@@ -27,8 +26,9 @@ export const HOLIDAY_STORIES_GUIDE_DEK =
 export const HOLIDAY_STORIES_FINDER_LEDE = HOLIDAY_STORIES_GUIDE_DEK
 
 export const HOLIDAY_STORIES_GUIDE_POSTED = 'Nov 19, 2026'
+/** Pacific calendar day this guide becomes publicly live. */
+export const HOLIDAY_STORIES_GUIDE_PUBLISH_ON = '2026-11-19'
 export const HOLIDAY_STORIES_GUIDE_READ = '5 min read'
-export const HOLIDAY_STORIES_GUIDE_META = HOLIDAY_MAGIC_GUIDE_META
 
 /** SEO (search titles ≠ on-page hero). */
 export const HOLIDAY_STORIES_GUIDE_SEO_TITLE =
@@ -54,6 +54,8 @@ export const HOLIDAY_STORIES_GUIDE_EVENT_IDS = {
 } as const
 
 export const HOLIDAY_STORIES_GUIDE_EVENT_COUNT = Object.keys(HOLIDAY_STORIES_GUIDE_EVENT_IDS).length
+
+export const HOLIDAY_STORIES_GUIDE_META = `${HOLIDAY_STORIES_GUIDE_POSTED} · ${HOLIDAY_STORIES_GUIDE_EVENT_COUNT} events · ${HOLIDAY_STORIES_GUIDE_READ}`
 
 export const HOLIDAY_STORIES_SECTION_CLAY = {
   finder: '/guides/holiday-lights/magical-03.png',

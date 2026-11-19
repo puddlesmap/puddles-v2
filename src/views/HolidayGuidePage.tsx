@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import { GuideDesktopTocRail } from '../components/guides/GuideDesktopTocRail'
 import {
   GuideFBleedHero,
@@ -25,6 +26,7 @@ import {
   HOLIDAY_GUIDE_EVENT_COUNT,
   HOLIDAY_GUIDE_OUTING_IMAGES,
   HOLIDAY_GUIDE_PATH,
+  HOLIDAY_GUIDE_PUBLISH_ON,
   HOLIDAY_GUIDE_SECTION_NAV,
   HOLIDAY_GUIDE_SLUG,
   HOLIDAY_GUIDE_TITLE,
@@ -35,6 +37,7 @@ import { HOLIDAY_GUIDE_MAP_CATEGORIES, HOLIDAY_GUIDE_PLACES } from '../data/holi
 import { useGuideVisitLifecycle } from '../hooks/useGuideVisitLifecycle'
 import { useStructuredData } from '../hooks/useStructuredData'
 import { trackGuideMapOpened } from '../utils/analytics'
+import { zonedCalendarDate } from '../utils/dates'
 import { markGuideMapAssisted } from '../utils/discoveryAttribution'
 import { guideCommonProps } from '../utils/guideVisitAnalytics'
 import {
@@ -65,6 +68,13 @@ const HOLIDAY_META = getGuideLifecycleMeta(
 )
 
 export function HolidayGuidePage() {
+  if (zonedCalendarDate() < HOLIDAY_GUIDE_PUBLISH_ON) {
+    return <Navigate to="/guides" replace />
+  }
+  return <HolidayGuidePageLive />
+}
+
+function HolidayGuidePageLive() {
   useGuideVisitLifecycle(HOLIDAY_GUIDE_SLUG, 'v2')
   const lifecycle = resolveGuideLifecycleState(HOLIDAY_META)
   const [mapOpen, setMapOpen] = useState(false)

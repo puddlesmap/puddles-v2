@@ -41,6 +41,8 @@ export const HOLIDAY_GUIDE_DEK =
 
 /** Target publish date for the polished guide. */
 export const HOLIDAY_GUIDE_POSTED = 'Nov 11, 2026'
+/** Pacific calendar day this guide became publicly live. */
+export const HOLIDAY_GUIDE_PUBLISH_ON = '2026-11-11'
 export const HOLIDAY_GUIDE_READ = '8 min read'
 
 /** SEO (search titles ≠ on-page hero). */

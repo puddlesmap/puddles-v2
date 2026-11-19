@@ -3,7 +3,6 @@ import {
   HOLIDAY_GUIDE_CTA_DEK,
   HOLIDAY_GUIDE_CTA_TITLE,
   HOLIDAY_MAGIC_GUIDE_EYEBROW,
-  HOLIDAY_MAGIC_GUIDE_META,
 } from './holidayGuide'
 
 /** Hello, New Year! — companion winter guide. */
@@ -25,8 +24,9 @@ export const HELLO_NEW_YEAR_GUIDE_DEK =
 export const HELLO_NEW_YEAR_FINDER_LEDE = HELLO_NEW_YEAR_GUIDE_DEK
 
 export const HELLO_NEW_YEAR_GUIDE_POSTED = 'Dec 7, 2026'
+/** Pacific calendar day this guide becomes publicly live. */
+export const HELLO_NEW_YEAR_GUIDE_PUBLISH_ON = '2026-12-07'
 export const HELLO_NEW_YEAR_GUIDE_READ = '6 min read'
-export const HELLO_NEW_YEAR_GUIDE_META = HOLIDAY_MAGIC_GUIDE_META
 
 /** SEO (search titles ≠ on-page hero). */
 export const HELLO_NEW_YEAR_GUIDE_SEO_TITLE =
@@ -53,6 +53,8 @@ export const HELLO_NEW_YEAR_GUIDE_EVENT_IDS = {
 } as const
 
 export const HELLO_NEW_YEAR_GUIDE_EVENT_COUNT = Object.keys(HELLO_NEW_YEAR_GUIDE_EVENT_IDS).length
+
+export const HELLO_NEW_YEAR_GUIDE_META = `${HELLO_NEW_YEAR_GUIDE_POSTED} · ${HELLO_NEW_YEAR_GUIDE_EVENT_COUNT} events · ${HELLO_NEW_YEAR_GUIDE_READ}`
 
 export const HELLO_NEW_YEAR_SECTION_CLAY = {
   finder: '/guides/holiday-lights/magical-01.png',

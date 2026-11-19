@@ -8,6 +8,7 @@ import {
   HOLIDAY_GUIDE_DEK,
   HOLIDAY_GUIDE_PATH,
   HOLIDAY_GUIDE_POSTED,
+  HOLIDAY_GUIDE_PUBLISH_ON,
   HOLIDAY_GUIDE_READ,
   HOLIDAY_GUIDE_TITLE,
 } from './holidayGuide'
@@ -16,6 +17,7 @@ import {
   HOLIDAY_STORIES_GUIDE_DEK,
   HOLIDAY_STORIES_GUIDE_PATH,
   HOLIDAY_STORIES_GUIDE_POSTED,
+  HOLIDAY_STORIES_GUIDE_PUBLISH_ON,
   HOLIDAY_STORIES_GUIDE_READ,
   HOLIDAY_STORIES_GUIDE_TITLE,
 } from './holidayStoriesGuide'
@@ -24,12 +26,14 @@ import {
   HELLO_NEW_YEAR_GUIDE_DEK,
   HELLO_NEW_YEAR_GUIDE_PATH,
   HELLO_NEW_YEAR_GUIDE_POSTED,
+  HELLO_NEW_YEAR_GUIDE_PUBLISH_ON,
   HELLO_NEW_YEAR_GUIDE_READ,
   HELLO_NEW_YEAR_GUIDE_TITLE,
 } from './helloNewYearGuide'
 
 import type { SeasonalCollectionSlug } from './seasonalDiscovery'
 import type { GuideLifecycleKind, GuideLifecycleState } from '../utils/guideLifecycle'
+import { zonedCalendarDate } from '../utils/dates'
 
 export type GuideCatalogStatus = 'live' | 'soon'
 
@@ -59,6 +63,11 @@ export interface GuideCatalogEntry {
   cover: string
   href: string | null
   status: GuideCatalogStatus
+  /**
+   * Pacific YYYY-MM-DD. Before this day the guide resolves as `soon` (no public href)
+   * even when the catalog row is authored as live for a scheduled launch.
+   */
+  publishOn?: string
   readTime?: string
   featured?: boolean
   /**
@@ -74,6 +83,32 @@ export interface GuideCatalogEntry {
   collectionSlug?: SeasonalCollectionSlug
   /** Editorial force for archive / reactivation. */
   lifecycleOverride?: GuideLifecycleState
+}
+
+/** Apply scheduled publish date in America/Los_Angeles (live from that calendar day). */
+export function resolveGuidePublication(
+  guide: GuideCatalogEntry,
+  now: Date = new Date(),
+): GuideCatalogEntry {
+  const publishOn = guide.publishOn?.trim()
+  if (!publishOn || !/^\d{4}-\d{2}-\d{2}$/.test(publishOn)) return guide
+  const today = zonedCalendarDate(now)
+  if (today < publishOn) {
+    return { ...guide, status: 'soon', href: null }
+  }
+  if (guide.status === 'live' || guide.href) {
+    return { ...guide, status: 'live', href: guide.href }
+  }
+  return { ...guide, status: 'live' }
+}
+
+export function isGuidePubliclyLive(guide: GuideCatalogEntry, now: Date = new Date()): boolean {
+  const resolved = resolveGuidePublication(guide, now)
+  return resolved.status === 'live' && Boolean(resolved.href)
+}
+
+function catalogNow(now?: Date): GuideCatalogEntry[] {
+  return GUIDES_CATALOG.map((g) => resolveGuidePublication(g, now))
 }
 
 /** Editorial catalog for /guides — add rows as new guides ship. */
@@ -105,6 +140,7 @@ export const GUIDES_CATALOG: GuideCatalogEntry[] = [
     cover: HOLIDAY_GUIDE_COVER,
     href: HOLIDAY_GUIDE_PATH,
     status: 'live',
+    publishOn: HOLIDAY_GUIDE_PUBLISH_ON,
     readTime: HOLIDAY_GUIDE_READ,
     featured: true,
     topics: ['Seasonal'],
@@ -122,6 +158,7 @@ export const GUIDES_CATALOG: GuideCatalogEntry[] = [
     cover: HOLIDAY_STORIES_GUIDE_COVER,
     href: HOLIDAY_STORIES_GUIDE_PATH,
     status: 'live',
+    publishOn: HOLIDAY_STORIES_GUIDE_PUBLISH_ON,
     readTime: HOLIDAY_STORIES_GUIDE_READ,
     topics: ['Seasonal'],
     lifecycleKind: 'seasonal',
@@ -138,6 +175,7 @@ export const GUIDES_CATALOG: GuideCatalogEntry[] = [
     cover: HELLO_NEW_YEAR_GUIDE_COVER,
     href: HELLO_NEW_YEAR_GUIDE_PATH,
     status: 'live',
+    publishOn: HELLO_NEW_YEAR_GUIDE_PUBLISH_ON,
     readTime: HELLO_NEW_YEAR_GUIDE_READ,
     topics: ['Seasonal'],
     lifecycleKind: 'seasonal',
@@ -218,8 +256,8 @@ const SEASON_HEADINGS: Record<GuideSeason, { title: string; dek: string }> = {
   },
 }
 
-export function getLiveGuideCount(): number {
-  return GUIDES_CATALOG.filter((g) => g.status === 'live').length
+export function getLiveGuideCount(now: Date = new Date()): number {
+  return catalogNow(now).filter((g) => g.status === 'live').length
 }
 
 /** Public /guides always shows the season library when any listed guide exists. */
@@ -227,35 +265,36 @@ export function showGuideSeasonSections(): boolean {
   return getGuidesHomeLibrary().length > 0
 }
 
-export function getFeaturedGuide(): GuideCatalogEntry {
-  const featured = GUIDES_CATALOG.find((g) => g.featured && g.status === 'live')
+export function getFeaturedGuide(now: Date = new Date()): GuideCatalogEntry {
+  const guides = catalogNow(now)
+  const featured = guides.find((g) => g.featured && g.status === 'live')
   if (featured) return featured
-  const live = GUIDES_CATALOG.filter((g) => g.status === 'live')
+  const live = guides.filter((g) => g.status === 'live')
   if (live.length) {
     return [...live].sort((a, b) => b.sortKey.localeCompare(a.sortKey))[0]!
   }
-  return GUIDES_CATALOG[0]!
+  return guides[0]!
 }
 
-export function getGuideStream(): GuideCatalogEntry[] {
-  const featured = getFeaturedGuide()
-  return [...GUIDES_CATALOG]
+export function getGuideStream(now: Date = new Date()): GuideCatalogEntry[] {
+  const featured = getFeaturedGuide(now)
+  return catalogNow(now)
     .filter((g) => g.slug !== featured.slug)
     .sort((a, b) => b.sortKey.localeCompare(a.sortKey))
 }
 
 /** Non-featured live guides only — for the public /guides Latest row. */
-export function getLiveGuideStream(): GuideCatalogEntry[] {
-  return getGuideStream().filter((g) => g.status === 'live')
+export function getLiveGuideStream(now: Date = new Date()): GuideCatalogEntry[] {
+  return getGuideStream(now).filter((g) => g.status === 'live')
 }
 
 /**
  * Public /guides “More guides” cards: listed guides only, excluding the featured hero.
  * Live first (reverse-chronological), then upcoming (`soon`) by sortKey.
  */
-export function getGuidesHomeLibrary(): GuideCatalogEntry[] {
-  const featuredSlug = getFeaturedGuide().slug
-  const listed = GUIDES_CATALOG.filter(
+export function getGuidesHomeLibrary(now: Date = new Date()): GuideCatalogEntry[] {
+  const featuredSlug = getFeaturedGuide(now).slug
+  const listed = catalogNow(now).filter(
     (g) => g.listOnGuidesHome !== false && g.slug !== featuredSlug,
   )
   const soon = listed
@@ -267,25 +306,26 @@ export function getGuidesHomeLibrary(): GuideCatalogEntry[] {
   return [...live, ...soon]
 }
 
-export function getGuidesBySeason(): {
+export function getGuidesBySeason(now: Date = new Date()): {
   season: GuideSeason
   heading: string
   dek: string
   guides: GuideCatalogEntry[]
 }[] {
+  const guides = catalogNow(now)
   return SEASON_ORDER.map((season) => ({
     season,
     heading: SEASON_HEADINGS[season].title,
     dek: SEASON_HEADINGS[season].dek,
-    guides: GUIDES_CATALOG.filter(
-      (g) => g.season === season && g.listOnGuidesHome !== false,
-    ).sort((a, b) => b.sortKey.localeCompare(a.sortKey)),
+    guides: guides
+      .filter((g) => g.season === season && g.listOnGuidesHome !== false)
+      .sort((a, b) => b.sortKey.localeCompare(a.sortKey)),
   })).filter((group) => group.guides.length > 0)
 }
 
 /** Topics that have at least one live guide — for /guides secondary nav. */
-export function getPublishedGuideTopics(): GuideTopic[] {
-  const live = GUIDES_CATALOG.filter((g) => g.status === 'live')
+export function getPublishedGuideTopics(now: Date = new Date()): GuideTopic[] {
+  const live = catalogNow(now).filter((g) => g.status === 'live')
   return GUIDE_TOPIC_LABELS.filter((topic) => live.some((g) => g.topics?.includes(topic)))
 }
 
@@ -294,26 +334,36 @@ export function guideMatchesTopic(guide: GuideCatalogEntry, topic: GuideTopic | 
   return Boolean(guide.topics?.includes(topic))
 }
 
-export function getGuideBySlug(slug: string): GuideCatalogEntry | undefined {
-  return GUIDES_CATALOG.find((g) => g.slug === slug)
+export function getGuideBySlug(
+  slug: string,
+  now: Date = new Date(),
+): GuideCatalogEntry | undefined {
+  const guide = GUIDES_CATALOG.find((g) => g.slug === slug)
+  return guide ? resolveGuidePublication(guide, now) : undefined
 }
 
 /** Sibling guides in the same seasonal collection, excluding the current guide. */
 export function getSiblingGuides(
   collectionSlug: SeasonalCollectionSlug,
   currentSlug: string,
+  now: Date = new Date(),
 ): GuideCatalogEntry[] {
-  return GUIDES_CATALOG.filter(
-    (g) =>
-      g.collectionSlug === collectionSlug &&
-      g.slug !== currentSlug &&
-      g.listOnGuidesHome !== false,
-  ).sort((a, b) => a.sortKey.localeCompare(b.sortKey))
+  return catalogNow(now)
+    .filter(
+      (g) =>
+        g.collectionSlug === collectionSlug &&
+        g.slug !== currentSlug &&
+        g.listOnGuidesHome !== false,
+    )
+    .sort((a, b) => a.sortKey.localeCompare(b.sortKey))
 }
 
 /** All guides for a seasonal hub Explore panel / carousel (fixed sort). */
-export function getGuidesForCollection(collectionSlug: SeasonalCollectionSlug): GuideCatalogEntry[] {
-  return GUIDES_CATALOG.filter(
-    (g) => g.collectionSlug === collectionSlug && g.listOnGuidesHome !== false,
-  ).sort((a, b) => a.sortKey.localeCompare(b.sortKey))
+export function getGuidesForCollection(
+  collectionSlug: SeasonalCollectionSlug,
+  now: Date = new Date(),
+): GuideCatalogEntry[] {
+  return catalogNow(now)
+    .filter((g) => g.collectionSlug === collectionSlug && g.listOnGuidesHome !== false)
+    .sort((a, b) => a.sortKey.localeCompare(b.sortKey))
 }
