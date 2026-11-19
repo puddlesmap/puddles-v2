@@ -1,3 +1,8 @@
+import {
+  HOLIDAY_MAGIC_GUIDES_HEADING_DEK,
+  HOLIDAY_MAGIC_HUB_GUIDE_COPY,
+  type HolidayMagicHubGuideSlug,
+} from '../../data/holidayMagicHubGuides'
 import { orderGuidesForCollectionHub } from '../../data/guideHubFeatured'
 import {
   SeasonalGuidesCarousel,
@@ -6,25 +11,16 @@ import {
 import './holiday-magic-guides-panel.css'
 import '../seasonal/holidayOutingRows.css'
 
-/** Hub-only featured dek — shorter than the guide article dek (mobile cards). */
-const LIGHTS_HUB_DEK = 'Train rides, Santa visits & festive outings.'
-
 function hubGuides(): SeasonalCarouselGuide[] {
   return orderGuidesForCollectionHub('holiday-magic').map((guide) => {
-    if (guide.slug === 'holiday-lights-traditions') {
-      return {
-        ...guide,
-        displayTitle: `${guide.title} ✨`,
-        hubDek: LIGHTS_HUB_DEK,
-      }
+    const copy = HOLIDAY_MAGIC_HUB_GUIDE_COPY[guide.slug as HolidayMagicHubGuideSlug]
+    if (!copy) return guide
+    return {
+      ...guide,
+      displayTitle: `${guide.title} ${copy.emoji}`,
+      hubTagline: copy.tagline,
+      hubDek: copy.sentence,
     }
-    if (guide.slug === 'holiday-stories-play') {
-      return { ...guide, displayTitle: `${guide.title} 🎭` }
-    }
-    if (guide.slug === 'hello-new-year') {
-      return { ...guide, displayTitle: `${guide.title} 🎉` }
-    }
-    return guide
   })
 }
 
@@ -32,7 +28,11 @@ function hubGuides(): SeasonalCarouselGuide[] {
 export function HolidayMagicGuidesPanel() {
   return (
     <div className="hmg-guides-carousel">
-      <SeasonalGuidesCarousel guides={hubGuides()} desktopMode="card-grid" />
+      <SeasonalGuidesCarousel
+        guides={hubGuides()}
+        headingDek={HOLIDAY_MAGIC_GUIDES_HEADING_DEK}
+        desktopMode="card-grid"
+      />
     </div>
   )
 }

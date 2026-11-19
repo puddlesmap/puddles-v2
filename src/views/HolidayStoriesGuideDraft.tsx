@@ -7,6 +7,7 @@ import {
   HOLIDAY_STORIES_OUTING_IMAGES as IMAGES,
   HOLIDAY_STORIES_SECTION_CLAY,
 } from '../data/holidayStoriesGuide'
+import { HOLIDAY_STORIES_FINDER_TITLE } from '../data/holidayMagicHubGuides'
 import { trackGuideSectionViewed } from '../utils/analytics'
 
 const GS = HOLIDAY_STORIES_GUIDE_SLUG
@@ -81,8 +82,6 @@ export function HolidayStoriesGuideDraft({
 
   return (
     <div className="lgg-body">
-      {beforeFinder}
-
       <section
         className={`lgg-chapter lgg-chapter--finder${finderLayout === 'bullets' ? ' lgg-chapter--finder-bullets' : ''}`}
         id={id('finder')}
@@ -95,13 +94,14 @@ export function HolidayStoriesGuideDraft({
               alt=""
               decoding="async"
             />
-            <span>Find your kind of winter outing</span>
+            <span>{HOLIDAY_STORIES_FINDER_TITLE}</span>
           </h2>
         ) : (
-          <h3 data-guide-section="finder">Find your kind of winter outing</h3>
+          <h3 data-guide-section="finder">{HOLIDAY_STORIES_FINDER_TITLE}</h3>
         )}
+        {beforeFinder}
         {finderLayout === 'bullets' ? (
-          <div className="holiday-finder-table" aria-label="Find your kind of winter outing">
+          <div className="holiday-finder-table" aria-label={HOLIDAY_STORIES_FINDER_TITLE}>
             {FINDER_ROWS.map((row) => (
               <div className="holiday-finder-table__row" key={row.category}>
                 <div className="holiday-finder-table__cat">{row.category}</div>

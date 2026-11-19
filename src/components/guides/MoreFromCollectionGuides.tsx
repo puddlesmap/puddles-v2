@@ -4,6 +4,10 @@ import {
   type GuideCatalogEntry,
 } from '../../data/guidesCatalog'
 import {
+  HOLIDAY_MAGIC_HUB_GUIDE_COPY,
+  type HolidayMagicHubGuideSlug,
+} from '../../data/holidayMagicHubGuides'
+import {
   getSeasonalCollection,
   seasonalCollectionPath,
   type SeasonalCollectionSlug,
@@ -17,34 +21,15 @@ import {
 import './holiday-magic-guides-panel.css'
 import './moreFromCollectionGuides.css'
 
-/** Short card deks — ~2/3 of full guide deks, same spirit as the hub. */
-const LIGHTS_HUB_DEK = 'Train rides, Santa visits & festive outings.'
-const STORIES_HUB_DEK = 'Shows, stories, crafts & winter play.'
-const NEW_YEAR_HUB_DEK = 'Balloon drops & January traditions.'
-
 function toCarouselGuide(guide: GuideCatalogEntry): SeasonalCarouselGuide {
-  if (guide.slug === 'holiday-lights-traditions') {
-    return {
-      ...guide,
-      displayTitle: `${guide.title} ✨`,
-      hubDek: LIGHTS_HUB_DEK,
-    }
+  const copy = HOLIDAY_MAGIC_HUB_GUIDE_COPY[guide.slug as HolidayMagicHubGuideSlug]
+  if (!copy) return guide
+  return {
+    ...guide,
+    displayTitle: `${guide.title} ${copy.emoji}`,
+    hubTagline: copy.tagline,
+    hubDek: copy.sentence,
   }
-  if (guide.slug === 'holiday-stories-play') {
-    return {
-      ...guide,
-      displayTitle: `${guide.title} 🎭`,
-      hubDek: STORIES_HUB_DEK,
-    }
-  }
-  if (guide.slug === 'hello-new-year') {
-    return {
-      ...guide,
-      displayTitle: `${guide.title} 🎉`,
-      hubDek: NEW_YEAR_HUB_DEK,
-    }
-  }
-  return guide
 }
 
 /** Sibling guides in the Holiday Magic Explore-the-guides card-grid layout. */

@@ -112,6 +112,15 @@
   color: var(--sgc-muted, #6f756e);
 }
 
+.guide-page.skin .lgg-body .more-from-collection .sgc-card__tagline,
+.more-from-collection.hmg-guides-carousel .sgc-card__tagline {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--sgc-ink, #273034);
+}
+
 .guide-page.skin .lgg-body .more-from-collection .sgc-card__dek,
 .more-from-collection.hmg-guides-carousel .sgc-card__dek {
   margin: 0;
@@ -120,7 +129,7 @@
   color: var(--sgc-muted, #6f756e);
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   overflow: hidden;
 }
 

@@ -20,8 +20,8 @@ export const HELLO_NEW_YEAR_GUIDE_SUBTITLE = HOLIDAY_MAGIC_GUIDE_EYEBROW
 export const HELLO_NEW_YEAR_GUIDE_DEK =
   "The countdown doesn't have to happen at midnight. Sometimes it's a balloon drop before lunch, a little dance party, or a new tradition your child gets to experience for the first time."
 
-/** Start Here lede (H chrome) — fuller description under the finder. */
-export const HELLO_NEW_YEAR_FINDER_LEDE = HELLO_NEW_YEAR_GUIDE_DEK
+/** Start Here lede (H chrome) — sits beneath the finder title. */
+export { HELLO_NEW_YEAR_FINDER_LEDE } from './holidayMagicHubGuides'
 
 export const HELLO_NEW_YEAR_GUIDE_POSTED = 'Dec 7, 2026'
 /** Pacific calendar day this guide becomes publicly live. */

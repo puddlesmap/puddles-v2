@@ -11,6 +11,8 @@ export type SeasonalGuidesCarouselVariant = 'a' | 'b' | 'c'
 export type SeasonalCarouselGuide = GuideCatalogEntry & {
   /** Optional hub-short dek override */
   hubDek?: string
+  /** Optional tagline between title and dek (hub cards). */
+  hubTagline?: string
   displayTitle?: string
 }
 
@@ -19,6 +21,8 @@ type Props = {
   /** Ignored — single editorial layout. Optional for older experiment callers. */
   variant?: SeasonalGuidesCarouselVariant
   heading?: string
+  /** One-line intro under the section heading. */
+  headingDek?: string
   /**
    * Desktop presentation.
    * `featured` = live hub (featured + supporting rows).
@@ -30,6 +34,10 @@ type Props = {
 
 function titleOf(guide: SeasonalCarouselGuide) {
   return guide.displayTitle ?? guide.title
+}
+
+function taglineOf(guide: SeasonalCarouselGuide) {
+  return guide.hubTagline
 }
 
 function dekOf(guide: SeasonalCarouselGuide) {
@@ -75,6 +83,9 @@ function GuideCard({
       <div className="sgc-card__panel">
         <p className="sgc-card__label">{label}</p>
         <h3 className="sgc-card__title">{title}</h3>
+        {taglineOf(guide) ? (
+          <p className="sgc-card__tagline">{taglineOf(guide)}</p>
+        ) : null}
         <p className="sgc-card__dek">{dekOf(guide)}</p>
         {live ? <span className="sgc-card__cta">Read guide →</span> : null}
       </div>
@@ -186,6 +197,7 @@ function DesktopSupporting({ guide }: { guide: SeasonalCarouselGuide }) {
 export function SeasonalGuidesCarousel({
   guides,
   heading = 'Explore the guides',
+  headingDek,
   desktopMode = 'featured',
 }: Props) {
   const slides = guides.filter((g) => Boolean(g.cover && (g.hubDek || g.dek)))
@@ -271,9 +283,12 @@ export function SeasonalGuidesCarousel({
         .join(' ')}
       aria-labelledby={labelId}
     >
-      <h2 id={labelId} className="sgc__heading">
-        {heading}
-      </h2>
+      <div className="sgc__heading-block">
+        <h2 id={labelId} className="sgc__heading">
+          {heading}
+        </h2>
+        {headingDek ? <p className="sgc__heading-dek">{headingDek}</p> : null}
+      </div>
 
       {/* Carousel (mobile / tablet; also desktop when desktopMode=carousel) */}
       <div className="sgc__mobile" aria-hidden={useDesktopFeatured || undefined}>

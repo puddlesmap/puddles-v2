@@ -13,6 +13,7 @@ import {
   HOLIDAY_GUIDE_SLUG,
   HOLIDAY_GUIDE_TITLE,
 } from '../data/holidayGuide'
+import { HOLIDAY_LIGHTS_FINDER_TITLE } from '../data/holidayMagicHubGuides'
 import { trackGuideSectionViewed, trackGuideShared } from '../utils/analytics'
 
 const GUIDE_SHARE_URL = 'https://puddlesmap.com/guides/holiday-lights-traditions'
@@ -147,9 +148,9 @@ export function HolidayGuideDraft({
   share?: boolean
   afterCover?: ReactNode
   afterHero?: ReactNode
-  /** Inserted just before “Find your kind of holiday magic”. */
+  /** Inserted just beneath the finder title (lede). */
   beforeFinder?: ReactNode
-  /** Inserted after “Find your kind of holiday magic”, before Lights & Walks. */
+  /** Inserted after the finder, before Lights & Walks. */
   afterFinder?: ReactNode
   afterBody?: ReactNode
   railAside?: ReactNode
@@ -158,7 +159,7 @@ export function HolidayGuideDraft({
   hideEventsCta?: boolean
   /** Hide built-in upcoming/email closing (use afterBody footer instead). */
   suppressClosing?: boolean
-  /** Hide the “Find your kind of holiday magic” finder (mockups that lead with picks). */
+  /** Hide the finder (mockups that lead with picks). */
   suppressFinder?: boolean
   /** Link finder-table event names to in-guide anchors / Puddles. */
   linkFinder?: boolean
@@ -238,9 +239,9 @@ export function HolidayGuideDraft({
         ) : null}
         <div className={showRail ? 'lgg-layout' : undefined}>
           <div>
-            {beforeFinder}
-
-            {suppressFinder ? null : (
+            {suppressFinder ? (
+              beforeFinder
+            ) : (
               <section
                 className={`lgg-chapter lgg-chapter--finder${finderLayout === 'bullets' ? ' lgg-chapter--finder-bullets' : ''}`}
                 id={id('finder')}
@@ -253,13 +254,14 @@ export function HolidayGuideDraft({
                       alt=""
                       decoding="async"
                     />
-                    <span>Find your kind of holiday magic</span>
+                    <span>{HOLIDAY_LIGHTS_FINDER_TITLE}</span>
                   </h2>
                 ) : (
-                  <h3 data-guide-section="finder">Find your kind of holiday magic</h3>
+                  <h3 data-guide-section="finder">{HOLIDAY_LIGHTS_FINDER_TITLE}</h3>
                 )}
+                {beforeFinder}
                 {finderLayout === 'bullets' ? (
-                  <div className="holiday-finder-table" aria-label="Find your kind of holiday magic">
+                  <div className="holiday-finder-table" aria-label={HOLIDAY_LIGHTS_FINDER_TITLE}>
                     {FINDER_ROWS.map((row) => (
                       <div className="holiday-finder-table__row" key={row.category}>
                         <div className="holiday-finder-table__cat">{row.category}</div>

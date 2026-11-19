@@ -665,9 +665,24 @@
   object-fit: contain;
 }
 
+/*
+  Beat `.lgg-chapter p { margin: 0.65rem 0 0 }` from experiment-local-guides-layouts
+  (always bundled via App). Use padding so the gap can’t collapse away.
+*/
+.guide-page.holiday-guide-f .lgg-chapter--finder-bullets > .gdm-wire-lede,
+.holiday-guide-f .lgg-chapter--finder-bullets > .gdm-wire-lede {
+  margin: 0.35rem 0 0;
+  padding-bottom: 1.5rem;
+}
+
 .lgg-chapter--finder-bullets .holiday-finder-table {
   display: grid;
   gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.guide-page.holiday-guide-f .lgg-chapter--finder-bullets > .gdm-wire-lede + .holiday-finder-table,
+.holiday-guide-f .lgg-chapter--finder-bullets > .gdm-wire-lede + .holiday-finder-table {
   margin-top: 0.35rem;
 }
 

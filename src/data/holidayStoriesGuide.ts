@@ -22,8 +22,8 @@ export const HOLIDAY_STORIES_GUIDE_SUBTITLE = HOLIDAY_MAGIC_GUIDE_EYEBROW
 export const HOLIDAY_STORIES_GUIDE_DEK =
   "Some winter days call for a little indoor magic. Maybe it's your little one's first theater show, a favorite story brought to life, or an afternoon of making and exploring together."
 
-/** Start Here lede (H chrome) — fuller description under the finder. */
-export const HOLIDAY_STORIES_FINDER_LEDE = HOLIDAY_STORIES_GUIDE_DEK
+/** Start Here lede (H chrome) — sits beneath the finder title. */
+export { HOLIDAY_STORIES_FINDER_LEDE } from './holidayMagicHubGuides'
 
 export const HOLIDAY_STORIES_GUIDE_POSTED = 'Nov 19, 2026'
 /** Pacific calendar day this guide becomes publicly live. */

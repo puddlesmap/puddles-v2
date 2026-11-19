@@ -61,9 +61,16 @@
   background: transparent;
 }
 
+.seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc__heading-block {
+  margin-bottom: 0.65rem;
+}
+
 .seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc__heading {
   color: #113f34;
-  margin-bottom: 0.65rem;
+}
+
+.seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc__heading-dek {
+  color: #6f756e;
 }
 
 .seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc-dots__dot {

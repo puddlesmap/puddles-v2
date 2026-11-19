@@ -456,8 +456,7 @@ export function GuideFStickyScope({ children }: { children: ReactNode }) {
   return <div className="gdm-sticky-scope">{children}</div>
 }
 
-export const HOLIDAY_LIGHTS_FINDER_LEDE =
-  "Holiday magic doesn't have to mean a big outing. Sometimes it's a familiar street glowing with lights, a first train ride, or a simple celebration close to home. It's about finding little moments that feel special to your family."
+export { HOLIDAY_LIGHTS_FINDER_LEDE } from '../../data/holidayMagicHubGuides'
 
 export const HOLIDAY_LIGHTS_EXPLORE_LEDE =
   'What to expect and a few things to know before you go.'
