@@ -2,16 +2,19 @@
 
 import type { MouseEvent } from 'react'
 import { useSavedOptional } from '../../context/SavedContext'
+import type { SaveSurface } from '../../utils/discoveryAttribution'
 import { SaveHeartIcon } from './SaveHeartIcon'
 
 export function SaveHeartButton({
   eventId,
   variant = 'card',
   className = '',
+  saveSurface = 'browse_list',
 }: {
   eventId: string
   variant?: 'card' | 'chrome' | 'map-sheet'
   className?: string
+  saveSurface?: SaveSurface
 }) {
   const saved = useSavedOptional()
   if (!saved) return null
@@ -22,7 +25,7 @@ export function SaveHeartButton({
   function onClick(event: MouseEvent) {
     event.preventDefault()
     event.stopPropagation()
-    saved!.toggleSave(eventId)
+    saved!.toggleSave(eventId, { save_surface: saveSurface })
   }
 
   return (
@@ -41,7 +44,11 @@ export function SaveHeartButton({
       aria-pressed={isSaved}
       onClick={onClick}
     >
-      <SaveHeartIcon saved={isSaved} size={size} variant={variant === 'chrome' ? 'chrome' : 'card'} />
+      <SaveHeartIcon
+        saved={isSaved}
+        size={size}
+        variant={variant === 'chrome' ? 'chrome' : variant === 'map-sheet' ? 'map-sheet' : 'card'}
+      />
     </button>
   )
 }

@@ -11,7 +11,7 @@ export function SaveHeartIcon({
 }: {
   saved: boolean
   size?: number
-  variant?: 'card' | 'chrome' | 'spec'
+  variant?: 'card' | 'chrome' | 'map-sheet' | 'spec'
 }) {
   if (variant === 'spec') {
     return (
@@ -34,11 +34,16 @@ export function SaveHeartIcon({
     )
   }
 
-  const card = variant === 'card'
-  // Card on photo: white outline → puddles blue fill. Event chrome: dark outline → blue fill.
-  const stroke = saved ? PUDDLES_BLUE : card ? '#fff' : '#222'
+  // Photo card: white outline. Map sheet (light UI): grey outline. Chrome: dark outline.
+  const stroke = saved
+    ? PUDDLES_BLUE
+    : variant === 'card'
+      ? '#fff'
+      : variant === 'map-sheet'
+        ? '#8a8a8a'
+        : '#222'
   const fill = saved ? PUDDLES_BLUE : 'none'
-  const strokeWidth = card ? 2 : 1.75
+  const strokeWidth = variant === 'card' ? 2 : 1.75
 
   return (
     <svg

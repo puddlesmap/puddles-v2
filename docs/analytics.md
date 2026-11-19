@@ -125,14 +125,33 @@ A guide visit is this `$pageview`. There is no second `guide_viewed` event. `ent
 
 Wired on the Home Hello Fall band via [`SeasonalDiscoveryModule`](../src/components/seasonal/SeasonalDiscoveryModule.tsx). Opening a card still also fires `activity_opened` from the event detail view.
 
-### Local guides
+### Local guides (Guide V2 studies)
 
 | Event | Properties |
 |-------|------------|
 | `$pageview` | `page` (`guide`), `guide_slug`, `entry_point` |
-| `guide_event_link_clicked` | `guide_slug`, `event_id` |
-| `guide_section_viewed` | `guide_slug`, `section_id` — once per section per visit |
+| `guide_engagement_summary` | `guide_slug`, `guide_view_id`, `guide_version`, `active_reading_seconds`, `max_scroll_percent`, `sections_reached_count` — once per Guide visit on exit |
+| `guide_section_viewed` | `guide_slug`, `section_id`, `guide_view_id`, `guide_version` — once per section per visit |
+| `guide_nav_clicked` | `guide_slug`, `section_id`, `nav_placement` (`mobile_sticky` \| `desktop_toc` \| `index`) |
+| `guide_event_impression` | `guide_slug`, `event_id`, `placement`, optional `section_id` — once per event/placement/visit (≥35% visible) |
+| `guide_event_link_clicked` | `guide_slug`, `event_id`, optional `placement` / `section_id`, `guide_view_id` |
+| `guide_map_opened` | `guide_slug`, `guide_view_id` — intentional overlay open (not a passive preview) |
+| `guide_map_pin_clicked` | `guide_slug`, `place_slug`, optional `event_id`, `guide_view_id` — user pin/list select (auto-select suppressed) |
+| `guide_seasonal_hub_clicked` | `guide_slug`, `cta_placement`, `destination_type=seasonal_hub`, `destination_path` (`/seasonal/holiday-magic`) |
+| `guide_collection_clicked` | `guide_slug`, `cta_placement`, `destination_type=collection`, `destination_path` (`…#events`) |
 | `guide_shared` | `guide_slug` |
+
+### Save (Guide vs Browse)
+
+| Event | Properties |
+|-------|------------|
+| `activity_save_clicked` | `event_id`, `save_surface`, `intended_saved`, plus attribution props |
+| `activity_save_blocked` | `event_id`, `reason` (`persist_failed` \| `persist_error` \| `sync_failed`), `save_surface`, attribution |
+| `activity_saved` | Confirmed localStorage persistence only: `event_id`, `saved` (`true`\|`false`), `save_surface`, `discovery_origin`, optional `source_guide_slug`, `guide_view_id`, `guide_version`, `map_assisted` |
+
+`save_surface`: `guide_article` \| `guide_map` \| `browse_list` \| `browse_map` \| `event_detail`.
+
+`discovery_origin` is first-touch Guide or Browse for the session visit (separate from `save_surface`). Map pin → Event Detail → Save keeps `discovery_origin=guide`, `map_assisted=true`, and `save_surface=event_detail`.
 
 After `activity_opened` includes `guide_slug`, later official-site, calendar, and directions clicks for that event carry the same `guide_slug`.
 

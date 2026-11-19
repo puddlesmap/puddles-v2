@@ -109,6 +109,12 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   if (pathname === '/experiment/guides-home-mockups') {
     return formatDocumentTitle('Guides home mockups')
   }
+  if (pathname === '/experiment/guide-detail-mockups') {
+    return formatDocumentTitle('Guide detail mockups')
+  }
+  if (pathname === '/experiment/guide-f-mockups') {
+    return formatDocumentTitle('Guide F mockups')
+  }
   if (pathname === '/guides') {
     return 'Bay Area Family Activity Guides for Ages 0–5 | Puddles'
   }
@@ -210,6 +216,9 @@ export function getDocumentTitle(pathname: string, search = ''): string {
   }
   if (pathname === '/experiment/holiday-magic-filters') {
     return formatDocumentTitle('Holiday Magic typeahead filters mock')
+  }
+  if (pathname === '/experiment/holiday-magic-outing-rows') {
+    return formatDocumentTitle('Holiday Magic outing rows mock')
   }
   if (pathname === '/share-experiment') return formatDocumentTitle('Share Experiment')
   if (pathname === '/about-experiment' || pathname === '/experiment_about') {

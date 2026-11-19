@@ -3,9 +3,9 @@ import { HOLIDAY_GUIDE_EVENT_IDS as IDS } from './holidayGuide'
 
 export const HOLIDAY_GUIDE_MAP_CATEGORIES: GuideMapCategory[] = [
   { id: 'lights', label: 'Lights & Walks', color: '#E39B7B' },
-  { id: 'parades', label: 'Town Celebrations', color: '#1D743F' },
+  { id: 'parades', label: 'Parades & Celebrations', color: '#1D743F' },
   { id: 'santa', label: 'Santa Visits', color: '#FF5C28' },
-  { id: 'trains', label: 'Train Rides', color: '#C9A227' },
+  { id: 'trains', label: 'Holiday Trains', color: '#C9A227' },
 ]
 
 const VASONA = 'vasona-park'
@@ -34,6 +34,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     city: 'Palo Alto',
     cost: 'Free',
     tip: 'Residential street — stay on sidewalks and keep driveways clear.',
+    summary: "Walk along Fulton Street to see illuminated trees, decorated homes, and a neighborhood holiday tradition.",
     eventHref: event(IDS.christmasTreeLane),
   },
   {
@@ -49,6 +50,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     cost: 'Tickets',
     reservationNote: 'Daytime and evening need different tickets.',
     tip: "Thistlewyck Village ends Jan 3; evening Holiday Lights is closed Dec 12. Strollers welcome; wagons aren't.",
+    summary: "Explore miniature trains, elf activities, and farm animals by day, or wander through illuminated gardens and a glowing light tunnel after dark.",
     eventHref: event(IDS.filoli),
   },
   {
@@ -62,6 +64,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     date: 'Nov 27–Jan 1',
     city: 'San José',
     cost: 'Free display',
+    summary: "Wander among hundreds of decorated trees, animated holiday scenes, and festive displays, with live entertainment and Santa visits.",
     eventHref: event(IDS.christmasInThePark),
   },
   {
@@ -78,6 +81,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Vasona Lake County Park',
     cost: 'Tickets',
     reservationNote: 'Advance tickets required.',
+    summary: "Walk past colorful holiday displays, visit Santa and Mrs. Claus, and enjoy live entertainment along Vasona's illuminated route.",
     eventHref: event(IDS.fantasyOfLights),
   },
   {
@@ -93,6 +97,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Conservatory of Flowers',
     cost: 'Free',
     tip: '30-minute evening show from the front lawns.',
+    summary: "Watch colorful projections and music transform the Conservatory exterior during a 30-minute evening show from the front lawns.",
     eventHref: event(IDS.photosynthesis),
   },
   {
@@ -109,6 +114,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     cost: 'Tickets',
     tip: 'Children 4 and under are free; allow at least 45 minutes.',
     reservationNote: 'Timed tickets.',
+    summary: "Follow a garden trail through glowing art installations and music after dark. Children 4 and under are free; allow at least 45 minutes.",
     eventHref: event(IDS.lightscape),
   },
   {
@@ -125,10 +131,11 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     cost: 'Tickets',
     tip: 'Lantern displays rather than live zoo animals after dark.',
     reservationNote: 'Timed tickets open 28 days ahead.',
+    summary: "Walk among glowing animal lanterns. Lantern displays rather than live zoo animals after dark; timed tickets open 28 days ahead.",
     eventHref: event(IDS.glowfari),
   },
 
-  // —— Parades, Markets & Tree Lightings ——
+  // —— Parades & Celebrations ——
   {
     slug: 'los-altos-parade',
     name: 'Los Altos Festival of Lights Parade',
@@ -142,6 +149,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     city: 'Los Altos',
     venue: 'Downtown Los Altos',
     cost: 'Free',
+    summary: "Watch glowing floats, marching bands, costumed characters, and Santa make their way through downtown Los Altos.",
     eventHref: event(IDS.festivalOfLightsParade),
   },
   {
@@ -157,6 +165,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     city: 'Los Altos',
     venue: 'Veterans Community Plaza',
     cost: 'Free',
+    summary: "Enjoy student performances, take a holiday trolley ride through downtown, and visit Santa at the community plaza.",
     eventHref: event(IDS.losAltosTree),
   },
   {
@@ -170,6 +179,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     date: 'Dec 7 · 5:30–8 PM',
     city: 'Mountain View',
     cost: 'Free',
+    summary: "Ride a holiday train, make crafts, play games, hear local performances, and watch the community tree light up.",
     eventHref: event(IDS.mountainViewTree),
   },
   {
@@ -183,6 +193,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     date: 'Dec 12 · 11 AM–9 PM',
     city: 'Mountain View',
     cost: 'Free admission',
+    summary: "Explore a traditional German Christmas market with handmade ornaments, gingerbread, pretzels, live performances, and family arts and crafts.",
     eventHref: event(IDS.germanHolidayMarket),
   },
   {
@@ -199,6 +210,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Downtown Los Altos',
     cost: 'Free',
     tip: 'Primarily an evening shopping stroll rather than a dedicated children’s program.',
+    summary: "Wander through downtown lights and shops while strolling carolers bring music to the streets. Primarily an evening shopping stroll rather than a dedicated children's program.",
     eventHref: event(IDS.holidayStroll),
   },
   {
@@ -215,6 +227,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Downtown Los Altos · State Street',
     cost: 'Free',
     tip: 'Local holiday vendors along State Street; Santa visit.',
+    summary: "Browse local holiday vendors along State Street, listen to live music, and stop by to see Santa.",
     eventHref: event(IDS.holidayMarket),
   },
   {
@@ -229,10 +242,11 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     city: 'Cupertino',
     cost: 'Free',
     tip: 'Tree lighting, Santa, children’s activities, snowball room, and a holiday movie.',
+    summary: "See the holiday tree light up, visit Santa, and enjoy children's activities, a snowball room, and a holiday movie.",
     eventHref: event(IDS.cupertinoTreeLighting),
   },
 
-  // —— Santa & Holiday Villages ——
+  // —— Santa Visits ——
   {
     slug: 'hiller-santa',
     name: 'Santa Arrives by Helicopter',
@@ -245,6 +259,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     city: 'San Carlos',
     cost: 'Free arrival',
     tip: 'Watching Santa’s arrival is free; museum entry is separate.',
+    summary: "Watch Santa arrive by helicopter, hear Christmas carols from the West Bay Community Band, and visit with Santa afterward.",
     eventHref: event(IDS.hillerSanta),
   },
   {
@@ -258,6 +273,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     date: 'Weekends Nov 21–Dec 13',
     city: 'Half Moon Bay',
     cost: 'Paid activities',
+    summary: "Ride the farm train, browse Santa's Village, visit Mrs. Claus' kitchen, and explore a Christmas tree farm together.",
     eventHref: event(IDS.santasTreeFarm),
   },
   {
@@ -273,6 +289,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Gamble Garden',
     cost: 'Ticketed',
     reservationNote: 'Ticketed evening experience.',
+    summary: "Wander through a storybook-themed winter garden, meet Santa, enjoy crafts, and sip hot chocolate at Gamble Garden.",
     eventHref: event(IDS.onceUponAGarden),
   },
   {
@@ -287,6 +304,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     city: 'Oakland',
     venue: "Children's Fairyland",
     cost: 'Ticketed',
+    summary: "Make holiday crafts, watch puppet shows, hear music from around the world, and visit Black Santa.",
     eventHref: event(IDS.fairyWinterland),
   },
   {
@@ -301,10 +319,11 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     city: 'Gilroy',
     venue: 'Gilroy Gardens',
     cost: 'Ticketed',
+    summary: "Explore glowing holiday lights, meet festive characters, watch live shows, and enjoy seasonal rides.",
     eventHref: event(IDS.northPoleNights),
   },
 
-  // —— Holiday Train Rides ——
+  // —— Holiday Trains ——
   {
     slug: 'caltrain',
     name: 'Caltrain Holiday Train',
@@ -319,6 +338,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     cost: 'Paid ride · Free station celebrations',
     tip: 'Ride tickets go on sale Nov 20. Station festivities are free. Pin marks a Peninsula stop — the train visits multiple stations.',
     reservationNote: 'Ride tickets required.',
+    summary: "Ride a decorated train with festive onboard activities, or enjoy holiday entertainment at participating Caltrain stations.",
     eventHref: event(IDS.caltrainHolidayTrain),
   },
   {
@@ -334,6 +354,7 @@ export const HOLIDAY_GUIDE_PLACES: GuidePlace[] = [
     city: 'Los Gatos',
     venue: 'Vasona Lake County Park',
     cost: 'Paid rides',
+    summary: "Ride a decorated train beneath twinkling trees, enjoy the holiday carousel, and stop for hot chocolate at the Snack Shack.",
     eventHref: event(IDS.billyJones),
   },
 ]

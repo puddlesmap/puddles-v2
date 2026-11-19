@@ -7,7 +7,9 @@ import { Footer } from '../components/layout/Footer'
 import {
   HOLIDAY_EVENTS_HREF,
   HOLIDAY_GUIDE_COVER,
-  HOLIDAY_GUIDE_CTA_LABEL,
+  HOLIDAY_GUIDE_CTA_BROWSE_LABEL,
+  HOLIDAY_GUIDE_CTA_DEK,
+  HOLIDAY_GUIDE_CTA_TITLE,
   HOLIDAY_GUIDE_OUTING_IMAGES,
   HOLIDAY_GUIDE_RELATED,
 } from '../data/holidayGuide'
@@ -82,7 +84,9 @@ function FullHolidayGuidePalette({ palette }: { palette: PaletteId }) {
             <GuideRelatedFooter
               relatedGuides={[...HOLIDAY_GUIDE_RELATED]}
               seasonalHref={HOLIDAY_EVENTS_HREF}
-              seasonalLinkLabel={HOLIDAY_GUIDE_CTA_LABEL}
+              seasonalTitle={HOLIDAY_GUIDE_CTA_TITLE}
+              seasonalDek={HOLIDAY_GUIDE_CTA_DEK}
+              seasonalLinkLabel={HOLIDAY_GUIDE_CTA_BROWSE_LABEL}
             />
           }
         />

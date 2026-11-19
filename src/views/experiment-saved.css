@@ -34,9 +34,14 @@
   overflow: visible;
 }
 
-/* White lined / blue filled hearts need contrast on light photos */
-.save-heart-btn:not(.save-heart-btn--chrome) .save-heart-icon {
+/* White lined / blue filled hearts need contrast on light photos.
+   Map-sheet uses grey outline on light UI — no photo drop-shadow. */
+.save-heart-btn:not(.save-heart-btn--chrome):not(.save-heart-btn--map-sheet) .save-heart-icon {
   filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.45));
+}
+
+.save-heart-btn--map-sheet .save-heart-icon {
+  filter: none;
 }
 
 .save-heart-btn--chrome .save-heart-icon {

@@ -58,6 +58,16 @@ export const ANALYTICS_EVENTS = {
   GUIDE_EVENT_LINK_CLICKED: 'guide_event_link_clicked',
   GUIDE_SECTION_VIEWED: 'guide_section_viewed',
   GUIDE_SHARED: 'guide_shared',
+  GUIDE_ENGAGEMENT_SUMMARY: 'guide_engagement_summary',
+  GUIDE_NAV_CLICKED: 'guide_nav_clicked',
+  GUIDE_EVENT_IMPRESSION: 'guide_event_impression',
+  GUIDE_MAP_PREVIEW_VIEWED: 'guide_map_preview_viewed',
+  GUIDE_MAP_OPENED: 'guide_map_opened',
+  GUIDE_MAP_PIN_CLICKED: 'guide_map_pin_clicked',
+  GUIDE_SEASONAL_HUB_CLICKED: 'guide_seasonal_hub_clicked',
+  GUIDE_COLLECTION_CLICKED: 'guide_collection_clicked',
+  ACTIVITY_SAVE_CLICKED: 'activity_save_clicked',
+  ACTIVITY_SAVE_BLOCKED: 'activity_save_blocked',
   NEWSLETTER_SUBSCRIBED: 'newsletter_subscribed',
   NEWSLETTER_UNSUBSCRIBED: 'newsletter_unsubscribed',
   ACTIVITY_SAVED: 'activity_saved',
@@ -481,27 +491,108 @@ export function guideSlugFromLocationSearch(search: string): string | undefined 
   return value
 }
 
-export function trackGuideEventLinkClicked(guideSlug: string, eventId: string): void {
+export function trackGuideEventLinkClicked(
+  guideSlug: string,
+  eventId: string,
+  extras?: AnalyticsProps,
+): void {
   if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
   if (!eventId.trim()) return
   trackEvent(ANALYTICS_EVENTS.GUIDE_EVENT_LINK_CLICKED, {
     guide_slug: guideSlug,
     event_id: eventId,
+    ...(extras ?? {}),
   })
 }
 
-export function trackGuideSectionViewed(guideSlug: string, sectionId: string): void {
+export function trackGuideSectionViewed(
+  guideSlug: string,
+  sectionId: string,
+  extras?: AnalyticsProps,
+): void {
   if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
   if (!/^[a-z0-9-]{1,80}$/.test(sectionId)) return
   trackEvent(ANALYTICS_EVENTS.GUIDE_SECTION_VIEWED, {
     guide_slug: guideSlug,
     section_id: sectionId,
+    ...(extras ?? {}),
   })
 }
 
-export function trackGuideShared(guideSlug: string): void {
+export function trackGuideShared(guideSlug: string, extras?: AnalyticsProps): void {
   if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
-  trackEvent(ANALYTICS_EVENTS.GUIDE_SHARED, { guide_slug: guideSlug })
+  trackEvent(ANALYTICS_EVENTS.GUIDE_SHARED, { guide_slug: guideSlug, ...(extras ?? {}) })
+}
+
+export function trackGuideNavClicked(
+  guideSlug: string,
+  sectionId: string,
+  navPlacement: 'mobile_sticky' | 'desktop_toc' | 'index',
+  extras?: AnalyticsProps,
+): void {
+  if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
+  if (!/^[a-z0-9-]{1,80}$/.test(sectionId)) return
+  trackEvent(ANALYTICS_EVENTS.GUIDE_NAV_CLICKED, {
+    guide_slug: guideSlug,
+    section_id: sectionId,
+    nav_placement: navPlacement,
+    ...(extras ?? {}),
+  })
+}
+
+export function trackGuideMapOpened(guideSlug: string, extras?: AnalyticsProps): void {
+  if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
+  trackEvent(ANALYTICS_EVENTS.GUIDE_MAP_OPENED, {
+    guide_slug: guideSlug,
+    ...(extras ?? {}),
+  })
+}
+
+export function trackGuideMapPinClicked(
+  guideSlug: string,
+  eventId: string | undefined,
+  placeSlug: string,
+  extras?: AnalyticsProps,
+): void {
+  if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
+  trackEvent(ANALYTICS_EVENTS.GUIDE_MAP_PIN_CLICKED, {
+    guide_slug: guideSlug,
+    place_slug: placeSlug,
+    ...(eventId ? { event_id: eventId } : {}),
+    ...(extras ?? {}),
+  })
+}
+
+export function trackGuideSeasonalHubClicked(
+  guideSlug: string,
+  ctaPlacement: string,
+  destinationPath: string,
+  extras?: AnalyticsProps,
+): void {
+  if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
+  trackEvent(ANALYTICS_EVENTS.GUIDE_SEASONAL_HUB_CLICKED, {
+    guide_slug: guideSlug,
+    cta_placement: ctaPlacement,
+    destination_type: 'seasonal_hub',
+    destination_path: destinationPath,
+    ...(extras ?? {}),
+  })
+}
+
+export function trackGuideCollectionClicked(
+  guideSlug: string,
+  ctaPlacement: string,
+  destinationPath: string,
+  extras?: AnalyticsProps,
+): void {
+  if (!/^[a-z0-9-]{1,80}$/.test(guideSlug)) return
+  trackEvent(ANALYTICS_EVENTS.GUIDE_COLLECTION_CLICKED, {
+    guide_slug: guideSlug,
+    cta_placement: ctaPlacement,
+    destination_type: 'collection',
+    destination_path: destinationPath,
+    ...(extras ?? {}),
+  })
 }
 
 export function trackActivityOpened(

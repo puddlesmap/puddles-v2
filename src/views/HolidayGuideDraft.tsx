@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import { openPuddlesPicksSignup } from '../components/picks/PuddlesPicksHome'
 import { FeaturedExperience } from '../components/guides/FeaturedExperience'
 import { QuickPickGroup } from '../components/guides/QuickPick'
-import { GuideEventTextLink } from '../components/guides/guideEditorialShared'
+import { GuideEventLinkedTitle } from '../components/guides/guideEditorialShared'
 import {
   HOLIDAY_EVENTS_HREF,
   HOLIDAY_GUIDE_EVENT_IDS as IDS,
   HOLIDAY_GUIDE_POSTED,
   HOLIDAY_GUIDE_READ,
+  HOLIDAY_GUIDE_SECTION_CLAY,
   HOLIDAY_GUIDE_SLUG,
   HOLIDAY_GUIDE_TITLE,
 } from '../data/holidayGuide'
@@ -43,10 +44,46 @@ const BILLY_JONES_IMG =
 
 const JUMPS = [
   ['lights', 'Lights & Walks'],
-  ['parades', 'Parades, Markets & Tree Lightings'],
-  ['santa', 'Santa & Holiday Villages'],
-  ['trains', 'Holiday Train Rides'],
-  ['before', 'Good to know before you go'],
+  ['parades', 'Parades & Celebrations'],
+  ['santa', 'Santa Visits'],
+  ['trains', 'Holiday Trains'],
+  ['more', 'More Holiday Outings'],
+  ['before', 'Before You Go'],
+] as const
+
+const FINDER_ROWS = [
+  {
+    category: 'Free & close by',
+    items: [
+      { slug: 'mountain-view-tree', label: 'Mountain View Tree Lighting' },
+      { slug: 'los-altos-tree', label: 'Los Altos Holiday Tree Celebration' },
+      { slug: 'christmas-tree-lane', label: 'Christmas Tree Lane' },
+    ],
+  },
+  {
+    category: 'Before bedtime',
+    items: [
+      { slug: 'hiller-santa', label: 'Santa by Helicopter' },
+      { slug: 'santas-tree-farm', label: "Santa's Tree Farm" },
+      { slug: 'german-market', label: 'German Holiday Market' },
+    ],
+  },
+  {
+    category: 'A special outing',
+    items: [
+      { slug: 'filoli', label: 'Filoli' },
+      { slug: 'billy-jones', label: 'Billy Jones Holiday Night Train' },
+      { slug: 'fantasy-of-lights', label: 'Fantasy of Lights' },
+    ],
+  },
+  {
+    category: 'After-dark magic',
+    items: [
+      { slug: 'los-altos-parade', label: 'Los Altos Parade' },
+      { slug: 'christmas-in-park', label: 'Christmas in the Park' },
+      { slug: 'christmas-tree-lane', label: 'neighborhood lights' },
+    ],
+  },
 ] as const
 
 function GuideShare() {
@@ -88,14 +125,19 @@ export function HolidayGuideDraft({
   share = false,
   afterCover,
   afterHero,
+  beforeFinder,
+  afterFinder,
   afterBody,
   railAside,
   suppressHero = false,
   suppressCover = false,
   hideEventsCta = false,
   suppressClosing = false,
+  suppressFinder = false,
   linkFinder = false,
+  finderLayout = 'inline',
   imageOverrides,
+  trackSections = true,
 }: {
   idPrefix: string
   jumps: boolean
@@ -105,6 +147,10 @@ export function HolidayGuideDraft({
   share?: boolean
   afterCover?: ReactNode
   afterHero?: ReactNode
+  /** Inserted just before “Find your kind of holiday magic”. */
+  beforeFinder?: ReactNode
+  /** Inserted after “Find your kind of holiday magic”, before Lights & Walks. */
+  afterFinder?: ReactNode
   afterBody?: ReactNode
   railAside?: ReactNode
   suppressHero?: boolean
@@ -112,10 +158,16 @@ export function HolidayGuideDraft({
   hideEventsCta?: boolean
   /** Hide built-in upcoming/email closing (use afterBody footer instead). */
   suppressClosing?: boolean
+  /** Hide the “Find your kind of holiday magic” finder (mockups that lead with picks). */
+  suppressFinder?: boolean
   /** Link finder-table event names to in-guide anchors / Puddles. */
   linkFinder?: boolean
+  /** `bullets` = category rows with outing lists (mockup F); default keeps inline · separators. */
+  finderLayout?: 'inline' | 'bullets'
   /** Optional image overrides keyed by outing slug (mockup assets). */
   imageOverrides?: Partial<Record<string, string>>
+  /** When false, page-level guide visit analytics owns section reach. */
+  trackSections?: boolean
 }) {
   const Title = heading
   const id = (slug: string) => `${idPrefix}-${slug}`
@@ -124,6 +176,7 @@ export function HolidayGuideDraft({
   const img = (slug: string, fallback?: string) => imageOverrides?.[slug] ?? fallback
 
   useEffect(() => {
+    if (trackSections === false) return
     const nodes = Array.from(document.querySelectorAll<HTMLElement>('[data-guide-section]'))
     if (nodes.length === 0) return
 
@@ -143,7 +196,7 @@ export function HolidayGuideDraft({
 
     for (const node of nodes) observer.observe(node)
     return () => observer.disconnect()
-  }, [])
+  }, [trackSections])
 
   return (
     <>
@@ -185,104 +238,71 @@ export function HolidayGuideDraft({
         ) : null}
         <div className={showRail ? 'lgg-layout' : undefined}>
           <div>
-            <section className="lgg-chapter lgg-chapter--finder" id={id('finder')}>
-              <h3 data-guide-section="finder">Find your kind of holiday magic</h3>
-              <QuickPickGroup className="holiday-finder">
-                <li>
-                  <p className="gem-quick">
-                    <span className="gem-quick__category">Free & close by — </span>
-                    {linkFinder ? (
-                      <>
-                        <a className="gem-quick__link" href={`#${id('mountain-view-tree')}`}>
-                          Mountain View Tree Lighting
-                        </a>
-                        {' · '}
-                        <a className="gem-quick__link" href={`#${id('los-altos-tree')}`}>
-                          Los Altos Holiday Tree Celebration
-                        </a>
-                        {' · '}
-                        <a className="gem-quick__link" href={`#${id('christmas-tree-lane')}`}>
-                          Christmas Tree Lane
-                        </a>
-                      </>
-                    ) : (
-                      <>
-                        Mountain View Tree Lighting · Los Altos Holiday Tree Celebration · Christmas
-                        Tree Lane
-                      </>
-                    )}
-                  </p>
-                </li>
-                <li>
-                  <p className="gem-quick">
-                    <span className="gem-quick__category">Before bedtime — </span>
-                    {linkFinder ? (
-                      <>
-                        <a className="gem-quick__link" href={`#${id('hiller-santa')}`}>
-                          Santa by Helicopter
-                        </a>
-                        {' · '}
-                        <a className="gem-quick__link" href={`#${id('santas-tree-farm')}`}>
-                          Santa&apos;s Tree Farm
-                        </a>
-                        {' · '}
-                        <a className="gem-quick__link" href={`#${id('german-market')}`}>
-                          German Holiday Market
-                        </a>
-                      </>
-                    ) : (
-                      <>
-                        Santa by Helicopter · Santa&apos;s Tree Farm · German Holiday Market
-                      </>
-                    )}
-                  </p>
-                </li>
-                <li>
-                  <p className="gem-quick">
-                    <span className="gem-quick__category">A special outing — </span>
-                    {linkFinder ? (
-                      <>
-                        <a className="gem-quick__link" href={`#${id('filoli')}`}>
-                          Filoli
-                        </a>
-                        {' · '}
-                        <a className="gem-quick__link" href={`#${id('billy-jones')}`}>
-                          Billy Jones Holiday Night Train
-                        </a>
-                        {' · '}
-                        <a className="gem-quick__link" href={`#${id('fantasy-of-lights')}`}>
-                          Fantasy of Lights
-                        </a>
-                      </>
-                    ) : (
-                      <>Filoli · Billy Jones Holiday Night Train · Fantasy of Lights</>
-                    )}
-                  </p>
-                </li>
-                <li>
-                  <p className="gem-quick">
-                    <span className="gem-quick__category">After-dark magic — </span>
-                    {linkFinder ? (
-                      <>
-                        <a className="gem-quick__link" href={`#${id('los-altos-parade')}`}>
-                          Los Altos Parade
-                        </a>
-                        {' · '}
-                        <a className="gem-quick__link" href={`#${id('christmas-in-park')}`}>
-                          Christmas in the Park
-                        </a>
-                        {' · '}
-                        <a className="gem-quick__link" href={`#${id('christmas-tree-lane')}`}>
-                          neighborhood lights
-                        </a>
-                      </>
-                    ) : (
-                      <>Los Altos Parade · Christmas in the Park · neighborhood lights</>
-                    )}
-                  </p>
-                </li>
-              </QuickPickGroup>
-            </section>
+            {beforeFinder}
+
+            {suppressFinder ? null : (
+              <section
+                className={`lgg-chapter lgg-chapter--finder${finderLayout === 'bullets' ? ' lgg-chapter--finder-bullets' : ''}`}
+                id={id('finder')}
+              >
+                {finderLayout === 'bullets' ? (
+                  <h2 className="holiday-finder-title" data-guide-section="finder">
+                    <img
+                      className="holiday-finder-title__clay"
+                      src={HOLIDAY_GUIDE_SECTION_CLAY.finder}
+                      alt=""
+                      decoding="async"
+                    />
+                    <span>Find your kind of holiday magic</span>
+                  </h2>
+                ) : (
+                  <h3 data-guide-section="finder">Find your kind of holiday magic</h3>
+                )}
+                {finderLayout === 'bullets' ? (
+                  <div className="holiday-finder-table" aria-label="Find your kind of holiday magic">
+                    {FINDER_ROWS.map((row) => (
+                      <div className="holiday-finder-table__row" key={row.category}>
+                        <div className="holiday-finder-table__cat">{row.category}</div>
+                        <p className="holiday-finder-table__events gem-quick">
+                          {linkFinder
+                            ? row.items.map((item, index) => (
+                                <span key={`${row.category}-${item.slug}-${item.label}`}>
+                                  {index > 0 ? ', ' : null}
+                                  <a className="gem-quick__link" href={`#${id(item.slug)}`}>
+                                    {item.label}
+                                  </a>
+                                </span>
+                              ))
+                            : row.items.map((item) => item.label).join(', ')}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <QuickPickGroup className="holiday-finder">
+                    {FINDER_ROWS.map((row) => (
+                      <li key={row.category}>
+                        <p className="gem-quick">
+                          <span className="gem-quick__category">{row.category} — </span>
+                          {linkFinder
+                            ? row.items.map((item, index) => (
+                                <span key={`${item.slug}-${item.label}`}>
+                                  {index > 0 ? ' · ' : null}
+                                  <a className="gem-quick__link" href={`#${id(item.slug)}`}>
+                                    {item.label}
+                                  </a>
+                                </span>
+                              ))
+                            : row.items.map((item) => item.label).join(' · ')}
+                        </p>
+                      </li>
+                    ))}
+                  </QuickPickGroup>
+                )}
+              </section>
+            )}
+
+            {afterFinder}
 
             <section className="lgg-chapter" id={id('lights')}>
               <h3 data-guide-section="lights">✨ Lights & Walks</h3>
@@ -349,7 +369,7 @@ export function HolidayGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('parades')}>
-              <h3 data-guide-section="parades">🎄 Parades, Markets & Tree Lightings</h3>
+              <h3 data-guide-section="parades">🎄 Parades & Celebrations</h3>
 
               <FeaturedExperience
                 title="Los Altos Festival of Lights Parade"
@@ -414,7 +434,7 @@ export function HolidayGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('santa')}>
-              <h3 data-guide-section="santa">🎅 Santa & Holiday Villages</h3>
+              <h3 data-guide-section="santa">🎅 Santa Visits</h3>
 
               <FeaturedExperience
                 title="Santa Arrives by Helicopter · San Carlos"
@@ -448,7 +468,7 @@ export function HolidayGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('trains')}>
-              <h3 data-guide-section="trains">🚂 Holiday Train Rides</h3>
+              <h3 data-guide-section="trains">🚂 Holiday Trains</h3>
 
               <FeaturedExperience
                 title="Caltrain Holiday Train · Peninsula"
@@ -482,7 +502,7 @@ export function HolidayGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('more')}>
-              <h3 data-guide-section="more">🌟 More holiday magic to explore</h3>
+              <h3 data-guide-section="more">🌟 More Holiday Outings</h3>
               <p>
                 These are additional options for families planning another evening out or a festive
                 day trip. For a broader list by date or city,{' '}
@@ -496,9 +516,9 @@ export function HolidayGuideDraft({
               <ul className="holiday-more-list">
                 <li id={id('los-altos-stroll')}>
                   <b>
-                    <GuideEventTextLink href={`/event/${IDS.holidayStroll}`} guideSlug={GS}>
+                    <GuideEventLinkedTitle href={`/event/${IDS.holidayStroll}`} guideSlug={GS}>
                       Downtown Los Altos Holiday Stroll
-                    </GuideEventTextLink>{' '}
+                    </GuideEventLinkedTitle>{' '}
                     · Nov 13, 5–9 PM.
                   </b>{' '}
                   Wander through downtown lights and shops while strolling carolers bring music to the
@@ -507,9 +527,9 @@ export function HolidayGuideDraft({
                 </li>
                 <li id={id('los-altos-market')}>
                   <b>
-                    <GuideEventTextLink href={`/event/${IDS.holidayMarket}`} guideSlug={GS}>
+                    <GuideEventLinkedTitle href={`/event/${IDS.holidayMarket}`} guideSlug={GS}>
                       Downtown Los Altos Holiday Market
-                    </GuideEventTextLink>{' '}
+                    </GuideEventLinkedTitle>{' '}
                     · Dec 10 & 17, 4–8 PM.
                   </b>{' '}
                   Browse local holiday vendors along State Street, listen to live music, and stop by to
@@ -517,9 +537,9 @@ export function HolidayGuideDraft({
                 </li>
                 <li id={id('once-upon-a-garden')}>
                   <b>
-                    <GuideEventTextLink href={`/event/${IDS.onceUponAGarden}`} guideSlug={GS}>
+                    <GuideEventLinkedTitle href={`/event/${IDS.onceUponAGarden}`} guideSlug={GS}>
                       Once Upon a Garden
-                    </GuideEventTextLink>{' '}
+                    </GuideEventLinkedTitle>{' '}
                     · Palo Alto · Dec 4, 5–7 PM.
                   </b>{' '}
                   Wander through a storybook-themed winter garden, meet Santa, enjoy crafts, and sip hot
@@ -527,9 +547,9 @@ export function HolidayGuideDraft({
                 </li>
                 <li id={id('cupertino-tree')}>
                   <b>
-                    <GuideEventTextLink href={`/event/${IDS.cupertinoTreeLighting}`} guideSlug={GS}>
+                    <GuideEventLinkedTitle href={`/event/${IDS.cupertinoTreeLighting}`} guideSlug={GS}>
                       Cupertino Community Tree Lighting
-                    </GuideEventTextLink>{' '}
+                    </GuideEventLinkedTitle>{' '}
                     · Dec 4, 6–8 PM.
                   </b>{' '}
                   See the holiday tree light up, visit Santa, and enjoy children&apos;s activities, a
@@ -541,9 +561,9 @@ export function HolidayGuideDraft({
               <ul className="holiday-more-list">
                 <li id={id('photosynthesis')}>
                   <b>
-                    <GuideEventTextLink href={`/event/${IDS.photosynthesis}`} guideSlug={GS}>
+                    <GuideEventLinkedTitle href={`/event/${IDS.photosynthesis}`} guideSlug={GS}>
                       Photosynthesis
-                    </GuideEventTextLink>{' '}
+                    </GuideEventLinkedTitle>{' '}
                     · Conservatory of Flowers, San Francisco · Oct 1–Jan 30.
                   </b>{' '}
                   Watch colorful projections and music transform the Conservatory exterior during a
@@ -551,9 +571,9 @@ export function HolidayGuideDraft({
                 </li>
                 <li id={id('lightscape')}>
                   <b>
-                    <GuideEventTextLink href={`/event/${IDS.lightscape}`} guideSlug={GS}>
+                    <GuideEventLinkedTitle href={`/event/${IDS.lightscape}`} guideSlug={GS}>
                       Lightscape
-                    </GuideEventTextLink>{' '}
+                    </GuideEventLinkedTitle>{' '}
                     · SF Botanical Garden · Nov 20–Jan 3.
                   </b>{' '}
                   Follow a garden trail through glowing art installations and music after dark. Children
@@ -561,9 +581,9 @@ export function HolidayGuideDraft({
                 </li>
                 <li id={id('glowfari')}>
                   <b>
-                    <GuideEventTextLink href={`/event/${IDS.glowfari}`} guideSlug={GS}>
+                    <GuideEventLinkedTitle href={`/event/${IDS.glowfari}`} guideSlug={GS}>
                       Glowfari
-                    </GuideEventTextLink>{' '}
+                    </GuideEventLinkedTitle>{' '}
                     · Oakland Zoo · Nov 6–Jan 31, select nights.
                   </b>{' '}
                   Walk among glowing animal lanterns. Lantern displays rather than live zoo animals after
@@ -571,9 +591,9 @@ export function HolidayGuideDraft({
                 </li>
                 <li id={id('fairy-winterland')}>
                   <b>
-                    <GuideEventTextLink href={`/event/${IDS.fairyWinterland}`} guideSlug={GS}>
+                    <GuideEventLinkedTitle href={`/event/${IDS.fairyWinterland}`} guideSlug={GS}>
                       Fairy Winterland
-                    </GuideEventTextLink>{' '}
+                    </GuideEventLinkedTitle>{' '}
                     · Children&apos;s Fairyland, Oakland · Dec 12–13, 19–20 & 26–27.
                   </b>{' '}
                   Make holiday crafts, watch puppet shows, hear music from around the world, and visit
@@ -581,9 +601,9 @@ export function HolidayGuideDraft({
                 </li>
                 <li id={id('north-pole-nights')}>
                   <b>
-                    <GuideEventTextLink href={`/event/${IDS.northPoleNights}`} guideSlug={GS}>
+                    <GuideEventLinkedTitle href={`/event/${IDS.northPoleNights}`} guideSlug={GS}>
                       North Pole Nights
-                    </GuideEventTextLink>{' '}
+                    </GuideEventLinkedTitle>{' '}
                     · Gilroy Gardens · Nov 21–Dec 31, select evenings.
                   </b>{' '}
                   Explore glowing holiday lights, meet festive characters, watch live shows, and enjoy
@@ -593,7 +613,7 @@ export function HolidayGuideDraft({
             </section>
 
             <section className="lgg-chapter" id={id('before')}>
-              <h3 data-guide-section="before">💙 Good to know before you go</h3>
+              <h3 data-guide-section="before">💙 Before You Go</h3>
               <ul className="lgg-tips">
                 <li>
                   <b>Want to stay close to home?</b> Start with free{' '}
@@ -669,7 +689,7 @@ export function HolidayGuideDraft({
 
                 <p>
                   <Link className="lgl-textlink" to={HOLIDAY_EVENTS_HREF}>
-                    Explore holiday activities →
+                    Browse all holiday outings →
                   </Link>
                 </p>
                 <p className="lgg-disclaimer">

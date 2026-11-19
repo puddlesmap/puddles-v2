@@ -8,8 +8,23 @@ import { saveBrowseReturnSnapshot, type BrowseReturnSnapshot } from '@/utils/bro
 import { saveHomeReturnSnapshotFromLive } from '@/utils/homeReturnState'
 import { clearEventDetailOverlayState } from '@/utils/nextEventDetailState'
 import { eventDetailPath } from '@/utils/eventPages'
+import { beginBrowseVisit, bindGuideToEventDetail } from '@/utils/discoveryAttribution'
 
 const EVENT_DETAIL_RETURN_KEY = 'puddles:event-detail-return'
+
+function sourceQueryValue(source: EventOpenSource): string | null {
+  switch (source) {
+    case 'browse_list':
+    case 'browse_map':
+    case 'home':
+    case 'saved':
+    case 'guide':
+    case 'city_landing':
+      return source
+    default:
+      return null
+  }
+}
 
 /**
  * Open event detail as a full page (not the intercepting modal overlay).
@@ -28,6 +43,10 @@ export function useEventNavigation() {
         saveHomeReturnSnapshotFromLive(window.scrollY)
       }
 
+      if (source === 'browse_list' || source === 'browse_map' || source === 'discovery') {
+        beginBrowseVisit()
+      }
+
       saveBrowseReturnSnapshot({
         scrollY: window.scrollY,
         ...extra,
@@ -40,8 +59,24 @@ export function useEventNavigation() {
         // ignore quota / private mode
       }
 
-      window.location.assign(eventDetailPath(event))
+      const params = new URLSearchParams()
+      const fromSource = sourceQueryValue(source)
+      if (fromSource) params.set('from_source', fromSource)
+      const href = params.toString()
+        ? `${eventDetailPath(event)}?${params.toString()}`
+        : eventDetailPath(event)
+
+      window.location.assign(href)
     },
     [pathname, searchParams],
   )
+}
+
+export function openGuideEventDetail(eventId: string, guideSlug: string) {
+  bindGuideToEventDetail(guideSlug)
+  const params = new URLSearchParams({
+    from_guide: guideSlug,
+    from_source: 'guide',
+  })
+  window.location.assign(`/event/${encodeURIComponent(eventId)}?${params.toString()}`)
 }

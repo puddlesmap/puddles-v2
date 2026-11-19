@@ -1,0 +1,206 @@
+/* Direction H — desktop sticky TOC + reading progress */
+
+.gdm-toc-rail {
+  --gdm-toc-blue: #66c5f9;
+  position: sticky;
+  top: calc(var(--gdm-sticky-top, 0px) + 1.25rem);
+  align-self: start;
+  max-height: calc(100vh - var(--gdm-sticky-top, 0px) - 2.5rem);
+  overflow: auto;
+  padding: 1.5rem 0 1rem 0.85rem;
+  /* Positioning context for the progress track */
+  isolation: isolate;
+}
+
+.gdm-toc-rail__eyebrow {
+  margin: 0 0 0.85rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+}
+
+.gdm-toc-rail__track {
+  position: absolute;
+  left: 0;
+  top: calc(1.5rem + 1.7rem);
+  bottom: 1.25rem;
+  width: 2px;
+  background: #e4e4e4;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.gdm-toc-rail__fill {
+  display: block;
+  width: 100%;
+  background: var(--gdm-toc-blue);
+  border-radius: inherit;
+  transition: height 120ms linear;
+}
+
+.gdm-toc-rail__list {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.gdm-toc-rail__link {
+  display: block;
+  color: #9a9a9a !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.35;
+  text-decoration: none !important;
+  transition: color 120ms ease;
+}
+
+.gdm-toc-rail__link:hover {
+  color: #444 !important;
+}
+
+.gdm-toc-rail__link.is-active {
+  color: #1a1a1a !important;
+  font-weight: 700;
+}
+
+/* Desktop split — article + TOC. Mobile keeps F clay sticky. */
+.gdm-h-split {
+  display: block;
+}
+
+.gdm-h-split__rail {
+  display: none;
+}
+
+/* Mobile / tablet: more air above clay sticky */
+@media (max-width: 1023px) {
+  .gdm-shell--h .gdm-wire-nav {
+    margin-top: 1.15rem;
+  }
+
+  .gdm-shell--h .gdm-wire-nav.is-stuck {
+    margin-top: 0;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    background: rgb(236 236 205 / 0.98);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgb(23 56 42 / 0.1);
+    box-shadow: none;
+  }
+}
+
+/* Beat .holiday-guide-dimmed … text-decoration: none !important */
+.gdm-shell--h.holiday-guide-dimmed .grf-seasonal__link:any-link,
+.gdm-shell--h.holiday-guide-dimmed .grf-seasonal__link:any-link:hover,
+.gdm-shell--h .grf-seasonal__link:any-link,
+.gdm-shell--h .grf-seasonal__link:any-link:hover {
+  color: #1a7aad !important;
+  text-decoration: underline !important;
+  pointer-events: auto !important;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.gdm-shell--h .grf-seasonal__title {
+  color: #17382a;
+}
+
+.gdm-shell--h .grf-seasonal__dek {
+  color: #4a5560;
+}
+
+@media (min-width: 1024px) {
+  .gdm-shell--h {
+    /* Match F/G/I article measure; TOC sits beside it (not a wide 1fr shell). */
+    --gdm-h-article: 40rem;
+    --gdm-h-pad: var(--layout-padding-desktop, 2rem);
+    --gdm-h-rail: 13.5rem;
+    --gdm-h-gap: 2rem;
+    --gdm-h-split-inner: calc(var(--gdm-h-article) + var(--gdm-h-gap) + var(--gdm-h-rail));
+    --gdm-h-split-outer: calc(var(--gdm-h-split-inner) + 2 * var(--gdm-h-pad));
+  }
+
+  .gdm-shell--h .gdm-wire-nav,
+  .gdm-shell--h .gdm-wire-nav-sentinel {
+    display: none !important;
+  }
+
+  /*
+    Full-bleed title bar. Title copy left-aligns with the 40rem article column
+    inside the centered article+TOC split.
+    Use full padding shorthand so it wins over guideFChrome tablet padding-inline.
+  */
+  .gdm-shell--h .gdm-wire-hero__overlay,
+  .holiday-guide-f.gdm-shell--h .gdm-wire-hero__overlay {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+    background: rgb(23 56 42 / 0.7);
+    text-align: left;
+    padding: 1rem
+      calc(
+        (100% - min(100%, var(--gdm-h-split-outer))) / 2 + var(--gdm-h-pad) + var(--gdm-h-gap) +
+          var(--gdm-h-rail)
+      )
+      1.1rem
+      calc((100% - min(100%, var(--gdm-h-split-outer))) / 2 + var(--gdm-h-pad));
+  }
+
+  .gdm-shell--h .gdm-wire-hero__overlay > *,
+  .holiday-guide-f.gdm-shell--h .gdm-wire-hero__overlay > * {
+    max-width: var(--gdm-h-article);
+  }
+
+  .gdm-shell--h .gdm-h-split {
+    display: grid;
+    grid-template-columns: minmax(0, var(--gdm-h-article)) var(--gdm-h-rail);
+    column-gap: var(--gdm-h-gap);
+    align-items: stretch;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--gdm-h-pad);
+    box-sizing: border-box;
+  }
+
+  .gdm-shell--h .gdm-h-split__main {
+    min-width: 0;
+  }
+
+  /* Same 40rem measure as F/G/I — left-aligned in the main cell. */
+  .gdm-shell--h.gct-page--abn-index .gdm-h-split__main .lgg-body,
+  .gdm-shell--h .gdm-h-split__main .lgg-body,
+  .gdm-shell--h .gdm-h-split__main .gdm-wire-follow,
+  .gdm-shell--h .gdm-h-split__main .gct-gutter {
+    max-width: var(--gdm-h-article) !important;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .gdm-shell--h .gdm-h-split__rail {
+    display: block;
+    position: relative;
+    /* Stretch with the article so sticky TOC can travel the full guide */
+    min-height: 100%;
+    padding-top: 0.25rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .gdm-shell--h {
+    --gdm-h-rail: 14.5rem;
+    --gdm-h-gap: 2.5rem;
+  }
+}

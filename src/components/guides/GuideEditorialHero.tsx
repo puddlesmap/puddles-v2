@@ -46,6 +46,7 @@ export function GuideEditorialHero({
     Boolean(publicationDate) &&
     !/\[Publication date\]/i.test(publicationDate)
   const showEvents = typeof eventCount === 'number' && eventCount > 0
+  const showRead = Boolean(readingTime?.trim())
   const classes = [
     'geh',
     showCta ? 'geh--with-cta' : '',
@@ -68,26 +69,28 @@ export function GuideEditorialHero({
           <span>
             {eventCount} {eventCount === 1 ? 'event' : 'events'}
           </span>
-          <span aria-hidden="true">·</span>
+          {showRead ? <span aria-hidden="true">·</span> : null}
         </>
       ) : null}
-      <span className="geh__read">
-        {metaPlacement === 'below-dek' ? (
-          <svg
-            className="geh__read-icon"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              fill="currentColor"
-              d="M12 2.75a9.25 9.25 0 1 1 0 18.5 9.25 9.25 0 0 1 0-18.5Zm0 1.5a7.75 7.75 0 1 0 0 15.5 7.75 7.75 0 0 0 0-15.5Zm.75 3.5a.75.75 0 0 0-1.5 0v4.19l2.72 1.57a.75.75 0 1 0 .76-1.31L12.75 11.3V7.75Z"
-            />
-          </svg>
-        ) : null}
-        {readingTime}
-      </span>
+      {showRead ? (
+        <span className="geh__read">
+          {metaPlacement === 'below-dek' ? (
+            <svg
+              className="geh__read-icon"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill="currentColor"
+                d="M12 2.75a9.25 9.25 0 1 1 0 18.5 9.25 9.25 0 0 1 0-18.5Zm0 1.5a7.75 7.75 0 1 0 0 15.5 7.75 7.75 0 0 0 0-15.5Zm.75 3.5a.75.75 0 0 0-1.5 0v4.19l2.72 1.57a.75.75 0 1 0 .76-1.31L12.75 11.3V7.75Z"
+              />
+            </svg>
+          ) : null}
+          {readingTime}
+        </span>
+      ) : null}
       {isPast ? <span className="geh__past">· Past season</span> : null}
     </p>
   )

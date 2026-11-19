@@ -8,13 +8,15 @@ import {
   HELLO_NEW_YEAR_EVENTS_HREF,
   HELLO_NEW_YEAR_GUIDE_COVER,
   HELLO_NEW_YEAR_GUIDE_DEK,
-  HELLO_NEW_YEAR_GUIDE_EVENT_COUNT,
-  HELLO_NEW_YEAR_GUIDE_POSTED,
-  HELLO_NEW_YEAR_GUIDE_READ,
   HELLO_NEW_YEAR_GUIDE_SECTION_NAV,
-  HELLO_NEW_YEAR_GUIDE_SUBTITLE,
   HELLO_NEW_YEAR_GUIDE_TITLE,
 } from '../data/helloNewYearGuide'
+import {
+  HOLIDAY_GUIDE_EVENT_COUNT,
+  HOLIDAY_GUIDE_POSTED,
+  HOLIDAY_GUIDE_READ,
+  HOLIDAY_MAGIC_GUIDE_EYEBROW,
+} from '../data/holidayGuide'
 import {
   HELLO_NEW_YEAR_GUIDE_MAP_CATEGORIES,
   HELLO_NEW_YEAR_GUIDE_PLACES,
@@ -72,11 +74,11 @@ export function HelloNewYearGuideIntro({
       <GuideParentNav guideSlug="hello-new-year" />
       <GuideEditorialHero
         title={`${HELLO_NEW_YEAR_GUIDE_TITLE} 🎉`}
-        subtitle={HELLO_NEW_YEAR_GUIDE_SUBTITLE}
+        subtitle={HOLIDAY_MAGIC_GUIDE_EYEBROW}
         description={HELLO_NEW_YEAR_GUIDE_DEK}
-        publicationDate={HELLO_NEW_YEAR_GUIDE_POSTED}
-        readingTime={HELLO_NEW_YEAR_GUIDE_READ}
-        eventCount={HELLO_NEW_YEAR_GUIDE_EVENT_COUNT}
+        publicationDate={HOLIDAY_GUIDE_POSTED}
+        readingTime={HOLIDAY_GUIDE_READ}
+        eventCount={HOLIDAY_GUIDE_EVENT_COUNT}
         heroImage={HELLO_NEW_YEAR_GUIDE_COVER}
         seasonalStatus={lifecycle}
         pastSeasonNote={PAST_NOTE}
@@ -112,7 +114,7 @@ export function HelloNewYearGuideIntro({
               places={HELLO_NEW_YEAR_GUIDE_PLACES}
               categories={HELLO_NEW_YEAR_GUIDE_MAP_CATEGORIES}
               categorySelect="single"
-              defaultCategoryId="city"
+              defaultCategoryId="nearby"
               caption=""
               compact
               pinTheme="holiday"

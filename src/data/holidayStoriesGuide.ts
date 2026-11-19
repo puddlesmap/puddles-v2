@@ -1,3 +1,11 @@
+import {
+  HOLIDAY_GUIDE_CTA_BROWSE_LABEL,
+  HOLIDAY_GUIDE_CTA_DEK,
+  HOLIDAY_GUIDE_CTA_TITLE,
+  HOLIDAY_MAGIC_GUIDE_EYEBROW,
+  HOLIDAY_MAGIC_GUIDE_META,
+} from './holidayGuide'
+
 /** Holiday Stories & Play — companion winter guide. */
 export const HOLIDAY_STORIES_GUIDE_SLUG = 'holiday-stories-play'
 export const HOLIDAY_STORIES_GUIDE_PATH = '/guides/holiday-stories-play'
@@ -6,14 +14,21 @@ export const HOLIDAY_STORIES_GUIDE_LEGACY_PATH = '/guides/holiday-stories-shows-
 
 export const HOLIDAY_STORIES_EVENTS_HREF = '/seasonal/holiday-magic#events'
 export const HOLIDAY_STORIES_CTA_LABEL = 'Explore holiday activities →'
+export const HOLIDAY_STORIES_CTA_TITLE = HOLIDAY_GUIDE_CTA_TITLE
+export const HOLIDAY_STORIES_CTA_DEK = HOLIDAY_GUIDE_CTA_DEK
+export const HOLIDAY_STORIES_CTA_BROWSE_LABEL = HOLIDAY_GUIDE_CTA_BROWSE_LABEL
 
-export const HOLIDAY_STORIES_GUIDE_TITLE = 'Holiday Stories & Play'
-export const HOLIDAY_STORIES_GUIDE_SUBTITLE = 'SOUTH PENINSULA · AGES 0–5'
+export const HOLIDAY_STORIES_GUIDE_TITLE = 'Holiday Stories, Shows & Play'
+export const HOLIDAY_STORIES_GUIDE_SUBTITLE = HOLIDAY_MAGIC_GUIDE_EYEBROW
 export const HOLIDAY_STORIES_GUIDE_DEK =
-  'Family shows, stories, crafts, and winter play.'
+  "Some winter days call for a little indoor magic. Maybe it's your little one's first theater show, a favorite story brought to life, or an afternoon of making and exploring together."
+
+/** Start Here lede (H chrome) — fuller description under the finder. */
+export const HOLIDAY_STORIES_FINDER_LEDE = HOLIDAY_STORIES_GUIDE_DEK
 
 export const HOLIDAY_STORIES_GUIDE_POSTED = 'Nov 19, 2026'
 export const HOLIDAY_STORIES_GUIDE_READ = '5 min read'
+export const HOLIDAY_STORIES_GUIDE_META = HOLIDAY_MAGIC_GUIDE_META
 
 /** SEO (search titles ≠ on-page hero). */
 export const HOLIDAY_STORIES_GUIDE_SEO_TITLE =
@@ -41,6 +56,7 @@ export const HOLIDAY_STORIES_GUIDE_EVENT_IDS = {
 export const HOLIDAY_STORIES_GUIDE_EVENT_COUNT = Object.keys(HOLIDAY_STORIES_GUIDE_EVENT_IDS).length
 
 export const HOLIDAY_STORIES_SECTION_CLAY = {
+  finder: '/guides/holiday-lights/magical-03.png',
   shows: '/guides/holiday-lights/magical-08.png',
   crafts: '/guides/holiday-lights/magical-03.png',
   play: '/guides/holiday-lights/magical-01.png',
@@ -48,14 +64,15 @@ export const HOLIDAY_STORIES_SECTION_CLAY = {
 } as const
 
 export const HOLIDAY_STORIES_GUIDE_SECTION_NAV = [
-  { slug: 'shows', label: 'Live Shows', imageSrc: HOLIDAY_STORIES_SECTION_CLAY.shows },
+  { slug: 'finder', label: 'Start Here', imageSrc: HOLIDAY_STORIES_SECTION_CLAY.finder },
+  { slug: 'shows', label: 'First Shows', imageSrc: HOLIDAY_STORIES_SECTION_CLAY.shows },
   {
     slug: 'crafts',
-    label: 'Stories & Crafts',
+    label: 'Crafts & Traditions',
     imageSrc: HOLIDAY_STORIES_SECTION_CLAY.crafts,
   },
-  { slug: 'play', label: 'Winter Play', imageSrc: HOLIDAY_STORIES_SECTION_CLAY.play },
-  { slug: 'before', label: 'Before you go', imageSrc: HOLIDAY_STORIES_SECTION_CLAY.before },
+  { slug: 'play', label: 'Winter Play & Discovery', imageSrc: HOLIDAY_STORIES_SECTION_CLAY.play },
+  { slug: 'before', label: 'Before You Go', imageSrc: HOLIDAY_STORIES_SECTION_CLAY.before },
 ] as const
 
 export const HOLIDAY_STORIES_OUTING_IMAGES = {

@@ -77,6 +77,8 @@ export interface GuidePlace {
   date?: string
   cost?: string
   tip?: string
+  /** Short card blurb for map / explore overlays. */
+  summary?: string
   eventHref?: string
   reservationNote?: string
   ageLabel?: string

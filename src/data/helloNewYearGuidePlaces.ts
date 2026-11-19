@@ -2,9 +2,9 @@ import type { GuideMapCategory, GuidePlace } from './halloweenGuide'
 import { HELLO_NEW_YEAR_GUIDE_EVENT_IDS as IDS } from './helloNewYearGuide'
 
 export const HELLO_NEW_YEAR_GUIDE_MAP_CATEGORIES: GuideMapCategory[] = [
-  { id: 'city', label: 'City & Library', color: '#E39B7B' },
-  { id: 'museum', label: 'Museums & More', color: '#1D743F' },
-  { id: 'january', label: 'January Events', color: '#FF5C28' },
+  { id: 'nearby', label: 'Daytime Countdowns', color: '#E39B7B' },
+  { id: 'trip', label: 'Worth the Trip', color: '#1D743F' },
+  { id: 'january', label: 'January Traditions', color: '#FF5C28' },
 ]
 
 const CDM = 'childrens-discovery-museum'
@@ -16,7 +16,7 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     slug: 'sunnyvale',
     name: "Noon Year's Eve · Sunnyvale",
     group: 'neighborhood',
-    categoryId: 'city',
+    categoryId: 'nearby',
     lat: 37.3688,
     lng: -122.0363,
     status: 'Dec 30 · Sunnyvale · Free',
@@ -25,14 +25,16 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Recreation Center Ballroom',
     cost: 'Free',
     ageLabel: 'Suggested ages 2–5',
-    tip: 'No registration — first come, first served; doors close when full.',
+    tip: 'No registration required; doors close when full.',
+    summary:
+      'Dance to music, make crafts, and count down to a balloon drop and juice-box toast before lunch.',
     eventHref: event(IDS.sunnyvale),
   },
   {
     slug: 'palo-alto-noon',
     name: "Noon Year's Eve Celebration! · Palo Alto",
     group: 'neighborhood',
-    categoryId: 'city',
+    categoryId: 'nearby',
     lat: 37.4225,
     lng: -122.113,
     status: 'Dec 31 · Palo Alto · Registration',
@@ -42,14 +44,16 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     cost: 'Free · Registration required',
     ageLabel: 'Ages 18 months–5 years',
     reservationNote: 'Registration required.',
-    tip: 'Space is limited — reserve a spot before visiting.',
+    tip: 'Register before planning to attend — space is limited.',
+    summary:
+      'Welcome the new year with crafts, music, dancing, and a noon ball-and-bubble drop — without staying up until midnight.',
     eventHref: event(IDS.paloAltoNoon),
   },
   {
     slug: 'cdm-noon',
     name: "Noon Year's Eve · Children's Discovery Museum",
     group: 'neighborhood',
-    categoryId: 'museum',
+    categoryId: 'nearby',
     venueKey: CDM,
     lat: 37.3267,
     lng: -121.892,
@@ -59,14 +63,16 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     venue: "Children's Discovery Museum",
     cost: 'Museum admission',
     ageLabel: 'Suggested ages 2–5',
-    tip: 'Ball drops at noon, 1 PM, and 2 PM.',
+    tip: 'Three countdown times offer flexibility around naps.',
+    summary:
+      'Celebrate with confetti-filled ball drops at noon, 1 PM, and 2 PM, each welcoming the new year in another time zone.',
     eventHref: event(IDS.cdmNoon),
   },
   {
     slug: 'hiller-noon',
     name: "Noon Year's Eve · Hiller Aviation Museum",
     group: 'neighborhood',
-    categoryId: 'museum',
+    categoryId: 'nearby',
     lat: 37.5115,
     lng: -122.25,
     status: 'Dec 31 · San Carlos · Tickets',
@@ -75,14 +81,16 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Hiller Aviation Museum',
     cost: 'Special-event tickets',
     ageLabel: 'Suggested ages 2–5',
-    tip: 'Online-only tickets; sales planned Dec 1.',
+    tip: 'Confirm 2026 admission before you go.',
+    summary:
+      "Enjoy children's music, face painting, and three giant balloon drops at noon surrounded by airplanes.",
     eventHref: event(IDS.hillerNoon),
   },
   {
     slug: 'badm-noon',
     name: "Noon Year's Eve · Bay Area Discovery Museum",
     group: 'tradition',
-    categoryId: 'museum',
+    categoryId: 'nearby',
     lat: 37.8324,
     lng: -122.477,
     status: 'Dec 31 · Sausalito · Special tickets',
@@ -91,14 +99,16 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Bay Area Discovery Museum',
     cost: 'Special tickets',
     ageLabel: 'Suggested ages 0–5',
-    tip: 'Event tickets required even for members; capacity limited.',
+    tip: 'Tickets required even for members; capacity is limited.',
+    summary:
+      'Dance to festive music, make hands-on crafts, and count down together to a noon ball drop.',
     eventHref: event(IDS.badmNoon),
   },
   {
     slug: 'chabot',
     name: 'Balloon Drop · Chabot',
     group: 'tradition',
-    categoryId: 'museum',
+    categoryId: 'trip',
     lat: 37.819,
     lng: -122.181,
     status: 'Dec 31 · Oakland · Ticketed',
@@ -107,14 +117,16 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Chabot Space & Science Center',
     cost: 'Ticketed',
     ageLabel: 'Ages 0–5 · 11 AM & 3 PM drops',
-    tip: 'Balloon-drop ticket is separate from museum admission.',
+    tip: 'Balloon-drop tickets are separate from museum admission.',
+    summary:
+      'Count down under colorful balloons, then explore winter-themed science activities around the center.',
     eventHref: event(IDS.chabot),
   },
   {
     slug: 'fairyland',
     name: 'Countdown in Wonderland',
     group: 'tradition',
-    categoryId: 'museum',
+    categoryId: 'trip',
     lat: 37.8199,
     lng: -122.2606,
     status: 'Dec 31 · Oakland · General admission',
@@ -123,14 +135,16 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     venue: "Children's Fairyland",
     cost: 'General admission',
     ageLabel: 'Suggested ages 2–5',
-    tip: 'Included with general park admission.',
+    tip: 'Included with general admission; members enter free.',
+    summary:
+      'Make Wonderland crafts, join a dance party, watch puppet shows, and celebrate with the White Rabbit and a balloon drop.',
     eventHref: event(IDS.fairyland),
   },
   {
     slug: 'schulz',
     name: 'Happy New Year, Charlie Brown!',
     group: 'tradition',
-    categoryId: 'museum',
+    categoryId: 'trip',
     lat: 38.458,
     lng: -122.735,
     status: 'Dec 31 · Santa Rosa · Museum admission',
@@ -139,7 +153,9 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Charles M. Schulz Museum',
     cost: 'Museum admission',
     ageLabel: 'All ages',
-    tip: 'Baby drop noon (4 & under); all-ages drops noon & 3 PM.',
+    tip: 'Baby Balloon Drop at noon for ages 4 and under; all-ages drop at 3 PM.',
+    summary:
+      'Make Peanuts crafts, watch a Charlie Brown cartoon, and count down with Snoopy-themed balloon drops.',
     eventHref: event(IDS.schulz),
   },
   {
@@ -150,12 +166,13 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     lat: 37.252,
     lng: -122.036,
     status: 'Jan 2, 2027 · Saratoga · TBA',
-    date: 'Jan 2, 2027 · Time TBD',
+    date: 'Jan 2, 2027 · Event schedule to be announced',
     city: 'Saratoga',
     venue: 'Hakone Gardens',
     cost: 'TBA',
     ageLabel: 'Suggested ages 2–5',
-    tip: 'Date confirmed; program and admission not yet published.',
+    tip: 'Date confirmed; full program and admission not yet published.',
+    summary: "Welcome the Japanese New Year at Hakone's traditional Japanese gardens.",
     eventHref: event(IDS.hakone),
   },
   {
@@ -173,6 +190,8 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     cost: 'Museum admission',
     ageLabel: 'Suggested ages 2–5',
     tip: 'Working date Jan 9 — organizer page also mentions Jan 10.',
+    summary:
+      'Enjoy music, dance performances, a Three Kings meet-and-greet, art activities, and Rosca de Reyes tasting.',
     eventHref: event(IDS.tresReyes),
   },
   {
@@ -187,8 +206,10 @@ export const HELLO_NEW_YEAR_GUIDE_PLACES: GuidePlace[] = [
     city: 'San José',
     venue: 'Village Square Library',
     cost: 'Free',
-    ageLabel: 'Suggested ages 3–5',
-    tip: 'Snacks while supplies last.',
+    ageLabel: 'Suggested ages 0–5',
+    tip: 'Ages 0–5 included; older children may attend too.',
+    summary:
+      'Make New Year greeting cards, enjoy crafts and prizes, and share snacks while supplies last.',
     eventHref: event(IDS.greetings),
   },
 ]

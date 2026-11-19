@@ -4,6 +4,7 @@ import {
   type SeasonalCarouselGuide,
 } from './SeasonalGuidesCarousel'
 import './holiday-magic-guides-panel.css'
+import '../seasonal/holidayOutingRows.css'
 
 /** Hub-only featured dek — shorter than the guide article dek (mobile cards). */
 const LIGHTS_HUB_DEK = 'Train rides, Santa visits & festive outings.'

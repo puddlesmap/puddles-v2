@@ -99,13 +99,13 @@ export function SavedListRow({
   function handleRemove(clickEvent: MouseEvent<HTMLButtonElement>) {
     clickEvent.preventDefault()
     clickEvent.stopPropagation()
-    toggleSave(event.id)
+    toggleSave(event.id, { save_surface: 'event_detail' })
   }
 
   function handleHeart(clickEvent: MouseEvent<HTMLButtonElement>) {
     clickEvent.preventDefault()
     clickEvent.stopPropagation()
-    toggleSave(event.id)
+    toggleSave(event.id, { save_surface: 'event_detail' })
   }
 
   const copy = (

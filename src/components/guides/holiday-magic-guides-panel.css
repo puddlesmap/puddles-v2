@@ -46,7 +46,8 @@
 .seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel {
   margin-top: 0.1rem;
   margin-bottom: 1rem;
-  max-width: 56rem;
+  max-width: none;
+  width: 100%;
 }
 
 .seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc {
@@ -115,5 +116,62 @@
     .sgc--desktop-card-grid
     .sgc-card__media {
     height: 11.6rem;
+  }
+}
+
+/* Explore the events — same heading hierarchy as Explore the guides */
+.hmg-events-section {
+  margin: 0.35rem 0 0;
+  max-width: 56rem;
+  width: 100%;
+}
+
+.hmg-events-section__heading {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #113f34;
+  text-align: left;
+}
+
+.hmg-events-filters {
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.hmg-events-filters .browse-controls-row {
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.hmg-events-filters__count {
+  margin: 0;
+  flex: 0 0 auto;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-muted, #717171);
+  white-space: nowrap;
+}
+
+.hmg-events-section .seasonal-collection-band__title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .hmg-events-filters .browse-controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hmg-events-filters .browse-location-row,
+  .hmg-events-filters .browse-secondary-controls {
+    width: 100%;
+  }
+
+  .hmg-events-filters__count {
+    padding: 0.15rem 0 0;
   }
 }

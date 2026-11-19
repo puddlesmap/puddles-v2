@@ -56,6 +56,48 @@
   margin-top: 0;
 }
 
+/* Outing title + save heart — heart sits immediately after the title */
+.gem-title-row,
+.gem-event-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  max-width: 100%;
+  width: fit-content;
+}
+
+.gem-title-row {
+  margin: 0 0 0.2rem;
+}
+
+.gem-title-row > h4 {
+  margin: 0;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.gem-title-save.save-heart-btn,
+.gem-title-save.save-heart-btn--map-sheet {
+  position: static !important;
+  inset: auto !important;
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: 0;
+  padding: 0.1rem;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gem-title-save .save-heart-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
 /* Holiday-scoped spacing for editorial modules */
 .holiday-guide-dimmed .gem-featured,
 .holiday-guide-dimmed .gem-text {
@@ -306,7 +348,7 @@
 
 @media (min-width: 900px) {
   .gem-section-nav--clay .gem-section-nav__list {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 
@@ -380,6 +422,13 @@
 }
 
 .holiday-guide-dimmed .gem-section-nav--clay .gem-section-nav__list a:hover {
-  background: #fff;
+  background: transparent;
   border-color: #17382a;
+}
+
+/* Sticky wire clay index overrides the multi-column grid with a single scroll row. */
+.gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list {
+  display: flex;
+  flex-wrap: nowrap;
+  grid-template-columns: none;
 }

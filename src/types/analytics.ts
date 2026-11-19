@@ -7,6 +7,13 @@ export type EventOpenSource =
   | 'guide'
   | 'saved'
 
+export type SaveSurface =
+  | 'guide_article'
+  | 'guide_map'
+  | 'browse_list'
+  | 'browse_map'
+  | 'event_detail'
+
 export type FilterContext = 'home' | 'browse'
 
 export type ViewMode = 'list' | 'map'

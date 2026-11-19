@@ -54,13 +54,18 @@ import {
 } from './experimentShared'
 import { useEventNavigation } from '../hooks/useEventNavigation'
 import { resolveCitySlugParam } from '../config/localRoutes'
-import { browseShareParams, searchParamsEqual } from '../utils/browseShareParams'
+import {
+  browseShareParams,
+  searchParamsEqual,
+  seasonalParamEnabled,
+} from '../utils/browseShareParams'
 import { formatDocumentTitle, setPageTitle } from '../utils/siteMeta'
 import {
   consumeBrowseReturnSnapshot,
   type BrowseMapOpenSnapshot,
   type BrowseReturnSnapshot,
 } from '../utils/browseReturnState'
+import { beginBrowseVisit } from '../utils/discoveryAttribution'
 
 const DESKTOP_MEDIA = '(min-width: 768px)'
 
@@ -157,6 +162,10 @@ export function BrowsePage({
   filterVariant = 'chips',
   filterEnhancements = false,
 }: BrowsePageProps = {}) {
+  useEffect(() => {
+    beginBrowseVisit()
+  }, [])
+
   const { browseFilters, setBrowseFilters } = useApp()
   const { getCatalog: getLaunchCatalog } = useLaunchStagingCatalog()
   const resolveCatalog = useCallback(
@@ -214,15 +223,17 @@ export function BrowsePage({
     const activityType = ACTIVITY_TYPES.find((type) => type === activityFromQuery)
     const ageFromQuery = searchParams.get('age')
     const age = PUBLIC_AGE_FILTER_OPTIONS.find((option) => option.key === ageFromQuery)?.key
+    const seasonalFromQuery = seasonalParamEnabled(searchParams.get('seasonal'))
 
     // Deep links (home announcement, seasonal chips, city landings) should land on a
     // clean filtered state — not inherit leftover day/time/type filters from prior browsing.
-    if (cityFromQuery || activityType || age) {
+    if (cityFromQuery || activityType || age || seasonalFromQuery) {
       setBrowseFilters({
         ...DEFAULT_BROWSE_FILTERS,
         ...(cityFromQuery ? { city: cityFromQuery, cityLocked: true } : null),
         ...(activityType ? { types: [activityType] } : null),
         ...(age ? { age } : null),
+        ...(seasonalFromQuery ? { seasonal: true } : null),
       })
     }
     setShareReady(true)
@@ -270,6 +281,7 @@ export function BrowsePage({
       city: browseFilters.city,
       age: browseFilters.age,
       types: browseFilters.types,
+      seasonal: browseFilters.seasonal,
       viewMode,
       current,
     })
@@ -280,6 +292,7 @@ export function BrowsePage({
   }, [
     browseFilters.age,
     browseFilters.city,
+    browseFilters.seasonal,
     browseFilters.types,
     location.pathname,
     setSearchParams,

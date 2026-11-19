@@ -5,24 +5,63 @@ import {
   HELLO_NEW_YEAR_GUIDE_EVENT_IDS as IDS,
   HELLO_NEW_YEAR_GUIDE_SLUG,
   HELLO_NEW_YEAR_OUTING_IMAGES as IMAGES,
+  HELLO_NEW_YEAR_SECTION_CLAY,
 } from '../data/helloNewYearGuide'
 import { trackGuideSectionViewed } from '../utils/analytics'
 
 const GS = HELLO_NEW_YEAR_GUIDE_SLUG
 
+const FINDER_ROWS = [
+  {
+    category: 'Daytime Countdowns',
+    items: [
+      { slug: 'sunnyvale', label: 'Sunnyvale' },
+      { slug: 'palo-alto-noon', label: 'Palo Alto' },
+      { slug: 'cdm-noon', label: "Children's Discovery Museum" },
+      { slug: 'hiller-noon', label: 'Hiller' },
+      { slug: 'badm-noon', label: 'Bay Area Discovery Museum' },
+    ],
+  },
+  {
+    category: 'Worth the Trip',
+    items: [
+      { slug: 'chabot', label: 'Chabot' },
+      { slug: 'fairyland', label: "Children's Fairyland" },
+      { slug: 'schulz', label: 'Schulz Museum' },
+    ],
+  },
+  {
+    category: 'January Traditions',
+    items: [
+      { slug: 'hakone', label: 'Hakone' },
+      { slug: 'tres-reyes', label: 'Three Kings Day' },
+      { slug: 'greetings', label: 'New Year card-making' },
+    ],
+  },
+] as const
+
 export function HelloNewYearGuideDraft({
   idPrefix,
   afterBody,
+  beforeFinder,
+  afterFinder,
   linkFinder = true,
+  finderLayout = 'inline',
+  trackSections = true,
 }: {
   idPrefix: string
   afterBody?: ReactNode
+  beforeFinder?: ReactNode
+  afterFinder?: ReactNode
   linkFinder?: boolean
+  finderLayout?: 'inline' | 'bullets'
+  trackSections?: boolean
 }) {
   const id = (slug: string) => `${idPrefix}-${slug}`
   const anchor = (slug: string) => ({ eventAnchorId: id(slug) })
 
   useEffect(() => {
+    if (trackSections === false) return
     const nodes = Array.from(document.querySelectorAll<HTMLElement>('[data-guide-section]'))
     if (nodes.length === 0) return
     const seen = new Set<string>()
@@ -40,100 +79,81 @@ export function HelloNewYearGuideDraft({
     )
     for (const node of nodes) observer.observe(node)
     return () => observer.disconnect()
-  }, [])
+  }, [trackSections])
 
   return (
     <div className="lgg-body">
-      <section className="lgg-chapter" id={id('finder')}>
-        <h3 data-guide-section="finder">Find your kind of new-year plan</h3>
-        <QuickPickGroup>
-          <li>
-            <p className="gem-quick">
-              <span className="gem-quick__category">City &amp; Library Countdowns — </span>
-              {linkFinder ? (
-                <>
-                  <a className="gem-quick__link" href={`#${id('sunnyvale')}`}>
-                    Sunnyvale
-                  </a>
-                  {' · '}
-                  <a className="gem-quick__link" href={`#${id('palo-alto-noon')}`}>
-                    Palo Alto
-                  </a>
-                </>
-              ) : (
-                <>Sunnyvale · Palo Alto</>
-              )}
-            </p>
-          </li>
-          <li>
-            <p className="gem-quick">
-              <span className="gem-quick__category">Museum &amp; Attraction Countdowns — </span>
-              {linkFinder ? (
-                <>
-                  <a className="gem-quick__link" href={`#${id('cdm-noon')}`}>
-                    Children&apos;s Discovery Museum
-                  </a>
-                  {' · '}
-                  <a className="gem-quick__link" href={`#${id('hiller-noon')}`}>
-                    Hiller
-                  </a>
-                  {' · '}
-                  <a className="gem-quick__link" href={`#${id('badm-noon')}`}>
-                    Bay Area Discovery Museum
-                  </a>
-                  {' · '}
-                  <a className="gem-quick__link" href={`#${id('chabot')}`}>
-                    Chabot
-                  </a>
-                  {' · '}
-                  <a className="gem-quick__link" href={`#${id('fairyland')}`}>
-                    Children&apos;s Fairyland
-                  </a>
-                  {' · '}
-                  <a className="gem-quick__link" href={`#${id('schulz')}`}>
-                    Schulz Museum
-                  </a>
-                </>
-              ) : (
-                <>
-                  Children&apos;s Discovery Museum · Hiller · Bay Area Discovery Museum · Chabot ·
-                  Children&apos;s Fairyland · Schulz Museum
-                </>
-              )}
-            </p>
-          </li>
-          <li>
-            <p className="gem-quick">
-              <span className="gem-quick__category">January Celebrations — </span>
-              {linkFinder ? (
-                <>
-                  <a className="gem-quick__link" href={`#${id('hakone')}`}>
-                    Hakone
-                  </a>
-                  {' · '}
-                  <a className="gem-quick__link" href={`#${id('tres-reyes')}`}>
-                    Three Kings Day
-                  </a>
-                  {' · '}
-                  <a className="gem-quick__link" href={`#${id('greetings')}`}>
-                    New Year card-making
-                  </a>
-                </>
-              ) : (
-                <>Hakone · Three Kings Day · New Year card-making</>
-              )}
-            </p>
-          </li>
-        </QuickPickGroup>
+      {beforeFinder}
+
+      <section
+        className={`lgg-chapter lgg-chapter--finder${finderLayout === 'bullets' ? ' lgg-chapter--finder-bullets' : ''}`}
+        id={id('finder')}
+      >
+        {finderLayout === 'bullets' ? (
+          <h2 className="holiday-finder-title" data-guide-section="finder">
+            <img
+              className="holiday-finder-title__clay"
+              src={HELLO_NEW_YEAR_SECTION_CLAY.finder}
+              alt=""
+              decoding="async"
+            />
+            <span>Find your kind of new-year plan</span>
+          </h2>
+        ) : (
+          <h3 data-guide-section="finder">Find your kind of new-year plan</h3>
+        )}
+        {finderLayout === 'bullets' ? (
+          <div className="holiday-finder-table" aria-label="Find your kind of new-year plan">
+            {FINDER_ROWS.map((row) => (
+              <div className="holiday-finder-table__row" key={row.category}>
+                <div className="holiday-finder-table__cat">{row.category}</div>
+                <p className="holiday-finder-table__events gem-quick">
+                  {linkFinder
+                    ? row.items.map((item, index) => (
+                        <span key={`${row.category}-${item.slug}`}>
+                          {index > 0 ? ', ' : null}
+                          <a className="gem-quick__link" href={`#${id(item.slug)}`}>
+                            {item.label}
+                          </a>
+                        </span>
+                      ))
+                    : row.items.map((item) => item.label).join(', ')}
+                </p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <QuickPickGroup className="holiday-finder">
+            {FINDER_ROWS.map((row) => (
+              <li key={row.category}>
+                <p className="gem-quick">
+                  <span className="gem-quick__category">{row.category} — </span>
+                  {linkFinder
+                    ? row.items.map((item, index) => (
+                        <span key={item.slug}>
+                          {index > 0 ? ' · ' : null}
+                          <a className="gem-quick__link" href={`#${id(item.slug)}`}>
+                            {item.label}
+                          </a>
+                        </span>
+                      ))
+                    : row.items.map((item) => item.label).join(' · ')}
+                </p>
+              </li>
+            ))}
+          </QuickPickGroup>
+        )}
       </section>
 
+      {afterFinder}
+
       <section className="lgg-chapter" id={id('nearby')}>
-        <h3 data-guide-section="nearby">🎈 City &amp; Library Countdowns</h3>
+        <h3 data-guide-section="nearby">🎈 Daytime Countdowns</h3>
 
         <FeaturedExperience
           title="Noon Year's Eve · Sunnyvale"
           when="Wed Dec 30 · 10 AM–noon · Free"
-          tip="Space is limited; doors close when the ballroom reaches capacity. Advance registration is not required — admission is first come, first served."
+          tip="No registration required, but space is limited and doors close when full. Check the City's event details before visiting."
           puddlesHref={`/event/${IDS.sunnyvale}`}
           guideSlug={GS}
           image={IMAGES.sunnyvale}
@@ -143,15 +163,15 @@ export function HelloNewYearGuideDraft({
           {...anchor('sunnyvale')}
         >
           <p>
-            Dance to music, make holiday crafts, cheer for a balloon drop, and raise a juice-box toast
-            to the new year.
+            Dance to music, make crafts, and count down to a balloon drop and juice-box toast before
+            lunch.
           </p>
         </FeaturedExperience>
 
         <FeaturedExperience
           title="Noon Year's Eve Celebration! · Palo Alto"
-          when="Thu Dec 31 · 11:30 AM–12:30 PM · Free · Registration required"
-          tip="Registration is required, and space is limited. Reserve a spot before visiting. Party hats and noisemakers are welcome; dressing up is optional."
+          when="Thu Dec 31 · 11:30 AM–12:30 PM · Registration required"
+          tip="Listed for toddlers (18 months–3 years) and preschoolers (3–5), with registration required and limited space. Register before planning to attend."
           puddlesHref={`/event/${IDS.paloAltoNoon}`}
           guideSlug={GS}
           image={IMAGES['palo-alto-noon']}
@@ -161,64 +181,63 @@ export function HelloNewYearGuideDraft({
           {...anchor('palo-alto-noon')}
         >
           <p>
-            Make crafts, dance to music, and watch a ball-and-bubble drop at noon while celebrating the
-            new year together.
+            Welcome the new year with crafts, music, dancing, and a noon ball-and-bubble drop —
+            without staying up until midnight.
           </p>
         </FeaturedExperience>
-      </section>
-
-      <section className="lgg-chapter" id={id('trip')}>
-        <h3 data-guide-section="trip">🎉 Museum &amp; Attraction Countdowns</h3>
 
         <FeaturedExperience
           title="Noon Year's Eve · Children's Discovery Museum, San Jose"
-          when="Thu Dec 31 · Doors 9:30 AM · drops noon, 1 PM & 2 PM · Museum admission"
-          tip="Ball drops are scheduled at noon, 1 PM, and 2 PM, offering flexibility around naps."
+          when="Thu Dec 31 · Doors open 9:30 AM · Museum admission"
+          tip="Three countdown times offer flexibility around naps. The organizer's page has an outdated weekday label; confirm the final schedule."
           puddlesHref={`/event/${IDS.cdmNoon}`}
           guideSlug={GS}
           image={IMAGES['cdm-noon']}
           {...anchor('cdm-noon')}
         >
           <p>
-            Welcome the new year across time zones with confetti-filled ball drops, cheers, and shared
-            countdowns throughout the day.
+            Celebrate with confetti-filled ball drops at noon, 1 PM, and 2 PM, each welcoming the new
+            year in another time zone.
           </p>
         </FeaturedExperience>
 
         <FeaturedExperience
           title="Noon Year's Eve · Hiller Aviation Museum, San Carlos"
-          when="Thu Dec 31 · 10 AM–1 PM · Special-event tickets"
-          tip="Special event tickets are sold online only; check availability after the planned December 1 sales opening. The outdoor obstacle course and jump house are weather permitting. Pizza and hot dogs are planned for purchase on site."
+          when="Thu Dec 31 · 10 AM–1 PM · Special-event ticket details to confirm"
+          tip="The museum's main calendar lists the 2026 date, but the linked detail page includes older wording and a sold-out notice. Confirm 2026 admission before you go."
           puddlesHref={`/event/${IDS.hillerNoon}`}
           guideSlug={GS}
           image={IMAGES['hiller-noon']}
           {...anchor('hiller-noon')}
         >
           <p>
-            Dance to children&apos;s music, watch puppets and magic, explore airplanes, and celebrate
-            three giant balloon drops at noon.
+            Enjoy children&apos;s music, face painting, and three giant balloon drops at noon
+            surrounded by airplanes.
           </p>
         </FeaturedExperience>
 
         <FeaturedExperience
           title="Noon Year's Eve · Bay Area Discovery Museum, Sausalito"
           when="Thu Dec 31 · 9 AM–2 PM · Special tickets"
-          tip="All guests, including members, need event-specific tickets; capacity is limited. Free parking is available on site. The museum says the celebration runs rain or shine."
+          tip="Tickets are required even for members, and capacity is limited. Free parking and on-site food options are available."
           puddlesHref={`/event/${IDS.badmNoon}`}
           guideSlug={GS}
           image={IMAGES['badm-noon']}
           {...anchor('badm-noon')}
         >
           <p>
-            Dance to festive music, make hands-on crafts, and celebrate together with a noon ball drop
-            at the discovery museum.
+            Dance to festive music, make hands-on crafts, and count down together to a noon ball drop.
           </p>
         </FeaturedExperience>
+      </section>
+
+      <section className="lgg-chapter" id={id('trip')}>
+        <h3 data-guide-section="trip">🎉 Worth the Trip</h3>
 
         <FeaturedExperience
           title="Balloon Drop · Chabot Space & Science Center, Oakland"
           when="Thu Dec 31 · 11 AM, noon, 3 PM & 4 PM drops · Ticketed"
-          tip="The 11 AM and 3 PM balloon drops are for ages 5 and under; noon and 4 PM are for ages 6–12. A balloon-drop ticket is separate from museum admission; adults and children also need museum admission."
+          tip="The 11 AM and 3 PM balloon drops are for ages 5 and under. Balloon-drop tickets are separate from museum admission."
           puddlesHref={`/event/${IDS.chabot}`}
           guideSlug={GS}
           image={IMAGES.chabot}
@@ -228,15 +247,15 @@ export function HelloNewYearGuideDraft({
           {...anchor('chabot')}
         >
           <p>
-            Count down under hundreds of colorful balloons, then explore science exhibits and winter
-            activities around the center.
+            Count down under colorful balloons, then explore winter-themed science activities around
+            the center.
           </p>
         </FeaturedExperience>
 
         <FeaturedExperience
           title="Countdown in Wonderland · Children's Fairyland, Oakland"
-          when="Thu Dec 31 · 10 AM–4 PM · drops noon & 3 PM · General admission"
-          tip="Balloon drops are scheduled for noon and 3 PM. The event is included with general park admission; review ticket details before visiting."
+          when="Thu Dec 31 · 10 AM–4 PM · General admission"
+          tip="Included with general admission; members enter free. The organizer lists ball drops at noon and 3 PM."
           puddlesHref={`/event/${IDS.fairyland}`}
           guideSlug={GS}
           image={IMAGES.fairyland}
@@ -246,15 +265,15 @@ export function HelloNewYearGuideDraft({
           {...anchor('fairyland')}
         >
           <p>
-            Explore Wonderland crafts and puppet shows, meet the White Rabbit, play among bubbles, and
-            celebrate with an early balloon drop.
+            Make Wonderland crafts, join a dance party, watch puppet shows, and celebrate with the
+            White Rabbit and a balloon drop.
           </p>
         </FeaturedExperience>
 
         <FeaturedExperience
           title="Happy New Year, Charlie Brown! · Santa Rosa"
           when="Thu Dec 31 · 10 AM–4 PM · Museum admission"
-          tip="A Baby Balloon Drop is at noon for ages 4 and under and their families. All-ages balloon drops are scheduled at noon and 3 PM. The celebration is included with museum admission; members enter free."
+          tip="A Baby Balloon Drop for ages 4 and under takes place at noon, with an all-ages drop at 3 PM."
           puddlesHref={`/event/${IDS.schulz}`}
           guideSlug={GS}
           image={IMAGES.schulz}
@@ -264,46 +283,46 @@ export function HelloNewYearGuideDraft({
           {...anchor('schulz')}
         >
           <p>
-            Make Peanuts crafts, watch Charlie Brown on screen, try a Snoopy dance, and celebrate with
+            Make Peanuts crafts, watch a Charlie Brown cartoon, and count down with Snoopy-themed
             balloon drops.
           </p>
         </FeaturedExperience>
       </section>
 
       <section className="lgg-chapter" id={id('january')}>
-        <h3 data-guide-section="january">🎍 January Celebrations</h3>
+        <h3 data-guide-section="january">🎍 January Traditions</h3>
 
         <FeaturedExperience
           title="Oshogatsu · Hakone Gardens, Saratoga"
-          when="Jan 2, 2027 · Time TBD · Admission TBA"
-          tip="Hakone has confirmed January 2 but has not yet published the full program, times, or admission. Check the organizer page before making plans."
+          when="Jan 2, 2027 · Event schedule to be announced"
+          tip="The organizer has confirmed January 2 but has not published the full activity program or event admission yet. Check before making plans."
           puddlesHref={`/event/${IDS.hakone}`}
           guideSlug={GS}
           image={IMAGES.hakone}
           {...anchor('hakone')}
         >
-          <p>Welcome the Japanese New Year while exploring Hakone&apos;s traditional Japanese gardens.</p>
+          <p>Welcome the Japanese New Year at Hakone&apos;s traditional Japanese gardens.</p>
         </FeaturedExperience>
 
         <FeaturedExperience
           title="El Día de los Tres Reyes Magos · Children's Discovery Museum, San Jose"
-          when="Sat Jan 9, 2027 · 10 AM–2 PM (working date — reconfirm) · Museum admission"
-          tip="Puddles is using Sat Jan 9, 2027 as the working date from the organizer date field (10 AM–2 PM). The page body still mentions January 10 — reconfirm the correct day before you go."
+          when="Sat Jan 9, 2027 (working date; recheck) · 10 AM–2 PM · Museum admission"
+          tip="January 9 is the working date based on the organizer's date field, but its description says January 10. Confirm the final date closer to the event before visiting."
           puddlesHref={`/event/${IDS.tresReyes}`}
           guideSlug={GS}
           image={IMAGES['tres-reyes']}
           {...anchor('tres-reyes')}
         >
           <p>
-            Celebrate Three Kings Day with live singing, dancing, a Three Kings meet-and-greet,
-            hands-on art, and Rosca de Reyes tasting.
+            Enjoy music, dance performances, a Three Kings meet-and-greet, art activities, and Rosca
+            de Reyes tasting.
           </p>
         </FeaturedExperience>
 
         <FeaturedExperience
           title="New Year Greetings! · Village Square Library, San Jose"
-          when="Fri Jan 15, 2027 · 3:30–4:30 PM · Free"
-          tip="Snacks are available while supplies last."
+          when="Fri Jan 15, 2027 · 3:30–4:30 PM · Free library program"
+          tip="The library includes ages 0–5 in the event audience; older children may attend too."
           puddlesHref={`/event/${IDS.greetings}`}
           guideSlug={GS}
           image={IMAGES.greetings}
@@ -313,14 +332,14 @@ export function HelloNewYearGuideDraft({
           {...anchor('greetings')}
         >
           <p>
-            Make New Year greeting cards and crafts, enjoy prizes, and share snacks at a community
-            library celebration.
+            Make New Year greeting cards, enjoy crafts and prizes, and share snacks while supplies
+            last.
           </p>
         </FeaturedExperience>
       </section>
 
       <section className="lgg-chapter" id={id('before')}>
-        <h3 data-guide-section="before">💙 Good to know before you go</h3>
+        <h3 data-guide-section="before">💙 Before You Go</h3>
         <ul className="lgg-tips">
           <li>
             <b>Need a countdown before nap?</b> Look for morning or noon celebrations; San Jose&apos;s

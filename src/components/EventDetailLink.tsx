@@ -6,6 +6,8 @@ import type { Event } from '@/types/event'
 import { trackGuideEventLinkClicked } from '@/utils/analytics'
 import { eventDetailPath } from '@/utils/eventPages'
 import { saveBrowseReturnSnapshot } from '@/utils/browseReturnState'
+import { bindGuideToEventDetail } from '@/utils/discoveryAttribution'
+import { guideCommonProps } from '@/utils/guideVisitAnalytics'
 
 interface EventDetailLinkProps {
   eventId: Event['id']
@@ -13,6 +15,8 @@ interface EventDetailLinkProps {
   children: ReactNode
   /** When set, this link is a guide click. The detail view is tracked separately. */
   guideSlug?: string
+  placement?: string
+  sectionId?: string
 }
 
 /**
@@ -21,11 +25,23 @@ interface EventDetailLinkProps {
  * hits the intercepting modal, which renders react-router <Link> without a
  * router — use a hard navigation to the standalone event page instead.
  */
-export function EventDetailLink({ eventId, className, children, guideSlug }: EventDetailLinkProps) {
+export function EventDetailLink({
+  eventId,
+  className,
+  children,
+  guideSlug,
+  placement,
+  sectionId,
+}: EventDetailLinkProps) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const href = guideSlug
-    ? `${eventDetailPath({ id: eventId })}?from_guide=${encodeURIComponent(guideSlug)}`
+  const params = new URLSearchParams()
+  if (guideSlug) {
+    params.set('from_guide', guideSlug)
+    params.set('from_source', 'guide')
+  }
+  const href = params.toString()
+    ? `${eventDetailPath({ id: eventId })}?${params.toString()}`
     : eventDetailPath({ id: eventId })
 
   return (
@@ -33,7 +49,14 @@ export function EventDetailLink({ eventId, className, children, guideSlug }: Eve
       href={href}
       className={className}
       onClick={(event) => {
-        if (guideSlug) trackGuideEventLinkClicked(guideSlug, eventId)
+        if (guideSlug) {
+          bindGuideToEventDetail(guideSlug)
+          trackGuideEventLinkClicked(guideSlug, eventId, {
+            ...guideCommonProps(guideSlug),
+            ...(placement ? { placement } : {}),
+            ...(sectionId ? { section_id: sectionId } : {}),
+          })
+        }
         if (
           event.defaultPrevented ||
           event.button !== 0 ||

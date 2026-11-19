@@ -6,12 +6,20 @@ export function isBrowseSharePath(pathname: string): boolean {
   return pathname === '/browse' || pathname === '/browse-v2'
 }
 
-/** City, one activity, one age, and map view. Other filters stay in memory. */
+/** True when Browse should treat `seasonal` query as on. */
+export function seasonalParamEnabled(value: string | null): boolean {
+  if (!value) return false
+  const normalized = value.trim().toLowerCase()
+  return normalized === '1' || normalized === 'true' || normalized === 'yes'
+}
+
+/** City, one activity, one age, seasonal chip, and map view. Other filters stay in memory. */
 export function browseShareParams(input: {
   pathname: string
   city: string
   age: AgeFilter
   types: ActivityType[]
+  seasonal?: boolean
   viewMode: 'list' | 'map'
   current: URLSearchParams
 }): URLSearchParams {
@@ -29,10 +37,25 @@ export function browseShareParams(input: {
   if (input.age !== 'all') next.set('age', input.age)
   else next.delete('age')
 
+  if (input.seasonal) next.set('seasonal', '1')
+  else next.delete('seasonal')
+
   if (input.viewMode === 'map') next.set('view', 'map')
   else next.delete('view')
 
   return next
+}
+
+/** Deep link that opens Browse with the Seasonal chip on (Holiday collection inventory). */
+export function holidayBrowseAllHref(options?: { city?: string | null }): string {
+  const params = new URLSearchParams()
+  params.set('seasonal', '1')
+  const city = options?.city?.trim()
+  if (city && city !== 'all' && city !== 'nearby') {
+    const slug = citySlugForCity(city as City)
+    if (slug) params.set('city', slug)
+  }
+  return `/browse?${params.toString()}`
 }
 
 export function searchParamsEqual(a: URLSearchParams, b: URLSearchParams): boolean {

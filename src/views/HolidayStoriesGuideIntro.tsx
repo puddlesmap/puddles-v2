@@ -4,15 +4,17 @@ import { GuideEditorialHero } from '../components/guides/GuideEditorialHero'
 import { GuideSectionNav } from '../components/guides/QuickPick'
 import { GUIDES_CATALOG } from '../data/guidesCatalog'
 import {
+  HOLIDAY_GUIDE_EVENT_COUNT,
+  HOLIDAY_GUIDE_POSTED,
+  HOLIDAY_GUIDE_READ,
+  HOLIDAY_MAGIC_GUIDE_EYEBROW,
+} from '../data/holidayGuide'
+import {
   HOLIDAY_STORIES_CTA_LABEL,
   HOLIDAY_STORIES_EVENTS_HREF,
   HOLIDAY_STORIES_GUIDE_COVER,
   HOLIDAY_STORIES_GUIDE_DEK,
-  HOLIDAY_STORIES_GUIDE_EVENT_COUNT,
-  HOLIDAY_STORIES_GUIDE_POSTED,
-  HOLIDAY_STORIES_GUIDE_READ,
   HOLIDAY_STORIES_GUIDE_SECTION_NAV,
-  HOLIDAY_STORIES_GUIDE_SUBTITLE,
   HOLIDAY_STORIES_GUIDE_TITLE,
 } from '../data/holidayStoriesGuide'
 import {
@@ -72,11 +74,11 @@ export function HolidayStoriesGuideIntro({
       <GuideParentNav guideSlug="holiday-stories-play" />
       <GuideEditorialHero
         title={`${HOLIDAY_STORIES_GUIDE_TITLE} 🎭`}
-        subtitle={HOLIDAY_STORIES_GUIDE_SUBTITLE}
+        subtitle={HOLIDAY_MAGIC_GUIDE_EYEBROW}
         description={HOLIDAY_STORIES_GUIDE_DEK}
-        publicationDate={HOLIDAY_STORIES_GUIDE_POSTED}
-        readingTime={HOLIDAY_STORIES_GUIDE_READ}
-        eventCount={HOLIDAY_STORIES_GUIDE_EVENT_COUNT}
+        publicationDate={HOLIDAY_GUIDE_POSTED}
+        readingTime={HOLIDAY_GUIDE_READ}
+        eventCount={HOLIDAY_GUIDE_EVENT_COUNT}
         heroImage={HOLIDAY_STORIES_GUIDE_COVER}
         seasonalStatus={lifecycle}
         pastSeasonNote={PAST_NOTE}
@@ -112,7 +114,7 @@ export function HolidayStoriesGuideIntro({
               places={HOLIDAY_STORIES_GUIDE_PLACES}
               categories={HOLIDAY_STORIES_GUIDE_MAP_CATEGORIES}
               categorySelect="single"
-              defaultCategoryId="theater"
+              defaultCategoryId="shows"
               caption=""
               compact
               pinTheme="holiday"

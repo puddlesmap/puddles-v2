@@ -1,5 +1,21 @@
 /* Guide-page “More from…” — same card-grid as Holiday Magic hub, flat lighten chrome */
 
+.more-from-collection__hub {
+  margin: 0 0 0.85rem;
+}
+
+.more-from-collection__hub-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-brand, #113f34);
+  text-decoration: none;
+}
+
+.more-from-collection__hub-link:hover,
+.more-from-collection__hub-link:focus-visible {
+  text-decoration: underline;
+}
+
 .more-from-collection.hmg-guides-carousel {
   margin: 3.25rem 0 2.5rem;
   max-width: 56rem;
@@ -47,6 +63,15 @@
   background: #ffffff;
   box-shadow: var(--elevation-shadow-soft, 0 4px 16px rgb(34 34 34 / 0.06));
   overflow: hidden;
+}
+
+/* Beat `.guide-page.skin a:any-link { underline }` from layout studies. */
+.guide-page.skin .more-from-collection a.sgc-card:any-link,
+.guide-page.skin .more-from-collection a.sgc-card:any-link:hover,
+.guide-page.skin .more-from-collection a.sgc-card:any-link:focus-visible,
+.more-from-collection.hmg-guides-carousel a.sgc-card:any-link,
+.more-from-collection.hmg-guides-carousel a.sgc-card:any-link:hover {
+  text-decoration: none;
 }
 
 .more-from-collection.hmg-guides-carousel .sgc-card__panel {

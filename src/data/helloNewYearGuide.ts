@@ -1,17 +1,32 @@
+import {
+  HOLIDAY_GUIDE_CTA_BROWSE_LABEL,
+  HOLIDAY_GUIDE_CTA_DEK,
+  HOLIDAY_GUIDE_CTA_TITLE,
+  HOLIDAY_MAGIC_GUIDE_EYEBROW,
+  HOLIDAY_MAGIC_GUIDE_META,
+} from './holidayGuide'
+
 /** Hello, New Year! — companion winter guide. */
 export const HELLO_NEW_YEAR_GUIDE_SLUG = 'hello-new-year'
 export const HELLO_NEW_YEAR_GUIDE_PATH = '/guides/hello-new-year'
 
 export const HELLO_NEW_YEAR_EVENTS_HREF = '/seasonal/holiday-magic#events'
 export const HELLO_NEW_YEAR_CTA_LABEL = 'Explore holiday activities →'
+export const HELLO_NEW_YEAR_CTA_TITLE = HOLIDAY_GUIDE_CTA_TITLE
+export const HELLO_NEW_YEAR_CTA_DEK = HOLIDAY_GUIDE_CTA_DEK
+export const HELLO_NEW_YEAR_CTA_BROWSE_LABEL = HOLIDAY_GUIDE_CTA_BROWSE_LABEL
 
 export const HELLO_NEW_YEAR_GUIDE_TITLE = 'Hello, New Year!'
-export const HELLO_NEW_YEAR_GUIDE_SUBTITLE = 'SOUTH PENINSULA · AGES 0–5'
+export const HELLO_NEW_YEAR_GUIDE_SUBTITLE = HOLIDAY_MAGIC_GUIDE_EYEBROW
 export const HELLO_NEW_YEAR_GUIDE_DEK =
-  'Balloon drops, January traditions, and little ways to welcome the new year.'
+  "The countdown doesn't have to happen at midnight. Sometimes it's a balloon drop before lunch, a little dance party, or a new tradition your child gets to experience for the first time."
+
+/** Start Here lede (H chrome) — fuller description under the finder. */
+export const HELLO_NEW_YEAR_FINDER_LEDE = HELLO_NEW_YEAR_GUIDE_DEK
 
 export const HELLO_NEW_YEAR_GUIDE_POSTED = 'Dec 7, 2026'
 export const HELLO_NEW_YEAR_GUIDE_READ = '6 min read'
+export const HELLO_NEW_YEAR_GUIDE_META = HOLIDAY_MAGIC_GUIDE_META
 
 /** SEO (search titles ≠ on-page hero). */
 export const HELLO_NEW_YEAR_GUIDE_SEO_TITLE =
@@ -40,6 +55,7 @@ export const HELLO_NEW_YEAR_GUIDE_EVENT_IDS = {
 export const HELLO_NEW_YEAR_GUIDE_EVENT_COUNT = Object.keys(HELLO_NEW_YEAR_GUIDE_EVENT_IDS).length
 
 export const HELLO_NEW_YEAR_SECTION_CLAY = {
+  finder: '/guides/holiday-lights/magical-01.png',
   nearby: '/guides/holiday-lights/magical-01.png',
   trip: '/guides/holiday-lights/magical-09.png',
   january: '/guides/holiday-lights/magical-04.png',
@@ -47,22 +63,23 @@ export const HELLO_NEW_YEAR_SECTION_CLAY = {
 } as const
 
 export const HELLO_NEW_YEAR_GUIDE_SECTION_NAV = [
+  { slug: 'finder', label: 'Start Here', imageSrc: HELLO_NEW_YEAR_SECTION_CLAY.finder },
   {
     slug: 'nearby',
-    label: 'City & Library',
+    label: 'Daytime Countdowns',
     imageSrc: HELLO_NEW_YEAR_SECTION_CLAY.nearby,
   },
   {
     slug: 'trip',
-    label: 'Museums & More',
+    label: 'Worth the Trip',
     imageSrc: HELLO_NEW_YEAR_SECTION_CLAY.trip,
   },
   {
     slug: 'january',
-    label: 'January Events',
+    label: 'January Traditions',
     imageSrc: HELLO_NEW_YEAR_SECTION_CLAY.january,
   },
-  { slug: 'before', label: 'Before you go', imageSrc: HELLO_NEW_YEAR_SECTION_CLAY.before },
+  { slug: 'before', label: 'Before You Go', imageSrc: HELLO_NEW_YEAR_SECTION_CLAY.before },
 ] as const
 
 export const HELLO_NEW_YEAR_OUTING_IMAGES = {

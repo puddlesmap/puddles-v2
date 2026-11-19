@@ -17,7 +17,8 @@
   display: none;
 }
 
-.holiday-guide-dimmed > :not(.holiday-guide-blobs):not(.holiday-guide-dots) {
+.holiday-guide-dimmed
+  > :not(.holiday-guide-blobs):not(.holiday-guide-dots):not(.app-header):not(.gdm-lp-map) {
   position: relative;
   z-index: 1;
 }
@@ -362,6 +363,23 @@
 
 .holiday-more-list li:last-child {
   border-bottom: none;
+}
+
+.holiday-more-list .gem-event-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  vertical-align: baseline;
+}
+
+.holiday-more-list .gem-title-save.save-heart-btn--map-sheet {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.holiday-more-list .gem-title-save .save-heart-icon {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 /* Match title link size/weight to venue · date in the same lead line. */

@@ -12,6 +12,12 @@ export const HOLIDAY_EVENTS_ANCHOR = 'events'
 
 export const HOLIDAY_EVENTS_HREF = `${HOLIDAY_COLLECTION_PATH}#${HOLIDAY_EVENTS_ANCHOR}`
 
+/** Footer seasonal block (title + dek + link). Link label uses event count below. */
+export const HOLIDAY_GUIDE_CTA_TITLE = 'More holiday outings to discover ✨'
+export const HOLIDAY_GUIDE_CTA_DEK =
+  "Find festive activities that fit your family's schedule. Browse by date and location."
+
+/** @deprecated Prefer HOLIDAY_GUIDE_CTA_TITLE / DEK / browse label — kept for intro chips. */
 export const HOLIDAY_GUIDE_CTA_LABEL = 'Explore holiday activities →'
 
 /** Holidays at Filoli — glowing pathways (official Filoli photo). */
@@ -21,10 +27,14 @@ export const HOLIDAY_GUIDE_COVER =
 /** Approved Puddles clay illustration for collection entry + brand moments. */
 export const HOLIDAY_GUIDE_ILLUSTRATION = '/seasonal/holiday-magic.png'
 
+/** Shared hero eyebrow for all Holiday Magic companion guides. */
+export const HOLIDAY_MAGIC_GUIDE_EYEBROW = 'HOLIDAY MAGIC 2026–27 · BAY AREA · AGES 0–5'
+
 /** Article title (seasonal collection stays “Holiday Magic with Little Ones”). */
 export const HOLIDAY_GUIDE_TITLE = 'Holiday Lights & Traditions'
 
-export const HOLIDAY_GUIDE_SUBTITLE = 'SOUTH PENINSULA · AGES 0–5'
+/** @deprecated Prefer HOLIDAY_MAGIC_GUIDE_EYEBROW for H chrome. */
+export const HOLIDAY_GUIDE_SUBTITLE = HOLIDAY_MAGIC_GUIDE_EYEBROW
 
 export const HOLIDAY_GUIDE_DEK =
   'Lights, train rides, Santa visits, and local holiday traditions.'
@@ -78,10 +88,12 @@ export const HOLIDAY_GUIDE_RELATED = [
 
 /** Puddles clay thumbs for In this guide — brand moments only. */
 export const HOLIDAY_GUIDE_SECTION_CLAY = {
+  finder: '/guides/holiday-lights/magical-03.png',
   lights: '/guides/holiday-lights/magical-01.png',
   parades: '/guides/holiday-lights/magical-06.png',
   santa: '/guides/holiday-lights/magical-08.png',
   trains: '/guides/holiday-lights/magical-02.png',
+  more: '/guides/holiday-lights/magical-04.png',
   before: HOLIDAY_GUIDE_ILLUSTRATION,
 } as const
 
@@ -112,14 +124,21 @@ export const HOLIDAY_GUIDE_EVENT_IDS = {
 
 export const HOLIDAY_GUIDE_EVENT_COUNT = Object.keys(HOLIDAY_GUIDE_EVENT_IDS).length
 
+/** Shared hero meta for all Holiday Magic companion guides. */
+export const HOLIDAY_MAGIC_GUIDE_META = `${HOLIDAY_GUIDE_POSTED} · ${HOLIDAY_GUIDE_EVENT_COUNT} events · ${HOLIDAY_GUIDE_READ}`
+
+export const HOLIDAY_GUIDE_CTA_BROWSE_LABEL = `Browse all ${HOLIDAY_GUIDE_EVENT_COUNT} holiday outings →`
+
 export const HOLIDAY_GUIDE_SECTION_NAV = [
+  { slug: 'finder', label: 'Start Here', imageSrc: HOLIDAY_GUIDE_SECTION_CLAY.finder },
   { slug: 'lights', label: 'Lights & Walks', imageSrc: HOLIDAY_GUIDE_SECTION_CLAY.lights },
   {
     slug: 'parades',
-    label: 'Town Celebrations',
+    label: 'Parades & Celebrations',
     imageSrc: HOLIDAY_GUIDE_SECTION_CLAY.parades,
   },
   { slug: 'santa', label: 'Santa Visits', imageSrc: HOLIDAY_GUIDE_SECTION_CLAY.santa },
-  { slug: 'trains', label: 'Train Rides', imageSrc: HOLIDAY_GUIDE_SECTION_CLAY.trains },
-  { slug: 'before', label: 'Before you go', imageSrc: HOLIDAY_GUIDE_SECTION_CLAY.before },
+  { slug: 'trains', label: 'Holiday Trains', imageSrc: HOLIDAY_GUIDE_SECTION_CLAY.trains },
+  { slug: 'more', label: 'More Holiday Outings', imageSrc: HOLIDAY_GUIDE_SECTION_CLAY.more },
+  { slug: 'before', label: 'Before You Go', imageSrc: HOLIDAY_GUIDE_SECTION_CLAY.before },
 ] as const

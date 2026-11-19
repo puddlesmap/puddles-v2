@@ -21,6 +21,7 @@ import {
   type LocalSave,
 } from '../utils/savedStorage'
 import { ANALYTICS_EVENTS, trackEvent } from '../utils/analytics'
+import { attributionProps, type SaveSurface } from '../utils/discoveryAttribution'
 
 type ToastKind = 'saved' | 'removed'
 
@@ -28,11 +29,15 @@ type ToastState = { eventId: string; visible: boolean; kind: ToastKind } | null
 
 export type SavedAuthMode = 'create' | 'login'
 
+export type ToggleSaveOptions = {
+  save_surface: SaveSurface
+}
+
 type SavedContextValue = {
   saves: LocalSave[]
   isSaved: (eventId: string) => boolean
-  toggleSave: (eventId: string) => void
-  undoRemove: (eventId: string) => void
+  toggleSave: (eventId: string, options?: ToggleSaveOptions) => void
+  undoRemove: (eventId: string, options?: ToggleSaveOptions) => void
   toast: ToastState
   dismissToast: () => void
   signInOpen: boolean
@@ -48,6 +53,14 @@ type SavedContextValue = {
 }
 
 const SavedContext = createContext<SavedContextValue | null>(null)
+
+function saveAnalyticsProps(eventId: string, saveSurface?: SaveSurface) {
+  return {
+    event_id: eventId,
+    ...(saveSurface ? { save_surface: saveSurface } : {}),
+    ...attributionProps(),
+  }
+}
 
 export function SavedProvider({ children }: { children: ReactNode }) {
   const [saves, setSaves] = useState<LocalSave[]>(() =>
@@ -77,45 +90,88 @@ export function SavedProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const toggleSave = useCallback(
-    (eventId: string) => {
+    (eventId: string, options?: ToggleSaveOptions) => {
       const id = eventId.trim()
       if (!id) return
+      const saveSurface = options?.save_surface
       const wasSaved = activeLocalEventIds().has(id)
-      toggleLocalSave(id)
-      refreshFromStorage()
-      const nowSaved = !wasSaved
+      const intendedSaved = !wasSaved
+
+      trackEvent(ANALYTICS_EVENTS.ACTIVITY_SAVE_CLICKED, {
+        ...saveAnalyticsProps(id, saveSurface),
+        intended_saved: intendedSaved ? 'true' : 'false',
+      })
+
+      let result: ReturnType<typeof toggleLocalSave>
+      try {
+        result = toggleLocalSave(id)
+      } catch {
+        trackEvent(ANALYTICS_EVENTS.ACTIVITY_SAVE_BLOCKED, {
+          ...saveAnalyticsProps(id, saveSurface),
+          reason: 'persist_error',
+        })
+        return
+      }
+
+      if (!result.persisted) {
+        trackEvent(ANALYTICS_EVENTS.ACTIVITY_SAVE_BLOCKED, {
+          ...saveAnalyticsProps(id, saveSurface),
+          reason: 'persist_failed',
+        })
+        return
+      }
+
+      setSaves(result.saves)
+      // Confirmed persisted state only — never count a failed write as success.
       trackEvent(ANALYTICS_EVENTS.ACTIVITY_SAVED, {
-        event_id: id,
-        saved: nowSaved ? 'true' : 'false',
+        ...saveAnalyticsProps(id, saveSurface),
+        saved: result.nowSaved ? 'true' : 'false',
       })
       setToast(
-        nowSaved
+        result.nowSaved
           ? { eventId: id, visible: true, kind: 'saved' }
           : { eventId: id, visible: true, kind: 'removed' },
       )
-      void syncNow()
+      void syncNow().catch(() => {
+        trackEvent(ANALYTICS_EVENTS.ACTIVITY_SAVE_BLOCKED, {
+          ...saveAnalyticsProps(id, saveSurface),
+          reason: 'sync_failed',
+        })
+      })
     },
-    [refreshFromStorage, syncNow],
+    [syncNow],
   )
 
   const undoRemove = useCallback(
-    (eventId: string) => {
+    (eventId: string, options?: ToggleSaveOptions) => {
       const id = eventId.trim()
       if (!id) return
       if (activeLocalEventIds().has(id)) {
         setToast(null)
         return
       }
-      toggleLocalSave(id)
-      refreshFromStorage()
+      const saveSurface = options?.save_surface
+      trackEvent(ANALYTICS_EVENTS.ACTIVITY_SAVE_CLICKED, {
+        ...saveAnalyticsProps(id, saveSurface),
+        intended_saved: 'true',
+      })
+      const result = toggleLocalSave(id)
+      if (!result.persisted || !result.nowSaved) {
+        trackEvent(ANALYTICS_EVENTS.ACTIVITY_SAVE_BLOCKED, {
+          ...saveAnalyticsProps(id, saveSurface),
+          reason: 'persist_failed',
+        })
+        return
+      }
+      setSaves(result.saves)
       trackEvent(ANALYTICS_EVENTS.ACTIVITY_SAVED, {
-        event_id: id,
+        ...saveAnalyticsProps(id, saveSurface),
         saved: 'true',
       })
       setToast(null)
       void syncNow()
     },
-    [refreshFromStorage, syncNow],
+    [syncNow],
   )
 
   const value = useMemo<SavedContextValue>(

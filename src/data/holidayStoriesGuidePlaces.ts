@@ -2,9 +2,9 @@ import type { GuideMapCategory, GuidePlace } from './halloweenGuide'
 import { HOLIDAY_STORIES_GUIDE_EVENT_IDS as IDS } from './holidayStoriesGuide'
 
 export const HOLIDAY_STORIES_GUIDE_MAP_CATEGORIES: GuideMapCategory[] = [
-  { id: 'theater', label: 'Live Shows', color: '#E39B7B' },
-  { id: 'hanukkah', label: 'Stories & Crafts', color: '#1D743F' },
-  { id: 'play', label: 'Winter Play', color: '#FF5C28' },
+  { id: 'shows', label: 'First Shows', color: '#E39B7B' },
+  { id: 'crafts', label: 'Crafts & Traditions', color: '#1D743F' },
+  { id: 'play', label: 'Winter Play & Discovery', color: '#FF5C28' },
 ]
 
 const PA_CHILDRENS_THEATRE = 'palo-alto-childrens-theatre'
@@ -16,7 +16,7 @@ export const HOLIDAY_STORIES_GUIDE_PLACES: GuidePlace[] = [
     slug: 'little-red',
     name: 'Playhouse Series: Little Red Riding Hood',
     group: 'neighborhood',
-    categoryId: 'theater',
+    categoryId: 'shows',
     venueKey: PA_CHILDRENS_THEATRE,
     lat: 37.4415,
     lng: -122.1585,
@@ -26,14 +26,16 @@ export const HOLIDAY_STORIES_GUIDE_PLACES: GuidePlace[] = [
     venue: "Palo Alto Children's Theatre",
     cost: '$20',
     ageLabel: 'Ages 2–6 · about 55 minutes',
-    tip: 'Everyone, including infants, needs a ticket.',
+    tip: 'Everyone, including infants, needs a ticket. Several performances sell out quickly.',
+    summary:
+      'Watch a playful storyteller-style retelling with opportunities to stand up and wiggle along.',
     eventHref: event(IDS.littleRed),
   },
   {
     slug: 'night-before-christmas',
     name: 'The Night Before Christmas',
     group: 'neighborhood',
-    categoryId: 'theater',
+    categoryId: 'shows',
     lat: 37.3894,
     lng: -122.0819,
     status: 'Dec 12 · Mountain View · Tickets',
@@ -41,15 +43,17 @@ export const HOLIDAY_STORIES_GUIDE_PLACES: GuidePlace[] = [
     city: 'Mountain View',
     venue: 'Mountain View Center for the Performing Arts',
     cost: 'Tickets',
-    ageLabel: 'All ages',
+    ageLabel: 'All ages · about 45 minutes',
     tip: 'Dec 11 shows are school matinees; public performances are Dec 12.',
+    summary:
+      "Follow a holiday story brought to life in a 45-minute children's theater performance.",
     eventHref: event(IDS.nightBeforeChristmas),
   },
   {
     slug: 'gingerbread',
     name: 'Playhouse Series: The Gingerbread Man',
     group: 'neighborhood',
-    categoryId: 'theater',
+    categoryId: 'shows',
     venueKey: PA_CHILDRENS_THEATRE,
     lat: 37.4415,
     lng: -122.1585,
@@ -60,13 +64,15 @@ export const HOLIDAY_STORIES_GUIDE_PLACES: GuidePlace[] = [
     cost: '$20',
     ageLabel: 'Ages 2–6 · about 55 minutes',
     tip: 'All attendees, including infants, need their own tickets.',
+    summary:
+      'Join an interactive retelling with playful characters and moments for children to participate.',
     eventHref: event(IDS.gingerbread),
   },
   {
     slug: 'nutcracker',
     name: 'My Very First Nutcracker',
     group: 'tradition',
-    categoryId: 'theater',
+    categoryId: 'shows',
     lat: 37.3308,
     lng: -121.887,
     status: 'Dec 20–27 · San José · Tickets',
@@ -74,15 +80,17 @@ export const HOLIDAY_STORIES_GUIDE_PLACES: GuidePlace[] = [
     city: 'San José',
     venue: 'California Theatre',
     cost: 'Tickets',
-    ageLabel: 'All ages',
-    tip: 'About 55 minutes, without intermission. Children age 1 and older need their own ticket.',
+    ageLabel: 'All ages · about 55 minutes',
+    tip: 'Children ages 1 and older need their own ticket.',
+    summary:
+      "Watch Clara's holiday party, playful mice, and toy soldiers come to life in a one-act ballet with a live orchestra.",
     eventHref: event(IDS.nutcracker),
   },
   {
     slug: 'hanukkah',
     name: 'Hanukkah Storytime & Crafts',
     group: 'neighborhood',
-    categoryId: 'hanukkah',
+    categoryId: 'crafts',
     lat: 37.4105,
     lng: -122.142,
     status: 'Dec 2 · Palo Alto · Free',
@@ -91,14 +99,15 @@ export const HOLIDAY_STORIES_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Oshman Family JCC',
     cost: 'Free',
     ageLabel: 'Ages 0–6',
-    tip: 'Registration offered — confirm a spot with the organizer.',
+    tip: 'For children through age 6; check registration with the organizer.',
+    summary: 'Enjoy Hanukkah stories, songs, candle-making, and dreidel activities together.',
     eventHref: event(IDS.hanukkah),
   },
   {
     slug: 'menorahs',
     name: 'Menorahs & Miracles',
     group: 'neighborhood',
-    categoryId: 'hanukkah',
+    categoryId: 'crafts',
     lat: 37.3267,
     lng: -121.892,
     status: 'Dec 6 · San José · Museum admission',
@@ -108,6 +117,8 @@ export const HOLIDAY_STORIES_GUIDE_PLACES: GuidePlace[] = [
     cost: 'Museum admission',
     ageLabel: 'Suggested ages 2–5',
     tip: 'Storytimes in English, Hebrew, and Russian at different times.',
+    summary:
+      'Play dreidel games, watch an interactive Hanukkah performance, listen to songs, and explore a scavenger hunt.',
     eventHref: event(IDS.menorahs),
   },
   {
@@ -123,7 +134,9 @@ export const HOLIDAY_STORIES_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Educational Park Branch Library',
     cost: 'Free',
     ageLabel: 'Ages 0–5',
-    tip: 'Drop in — no registration. Storytime 10:45 AM; Santa around 11 AM.',
+    tip: 'No registration. Storytime 10:45 AM; Santa around 11 AM.',
+    summary:
+      'Play with outdoor snow, hear Mrs. Claus tell stories, make winter crafts, and meet Santa during a morning for young children.',
     eventHref: event(IDS.northPole),
   },
   {
@@ -139,7 +152,9 @@ export const HOLIDAY_STORIES_GUIDE_PLACES: GuidePlace[] = [
     venue: 'Bay Area Discovery Museum',
     cost: 'Museum admission',
     ageLabel: 'Suggested ages 0–5',
-    tip: 'Included with general admission; babies under 1 enter free. Snow play on weekends only.',
+    tip: 'Included with general admission; babies under 1 enter free.',
+    summary:
+      'Try iceless skating, decorate giant play gingerbread houses, and tinker with toys and winter-inspired art.',
     eventHref: event(IDS.wonderlab),
   },
   {
@@ -156,6 +171,8 @@ export const HOLIDAY_STORIES_GUIDE_PLACES: GuidePlace[] = [
     cost: 'Museum admission',
     ageLabel: 'Suggested ages 3–5',
     tip: 'Closed Dec 24–25 and Jan 1. Add-on workshops may cost extra.',
+    summary:
+      'Explore winter science with hands-on experiments, playful snow-themed activities, and indoor discoveries.',
     eventHref: event(IDS.winterfest),
   },
 ]

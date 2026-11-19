@@ -186,14 +186,33 @@ function VenueMarkers({
   return null
 }
 
-function VenueEventCard({ place, idPrefix }: { place: GuidePlace; idPrefix: string }) {
+function VenueEventCard({
+  place,
+  idPrefix,
+  onReadInGuide,
+}: {
+  place: GuidePlace
+  idPrefix: string
+  onReadInGuide?: (slug: string) => void
+}) {
   const venue = place.venue || place.city
   return (
     <div className="guide-map__event-block">
       <p className="guide-map__event-row-title">{place.name}</p>
       {place.date ? <p className="guide-map__event-row-meta">{place.date}</p> : null}
       {venue ? <p className="guide-map__event-row-meta">{venue}</p> : null}
-      <a className="guide-map__more" href={`#${placeId(idPrefix, place.slug)}`}>
+      <a
+        className="guide-map__more"
+        href={`#${placeId(idPrefix, place.slug)}`}
+        onClick={
+          onReadInGuide
+            ? (event) => {
+                event.preventDefault()
+                onReadInGuide(place.slug)
+              }
+            : undefined
+        }
+      >
         Read in guide →
       </a>
     </div>
@@ -204,10 +223,12 @@ function VenuePreviewBody({
   venue,
   idPrefix,
   onClose,
+  onReadInGuide,
 }: {
   venue: VenueCluster
   idPrefix: string
   onClose?: () => void
+  onReadInGuide?: (slug: string) => void
 }) {
   const [eventIndex, setEventIndex] = useState(0)
   const multi = venue.places.length > 1
@@ -234,7 +255,7 @@ function VenuePreviewBody({
           {safeIndex + 1}/{total}
         </p>
       ) : null}
-      <VenueEventCard place={place} idPrefix={idPrefix} />
+      <VenueEventCard place={place} idPrefix={idPrefix} onReadInGuide={onReadInGuide} />
       {multi ? (
         <div className="guide-map__popup-nav">
           <button
@@ -319,6 +340,8 @@ function GuidePlacesMapCanvas({
   places,
   selectedSlug,
   onSelect,
+  onReadInGuide,
+  hidePreviewSheet = false,
   pinTheme,
   categories,
 }: {
@@ -326,6 +349,8 @@ function GuidePlacesMapCanvas({
   places: GuidePlace[]
   selectedSlug: string | null
   onSelect: (slug: string | null) => void
+  onReadInGuide?: (slug: string) => void
+  hidePreviewSheet?: boolean
   pinTheme: 'halloween' | 'holiday'
   categories?: GuideMapCategory[]
 }) {
@@ -399,7 +424,7 @@ function GuidePlacesMapCanvas({
           <PinAnchorReporter lat={selectedVenue.lat} lng={selectedVenue.lng} onAnchor={onAnchor} />
         ) : null}
       </Map>
-      {selectedVenue ? (
+      {!hidePreviewSheet && selectedVenue ? (
         <div
           className={`guide-map__sheet${multi ? ' guide-map__sheet--multi' : ''}${
             desktop && pinAnchor ? ' guide-map__sheet--pin' : ''
@@ -412,6 +437,7 @@ function GuidePlacesMapCanvas({
             venue={selectedVenue}
             idPrefix={idPrefix}
             onClose={() => onSelect(null)}
+            onReadInGuide={onReadInGuide}
           />
         </div>
       ) : null}
@@ -428,6 +454,9 @@ export function GuidePlacesMap({
   showLegend = true,
   selectedSlug: controlledSlug,
   onSelectSlug,
+  onReadInGuide,
+  hidePreviewSheet = false,
+  onActiveCategoryIdChange,
   categories,
   categorySelect,
   defaultCategoryId,
@@ -440,6 +469,11 @@ export function GuidePlacesMap({
   showLegend?: boolean
   selectedSlug?: string | null
   onSelectSlug?: (slug: string | null) => void
+  /** Close overlay / jump to the matching guide section for this place. */
+  onReadInGuide?: (slug: string) => void
+  /** When true, pin selection still works but the built-in preview sheet is hidden. */
+  hidePreviewSheet?: boolean
+  onActiveCategoryIdChange?: (categoryId: string | null) => void
   categories?: GuideMapCategory[]
   /** When `single`, only one category is visible at a time (no Show all). */
   categorySelect?: 'single'
@@ -474,6 +508,10 @@ export function GuidePlacesMap({
   }, [categories, defaultCategoryId])
 
   useEffect(() => {
+    onActiveCategoryIdChange?.(activeCategoryId)
+  }, [activeCategoryId, onActiveCategoryIdChange])
+
+  useEffect(() => {
     setReady(true)
   }, [])
 
@@ -504,6 +542,8 @@ export function GuidePlacesMap({
               places={visiblePlaces}
               selectedSlug={selectedSlug}
               onSelect={onSelect}
+              onReadInGuide={onReadInGuide}
+              hidePreviewSheet={hidePreviewSheet}
               pinTheme={pinTheme}
               categories={categories}
             />

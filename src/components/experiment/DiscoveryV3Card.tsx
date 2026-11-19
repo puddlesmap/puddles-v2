@@ -142,6 +142,7 @@ function DiscoveryV3CardContent({
           <SaveHeartButton
             eventId={event.id}
             variant={isMapSheet ? 'map-sheet' : 'card'}
+            saveSurface={isMapSheet ? 'browse_map' : 'browse_list'}
           />
         ) : null}
       </div>

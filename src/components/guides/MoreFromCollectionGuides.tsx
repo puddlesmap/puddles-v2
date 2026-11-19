@@ -1,11 +1,15 @@
+import { Link } from 'react-router-dom'
 import {
   getSiblingGuides,
   type GuideCatalogEntry,
 } from '../../data/guidesCatalog'
 import {
   getSeasonalCollection,
+  seasonalCollectionPath,
   type SeasonalCollectionSlug,
 } from '../../data/seasonalDiscovery'
+import { trackGuideSeasonalHubClicked } from '../../utils/analytics'
+import { guideCommonProps } from '../../utils/guideVisitAnalytics'
 import {
   SeasonalGuidesCarousel,
   type SeasonalCarouselGuide,
@@ -55,8 +59,26 @@ export function MoreFromCollectionGuides({
   const siblings = getSiblingGuides(collectionSlug, currentSlug).map(toCarouselGuide)
   if (!collection || siblings.length === 0) return null
 
+  const hubHref = seasonalCollectionPath(collection.slug)
+
   return (
     <div className="hmg-guides-carousel more-from-collection">
+      <div className="more-from-collection__hub">
+        <Link
+          className="more-from-collection__hub-link"
+          to={hubHref}
+          onClick={() => {
+            trackGuideSeasonalHubClicked(
+              currentSlug,
+              'more_from_collection',
+              hubHref,
+              guideCommonProps(currentSlug),
+            )
+          }}
+        >
+          Explore {collection.subtitle} hub →
+        </Link>
+      </div>
       <SeasonalGuidesCarousel
         guides={siblings}
         heading={`More from ${collection.subtitle}`}

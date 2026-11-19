@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { EventDetailLink } from '../EventDetailLink'
+import { SaveHeartButton } from '../saved/SaveHeartButton'
 
 export function eventIdFromHref(href: string): string {
   return href.replace(/^\/event\//, '')
@@ -32,6 +33,33 @@ export function GuideEventTextLink({
     >
       {children}
     </EventDetailLink>
+  )
+}
+
+/** Linked outing title + Saved heart (More Holiday Outings list, etc.). */
+export function GuideEventLinkedTitle({
+  href,
+  guideSlug,
+  className = 'lgl-textlink',
+  children,
+}: {
+  href: string
+  guideSlug: string
+  className?: string
+  children: ReactNode
+}) {
+  return (
+    <span className="gem-event-title">
+      <GuideEventTextLink href={href} guideSlug={guideSlug} className={className}>
+        {children}
+      </GuideEventTextLink>
+      <SaveHeartButton
+        eventId={eventIdFromHref(href)}
+        variant="map-sheet"
+        className="gem-title-save"
+        saveSurface="guide_article"
+      />
+    </span>
   )
 }
 
@@ -154,9 +182,29 @@ export function GuideRecBody({
   onViewOnMap,
   eventAnchorId,
 }: GuideRecBaseProps & { image?: string }) {
+  const eventId = puddlesHref ? eventIdFromHref(puddlesHref) : null
+
   return (
-    <>
-      <h4 id={eventAnchorId}>{title}</h4>
+    <div
+      className="gem-rec"
+      {...(eventId
+        ? {
+            'data-guide-event-id': eventId,
+            'data-guide-placement': 'article',
+          }
+        : {})}
+    >
+      <div className="gem-title-row">
+        <h4 id={eventAnchorId}>{title}</h4>
+        {eventId ? (
+          <SaveHeartButton
+            eventId={eventId}
+            variant="map-sheet"
+            className="gem-title-save"
+            saveSurface="guide_article"
+          />
+        ) : null}
+      </div>
       <p className="lgg-when">{when}</p>
       {children}
       {why ? <GuideIconLine label="Why go:" text={why} /> : null}
@@ -183,6 +231,6 @@ export function GuideRecBody({
           </button>
         ) : null}
       </div>
-    </>
+    </div>
   )
 }

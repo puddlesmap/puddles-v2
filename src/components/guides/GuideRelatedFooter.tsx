@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { trackGuideCollectionClicked } from '../../utils/analytics'
+import { guideCommonProps } from '../../utils/guideVisitAnalytics'
 import { openPuddlesPicksSignup } from '../picks/PuddlesPicksHome'
 import '../picks/puddles-picks-home.css'
 import './guideRelatedFooter.css'
@@ -46,12 +48,22 @@ export function GuideRelatedFooter({
   relatedGuides,
   seasonalHref,
   seasonalLinkLabel = 'Explore holiday activities →',
+  seasonalTitle,
+  seasonalDek,
   disclaimer = "Event details may change. Check the organizer's latest information before heading out.",
+  guideSlug,
+  destinationKind = 'collection',
 }: {
   relatedGuides: GuideRelatedRow[]
   seasonalHref: string
   seasonalLinkLabel?: string
+  /** When set with seasonalDek, renders a title + dek + link block. */
+  seasonalTitle?: string
+  seasonalDek?: string
   disclaimer?: string
+  guideSlug?: string
+  /** Footer seasonal CTA: full collection (#events) vs hub top. */
+  destinationKind?: 'collection' | 'seasonal_hub'
 }) {
   const visible = relatedGuides.filter(Boolean)
   if (visible.length === 0 && !seasonalHref) return null
@@ -59,6 +71,19 @@ export function GuideRelatedFooter({
   const allPublished = visible.length > 0 && visible.every((g) => Boolean(g.href))
   const relatedHeading = allPublished ? 'More guides to explore' : 'More guides on the way'
   const seasonal = seasonalLinkParts(seasonalLinkLabel)
+  const richSeasonal = Boolean(seasonalTitle && seasonalDek)
+
+  const onSeasonalClick = () => {
+    if (!guideSlug) return
+    if (destinationKind === 'collection') {
+      trackGuideCollectionClicked(
+        guideSlug,
+        'guide_footer',
+        seasonalHref,
+        guideCommonProps(guideSlug),
+      )
+    }
+  }
 
   return (
     <aside className="grf" aria-label="More from Puddles">
@@ -118,12 +143,23 @@ export function GuideRelatedFooter({
         </div>
       </section>
 
-      <p className="grf-seasonal">
-        <Link className="grf-seasonal__link" to={seasonalHref}>
-          <span>{seasonal.text}</span>
-          {seasonal.showArrow ? <span aria-hidden="true">→</span> : null}
-        </Link>
-      </p>
+      {richSeasonal ? (
+        <section className="grf-seasonal grf-seasonal--block" aria-label={seasonalTitle}>
+          <h3 className="grf-seasonal__title">{seasonalTitle}</h3>
+          <p className="grf-seasonal__dek">{seasonalDek}</p>
+          <Link className="grf-seasonal__link" to={seasonalHref} onClick={onSeasonalClick}>
+            <span>{seasonal.text}</span>
+            {seasonal.showArrow ? <span aria-hidden="true">→</span> : null}
+          </Link>
+        </section>
+      ) : (
+        <p className="grf-seasonal">
+          <Link className="grf-seasonal__link" to={seasonalHref} onClick={onSeasonalClick}>
+            <span>{seasonal.text}</span>
+            {seasonal.showArrow ? <span aria-hidden="true">→</span> : null}
+          </Link>
+        </p>
+      )}
       <p className="grf-disclaimer">{disclaimer}</p>
     </aside>
   )

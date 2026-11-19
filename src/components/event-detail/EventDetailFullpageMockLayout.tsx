@@ -168,7 +168,7 @@ function SavePillButton({ eventId }: { eventId: string }) {
   function onClick(clickEvent: MouseEvent) {
     clickEvent.preventDefault()
     clickEvent.stopPropagation()
-    saved!.toggleSave(eventId)
+    saved!.toggleSave(eventId, { save_surface: 'event_detail' })
   }
 
   return (
@@ -217,7 +217,7 @@ function ChromeSaveButton({ eventId }: { eventId: string }) {
   function onClick(clickEvent: MouseEvent) {
     clickEvent.preventDefault()
     clickEvent.stopPropagation()
-    saved!.toggleSave(eventId)
+    saved!.toggleSave(eventId, { save_surface: 'event_detail' })
   }
 
   return (

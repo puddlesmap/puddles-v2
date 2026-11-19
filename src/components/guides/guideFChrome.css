@@ -1,0 +1,859 @@
+/* Shared F guide chrome — live Holiday Lights + experiment F mockups */
+
+.holiday-guide-f__past-note {
+  margin: 0.85rem auto 0;
+  max-width: var(--layout-max, 72rem);
+  padding: 0.75rem var(--layout-padding-mobile, 1.15rem);
+  box-sizing: border-box;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #484848;
+}
+
+@media (min-width: 768px) {
+  .holiday-guide-f__past-note {
+    padding-inline: var(--layout-padding-tablet, 1.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .holiday-guide-f__past-note {
+    padding-inline: var(--layout-padding-desktop, 2rem);
+  }
+}
+
+.gdm-lp-map,
+.holiday-guide-f > .gdm-lp-map {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  background: #e8ece9;
+  font-family: var(--font-sans);
+}
+
+.gdm-lp-map__canvas {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.gdm-lp-map__canvas .guide-map {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.gdm-lp-map__canvas .guide-map__frame,
+.gdm-lp-map__canvas .guide-map__canvas {
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.gdm-lp-map__canvas .guide-map__caption,
+.gdm-lp-map__canvas .guide-map__legend-bar {
+  display: none;
+}
+
+.gdm-lp-map__fallback {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 2rem;
+  color: #717171;
+  background:
+    linear-gradient(135deg, #d9efe8 0%, #e8f4fb 45%, #f3e9d8 100%);
+}
+
+.gdm-lp-map__locate {
+  position: absolute;
+  top: 5.5rem;
+  right: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border: none;
+  border-radius: 999px;
+  background: #1b1b1b;
+  color: #fff;
+  cursor: pointer;
+}
+
+.gdm-lp-map__dock {
+  position: relative;
+  z-index: 3;
+  flex-shrink: 0;
+  padding: 0 0 max(1.15rem, env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(180deg, transparent, rgb(232 236 233 / 0.92) 28%);
+}
+
+.gdm-lp-map__cards {
+  list-style: none;
+  display: flex;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0 1.15rem 0.85rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gdm-lp-map__card {
+  flex: 0 0 min(78vw, 20rem);
+  scroll-snap-align: center;
+  display: grid;
+  grid-template-columns: 5.25rem 1fr;
+  gap: 0;
+  overflow: hidden;
+  border: none;
+  border-radius: 0.35rem;
+  background: #fff;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 0.18);
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--font-sans);
+}
+
+.gdm-lp-map__card img {
+  width: 5.25rem;
+  height: 5.25rem;
+  object-fit: cover;
+}
+
+.gdm-lp-map__card-copy {
+  display: grid;
+  align-content: center;
+  gap: 0.25rem;
+  padding: 0.65rem 0.75rem;
+}
+
+.gdm-lp-map__card-copy strong {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #1b1b1b;
+  line-height: 1.2;
+}
+
+.gdm-lp-map__card-copy span {
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #717171;
+}
+
+.gdm-lp-map__card.is-active {
+  outline: 2px solid #1b1b1b;
+  outline-offset: 0;
+}
+
+.gdm-lp-map__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 2.3rem);
+  min-height: 3rem;
+  margin: 0 auto;
+  border: none;
+  border-radius: 999px;
+  background: #1b1b1b;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.gdm-lp-map--guide .gdm-lp-map__canvas .guide-map__legend-bar {
+  display: block;
+  padding: 0.65rem 1rem;
+  background: rgb(255 255 255 / 0.94);
+}
+
+.gdm-lp-map__dock--simple {
+  background: rgb(255 255 255 / 0.96);
+  padding: 0.75rem 0 max(1.15rem, env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid rgb(23 56 42 / 0.12);
+}
+
+.gdm-lp-map__dock--simple .gdm-lp-map__close {
+  background: #17382a;
+}
+
+/* ——— F · Wireframe refinements ——— */
+
+.holiday-guide-f.holiday-guide-dimmed.gct-page {
+  background-color: #eceecd;
+  background-image: none;
+  animation: none;
+}
+
+.holiday-guide-f .guide-page.skin {
+  max-width: none;
+  padding-inline: 0;
+  background: transparent;
+}
+
+.holiday-guide-f .gdm-wire-follow,
+.holiday-guide-f .lgg-body,
+.holiday-guide-f .gct-gutter {
+  max-width: var(--layout-max, 72rem);
+  margin-inline: auto;
+  padding-inline: var(--layout-padding-mobile, 1.15rem);
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .holiday-guide-f .gdm-wire-follow,
+  .holiday-guide-f .lgg-body,
+  .holiday-guide-f .gct-gutter {
+    padding-inline: var(--layout-padding-tablet, 1.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .holiday-guide-f .gdm-wire-follow,
+  .holiday-guide-f .lgg-body,
+  .holiday-guide-f .gct-gutter {
+    padding-inline: var(--layout-padding-desktop, 2rem);
+  }
+}
+
+.gdm-wire-hero {
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+.gdm-wire-hero__media {
+  position: relative;
+  min-height: min(62vh, 28rem);
+  overflow: hidden;
+  background: #0f281e;
+}
+
+.gdm-wire-hero__media > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+}
+
+.gdm-wire-hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(0 0 0 / 0.12) 0%,
+    transparent 38%,
+    rgb(15 40 30 / 0.72) 100%
+  );
+  pointer-events: none;
+}
+
+.gdm-wire-hero__actions {
+  position: absolute;
+  z-index: 2;
+  top: 0.85rem;
+  right: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.gdm-wire-hero__share-status {
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1a2e26;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.gdm-wire-hero__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border: none;
+  border-radius: 999px;
+  background: rgb(23 56 42 / 0.62);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.gdm-wire-hero__icon:hover,
+.gdm-wire-hero__icon.is-on {
+  background: rgb(23 56 42 / 0.85);
+}
+
+.gdm-wire-hero__overlay {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  padding: 0.9rem var(--layout-padding-mobile, 1.15rem) 1rem;
+  border-radius: 0;
+  background: rgb(23 56 42 / 0.7);
+  color: #fff;
+  text-align: left;
+}
+
+.gdm-wire-hero__eyebrow {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #eef58a;
+}
+
+.gdm-wire-hero__overlay h1 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.65rem, 5.5vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.gdm-wire-hero__dek {
+  margin: 0.55rem 0 0;
+  font-size: 0.975rem;
+  line-height: 1.45;
+  color: rgb(255 255 255 / 0.92);
+}
+
+.gdm-wire-hero__meta {
+  margin: 0.65rem 0 0;
+  font-size: 0.8125rem;
+  color: rgb(255 255 255 / 0.78);
+}
+
+.gdm-wire-follow {
+  padding-top: 0.75rem;
+}
+
+/* Tall scope so sticky index can travel through the article body.
+   StickyWireNav must be a direct child — a short wrapper kills sticky. */
+.gdm-sticky-scope {
+  display: block;
+  overflow: visible;
+}
+
+/* overflow-x: clip on .gct-page breaks position:sticky — restore for F */
+.holiday-guide-f.gct-page {
+  overflow-x: visible;
+  overflow: visible;
+}
+
+.gdm-wire-nav-sentinel {
+  height: 1px;
+  margin: 0;
+  pointer-events: none;
+}
+
+/* F index: sticky under experiment lab (offset via --gdm-sticky-top) */
+.holiday-guide-f .gdm-wire-nav {
+  position: sticky;
+  top: var(--gdm-sticky-top, 4.5rem);
+  z-index: 70;
+  margin: 0 0 1rem;
+  padding: 0.55rem var(--layout-padding-mobile, 1.15rem) 0.65rem;
+  max-width: var(--layout-max, 72rem);
+  margin-inline: auto;
+  box-sizing: border-box;
+  width: 100%;
+  background: rgb(236 236 205 / 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgb(23 56 42 / 0.1);
+  box-shadow: none;
+}
+
+.holiday-guide-f .gdm-wire-nav.is-stuck {
+  /* Keep cream tray so article links don’t show through chips */
+  background: rgb(236 236 205 / 0.98);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgb(23 56 42 / 0.1);
+  padding-top: 0.55rem;
+  /* Flat — no drop shadow / lift */
+  box-shadow: none;
+}
+
+@media (min-width: 768px) {
+  .holiday-guide-f .gdm-wire-nav {
+    padding-inline: var(--layout-padding-tablet, 1.5rem);
+  }
+
+  .holiday-guide-f .gdm-wire-nav.is-stuck {
+    background: rgb(236 236 205 / 0.98);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgb(23 56 42 / 0.1);
+    box-shadow: none;
+    padding-top: 0.55rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .holiday-guide-f .gdm-wire-nav {
+    padding-inline: var(--layout-padding-desktop, 2rem);
+  }
+
+  .gdm-wire-hero__overlay {
+    /* Match sticky index content left edge (centered layout-max + padding) */
+    left: calc(
+      (100% - min(100%, var(--layout-max, 72rem))) / 2 + var(--layout-padding-desktop, 2rem)
+    );
+    max-width: min(
+      40rem,
+      calc(100% - 2 * ((100% - min(100%, var(--layout-max, 72rem))) / 2 + var(--layout-padding-desktop, 2rem)))
+    );
+  }
+
+  .gdm-shell--f .gdm-wire-hero__overlay,
+  .gdm-shell--g .gdm-wire-hero__overlay,
+  .gdm-shell--i .gdm-wire-hero__overlay {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    padding-inline: var(--layout-padding-desktop, 2rem);
+  }
+
+  /* H: full-bleed overlay; title inset is owned by guideDesktopToc.css (aligns to 40rem + TOC). */
+  .gdm-shell--h .gdm-wire-hero__overlay {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/*
+  Sticky clay index (F/G/H/I wire nav): always one horizontal row.
+  Multi-column grid stacks tall and overlaps the article when stuck.
+*/
+.gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.1rem;
+  padding-inline-end: 1.75rem;
+  scroll-padding-inline: 0.75rem;
+  grid-template-columns: none;
+}
+
+.gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list::-webkit-scrollbar {
+  display: none;
+}
+
+.gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list > li {
+  flex: 0 0 auto;
+}
+
+.gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list a {
+  white-space: nowrap;
+}
+
+/* H clay index: flat transparent tiles, thicker outline (no gradient / lift). */
+.gdm-shell--h .gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list a {
+  background: transparent !important;
+  border: 2.5px solid rgb(23 56 42 / 0.35) !important;
+  box-shadow: none !important;
+  filter: none;
+}
+
+.gdm-shell--h .gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list a:hover {
+  background: transparent !important;
+  border-color: #17382a !important;
+}
+
+.gdm-shell--h .gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list a.is-active {
+  background: transparent !important;
+  border-color: #17382a !important;
+  border-width: 2.5px !important;
+  box-shadow: none !important;
+}
+
+.gdm-wire-nav {
+  position: sticky;
+  top: var(--gdm-sticky-top, 4.5rem);
+  z-index: 70;
+  margin: 0 0 1rem;
+  padding: 0.55rem 0 0.65rem;
+  background: rgb(236 236 205 / 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgb(23 56 42 / 0.1);
+}
+
+.gdm-wire-nav__title {
+  margin: 0 0 0.55rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #17382a;
+}
+
+/* Desktop: hide “In this guide” once the bar is stuck under the lab */
+@media (min-width: 768px) {
+  .gdm-wire-nav.is-stuck .gdm-wire-nav__title {
+    display: none;
+  }
+}
+
+.gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list a {
+  text-decoration: none;
+  border: 2.5px solid rgb(23 56 42 / 0.28);
+  box-sizing: border-box;
+  box-shadow: none;
+  background: transparent;
+}
+
+.gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list a.is-active {
+  background: transparent;
+  border-color: #17382a;
+  border-width: 2.5px;
+  box-shadow: none;
+}
+
+.gdm-wire-nav.gem-section-nav--clay .gem-section-nav__list a.is-active .gem-section-nav__label {
+  color: #17382a;
+  font-weight: 800;
+}
+
+@media (max-width: 767px) {
+  .gdm-wire-follow {
+    padding-top: 0.55rem;
+  }
+
+  .gdm-wire-nav {
+    margin: 0 0 0.85rem;
+    padding: 0.4rem 0 0.5rem;
+  }
+
+  .gdm-wire-nav__title {
+    display: none;
+  }
+}
+
+.holiday-guide-f .lgg-chapter,
+.holiday-guide-f .lgg-chapter h2,
+.holiday-guide-f .lgg-chapter h3,
+.holiday-guide-f .gdm-wire-explore__title,
+.holiday-guide-f [id^='guide-'],
+.holiday-guide-f [id^='gdm-'],
+.holiday-guide-f [id^='exp-'] {
+  scroll-margin-top: 7.5rem;
+}
+
+.gdm-wire-lede {
+  margin: 0 0 1.25rem;
+  max-width: 40rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: #484848;
+}
+
+/* Explore the outings — H2 chapter break before category H3s */
+.gdm-wire-explore {
+  margin: 2rem 0 0.55rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border-light, #ebebeb);
+}
+
+.gdm-wire-explore__title {
+  margin: 0 0 0.35rem;
+  max-width: 40rem;
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #17382a;
+}
+
+.gdm-wire-lede--sections {
+  margin: 0;
+  max-width: none;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Keep Explore block tight to Lights & Walks (skip guide-page chapter rule). */
+.holiday-guide-f .gdm-wire-explore + .lgg-chapter {
+  margin-top: 0.85rem;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* F H2 chapters heavier than category H3s */
+.holiday-guide-f .holiday-finder-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #17382a;
+}
+
+.holiday-guide-f .lgg-chapter:not(.lgg-chapter--finder) > h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* F outing title + when — match live guide hierarchy (image 2) */
+.holiday-guide-f .gem-featured__body .gem-title-row > h4,
+.holiday-guide-f .gem-featured__body > h4 {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #3f3c39;
+}
+
+.holiday-guide-f .gem-featured__body .gem-title-row {
+  margin: 0 0 0.2rem;
+}
+
+.holiday-guide-f .gem-featured__body .lgg-when {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #3d4a50;
+}
+
+/* F finder: flat comma paragraphs + clay title */
+.holiday-finder-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 0.75rem;
+}
+
+.holiday-finder-title__clay {
+  flex: 0 0 auto;
+  width: 2.35rem;
+  height: 2.35rem;
+  object-fit: contain;
+}
+
+.lgg-chapter--finder-bullets .holiday-finder-table {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.lgg-chapter--finder-bullets .holiday-finder-table__row {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, 11rem) 1fr;
+  gap: 0.65rem 1rem;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.lgg-chapter--finder-bullets .holiday-finder-table__cat {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #17382a;
+}
+
+.lgg-chapter--finder-bullets .holiday-finder-table__events {
+  margin: 0;
+  font-size: 0.975rem;
+  line-height: 1.5;
+  color: #484848;
+}
+
+/* F CTAs: outlined map (primary) + outlined collection (secondary) */
+.gdm-wire-ctas {
+  display: grid;
+  gap: 0.65rem;
+  width: 100%;
+  margin: 2rem 0 0.5rem;
+  padding: 0;
+  font-family: var(--font-sans);
+  box-sizing: border-box;
+}
+
+.gdm-wire-ctas--map-only {
+  grid-template-columns: 1fr;
+}
+
+.gdm-wire-ctas__card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--radius-md);
+  background: rgb(236 236 205 / 0.55);
+  color: #17382a;
+  text-align: left;
+  text-decoration: none !important;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  box-sizing: border-box;
+}
+
+.gdm-wire-ctas__card--primary {
+  border: 2px solid #17382a;
+}
+
+.gdm-wire-ctas__card--secondary {
+  border: 2px solid rgb(23 56 42 / 0.45);
+}
+
+.gdm-wire-ctas__copy {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.gdm-wire-ctas__primary-lead {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem;
+  align-items: start;
+  min-width: 0;
+}
+
+.gdm-wire-ctas__map-label {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #17382a;
+  text-decoration: none;
+}
+
+.gdm-wire-ctas__map-detail {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: #5a6b63;
+  text-decoration: none;
+}
+
+.gdm-wire-ctas__icon,
+.gdm-wire-ctas__arrow {
+  flex: 0 0 auto;
+  display: block;
+  color: #17382a;
+}
+
+.gdm-wire-ctas__card--primary .gdm-wire-ctas__icon {
+  margin-top: 0.1rem;
+}
+
+.gdm-wire-ctas__card:any-link,
+.gdm-wire-ctas__card:any-link:hover {
+  text-decoration: none !important;
+  color: #17382a;
+}
+
+.gdm-wire-ctas__card--primary:hover,
+.gdm-wire-ctas__card--secondary:hover {
+  background: rgb(23 56 42 / 0.06);
+}
+
+@media (min-width: 768px) {
+  .gdm-wire-hero__media {
+    min-height: min(58vh, 30rem);
+  }
+
+  .gdm-wire-hero__overlay {
+    left: calc(
+      (100% - min(100%, var(--layout-max, 72rem))) / 2 + var(--layout-padding-tablet, 1.5rem)
+    );
+    right: auto;
+    bottom: 1.25rem;
+    width: fit-content;
+    max-width: min(
+      40rem,
+      calc(100% - 2 * ((100% - min(100%, var(--layout-max, 72rem))) / 2 + var(--layout-padding-tablet, 1.5rem)))
+    );
+    padding: 1rem 1.15rem 1.1rem;
+    border-radius: var(--radius-md, 14px);
+    background: #17382a;
+  }
+
+  /* Experiment F/G/H/I: full-width title bar, mobile opacity (H refines padding ≥1024). */
+  .gdm-shell--f .gdm-wire-hero__overlay,
+  .gdm-shell--g .gdm-wire-hero__overlay,
+  .gdm-shell--h .gdm-wire-hero__overlay,
+  .gdm-shell--i .gdm-wire-hero__overlay {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+    background: rgb(23 56 42 / 0.7);
+    /* Block only — H horizontal inset is owned by guideDesktopToc (≥1024). */
+    padding-block: 1rem 1.1rem;
+    padding-inline: var(--layout-padding-tablet, 1.5rem);
+  }
+
+  .gdm-wire-ctas {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    align-items: stretch;
+    margin: 2.25rem 0 0.65rem;
+  }
+
+  .gdm-wire-ctas--map-only {
+    grid-template-columns: 1fr;
+  }
+
+  .gdm-wire-ctas__card {
+    padding: 0.65rem 0.8rem;
+  }
+
+  .gdm-wire-ctas__map-label {
+    font-size: 0.875rem;
+  }
+
+  .gdm-wire-ctas__map-detail {
+    font-size: 0.75rem;
+  }
+
+  .gdm-wire-lede--sections {
+    white-space: nowrap;
+  }
+}

@@ -35,9 +35,17 @@ export function readLocalSaves(): LocalSave[] {
   }
 }
 
-export function writeLocalSaves(saves: LocalSave[]) {
-  if (typeof window === 'undefined') return
-  window.localStorage.setItem(SAVED_STORAGE_KEY, JSON.stringify(saves))
+export function writeLocalSaves(saves: LocalSave[]): boolean {
+  if (typeof window === 'undefined') return false
+  try {
+    window.localStorage.setItem(SAVED_STORAGE_KEY, JSON.stringify(saves))
+    const raw = window.localStorage.getItem(SAVED_STORAGE_KEY)
+    if (!raw) return false
+    const parsed = JSON.parse(raw) as unknown
+    return Array.isArray(parsed)
+  } catch {
+    return false
+  }
 }
 
 export function isActiveLocalSave(row: LocalSave) {
@@ -48,10 +56,20 @@ export function activeLocalEventIds(saves: LocalSave[] = readLocalSaves()): Set<
   return new Set(saves.filter(isActiveLocalSave).map((row) => row.eventId))
 }
 
-export function toggleLocalSave(eventId: string, now = new Date().toISOString()): LocalSave[] {
+export type ToggleLocalSaveResult = {
+  saves: LocalSave[]
+  persisted: boolean
+  nowSaved: boolean
+}
+
+export function toggleLocalSave(
+  eventId: string,
+  now = new Date().toISOString(),
+): ToggleLocalSaveResult {
   const id = eventId.trim()
   const saves = readLocalSaves()
   const existing = saves.find((row) => row.eventId === id)
+  const wasActive = Boolean(existing && !existing.removedAt)
   let next: LocalSave[]
   if (!existing) {
     next = [...saves, { eventId: id, savedAt: now }]
@@ -64,8 +82,15 @@ export function toggleLocalSave(eventId: string, now = new Date().toISOString())
       row.eventId === id ? { ...row, removedAt: now } : row,
     )
   }
-  writeLocalSaves(next)
-  return next
+  const persisted = writeLocalSaves(next)
+  const nowSaved = !wasActive
+  if (persisted) {
+    const confirmed = activeLocalEventIds(readLocalSaves()).has(id)
+    if (confirmed !== nowSaved) {
+      return { saves: readLocalSaves(), persisted: false, nowSaved }
+    }
+  }
+  return { saves: next, persisted, nowSaved }
 }
 
 export function mergeRemoteActiveSaves(remote: Array<{ eventId: string; savedAt: string }>) {
