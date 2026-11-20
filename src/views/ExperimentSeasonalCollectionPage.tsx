@@ -563,7 +563,8 @@ export function ExperimentSeasonalCollectionPage({
     collection.slug === 'holiday-magic'
       ? undefined
       : collection.title
-  const showDescription = Boolean(collection.description)
+  /** Holiday Magic hub: date label + title only — no hero dek. */
+  const showDescription = Boolean(collection.description) && !isHoliday
   const showTypeahead = typeaheadFilters && isHoliday
   const locationLabel = searchAnchor
     ? formatSearchAnchorLocationLabel(searchAnchor)
