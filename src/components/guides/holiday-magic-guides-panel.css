@@ -65,12 +65,27 @@
   margin-bottom: 0.65rem;
 }
 
+/* Align with Find your next holiday outing H2 + dek */
 .seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc__heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   color: #113f34;
 }
 
 .seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc__heading-dek {
+  margin-top: 0.4rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.45;
   color: #6f756e;
+}
+
+@media (min-width: 768px) {
+  .seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc__heading {
+    font-size: 1.375rem;
+  }
 }
 
 .seasonal-collection-page--holiday-magic-lighten .hmg-guides-carousel .sgc-dots__dot {

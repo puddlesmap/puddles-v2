@@ -10,7 +10,7 @@ import './holidayOutingRows.css'
 
 const OUTING_ROW_LIMIT = 6
 const SECTION_TITLE = 'Find your next holiday outing'
-const SECTION_DEK = 'Lights, festive shows, and outings nearby or worth a little drive.'
+const SECTION_DEK = 'Explore festive outings close to home or worth a little drive.'
 
 function TitleChevron() {
   return (
@@ -225,7 +225,7 @@ export function HolidayOutingRowsSection({
         <h2 id="hmg-outing-rows-heading" className="hmg-outing-rows__heading">
           {SECTION_TITLE}
         </h2>
-        <p className="hmg-outing-rows__dek supporting-copy">{SECTION_DEK}</p>
+        <p className="hmg-outing-rows__dek">{SECTION_DEK}</p>
       </header>
 
       <OutingBand

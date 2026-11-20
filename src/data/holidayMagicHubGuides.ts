@@ -2,37 +2,34 @@
 export const HOLIDAY_MAGIC_GUIDES_HEADING_DEK =
   'Handpicked ideas for little ones, from neighborhood favorites to special outings worth the trip.'
 
-/** Per-guide hub tagline + sentence (also used as finder title / lede on guide pages). */
+/**
+ * Per-guide hub card copy: title emoji + one short description.
+ * Finder section titles stay separate (Start Here on guide pages).
+ */
 export const HOLIDAY_MAGIC_HUB_GUIDE_COPY = {
   'holiday-lights-traditions': {
     emoji: '✨',
-    tagline: 'Find your kind of winter wonder',
     sentence:
-      "From neighborhood lights to glowing gardens, we've picked festive outings with little ones in mind, including helpful details to make planning easier.",
+      'Explore neighborhood light walks, festive parades, Santa visits, and holiday trains, with helpful tips for planning with little ones.',
   },
   'holiday-stories-play': {
     emoji: '🎭',
-    tagline: 'A little holiday magic, their way',
     sentence:
-      'From storytimes and performances to hands-on fun, discover playful holiday experiences for different ages and interests.',
+      'Discover first theater shows, holiday crafts, and hands-on winter play, with age and timing details to help you choose.',
   },
   'hello-new-year': {
     emoji: '🎉',
-    tagline: 'Little ways to welcome the new year',
     sentence:
-      'From family-friendly celebrations to cultural traditions, find meaningful and playful ways to welcome the new year together.',
+      'Find daytime countdowns, balloon drops, and January traditions to welcome the new year together.',
   },
 } as const
 
 export type HolidayMagicHubGuideSlug = keyof typeof HOLIDAY_MAGIC_HUB_GUIDE_COPY
 
 /** Finder section titles (Start Here). */
-export const HOLIDAY_LIGHTS_FINDER_TITLE =
-  HOLIDAY_MAGIC_HUB_GUIDE_COPY['holiday-lights-traditions'].tagline
-export const HOLIDAY_STORIES_FINDER_TITLE =
-  HOLIDAY_MAGIC_HUB_GUIDE_COPY['holiday-stories-play'].tagline
-export const HELLO_NEW_YEAR_FINDER_TITLE =
-  HOLIDAY_MAGIC_HUB_GUIDE_COPY['hello-new-year'].tagline
+export const HOLIDAY_LIGHTS_FINDER_TITLE = 'Find your kind of winter wonder'
+export const HOLIDAY_STORIES_FINDER_TITLE = 'A little holiday magic, their way'
+export const HELLO_NEW_YEAR_FINDER_TITLE = 'Little ways to welcome the new year'
 
 /** Finder ledes — sit beneath the finder title. */
 export const HOLIDAY_LIGHTS_FINDER_LEDE =

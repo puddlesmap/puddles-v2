@@ -1025,7 +1025,7 @@ export const SEASONAL_COLLECTIONS: SeasonalCollection[] = [
     },
     worthADrive: {
       title: 'Worth a little drive',
-      subtitle: 'Holiday lights and shows a little farther afield.',
+      subtitle: 'Special outings around the Bay Area',
     },
     activeFrom: '2026-11-05',
     activeUntil: '2027-01-07',

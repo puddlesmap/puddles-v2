@@ -16,17 +16,18 @@
 }
 
 .hmg-outing-rows__intro {
-  margin: 0 0 1.15rem;
+  margin: 0 0 1.5rem;
 }
 
-/* Match Explore the guides heading */
+/* H2 — section parent; clearer step above location rows */
 .seasonal-collection-page .hmg-outing-rows__heading,
 .hmg-outing-rows > .hmg-outing-rows__intro > .hmg-outing-rows__heading {
-  margin: 0 0 0.65rem;
+  margin: 0;
   font-family: var(--font-sans);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.25;
+  letter-spacing: -0.01em;
   color: #113f34;
   text-align: left;
 }
@@ -34,18 +35,20 @@
 @media (min-width: 768px) {
   .seasonal-collection-page .hmg-outing-rows__heading,
   .hmg-outing-rows > .hmg-outing-rows__intro > .hmg-outing-rows__heading {
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.375rem;
   }
 }
 
+/* Supporting text under H2 — same family as guides dek, clearly tertiary */
 .hmg-outing-rows__dek {
-  margin: 0;
+  margin: 0.4rem 0 0;
   max-width: 36rem;
+  font-family: var(--font-sans);
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.45;
-  color: var(--color-body, #333333);
+  color: #6f756e;
+  text-align: left;
 }
 
 /* No frame — flat on page like Airbnb destination rows */
@@ -75,13 +78,21 @@
   gap: 0.75rem;
 }
 
+/* H3 — mid level: smaller / softer than section H2 */
 .hmg-outing-band__title {
   margin: 0;
   min-width: 0;
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1.25;
   color: var(--color-charcoal, #273034);
+}
+
+@media (min-width: 768px) {
+  .hmg-outing-band__title {
+    font-size: 1.0625rem;
+  }
 }
 
 .hmg-outing-band__title-link {
@@ -110,9 +121,9 @@
 }
 
 .hmg-outing-band__subtitle {
-  margin: 0.2rem 0 0;
-  font-size: 0.875rem;
-  font-weight: 500;
+  margin: 0.15rem 0 0;
+  font-size: 0.8125rem;
+  font-weight: 400;
   line-height: 1.4;
   color: var(--color-muted, #717171);
 }

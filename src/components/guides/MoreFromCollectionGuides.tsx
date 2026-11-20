@@ -27,7 +27,6 @@ function toCarouselGuide(guide: GuideCatalogEntry): SeasonalCarouselGuide {
   return {
     ...guide,
     displayTitle: `${guide.title} ${copy.emoji}`,
-    hubTagline: copy.tagline,
     hubDek: copy.sentence,
   }
 }
