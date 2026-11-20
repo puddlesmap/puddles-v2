@@ -5,7 +5,13 @@
   --discovery-card-width: 100%;
 }
 
-.browse-page-shell--experiment-2-column .browse-event-grid--compact-two-column {
+/*
+ * Must beat `.browse-content .browse-event-grid` (1-col track) even when that
+ * rule is re-imported later in the CSS graph (same 0,2,0 specificity otherwise).
+ */
+.browse-page-shell--experiment-2-column
+  .browse-content
+  .browse-event-grid.browse-event-grid--compact-two-column {
   display: grid;
   width: 100%;
   gap: 0.625rem;
@@ -14,11 +20,21 @@
   align-items: stretch;
 }
 
-.browse-page-shell--experiment-2-column .browse-event-grid--compact-two-column > * {
+.browse-page-shell--experiment-2-column
+  .browse-content
+  .browse-event-grid.browse-event-grid--compact-two-column
+  > * {
   width: 100%;
   min-width: 0;
   max-width: none;
   height: 100%;
+}
+
+.browse-page-shell--experiment-2-column
+  .browse-content
+  .browse-event-grid.browse-event-grid--compact-two-column
+  .discovery-event-card {
+  max-width: none;
 }
 
 @media (min-width: 640px) {
@@ -26,14 +42,18 @@
     --discovery-card-gap: 1rem;
   }
 
-  .browse-page-shell--experiment-2-column .browse-event-grid--compact-two-column {
+  .browse-page-shell--experiment-2-column
+    .browse-content
+    .browse-event-grid.browse-event-grid--compact-two-column {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .browse-page-shell--experiment-2-column .browse-event-grid--compact-two-column {
+  .browse-page-shell--experiment-2-column
+    .browse-content
+    .browse-event-grid.browse-event-grid--compact-two-column {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.25rem;
   }
