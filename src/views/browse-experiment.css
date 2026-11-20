@@ -26,7 +26,9 @@
 }
 
 .browse-page-shell--experiment .discovery-event-card .card-listing-media,
+.browse-page-shell--experiment .browse-content .discovery-v3-event-card .card-listing-media,
 .home-experiment-page--refined .discovery-event-card .card-listing-media,
+.home-experiment-page--refined .browse-content .discovery-v3-event-card .card-listing-media,
 .saved-page-shell .discovery-event-card .card-listing-media {
   border-radius: 0;
   aspect-ratio: 5 / 2.75;

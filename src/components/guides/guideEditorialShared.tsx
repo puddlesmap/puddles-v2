@@ -118,11 +118,13 @@ export function GuideOnPuddles({
   guideSlug,
   image,
   label,
+  returnHash,
 }: {
   href: string
   guideSlug: string
   image?: string
   label: string
+  returnHash?: string
 }) {
   return (
     <>
@@ -130,6 +132,7 @@ export function GuideOnPuddles({
         <EventDetailLink
           eventId={eventIdFromHref(href)}
           guideSlug={guideSlug}
+          returnHash={returnHash}
           className="lgg-event"
         >
           <img src={image} alt={label} />
@@ -138,6 +141,7 @@ export function GuideOnPuddles({
       <EventDetailLink
         eventId={eventIdFromHref(href)}
         guideSlug={guideSlug}
+        returnHash={returnHash}
         className="lgg-event lgg-event--text"
       >
         <span>
@@ -213,7 +217,13 @@ export function GuideRecBody({
       {important ? <GuideIconLine label="Important:" text={important} /> : null}
       <div className="gem-actions">
         {puddlesHref ? (
-          <GuideOnPuddles href={puddlesHref} guideSlug={guideSlug} image={image} label={title} />
+          <GuideOnPuddles
+            href={puddlesHref}
+            guideSlug={guideSlug}
+            image={image}
+            label={title}
+            returnHash={eventAnchorId}
+          />
         ) : (
           links?.map((link) => (
             <GuideExt key={link.href} href={link.href}>

@@ -34,6 +34,7 @@ import {
 } from '../data/helloNewYearGuidePlaces'
 import { HOLIDAY_GUIDE_EVENT_COUNT, HOLIDAY_MAGIC_GUIDE_EYEBROW } from '../data/holidayGuide'
 import { useGuideVisitLifecycle } from '../hooks/useGuideVisitLifecycle'
+import { useScrollToHashOnMount } from '../hooks/useScrollToHashOnMount'
 import { trackGuideMapOpened } from '../utils/analytics'
 import { zonedCalendarDate } from '../utils/dates'
 import { markGuideMapAssisted } from '../utils/discoveryAttribution'
@@ -73,6 +74,7 @@ export function HelloNewYearGuidePage() {
 
 function HelloNewYearGuidePageLive() {
   useGuideVisitLifecycle(HELLO_NEW_YEAR_GUIDE_SLUG, 'v2')
+  useScrollToHashOnMount()
   const lifecycle = resolveGuideLifecycleState(GUIDE_META)
   const [mapOpen, setMapOpen] = useState(false)
   const [savedScroll, setSavedScroll] = useState(0)

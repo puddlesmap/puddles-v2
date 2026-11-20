@@ -89,6 +89,11 @@ export function EventDetailPageClient() {
   useEffect(() => {
     const url = new URL(window.location.href)
     let changed = false
+    // Canonicalize legacy aliased ids (e.g. hidden disc-* → Published id).
+    if (event && params.eventId && event.id !== params.eventId) {
+      url.pathname = `/event/${event.id}`
+      changed = true
+    }
     if (url.searchParams.has('from_guide')) {
       url.searchParams.delete('from_guide')
       changed = true
@@ -100,7 +105,7 @@ export function EventDetailPageClient() {
     if (!changed) return
     const next = `${url.pathname}${url.search}${url.hash}`
     window.history.replaceState(window.history.state, '', next)
-  }, [])
+  }, [event, params.eventId])
 
   const analyticsSource: EventOpenSource =
     guideSlug || fromSource === 'guide'

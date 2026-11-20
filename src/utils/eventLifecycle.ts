@@ -1,6 +1,7 @@
 import type { Event } from '../types/event'
 import { isPublicAgeEligible } from './ageRange'
 import { ALL_EVENTS, ALL_SEASONAL_DRIVE_EVENTS } from '../data/events'
+import { resolveEventIdAlias } from '../data/eventIdAliases'
 import {
   addDays,
   getEventEffectiveEnd,
@@ -143,7 +144,8 @@ export function getAllCatalogEventsForLifecycle(): Event[] {
 }
 
 export function getLifecycleDetailEventById(id: string): Event | undefined {
-  const event = getAllCatalogEventsForLifecycle().find((row) => row.id === id)
+  const canonicalId = resolveEventIdAlias(id)
+  const event = getAllCatalogEventsForLifecycle().find((row) => row.id === canonicalId)
   if (!event || !isLifecycleDetailAccessible(event)) return undefined
   return event
 }

@@ -49,7 +49,7 @@ export const HOLIDAY_STORIES_GUIDE_EVENT_IDS = {
   hanukkah: 'guide-hanukkah-storytime-crafts-jcc-2026-12-02',
   menorahs: 'guide-menorahs-miracles-cdm-2026-12-06',
   northPole: 'guide-wee-explore-north-pole-sjpl-2026-12-12',
-  wonderlab: 'disc-winter-wonderlab-2026-11-21-regional-badm-winter-wonderlab-2026-11-2',
+  wonderlab: 'regional-badm-winter-wonderlab-2026-11-21',
   winterfest: 'guide-winterfest-frosty-science-chabot-2026-12-16',
 } as const
 

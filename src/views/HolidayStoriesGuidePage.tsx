@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import { Navigate } from 'react-router-dom'
+import { useScrollToHashOnMount } from '../hooks/useScrollToHashOnMount'
 import { GuideDesktopTocRail } from '../components/guides/GuideDesktopTocRail'
 import {
   GuideFBleedHero,
@@ -73,6 +74,7 @@ export function HolidayStoriesGuidePage() {
 
 function HolidayStoriesGuidePageLive() {
   useGuideVisitLifecycle(HOLIDAY_STORIES_GUIDE_SLUG, 'v2')
+  useScrollToHashOnMount()
   const lifecycle = resolveGuideLifecycleState(GUIDE_META)
   const [mapOpen, setMapOpen] = useState(false)
   const [savedScroll, setSavedScroll] = useState(0)

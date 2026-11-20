@@ -116,7 +116,7 @@ function DiscoveryV3CardContent({
         className={[
           'card-listing-media',
           'relative',
-          isMapSheet ? 'discovery-v3-event-card__media--map-sheet' : 'aspect-square',
+          isMapSheet ? 'discovery-v3-event-card__media--map-sheet' : null,
         ]
           .filter(Boolean)
           .join(' ')}

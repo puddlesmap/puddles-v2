@@ -1,4 +1,5 @@
 import { ALL_EVENTS, getPublicEventsFromCatalog } from '../data/events'
+import { resolveEventIdAlias } from '../data/eventIdAliases'
 import type { Event } from '../types/event'
 import { isPublicAgeEligible } from './ageRange'
 import { isOutOfAgeAudienceForPublic } from './eventAudienceAge'
@@ -20,11 +21,13 @@ export function eventIdFromPathname(pathname: string): string | null {
 }
 
 export function getCatalogEventById(id: string): Event | undefined {
-  return ALL_EVENTS.find((event) => event.id === id)
+  const canonicalId = resolveEventIdAlias(id)
+  return ALL_EVENTS.find((event) => event.id === canonicalId)
 }
 
 export function getPublicEventById(id: string, now: Date = new Date()): Event | undefined {
-  return getPublicEventsFromCatalog(now).find((event) => event.id === id)
+  const canonicalId = resolveEventIdAlias(id)
+  return getPublicEventsFromCatalog(now).find((event) => event.id === canonicalId)
 }
 
 export function isEventIndexable(event: Event, now: Date = new Date()): boolean {

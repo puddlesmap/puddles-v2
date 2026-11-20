@@ -8,8 +8,8 @@
 .browse-page-shell--experiment-2-column .browse-event-grid--compact-two-column {
   display: grid;
   width: 100%;
-  gap: var(--discovery-card-gap);
-  grid-template-columns: minmax(0, 1fr);
+  gap: 0.625rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   justify-content: stretch;
   align-items: stretch;
 }
@@ -19,14 +19,6 @@
   min-width: 0;
   max-width: none;
   height: 100%;
-}
-
-/* 2 columns on wider phones; 1 column on very small screens */
-@media (min-width: 390px) and (max-width: 767px) {
-  .browse-page-shell--experiment-2-column .browse-event-grid--compact-two-column {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.625rem;
-  }
 }
 
 @media (min-width: 640px) {

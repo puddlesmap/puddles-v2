@@ -35,6 +35,7 @@ import {
 } from '../data/holidayGuide'
 import { HOLIDAY_GUIDE_MAP_CATEGORIES, HOLIDAY_GUIDE_PLACES } from '../data/holidayGuidePlaces'
 import { useGuideVisitLifecycle } from '../hooks/useGuideVisitLifecycle'
+import { useScrollToHashOnMount } from '../hooks/useScrollToHashOnMount'
 import { useStructuredData } from '../hooks/useStructuredData'
 import { trackGuideMapOpened } from '../utils/analytics'
 import { zonedCalendarDate } from '../utils/dates'
@@ -76,6 +77,7 @@ export function HolidayGuidePage() {
 
 function HolidayGuidePageLive() {
   useGuideVisitLifecycle(HOLIDAY_GUIDE_SLUG, 'v2')
+  useScrollToHashOnMount()
   const lifecycle = resolveGuideLifecycleState(HOLIDAY_META)
   const [mapOpen, setMapOpen] = useState(false)
   const [savedScroll, setSavedScroll] = useState(0)

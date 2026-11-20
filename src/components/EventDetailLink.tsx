@@ -17,6 +17,8 @@ interface EventDetailLinkProps {
   guideSlug?: string
   placement?: string
   sectionId?: string
+  /** Outing/section anchor id (no #) — restored on back from event detail. */
+  returnHash?: string
 }
 
 /**
@@ -32,6 +34,7 @@ export function EventDetailLink({
   guideSlug,
   placement,
   sectionId,
+  returnHash,
 }: EventDetailLinkProps) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -72,7 +75,9 @@ export function EventDetailLink({
         saveBrowseReturnSnapshot({ scrollY: window.scrollY })
 
         const search = searchParams.toString()
-        const returnTo = `${pathname}${search ? `?${search}` : ''}`
+        const hashId = returnHash?.trim().replace(/^#/, '')
+        const hash = hashId ? `#${hashId}` : ''
+        const returnTo = `${pathname}${search ? `?${search}` : ''}${hash}`
         try {
           sessionStorage.setItem('puddles:event-detail-return', returnTo)
         } catch {
