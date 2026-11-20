@@ -455,7 +455,7 @@ export const HOLIDAY_MAGIC_DISCOVERY_PIPELINE: HolidayMagicCurationCandidate[] =
     priority: 'medium',
   },
   {
-    discoveryId: 'core-weekend-magical-santa-dance-party-2026-12-05',
+    discoveryId: 'disc-magical-santa-dance-party-2026-12-05-core-weekend-magical-santa-dance-party-2',
     title: 'Magical Santa Dance Party',
     date: '2026-12-05',
     city: 'Palo Alto',

@@ -450,8 +450,14 @@ export function collapseSameSlotDuplicates(events: Event[]): Event[] {
     }
   }
 
-  if (suppressed.size === 0) return events
-  return events.filter((event) => !suppressed.has(event.id))
+  // Always collapse same-id pairs (sheet + seasonal editorial merge).
+  const seenIds = new Set<string>()
+  return events.filter((event) => {
+    if (suppressed.has(event.id)) return false
+    if (seenIds.has(event.id)) return false
+    seenIds.add(event.id)
+    return true
+  })
 }
 
 export function clusterSummaryForEmail(clusters: DuplicateCluster[]): {

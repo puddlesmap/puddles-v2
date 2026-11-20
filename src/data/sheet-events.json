@@ -19405,11 +19405,11 @@
     "verifiedDate": "2026-11-05",
     "lat": 0,
     "lng": 0,
-    "status": "Published",
+    "status": "Hidden",
     "isSeasonal": true,
     "isRegional": false,
     "isPast": false,
-    "isLive": true
+    "isLive": false
   },
   {
     "id": "regional-filoli-holidays-2026-11-14",
@@ -20056,11 +20056,11 @@
     "verifiedDate": "2026-11-05",
     "lat": 0,
     "lng": 0,
-    "status": "Published",
+    "status": "Hidden",
     "isSeasonal": true,
     "isRegional": true,
     "isPast": false,
-    "isLive": true,
+    "isLive": false,
     "tips": "baby|The gingerbread workshop includes a play area for infants and crawlers.\ninfo|Snow-themed play is offered on weekends only; other activities vary by date.\nticket|Included with general admission or membership; babies under 1 enter free.",
     "imageSourceUrl": "https://bayareadiscoverymuseum.org/events/winter-wonderlab/",
     "imageRights": "official_page",
@@ -21275,11 +21275,11 @@
     "verifiedDate": "2026-11-05",
     "lat": 0,
     "lng": 0,
-    "status": "Published",
+    "status": "Hidden",
     "isSeasonal": true,
     "isRegional": false,
     "isPast": false,
-    "isLive": true
+    "isLive": false
   },
   {
     "id": "disc-magical-santa-dance-party-2026-12-05-core-weekend-magical-santa-dance-party-2",
@@ -21781,11 +21781,11 @@
     "verifiedDate": "2026-11-05",
     "lat": 0,
     "lng": 0,
-    "status": "Published",
+    "status": "Hidden",
     "isSeasonal": true,
     "isRegional": false,
     "isPast": false,
-    "isLive": true
+    "isLive": false
   },
   {
     "id": "disc-the-night-before-christmas-stories-on-st-2026-12-11-manual-the-night-before-christmas-storie",
@@ -25665,11 +25665,11 @@
     "verifiedDate": "2026-11-19",
     "lat": 37.5119,
     "lng": -122.2493,
-    "status": "Published",
+    "status": "Hidden",
     "isSeasonal": true,
     "isRegional": true,
     "isPast": false,
-    "isLive": true,
+    "isLive": false,
     "ageRange": "All ages",
     "ageMin": 0,
     "ageMax": 5

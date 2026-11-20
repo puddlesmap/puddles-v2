@@ -46,13 +46,25 @@ export const ALL_LAUNCH_REVIEW_DISCOVERY_EVENTS: Event[] = withPublishing(
   getUnaddedDiscoveryReviewEvents(),
 )
 
+/** Keep first occurrence per id (sheet before seasonal editorial). */
+function dedupeEventsById(events: Event[]): Event[] {
+  const seen = new Set<string>()
+  const out: Event[] = []
+  for (const event of events) {
+    if (seen.has(event.id)) continue
+    seen.add(event.id)
+    out.push(event)
+  }
+  return out
+}
+
 /** Full catalog including drafts, hidden, expired, and past rows (not launch-staging overlay). */
-export const ALL_EVENTS: Event[] = [
+export const ALL_EVENTS: Event[] = dedupeEventsById([
   ...ALL_SHOWCASE_EVENTS,
   ...ALL_SHEET_EVENTS,
   ...ALL_SEASONAL_DRIVE_EVENTS,
   ...ALL_LAUNCH_REVIEW_DISCOVERY_EVENTS,
-]
+])
 
 /**
  * Public website events — Published, upcoming, and within the rolling display window.
