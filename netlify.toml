@@ -85,3 +85,5 @@
   from = "/api/audience"
   to = "/.netlify/functions/audience"
   status = 200
+  # Prefer the Blobs-aware Lambda over the Next.js route (Clerk sync + admin list).
+  force = true

@@ -30,6 +30,7 @@
     "discover:sync-seasonal": "node scripts/sync-seasonal-discovery.mjs",
     "discover:plan-window": "node scripts/plan-discovery-window.mjs --print",
     "discover:weekly-summary": "node scripts/write-weekly-discovery-summary.mjs",
+    "export:catalog-chatgpt": "node scripts/export-catalog-chatgpt.mjs",
     "verify:events": "node scripts/verify-event-freshness.mjs",
     "knowledge:stale": "node scripts/knowledge/list-stale-facts.mjs",
     "knowledge:backfill-tips": "node scripts/knowledge/backfill-live-tips.mjs",
@@ -38,6 +39,7 @@
     "verify-expansion-watch": "node scripts/verify-expansion-watch-submission.mjs"
   },
   "dependencies": {
+    "@clerk/backend": "^3.31.4",
     "@clerk/nextjs": "^7.9.24",
     "@googlemaps/markerclusterer": "^2.6.2",
     "@netlify/blobs": "^11.1.4",

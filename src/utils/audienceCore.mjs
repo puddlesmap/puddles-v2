@@ -1,6 +1,7 @@
 /** Three connected audience collections — no event catalog copies, no emails in git. */
 
 export const NEWSLETTER_CONSENT_VERSION = 'v1'
+export const REMINDER_CONSENT_VERSION = 'v1'
 
 export const NEWSLETTER_SOURCES = [
   'puddles_picks',
@@ -69,11 +70,22 @@ function asSaveInput(value, userId) {
   const savedAt = typeof value.savedAt === 'string' && value.savedAt ? value.savedAt : new Date().toISOString()
   const removedAt =
     typeof value.removedAt === 'string' && value.removedAt ? value.removedAt : undefined
+  const reminderEnabled = value.reminderEnabled === true
   return {
     userId,
     eventId,
     savedAt,
     ...(removedAt ? { removedAt } : {}),
+    ...(reminderEnabled ? { reminderEnabled: true } : {}),
+  }
+}
+
+export function mapSaveForClient(row) {
+  if (!row?.eventId || !isActiveSave(row)) return null
+  return {
+    eventId: row.eventId,
+    savedAt: row.savedAt,
+    ...(row.reminderEnabled ? { reminderEnabled: true } : {}),
   }
 }
 
@@ -85,13 +97,33 @@ export function mergeSaveRow(existing, incoming) {
       savedAt: incoming.savedAt,
     }
     if (incoming.removedAt) next.removedAt = incoming.removedAt
+    if (incoming.reminderEnabled && !incoming.removedAt) {
+      next.reminderEnabled = true
+      next.reminderConsentAt = incoming.reminderConsentAt || new Date().toISOString()
+      next.reminderConsentVersion = incoming.reminderConsentVersion || REMINDER_CONSENT_VERSION
+    }
     return next
   }
 
   const savedAt = earlierIso(existing.savedAt, incoming.savedAt) || incoming.savedAt
   const reSaved = !incoming.removedAt
   if (reSaved) {
-    return { userId: existing.userId, eventId: existing.eventId, savedAt }
+    const next = { userId: existing.userId, eventId: existing.eventId, savedAt }
+    const reminderEnabled =
+      incoming.reminderEnabled === true
+        ? true
+        : incoming.reminderEnabled === false
+          ? false
+          : Boolean(existing.reminderEnabled)
+    if (reminderEnabled) {
+      next.reminderEnabled = true
+      next.reminderConsentAt =
+        existing.reminderConsentAt || incoming.reminderConsentAt || new Date().toISOString()
+      next.reminderConsentVersion =
+        existing.reminderConsentVersion || incoming.reminderConsentVersion || REMINDER_CONSENT_VERSION
+    }
+    if (existing.reminderLastSentForYmd) next.reminderLastSentForYmd = existing.reminderLastSentForYmd
+    return next
   }
   const removedAt = laterIso(existing.removedAt, incoming.removedAt)
   const next = { userId: existing.userId, eventId: existing.eventId, savedAt }
@@ -124,8 +156,25 @@ function findParentById(state, userId) {
 }
 
 function replaceParent(state, parent) {
-  const others = (state.parents || []).filter((row) => row.userId !== parent.userId)
+  // Drop any prior row for this userId or email so Clerk login cannot leave a duplicate parent.
+  const others = (state.parents || []).filter(
+    (row) => row.userId !== parent.userId && row.email !== parent.email,
+  )
   return { ...state, parents: [...others, parent] }
+}
+
+/** Move saves from a legacy magic-link userId onto the Clerk userId without dropping history. */
+export function reassignSavesUserId(state, fromUserId, toUserId) {
+  if (!fromUserId || !toUserId || fromUserId === toUserId) return state
+  const byKey = new Map()
+  for (const row of state.savedEvents || []) {
+    if (!row?.userId || !row?.eventId) continue
+    const userId = row.userId === fromUserId ? toUserId : row.userId
+    const key = `${userId}::${row.eventId}`
+    const nextRow = userId === row.userId ? { ...row } : { ...row, userId }
+    byKey.set(key, mergeSaveRow(byKey.get(key), nextRow))
+  }
+  return { ...state, savedEvents: [...byKey.values()] }
 }
 
 export function linkNewsletterToParent(state, parent) {
@@ -178,11 +227,129 @@ export function continueWithEmail(state, input, now = new Date().toISOString()) 
     userId: parent.userId,
     email,
     emailVerified: verified,
-    saves: activeSaves.map((row) => ({
-      eventId: row.eventId,
-      savedAt: row.savedAt,
-    })),
+    saves: activeSaves.map(mapSaveForClient).filter(Boolean),
+    remindersGloballyEnabled: parent.remindersGloballyEnabled !== false,
   }
+}
+
+export function upsertClerkParent(state, input, now = new Date().toISOString()) {
+  const userId = typeof input?.userId === 'string' ? input.userId.trim() : ''
+  const email = normalizeEmail(input?.email)
+  if (!userId || !isValidEmail(email)) {
+    return { ok: false, error: 'Missing Clerk user.', status: 400 }
+  }
+
+  let parent = findParentById(state, userId) || findParentByEmail(state, email)
+  const previousUserId =
+    parent?.userId && parent.userId !== userId ? parent.userId : null
+  if (!parent) {
+    parent = {
+      userId,
+      email,
+      emailVerifiedAt: now,
+      createdAt: now,
+      lastSeenAt: now,
+      remindersGloballyEnabled: true,
+    }
+  } else {
+    parent = {
+      ...parent,
+      userId,
+      email,
+      emailVerifiedAt: parent.emailVerifiedAt || now,
+      lastSeenAt: now,
+    }
+  }
+
+  let next = replaceParent(state, parent)
+  if (previousUserId) next = reassignSavesUserId(next, previousUserId, userId)
+  next = upsertSaves(next, userId, input?.saves)
+  next = linkNewsletterToParent(next, parent)
+  const activeSaves = (next.savedEvents || []).filter(
+    (row) => row.userId === userId && isActiveSave(row),
+  )
+  return {
+    ok: true,
+    state: next,
+    userId,
+    email,
+    emailVerified: true,
+    saves: activeSaves.map(mapSaveForClient).filter(Boolean),
+    remindersGloballyEnabled: parent.remindersGloballyEnabled !== false,
+  }
+}
+
+export function setSaveReminder(state, input, now = new Date().toISOString()) {
+  const userId = typeof input?.userId === 'string' ? input.userId.trim() : ''
+  const eventId = typeof input?.eventId === 'string' ? input.eventId.trim() : ''
+  const enabled = Boolean(input?.enabled)
+  if (!userId || !eventId) return { ok: false, error: 'Missing reminder target.', status: 400 }
+
+  const parent = findParentById(state, userId)
+  if (!parent) return { ok: false, error: 'Unknown parent.', status: 404 }
+
+  let found = false
+  const savedEvents = (state.savedEvents || []).map((row) => {
+    if (row.userId !== userId || row.eventId !== eventId || !isActiveSave(row)) return row
+    found = true
+    if (!enabled) {
+      const next = { ...row }
+      delete next.reminderEnabled
+      delete next.reminderConsentAt
+      delete next.reminderConsentVersion
+      return next
+    }
+    return {
+      ...row,
+      reminderEnabled: true,
+      reminderConsentAt: now,
+      reminderConsentVersion: REMINDER_CONSENT_VERSION,
+    }
+  })
+
+  if (!found && enabled) {
+    savedEvents.push({
+      userId,
+      eventId,
+      savedAt: now,
+      reminderEnabled: true,
+      reminderConsentAt: now,
+      reminderConsentVersion: REMINDER_CONSENT_VERSION,
+    })
+    found = true
+  }
+  if (!found) return { ok: false, error: 'Save not found.', status: 404 }
+
+  let next = { ...state, savedEvents }
+  if (enabled && parent.remindersGloballyEnabled === false) {
+    next = replaceParent(next, { ...parent, remindersGloballyEnabled: true, lastSeenAt: now })
+  }
+
+  const activeSaves = (next.savedEvents || []).filter(
+    (row) => row.userId === userId && isActiveSave(row),
+  )
+  const nextParent = findParentById(next, userId)
+  return {
+    ok: true,
+    state: next,
+    userId,
+    email: nextParent?.email,
+    emailVerified: Boolean(nextParent?.emailVerifiedAt),
+    saves: activeSaves.map(mapSaveForClient).filter(Boolean),
+    remindersGloballyEnabled: nextParent?.remindersGloballyEnabled !== false,
+  }
+}
+
+export function markReminderSent(state, input) {
+  const userId = typeof input?.userId === 'string' ? input.userId.trim() : ''
+  const eventId = typeof input?.eventId === 'string' ? input.eventId.trim() : ''
+  const eventYmd = typeof input?.eventYmd === 'string' ? input.eventYmd.trim() : ''
+  if (!userId || !eventId || !eventYmd) return state
+  const savedEvents = (state.savedEvents || []).map((row) => {
+    if (row.userId !== userId || row.eventId !== eventId) return row
+    return { ...row, reminderLastSentForYmd: eventYmd }
+  })
+  return { ...state, savedEvents }
 }
 
 export function syncSaves(state, input, now = new Date().toISOString()) {

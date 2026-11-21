@@ -8,9 +8,13 @@ const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'audience-store-'))
 process.env.AUDIENCE_STORE = 'file'
 process.env.AUDIENCE_PATH = path.join(dir, 'audience.json')
 
-const { applyContinue, applySubscribeNewsletter, audienceConsistency, readAudienceView } = await import(
-  '../netlify/lib/audience-store.mjs'
-)
+const {
+  applyClerkParent,
+  applyContinue,
+  applySubscribeNewsletter,
+  audienceConsistency,
+  readAudienceView,
+} = await import('../netlify/lib/audience-store.mjs')
 
 test('edge-only blob context does not request a strong read', () => {
   assert.equal(audienceConsistency({ edgeURL: 'https://edge.example', siteID: 's', token: 't' }), 'eventual')
@@ -43,4 +47,25 @@ test('file store keeps a parent and a newsletter signup', async () => {
   const view = await readAudienceView()
   const emails = view.rows.map((row) => row.email).sort()
   assert.deepEqual(emails, ['list@example.com', 'parent@example.com'])
+})
+
+test('file store keeps a Clerk account signup and saved events for admin', async () => {
+  const synced = await applyClerkParent({
+    userId: 'user_clerk_admin',
+    email: 'clerk.parent@example.com',
+    saves: [
+      { eventId: 'pumpkin-patch', savedAt: '2026-11-18T16:00:00.000Z' },
+      { eventId: 'storytime', savedAt: '2026-11-19T16:00:00.000Z' },
+    ],
+  })
+  assert.equal(synced.ok, true)
+  assert.equal(synced.emailVerified, true)
+  assert.equal(synced.saves.length, 2)
+
+  const view = await readAudienceView()
+  const row = view.rows.find((item) => item.email === 'clerk.parent@example.com')
+  assert.ok(row)
+  assert.equal(row.hasAccount, true)
+  assert.equal(row.savedCount, 2)
+  assert.equal(view.summary.parents >= 1, true)
 })

@@ -16,11 +16,14 @@ import {
   emptyAudience,
   isActiveSave,
   issueLoginToken,
+  mapSaveForClient,
   setNewsletterProviderContactId,
+  setSaveReminder,
   subscribeNewsletter,
   summarizeAudience,
   syncSaves,
   unsubscribeNewsletter,
+  upsertClerkParent,
   verifyParentEmail,
 } from '../../src/utils/audienceCore.mjs'
 
@@ -166,15 +169,25 @@ function audiencePayload(state) {
   }
 }
 
+async function readBlobState(store, consistency) {
+  try {
+    return await withTimeout(store.getWithMetadata('state', { type: 'json', consistency }), 8000)
+  } catch (error) {
+    // Strong reads need uncachedEdgeURL; fall back so admin is not stuck empty.
+    if (consistency === 'strong') {
+      console.error('[audience] Strong blob read failed; retrying eventual', error)
+      return withTimeout(store.getWithMetadata('state', { type: 'json', consistency: 'eventual' }), 8000)
+    }
+    throw error
+  }
+}
+
 async function readState() {
   if (useFileStore()) {
     return { state: fileReadState(), etag: null, backend: 'file', store: null }
   }
   const { store, consistency } = openBlobStore()
-  const saved = await withTimeout(
-    store.getWithMetadata('state', { type: 'json', consistency }),
-    8000,
-  )
+  const saved = await readBlobState(store, consistency)
   if (!saved) return { state: emptyAudience(), etag: null, backend: 'blobs', store }
   return {
     state: { ...emptyAudience(), ...(saved.data || {}) },
@@ -232,6 +245,16 @@ export async function applyContinue(input) {
 /** @returns {Promise<AudienceMutation>} */
 export async function applySyncSaves(input) {
   return mutate((state) => syncSaves(state, input))
+}
+
+/** @returns {Promise<AudienceMutation>} */
+export async function applyClerkParent(input) {
+  return mutate((state) => upsertClerkParent(state, input))
+}
+
+/** @returns {Promise<AudienceMutation>} */
+export async function applySetSaveReminder(input) {
+  return mutate((state) => setSaveReminder(state, input))
 }
 
 function hashLoginToken(token) {
@@ -314,13 +337,15 @@ export async function readParentSessionView(userId) {
   if (!parent?.emailVerifiedAt) return { ok: false, error: 'Not signed in.', status: 401 }
   const saves = (state.savedEvents || [])
     .filter((row) => row.userId === userId && isActiveSave(row))
-    .map((row) => ({ eventId: row.eventId, savedAt: row.savedAt }))
+    .map(mapSaveForClient)
+    .filter(Boolean)
   return {
     ok: true,
     userId: parent.userId,
     email: parent.email,
     emailVerified: true,
     saves,
+    remindersGloballyEnabled: parent.remindersGloballyEnabled !== false,
   }
 }
 

@@ -1,7 +1,9 @@
 import { hasAdminSession, isAdminAuthEnabled, jsonResponse, unauthorizedResponse } from '../lib/admin-session.mjs'
 import {
+  applyClerkParent,
   applyContinue,
   applyRequestLogin,
+  applySetSaveReminder,
   applySubscribeNewsletter,
   applySyncSaves,
   applyUnsubscribeNewsletter,
@@ -10,7 +12,9 @@ import {
   readAudienceView,
   readParentSessionView,
 } from '../lib/audience-store.mjs'
+import { readClerkAudienceUser } from '../lib/clerk-audience.mjs'
 import { readParentSession, requestOrigin } from '../lib/parent-session.mjs'
+import { verifyReminderTurnOffToken } from '../lib/reminderCore.mjs'
 
 function parseBody(event) {
   try {
@@ -38,6 +42,7 @@ function publicResult(result) {
     alreadySubscribed: result.alreadySubscribed,
     sent: result.sent,
     throttled: result.throttled,
+    remindersGloballyEnabled: result.remindersGloballyEnabled,
   })
 }
 
@@ -113,18 +118,71 @@ export async function handler(event) {
         ),
       )
     }
+    if (body.action === 'clerk_session') {
+      const clerkUser = await readClerkAudienceUser(event)
+      if (!clerkUser?.userId) return jsonResponse(401, { ok: false, error: 'Not signed in.' })
+      return publicResult(
+        await applyClerkParent({
+          userId: clerkUser.userId,
+          email: clerkUser.email,
+          saves: body.saves,
+        }),
+      )
+    }
     if (body.action === 'session') {
+      const clerkUser = await readClerkAudienceUser(event)
+      if (clerkUser?.userId) {
+        return publicResult(
+          await applyClerkParent({
+            userId: clerkUser.userId,
+            email: clerkUser.email,
+            saves: body.saves || [],
+          }),
+        )
+      }
       const session = readParentSession(event)
       if (!session?.userId) return jsonResponse(401, { ok: false, error: 'Not signed in.' })
       return publicResult(await readParentSessionView(session.userId))
     }
     if (body.action === 'sync_saves') {
+      const clerkUser = await readClerkAudienceUser(event)
+      if (clerkUser?.userId) {
+        return publicResult(
+          await applyClerkParent({
+            userId: clerkUser.userId,
+            email: clerkUser.email,
+            saves: body.saves,
+          }),
+        )
+      }
       const session = readParentSession(event)
       if (!session?.userId) return jsonResponse(401, { ok: false, error: 'Not signed in.' })
       return publicResult(
         await applySyncSaves({
           userId: session.userId,
           saves: body.saves,
+        }),
+      )
+    }
+    if (body.action === 'set_reminder') {
+      const clerkUser = await readClerkAudienceUser(event)
+      if (!clerkUser?.userId) return jsonResponse(401, { ok: false, error: 'Not signed in.' })
+      return publicResult(
+        await applySetSaveReminder({
+          userId: clerkUser.userId,
+          eventId: body.eventId,
+          enabled: body.enabled,
+        }),
+      )
+    }
+    if (body.action === 'reminder_turn_off_token') {
+      const parsed = verifyReminderTurnOffToken(body.token, process.env.REMINDER_UNSUB_SECRET)
+      if (!parsed) return jsonResponse(400, { ok: false, error: 'Invalid link.' })
+      return publicResult(
+        await applySetSaveReminder({
+          userId: parsed.userId,
+          eventId: parsed.eventId,
+          enabled: false,
         }),
       )
     }
