@@ -99,7 +99,7 @@ function SavedEventGrid({
 export function SavedPage() {
   const isDesktop = useMediaQuery('(min-width: 768px)')
   const openEvent = useEventNavigation()
-  const { saves, signedInEmail, openAuthSheet, isSaved } = useSaved()
+  const { saves, signedInEmail, syncError, openAuthSheet, isSaved } = useSaved()
   const now = useMemo(() => new Date(), [])
 
   const { upcoming, past } = useMemo(() => {
@@ -142,6 +142,11 @@ export function SavedPage() {
             <p className="saved-page__persist-body">
               Saves sync across devices while you stay signed in.
             </p>
+            {syncError ? (
+              <p className="saved-page__persist-body" role="status" style={{ color: '#b42318' }}>
+                Sync failed: {syncError}. Hearts on this device are still saved locally.
+              </p>
+            ) : null}
             <SavedSignOutButton />
           </aside>
         ) : (

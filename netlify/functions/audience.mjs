@@ -95,6 +95,12 @@ export async function handler(event) {
   if (!body) return jsonResponse(400, { ok: false, error: 'Invalid JSON body' })
 
   try {
+    if (body.action === 'clerk_status') {
+      return jsonResponse(200, {
+        ok: true,
+        clerkSecretConfigured: Boolean(process.env.CLERK_SECRET_KEY?.trim()),
+      })
+    }
     if (body.action === 'continue') {
       return publicResult(
         await applyContinue({
@@ -118,9 +124,15 @@ export async function handler(event) {
         ),
       )
     }
+    const sessionToken =
+      typeof body.sessionToken === 'string' && body.sessionToken.trim()
+        ? body.sessionToken.trim()
+        : undefined
     if (body.action === 'clerk_session') {
-      const clerkUser = await readClerkAudienceUser(event)
-      if (!clerkUser?.userId) return jsonResponse(401, { ok: false, error: 'Not signed in.' })
+      const clerkUser = await readClerkAudienceUser(event, { bearerToken: sessionToken })
+      if (!clerkUser.ok) {
+        return jsonResponse(clerkUser.status || 401, { ok: false, error: clerkUser.error })
+      }
       return publicResult(
         await applyClerkParent({
           userId: clerkUser.userId,
@@ -130,8 +142,8 @@ export async function handler(event) {
       )
     }
     if (body.action === 'session') {
-      const clerkUser = await readClerkAudienceUser(event)
-      if (clerkUser?.userId) {
+      const clerkUser = await readClerkAudienceUser(event, { bearerToken: sessionToken })
+      if (clerkUser.ok) {
         return publicResult(
           await applyClerkParent({
             userId: clerkUser.userId,
@@ -145,8 +157,8 @@ export async function handler(event) {
       return publicResult(await readParentSessionView(session.userId))
     }
     if (body.action === 'sync_saves') {
-      const clerkUser = await readClerkAudienceUser(event)
-      if (clerkUser?.userId) {
+      const clerkUser = await readClerkAudienceUser(event, { bearerToken: sessionToken })
+      if (clerkUser.ok) {
         return publicResult(
           await applyClerkParent({
             userId: clerkUser.userId,
@@ -165,8 +177,10 @@ export async function handler(event) {
       )
     }
     if (body.action === 'set_reminder') {
-      const clerkUser = await readClerkAudienceUser(event)
-      if (!clerkUser?.userId) return jsonResponse(401, { ok: false, error: 'Not signed in.' })
+      const clerkUser = await readClerkAudienceUser(event, { bearerToken: sessionToken })
+      if (!clerkUser.ok) {
+        return jsonResponse(clerkUser.status || 401, { ok: false, error: clerkUser.error })
+      }
       return publicResult(
         await applySetSaveReminder({
           userId: clerkUser.userId,

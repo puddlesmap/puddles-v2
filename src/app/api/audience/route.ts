@@ -90,6 +90,12 @@ export async function POST(request: NextRequest) {
 
   try {
     const action = String(body.action || '')
+    if (action === 'clerk_status') {
+      return NextResponse.json({
+        ok: true,
+        clerkSecretConfigured: Boolean(process.env.CLERK_SECRET_KEY?.trim()),
+      })
+    }
     if (action === 'continue') {
       return publicResult(
         await applyContinue({
@@ -113,10 +119,17 @@ export async function POST(request: NextRequest) {
         ),
       )
     }
+    const sessionToken =
+      typeof body.sessionToken === 'string' && body.sessionToken.trim()
+        ? body.sessionToken.trim()
+        : undefined
     if (action === 'clerk_session') {
-      const clerkUser = await readClerkAudienceUser(request)
-      if (!clerkUser?.userId) {
-        return NextResponse.json({ ok: false, error: 'Not signed in.' }, { status: 401 })
+      const clerkUser = await readClerkAudienceUser(request, { bearerToken: sessionToken })
+      if (!clerkUser.ok) {
+        return NextResponse.json(
+          { ok: false, error: clerkUser.error },
+          { status: clerkUser.status || 401 },
+        )
       }
       return publicResult(
         await applyClerkParent({
@@ -127,8 +140,8 @@ export async function POST(request: NextRequest) {
       )
     }
     if (action === 'session') {
-      const clerkUser = await readClerkAudienceUser(request)
-      if (clerkUser?.userId) {
+      const clerkUser = await readClerkAudienceUser(request, { bearerToken: sessionToken })
+      if (clerkUser.ok) {
         return publicResult(
           await applyClerkParent({
             userId: clerkUser.userId,
@@ -142,8 +155,8 @@ export async function POST(request: NextRequest) {
       return publicResult(await readParentSessionView(session.userId))
     }
     if (action === 'sync_saves') {
-      const clerkUser = await readClerkAudienceUser(request)
-      if (clerkUser?.userId) {
+      const clerkUser = await readClerkAudienceUser(request, { bearerToken: sessionToken })
+      if (clerkUser.ok) {
         return publicResult(
           await applyClerkParent({
             userId: clerkUser.userId,
@@ -162,9 +175,12 @@ export async function POST(request: NextRequest) {
       )
     }
     if (action === 'set_reminder') {
-      const clerkUser = await readClerkAudienceUser(request)
-      if (!clerkUser?.userId) {
-        return NextResponse.json({ ok: false, error: 'Not signed in.' }, { status: 401 })
+      const clerkUser = await readClerkAudienceUser(request, { bearerToken: sessionToken })
+      if (!clerkUser.ok) {
+        return NextResponse.json(
+          { ok: false, error: clerkUser.error },
+          { status: clerkUser.status || 401 },
+        )
       }
       return publicResult(
         await applySetSaveReminder({

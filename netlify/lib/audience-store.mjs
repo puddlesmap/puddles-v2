@@ -71,34 +71,35 @@ export function audienceConsistency(context) {
 }
 
 /**
- * Connect Blobs only when Netlify has not already configured them.
- * connectLambda() keeps the edge URL and drops uncachedEdgeURL, which makes
- * strong reads fail and the admin list look empty.
+ * Prefer per-request Lambda Blobs credentials when present.
+ *
+ * A site-env `NETLIFY_BLOBS_CONTEXT` can go stale ("Failed to decode token: Token
+ * expired") and must not block `connectLambda(event)`, which carries a fresh token.
+ * After connectLambda, restore uncachedEdgeURL/apiURL so strong admin reads still work.
  */
 export function bindAudienceRequest(event) {
   const existing = readBlobContext()
   const payload = lambdaBlobPayload(event)
   const uncached = uncachedEdgeURLFromPayload(payload)
-  const alreadyConfigured = Boolean(existing?.siteID && existing?.token)
 
-  if (alreadyConfigured && (existing.uncachedEdgeURL || existing.apiURL || !existing.edgeURL)) return
-
-  if (alreadyConfigured && existing.edgeURL && uncached) {
-    setEnvironmentContext({ ...existing, uncachedEdgeURL: uncached })
+  if (payload) {
+    try {
+      connectLambda(event)
+      const current = readBlobContext() || {}
+      const uncachedEdgeURL =
+        uncached || existing?.uncachedEdgeURL || current.uncachedEdgeURL || ''
+      const next = { ...current }
+      if (uncachedEdgeURL) next.uncachedEdgeURL = uncachedEdgeURL
+      if (existing?.apiURL && !next.apiURL) next.apiURL = existing.apiURL
+      if (next.uncachedEdgeURL || next.apiURL) setEnvironmentContext(next)
+    } catch (error) {
+      console.error('[audience] Could not connect blob storage', error)
+    }
     return
   }
 
-  if (alreadyConfigured) return
-
-  if (!payload) return
-  try {
-    connectLambda(event)
-    if (!uncached) return
-    const current = readBlobContext() || {}
-    setEnvironmentContext({ ...current, uncachedEdgeURL: uncached })
-  } catch (error) {
-    console.error('[audience] Could not connect blob storage', error)
-  }
+  // Local / non-Lambda: keep whatever env context is already configured.
+  if (existing?.siteID && existing?.token) return
 }
 
 function useFileStore() {
@@ -107,13 +108,24 @@ function useFileStore() {
   return !onNetlifyRuntime()
 }
 
+function blobsErrorMessage(error) {
+  const message = error instanceof Error ? error.message : String(error || 'Audience storage failed.')
+  if (/token expired|failed to decode token/i.test(message)) {
+    return (
+      'Netlify Blobs token expired. In Netlify → Site configuration → Environment variables, ' +
+      'delete NETLIFY_BLOBS_CONTEXT if it was set manually — Functions inject a fresh token per request. ' +
+      'Then redeploy or retry.'
+    )
+  }
+  return message
+}
+
 function openBlobStore() {
   const consistency = audienceConsistency(readBlobContext())
   try {
     return { store: getStore({ name: 'audience', consistency }), consistency }
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Audience storage is not connected.'
-    throw new Error(message)
+    throw new Error(blobsErrorMessage(error))
   }
 }
 
@@ -174,11 +186,11 @@ async function readBlobState(store, consistency) {
     return await withTimeout(store.getWithMetadata('state', { type: 'json', consistency }), 8000)
   } catch (error) {
     // Strong reads need uncachedEdgeURL; fall back so admin is not stuck empty.
-    if (consistency === 'strong') {
+    if (consistency === 'strong' && !/token expired|failed to decode token/i.test(String(error))) {
       console.error('[audience] Strong blob read failed; retrying eventual', error)
       return withTimeout(store.getWithMetadata('state', { type: 'json', consistency: 'eventual' }), 8000)
     }
-    throw error
+    throw new Error(blobsErrorMessage(error))
   }
 }
 

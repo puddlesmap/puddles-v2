@@ -30,19 +30,40 @@ function extractSessionCookie(eventOrRequest) {
 
 /**
  * Verify Clerk session and return userId + primary email.
- * @returns {Promise<{ userId: string, email: string } | null>}
+ * Distinguishes missing server config so clients aren't told "Not signed in"
+ * when the function simply lacks CLERK_SECRET_KEY.
+ *
+ * @param {unknown} eventOrRequest
+ * @param {{ bearerToken?: string } | undefined} options
+ *   Optional body-delivered session JWT (Netlify rewrites sometimes drop Authorization).
+ * @returns {Promise<
+ *   | { ok: true, userId: string, email: string }
+ *   | { ok: false, error: string, status: number }
+ * >}
  */
-export async function readClerkAudienceUser(eventOrRequest) {
+export async function readClerkAudienceUser(eventOrRequest, options = {}) {
   const secret = process.env.CLERK_SECRET_KEY?.trim()
-  if (!secret) return null
+  if (!secret) {
+    console.error('[audience] CLERK_SECRET_KEY is not set on this function')
+    return { ok: false, error: 'Server missing Clerk secret.', status: 503 }
+  }
 
-  const token = extractBearer(eventOrRequest) || extractSessionCookie(eventOrRequest)
-  if (!token) return null
+  const fromBody =
+    typeof options?.bearerToken === 'string' && options.bearerToken.trim()
+      ? options.bearerToken.trim()
+      : ''
+  const token =
+    fromBody || extractBearer(eventOrRequest) || extractSessionCookie(eventOrRequest)
+  if (!token) {
+    return { ok: false, error: 'Not signed in.', status: 401 }
+  }
 
   try {
     const payload = await verifyToken(token, { secretKey: secret })
     const userId = typeof payload?.sub === 'string' ? payload.sub : ''
-    if (!userId) return null
+    if (!userId) {
+      return { ok: false, error: 'Not signed in.', status: 401 }
+    }
 
     let email =
       (typeof payload?.email === 'string' && payload.email) ||
@@ -58,10 +79,12 @@ export async function readClerkAudienceUser(eventOrRequest) {
         ''
     }
 
-    if (!email) return null
-    return { userId, email }
+    if (!email) {
+      return { ok: false, error: 'Clerk account has no email.', status: 400 }
+    }
+    return { ok: true, userId, email }
   } catch (error) {
     console.error('[audience] Clerk token verify failed', error)
-    return null
+    return { ok: false, error: 'Not signed in.', status: 401 }
   }
 }

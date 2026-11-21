@@ -108,9 +108,13 @@ export async function syncAudienceSaves(input: {
 /** Merge local saves into Blobs for the signed-in Clerk user. */
 export async function syncClerkAudienceSaves(input: {
   saves: AudienceSavePayload[]
-  getToken: () => Promise<string | null>
+  getToken: (options?: { skipCache?: boolean }) => Promise<string | null>
 }): Promise<AudienceContinueResponse> {
-  const token = await input.getToken()
+  let token = await input.getToken()
+  if (!token) {
+    // Clerk can briefly return null right after sign-in; one skip-cache retry.
+    token = await input.getToken({ skipCache: true })
+  }
   if (!token) return { ok: false, error: 'Not signed in.', saves: [] }
   const response = await fetch('/api/audience', {
     method: 'POST',
@@ -121,6 +125,8 @@ export async function syncClerkAudienceSaves(input: {
     },
     body: JSON.stringify({
       action: 'clerk_session',
+      // Body fallback when a proxy/rewrite drops the Authorization header.
+      sessionToken: token,
       saves: input.saves,
     }),
   })

@@ -46,9 +46,11 @@ type SavedContextValue = {
   openAuthSheet: (mode?: SavedAuthMode) => void
   closeSignIn: () => void
   signedInEmail: string | null
+  syncError: string | null
   syncNow: () => Promise<void>
   refreshFromStorage: () => void
   setSignedInEmail: (email: string | null) => void
+  setSyncError: (error: string | null) => void
   registerSync: (fn: (() => Promise<void>) | null) => void
 }
 
@@ -70,6 +72,7 @@ export function SavedProvider({ children }: { children: ReactNode }) {
   const [signInOpen, setSignInOpen] = useState(false)
   const [authMode, setAuthMode] = useState<SavedAuthMode>('create')
   const [signedInEmail, setSignedInEmail] = useState<string | null>(null)
+  const [syncError, setSyncError] = useState<string | null>(null)
   const syncFnRef = useRef<(() => Promise<void>) | null>(null)
 
   const refreshFromStorage = useCallback(() => {
@@ -188,9 +191,11 @@ export function SavedProvider({ children }: { children: ReactNode }) {
       openAuthSheet,
       closeSignIn: () => setSignInOpen(false),
       signedInEmail,
+      syncError,
       syncNow,
       refreshFromStorage,
       setSignedInEmail,
+      setSyncError,
       registerSync,
     }),
     [
@@ -201,6 +206,7 @@ export function SavedProvider({ children }: { children: ReactNode }) {
       saves,
       signInOpen,
       signedInEmail,
+      syncError,
       syncNow,
       toast,
       toggleSave,
@@ -226,6 +232,7 @@ export function SavedClerkBridge() {
     if (!saved) return
     if (!isLoaded || !isSignedIn || !userId) {
       saved.registerSync(null)
+      saved.setSyncError(null)
       return
     }
 
@@ -240,18 +247,21 @@ export function SavedClerkBridge() {
       }
       const result = await syncClerkAudienceSaves({
         saves: toAudienceSavePayloads(),
-        getToken: () => getToken(),
+        getToken: (options) => getToken(options),
       })
-      if (result.ok && result.saves) {
+      if (result.ok && Array.isArray(result.saves)) {
         mergeRemoteActiveSaves(result.saves)
         saved.refreshFromStorage()
+        saved.setSyncError(null)
         return true
       }
+      const error = result.error || 'Could not sync saves.'
       trackEvent(ANALYTICS_EVENTS.ACTIVITY_SAVE_BLOCKED, {
         reason: 'sync_failed',
         attempt: String(attempt),
-        error: result.error || 'unknown',
+        error,
       })
+      if (attempt >= 2) saved.setSyncError(error)
       return false
     }
 
