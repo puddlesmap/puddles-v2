@@ -216,6 +216,7 @@ export function SavedClerkBridge() {
   const saved = useSavedOptional()
   const { isLoaded, isSignedIn, userId, getToken } = useAuth()
   const { user } = useUser()
+  const syncInFlightRef = useRef(false)
 
   useEffect(() => {
     saved?.setSignedInEmail(user?.primaryEmailAddress?.emailAddress ?? null)
@@ -228,7 +229,7 @@ export function SavedClerkBridge() {
       return
     }
 
-    const sync = async () => {
+    const runSync = async (attempt: number): Promise<boolean> => {
       try {
         const ph = (
           window as unknown as { posthog?: { identify?: (id: string, props?: object) => void } }
@@ -244,12 +245,44 @@ export function SavedClerkBridge() {
       if (result.ok && result.saves) {
         mergeRemoteActiveSaves(result.saves)
         saved.refreshFromStorage()
+        return true
       }
+      trackEvent(ANALYTICS_EVENTS.ACTIVITY_SAVE_BLOCKED, {
+        reason: 'sync_failed',
+        attempt: String(attempt),
+        error: result.error || 'unknown',
+      })
+      return false
+    }
+
+    const sync = async () => {
+      if (syncInFlightRef.current) return
+      syncInFlightRef.current = true
+      try {
+        const ok = await runSync(1)
+        if (!ok) {
+          await new Promise((resolve) => setTimeout(resolve, 800))
+          await runSync(2)
+        }
+      } finally {
+        syncInFlightRef.current = false
+      }
+    }
+
+    const onVisibleOrFocus = () => {
+      if (document.visibilityState && document.visibilityState !== 'visible') return
+      void sync()
     }
 
     saved.registerSync(sync)
     void sync()
-    return () => saved.registerSync(null)
+    window.addEventListener('focus', onVisibleOrFocus)
+    document.addEventListener('visibilitychange', onVisibleOrFocus)
+    return () => {
+      saved.registerSync(null)
+      window.removeEventListener('focus', onVisibleOrFocus)
+      document.removeEventListener('visibilitychange', onVisibleOrFocus)
+    }
   }, [getToken, isLoaded, isSignedIn, saved, userId])
 
   return null

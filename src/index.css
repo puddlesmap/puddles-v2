@@ -7652,4 +7652,149 @@ th[aria-sort='descending'] .admin-sort-header__indicator {
   }
 }
 
+.admin-interest-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1rem 0 0;
+}
+
+.admin-interest-toggle-btn {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  cursor: pointer;
+}
+
+.admin-interest-toggle-btn.is-active {
+  border-color: var(--color-brand-dark);
+  background: color-mix(in srgb, var(--color-brand) 10%, #fff);
+  color: var(--color-brand-dark);
+}
+
+.admin-interest-panel {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: #faf9f7;
+}
+
+.admin-interest-panel h3 {
+  margin: 0 0 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-charcoal);
+}
+
+.admin-interest-derived {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.admin-interest-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 0.85rem;
+}
+
+.admin-interest-bar-row {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 8.5rem) 1fr 2rem;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.admin-interest-bar-label {
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.admin-interest-bar-track {
+  height: 0.45rem;
+  border-radius: 999px;
+  background: #ebe7e1;
+  overflow: hidden;
+}
+
+.admin-interest-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-brand);
+}
+
+.admin-interest-bar-count {
+  text-align: right;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.admin-interest-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.admin-interest-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid #ddd7cf;
+  background: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.admin-interest-chip em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.admin-interest-from-saves {
+  margin: 0.75rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid #ebe7e1;
+}
+
+.admin-interest-from-saves h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+}
+
+.admin-interest-from-saves p {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.admin-audience-saves {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.875rem;
+}
+
+.admin-audience-saves li {
+  margin-bottom: 0.45rem;
+}
+
+.admin-audience-saves span {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
 

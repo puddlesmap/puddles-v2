@@ -12,6 +12,7 @@ import { getCatalogEventById } from '../../utils/eventPages'
 type NewsletterFilter = 'all' | 'subscribed' | 'not_subscribed'
 type SavedFilter = 'all' | 'has_saves' | 'no_saves'
 type CountFilter = 'all' | '0' | '1-3' | '4+'
+type InterestView = 'aggregate' | 'per_parent'
 
 function formatWhen(value: string | null | undefined): string {
   if (!value) return '—'
@@ -75,6 +76,36 @@ function topActivityTypes(rows: AudienceRow[]): Array<{ type: string; count: num
     .map(([type, count]) => ({ type, count }))
 }
 
+function topCities(rows: AudienceRow[]): Array<{ city: string; count: number }> {
+  const counts = new Map<string, number>()
+  for (const row of rows) {
+    for (const save of row.saves) {
+      const city = getCatalogEventById(save.eventId)?.city?.trim()
+      if (!city) continue
+      counts.set(city, (counts.get(city) || 0) + 1)
+    }
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, 8)
+    .map(([city, count]) => ({ city, count }))
+}
+
+function interestsFromSaves(row: AudienceRow): { types: string[]; cities: string[] } {
+  const types = new Set<string>()
+  const cities = new Set<string>()
+  for (const save of row.saves) {
+    const event = getCatalogEventById(save.eventId)
+    for (const type of event?.types || []) types.add(type)
+    const city = event?.city?.trim()
+    if (city) cities.add(city)
+  }
+  return {
+    types: [...types].sort((a, b) => a.localeCompare(b)),
+    cities: [...cities].sort((a, b) => a.localeCompare(b)),
+  }
+}
+
 export function AdminAudiencePage() {
   const [rows, setRows] = useState<AudienceRow[]>([])
   const [summary, setSummary] = useState({
@@ -94,6 +125,7 @@ export function AdminAudiencePage() {
   const [savedFilter, setSavedFilter] = useState<SavedFilter>('all')
   const [countFilter, setCountFilter] = useState<CountFilter>('all')
   const [typeFilter, setTypeFilter] = useState<'all' | ActivityType>('all')
+  const [interestView, setInterestView] = useState<InterestView>('aggregate')
   const [exportMessage, setExportMessage] = useState<string | null>(null)
 
   async function load() {
@@ -129,6 +161,9 @@ export function AdminAudiencePage() {
 
   const selected = filtered.find((row) => row.email === selectedEmail) || null
   const popularTypes = useMemo(() => topActivityTypes(rows), [rows])
+  const popularCities = useMemo(() => topCities(rows), [rows])
+  const maxTypeCount = popularTypes[0]?.count || 0
+  const selectedInterests = selected ? interestsFromSaves(selected) : null
 
   async function handleVerify(row: AudienceRow) {
     if (!row.userId) return
@@ -179,8 +214,8 @@ export function AdminAudiencePage() {
       <section className="admin-sync-bar" aria-label="Audience overview">
         <p className="admin-submissions-intro">
           Experiment records for parent identity, saved events, and newsletter opt-in. Emails stay
-          off GitHub. Parents sign in by clicking a Loops magic link. <strong>Verify email</strong>{' '}
-          is a local fallback when Loops is unset. Saving does not subscribe anyone.
+          off GitHub. Saving does not subscribe anyone. Interest below is computed from saved event
+          ids → catalog — not stored as a profile.
         </p>
         {error ? (
           <p className="admin-action-alert admin-action-alert--error" role="status">
@@ -218,12 +253,74 @@ export function AdminAudiencePage() {
             <div className="admin-stat-label">All contacts</div>
           </div>
         </div>
-        {popularTypes.length > 0 ? (
+
+        <div className="admin-interest-toggle" role="tablist" aria-label="Interest from saves view">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={interestView === 'aggregate'}
+            className={`admin-interest-toggle-btn${interestView === 'aggregate' ? ' is-active' : ''}`}
+            onClick={() => setInterestView('aggregate')}
+          >
+            A · Aggregate
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={interestView === 'per_parent'}
+            className={`admin-interest-toggle-btn${interestView === 'per_parent' ? ' is-active' : ''}`}
+            onClick={() => setInterestView('per_parent')}
+          >
+            B · Per parent
+          </button>
+        </div>
+
+        {interestView === 'aggregate' ? (
+          <div className="admin-interest-panel" aria-label="Interest from saves">
+            <h3>Interest from saves</h3>
+            <p className="admin-interest-derived">
+              Computed now from saved event ids → catalog types &amp; cities. Not stored as a profile.
+            </p>
+            {popularTypes.length === 0 ? (
+              <p className="admin-sync-hint" style={{ margin: 0 }}>
+                No saved events yet — interest appears after parents sync hearts while signed in.
+              </p>
+            ) : (
+              <>
+                <div className="admin-interest-bars">
+                  {popularTypes.map((item) => (
+                    <div key={item.type} className="admin-interest-bar-row">
+                      <span className="admin-interest-bar-label">{item.type}</span>
+                      <div className="admin-interest-bar-track">
+                        <div
+                          className="admin-interest-bar-fill"
+                          style={{
+                            width: `${maxTypeCount ? Math.round((item.count / maxTypeCount) * 100) : 0}%`,
+                          }}
+                        />
+                      </div>
+                      <span className="admin-interest-bar-count">{item.count}</span>
+                    </div>
+                  ))}
+                </div>
+                {popularCities.length > 0 ? (
+                  <div className="admin-interest-chips" aria-label="Cities from saves">
+                    {popularCities.map((item) => (
+                      <span key={item.city} className="admin-interest-chip">
+                        {item.city} <em>· {item.count}</em>
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </>
+            )}
+          </div>
+        ) : (
           <p className="admin-sync-hint" style={{ marginTop: '0.75rem' }}>
-            Top saved types:{' '}
-            {popularTypes.map((item) => `${item.type} (${item.count})`).join(' · ')}
+            Per parent: expand a row to see interests derived from that contact’s saves. Fold again to
+            hide.
           </p>
-        ) : null}
+        )}
       </section>
 
       <section className="admin-events-section">
@@ -389,6 +486,33 @@ export function AdminAudiencePage() {
                 }
               />
             </DetailSection>
+            {interestView === 'per_parent' && selected.hasAccount && selectedInterests ? (
+              <div className="admin-interest-from-saves">
+                <h4>From their saves</h4>
+                {selected.saves.length === 0 ? (
+                  <p>No active saved events to derive interest from.</p>
+                ) : (
+                  <>
+                    <div className="admin-interest-chips">
+                      {selectedInterests.types.map((type) => (
+                        <span key={type} className="admin-interest-chip">
+                          {type}
+                        </span>
+                      ))}
+                      {selectedInterests.cities.map((city) => (
+                        <span key={city} className="admin-interest-chip">
+                          {city}
+                        </span>
+                      ))}
+                    </div>
+                    <p>
+                      Derived at open time from {selected.saves.length} saved event
+                      {selected.saves.length === 1 ? '' : 's'} — no extra fields written.
+                    </p>
+                  </>
+                )}
+              </div>
+            ) : null}
             {selected.hasAccount ? (
               selected.saves.length > 0 ? (
                 <ul className="admin-audience-saves">
@@ -399,6 +523,7 @@ export function AdminAudiencePage() {
                         <strong>{event?.title || save.eventId}</strong>
                         <span>
                           {event ? formatEventDate(event.date) : '—'} · {eventCategories(save.eventId)}
+                          {event?.city ? ` · ${event.city}` : ''}
                         </span>
                         <span>Saved {formatWhen(save.savedAt)}</span>
                       </li>
