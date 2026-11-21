@@ -17,7 +17,10 @@ import {
   readAudienceView,
   readParentSessionView,
 } from '../../../../netlify/lib/audience-store.mjs'
-import { readClerkAudienceUser } from '../../../../netlify/lib/clerk-audience.mjs'
+import {
+  clerkSecretStatus,
+  readClerkAudienceUser,
+} from '../../../../netlify/lib/clerk-audience.mjs'
 import { readParentSession, requestOrigin } from '../../../../netlify/lib/parent-session.mjs'
 import { verifyReminderTurnOffToken } from '../../../../netlify/lib/reminderCore.mjs'
 
@@ -91,10 +94,7 @@ export async function POST(request: NextRequest) {
   try {
     const action = String(body.action || '')
     if (action === 'clerk_status') {
-      return NextResponse.json({
-        ok: true,
-        clerkSecretConfigured: Boolean(process.env.CLERK_SECRET_KEY?.trim()),
-      })
+      return NextResponse.json({ ok: true, ...(await clerkSecretStatus()) })
     }
     if (action === 'continue') {
       return publicResult(

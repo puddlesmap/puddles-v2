@@ -110,12 +110,16 @@ export async function syncClerkAudienceSaves(input: {
   saves: AudienceSavePayload[]
   getToken: (options?: { skipCache?: boolean }) => Promise<string | null>
 }): Promise<AudienceContinueResponse> {
-  let token = await input.getToken()
+  // Prefer a fresh token — cached session JWTs expire while the UI still looks signed in.
+  let token = await input.getToken({ skipCache: true })
+  if (!token) token = await input.getToken()
   if (!token) {
-    // Clerk can briefly return null right after sign-in; one skip-cache retry.
-    token = await input.getToken({ skipCache: true })
+    return {
+      ok: false,
+      error: 'No Clerk session token on this device — try Sign out, then Log in again.',
+      saves: [],
+    }
   }
-  if (!token) return { ok: false, error: 'Not signed in.', saves: [] }
   const response = await fetch('/api/audience', {
     method: 'POST',
     credentials: 'same-origin',

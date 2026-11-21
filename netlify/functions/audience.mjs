@@ -12,13 +12,15 @@ import {
   readAudienceView,
   readParentSessionView,
 } from '../lib/audience-store.mjs'
-import { readClerkAudienceUser } from '../lib/clerk-audience.mjs'
+import { clerkSecretStatus, readClerkAudienceUser } from '../lib/clerk-audience.mjs'
 import { readParentSession, requestOrigin } from '../lib/parent-session.mjs'
 import { verifyReminderTurnOffToken } from '../lib/reminderCore.mjs'
 
 function parseBody(event) {
   try {
-    return JSON.parse(event.body || '{}')
+    const raw = event.body || '{}'
+    const text = event.isBase64Encoded ? Buffer.from(raw, 'base64').toString('utf8') : raw
+    return JSON.parse(text || '{}')
   } catch {
     return null
   }
@@ -96,10 +98,7 @@ export async function handler(event) {
 
   try {
     if (body.action === 'clerk_status') {
-      return jsonResponse(200, {
-        ok: true,
-        clerkSecretConfigured: Boolean(process.env.CLERK_SECRET_KEY?.trim()),
-      })
+      return jsonResponse(200, { ok: true, ...(await clerkSecretStatus()) })
     }
     if (body.action === 'continue') {
       return publicResult(
