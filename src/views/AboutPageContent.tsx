@@ -52,8 +52,8 @@ export function AboutPageContent({ trailing }: AboutPageContentProps) {
 
       <footer className="about-footer-band">
         <p className="about-privacy-note">
-          Puddles uses privacy-friendly analytics to understand how the site is used. We do not
-          collect personal information or use advertising cookies.
+          Puddles uses privacy-friendly analytics to understand how the site is used. Guides may
+          show non-personalized ads — see our Privacy Policy.
         </p>
         {trailing}
       </footer>

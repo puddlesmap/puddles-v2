@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { GuideMidArticleAd } from '../components/ads/GuideMidArticleAd'
 import { EventDetailLink } from '../components/EventDetailLink'
 import { trackGuideSectionViewed, trackGuideShared } from '../utils/analytics'
 
@@ -513,6 +514,8 @@ export function HalloweenGuideDraft({
                 <p>A Halloween garden celebration with a magic show, crafts, face painting, and family activities.</p>
               </Outing>
             </section>
+
+            <GuideMidArticleAd placementKey={`${HALLOWEEN_GUIDE_SLUG}-mid-after-schools`} />
 
             <section className="lgg-chapter" id={id('parades')}>
               <h3 data-guide-section="parades">3. Costume parades and downtown Halloween fun</h3>

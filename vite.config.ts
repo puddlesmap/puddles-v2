@@ -98,6 +98,15 @@ export default defineConfig(({ mode }) => {
       'process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY': JSON.stringify(
         env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || '',
       ),
+      'process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_MID': JSON.stringify(
+        env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDE_MID || '',
+      ),
+      'process.env.VITE_ADSENSE_SLOT_GUIDE_MID': JSON.stringify(
+        env.VITE_ADSENSE_SLOT_GUIDE_MID || '',
+      ),
+      'process.env.NEXT_PUBLIC_ADSENSE_DEBUG': JSON.stringify(
+        env.NEXT_PUBLIC_ADSENSE_DEBUG || '',
+      ),
       'process.env.NODE_ENV': JSON.stringify(mode),
     },
     plugins: [

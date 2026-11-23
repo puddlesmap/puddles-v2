@@ -97,8 +97,14 @@ export function PrivacyPage() {
               users.
             </p>
             <p>
-              Puddles may display sponsored content or advertisements. We do not use your personal
-              information to personalize these ads across websites.
+              Puddles may display sponsored content or advertisements on guide pages via Google
+              AdSense. We request non-personalized ads and do not use your personal information to
+              personalize ads across websites. Google may still use cookies or similar technologies
+              as described in{' '}
+              <a href="https://policies.google.com/technologies/ads" rel="noopener noreferrer">
+                Google&apos;s advertising policies
+              </a>
+              .
             </p>
             <p>
               <strong>

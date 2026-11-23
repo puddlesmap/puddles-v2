@@ -1,0 +1,21 @@
+.guide-mid-ad {
+  margin: 1.75rem 0 2rem;
+  padding: 0.75rem 0 0.25rem;
+  border-top: 1px solid color-mix(in srgb, var(--color-text-secondary, #5c5c5c) 18%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text-secondary, #5c5c5c) 18%, transparent);
+  min-height: 120px;
+}
+
+.guide-mid-ad__label {
+  margin: 0 0 0.5rem;
+  font-family: 'Nunito Sans', system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #6b6b6b);
+}
+
+.guide-mid-ad .adsbygoogle {
+  min-height: 90px;
+}

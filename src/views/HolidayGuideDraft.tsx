@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { GuideMidArticleAd } from '../components/ads/GuideMidArticleAd'
 import { openPuddlesPicksSignup } from '../components/picks/PuddlesPicksHome'
 import { FeaturedExperience } from '../components/guides/FeaturedExperience'
 import { QuickPickGroup } from '../components/guides/QuickPick'
@@ -369,6 +370,8 @@ export function HolidayGuideDraft({
                 </p>
               </FeaturedExperience>
             </section>
+
+            <GuideMidArticleAd placementKey={`${GS}-mid-after-lights`} />
 
             <section className="lgg-chapter" id={id('parades')}>
               <h3 data-guide-section="parades">🎄 Parades & Celebrations</h3>

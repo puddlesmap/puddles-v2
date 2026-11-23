@@ -1,4 +1,5 @@
 import { useEffect, type ReactNode } from 'react'
+import { GuideMidArticleAd } from '../components/ads/GuideMidArticleAd'
 import { FeaturedExperience } from '../components/guides/FeaturedExperience'
 import { QuickPickGroup } from '../components/guides/QuickPick'
 import {
@@ -230,6 +231,8 @@ export function HelloNewYearGuideDraft({
           </p>
         </FeaturedExperience>
       </section>
+
+      <GuideMidArticleAd placementKey={`${GS}-mid-after-nearby`} />
 
       <section className="lgg-chapter" id={id('trip')}>
         <h3 data-guide-section="trip">🎉 Worth the Trip</h3>
