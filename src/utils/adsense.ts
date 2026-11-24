@@ -6,7 +6,12 @@ import {
 /** AdSense publisher client from account setup. */
 export const ADSENSE_CLIENT = 'ca-pub-3898775059185873'
 
-const SCRIPT_ID = 'adsbygoogle-js'
+/** Same id on the layout <head> tag and client inject — load once only. */
+export const ADSENSE_SCRIPT_ID = 'adsbygoogle-js'
+
+export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`
+
+const SCRIPT_ID = ADSENSE_SCRIPT_ID
 
 declare global {
   interface Window {
@@ -45,12 +50,17 @@ export function ensureAdSenseScript(): void {
   window.adsbygoogle = window.adsbygoogle || []
   ;(window.adsbygoogle as unknown as { requestNonPersonalizedAds?: number }).requestNonPersonalizedAds = 1
 
-  if (document.getElementById(SCRIPT_ID)) return
+  if (
+    document.getElementById(SCRIPT_ID) ||
+    document.querySelector(`script[src*="adsbygoogle.js"]`)
+  ) {
+    return
+  }
 
   const script = document.createElement('script')
   script.id = SCRIPT_ID
   script.async = true
-  script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`
+  script.src = ADSENSE_SCRIPT_SRC
   script.crossOrigin = 'anonymous'
   document.head.appendChild(script)
 }

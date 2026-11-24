@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 import { AppProviders } from '@/components/AppProviders'
+import { ADSENSE_SCRIPT_ID, ADSENSE_SCRIPT_SRC } from '@/utils/adsense'
 import { PLAUSIBLE_BOOTSTRAP_SCRIPT } from '@/utils/plausibleSnippet'
 import './globals.css'
 
@@ -34,6 +35,13 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Quicksand:wght@700&display=swap"
           rel="stylesheet"
+        />
+        {/* AdSense site-ownership verification (head snippet method). */}
+        <script
+          id={ADSENSE_SCRIPT_ID}
+          async
+          src={ADSENSE_SCRIPT_SRC}
+          crossOrigin="anonymous"
         />
       </head>
       <body>
