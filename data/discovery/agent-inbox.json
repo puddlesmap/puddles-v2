@@ -1,8 +1,8 @@
 {
   "latestRun": {
-    "runId": "scheduled-2026-11-18",
+    "runId": "scheduled-2026-11-25",
     "startedAt": "",
-    "completedAt": "2026-11-18T22:27:24.128Z",
+    "completedAt": "2026-11-25T23:28:05.509Z",
     "agent": "Scheduled discovery adapters",
     "sourcesChecked": 0,
     "sourcesSucceeded": 0,
@@ -10,513 +10,6 @@
     "sourcesFailed": 0
   },
   "candidates": [
-    {
-      "title": "Little Ones Storytime",
-      "date": "2026-11-18",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "Children's Library",
-      "cost": "Free",
-      "ageRange": "0–2",
-      "bestFor": "",
-      "description": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library. Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages.",
-      "tips": "baby|Designed for the littlest listeners with a grown-up. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069b8",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069b8",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join Librarian Heidi on Wednesday mornings at 10:30AM for Little Ones Storytime at Children's Library. Storytime includes a variety of early literacy activities such as stories, songs, rhymes, and movement activities. Storytime is a fun and interactive experience for the whole family that promotes the joys of reading and learning for all ages.",
-      "sourceSnapshot": {
-        "titleText": "Little Ones Storytime",
-        "dateText": "2026-11-18",
-        "timeText": "10:30–11:00",
-        "locationText": "Children's Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2"
-      },
-      "providerEventId": "6946001eea69de6e001069b8",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:6946001eea69de6e001069b8",
-      "id": "id:6946001eea69de6e001069b8",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-11T21:42:08.760Z"
-    },
-    {
-      "title": "Bilingual Storytime: Mandarin/English",
-      "date": "2026-11-18",
-      "startTime": "18:30",
-      "endTime": "19:00",
-      "city": "Mountain View",
-      "venue": "Mountain View Library",
-      "cost": "Free",
-      "ageRange": "2–5",
-      "bestFor": "",
-      "description": "Stories, rhymes and songs in Mandarin and English with Miss Renee in the Children's Room Octagon.",
-      "tips": "For ages 2-5, no registration required.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_05_11_11_10_43.png",
-      "eventUrl": "https://mountainview.libcal.com/event/17329164",
-      "sourceUrl": "https://mountainview.libcal.com/event/17329164",
-      "sourceName": "Mountain View Library · LibCal",
-      "sourceExcerpt": "Stories, rhymes and songs in Mandarin and English with Miss Renee in the Children's Room Octagon.",
-      "sourceSnapshot": {
-        "titleText": "Bilingual Storytime: Mandarin/English",
-        "dateText": "2026-11-18",
-        "timeText": "18:30–19:00",
-        "locationText": "Mountain View Library, Mountain View",
-        "costText": "Free",
-        "ageText": "2–5"
-      },
-      "providerEventId": "17329164",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:17329164",
-      "id": "id:17329164",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Music & Movement",
-      "date": "2026-11-18",
-      "startTime": "18:30",
-      "endTime": "19:15",
-      "city": "Palo Alto",
-      "venue": "Mitchell Park Library",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5, 5+",
-      "bestFor": "",
-      "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance. This week, we'll be celebrating Native American Heritage Month. Instruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music. This program is meant for families with children and no previous experience is needed!",
-      "tips": "info|Songs and movement indoors — grown-ups stay with little ones. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6a3dbc0bfddb082f00fe14a4",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3dbc0bfddb082f00fe14a4",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance. This week, we'll be celebrating Native American Heritage Month. Instruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music. This program is meant for families with children and no previous experience is needed!",
-      "sourceSnapshot": {
-        "titleText": "Music & Movement",
-        "dateText": "2026-11-18",
-        "timeText": "18:30–19:15",
-        "locationText": "Mitchell Park Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5, 5+"
-      },
-      "providerEventId": "6a3dbc0bfddb082f00fe14a4",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:6a3dbc0bfddb082f00fe14a4",
-      "id": "id:6a3dbc0bfddb082f00fe14a4",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Bilingual Family Storytime",
-      "date": "2026-11-19",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "College Terrace Library",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5",
-      "bestFor": "",
-      "description": "Join Librarian Juliana on Thursday mornings at 10:30 a.m. for Bilingual Family Storytime at College Terrace Library. Come sing, rhyme, and read stories with us! Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! Participa con la Señorita Juliana los Jueves por la mañana a las 10:30 a.m. a la Hora de Cuentos Bilingüe en la Biblioteca College Terrace. ¡Canta, rima y lee historias con nosotros! La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
-      "tips": "Storytime may be held indoors or outdoors depending on the weather.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6a80100ac7322c3d6032bc4338a36e7a/bilingual-storytime.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638ba",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638ba",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join Librarian Juliana on Thursday mornings at 10:30 a.m. for Bilingual Family Storytime at College Terrace Library. Come sing, rhyme, and read stories with us! Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! Participa con la Señorita Juliana los Jueves por la mañana a las 10:30 a.m. a la Hora de Cuentos Bilingüe en la Biblioteca College Terrace. ¡Canta, rima y lee historias con nosotros! La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una li",
-      "sourceSnapshot": {
-        "titleText": "Bilingual Family Storytime",
-        "dateText": "2026-11-19",
-        "timeText": "10:30–11:00",
-        "locationText": "College Terrace Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5"
-      },
-      "providerEventId": "69276b597eb3e430002638ba",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:69276b597eb3e430002638ba",
-      "id": "id:69276b597eb3e430002638ba",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Family Storytime",
-      "date": "2026-11-20",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "Downtown Library",
-      "cost": "Free",
-      "ageRange": "2–5",
-      "bestFor": "",
-      "description": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Downtown Library unless the listing says otherwise.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069cc",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069cc",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join Librarian Heidi on Friday mornings at 10:30AM for Family Storytime at Downtown Library. Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "sourceSnapshot": {
-        "titleText": "Family Storytime",
-        "dateText": "2026-11-20",
-        "timeText": "10:30–11:00",
-        "locationText": "Downtown Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "2–5"
-      },
-      "providerEventId": "6946005fea69de6e001069cc",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:6946005fea69de6e001069cc",
-      "id": "id:6946005fea69de6e001069cc",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Family Storytime",
-      "date": "2026-11-21",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "Mitchell Park Library",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5",
-      "bestFor": "",
-      "description": "Join Librarian Juliana on Saturday mornings at 10:30 a.m. for Family Storytime at Mitchell Park Library. Come sing, rhyme, and read stories with us! F ollow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73beb",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73beb",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join Librarian Juliana on Saturday mornings at 10:30 a.m. for Family Storytime at Mitchell Park Library. Come sing, rhyme, and read stories with us! F ollow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "sourceSnapshot": {
-        "titleText": "Family Storytime",
-        "dateText": "2026-11-21",
-        "timeText": "10:30–11:00",
-        "locationText": "Mitchell Park Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5"
-      },
-      "providerEventId": "698e125a2a787a47a5e73beb",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:698e125a2a787a47a5e73beb",
-      "id": "id:698e125a2a787a47a5e73beb",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Concert: Palo Alto School of Chamber Music",
-      "date": "2026-11-21",
-      "startTime": "15:00",
-      "endTime": "16:00",
-      "city": "Palo Alto",
-      "venue": "Rinconada Library",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5, 5+",
-      "bestFor": "",
-      "description": "Please join us to hear student musicians from the Palo Alto School of Chamber Music. Read more about Palo Alto School of Chamber Music on their website .",
-      "tips": "A waitlist may be available. Space is limited (100 seats) — check the official page for registration. Registration is not required but you will receive a reminder email the day before.",
-      "types": [
-        "Music & Movement"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/04ac8e7e4a5dc30d19b7f8b48d519622/PAchamber.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6a6cf81ad23de82955c9bccc",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a6cf81ad23de82955c9bccc",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Please join us to hear student musicians from the Palo Alto School of Chamber Music. Read more about Palo Alto School of Chamber Music on their website .",
-      "sourceSnapshot": {
-        "titleText": "Concert: Palo Alto School of Chamber Music",
-        "dateText": "2026-11-21",
-        "timeText": "15:00–16:00",
-        "locationText": "Rinconada Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5, 5+"
-      },
-      "providerEventId": "6a6cf81ad23de82955c9bccc",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:6a6cf81ad23de82955c9bccc",
-      "id": "id:6a6cf81ad23de82955c9bccc",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Parent Survival Night · Friendsgiving",
-      "date": "2026-11-21",
-      "startTime": "17:30",
-      "endTime": "20:30",
-      "city": "Mountain View",
-      "venue": "The Little Gym of Mountain View",
-      "cost": "Paid",
-      "ageRange": "3–9",
-      "bestFor": "",
-      "description": "Drop-off gym night with beanbag games, pretend pies & an after-dinner disco.",
-      "tips": "Drop-off — grown-ups are not in the class. The gym lists ages 3–9. $50. Register on the official Little Gym page.",
-      "types": [
-        "Classes"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-11-21",
-      "sourceUrl": "https://www.thelittlegym.com/california-mountain-view/events-more/#2026-11-21",
-      "sourceName": "Core cities · Weekend search · watchlist",
-      "sourceExcerpt": "Drop-off gym night with beanbag games, pretend pies & an after-dinner disco.",
-      "sourceSnapshot": {
-        "titleText": "Parent Survival Night · Friendsgiving",
-        "dateText": "2026-11-21",
-        "timeText": "17:30–20:30",
-        "locationText": "The Little Gym of Mountain View, Mountain View",
-        "costText": "Paid",
-        "ageText": "3–9"
-      },
-      "providerEventId": "core-weekend-tlg-friendsgiving-psn-2026-11-21",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-15",
-      "identityKey": "id:core-weekend-tlg-friendsgiving-psn-2026-11-21",
-      "id": "id:core-weekend-tlg-friendsgiving-psn-2026-11-21",
-      "decision": "ignored",
-      "updatedAt": "2026-10-15T22:39:45.406Z",
-      "occurrenceChoice": ""
-    },
-    {
-      "title": "Festival of Lights: A Diwali Celebration",
-      "date": "2026-11-22",
-      "startTime": "14:00",
-      "endTime": "16:00",
-      "city": "Palo Alto",
-      "venue": "",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5, 5+",
-      "bestFor": "",
-      "description": "Join us at the Mitchell Park Community Center, as we celebrate Diwali! Enjoy fun activities for all ages including: Ongoing from 2-4 PM: Henna with teaching artist Rachel-Anne Palacios (Adobe Room; henna line closes at 3:30 PM !) Rangoli (chalk coloring craft outside in the Courtyard) Crafts (in Adobe Room) All activities available while supplies last! Performance from 2:30-3:30 PM in El Palo Alto Room by Noorani Dance . Rachel-Anne Palacios is an Afro-Chicana Oakland native, multi-cultural arts educator, and self-taught folk artist. She has been teaching art workshops and classes at Bay Area schools and libraries for over a decade and a half and her lessons and projects are inspired by indigenous cultures and traditional art from around the world. Noorani Dance , founded in 2016 by by int",
-      "tips": "",
-      "types": [
-        "Festivals & Community"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/f1677ed9ecb5dffa6d07b27ece7994e9/diwali.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6a8f395260ccaf01c0213e7c",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a8f395260ccaf01c0213e7c",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join us at the Mitchell Park Community Center, as we celebrate Diwali! Enjoy fun activities for all ages including: Ongoing from 2-4 PM: Henna with teaching artist Rachel-Anne Palacios (Adobe Room; henna line closes at 3:30 PM !) Rangoli (chalk coloring craft outside in the Courtyard) Crafts (in Adobe Room) All activities available while supplies last! Performance from 2:30-3:30 PM in El Palo Alto Room by Noorani Dance . Rachel-Anne Palacios is an Afro-Chicana Oakland native, multi-cultural arts educator, and self-taught folk artist. She has been teaching art workshops and classes at Bay Area ",
-      "sourceSnapshot": {
-        "titleText": "Festival of Lights: A Diwali Celebration",
-        "dateText": "2026-11-22",
-        "timeText": "14:00–16:00",
-        "locationText": "Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5, 5+"
-      },
-      "providerEventId": "6a8f395260ccaf01c0213e7c",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:6a8f395260ccaf01c0213e7c",
-      "id": "id:6a8f395260ccaf01c0213e7c",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Smart Start Babytime",
-      "date": "2026-11-23",
-      "startTime": "18:00",
-      "endTime": "19:00",
-      "city": "Mountain View",
-      "venue": "Mountain View Library",
-      "cost": "Free",
-      "ageRange": "0–2",
-      "bestFor": "",
-      "description": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School. Caregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
-      "tips": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School. Caregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_06_17_11_57_28.jpg",
-      "eventUrl": "https://mountainview.libcal.com/event/16916950",
-      "sourceUrl": "https://mountainview.libcal.com/event/16916950",
-      "sourceName": "Mountain View Library · LibCal",
-      "sourceExcerpt": "Smart Start Babytime is a special program for babies (0–2) and their caregivers that blends stories, songs, and early play with different information each week with a pediatric resident from Stanford Medical School. Caregivers will gain practical tips, build confidence, and have the opportunity to ask questions—all in a warm, supportive environment designed for your baby’s earliest learning.",
-      "sourceSnapshot": {
-        "titleText": "Smart Start Babytime",
-        "dateText": "2026-11-23",
-        "timeText": "18:00–19:00",
-        "locationText": "Mountain View Library, Mountain View",
-        "costText": "Free",
-        "ageText": "0–2"
-      },
-      "providerEventId": "16916950",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:16916950",
-      "id": "id:16916950",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Family Storytime",
-      "date": "2026-11-24",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "Children's Library",
-      "cost": "Free",
-      "ageRange": "2–5",
-      "bestFor": "",
-      "description": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at the Children’s Library unless the listing says otherwise.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6057",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6057",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Join Librarian Jennifer (and Rocky Raccoon) on Tuesdays at 10:30 AM for Family Storytime at Children's Library! Come sing, rhyme, and read stories with us! While this storytime will be geared towards those older than 2 years, all ages are welcome! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
-      "sourceSnapshot": {
-        "titleText": "Family Storytime",
-        "dateText": "2026-11-24",
-        "timeText": "10:30–11:00",
-        "locationText": "Children's Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "2–5"
-      },
-      "providerEventId": "699f624cb0595799c09f6057",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:699f624cb0595799c09f6057",
-      "id": "id:699f624cb0595799c09f6057",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Outdoor Storytime",
-      "date": "2026-11-24",
-      "startTime": "10:30",
-      "endTime": "11:00",
-      "city": "Mountain View",
-      "venue": "Pioneer Park",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5",
-      "bestFor": "",
-      "description": "Tuesdays at 10:30 a.m.",
-      "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park. All ages welcome, no registration required. All events are weather permitting.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_21_15_59_33.png",
-      "eventUrl": "https://mountainview.libcal.com/event/17142493",
-      "sourceUrl": "https://mountainview.libcal.com/event/17142493",
-      "sourceName": "Mountain View Library · LibCal",
-      "sourceExcerpt": "Tuesdays at 10:30 a.m.",
-      "sourceSnapshot": {
-        "titleText": "Outdoor Storytime",
-        "dateText": "2026-11-24",
-        "timeText": "10:30–11:00",
-        "locationText": "Pioneer Park, Mountain View",
-        "costText": "Free",
-        "ageText": "0–2, 2–5"
-      },
-      "providerEventId": "17142493",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:17142493",
-      "id": "id:17142493",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "LEGO Tuesdays!",
-      "date": "2026-11-24",
-      "startTime": "16:00",
-      "endTime": "17:00",
-      "city": "Palo Alto",
-      "venue": "Downtown Library",
-      "cost": "Free",
-      "ageRange": "0–2, 2–5, 5+",
-      "bestFor": "",
-      "description": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-      "tips": "LEGOs stay at the library — snap a pic of creations!",
-      "types": [
-        "Build & Explore"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/5e949481f41f64e800f4bb37668c5d02/legos.png",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27182",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27182",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "We have the LEGOs! Bring your imagination and build something fun! In addition to being a great way to introduce the engineering and art concepts of STEAM, playing with LEGO’s supports early childhood development because children engage in problem solving, teamwork, self-confidence, and creativity!",
-      "sourceSnapshot": {
-        "titleText": "LEGO Tuesdays!",
-        "dateText": "2026-11-24",
-        "timeText": "16:00–17:00",
-        "locationText": "Downtown Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "0–2, 2–5, 5+"
-      },
-      "providerEventId": "68afa7b0022de53d00d27182",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-01",
-      "identityKey": "id:68afa7b0022de53d00d27182",
-      "id": "id:68afa7b0022de53d00d27182",
-      "decision": "ignored",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
     {
       "title": "Little Ones Storytime",
       "date": "2026-11-25",
@@ -610,7 +103,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bec",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bec",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -632,7 +125,7 @@
       "id": "id:698e125a2a787a47a5e73bec",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Family Storytime",
@@ -649,7 +142,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6058",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6058",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -666,12 +159,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:699f624cb0595799c09f6058",
       "id": "id:699f624cb0595799c09f6058",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -705,12 +198,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17142494",
       "id": "id:17142494",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -727,7 +220,7 @@
       "types": [
         "Build & Explore"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/5e949481f41f64e800f4bb37668c5d02/legos.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/840096b9cc5892c6303789779f2f2283/lego.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27183",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27183",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -744,12 +237,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:68afa7b0022de53d00d27183",
       "id": "id:68afa7b0022de53d00d27183",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Little Ones Storytime",
@@ -822,12 +315,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3dbc0bfddb082f00fe14a6",
       "id": "id:6a3dbc0bfddb082f00fe14a6",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Magical Bridge Storytime",
@@ -861,12 +354,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17290233",
       "id": "id:17290233",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -883,7 +376,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6a80100ac7322c3d6032bc4338a36e7a/bilingual-storytime.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/9b7a25ea67902bd2fd8d042fab8b9d0b/18.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638bc",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638bc",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -900,12 +393,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:69276b597eb3e430002638bc",
       "id": "id:69276b597eb3e430002638bc",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Family Storytime",
@@ -922,7 +415,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069ce",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069ce",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -939,12 +432,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6946005fea69de6e001069ce",
       "id": "id:6946005fea69de6e001069ce",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "LEGO Fridays!",
@@ -961,7 +454,7 @@
       "types": [
         "Build & Explore"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/5e949481f41f64e800f4bb37668c5d02/legos.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/840096b9cc5892c6303789779f2f2283/lego.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50495",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50495",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -978,12 +471,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a25aace2ea730c17ab50495",
       "id": "id:6a25aace2ea730c17ab50495",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Family Storytime",
@@ -1000,7 +493,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bed",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/698e125a2a787a47a5e73bed",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1017,12 +510,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:698e125a2a787a47a5e73bed",
       "id": "id:698e125a2a787a47a5e73bed",
       "decision": "ignored",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "LOCATION CHANGE: Mindfulness Meditation",
@@ -1039,7 +532,7 @@
       "types": [
         "Other"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/7b2e26d5dfa7860fb78eafff258e2a59/lotus.jpg",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/cb4f6abc097622e5ada7a558fd1291d3/lotus.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/68faeb383cbc052f00816108",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/68faeb383cbc052f00816108",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1056,12 +549,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:68faeb383cbc052f00816108",
       "id": "id:68faeb383cbc052f00816108",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Parent Survival Night · Winter Bounce Blast",
@@ -1117,7 +610,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6059",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/699f624cb0595799c09f6059",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1134,12 +627,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:699f624cb0595799c09f6059",
       "id": "id:699f624cb0595799c09f6059",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -1173,12 +666,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17142495",
       "id": "id:17142495",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -1195,7 +688,7 @@
       "types": [
         "Build & Explore"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/5e949481f41f64e800f4bb37668c5d02/legos.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/840096b9cc5892c6303789779f2f2283/lego.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27184",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27184",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1212,12 +705,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:68afa7b0022de53d00d27184",
       "id": "id:68afa7b0022de53d00d27184",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Little Ones Storytime",
@@ -1234,7 +727,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069bb",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6946001eea69de6e001069bb",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1251,12 +744,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6946001eea69de6e001069bb",
       "id": "id:6946001eea69de6e001069bb",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Bilingual Storytime: Mandarin/English",
@@ -1290,12 +783,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17329174",
       "id": "id:17329174",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Music & Movement",
@@ -1329,12 +822,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3dbc0bfddb082f00fe14a7",
       "id": "id:6a3dbc0bfddb082f00fe14a7",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Cuesta Park Storytime",
@@ -1368,12 +861,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17295777",
       "id": "id:17295777",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -1390,7 +883,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6a80100ac7322c3d6032bc4338a36e7a/bilingual-storytime.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/9b7a25ea67902bd2fd8d042fab8b9d0b/18.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638bd",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/69276b597eb3e430002638bd",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1407,12 +900,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:69276b597eb3e430002638bd",
       "id": "id:69276b597eb3e430002638bd",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Family Storytime",
@@ -1429,7 +922,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069cf",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6946005fea69de6e001069cf",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1446,12 +939,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6946005fea69de6e001069cf",
       "id": "id:6946005fea69de6e001069cf",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "LEGO Fridays!",
@@ -1468,7 +961,7 @@
       "types": [
         "Build & Explore"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/5e949481f41f64e800f4bb37668c5d02/legos.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/840096b9cc5892c6303789779f2f2283/lego.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50496",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50496",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1485,12 +978,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a25aace2ea730c17ab50496",
       "id": "id:6a25aace2ea730c17ab50496",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Winter Storytime Spectacular!",
@@ -1524,12 +1017,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:698e125a2a787a47a5e73bee",
       "id": "id:698e125a2a787a47a5e73bee",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Parent Survival Night · Holiday Pajama Party",
@@ -1641,12 +1134,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6970253094297d3600a66ca4",
       "id": "id:6970253094297d3600a66ca4",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -1680,12 +1173,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17142496",
       "id": "id:17142496",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Animal Friends: Meet a Chicken with Isabelle Cnudde",
@@ -1719,12 +1212,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6aac872065abe8002a7a2a4e",
       "id": "id:6aac872065abe8002a7a2a4e",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -1741,7 +1234,7 @@
       "types": [
         "Build & Explore"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/5e949481f41f64e800f4bb37668c5d02/legos.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/840096b9cc5892c6303789779f2f2283/lego.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27185",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27185",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1758,12 +1251,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:68afa7b0022de53d00d27185",
       "id": "id:68afa7b0022de53d00d27185",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "LEGO Fridays!",
@@ -1780,7 +1273,7 @@
       "types": [
         "Build & Explore"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/5e949481f41f64e800f4bb37668c5d02/legos.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/840096b9cc5892c6303789779f2f2283/lego.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50497",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a25aace2ea730c17ab50497",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1797,12 +1290,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a25aace2ea730c17ab50497",
       "id": "id:6a25aace2ea730c17ab50497",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Smart Start Babytime",
@@ -1836,12 +1329,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:16916951",
       "id": "id:16916951",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Family Craft: Pom Pom Photo Frames",
@@ -1875,12 +1368,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a7d12d9be1482002986fdd2",
       "id": "id:6a7d12d9be1482002986fdd2",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -1897,7 +1390,7 @@
       "types": [
         "Build & Explore"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/5e949481f41f64e800f4bb37668c5d02/legos.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/840096b9cc5892c6303789779f2f2283/lego.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27186",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27186",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -1914,12 +1407,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:68afa7b0022de53d00d27186",
       "id": "id:68afa7b0022de53d00d27186",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Early Closure: Christmas Eve",
@@ -2039,45 +1532,6 @@
       "updatedAt": "2026-11-04T21:01:35.003Z"
     },
     {
-      "title": "Playhouse Series: Little Red Riding Hood",
-      "date": "2026-11-21",
-      "startTime": "10:00",
-      "endTime": "11:00",
-      "city": "Palo Alto",
-      "venue": "Palo Alto Children's Theatre",
-      "cost": "$20",
-      "ageRange": "2–6",
-      "bestFor": "Best for ages 2–6",
-      "description": "Story-teller theatre with simple sets and costumes, and chances to get up and wiggle.",
-      "tips": "ticket|$20 info|About 55 minutes",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://www.paloalto.gov/files/assets/public/v/1/community-services/childrens-theatre/production-pictures/111playhouse-web-poster.png?w=1200",
-      "eventUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Playhouse-Series-Little-Red-Riding-Hood",
-      "sourceUrl": "https://www.paloalto.gov/Events-Directory/Community-Services/Playhouse-Series-Little-Red-Riding-Hood",
-      "sourceName": "Core cities · Weekend search · watchlist",
-      "sourceExcerpt": "Story-teller theatre with simple sets and costumes, and chances to get up and wiggle.",
-      "sourceSnapshot": {
-        "titleText": "Playhouse Series: Little Red Riding Hood",
-        "dateText": "2026-11-21",
-        "timeText": "10:00–11:00",
-        "locationText": "Palo Alto Children's Theatre, Palo Alto",
-        "costText": "$20",
-        "ageText": "2–6"
-      },
-      "providerEventId": "core-weekend-playhouse-little-red-riding-hood-2026-11-21",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-20",
-      "identityKey": "id:core-weekend-playhouse-little-red-riding-hood-2026-11-21",
-      "id": "id:core-weekend-playhouse-little-red-riding-hood-2026-11-21",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
       "title": "A Year with Frog and Toad",
       "date": "2026-12-03",
       "startTime": "18:00",
@@ -2114,7 +1568,7 @@
       "id": "id:core-weekend-frog-and-toad-2026-12-03",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Playhouse Series: The Gingerbread Man",
@@ -2153,163 +1607,7 @@
       "id": "id:core-weekend-playhouse-gingerbread-man-2026-12-19",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
-    },
-    {
-      "title": "Baby Storytime",
-      "date": "2026-11-18",
-      "startTime": "10:30",
-      "endTime": "11:15",
-      "city": "Mountain View",
-      "venue": "Mountain View Library",
-      "cost": "Free",
-      "ageRange": "0–2",
-      "bestFor": "",
-      "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
-      "eventUrl": "https://mountainview.libcal.com/event/17170875",
-      "sourceUrl": "https://mountainview.libcal.com/event/17170875",
-      "sourceName": "Mountain View Library · LibCal",
-      "sourceExcerpt": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "sourceSnapshot": {
-        "titleText": "Baby Storytime",
-        "dateText": "2026-11-18",
-        "timeText": "10:30–11:15",
-        "locationText": "Mountain View Library, Mountain View",
-        "costText": "Free",
-        "ageText": "0–2"
-      },
-      "providerEventId": "17170875",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
-      "identityKey": "id:17170875",
-      "id": "id:17170875",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Family Craft: Bean and Lentil Mosaics",
-      "date": "2026-11-19",
-      "startTime": "15:30",
-      "endTime": "16:30",
-      "city": "Palo Alto",
-      "venue": "Children's Library",
-      "cost": "Free",
-      "ageRange": "2–5, 5+",
-      "bestFor": "",
-      "description": "Choose from a variety of beans and lentils to create your own colorful mosaic! Children ages 4–11 are invited to make a unique design using paper, glue, beans, and lentils. All materials will be provided. Family Craft events are designed for children and their adult companions to enjoy together. Crafts will be available while supplies last, so please arrive on time.",
-      "tips": "A waitlist may be available. Space is limited (100 seats) — check the official page for registration.",
-      "types": [
-        "Arts & Crafts"
-      ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fef7e54cfaeee070ef11c5058945f6c6/Turkey-bean-art.jpg",
-      "eventUrl": "https://paloalto.bibliocommons.com/events/6a7253c93f18b57d52335bb6",
-      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a7253c93f18b57d52335bb6",
-      "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "Choose from a variety of beans and lentils to create your own colorful mosaic! Children ages 4–11 are invited to make a unique design using paper, glue, beans, and lentils. All materials will be provided. Family Craft events are designed for children and their adult companions to enjoy together. Crafts will be available while supplies last, so please arrive on time.",
-      "sourceSnapshot": {
-        "titleText": "Family Craft: Bean and Lentil Mosaics",
-        "dateText": "2026-11-19",
-        "timeText": "15:30–16:30",
-        "locationText": "Children's Library, Palo Alto",
-        "costText": "Free",
-        "ageText": "2–5, 5+"
-      },
-      "providerEventId": "6a7253c93f18b57d52335bb6",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
-      "identityKey": "id:6a7253c93f18b57d52335bb6",
-      "id": "id:6a7253c93f18b57d52335bb6",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Baby Storytime: Rerun",
-      "date": "2026-11-20",
-      "startTime": "10:30",
-      "endTime": "11:15",
-      "city": "Mountain View",
-      "venue": "Mountain View Library",
-      "cost": "Free",
-      "ageRange": "0–2",
-      "bestFor": "",
-      "description": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
-      "types": [
-        "Stories"
-      ],
-      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1763669051.png",
-      "eventUrl": "https://mountainview.libcal.com/event/17170902",
-      "sourceUrl": "https://mountainview.libcal.com/event/17170902",
-      "sourceName": "Mountain View Library · LibCal",
-      "sourceExcerpt": "Did you miss Wednesday's Baby Storytime? Come on Friday! We'll redo our musical storytime for infants, babies, and new toddlers with a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
-      "sourceSnapshot": {
-        "titleText": "Baby Storytime: Rerun",
-        "dateText": "2026-11-20",
-        "timeText": "10:30–11:15",
-        "locationText": "Mountain View Library, Mountain View",
-        "costText": "Free",
-        "ageText": "0–2"
-      },
-      "providerEventId": "17170902",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
-      "identityKey": "id:17170902",
-      "id": "id:17170902",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Winter Wonderlab",
-      "date": "2026-11-21",
-      "startTime": "",
-      "endTime": "",
-      "city": "Sausalito",
-      "venue": "Bay Area Discovery Museum",
-      "cost": "Paid",
-      "ageRange": "All ages · Little ones welcome",
-      "bestFor": "",
-      "description": "Iceless skating rink, giant gingerbread playhouses, Toy Makers Studio — hands-on winter exhibit.",
-      "tips": "",
-      "types": [
-        "Build & Explore"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://bayareadiscoverymuseum.org/exhibits/winter-wonderlab/",
-      "sourceUrl": "https://bayareadiscoverymuseum.org/exhibits/winter-wonderlab/",
-      "sourceName": "Regional · Lead · agent",
-      "sourceExcerpt": "Iceless skating rink, giant gingerbread playhouses, Toy Makers Studio — hands-on winter exhibit.",
-      "sourceSnapshot": {
-        "titleText": "Winter Wonderlab",
-        "dateText": "2026-11-21",
-        "timeText": "",
-        "locationText": "Bay Area Discovery Museum, Sausalito",
-        "costText": "Paid",
-        "ageText": "All ages · Little ones welcome"
-      },
-      "providerEventId": "regional-badm-winter-wonderlab-2026-11-21",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-29",
-      "identityKey": "id:regional-badm-winter-wonderlab-2026-11-21",
-      "id": "id:regional-badm-winter-wonderlab-2026-11-21",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Baby Storytime",
@@ -2343,12 +1641,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17170876",
       "id": "id:17170876",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Early Closure: Thanksgiving Eve",
@@ -2421,12 +1719,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17762592",
       "id": "id:17762592",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Glider Discovery",
@@ -2465,7 +1763,7 @@
       "id": "id:regional-hiller-glider-discovery-2026-11-29",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Baby Storytime",
@@ -2499,12 +1797,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17170877",
       "id": "id:17170877",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Baby Storytime: Rerun",
@@ -2538,12 +1836,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17170904",
       "id": "id:17170904",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "GIFTY Holiday Craft Fair & Open House",
@@ -2583,7 +1881,7 @@
       "id": "id:regional-crucible-gifty-2026-12-05",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Magical Santa Dance Party",
@@ -2623,7 +1921,7 @@
       "id": "id:core-weekend-magical-santa-dance-party-2026-12-05",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Holiday Craft Cafe",
@@ -2662,7 +1960,7 @@
       "id": "id:core-weekend-holiday-craft-cafe-palo-alto-2026-12-08",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Baby Storytime",
@@ -2696,12 +1994,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17170878",
       "id": "id:17170878",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Baby Storytime: Rerun",
@@ -2735,12 +2033,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17170905",
       "id": "id:17170905",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Fairy Winterland",
@@ -2780,7 +2078,7 @@
       "id": "id:regional-fairyland-fairy-winterland-2026-12-12",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Winter Dance Party",
@@ -2814,12 +2112,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17881592",
       "id": "id:17881592",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Baby Storytime",
@@ -2853,12 +2151,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17170879",
       "id": "id:17170879",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Seasonal Senses: A Festive Sensory Playtime for Toddlers & Preschoolers",
@@ -2892,12 +2190,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17861213",
       "id": "id:17861213",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "A Look into the Night Sky with Astro Everywhere",
@@ -2931,12 +2229,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6ae3c3ad9b955d531f7ba1df",
       "id": "id:6ae3c3ad9b955d531f7ba1df",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Baby Storytime: Rerun",
@@ -2970,12 +2268,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17170906",
       "id": "id:17170906",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Fratello Marionettes: The North Pole Review",
@@ -3009,12 +2307,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17788741",
       "id": "id:17788741",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Performance: Nathan's Fearless Five returns!",
@@ -3026,7 +2324,7 @@
       "cost": "Free",
       "ageRange": "0–2, 2–5, 5+",
       "bestFor": "",
-      "description": "The men in black are back! From New York, Oberlin, Stanford and points in between, patron favorite Nathan's Fearless Five returns for a special two-hour concer t in the Embarcadero Room. Here are links to a few videos from Nathan's YouTube channel to put you in the mood: The Vision by Rob Reich , May 2025 Comes Love , October 2022 House of the Rising Sun , December 2024",
+      "description": "The men in black are back! From New York, Oberlin, Stanford and points in between, patron favorite Nathan's Fearless Five returns for a special 90-minute concer t in the Embarcadero Room. Here are links to a few videos from Nathan's YouTube channel to put you in the mood: The Vision by Rob Reich , May 2025 Comes Love , October 2022 House of the Rising Sun , December 2024",
       "tips": "A waitlist may be available. Space is limited (100 seats) — check the official page for registration. No need to register, but registering means you will receive a reminder email the day before.",
       "types": [
         "Music & Movement"
@@ -3035,7 +2333,7 @@
       "eventUrl": "https://paloalto.bibliocommons.com/events/6ad7a697295d793e2d1803ec",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6ad7a697295d793e2d1803ec",
       "sourceName": "Palo Alto Library · BiblioCommons",
-      "sourceExcerpt": "The men in black are back! From New York, Oberlin, Stanford and points in between, patron favorite Nathan's Fearless Five returns for a special two-hour concer t in the Embarcadero Room. Here are links to a few videos from Nathan's YouTube channel to put you in the mood: The Vision by Rob Reich , May 2025 Comes Love , October 2022 House of the Rising Sun , December 2024",
+      "sourceExcerpt": "The men in black are back! From New York, Oberlin, Stanford and points in between, patron favorite Nathan's Fearless Five returns for a special 90-minute concer t in the Embarcadero Room. Here are links to a few videos from Nathan's YouTube channel to put you in the mood: The Vision by Rob Reich , May 2025 Comes Love , October 2022 House of the Rising Sun , December 2024",
       "sourceSnapshot": {
         "titleText": "Performance: Nathan's Fearless Five returns!",
         "dateText": "2026-12-19",
@@ -3048,12 +2346,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6ad7a697295d793e2d1803ec",
       "id": "id:6ad7a697295d793e2d1803ec",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Celebrating Yalda Night",
@@ -3087,12 +2385,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6abc44f5295b3b0033ca0dd7",
       "id": "id:6abc44f5295b3b0033ca0dd7",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Open Cockpit Day",
@@ -3131,7 +2429,7 @@
       "id": "id:regional-hiller-open-cockpit-day-2026-12-26",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Robot Roundup · Bee-Bots",
@@ -3170,7 +2468,7 @@
       "id": "id:regional-hiller-robot-roundup-beebots-2026-12-27",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "LEGO Tuesdays!",
@@ -3187,7 +2485,7 @@
       "types": [
         "Build & Explore"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/5e949481f41f64e800f4bb37668c5d02/legos.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/840096b9cc5892c6303789779f2f2283/lego.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27187",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/68afa7b0022de53d00d27187",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -3204,12 +2502,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:68afa7b0022de53d00d27187",
       "id": "id:68afa7b0022de53d00d27187",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Los Altos Library Closes at 5pm for New Year's Eve",
@@ -3326,7 +2624,7 @@
       "id": "id:regional-badm-noon-years-eve-2026-12-31",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Countdown in Wonderland",
@@ -3365,7 +2663,7 @@
       "id": "id:regional-fairyland-countdown-wonderland-2026-12-31",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Noon Year's Eve Celebration!",
@@ -3399,12 +2697,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a750a3788e9bf28003613ac",
       "id": "id:6a750a3788e9bf28003613ac",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Time for Twos",
@@ -3438,12 +2736,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17632956",
       "id": "id:17632956",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Board Game Sunday!",
@@ -3477,12 +2775,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6970253094297d3600a66ca5",
       "id": "id:6970253094297d3600a66ca5",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -3499,7 +2797,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6a80100ac7322c3d6032bc4338a36e7a/bilingual-storytime.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/9b7a25ea67902bd2fd8d042fab8b9d0b/18.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b891",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b891",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -3516,12 +2814,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3313a0361280dd2264b891",
       "id": "id:6a3313a0361280dd2264b891",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Time for Twos",
@@ -3555,12 +2853,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17632957",
       "id": "id:17632957",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Family Storytime",
@@ -3577,7 +2875,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd7f",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd7f",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -3594,12 +2892,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3313053e640a440019dd7f",
       "id": "id:6a3313053e640a440019dd7f",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -3616,7 +2914,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6a80100ac7322c3d6032bc4338a36e7a/bilingual-storytime.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/9b7a25ea67902bd2fd8d042fab8b9d0b/18.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b892",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b892",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -3633,12 +2931,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3313a0361280dd2264b892",
       "id": "id:6a3313a0361280dd2264b892",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Time for Twos",
@@ -3672,12 +2970,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17632958",
       "id": "id:17632958",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Family Storytime",
@@ -3694,7 +2992,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd80",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd80",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -3711,129 +3009,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3313053e640a440019dd80",
       "id": "id:6a3313053e640a440019dd80",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
-    },
-    {
-      "title": "Friendsgiving in Palo Alto",
-      "date": "2026-11-21",
-      "startTime": "16:30",
-      "endTime": "19:30",
-      "city": "Palo Alto",
-      "venue": "Lucie Stern Community Center",
-      "cost": "$25",
-      "ageRange": "All ages · Little ones welcome",
-      "bestFor": "",
-      "description": "",
-      "tips": "",
-      "types": [
-        "Festivals & Community"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://www.magicalbridge.org/event-details/friendsgiving-in-palo-alto",
-      "sourceUrl": "https://www.magicalbridge.org/event-details/friendsgiving-in-palo-alto",
-      "sourceName": "Seasonal · Holiday magic · collection",
-      "sourceExcerpt": "Friendsgiving in Palo Alto",
-      "sourceSnapshot": {
-        "titleText": "Friendsgiving in Palo Alto",
-        "dateText": "2026-11-21",
-        "timeText": "16:30–19:30",
-        "locationText": "Lucie Stern Community Center, Palo Alto",
-        "costText": "$25",
-        "ageText": "All ages · Little ones welcome"
-      },
-      "providerEventId": "seasonal-friendsgiving-palo-alto-2026-11-21",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-26",
-      "identityKey": "id:seasonal-friendsgiving-palo-alto-2026-11-21",
-      "id": "id:seasonal-friendsgiving-palo-alto-2026-11-21",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Traveling Reptile Show",
-      "date": "2026-11-22",
-      "startTime": "11:00",
-      "endTime": "12:00",
-      "city": "Sunnyvale",
-      "venue": "Lakewood Branch Library",
-      "cost": "Free",
-      "ageRange": "0–5",
-      "bestFor": "",
-      "description": "Live reptiles to see at the library.",
-      "tips": "",
-      "types": [
-        "Build & Explore"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#traveling-reptile-show-2026-11-22",
-      "sourceUrl": "https://www.library.sunnyvale.ca.gov/events/kids-events#traveling-reptile-show-2026-11-22",
-      "sourceName": "Calendar Watchlist · Sunnyvale Public Library · Kids Events",
-      "sourceExcerpt": "Live reptiles to see at the library.",
-      "sourceSnapshot": {
-        "titleText": "Traveling Reptile Show",
-        "dateText": "2026-11-22",
-        "timeText": "11:00–12:00",
-        "locationText": "Lakewood Branch Library, Sunnyvale",
-        "costText": "Free",
-        "ageText": "0–5"
-      },
-      "providerEventId": "watchlist-sunnyvale-library-traveling-reptile-show-2026-11-22",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-09-02",
-      "identityKey": "id:watchlist-sunnyvale-library-traveling-reptile-show-2026-11-22",
-      "id": "id:watchlist-sunnyvale-library-traveling-reptile-show-2026-11-22",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
-    },
-    {
-      "title": "Cityline Winter Ice Rink",
-      "date": "2026-11-24",
-      "startTime": "",
-      "endTime": "",
-      "city": "Sunnyvale",
-      "venue": "Cityline Sunnyvale",
-      "cost": "See official site",
-      "ageRange": "All ages · Little ones welcome",
-      "bestFor": "",
-      "description": "Outdoor ice skating at Cityline, daily from November 24 through January 3.",
-      "tips": "ticket|Check Cityline for hours and tickets.",
-      "types": [
-        "Outdoor"
-      ],
-      "imageUrl": "",
-      "eventUrl": "https://citylinesunnyvale.com/ice-rink",
-      "sourceUrl": "https://citylinesunnyvale.com/ice-rink",
-      "sourceName": "Seasonal · Holiday magic · collection",
-      "sourceExcerpt": "Outdoor ice skating at Cityline, daily from November 24 through January 3.",
-      "sourceSnapshot": {
-        "titleText": "Cityline Winter Ice Rink",
-        "dateText": "2026-11-24",
-        "timeText": "",
-        "locationText": "Cityline Sunnyvale, Sunnyvale",
-        "costText": "See official site",
-        "ageText": "All ages · Little ones welcome"
-      },
-      "providerEventId": "seasonal-cityline-winter-ice-rink-2026-11-24",
-      "isCancelled": false,
-      "needsReview": false,
-      "reviewReasons": [],
-      "discoveredAt": "2026-10-26",
-      "identityKey": "id:seasonal-cityline-winter-ice-rink-2026-11-24",
-      "id": "id:seasonal-cityline-winter-ice-rink-2026-11-24",
-      "decision": "pending",
-      "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Western Ballet Nutcracker Preview",
@@ -3872,7 +3053,7 @@
       "id": "id:watchlist-sunnyvale-library-western-ballet-nutcracker-preview-2026-11-29",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Los Altos Festival of Lights Parade",
@@ -3911,7 +3092,7 @@
       "id": "id:seasonal-los-altos-festival-of-lights-parade-2026-11-29",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.866Z"
+      "updatedAt": "2026-11-25T23:28:05.155Z"
     },
     {
       "title": "Once Upon a Garden: Through the Looking Glass",
@@ -3950,7 +3131,7 @@
       "id": "id:seasonal-once-upon-a-garden-2026-12-04",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Holiday Tree Lighting at Lytton Plaza",
@@ -3989,7 +3170,7 @@
       "id": "id:seasonal-lytton-tree-lighting-2026-12-04",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Holiday Tree Celebration",
@@ -4028,7 +3209,7 @@
       "id": "id:seasonal-los-altos-holiday-tree-celebration-2026-12-04",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Breakfast with Santa",
@@ -4067,7 +3248,7 @@
       "id": "id:seasonal-breakfast-with-santa-2026-12-05",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Santa Arrives by Helicopter",
@@ -4106,7 +3287,7 @@
       "id": "id:seasonal-hiller-santa-helicopter-2026-12-05",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Selfies with Santa",
@@ -4145,7 +3326,7 @@
       "id": "id:manual-selfies-with-santa-2026-12-05",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Autism/Sensory Friendly Nutcracker (Pacific Ballet Academy)",
@@ -4184,7 +3365,7 @@
       "id": "id:manual-autism-sensory-friendly-nutcracker-pacific-balle-2026-12-06",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Barn Lighting",
@@ -4224,7 +3405,7 @@
       "id": "id:barn-lighting-westwind-community-barn-2026-12-06-14-00",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Community Tree Lighting Celebration",
@@ -4263,7 +3444,7 @@
       "id": "id:community-tree-lighting-celebration-civic-center-plaza-2026-12-07-17-30",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Holiday Market (Downtown Los Altos)",
@@ -4302,7 +3483,7 @@
       "id": "id:manual-holiday-market-downtown-los-altos-2026-12-10",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "The Night Before Christmas (Stories on Stage)",
@@ -4341,7 +3522,7 @@
       "id": "id:manual-the-night-before-christmas-stories-on-stage-2026-12-11",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.156Z"
     },
     {
       "title": "Celebrating Yalda Night",
@@ -4380,7 +3561,7 @@
       "id": "id:disc-celebrating-yalda-night-2026-12-19-6abc44f5295b3b0033ca0dd7",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Noon Year's Eve Celebration!",
@@ -4419,7 +3600,7 @@
       "id": "id:disc-noon-year-s-eve-celebration-2026-12-31-6a750a3788e9bf28003613ac",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -4436,7 +3617,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6a80100ac7322c3d6032bc4338a36e7a/bilingual-storytime.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/9b7a25ea67902bd2fd8d042fab8b9d0b/18.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b893",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b893",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -4453,12 +3634,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3313a0361280dd2264b893",
       "id": "id:6a3313a0361280dd2264b893",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Time for Twos",
@@ -4492,12 +3673,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17632959",
       "id": "id:17632959",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Family Storytime",
@@ -4514,7 +3695,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd81",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd81",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -4531,12 +3712,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3313053e640a440019dd81",
       "id": "id:6a3313053e640a440019dd81",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Rinconada Library's Holiday Movie Night: Polar Express",
@@ -4570,12 +3751,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6aebd2e3fb96d55bb888da9e",
       "id": "id:6aebd2e3fb96d55bb888da9e",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.867Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -4609,12 +3790,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17868920",
       "id": "id:17868920",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Magical Bridge Storytime",
@@ -4648,12 +3829,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17935366",
       "id": "id:17935366",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -4687,12 +3868,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17868921",
       "id": "id:17868921",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Cuesta Park Storytime",
@@ -4726,12 +3907,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17944178",
       "id": "id:17944178",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -4765,12 +3946,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17868922",
       "id": "id:17868922",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -4804,12 +3985,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17868923",
       "id": "id:17868923",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -4843,12 +4024,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17868924",
       "id": "id:17868924",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Magical Bridge Storytime",
@@ -4882,12 +4063,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17935367",
       "id": "id:17935367",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Bilingual Family Storytime",
@@ -4904,7 +4085,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6a80100ac7322c3d6032bc4338a36e7a/bilingual-storytime.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/9b7a25ea67902bd2fd8d042fab8b9d0b/18.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b894",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b894",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -4921,12 +4102,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3313a0361280dd2264b894",
       "id": "id:6a3313a0361280dd2264b894",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Time for Twos",
@@ -4960,12 +4141,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17632960",
       "id": "id:17632960",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Family Storytime: Celebrate Black History Month!",
@@ -4982,7 +4163,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd82",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd82",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -4999,12 +4180,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3313053e640a440019dd82",
       "id": "id:6a3313053e640a440019dd82",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Music & Storytelling with Kirk Waller",
@@ -5038,12 +4219,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6abd91d1901b02002cbf1cae",
       "id": "id:6abd91d1901b02002cbf1cae",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -5077,12 +4258,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17868925",
       "id": "id:17868925",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Baby Storytime",
@@ -5116,12 +4297,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:18032190",
       "id": "id:18032190",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:23.868Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Baby Storytime",
@@ -5155,12 +4336,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:18032191",
       "id": "id:18032191",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Music & Movement",
@@ -5194,12 +4375,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6af74dca4896360041d13b1e",
       "id": "id:6af74dca4896360041d13b1e",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Baby Storytime",
@@ -5233,12 +4414,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:18032192",
       "id": "id:18032192",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Music & Movement",
@@ -5272,12 +4453,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6af74dca4896360041d13b1f",
       "id": "id:6af74dca4896360041d13b1f",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Baby Storytime",
@@ -5311,12 +4492,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:18032193",
       "id": "id:18032193",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Music & Movement",
@@ -5350,12 +4531,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6af74dca4896360041d13b20",
       "id": "id:6af74dca4896360041d13b20",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.157Z"
     },
     {
       "title": "Baby Storytime",
@@ -5389,12 +4570,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:18032194",
       "id": "id:18032194",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Music & Movement",
@@ -5428,12 +4609,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6af74dca4896360041d13b21",
       "id": "id:6af74dca4896360041d13b21",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Baby Storytime",
@@ -5467,12 +4648,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:18032195",
       "id": "id:18032195",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Music & Movement",
@@ -5506,12 +4687,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6af74dca4896360041d13b22",
       "id": "id:6af74dca4896360041d13b22",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Cuesta Park Storytime",
@@ -5545,12 +4726,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17944193",
       "id": "id:17944193",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Bilingual Family Storytime: Celebrate Valentine's Day!",
@@ -5567,7 +4748,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/6a80100ac7322c3d6032bc4338a36e7a/bilingual-storytime.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/9b7a25ea67902bd2fd8d042fab8b9d0b/18.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b895",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b895",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -5584,12 +4765,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3313a0361280dd2264b895",
       "id": "id:6a3313a0361280dd2264b895",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Time for Twos",
@@ -5623,12 +4804,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17632961",
       "id": "id:17632961",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Family Storytime: Celebrate Valentine's Day!",
@@ -5645,7 +4826,7 @@
       "types": [
         "Stories"
       ],
-      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/0e0946b2f3ffb3b2f6379bd53854af56/storytime-bears.png",
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
       "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd83",
       "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd83",
       "sourceName": "Palo Alto Library · BiblioCommons",
@@ -5662,12 +4843,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6a3313053e640a440019dd83",
       "id": "id:6a3313053e640a440019dd83",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Board Game Sunday!",
@@ -5701,12 +4882,12 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:6970253094297d3600a66ca6",
       "id": "id:6970253094297d3600a66ca6",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     },
     {
       "title": "Outdoor Storytime",
@@ -5740,12 +4921,324 @@
       "isCancelled": false,
       "needsReview": false,
       "reviewReasons": [],
-      "discoveredAt": "2026-11-18T22:27:23.310Z",
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
       "identityKey": "id:17868926",
       "id": "id:17868926",
       "decision": "pending",
       "occurrenceChoice": "",
-      "updatedAt": "2026-11-18T22:27:24.385Z"
+      "updatedAt": "2026-11-25T23:28:05.857Z"
+    },
+    {
+      "title": "LEGO® Time",
+      "date": "2026-12-16",
+      "startTime": "18:30",
+      "endTime": "19:30",
+      "city": "Mountain View",
+      "venue": "Mountain View Library",
+      "cost": "Free",
+      "ageRange": "2–5",
+      "bestFor": "",
+      "description": "It's an open invitation to a LEGO&reg; building extravaganza! Everyone is encouraged to participate in the construction excitement. LEGOs&reg; will be supplied Join the building fun on three dates : Wednesday, December 2 Wednesday, January 27 Wednesday, February 24 This event is generously sponsored by the Friends of the Mountain View Library.",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
+      "types": [
+        "Build & Explore"
+      ],
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_10_27_15_39_32.png",
+      "eventUrl": "https://mountainview.libcal.com/event/17907017",
+      "sourceUrl": "https://mountainview.libcal.com/event/17907017",
+      "sourceName": "Mountain View Library · LibCal",
+      "sourceExcerpt": "It's an open invitation to a LEGO&reg; building extravaganza! Everyone is encouraged to participate in the construction excitement. LEGOs&reg; will be supplied Join the building fun on three dates : Wednesday, December 2 Wednesday, January 27 Wednesday, February 24 This event is generously sponsored by the Friends of the Mountain View Library.",
+      "sourceSnapshot": {
+        "titleText": "LEGO® Time",
+        "dateText": "2026-12-16",
+        "timeText": "18:30–19:30",
+        "locationText": "Mountain View Library, Mountain View",
+        "costText": "Free",
+        "ageText": "2–5"
+      },
+      "providerEventId": "17907017",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
+      "identityKey": "id:17907017",
+      "id": "id:17907017",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-25T23:28:05.157Z"
+    },
+    {
+      "title": "Family Craft: Snow Dough People",
+      "date": "2027-01-21",
+      "startTime": "15:30",
+      "endTime": "16:30",
+      "city": "Palo Alto",
+      "venue": "Children's Library",
+      "cost": "Free",
+      "ageRange": "2–5, 5+",
+      "bestFor": "",
+      "description": "Sculpt your dough into your very own snow person, then dress them up with a variety of accessories! Children ages 4–11 are invited to make a unique snow person using dough, felt, pipe cleaners, ribbons, and more. All materials will be provided. Family Craft events are designed for children and their adult companions to enjoy together. Crafts will be available while supplies last, so please arrive on time.",
+      "tips": "A waitlist may be available. Space is limited (100 seats) — check the official page for registration.",
+      "types": [
+        "Arts & Crafts"
+      ],
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/783a29d8c3de767d57ebf96ba7e01fd7/Event Types - Arts & Crafts.jpg",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6b0218d8d164f314d93d590f",
+      "sourceUrl": "https://paloalto.bibliocommons.com/events/6b0218d8d164f314d93d590f",
+      "sourceName": "Palo Alto Library · BiblioCommons",
+      "sourceExcerpt": "Sculpt your dough into your very own snow person, then dress them up with a variety of accessories! Children ages 4–11 are invited to make a unique snow person using dough, felt, pipe cleaners, ribbons, and more. All materials will be provided. Family Craft events are designed for children and their adult companions to enjoy together. Crafts will be available while supplies last, so please arrive on time.",
+      "sourceSnapshot": {
+        "titleText": "Family Craft: Snow Dough People",
+        "dateText": "2027-01-21",
+        "timeText": "15:30–16:30",
+        "locationText": "Children's Library, Palo Alto",
+        "costText": "Free",
+        "ageText": "2–5, 5+"
+      },
+      "providerEventId": "6b0218d8d164f314d93d590f",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
+      "identityKey": "id:6b0218d8d164f314d93d590f",
+      "id": "id:6b0218d8d164f314d93d590f",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-25T23:28:05.157Z"
+    },
+    {
+      "title": "Baby Storytime",
+      "date": "2027-02-17",
+      "startTime": "10:30",
+      "endTime": "11:15",
+      "city": "Mountain View",
+      "venue": "Mountain View Library",
+      "cost": "Free",
+      "ageRange": "0–2",
+      "bestFor": "",
+      "description": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/data/feat_img/3989/8800/1738805385.png",
+      "eventUrl": "https://mountainview.libcal.com/event/18032196",
+      "sourceUrl": "https://mountainview.libcal.com/event/18032196",
+      "sourceName": "Mountain View Library · LibCal",
+      "sourceExcerpt": "A musical storytime for infants, babies, and new toddlers with books, baby bounces, and dancing! After storytime, we will host a brief Stay & Play for grownups to connect and mingle. This program is designed for ages 0-18 months. Assisted Listening Devices available upon request.",
+      "sourceSnapshot": {
+        "titleText": "Baby Storytime",
+        "dateText": "2027-02-17",
+        "timeText": "10:30–11:15",
+        "locationText": "Mountain View Library, Mountain View",
+        "costText": "Free",
+        "ageText": "0–2"
+      },
+      "providerEventId": "18032196",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
+      "identityKey": "id:18032196",
+      "id": "id:18032196",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-25T23:28:05.857Z"
+    },
+    {
+      "title": "Music & Movement",
+      "date": "2027-02-17",
+      "startTime": "18:30",
+      "endTime": "19:15",
+      "city": "Palo Alto",
+      "venue": "Mitchell Park Library",
+      "cost": "Free",
+      "ageRange": "0–2, 2–5, 5+",
+      "bestFor": "",
+      "description": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance. Instruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music. This program is meant for families with children and no previous experience is needed!",
+      "tips": "info|Songs and movement indoors — grown-ups stay with little ones. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/96447a50e9a5659c33eba8e34ca1123f/BibliocommonsbannerCropsbc(2).png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6af74dca4896360041d13b23",
+      "sourceUrl": "https://paloalto.bibliocommons.com/events/6af74dca4896360041d13b23",
+      "sourceName": "Palo Alto Library · BiblioCommons",
+      "sourceExcerpt": "Bring your dancing feet to the Mitchell Park Library on Wednesday evenings for Music & Movement with Librarian Celina. Build early literacy skills through movement, songs, and dance. Instruments, songs, and dance moves will all be introduced so that everyone will be able to enjoy moving along to the music. This program is meant for families with children and no previous experience is needed!",
+      "sourceSnapshot": {
+        "titleText": "Music & Movement",
+        "dateText": "2027-02-17",
+        "timeText": "18:30–19:15",
+        "locationText": "Mitchell Park Library, Palo Alto",
+        "costText": "Free",
+        "ageText": "0–2, 2–5, 5+"
+      },
+      "providerEventId": "6af74dca4896360041d13b23",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
+      "identityKey": "id:6af74dca4896360041d13b23",
+      "id": "id:6af74dca4896360041d13b23",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-25T23:28:05.857Z"
+    },
+    {
+      "title": "Bilingual Family Storytime",
+      "date": "2027-02-18",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "city": "Palo Alto",
+      "venue": "College Terrace Library",
+      "cost": "Free",
+      "ageRange": "0–2, 2–5",
+      "bestFor": "",
+      "description": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube para ver más cuentos, canciones y rimas, incluyendo una lista de reproducción con nuestros favoritos!",
+      "tips": "Storytime may be held indoors or outdoors depending on the weather.",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/9b7a25ea67902bd2fd8d042fab8b9d0b/18.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b896",
+      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313a0361280dd2264b896",
+      "sourceName": "Palo Alto Library · BiblioCommons",
+      "sourceExcerpt": "Join Señorita Juliana for Bilingual Family Storytime at the College Terrace Library! Enjoy stories, songs, rhymes, and movement activities in Spanish and English . Thursdays from 10:30-11 AM. Follow us on YouTube for more stories, songs, and rhymes, including a playlist of our favorites! ¡Participa con la Señorita Juliana en la Hora Cuentos Bilingüe en la Biblioteca College Terrace! Disfruta de cuentos, canciones, rimas y actividades con movimiento en Español e Inglés . Jueves de 10:30-11 AM. La Hora de Cuentos se realizará adentro o al aire libre, dependiendo del clima. ¡Síguenos en YouTube p",
+      "sourceSnapshot": {
+        "titleText": "Bilingual Family Storytime",
+        "dateText": "2027-02-18",
+        "timeText": "10:30–11:00",
+        "locationText": "College Terrace Library, Palo Alto",
+        "costText": "Free",
+        "ageText": "0–2, 2–5"
+      },
+      "providerEventId": "6a3313a0361280dd2264b896",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
+      "identityKey": "id:6a3313a0361280dd2264b896",
+      "id": "id:6a3313a0361280dd2264b896",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-25T23:28:05.857Z"
+    },
+    {
+      "title": "Time for Twos",
+      "date": "2027-02-19",
+      "startTime": "10:30",
+      "endTime": "11:15",
+      "city": "Mountain View",
+      "venue": "Mountain View Library",
+      "cost": "Free",
+      "ageRange": "0–2, 2–5",
+      "bestFor": "",
+      "description": "A storytime designed for 2-year-olds with books, action songs, and puppets!",
+      "tips": "restroom|Restrooms are inside the library. info|Free parking at the Mountain View Library lots.",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_10_21_11_40_04.png",
+      "eventUrl": "https://mountainview.libcal.com/event/17632962",
+      "sourceUrl": "https://mountainview.libcal.com/event/17632962",
+      "sourceName": "Mountain View Library · LibCal",
+      "sourceExcerpt": "A storytime designed for 2-year-olds with books, action songs, and puppets!",
+      "sourceSnapshot": {
+        "titleText": "Time for Twos",
+        "dateText": "2027-02-19",
+        "timeText": "10:30–11:15",
+        "locationText": "Mountain View Library, Mountain View",
+        "costText": "Free",
+        "ageText": "0–2, 2–5"
+      },
+      "providerEventId": "17632962",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
+      "identityKey": "id:17632962",
+      "id": "id:17632962",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-25T23:28:05.857Z"
+    },
+    {
+      "title": "Family Storytime",
+      "date": "2027-02-20",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "city": "Palo Alto",
+      "venue": "Mitchell Park Library",
+      "cost": "Free",
+      "ageRange": "0–2, 2–5",
+      "bestFor": "",
+      "description": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "tips": "baby|Grown-ups stay with little ones for the whole program. info|Programs are indoors at Mitchell Park Library unless the listing says otherwise.",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "https://paloalto.bibliocommons.com/events/uploads/images/full/fdfb8e795a6c63d5c07f9549e3131b62/storytime-event.png",
+      "eventUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd84",
+      "sourceUrl": "https://paloalto.bibliocommons.com/events/6a3313053e640a440019dd84",
+      "sourceName": "Palo Alto Library · BiblioCommons",
+      "sourceExcerpt": "Join Librarian Juliana on Saturdays from 10:30-11 AM at Mitchell Park Library for Family Storytime! Come sing, rhyme, and read stories with us! Make sure to follow us on YouTube for more stories, songs and rhymes, including a playlist of all of our favorite songs to sing!",
+      "sourceSnapshot": {
+        "titleText": "Family Storytime",
+        "dateText": "2027-02-20",
+        "timeText": "10:30–11:00",
+        "locationText": "Mitchell Park Library, Palo Alto",
+        "costText": "Free",
+        "ageText": "0–2, 2–5"
+      },
+      "providerEventId": "6a3313053e640a440019dd84",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
+      "identityKey": "id:6a3313053e640a440019dd84",
+      "id": "id:6a3313053e640a440019dd84",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-25T23:28:05.857Z"
+    },
+    {
+      "title": "Outdoor Storytime",
+      "date": "2027-02-23",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "city": "Mountain View",
+      "venue": "Pioneer Park",
+      "cost": "Free",
+      "ageRange": "0–2, 2–5",
+      "bestFor": "",
+      "description": "Tuesdays at 10:30 a.m.",
+      "tips": "Bring a blanket and enjoy stories, songs, and rhymes with children's librarians in Pioneer Park. All ages welcome, no registration required. All events are weather permitting.",
+      "types": [
+        "Stories"
+      ],
+      "imageUrl": "https://d68g328n4ug0e.cloudfront.net/misc/3989/events/8800/2026_07_21_15_59_33.png",
+      "eventUrl": "https://mountainview.libcal.com/event/17868927",
+      "sourceUrl": "https://mountainview.libcal.com/event/17868927",
+      "sourceName": "Mountain View Library · LibCal",
+      "sourceExcerpt": "Tuesdays at 10:30 a.m.",
+      "sourceSnapshot": {
+        "titleText": "Outdoor Storytime",
+        "dateText": "2027-02-23",
+        "timeText": "10:30–11:00",
+        "locationText": "Pioneer Park, Mountain View",
+        "costText": "Free",
+        "ageText": "0–2, 2–5"
+      },
+      "providerEventId": "17868927",
+      "isCancelled": false,
+      "needsReview": false,
+      "reviewReasons": [],
+      "discoveredAt": "2026-11-25T23:28:04.443Z",
+      "identityKey": "id:17868927",
+      "id": "id:17868927",
+      "decision": "pending",
+      "occurrenceChoice": "",
+      "updatedAt": "2026-11-25T23:28:05.857Z"
     }
   ],
   "pendingUrls": []
